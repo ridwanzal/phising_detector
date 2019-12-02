@@ -1,0 +1,1 @@
+$(function(){if($("#linkErrorBanUseGA").val()==="true"){ga("send","event","linkerror_banned_links","banned_link_requested")}});

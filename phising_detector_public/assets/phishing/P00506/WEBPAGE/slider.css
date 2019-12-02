@@ -1,0 +1,179 @@
+/* Product Sliders ====================================================================== */
+/* General */
+.carousel { position: relative; top: 0; left: 0; overflow: hidden; width: 100%; height: 280px; margin: auto 0 15px; }
+.carousel .slider { width: 100%; }
+
+/* Control */
+.next.disabled,
+.prev.disabled {
+	opacity:1; cursor:default!important;
+}
+
+.new-arrow.prev,
+.new-arrow.next,
+.sale-arrow.prev,
+.sale-arrow.next,
+.brands-arrow.prev,
+.brands-arrow.next,
+.stodd-arrow.prev,
+.stodd-arrow.next {
+	display: none; position: absolute; z-index: 25; width: 22px; height: 70px; cursor: pointer; top: 80px; overflow: hidden; color: #a5a5a5;
+}
+.new-arrow.next,
+.sale-arrow.next,
+.brands-arrow.next,
+.stodd-arrow.next {
+	right: 0;
+}
+.new-arrow.next:after,
+.sale-arrow.next:after,
+.brands-arrow.next:after,
+.stodd-arrow.next:after {
+	font-family: 'ShopSharkSymbols'; font-size: 40px; content: "W"; position: absolute; margin: 17px 0 0 -12px;
+}
+.new-arrow.prev,
+.sale-arrow.prev,
+.brands-arrow.prev,
+.stodd-arrow.prev {
+	left: 0;
+}
+.new-arrow.prev:after,
+.sale-arrow.prev:after,
+.brands-arrow.prev:after,
+.stodd-arrow.prev:after {
+	font-family: 'ShopSharkSymbols'; font-size: 40px; content: "V"; position: absolute; margin: 17px 0 0 -12px;
+}
+.new-arrow.prev:hover, 
+.new-arrow.prev:focus,
+.new-arrow.next:hover,
+.new-arrow.next:focus,
+.sale-arrow.prev:hover, 
+.sale-arrow.prev:focus,
+.sale-arrow.next:hover,
+.sale-arrow.next:focus,
+.brands-arrow.prev:hover, 
+.brands-arrow.prev:focus,
+.brands-arrow.next:hover,
+.brands-arrow.next:focus,
+.stodd-arrow.prev:hover, 
+.stodd-arrow.prev:focus,
+.stodd-arrow.next:hover,
+.stodd-arrow.next:focus {
+    color: #b3a487;
+}
+.new-arrow.prev:active,
+.new-arrow.next:active,
+.sale-arrow.prev:active,
+.sale-arrow.next:active,
+.brands-arrow.prev:active,
+.brands-arrow.next:active,
+.stodd-arrow.prev:active,
+.stodd-arrow.next:active {
+    color: #b3a487;
+}
+
+/* Product Page More Views */
+.more-views {
+	position: relative; top: 0; left: 0; overflow: hidden; width: 100%; height:70px; margin:auto 0 15px;
+}
+.more-views .slider {
+	
+}
+.more-views .slide {
+	width: 70px;
+}
+.more-views-arrow.prev,
+.more-views-arrow.next {	
+	display: block; position: absolute; z-index: 25; width: 22px; height: 70px; bottom: 0; cursor: pointer; color: #a5a5a5;
+}
+.more-views-arrow.next:after { font-family: 'ShopSharkSymbols'; font-size: 40px; content: "W"; position: absolute; margin: 17px 0 0 -12px; }
+.more-views-arrow.prev:after { font-family: 'ShopSharkSymbols'; font-size: 40px; content: "V"; position: absolute; margin: 17px 0 0 -12px; }
+.more-views-arrow.prev:hover, 
+.more-views-arrow.prev:focus,
+.more-views-arrow.next:hover,
+.more-views-arrow.next:focus {
+    color: #b3a487;
+}
+.more-views-arrow.prev:active,
+.more-views-arrow.next:active {
+    color: #b3a487;
+}
+
+/* left arrow */
+.more-views-arrow.prev {
+	left: 75px;	
+}
+
+/* right arrow */
+.more-views-arrow.next {
+	right: 75px;
+}
+
+
+/* Carousel Related */
+.related {
+	position: relative; top: 0; left: 0; overflow: hidden; width: 100%; margin:auto 0 3px; height: 300px; 
+}
+.related .slider { width: 100%; }
+.block-related .prev,
+.block-related .next {	
+    display: none; position: absolute; z-index: 25; width: 22px; height: 70px; cursor: pointer; top: 120px; color: #a5a5a5;
+}
+.block-related .next { right: 0; }
+.block-related .prev { left: 0; }
+.block-related .next:after { font-family: 'ShopSharkSymbols'; font-size: 40px; content: "W"; position: absolute; margin: 17px 0 0 -22px; }
+.block-related .prev:after { font-family: 'ShopSharkSymbols'; font-size: 40px; content: "V"; position: absolute; margin: 17px 0 0 -22px; }
+.block-related .next:hover,
+.block-related .next:focus,
+.block-related .prev:hover, 
+.block-related .prev:focus {
+    color: #b3a487;
+}
+.block-related .next:active,
+.block-related .prev:active {
+    color: #b3a487;
+}
+
+/* Main Slider */
+.tp-rightarrow:after { font-family: 'ShopSharkSymbols'; content: "B"; position: absolute; margin: -20px 0 0 -37px; }
+.tp-leftarrow:after { font-family: 'ShopSharkSymbols'; content: "C"; position: absolute; margin: -20px 0 0 -37px; }
+.tparrows { z-index: 150; width: 45px; height: 80px; cursor: pointer; font-size: 120px; position: relative; top: 50% !important; margin-top: -40px !important; position: relative; zoom: 1; filter: alpha(opacity=30); opacity: 0.3; color: #000; }
+.tparrows.hidearrows { display: none; }
+
+/* Responsive Fetures */
+/* Standard 1020 or larger (browsers) */
+@media only screen and (min-width: 1200px) {
+
+.stodd-arrow.next, .stodd-arrow.prev { display: block; }
+
+.new-arrow.prev,	
+.sale-arrow.prev,
+.stodd-arrow.prev,
+.brands-arrow.prev,
+.block-related .prev {
+	left: -30px; width: 40px; display: block; font-weight: bold;
+}
+.new-arrow.next,
+.sale-arrow.next,
+.stodd-arrow.next,
+.brands-arrow.next,
+.block-related .next {
+	right: -30px; width: 40px; display: block; font-weight: bold;
+}
+
+.new-arrow.next:after,
+.sale-arrow.next:after,
+.stodd-arrow.next:after,
+.brands-arrow.next:after,
+.block-related .next:after {
+	font-size: 40px; margin: 10px 0 0 0px; content: "B"; color: #000;
+}
+.new-arrow.prev:after,
+.sale-arrow.prev:after,
+.stodd-arrow.prev:after,
+.brands-arrow.prev:after,
+.block-related .prev:after {
+	  font-size: 40px; margin: 10px 0px 0 -10px; content: "C"; color: #000;
+}
+	
+}

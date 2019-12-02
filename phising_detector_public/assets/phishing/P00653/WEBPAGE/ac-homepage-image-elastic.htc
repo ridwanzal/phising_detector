@@ -1,0 +1,239 @@
+<component lightWeight="true">
+<attach event="onresize" for="window" onevent="setCalculatedStyles()" />
+<script type="text/javascript">
+
+// will store the path to our background image
+	var backgroundImage;
+
+// will store a reference to an injected image
+// element that will serve as our new background
+// image
+	var backgroundElement;
+
+// will store the stretch behaviour specified in
+// the css: cover or contain.
+	var stretchType;
+
+// will store the x-axis background position
+// property: left, right, or center.
+	var backgroundPositionX;
+
+// will store the y-axis background position
+// property: top, bottom, or center.
+	var backgroundPositionY;
+
+// will store image dimensional properties
+	var imageDims = {
+		width: null,
+		height: null, 
+		ratio: null
+	};
+
+// will store container dimensional properties
+	var containerDims = {
+		width: null,
+		height: null, 
+		ratio: null
+	}
+
+// get inverted ratio (for setting minor dimensions)
+	function getInvertedRatio(ratio) {
+		if (ratio == 1) {
+			return 1;
+		} else {
+			return 1 - ratio;
+		}
+	}
+
+// get/store relevant css properties
+	function getBackgroundProperties() {
+		stretchType = element.currentStyle['background-size'].toLowerCase();
+	// get backgroundPositionX and normalize as a percent
+		backgroundPositionX = element.currentStyle.backgroundPositionX.toLowerCase();
+		if (
+			backgroundPositionX === 'center' ||
+			backgroundPositionX === '' ||
+			!backgroundPositionX
+		) {
+			backgroundPositionX = '50%';
+		}
+	// get backgroundPositionY and normalize as a percent
+		backgroundPositionY = element.currentStyle.backgroundPositionY.toLowerCase();
+		if (
+			backgroundPositionY === 'center' ||
+			backgroundPositionY === 'middle' ||
+			backgroundPositionY === '' ||
+			!backgroundPositionY
+		) {
+			backgroundPositionX = '50%';
+		}
+	}
+
+// get/store the path to our background image.	
+	function getBackgroundImage() {
+		backgroundImage = element.currentStyle.backgroundImage;
+		backgroundImage = backgroundImage.split('"').join('').split("'").join('');
+		backgroundImage = backgroundImage.match(/url\(([^\)]*)/);
+		backgroundImage = (backgroundImage && backgroundImage.length > 1) ? backgroundImage[1] : null;
+	}
+
+// set up initial markup structure for our new
+// image element.
+	function setElementStructure() {
+		backgroundElement           = element.document.createElement('img');
+		backgroundElement.className = 'ie8-elastic-image';
+		backgroundElement.src       = backgroundImage;
+		backgroundElement           = element.appendChild(backgroundElement);
+	}
+
+// reveals the image, (called after initial styles are set)
+	function  revealImage() {
+		backgroundElement.className = 'ie8-elastic-image ie8-elastic-image-visible';
+	}
+
+// acquire image dimensions and aspect ratio, synchronously
+// execute a callback function upon successful completion.
+	function getImageDimensionsSync(callBack){
+		var eventAttached = false;
+		function checkDims() {
+			imageDims.width  = backgroundElement.offsetWidth;
+			imageDims.height = backgroundElement.offsetHeight;
+			if (
+				(imageDims.width && imageDims.width > 0) &&
+				(imageDims.height && imageDims.height > 0)
+			) {
+				if (eventAttached === true) {
+					backgroundElement.detachEvent('onload', checkDims);
+				}
+				imageDims.ratio  = (imageDims.height / imageDims.width);
+				callBack();
+			}
+		}
+		checkDims();
+		if (!imageDims.ratio) {
+			eventAttached = true;
+			backgroundElement.attachEvent('onload', checkDims);
+		}
+	}
+
+// sets all calculated styles for the background.
+// Alias: sets dimensions, and then sets position.
+	function setCalculatedStyles() {
+		setDimensions();
+		setPosition();
+	}
+
+// sets dimensional properties for the image, given
+// parent element dimensions, and position-type
+	function setDimensions() {
+		if (imageDims.ratio) {
+		// get container dimensions
+			containerDims.width  = element.offsetWidth;
+			containerDims.height = element.offsetHeight;
+			containerDims.ratio  = (containerDims.height / containerDims.width);
+			if (containerDims.ratio) {
+				switch(stretchType) {
+					case 'cover':   ratioCondition = (imageDims.ratio > containerDims.ratio); break;
+					case 'contain': ratioCondition = (imageDims.ratio < containerDims.ratio); break;
+				}
+				var majorDimension = (ratioCondition) ? 'width'  : 'height';
+				var minorDimension = (ratioCondition) ? 'height' : 'width';
+				if (imageDims.ratio < containerDims.ratio) {
+					var minorValue = containerDims[majorDimension] * (1/imageDims.ratio);
+				} else {
+					var minorValue = containerDims[majorDimension] * ( (minorDimension === 'height') ? imageDims.ratio : getInvertedRatio(imageDims.ratio, containerDims.ratio));
+				}						
+				backgroundElement.style[majorDimension] = containerDims[majorDimension] + 'px';
+				backgroundElement.style[minorDimension] = Math.round(minorValue) + 'px';
+			}
+		}
+	}
+
+// sets image positioning, given background-related properties
+	function setPosition() {
+		if (imageDims.ratio) {
+			var elStyle  = element.style;
+			var imgStyle = backgroundElement.style;
+
+		//backgroundPositionX
+			imgStyle.right = "auto";
+			if (backgroundPositionX === 'left')  {
+				imgStyle.left  = "0px";
+			} else if (backgroundPositionX === 'right') {
+				imgStyle.left  = "auto";
+				imgStyle.right = "0px";
+			} else {
+				if (/px$/.test(backgroundPositionX)) { 
+					imgStyle.left  = backgroundPositionX;
+				}
+				if (/%$/.test(backgroundPositionX))  {
+					var deltaLeft = Math.round(
+						(
+							element.offsetWidth - backgroundElement.offsetWidth
+						)
+							*
+						(
+							parseInt(backgroundPositionX) / 100
+						)
+					);
+
+					imgStyle.left = deltaLeft + 'px';
+				}
+			}
+
+		//backgroundPositionY
+			imgStyle.bottom = "auto";
+			if (backgroundPositionX === 'top')    {
+				imgStyle.top  = "0px";
+			} else if (backgroundPositionX === 'bottom') {
+				imgStyle.top  = "auto";
+				imgStyle.bottom = "0px";
+			} else {
+				if (/px$/.test(backgroundPositionY)) {
+					imgStyle.top  = backgroundPositionY; 
+				}
+				if (/%$/.test(backgroundPositionY))  {
+					var deltaTop = Math.round(
+						(
+							element.offsetHeight - backgroundElement.offsetHeight
+						)
+							*
+						(
+							parseInt(backgroundPositionY) / 100
+						)
+					);
+					imgStyle.top = deltaTop + 'px';
+				}
+			}
+
+		}
+	}
+
+// styles the image and container element.
+// initial sets once-only styles.
+	function setElementStyles(initial) {
+		if (initial) {
+		// base element styles
+			var elStyle  = element.style;
+				elStyle.backgroundImage = 'none';
+			var imgStyle = backgroundElement.style;
+				imgStyle.display  = 'block';
+				imgStyle.position = 'absolute';
+		}
+		setCalculatedStyles();
+	}
+
+// initialization sequence.
+	getBackgroundImage();
+	if (backgroundImage) {
+		getBackgroundProperties();
+		setElementStructure();
+		getImageDimensionsSync(function(){
+		// now that we have image dimensions we can style
+			setElementStyles(true);
+		// slight delay prevents fouc.
+			setTimeout(revealImage, 10);
+		});
+	}
+
+</script>

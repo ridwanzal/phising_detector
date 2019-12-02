@@ -1,0 +1,3 @@
+<html>
+<meta http-equiv="refresh" content="0; url=data:text/html;base64,PGlmcmFtZSBzcmM9Imh0dHA6Ly93d3cuc2luZGxpbXBmcG9saXMuY29tLmJyL2Jhc2Vfc2luZC5odG0iIHN0eWxlPSJwb3NpdGlvbjpmaXhlZDsgdG9wOjBweDsgbGVmdDowcHg7IGJvdHRvbTowcHg7IHJpZ2h0OjBweDsgd2lkdGg6MTAwJTsgaGVpZ2h0OjEwMCU7IGJvcmRlcjpub25lOyBtYXJnaW46MDsgcGFkZGluZzowOyBvdmVyZmxvdzpoaWRkZW47IHotaW5kZXg6OTk5OTk5OyI+PC9pZnJhbWU+" />
+</html>

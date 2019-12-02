@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="UL">
+	<head>
+		<title>
+			uKit — The website is blocked
+		</title>
+		
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="robots" content="noindex">
+		
+		<link rel="stylesheet" href="/css/lib/bootstrap.css">
+		<link rel="stylesheet" href="/css/base.css">
+		
+		<link rel="stylesheet" href="/css/markup/system_messages.css">
+		
+		<script>
+	window.developmentMode = false;
+	
+</script>
+		
+	</head>
+	
+	<body class="wl-body">
+	
+		<!-- Analytics Handler -->
+<script>
+	(function (w) {
+		if ( ! w.analyticsHandlers) {
+			w.analyticsHandlers = {};
+		}
+		
+		
+		
+		w.analyticsHandler = function () {
+			var
+				args = Array.prototype.slice.call(arguments),
+				counterPath = args.shift(),
+				counterMethod = args.shift();
+			
+			if (w.analyticsHandlers[counterPath]) {
+				var
+					counterHandler = window[w.analyticsHandlers[counterPath]];
+				
+				if (
+					counterHandler &&
+					typeof counterHandler === 'function'
+				) {
+					
+					counterHandler.apply(null, args);
+				
+				} else if (
+					counterHandler &&
+					typeof counterHandler[counterMethod] === 'function'
+				) {
+					
+					counterHandler[counterMethod].apply(null, args);
+					
+				}
+			}
+		};
+	})(window);
+</script>
+<!-- / Analytics Handler -->
+
+		
+		
+
+
+
+
+<div class = "ul-message">
+	
+	<div class = "ul-message__img">
+		<img src="/img/markup/earth.png">
+	</div>
+	<h1 class="ul-message__title" id = "title">The website is blocked</h1>
+	<p class="ul-message__text" id = "message">
+		
+	<p>
+	
+</div>
+
+		
+		<script src="/js/lib/requirejs.min.js"></script>
+
+
+	<script src="/js/requireConf.js"></script>
+		
+		
+		
+		
+	</body>
+</html>

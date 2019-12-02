@@ -1,0 +1,42 @@
+<component lightWeight="true">
+<script type="text/javascript">
+
+// will store the path to our background image
+	var backgroundImage;
+
+// will store a reference to an injected image
+// element that will serve as our new background
+// image
+	var backgroundElement;
+
+// get/store the path to our background image.	
+	function getBackgroundImage() {
+		backgroundImage = element.currentStyle.backgroundImage;
+		backgroundImage = backgroundImage.split('"').join('').split("'").join('');
+		backgroundImage = backgroundImage.match(/url\(([^\)]*)/);
+		backgroundImage = (backgroundImage && backgroundImage.length > 1) ? backgroundImage[1] : null;
+	}
+
+// set up markup structure for image.
+	function setElementStructure() {
+		backgroundElement           = element.document.createElement('img');
+		backgroundElement.className = 'ie8-static-image';
+		backgroundElement.src       = backgroundImage;
+		backgroundElement           = element.appendChild(backgroundElement);
+	}
+
+// styles the container element.
+	function setElementStyles() {	
+	// base element styles
+		element.style.backgroundImage = 'none';
+	}
+
+// initialization sequence.
+	getBackgroundImage();
+	if (backgroundImage) {
+		setElementStructure();
+	// now that we have image dimensions we can style
+		setElementStyles();
+	}
+
+</script>

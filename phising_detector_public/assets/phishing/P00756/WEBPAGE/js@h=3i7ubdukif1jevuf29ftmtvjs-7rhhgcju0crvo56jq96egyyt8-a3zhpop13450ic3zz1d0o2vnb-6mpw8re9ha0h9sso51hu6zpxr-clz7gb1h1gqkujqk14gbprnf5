@@ -1,0 +1,57 @@
+/*
+ *  THE "NAV START" | "non-js" file
+ *  ----------------------------------------------------------------------------
+ *  My purpose in life:
+ *  -------------------
+ *  I know what you're thinking, "What in the flying F#@! is this," - yeah. I'm
+ *  a bit for an odd-ball; my entire purpose in life is to "open" an annonymous
+ *  function for the global-nav sandbox.
+ *
+ *  While I am javascript, technically I'm *not* javascript - because I'm not
+ *  a valid js file.  This is why I have the funky .nocheck.js extension.  There's
+ *  no way I can EVER pass JSHint.  I also am equally destructive without my
+ *  navend counter-part.
+ *
+ *  I'm included by:              - SCDS remote-nav concat group within remote-nav fizzy embed
+ *
+ *  File PRE-CONDITIONS:          - SCDS changes to allow .nocheck.js files must be in place.
+ *                                - must be the VERY FIRST file called in the sandbox concat group
+ *
+ *  File POST-CONDITIONS:
+ *
+ *  CAVEATS/GOTCHAS:
+ */
+(function (){function remote_nav_eval(g){eval.apply(window,[g])}
+var remote_nav=function(){function g(a){this.message=a;this.name="SandboxException"}var b=this;b.CONFIGS={SBX_JSCONTROL_PATTERN:/\bli-control\b/g,SBX_JSCONTROL_TYPE:"linkedin/control",SBX_INITIALIZED_CONTROL_TYPE:"text/javascript+initialized",SBX_ENV_LABEL:"SANDBOX"};b.data={control_registry:[],rawControlCode:[],codeAlreadyEvaled:!1,EXCLUDED_CONTROLS:{UniversalSearch:!0,Typeahead2:!0,StyledDropdown:!0,A11yMenu:!0,QuickHelp2:!0,"kb.shortcuts":!0}};b.debug={enabled:!1,setMode:function(a){var e=/debug_mode=enabled/;
+a||(a=e.test(window.location.search));b.debug.enabled=a},sbx_log:function(){b.debug.enabled&&window.console&&window.console.log&&window.console.log(arguments)}};b.events={};b.helpers={_addSandboxControl:function(a,e,d){b.debug.sbx_log("SANDBOX | _addSandboxControl() | started ");var c=document.getElementById(a),f=b.helpers,k=f._getJSControlSibling(c),g=f._checkSBXRegistry(a);b.debug.sbx_log("SANDBOX | _addSandboxControl | is Controls present in the registry? | ",g);c.type===b.CONFIGS.SBX_INITIALIZED_CONTROL_TYPE||
+g||b.data.EXCLUDED_CONTROLS[e]?b.data.EXCLUDED_CONTROLS[e]?(b.debug.sbx_log("SANDBOX | _addSandboxControl  | EXCLUDED CONTROL - using LI.Controls.addControl() instead"),window.LI.Controls.addControl(a,e,d)):b.debug.sbx_log("SANDBOX | _addSandboxControl | CONTROL ALREADY DEFINED... IGNORING"):(f._addToSBXRegistry(a,e,k,d),f._addCodeToEvalString(c),f._changeJSControlType(c))},_addToSBXRegistry:function(a,e,d,c){b.data.control_registry.push({id:a,name:e,el:d,config:c});a=b.helpers._checkSBXRegistry(a);
+if(!a)throw new g("the control for some reason was NOT added to the registry");return a},_cleanSandbox:function(){b.data.control_registry=[]},_addCodeToEvalString:function(a){if("script"!==a.nodeName.toLowerCase())throw new g("attempting to add non-script innerHTML to the eval string");b.debug.sbx_log("SANDBOX | _addCodeToEvalString | about to push code to array");b.data.rawControlCode.push(a.innerHTML.replace(/LI\.Controls\.addControl/,"window.sandboxControlInit"))},_checkSBXRegistry:function(a){var e,
+d=b.data.control_registry,c=d.length;for(e=0;e<c;e++)if(d[e].id===a)return!0;return!1},_getJSControlScripts:function(a){a=a.getElementsByTagName("script");var e=a.length,d=b.helpers._addCodeToEvalString,c=b.CONFIGS.SBX_JSCONTROL_TYPE,f;for(f=0;f<e;f++)a[f].getAttribute("type")===c&&d(a[f])},_getJSControlSibling:function(a){b.debug.sbx_log(a);var e=function(){return"previousElementSibling"in HTMLElement.prototype?function(a){return a.previousElementSibling}:function(a){do a=a.previousSibling;while(a&&
+1!==a.nodeType);return a}}();a=e(a);do{if("script"!==a.nodeName.toLowerCase()&&!a.className.match(b.CONFIGS.SBX_JSCONTROL_PATTERN))return a;a=e(a)}while(a);return!1},_changeJSControlType:function(a){a.setAttribute("type",b.CONFIGS.SBX_INITIALIZED_CONTROL_TYPE);a.className="sbx-li-control"}};b.sandbox={initControl:function(){b.debug.sbx_log("SANDBOX | window.sandboxControlInit() called for the following Control script: ",arguments);b.helpers._addSandboxControl.apply(this,arguments)},oldLI:window.LI,
+LI:{isSandboxed:!0,assign:function(a,e){for(var d=b.sandbox.LI,c=0,f=a.split("."),g=f.length;c<g;c++)d[f[c]]||(d[f[c]]=c+1===g&&e?e:{},d=d[f[c]]);return d},define:function(a){b.sandbox.LI.assign(a,{})},sandboxFromWindow:function(a,e){b.sandbox.LI.assign(e,a)}}};b.deploy={executeSandbox:function(a){var e=(typeof a).toLowerCase(),d=null;b.debug.setMode();if("object"===e){if(a.containerIDs)for(var e=0,c=a.containerIDs.length;e<c;e++)(d=document.getElementById(a.containerIDs[e]))?b.helpers._getJSControlScripts(d):
+b.debug.sbx_log("SANDBOX | WARNING: The DOM element or ID",a," was not found - ignoring")}else"string"===e&&((d=document.getElementById(a))?b.helpers._getJSControlScripts(d):b.debug.sbx_log("SANDBOX | WARNING: The DOM element or ID",a," was not found - ignoring"));b.debug.sbx_log("SANDBOX | evaling code in executeSandbox()");b.data.rawControlCode.push("remote_nav.debug.sbx_log('SANDBOX | LI OBJECT IN EVAL IS: ', LI )");b.data.codeAlreadyEvaled||(a=b.data.rawControlCode.join(";"),b.debug.sbx_log(a),
+b.deploy.injectOrEval(a))},injectOrEval:function(a){var e=document.getElementsByTagName("head")[0],d=document.createElement("script"),c=!1;try{d.text=a}catch(f){b.debug.sbx_log("SANDBOX | injectOrEval() | .text not supported,... trying .innerHTML");try{d.innerHTML=a}catch(g){b.debug.sbx_log("SANDBOX | injectOrEval() | cannot use .innerHTML on the script Element, and now the script tag is EMPTY"),c=!0}}if(!c)try{e.appendChild(d),b.debug.sbx_log("SANDBOX | injectOrEval() | SCRIPT TAG INJECTION FINISHED.")}catch(h){b.debug.sbx_log("SANDBOX | injectOrEval() | unable to append script tag to head - falling back on eval()"),
+c=!0}c&&(b.debug.sbx_log("SANDBOX | unjectOrEval() | unable to either append the tag or it's empty, using eval()"),remote_nav_eval(a),b.debug.sbx_log("SANDBOX | injectOrEval() | CODE EVAL() [FALLBACK]  FINISHED."));b.data.codeAlreadyEvaled=!0},initSandboxControls:function(){b.debug.sbx_log("SANDBOX | initSandboxControls() | function called.");for(var a=b.data.control_registry.length,e=0,d=null;a--;){var c=b.data.control_registry[e++];if(c&&!c.sbx_isInitialized)if(b.debug.sbx_log("SANDBOX | initSandBoxControls :"+
+c.name),b.sandbox.LI[c.name]?(b.debug.sbx_log("SANDBOX | Presence of faceded JSControl: "+typeof LI[c.name]),d=b.sandbox.LI):(b.debug.sbx_log("SANDBOX | JSControl not in sandbox -\x3e punching out to GLOBAL JSControl."),d=window.LI),d[c.name])try{new d[c.name](c.el,c.config),c.sbx_isInitialized=!0}catch(f){b.debug.sbx_log("SANDBOX | We gots problems - ",f)}else b.debug.sbx_log("SANDBOX | WARNING | This Control",c," did not initialize.")}}};b.public_API={initializeControls:b.deploy.initSandboxControls,
+setUp:b.deploy.executeSandbox,sandbox:b.sandbox,debug:b.debug};window.LI_JS_TEST&&(b.public_API._test={config:b.config,data:b.data,helpers:b.helpers,deploy:b.deploy});return b.public_API}(),LI=remote_nav.sandbox.LI,LIModules=function(){function g(a,e){var d=a.split(".");a=d.pop();if(d=d.join(".")){var c=LI,f=0,g,h,d=(d.split?d.split("."):d)||[];if(c){for(g=d.length;f<g-1;f++)h=d[f],c=c&&c[h]||{};d=c[d[g-1]]}else d=void 0}d=d||LI;if(e)d[a]=e;else return(c=d[a])||(c=a,c=b[c]||c,c="function"===typeof c?
+c():window[c]||void 0),c}var b={jquery:function(){return window.jQuery||window.$},underscore:"_",fiber:"Fiber","li-backbone":"MVC",backbone:"Backbone"};return{imports:function(a){return g(a)},requires:function(a){var b=g(a);if(b)return b;throw Error(a+" was not loaded or could not be found");},exports:function(a,b){g(a,b)},isSandboxed:!0}}();LI.LIModules=LIModules;window.sandboxControlInit=remote_nav.sandbox.initControl;window.remote_nav=remote_nav;window.sandboxedLI=LI;
+LI.sandboxFromWindow(window.LI.Events,"Events");LI.sandboxFromWindow(window.LI.i18n,"i18n");LI.sandboxFromWindow(window.LI.show,"show");LI.sandboxFromWindow(window.LI.hide,"hide");LI.sandboxFromWindow(window.LI.Controls,"Controls");LI.sandboxFromWindow(window.LI.htmlEncode,"htmlEncode");LI.sandboxFromWindow(window.LI.domify,"domify");LI.sandboxFromWindow(window.LI.getDataAttribute,"getDataAttribute");LI.sandboxFromWindow(window.LI.asyncRequest,"asyncRequest");
+LI.sandboxFromWindow(window.LI.isFullPage,"isFullPage");LI.sandboxFromWindow(window.LI.htmlUnencode,"htmlUnencode");LI.sandboxFromWindow(window.LI.log,"log");LI.sandboxFromWindow(window.LI.BaseControl,"BaseControl");LI.sandboxFromWindow(window.LI.Lego,"Lego");var remote_nav=window.remote_nav,LI=remote_nav.sandbox.LI,LIModules=LI.LIModules;LI.sandboxFromWindow(window.LI.getPageKey,"getPageKey");LI.sandboxFromWindow(window.LI.Bidi,"Bidi");(function(){var a=document.getElementById("footer");remote_nav.setUp(a);remote_nav.initializeControls()})();
+/*  THE "NAV END" | "no js" file
+ *  ----------------------------------------------------------------------------
+ *  My purpose in life:
+ *  --------------------------
+ *  I finish the job of navstart.nocheck.js - closing the anonymous function
+ *  scope for the sandbox.  Like navstart.nocheck.js, I'm also not technically
+ *  valid javascript, and therefore won't pass JSHint.  We both exist, however,
+ *  so that logic modifications to SCDS do not have to be made.
+ *
+ *  I'm included by:                - remote_nav SCDS concat group
+ *
+ *  I'm styled by:                  - N/A; JS plumbing/infrastructure
+ *
+ *  File PRE-CONDITIONS:
+ *  File POST-CONDITIONS:
+ *  CAVEATS/GOTCHAS:
+ */
+}());

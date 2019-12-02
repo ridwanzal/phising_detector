@@ -1,0 +1,2382 @@
+﻿*
+{
+    position: relative;
+}
+
+html, body
+{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #666;
+    -webkit-font-smoothing: antialiased !important;
+    font-smooth:always !important;
+    text-shadow: none !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+html
+{
+    overflow-y: scroll;
+}
+
+html.noscroll {
+    overflow-y: hidden;
+}
+
+body {
+    overflow-x: visible  !important;
+}
+
+textarea, input
+{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    resize: none;
+    padding: 0px 0px 0px 0px;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+}
+
+.topMargin {
+    height: 87px;
+}
+
+.vr_7 .topMargin {
+    height: 30px;
+}
+
+.topMarginCLS {
+    height: 57px;
+}
+
+.vr_7 .topMarginCLS {
+    height: 0px;
+}
+
+/* BEGIN: Checkbox */
+div.checkbox, div.checkbox_checked, div.browserColumnHeaderShowUndeleted
+{
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    background-image: url('checkbox.png');
+    background-repeat: no-repeat;
+    cursor: pointer;    
+}
+
+div.checkbox, div.browserColumnHeaderShowUndeleted
+{
+    background-position: left top;
+}
+
+div.checkbox_checked
+{
+    background-position: left -14px;    
+}
+
+div.checkboxWithLabel
+{
+    width: auto;
+    padding-left: 15px;    
+}
+/* END: Checkbox */
+
+/* BEGIN: radio button */
+
+div.radioButton
+{
+   width: 12px;
+   height: 12px;
+   background: url('radio-sprite.png') no-repeat 0px -12px;
+}
+
+div.radioButtonChecked
+{
+   background: url('radio-sprite.png') no-repeat 0 0;
+}    
+    
+/* END radio button */
+
+/*****************************************************************/
+/********** BEGINING of password strength style section **********/
+/*****************************************************************/
+
+div.strengthContainer
+{
+    padding-top: 8px;
+    top: -5px;
+    width: 220px;
+}
+
+.settingsContainer div.strengthContainer {
+    left: 300px;
+}
+
+div#strengthTextContainer
+{
+    height: 17px;
+    width: 220px;
+}
+
+div#strengthLabel
+{
+    float: left;
+    color: #979797;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+div#strengthText
+{
+    float: right;
+    font-size: 11px;
+    font-weight: bold;
+    color: #666666;
+}
+
+div#strengthGray
+{
+    background-color: #E2F3BC;
+    width: 220px;
+    height: 4px;
+}
+
+div#strengthGreen
+{
+    background-color: #88bc00;
+    width: 0px;
+    height: 4px;
+}
+
+.strengthHelper
+{
+    width: 561px;
+}
+
+
+/*****************************************************************/
+/********** END of password strenfth style section ***************/
+/*****************************************************************/
+
+
+/*********************************************/
+/*** BEGINING of modal popup style section ***/
+/*********************************************/
+
+div.modalPopupBg
+{
+    width:100%; 
+    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #222;
+    -moz-opacity:0.0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0.0;    
+    z-index:90;
+    display: none;
+}
+
+table.modalPopup
+{
+    position: fixed;
+    z-index: 100;
+    display: none;
+}
+
+table.modalPopup td
+{
+    padding: 0;
+}
+
+/* Must reset this for rowspan errors */
+table.modalPopup tr
+{
+    position: static;
+}
+
+.spacer
+{
+    width: 0px;
+    background: transparent;
+    height: 0px; 
+}
+
+.vr_7 .spacer
+{
+    width: 20px;
+    background: url('modal-sprite-vertical.png') repeat-y -150px 0px;
+    height: 473px; 
+    margin-top: -16px;
+}
+
+
+.vr_7 td#modal00,.vr_7 td#modal01,.vr_7 td#modal02
+{
+    height: 17px;
+}
+
+td#modal00
+{
+    width: 20px;
+    height: 20px;
+    background: url('modal-sprite-vertical.png') no-repeat -30px 0px;
+}
+
+table.modalPopup.wide td#modal00
+{
+    width: 35px;
+    background: url('modal-bg-left-top-wide.png') no-repeat 0px 0px;
+}
+
+td#modal01
+{
+    height: 20px;
+    background: url('modal-sprite-horizontal.png') repeat-x 0px 0px;
+}
+
+td#modal02
+{
+    width: 20px;
+    height: 20px;
+    background: url('modal-sprite-vertical.png') no-repeat -60px 0px;
+}
+
+table.modalPopup.wideRight td#modal02
+{
+    width: 35px;
+    height: 20px;
+    background: url('modal-bg-right-top-wide.png') no-repeat 0px 1px;
+}
+
+td#modal10
+{
+    width: 20px;
+    background: url('modal-sprite-vertical.png') repeat-y 0px 0px;
+}
+
+table.modalPopup.wide td#modal10, table.modalPopup.wide td#modal40
+{
+    width: 35px;
+    background: url('modal-bg-left-wide.png') repeat-y 0px 0px;
+}
+
+table.modalPopup.wide td#modal30
+{
+    width: 35px;
+    height: 35px;
+    background: url('modal-bg-left-arrow.png') no-repeat 0px 0px;
+}
+
+td#modal11
+{
+    vertical-align: top;
+    background-color: #FFFFFF;
+}
+
+td#modal12
+{
+    width: 20px;
+    background: url('modal-sprite-vertical.png') repeat-y -150px 0px;
+}
+
+table.modalPopup.wideRight td#modal12
+{
+    width: 35px;
+    background: url('modal-bg-right-wide.png') repeat-y 0px 0px;
+    height: 137px;
+}
+
+table.modalPopup.wideRight td#modal42
+{
+    width: 35px;
+    background: url('modal-bg-right-wide.png') repeat-y 0px 0px;
+    height: 44px;
+}
+
+table.modalPopup.wideRight td#modal32
+{
+    width: 35px;
+    height: 35px;
+    background: url('modal-bg-right-arrow.png') no-repeat 0px 0px;
+}
+
+.vr_7 table.modalPopup.wide td#modal12
+{
+    width: 20px;
+    background: transparent;
+}
+
+td#modal20
+{
+    width: 20px;
+    height: 20px;
+    background: url('modal-sprite-vertical.png') no-repeat -90px 0px;
+}
+
+table.modalPopup.wide td#modal20
+{
+    width: 35px;
+    background: url('modal-bg-left-bottom-wide.png') no-repeat 0px 0px;
+}
+
+td#modal21
+{
+    height: 20px;
+    background: url('modal-sprite-horizontal.png') repeat-x 0px -30px;
+}
+
+td#modal22
+{
+    width: 20px;
+    height: 20px;
+    background: url('modal-sprite-vertical.png') no-repeat -120px 0px;
+}
+
+table.modalPopup.wideRight td#modal22
+{
+    width: 35px;
+    height: 20px;
+    background: url('modal-bg-right-bottom-wide.png') no-repeat 0px -1px;
+}
+
+div.alertPanel
+{
+    margin: 8px 14px 12px 8px;
+    width: 212px;
+}
+
+div.alertHeader
+{
+    /*font-weight: bold;*/
+    padding-bottom: 30px;
+    text-align: center;
+    overflow: hidden;
+    word-wrap: break-word;
+    width: 212px;    
+}
+
+div.alertButtonContainer
+{
+    text-align: center;
+}
+
+div.alertButton
+{
+    display: inline-block;
+    zoom: 1;
+	*display:inline;
+}
+
+.inliner
+{
+    display: inline-block;
+    zoom: 1;
+	*display:inline;
+}
+
+
+/*********************************************/
+/***** END of modal popup style section ******/
+/*********************************************/
+
+
+/* Learn More */
+
+#learnMoreWrapper
+{
+    font-size: 15px;
+}
+
+td#modal02
+{
+    overflow: visible;
+    z-index: 3;
+}
+
+div.closeX
+{
+    background: url('close.png') no-repeat;
+    width: 9px;
+    height: 9px;
+    left: -13px;
+    top: 16px;
+    position: absolute;
+}
+
+div.closeX:hover
+{
+    cursor: pointer;
+}
+
+.br_ff div.closeX
+{
+    position: relative;
+}
+
+.vr_7 .learnMoreModal .firstTR
+{
+    z-index: 5000;
+}
+
+#learnMoreWrapper p, #learnMoreWrapper .learnText
+{
+    line-height: 21px;
+}
+
+
+#learnMoreWrapper .learnText
+{
+    font-size: 15px;
+    color: #999;
+    padding-top: 8px;
+    margin-bottom: 11px;
+}
+
+#learnMoreWrapper .headerImg
+{
+    background: url('learnmore-sprite.png') no-repeat;
+    width: 52px;
+    height: 43px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+#learnMoreWrapper.details
+{
+    /*height: 470px;*/
+}
+
+#learnMoreWrapper.details .learnList .header
+{
+    color: #b2b2b2;
+}
+
+
+
+#learnMoreWrapper.details.syncDetails #syncDetails.learnDetails
+{
+    display: block;
+}
+
+#learnMoreWrapper.details.shareDetails #shareDetails.learnDetails
+{
+    display: block;
+}
+
+#learnMoreWrapper.details.storeDetails #storeDetails.learnDetails
+{
+    display: block;
+}
+
+#learnSync .headerImg, #learnMoreWrapper.details.syncDetails #learnSync .headerImg, #learnSync .headerImg, #learnMoreWrapper.details.syncDetails #learnSync .header
+{
+    background-position: 0px 0px;
+    color: #666;
+}
+
+#learnShare .headerImg, #learnMoreWrapper.details.shareDetails #learnShare .headerImg, #learnShare .headerImg, #learnMoreWrapper.details.shareDetails #learnShare .header
+{
+    background-position: -52px 0px;
+    color: #666;
+}
+
+#learnStore .headerImg, #learnMoreWrapper.details.storeDetails #learnStore .headerImg, #learnStore .headerImg, #learnMoreWrapper.details.storeDetails #learnStore .header
+{
+    background-position: -104px 0px;
+    color: #666;
+}
+
+#learnMoreWrapper.details #learnSync .headerImg
+{
+    background-position: 0px 100%;
+}
+
+#learnMoreWrapper.details #learnShare .headerImg
+{
+    background-position: -52px 100%;
+}
+
+#learnMoreWrapper.details #learnStore .headerImg
+{
+    background-position: -104px 100%;
+}
+
+a.rockStar
+{
+    font-weight: bold;
+}
+
+.learnMoreModal
+{
+    top: 250px;
+    height: 455px;
+    z-index: 100 !important;
+    position: absolute !important;
+    width: 700px;
+}
+
+#learnMore, #learnMoreWrapper
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 640px;
+    text-align: center;
+}
+
+#learnMore
+{
+    padding-top: 30px;
+    height: 380px;
+    width: 640px;
+    display: none;
+}
+
+#learnMore > .learnList
+{
+    width: 520px;
+    height: 94px;
+    padding-top: 28px;
+    float: left;
+}
+
+#learnMoreWrapper.details .learnList
+{
+    cursor: pointer;
+}
+
+#learnMoreWrapper.details .learnText, #learnMoreWrapper.details a.rockStar
+{
+    display: none;
+}
+
+#learnMoreWrapper .header
+{
+    font-size: 20px;
+    color: #666;
+    font-weight: bold;
+}
+
+#learnMoreWrapper a
+{
+    color: #88bc00;
+    text-decoration: none;
+}
+
+#learnMoreWrapper a:visited
+{
+    color: #88bc00;
+}
+
+#learnMoreWrapper a:hover
+{
+    text-decoration: underline;
+}
+
+.publicLearnMore
+{
+    font-size: 15px !important;
+    font-weight: bold;
+}
+
+div.headerText
+{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    float: left;
+}
+
+div#backImage
+{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 16px;
+    height: 7px;
+    top: 13px;
+    float: left;
+    background: url('backtofiles.png') no-repeat 0 0;
+}
+
+div#backText
+{
+    float: left;
+    line-height: 32px;
+    font-weight: bold;
+    color: #88bc00;
+}
+
+div#backText:hover
+{
+    text-decoration: underline;
+}
+
+/* Header */
+div#markHeader
+{
+    height:61px;
+    z-index: 60;
+    position:relative;
+    background:url('navbar_bg.png') top left repeat-x;
+    white-space: nowrap;
+    min-width: 970px;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial;
+    font-size: 13px;
+    color: #666;
+}
+
+div#markHeader div.button
+{
+    line-height:51px;
+    height: 100%;
+    padding:0 30px;
+    white-space: nowrap;
+    cursor: pointer;
+    z-index: 1;
+}
+
+div#markHeader div.wrapper.inliner
+{
+    height: 51px;
+    background: url('navbar_bg.png') top left repeat-x;
+}
+
+div#markHeader #cubbyWrapper
+{
+    width: 164px;
+    padding: 0;
+}
+
+div#markHeader #cubbyLogo
+{
+    background: url('cubby-cls-logo.png') no-repeat;
+}
+
+div#markHeader div.headerDivider
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    height:51px;
+    width: 0;
+    border-left:1px solid #e1e1e1;
+    border-right:1px solid #fff;
+}
+
+div#markHeader div.rightSide 
+{
+    position: absolute;
+    z-index: 1;
+    right: 0;
+}
+
+div#markHeader div.rightSide div.headerDivider
+{
+    left: 0;
+    right: auto;
+}
+
+div#markHeader div#downloadCubby 
+{
+    color: #88BC00;
+}
+
+div#markHeader div.button:hover {
+    color: #88BC00;
+}
+
+div#markHeader div.button.login
+{
+    color: #88BC00;
+    font-weight: bold;
+    padding-left: 58px;
+    background: url('lmi_login_logo.png') no-repeat;
+    background-position: 30px 50%;
+}
+
+div#logoutTriangle 
+{
+    position: absolute;
+    right: -13px;
+    top: 50%;
+    margin-top: -2px;
+}
+
+.triangle 
+{
+    width: 0; 
+	height: 0; 
+	border: 5px solid transparent ;
+	border-top-color: #88bc00;
+}
+
+
+.login-txt {
+    margin-right: 10px;
+}
+
+#tellUsHeader, #onTheGo
+{
+    margin-left: 1px;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) 
+{
+    
+    div#markHeader div.button
+    {
+        padding:0 20px;
+    }
+    
+    div#markHeader div.button.login
+    {
+        padding-left: 48px;
+        background-position: 20px 50%;
+    }
+    
+    div#markHeader #cubbyWrapper 
+    {
+        width: 144px;
+    }
+    
+    div#markHeader #cubbyLogo
+    {
+        background-position: -10px 0;
+    }
+    
+    div#markHeader div#logoutTriangle 
+    {
+        right: 7px;
+    }
+}
+
+/* Popup */
+
+/*********** Pop-Up Panel **************/
+
+.tabPopupPanel,
+.popUpPanel
+{
+    width: inherit;
+    min-height: inherit;
+    background: white;
+    display: none;
+    position: fixed;
+    z-index: 90;
+    margin: 22px;
+}
+
+.popUpPanel {
+    left: -11px;
+    top: 27px;
+    position: absolute;
+}
+
+.tabPopupPanel.right,
+.popUpPanel.right
+{
+    right: 40px;
+}
+
+.tabPopupPanel .Border,
+.popUpPanel .Border
+{
+    position: absolute;
+    width: 22px;
+    height: 22px;
+}
+
+.tabPopupPanel .pointer-center,
+.popUpPanel .pointer-center
+{
+    z-index: 1;
+    left: 50%;
+    margin-left: -8px;
+    top: -32px;
+    height: 23px;
+    width: 16px;
+    background: url('panel-bg-sprite.png') no-repeat -21px 8px;
+}
+
+.tabPopupPanel .pointer-top-center,
+.popUpPanel .pointer-top-center
+{
+    z-index: 1;
+    left: 50%;
+    margin-left: -8px;
+    bottom: -21px;
+    height: 12px;
+    width: 16px;
+    background: url('tooltip-arw.png') no-repeat -3px 0px;
+}
+
+
+.tabPopupPanel .pointer-left,
+.popUpPanel .pointer-left
+{
+    z-index: 1;
+    left: 32px;
+    top: -32px;
+    height: 23px;
+    width: 16px;
+    background: url('panel-bg-sprite.png') no-repeat -21px 8px;
+}
+
+.popUpPanel .pointer-left {
+    left: 10px;
+}
+
+.tabPopupPanel .N,
+.popUpPanel .N {
+    width: 100%;
+    top: -22px;
+    left: 0;
+    background: url('horisontal.png') repeat-x;
+}
+
+.tabPopupPanel .NE,
+.popUpPanel .NE 
+{
+    top: -22px;
+    right: -22px;
+    background: url('panel-corners-left.png') no-repeat;
+    background-position: 100% 0;
+}
+
+.tabPopupPanel .E,
+.popUpPanel .E {
+    height: 100%;
+    top: 0;
+    right: -22px;
+    background: url('vertical.png') repeat-y;
+    background-position: 100% 0px;
+}
+
+.tabPopupPanel .SE,
+.popUpPanel .SE
+{
+    bottom: -22px;
+    right: -22px;
+    background: url('panel-corners.png') no-repeat;
+    background-position: 100% 100%;
+}
+
+.tabPopupPanel .S,
+.popUpPanel .S {
+    width: 100%;
+    bottom: -22px;
+    left: 0;
+    background: url('horisontal.png') repeat-x;
+    background-position: 0px -22px;
+}
+
+.tabPopupPanel .SW,
+.popUpPanel .SW
+{
+    bottom: -22px;
+    left: -22px;
+    background: url('panel-corners.png') no-repeat;
+    background-position: 0px 100%;
+}
+
+.tabPopupPanel .W,
+.popUpPanel .W {
+    height: 100%;
+    top: 0;
+    left: -22px;
+    background: url('vertical.png') repeat-y;
+}
+
+.tabPopupPanel .NW,
+.popUpPanel .NW
+{
+    top: -22px;
+    left: -22px;
+    background: url('panel-corners.png') no-repeat;
+}
+
+.tabPopupPanel .center,
+.popUpPanel .center
+{
+    background: white;
+    min-height: 30px;
+}
+
+#appsPanel
+{
+    width: 265px;
+    top: 50px;
+    left: 665px;
+}
+
+#teamTrialPanel {
+    width: 313px;
+    top: 50px;
+    left: 665px;
+}
+
+#teamTrialPanel sup, ul.trialList sup {
+    font-size: 7px;
+}
+
+#teamTrialPanel h2 {
+    font-weight: normal;
+}
+
+.trialPopUpWrapper {
+    padding-left: 28px;
+}
+
+.trialPopUpWrapper ul, ul.trialList {
+    padding-left: 16px;
+    margin-bottom: 22px;
+}
+
+#dontShowTrialPopup {
+    display: none;
+    padding-left: 20px;
+    width: 150px;
+    outline: 0;
+    margin-top: 20px;
+    margin-bottom: 31px;
+    font-size: 11px;
+}
+
+.showOptOut #dontShowTrialPopup {
+    display: block;
+}
+
+.showOptOut #startProTrialButton {
+    margin-bottom: 0px;
+}
+
+#startProTrialButton {
+    margin-bottom: 31px;
+}
+
+.trialPopUpWrapper ul li, ul.trialList li {
+    padding: 5px 0px;
+}
+
+.trialPopUpWrapper .limeButton .buttonCenter {
+    width: 236px;
+}
+
+.trialPopUpWrapper .limeButton {
+    width: 256px;
+}
+
+#talkBackPanel 
+{
+    width: 353px;
+    top: 50px;
+    left: 763px;
+}
+
+div.appsPanelWrapper
+{
+    padding-left: 7px;
+    padding-right: 2px;
+    padding-top: 9px;
+    padding-bottom: 8px;
+    min-height: 30px;
+}
+
+#accountPanel {
+    width: 150px;
+    top: 50px;
+    left: 950px;
+}
+
+#accountPopup div.popupButton 
+{
+    float: left;
+    clear: both;
+    margin: 8px 0;
+    height: 20px;
+    line-height:20px;
+    padding:0 20px;
+    
+    cursor: pointer;
+}
+
+#accountPopup a.popupButton 
+{       
+    line-height:20px;
+    color:#666;
+    text-decoration:none;
+    cursor: pointer;
+}
+
+.vr_7 #accountPopup div.popupButton  {
+    clear: none;
+    float: none;
+}
+
+
+
+#accountPopup div.popupButton:hover
+{
+    color: #88BC00;
+}
+
+#accountPopup a.popupButton:hover
+{
+    color: #88BC00;
+}
+
+#accountPopup div.popupDivider
+{
+    float: left;
+    clear: both;
+    height: 0px;
+    width: 100%;
+    border-top: 1px solid #e1e1e1;
+}
+
+#accountPopup a.popupButton:hover
+{
+    color: #88BC00;
+}
+
+#accountPopup a.popupButton 
+{       
+    line-height:20px;
+    color:#666;
+    text-decoration:none;
+    cursor: pointer;
+}
+
+.spinner, .visibleSpinner
+{
+    background: url('spinner.gif') no-repeat;
+    background-position: center center;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+}
+
+.spinner {
+    display: none;
+}
+
+.tabSpinner
+{
+    right: 68px;
+    bottom: 12px;
+}
+
+.feedBacktabSpinner
+{
+    right: 88px;
+    bottom: 20px;
+}
+
+/*only invite?*/
+.rmCheckbox
+{
+    cursor: default;
+    height: 15px;
+    font-size: 13px;
+    line-height: 12px;
+    padding-left: 20px;
+    background: url('checkbox-sprite.png') no-repeat;
+    background-position: 0px 0px;
+    outline: 1;
+}
+
+/*only invite?*/
+.label
+{
+    color: #999;
+    font-size: 13px;
+}
+
+/*only invite?*/
+.vr_9 .rmCheckbox
+{
+    line-height: 13px;
+}
+
+/*only invite?*/
+.rmSelectedCheckbox
+{
+    background-position: 0px -15px;
+}
+
+.focusable
+{
+    outline: 1;
+}
+
+#doSendButton
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 18px;
+    margin-bottom: 2px;
+}
+
+#commentTalkBack
+{
+    margin-top: 15px;
+}
+
+#commentTalkBack textarea
+{
+    height: 76px;
+    overflow: auto;
+}
+
+.firstFocus
+{
+    color: #999 !important;
+}
+
+.changeInviteTypeWrapper 
+{
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.changeEmailTypeLink 
+{
+    color: #88BC00;
+}
+
+.changeEmailTypeLink:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#talkBackSuccess
+{
+    margin-top: 12px;
+    height: 16px;
+}
+
+.defaultSuccess
+{
+    color: #666;
+    font-size: 15px;
+    text-align: center;
+    display: none;
+}
+
+/* Go Mobile */
+
+div#storeLogos > div:hover
+{
+    cursor: pointer;
+}
+
+div#cubbyAppLogo
+{
+    background: url('cubby-icon.png') no-repeat;
+    width: 86px;
+    height: 85px;
+    margin-top: 17px;
+}
+
+.downloadLogos > div
+{
+    float: left;
+}
+
+.appsPanelWrapper div.separator {
+    position: absolute;
+    background-color: #E5E5E5;
+    width: 290px;
+    left: -12px;
+    height: 1px;
+}
+
+.downloadLogos {
+    margin-bottom: 10px;
+    height: 40px;
+}
+
+.downloadLogos.first {
+    padding-bottom: 20px;
+     margin-bottom: 0px;
+}
+
+#headersecond
+{
+    margin-top:15px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.header.second 
+{
+     padding-top: 18px;
+}
+.imgLogo {
+    background: url('apps.png') no-repeat;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#appsPanel .header {
+    margin-bottom: 17px;
+    font-size: 14px;
+}
+
+div#gPlayLogo
+{
+    background-position: 0px -40px;
+}
+
+div#appStoreLogo
+{
+    background-position: -120px -40px;
+    margin-right: 10px;
+}
+
+#appStoreLogoLink
+{    
+    margin-right: 10px;
+    background: url('apps.png') no-repeat;
+    background-position: -120px -40px;
+    padding: 12px 60px; 
+    cursor: pointer;    
+}
+
+#gPlayLogoLink
+{        
+    background: url('apps.png') no-repeat;
+    background-position: 0px -40px; 
+    padding: 12px 60px; 
+    cursor: pointer;    
+}
+
+div#osWinLogo
+{
+    background-position: 0px 0px;
+    margin-right: 10px;
+}
+
+div#osMacLogo
+{
+    background-position: -120px 0px;
+}
+
+#onTheGoText, #forgotPassHeadDesc
+{
+    margin-top: 14px;
+    margin-left: 2px;
+    line-height: 21px;
+}
+
+#downloadBefore
+{
+    margin-top: 15px;
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    line-height: 20px;
+    display: none;
+}
+
+#resendEmail
+{
+    line-height: 25px;
+    font-weight: bold;
+}
+
+#downloadBefore a
+{
+    color: #88bc00;
+    text-decoration: none;
+}
+
+#downloadBefore a:visited
+{
+    color: #88bc00;
+}
+
+#downloadBefore a:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#checkYourEmail
+{
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 15px;
+    display: none;
+}
+
+#checkYourEmail span
+{
+    font-weight: bold;
+}
+
+#talkBackSubjWrapper
+{
+    margin-top: 15px;
+    margin-left: 0px;
+    z-index: 10;
+}
+
+.cubbyDD
+{
+    height: 24px;
+    padding-top: 12px;
+    padding-left: 18px;
+    padding-right: 4px;
+    font-size: 11px;
+    color: #88BC00;
+    outline: 0;
+    float:left;
+    font-weight: bold;
+    
+    border-style: solid;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #c3c3c3;
+    border-left: 1px solid #dadada;
+    border-right: 0px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    background-color: White;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.activityFilterHeader.open .cubbyDD
+{
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+    border-left: 1px solid #bbbbbb;
+    background-color: #ededed;
+    color: #666;
+}
+
+.activityFilterHeader
+{
+    float: left;
+    width: auto;
+    height: 38px;
+    padding: 5px;
+}
+
+.activityFilterHeader.whoColumn {
+    padding-left: 0px;
+}
+
+.activityFilterHeader.open
+{
+    color: #666 !important;
+    border-color: #bbbbbb;
+}
+
+.whoColumn .cubbyDD
+{
+    width: 220px;
+}
+
+.typeColumn .cubbyDD
+{
+    width: 202px;
+}
+
+.dateDDColumn .cubbyDD
+{
+    width: 90px;
+}
+
+.activityFilterHeaderIcon
+{
+    background-image: url('action-button-bg-sprite.png');
+    background-repeat: no-repeat;
+    height: 38px;
+    width: 27px;
+    background-position: -10px 0px;
+    float: left;
+}
+
+.activityFilterHeader.open .activityFilterHeaderIcon 
+{
+     background-position: -10px -76px;
+}
+
+.cubbyDDL
+{
+    position: absolute;
+    margin-top: 38px;
+    margin-left: 0px;
+    display: none;
+    z-index: 20;
+    background-color: white;
+    padding-left: 0px;
+    border: 1px solid #bcbcbc;   
+    border-radius: 2px;
+    outline: 0;
+}
+
+.whoColumn .cubbyDDL
+{
+    width: 268px;
+}
+
+.typeColumn .cubbyDDL
+{
+    width: 250px;
+}
+
+.dateDDColumn .cubbyDDL
+{
+    width: 138px;
+}
+
+.cubbyDC:hover
+{
+    cursor: pointer;
+}
+
+.cubbyDD.open
+{
+}
+
+.cubbyDD.focus
+{
+}
+
+.cubbyDDL .ddlItem
+{
+    list-style: none outside none;
+    height: 27px;
+    line-height: 27px;
+    padding-left: 15px;
+    font-size: 13px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.cubbyDDL .ddlItem.inactive {
+    color: #999;
+}
+
+.cubbyDDL .ddlItem.sel
+{
+   background-color: #9dcd0c;
+   color: white;
+}
+
+.activityFilterContainer.cubbyDDL.scroll {
+    height: 280px;
+}
+
+.cubbyDDL .ddlItem:hover
+{
+    cursor: pointer;
+}
+
+.cubbyDDL .ddlItem.separator:hover
+{
+   background-color: transparent;
+   
+}
+
+.cubbyDDL .ddlItem.separator
+{
+    border-top: 1px solid #bcbcbc;
+    margin-top: 4px;
+    height: 4px;
+    cursor: default;
+}
+
+.vr_7 .cubbyDDL .ddlItem.separator
+{
+    line-height: 1px;
+    height: 0px;
+    top: -5px;
+    margin-top: 0px;
+}
+
+/*** Input control  ***/
+.headerCubbyInput
+{
+    float: inherit;
+    height: 42px;
+    font-size: 13px;
+}
+
+.passwordWM {
+    color: #999;
+    position: absolute;
+    font-size: 13px;
+    line-height: 13px;
+    left: 1px;
+    top: 9px;
+    display: none;
+}
+
+#registerWrapper .passwordWM {
+    display: block;
+}
+
+#registerWrapper .label 
+{
+    display: none;
+}
+
+.headerCubbyInput.focus .headerCubbyInputLeft, .headerCubbyInput.focus .headerCubbyInputCenter
+{
+    background-position: 0px -222px;
+}
+
+.headerCubbyInput.focus .headerCubbyInputRight
+{
+    background-position: 100% -222px;
+}
+
+
+.headerCubbyInput.error .headerCubbyInputLeft, .headerCubbyInput.error .headerCubbyInputCenter
+{
+    background-position: 0px -264px;
+}
+
+.headerCubbyInput.error .headerCubbyInputRight
+{
+    background-position: 100% -264px;
+}
+
+
+.headerCubbyInput.focus.disabled input
+{
+    color: #999 !important;
+}
+
+.headerCubbyInput.disabled .headerCubbyInputLeft, .headerCubbyInput.disabled .headerCubbyInputCenter
+{
+    background-position: 0px -492px !important;
+}
+
+.headerCubbyInput.disabled .headerCubbyInputRight
+{
+    background-position: 100% -492px !important;
+}
+
+.headerCubbyInput .headerCubbyInputLeft
+{
+    float: left;
+    width: 8px;
+    height: 42px;
+    background: url('input-sprite-sides.png') no-repeat;
+    background-position: 0 -180px;
+}
+
+.headerCubbyInput .headerCubbyInputRight
+{
+    float: left;
+    width: 8px;
+    height: 42px;
+    background: url('input-sprite-sides.png') no-repeat;
+    background-position: 100% -180px;
+}
+
+
+.headerCubbyInput .headerCubbyInputCenter
+{
+    float: left;
+    width: 224px;
+    height: 29px;
+    line-height: 42px;
+    background: url('input-sprite-horizontal.png') repeat-x;
+    background-position: 0 -180px;
+    padding-top: 13px;
+}
+
+.vr_7 .headerCubbyInput .headerCubbyInputCenter
+{
+    padding-top: 12px;
+    height: 30px;
+}
+
+.vr_9 .headerCubbyInput .headerCubbyInputCenter, .vr_10 .headerCubbyInput .headerCubbyInputCenter
+{
+    padding-top: 13px;
+    height: 29px;
+}
+
+.headerCubbyInput .headerCubbyInputCenter input, .headerCubbyInput .headerCubbyInputCenter textarea
+{
+    width: inherit;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: #999;
+    outline: 0;
+    background-color: transparent;
+}
+
+.vr_7 .loginPanelWrapper .headerCubbyInput .headerCubbyInputCenter input
+{
+     top: -13px;
+}
+   
+
+.headerCubbyInput.focus .headerCubbyInputCenter input, .headerCubbyInput.focus .headerCubbyInputCenter textarea
+{
+    color: #666;
+}
+
+/* Big input */
+
+.headerCubbyInput.big .headerCubbyInputLeft, .headerCubbyInput.big .headerCubbyInputCenter
+{
+    background-position: 0px -306px;
+    height: 92px;
+}
+
+.headerCubbyInput.big .headerCubbyInputCenter
+{
+    height: 79px;
+}
+
+.headerCubbyInput.big .headerCubbyInputRight
+{
+    background-position: 100% -306px;
+    height: 92px;
+}
+
+
+.headerCubbyInput.big.focus .headerCubbyInputLeft, .headerCubbyInput.big.focus .headerCubbyInputCenter
+{
+    background-position: 0px -398px;
+}
+
+.headerCubbyInput.big.focus .headerCubbyInputRight
+{
+    background-position: 100% -398px;
+}
+
+.headerCubbyInput.big
+{
+    height: 92px;
+}
+
+/*** Button ***/
+.greenButton
+{
+    width: 96px;
+    height: 40px;
+    cursor: pointer;
+    outline: 0;
+}
+
+.greenButton.inactive
+{
+    cursor: default;
+}
+
+.greenButton .buttonLeft
+{
+    float: left;
+    width: 10px;
+    height: 40px;
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-normal-left.png') no-repeat;
+}
+
+.greenButton:hover .buttonLeft
+{
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-hover-left.png') no-repeat;
+}
+
+
+.greenButton.inactive .buttonLeft, .greenButton.inactive:hover .buttonLeft
+{
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-inactive-left.png') no-repeat;
+}
+
+.greenButton .buttonRight
+{
+    float: left;
+    width: 10px;
+    height: 40px;
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-normal-right.png') no-repeat;
+}
+
+.greenButton:hover .buttonRight
+{
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-hover-right.png') no-repeat;
+}
+
+.greenButton.inactive .buttonRight, .greenButton.inactive:hover .buttonRight
+{
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-inactive-right.png') no-repeat;
+}
+
+.greenButton .buttonCenter span
+{
+    color: #88BC00;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 40px;
+}
+
+.greenButton.inactive .buttonCenter span
+{
+    color: #999;
+}
+
+.greenButton .buttonCenter
+{
+    float: left;
+    height: 40px;
+    width: 76px;
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-normal-center.png') repeat-x;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.greenButton.inactive .buttonCenter, .greenButton.inactive:hover .buttonCenter
+{
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-inactive-center.png') repeat-x;
+}
+
+.greenButton:hover .buttonCenter
+{
+    background: url('https://www.cubbyusercontent.com/Common/Images/marketing2/button-hover-center.png') repeat-x;
+}
+
+
+div#storeLogos
+{
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 32px;
+}
+
+.defaultError
+{
+    color: #bb1414;
+    font-size: 13px;
+    text-align: center;
+    display: none;
+}
+
+#inviteInfoWrapper, #teamInviteInfoWrapper, #teamTrialInfoWrapper
+{
+    width: 425px;
+    height: 205px;
+}
+
+#createKeyInfoWrapper {
+    width: 370px;
+    height: 205px;
+    padding-top: 70px;
+    margin: 0 auto;
+}
+
+#inviteInfoWrapper {
+     padding-top: 135px;
+}
+
+#teamTrialInfoWrapper {
+    padding-top: 60px;
+}
+
+#teamInviteInfoWrapper {
+    padding-top: 60px;
+}
+
+#inviteInfoWrapper .centerHeader,#teamInviteInfoWrapper .centerHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/** Welcome **/
+.centerHeader
+{
+    margin-top: 40px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-left: -1px;
+}
+
+/*** Action Button ***/
+
+.actionButton {
+    width: auto;
+    background-color: white;
+    height: 38px;
+    float: left;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.actionButton  div {
+    float: left;
+}
+
+.actionButton.first .left, .actionButton.last .right {
+    background-image: url('action-button-bg-sprite.png');
+    background-repeat: no-repeat;
+    width: 4px;
+    height: 38px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+}
+
+.actionButton.on.first .left, 
+.actionButton.on.last .right,
+.actionButton:hover.first .left, 
+.copyDiv:hover .actionButton.first .left, 
+.actionButton:hover.last .right, 
+.copyDiv:hover .actionButton.last .right, 
+/* Action button */
+.actionButton:hover + .actionButton.first .left,
+.copyDiv:hover .actionButton  + .actionButton.first .left 
+{
+    
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    background-color: white;
+}
+
+.actionButton.first .left {
+    background-position: 0px 0px;
+}
+
+.actionButton.last .right 
+{
+    background-position: -4px 0px;
+}
+
+.copyDiv:hover .actionButton.first .left, .actionButton.first:hover .left {
+    background-position: 0px -38px;
+}
+
+.actionButton.first.on .left {
+    background-position: 0px -76px;
+}
+
+.copyDiv:hover .actionButton.last .right, .actionButton.last:hover .right
+{
+    background-position: -4px -38px;
+}
+
+.actionButton.last.on .right {
+    background-position: -4px -76px;
+}
+
+ 
+.actionButton:hover,
+.copyDiv:hover .actionButton,
+.actionButton.on {
+    background-color: #fcfcfc;
+    cursor: pointer;
+}
+
+.actionButton.on {
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+
+.actionButton:hover + .actionButton .left,
+.copyDiv:hover .actionButton  + .actionButton .left,
+.actionButton.on + .actionButton .left {
+    border-left: 1px solid #bbbbbb;
+}
+
+.actionButton .left 
+{
+    border-left: 1px solid #dadada;
+    height: 36px;
+    width: 3px;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #c3c3c3;
+}
+
+.actionButton .right {
+     height: 36px;
+     width: 3px;
+     border-top: 1px solid #dadada;
+     border-bottom: 1px solid #c3c3c3;
+}
+
+.actionButton .center {
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #c3c3c3;
+    height: 36px;
+    width: auto;
+}
+
+.actionButton .icon 
+{
+    background-image: url('action-button-icon-sprite.png');
+    background-repeat: no-repeat;
+    margin-left: 3px;
+    margin-right: 2px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    height: 30px;
+    width: 30px;
+}
+
+.actionButton .name 
+{
+    height: 36px;
+    width: auto;
+    color: #88BC00;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 8px;
+    font-size: 11px;
+}
+
+.os_mac .actionButton .name, .vr_9 .actionButton .name, .vr_10 .actionButton .name
+{
+    margin-top: 11px;
+}
+
+.os_mac.br_ff .actionButton .name 
+{
+    margin-top: 12px;
+}
+
+/*.actionButton:hover .name,*/ .actionButton.on .name, .actionButton.open .name {
+    color: #666;
+}
+
+.copyDiv:hover .actionButton .center, .actionButton:hover .center, .actionButton.on .center,  .actionButton.open .center
+{
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.copyDiv:hover .actionButton .left, .actionButton:hover .left,.actionButton.on .left,.actionButton.open .left
+{
+    border-left: 1px solid #bbbbbb;
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.copyDiv:hover .actionButton .right, .actionButton:hover .right, .actionButton.on .right, .actionButton.open .right {
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+
+span.watermark.focused {
+    color: #C0C0C0;
+}
+
+span.watermark
+{
+    position: absolute; z-index: 10;
+    left: 11px; top: 28px;
+    padding: 0;
+    color: #A0A0A0;
+}
+
+.wmPadLeftColumn span.watermark {
+    left: 178px;
+}
+
+.vr_8 .wmPadLeftColumn span.watermark {
+    left: 200px;
+}
+
+#cubbyToolTip {
+    width: auto;    
+}
+
+.buyProCubbyButtonWrapper {
+    width: 276px;
+}
+
+#buyProButton.limeButton {
+    margin: 0 auto 14px;
+    width: 276px;
+}
+
+.popupFootNote {
+    font-size: 11px;
+    margin-left: 38px;
+    margin-top: 10px;
+}
+
+ div.equoteHeaderRow {
+    height: 26px;
+    line-height: 26px;
+}
+
+div.headerCell, div.equoteCell {
+    float: left;
+    font-size: 11px;
+}
+
+ div.equoteCell a {
+    text-decoration: none !important;
+    font-weight: bold !important;
+    color: #88BC00 !important;
+}
+
+div.equoteCell a:hover  {
+    text-decoration: underline !important;
+}
+
+div.equoteCell, div.equoteHeaderRow div.headerCell {
+    padding-left: 12px;
+}
+
+div.equoteColumn_1
+{
+    width: 133px;
+}
+
+div.equoteColumn_2
+{
+    width: 105px;
+}
+
+div.equoteColumn_3
+{
+    width: 60px;
+}
+
+div.equoteColumn_4
+{
+    width: 50px;
+}
+
+div.equoteColumn_5
+{
+    width: 95px;
+}
+
+div.equoteColumn_6
+{
+    width: 95px;
+}
+
+div.equoteColumn_7
+{
+    width: 132px;
+}
+
+div.equoteColumn_8
+{
+    width: 159px;
+}
+
+.equoteDataRow 
+{
+     background-color: #FFF;
+    height: 44px;
+    line-height: 44px;
+}
+
+.equoteDataRow.even {
+   background-color: #F6FEDF;
+}
+
+#gotoPricingNoEquote {
+    margin-top: 21px;
+    margin-left: 21px;
+}
+
+#gotoPricingNoEquote.actionButton .name {
+    margin-left: 10px;
+}
+
+a.normalGreenLink:hover {
+    text-decoration: underline;
+}
+
+a.normalGreenLink {
+    color: #88BC00;
+}
+
+
+.signUpHeader {
+    font-size: 20px;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+ul.productFrameUL {
+    margin: 20px 0px 26px 0px;
+    padding-left: 18px;
+}
+
+ul.productFrameUL.smallMargin {
+    margin-top: 10px;
+}
+
+ul.productFrameUL li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+ul.productFrameUL li sup {
+    font-size: 7px;
+}
+
+
+.signUpFooter {
+    font-weight: bold;
+}
+
+.teamInviteSummary {
+    margin-top: 10px;
+    line-height: 20px;
+    word-wrap: break-word;
+}
+
+span.PR15
+{
+    padding-right: 15px;
+}
+
+.br_ie span.PR15
+{
+    padding-right: 25px;
+}
+
+.br_ie .radioStyle
+{
+    padding-right: 5px;
+}
+
+div.companySizeDiv
+{
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.inviteFooterWrapper a, .inviteFooterWrapper a:hover, .inviteFooterWrapper a:visited
+{
+    text-decoration: none;    
+}
+
+p.PT15
+{
+    padding-top:15px;
+}
+
+.br_ie p.PT15
+{
+    padding-top:23px;
+}
+
+div.PT15
+{
+    padding-top:15px;
+}
+
+.br_ie div.PT15
+{
+    padding-top:23px;
+}
+
+.M13
+{
+    margin-top: 13px;
+}
+
+/************************************************/
+/*** BEGINING of team trial download section ***/
+/**********************************************/
+
+span.winicon.in-btn-icon 
+{
+    background: url('platform.png') 24px 0;
+    width:24px;
+    height:21px;
+    text-align:left;
+    margin-right: 10px;
+    top: 0px;
+}
+
+span.macicon.in-btn-icon 
+{
+    background: url('platform.png')0px 0;
+    width:24px;
+    height:21px;
+    text-align:left;
+    margin-right: 10px;
+    top: 0px;
+}
+
+span.in-btn-icon {
+    margin-right: 15px;
+    font-size: 25px;
+    line-height: 25px;
+    position: relative;
+    top: 3px;
+    left: 0px;
+}
+
+span.btn_big_txt {
+    font-size: 16px;
+    line-height: 23px;
+    display: block;    
+}
+
+.btn-success, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled], .btn-success:hover {
+    color: #373b3e;
+    border: 1px solid #b5d75c;
+    height: 46px;
+}
+
+.btn-large
+{
+    padding: 9px 14px;
+    font-size: 16px;
+}
+
+.winbutton
+{
+    text-align:left;
+    width:250px;
+}
+
+.br_ff .winbutton
+{
+    width:253px;
+}
+
+.macbutton
+{
+    text-align:left;
+    width:217px;
+}
+
+.height-fix
+{
+    max-height:300px;
+    max-width: 540px;
+}
+
+.video_player
+{
+    max-height:300px;
+    max-width: 540px;
+}
+
+.os_mac #davWin {
+    display: none;
+}
+
+#davMac {
+    display: none;
+}
+
+.os_mac #davMac {
+    display: block;
+}
+
+.downloadLinkStyle
+{
+    color: #88bc00;
+    cursor:pointer;
+}
+
+#downloadTrialWrapper
+{
+    padding-top:15px;
+    padding-bottom:5px;
+}
+
+.pull-left
+{
+    float: left;
+}
+
+.teamTrialWelcomePopupContent, #trialExpiredPopUp
+{
+    padding-top: 36px;    
+    padding-left: 34px;
+    padding-right: 41px;
+    padding-bottom: 19px;
+}
+
+.teamTrialTitle
+{
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-top:15px;
+}
+
+.teamTrialWelcomePopupContent .tourPopupText, #trialExpiredPopUp .tourPopupText {
+    font-size: 15px;
+    line-height: 22px;
+    margin-top: 0px;
+}
+
+.teamTrialWelcomePopupContent .tourPopupHeader, #trialExpiredPopUp .tourPopupHeader {
+    font-size: 20px;
+    padding-bottom: 1px;
+    font-weight: normal;
+    margin-bottom:15px;
+}
+
+#trialExpiredPopUp {
+    width: 307px;
+}
+
+
+#trialExpiredPopUp #buyProButton.limeButton {
+    width: 307px;
+}
+
+#trialExpiredPopUp .buyCubbyProButon .buttonCenter {
+    width: 287px;
+}
+
+.teamTrialWelcomePopupContent ul, #trialExpiredPopUp ul {
+    margin-top: 0px;
+    padding-left: 25px;
+}
+
+ #trialExpiredPopUp .trialLearnMoreLinkWrapper {
+     margin-bottom: 15px;
+ }
+
+/*********************************************/
+/*** END of team trial download section   ***/
+/*******************************************/
+
+
+#teamTrialFrameWrapper img {
+    border: none;
+}

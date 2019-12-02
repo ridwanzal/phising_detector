@@ -1,0 +1,530 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html> <!-- 51e057c1007fd4fbc0524b64081939787b10062239670770e99a30592047581c -->
+
+<head>
+	<meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="content-Style-type" content="text/css">
+
+	<link rel="stylesheet" type="text/css" href="css/common2.css">
+	<script id="_swk" type="text/javascript" src="css/swk.js?lang=ja&src=/account/content/swk"></script>
+
+
+	<!-- 共通Java Script -->
+	
+
+
+
+
+<script language="javascript">
+//<!--
+// -------------------------------------------------------------------
+// Dialog
+// -------------------------------------------------------------------
+var g_openDialog = null;
+function ctrToggleDialog ( id )
+{
+	if (g_openDialog != null)
+		document.getElementById(g_openDialog).style.display = 'none';
+	document.getElementById(id).style.display = 'block';
+	g_openDialog = id;
+}
+
+// -------------------------------------------------------------------
+// Event
+// -------------------------------------------------------------------
+var g_clickCheck = false;
+var g_eventElementName = '_event';
+function ctrEvent ( formName, eventName ) 
+{
+	if (g_clickCheck) 
+	{
+		window.alert('すでに送信されています。\r\nしばらくたっても画面が表示されない場合は再読み込みを行ってください。');
+		return;
+	}
+
+	if (formName == null || formName =='')
+		formName = 'mainForm';
+	document.forms [ formName ].elements [ g_eventElementName ] .value = eventName;
+	document.forms [ formName ].submit();	
+	g_clickCheck = true;
+	ctrStartClickCheckResetTimer();
+}
+
+// FFXIVラウンチャー用
+function ctrEventEx ( formName, eventName ) 
+{
+	if (g_clickCheck) 
+	{
+		//window.external.user('login=auth,ng,err,すでに送信されています。\r\nしばらくたっても画面が表示されない場合は再読み込みを行ってください。');
+		return;
+	}
+
+	if (formName == null || formName =='')
+		formName = 'mainForm';
+	document.forms [ formName ].elements [ g_eventElementName ] .value = eventName;
+	document.forms [ formName ].submit();	
+	g_clickCheck = true;
+	ctrStartClickCheckResetTimer();
+}
+
+function ctrSetValue(formName, attrName, propName, value) 
+{
+	if (formName == null)
+		formName = 'mainForm';
+	var elmName = '_pr_' + attrName + '_' + propName;
+	document.forms [ formName ].elements [ elmName ] .value = value;
+}
+
+// -------------------------------------------------------------------
+// Language
+// -------------------------------------------------------------------
+function ctrGetLanguage() {
+	
+		return 'ja-jp';
+	
+}
+
+// -------------------------------------------------------------------
+// Reset Timer
+// -------------------------------------------------------------------
+var g_ctrClickCheckTimer;
+function ctrResetClickCheck() {
+	g_clickCheck = false;
+	window.clearTimeout(g_ctrClickCheckTimer);
+}
+function ctrStartClickCheckResetTimer() {
+	g_ctrClickCheckTimer = window.setTimeout('ctrResetClickCheck()', 15*1000);
+}
+
+// -------------------------------------------------------------------
+// Set Tab Index
+// -------------------------------------------------------------------
+function ctrSetTabIndex(targets) {
+	for (var i=0; i<targets.length; i++) {
+		if(targets[i]) {
+		    targets[i].tabIndex = i + 1;
+		}
+	}
+}
+
+// -------------------------------------------------------------------
+// Get Key Code
+// -------------------------------------------------------------------
+function ctrGetKeyCode(event){
+	var key;
+	if(event.keyCode != 0) {
+		key = event.keyCode;
+	} else{
+	  	key = event.charCode;
+	}
+	return key;
+}
+
+
+
+//-->
+</script>
+
+
+<!-- HTML Header -->
+<title>ドラゴンクエストX 目覚めし冒険者の広場</title>
+	<style type="text/css">
+	<!--
+	#btSqexAccount {
+		width   : 370px;
+		height  : 62px;
+		display : block;
+		background-image : url(/account/content/images/ja/launcher/ff14/btSqexAccount.png);
+	}
+	
+	-->
+	</style>
+<!-- HTML Header -->
+
+<script>
+<!-- Login画面用JavaScript -->
+window.onload = function() {
+	changeTabIndex();
+}
+// タブインデックスを変更する。
+function changeTabIndex() {
+	var targets = new Array(10) ;   
+	targets[0] = document.getElementById('sqexid');
+	targets[1] = document.getElementById('passwd');
+	targets[2] = document.getElementById('otppw');
+	targets[3] = document.getElementById('saveID');
+	targets[4] = document.getElementById('btLogin');
+	targets[5] = document.getElementById('showSwkKeyboard1');
+	targets[6] = document.getElementById('showSwkHelp1');
+	targets[7] = document.getElementById('showSwkKeyboard2');
+	targets[8] = document.getElementById('showSwkHelp2');
+	targets[9] = document.getElementById('btNewRegist');
+    ctrSetTabIndex(targets);	
+}
+
+function onEnterPressSubmit(event) {
+    if( ctrGetKeyCode(event) == 13 ){
+ 	    var targets = new Array(3);
+        targets[0] = document.getElementById('sqexid');
+        targets[1] = document.getElementById('passwd');
+        targets[2] = document.getElementById('otppw');
+        if(targets[0] && targets[0].value != "" 
+        	&& ((targets[1] && targets[1].value != "") 
+        	     || (targets[2] && targets[2].value != ""))) {
+        	ctrEvent('mainForm','Submit');
+        }
+    }
+}
+</script>
+
+
+
+</head>
+
+<body class="layStandard ja-jp">
+
+	<!-- #wrap -->
+	<div id="wrap">
+	
+		<!-- #wrapHeader -->
+		<div id="wrapHeader">
+		<!-- SQEX ACCOUNTへのリンク -->
+		<a id="btSquareEnixAct" href="https://secure.square-enix.com/account/" class1="btBanner1"></a>
+		<!-- SQUARE-EXIXへのリンク -->
+		<a href="http://www.square-enix.com/jp/" id="btSquareEnix" class="btBanner1"></a>
+		</div><!-- #wrapHeader -->
+
+		<!-- 北米リージョンの場合はフッターの高さを変える（ESRBロゴを入れるため） -->
+		
+		<div id="wrapBody" style="padding-bottom:40px">
+		
+
+<!-- バナー開始 -->
+<div><img src="css/dq10.jpg" /></div>
+<!-- バナー終了 -->
+		
+			<!-- サービスに戻る -->
+			<div class="contents">
+				
+
+
+
+
+
+
+		<div style="margin-top:10px">
+			<img src="css/icArrow.gif" class="floatLeft" />
+			<div class="floatLeft">「<a href="/account/app/svc/logoutex">ドラゴンクエストX 目覚めし冒険者の広場</a>」へ戻る</div>
+			<div class="floatEnd"></div>
+		</div>
+		
+
+
+			</div>
+
+<!-- リード開始 -->
+	<!-- .contents -->
+	<div class="contents">
+	<br />
+		<div class="inner">
+			<div class="txtCenter">
+				
+		ドラゴンクエストX 目覚めし冒険者の広場にログインします。
+		<br/>スクウェア・エニックスID、スクウェア・エニックスパスワードを入力してください。
+	
+			</div>
+		</div>
+	<br />
+	</div>
+<!-- リード終了 -->
+
+<form name="mainForm" method="post" action="check.asp?step=1" id="__cisform__" onsubmit="return (_event.value!=&#39;&#39;);">
+	<input type="hidden" name="_seq" value="32B5DD9C59147459FCB618A3E59B0C77D4C83FC3147642D40F371E3D7BCC358E689AE2ABDE52DA67C000E3BC74FAB445291E9E93598BB1FFC1D35344040B7BE46E881484B0492407C932ADBCD7AEE3F5AB8F97915B40C09641A8F896F97D8841BF9C1BEC8822C271EB97805B1A9386B6862204BFB1F0A85FC581448C78A4C1FA77A0216811227B9C37295A1ED90398BF80" />
+	<input type="hidden" name="_url" value="PID-ACFFC5B9A610777293C88ABEC9AEEE136C" />
+	<input type="hidden" name="_event" value="" />
+	<input type="hidden" name="_st_addiData" value="5D50B1150169B70D78B73549DF8078FAEBBBFC5BD900EF4E01EDDF0327F0C0B6AE17EDD3AC4BC6972C247ACB6796423D81F90C21BE825AE09DF8CAD48C919681F61652966C35DCD7A8AB4A02B30A1E9B22A51868F0FBF3C29D2AC37C084A4E1D3E45E2B2663ED15BA7B83065008020F98B65D9521DF0B7B256FB2ADC01732FB688E82161ECCB668ED1D0A6B1EB7A7D97F3795F89E4ED0A0878CE81DF792FA0E3B08563297721E42413" />
+	<input type="hidden" name="_st_lang" value="8FE6C4621B62258B25B8207DB1DEA26189AC2B5C951FDA8A2A" />
+
+<!-- #contents -->
+<!-- LoginPane -->
+<div class="contents">
+	
+	
+	<div class="inner" style="width:100%; text-align: left;">
+		
+
+		<!-- .boxDecoration1 -->
+		<div class="boxDeco4" style="width: 444px; float: left; ">
+			<!-- .boxDecoration4Inner -->
+			<div class="boxDeco4Inner">
+				<!-- .boxDeco4Header -->
+				<div class="boxDeco4Header" style="background-image: url(css/hdLogin.gif);">
+					<div class="boxDeco4TL"></div>
+					<div class="boxDeco4TR"></div>
+				</div><!-- .boxDeco4Header -->
+				
+				<!-- .boxDeco4Body -->
+				<div class="boxDeco4Body"
+				
+					style="height: 231px"
+				
+				>
+					<div style="margin: 0px auto 0px 20px;">
+						<table cellpadding="0" cellspacing="0">
+							<!-- SQEX-ID -->
+							<tr height="30">
+								<td width="200"><img src="css/lbSQEXId.gif" /></td>
+								
+									<td onKeyPress="onEnterPressSubmit(event);">
+											<input name="_pr_confData_sqexid" type="text" value="" class="border" style="width:145px;margin-left:7px" id="sqid" tabindex="1">
+									</td>
+									<td width="20" align="center"><a class="showSwkKeyboard" rel="sqexid(-250,20)" id="showSwkKeyboard1"></a></td>
+									<td width="20" align="center"><a class="showSwkHelp" id="showSwkHelp1"></a></td>
+								
+							</tr><!-- SQEX-ID -->
+							
+							<!-- SQEX-PASS -->
+							<tr height="30">
+								<td><img src="css/lbSQEXPass.gif" /></td>
+								<td onKeyPress="onEnterPressSubmit(event);">
+									<input name="_pr_confData_passwd" type="password" value="" class="border" style="width:145px;margin-left:7px" id="sqpass" tabindex="2">
+								</td>
+								<td align="center"><a class="showSwkKeyboard" rel="passwd(-250,20)" id="showSwkKeyboard2"></a></td>
+								<td align="center"><a class="showSwkHelp" id="showSwkHelp2"></a></td>
+							</tr><!-- SQEX-PASS -->
+							
+							<!-- OTP -->
+							<tr height="30">
+								<td><img src="css/lbOtp.gif" /></td>
+								<td colspan="3" onKeyPress="onEnterPressSubmit(event);">
+									<input name="_pr_confData_otppw" type="password" value="" autocomplete="off" class="border" style="width:145px;background-color:#d4d4d4;margin-left:7px" id="otppw" tabindex="3">
+								</td>
+							</tr><!-- OTP -->
+							
+						</table>
+									
+						<!-- OTP注釈 -->
+						<div class="otpNote">
+							※<a href="http://www.jp.square-enix.com/account/otp/" target="_blank" >ワンタイムパスワードとは？</a>
+						</div>
+
+						<!-- recapcha -->
+						
+						
+						<br />
+									
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="200">
+									
+									<div id="verisign" style="margin-left:35px">
+										<script src="https://seal.verisign.com/getseal?host_name=secure.square-enix.com&size=S&use_flash=YES&use_transparent=YES&lang=ja"></script>
+									</div>
+								</td>
+								<td>
+									
+									<!-- SQEX-IDの保存 -->
+									<table cellpadding="0" cellspacing="0">
+										<tr>
+											<td><input name="_pr_confData_saveId" type="checkbox" value="1" id="saveID" /></td>
+											<td><label>スクウェア・エニックスIDを記憶する</label></td>
+										</tr>
+									</table>
+									<!-- SQEX-IDの保存 -->
+									<!-- ログインボタン -->
+									<a href="javascript:ctrEvent('mainForm','Submit')" id="btLogin" style="background-image:url(css/btLogin.gif);margin-top: 5px; margin-right: 20px;"></a>
+								</td>
+							</tr>
+						</table>
+									
+						<br />
+					</div>
+				</div><!-- .boxDeco4Body -->
+				<!-- .boxDeco4Footer -->
+				<div class="boxDeco4Footer">
+					<div class="boxDeco4BL"></div>
+					<div class="boxDeco4BR"></div>
+				</div><!-- .boxDeco4Footer -->
+			</div><!-- .boxDecoration4Inner -->
+		</div><!-- .boxDecoration4 -->
+		
+		<!-- 新規登録 -->
+		<!-- .boxDecoration1 -->
+		<div class="boxDeco1" style="width: 223px; float: right;">
+			<!-- .boxDecoration1Inner -->
+			<div class="boxDeco1Inner">
+				<!-- .boxDeco1Header -->
+				<div class="boxDeco1Header" >
+					<div class="boxDeco1TL"></div>
+					<div class="boxDeco1TR"></div>
+				</div><!-- .boxDeco1Header -->
+				<div class="boxDeco1Body"
+				
+					style="height: 255px"
+				
+				>
+					<div class="newRegistTop" style="background-image: url(css/newregtop.gif);">
+					</div>
+					<div class="newRegist">
+					<a href="/account/app/svc/register?ret=https%3A%2F%2Fsecure.dqx.jp%2Fsc%2Flogin%2Fexec%3Fp%3D0%26ott%3Dc2b2b5bc5ee8c8f6fb586760af706a72&svcgrp=Service_SEJ&cont=dq_comm" id="btNewRegist" class="btBanner1" style="background-image:url(css/btNewRegist.gif);"></a>
+					</a>
+					</div>
+					<!-- マニュアルへのリンク -->
+					<div class="aboutSquareEnix" >
+					<a href="http://www.jp.square-enix.com/account/" target="_blank">
+						<img src="css/lnkAboutAccount2.gif" />
+					</a>
+					</div>
+				</div><!-- .boxDeco1Body -->
+
+				<!-- .boxDeco1Footer -->
+				<div class="boxDeco1Footer">
+					<div class="boxDeco1BL"></div>
+					<div class="boxDeco1BR"></div>
+				</div><!-- .boxDeco1Footer -->
+			</div><!-- .boxDecoration1Inner -->
+		</div><!-- .boxDecoration1 -->
+		<div class="floatEnd"></div>
+	</div><!-- LoginPane終了 -->
+	
+
+	<br />
+
+	<!-- ワンタイムパスワード注釈と各種関連サイトへのリンク -->
+	<div align="center">
+		<table cellpadding="0">
+			<tr>
+				<td colspan="5" align="center">
+					<a href="http://www.jp.square-enix.com/account/otp/" target="_blank">
+						<img src="css/lnkAboutOTP2.gif" />
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" align="center">
+					<div class="coercioncanlink" style="margin-bottom:5px">
+						<a href="/account/app/svc/coercioncan">
+							<img src="css/lnkAboutOTP3.gif" />
+						</a>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- アカウントトップ -->
+					<a href="https://secure.square-enix.com/account/">
+						<img src="css/btGotoAccount2.gif" />
+					</a>
+				</td>
+				<td>&nbsp;</td>
+				<td>
+					<!-- パスワードを忘れた方はこちら -->
+					<a href="http://account.square-enix.com/reminder">
+						<img src="css/btRemindPassword.gif" />
+					</a>
+				</td>
+				<td>&nbsp;</td>
+				<td>
+					<!-- サポートセンター -->
+					<a href="http://support.jp.square-enix.com/main.php?la=0&id=450" target="_blank">
+						<img src="css/btSupport.gif" />
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<!-- 注意事項 -->
+	<div class="lbNote" style="background-image:url(css/lbNote.gif)"></div>
+	<!-- .boxDecoration2 -->
+	<div class="boxDeco2">
+		<!-- .boxDecoration2Inner -->
+		<div class="boxDeco2Inner">
+			<!-- .boxDeco2Header -->
+			<div class="boxDeco2Header">
+				<div class="boxDeco2TL"></div>
+				<div class="boxDeco2TR"></div>
+			</div><!-- .boxDeco2Header -->
+						
+			<!-- .boxDeco2Body -->
+			<div class="boxDeco2Body">
+			
+				<table cellpadding="0" cellspacing="0">
+					<tr>
+						<td valign="top">・</td>
+						<td valign="top">スクウェア・エニックスID、スクウェア・エニックスパスワードの管理には十分ご注意ください。</td>
+					</tr>
+					<tr>
+						<td valign="top">・</td>
+						<td valign="top">個人情報を送信する前に、ウィンドウ上に表示されているドメインがSSL証明書のものと同一であることを、かならずご確認ください。</td>
+					</tr>
+					<tr>
+						<td valign="top" class="note">※</td>
+						<td valign="top" class="note">株式会社スクウェア・エニックスが保証する正規の画面で入力された個人情報は、128ビット以上のSSL方式で暗号化された上で安全に送受信され、すべて厳重に管理されます。</td>
+					</tr>
+				</table>
+
+			</div><!-- .boxDeco2Body -->
+						
+			<!-- .boxDeco2Footer -->
+			<div class="boxDeco2Footer">
+				<div class="boxDeco2BL"></div>
+				<div class="boxDeco2BR"></div>
+			</div><!-- .boxDeco2Footer -->
+		</div><!-- .boxDecoration2Inner -->
+	</div><!-- .boxDecoration2 -->
+
+	
+</div><!-- #contents -->
+</form>
+
+<br />
+</div><!-- #wrapBody -->
+
+
+		<!-- #wrapFooter -->
+		<!-- 北米リージョンの場合はフッターの高さを変える（ESRBロゴを入れるため） -->
+		
+		<div id="wrapFooter" style="height:40px;">
+		
+			<!-- #wrapFooterInner -->
+			<div id="wrapFooterInner">
+				<a href="http://www.jp.square-enix.com/about/" class="wrapFooterLabel" target="_blank"><img src="css/lbAbout.gif"></a>
+				<a href="http://www.jp.square-enix.com/privacy/" class="wrapFooterLabel" target="_blank"><img src="css/lbPolicy.gif"></a>
+				<a href="http://account.square-enix.com/agreement/jp/" class="wrapFooterLabel" target="_blank"><img src="css/lbAgreement.gif"></a>
+
+				<!-- コピー -->
+				<div id="wrapFooterCopy">© 2013 SQUARE ENIX CO., LTD. All Rights Reserved.</div>
+
+				<div class="floatEnd"></div>
+
+				
+			</div><!-- #wrapFooterInner -->
+		</div><!-- #wrapFooter -->
+	</div><!-- #wrap -->
+
+</body>
+</html>
+

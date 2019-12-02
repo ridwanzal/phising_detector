@@ -1,0 +1,166 @@
+﻿html { background: #eee; }
+    /* Errors */
+    .signin dl{ margin: 5% 10% 2% 10%;color: #bf1e2e;position: relative;}
+    .signin dt{ display: inline-block;*zoom: 1;*display: inline; position:absolute}
+    .signin dd{ display: inline-block;*zoom: 1;*display: inline;width: 92%; margin:0 0 0 6%}
+    .signin dl.messages-success{ color: green;}
+
+    /* Page */
+    .signin{ margin: 15px 0;width: 100%;position: relative;overflow: hidden; padding: 0 0 2% 0;min-width: 265px; border-radius: 6px;background: #f3f8fc;-webkit-box-shadow: 0 2px 8px #555;-ms-box-shadow: 0 2px 8px #555;box-shadow: 0 2px 8px #555;}
+    .signin h2{padding: 2% 6%;margin: 0 0 2% 0; background:#8e8e8e;color: white; border-top-left-radius: 6px;border-top-right-radius: 6px;font-weight: normal;}
+    .signin h2 b{ display: block;font-size: 25px; font-weight: inherit;}
+    .signin h2 span{ font-size: 14px;}
+    .signin form {padding: 0 0 5% 0;margin: 0 0 15px 0;position: relative;}
+    .signin input[type="email"],
+    .signin input[type="text"],
+    .signin input[type="password"]{ width: 100%;height: 30px; text-indent:1%}
+    .signin label{ display: block;position: relative;margin: 0 0 2% 0; }
+    .signin label span{font-weight: bold;font-size: 80%;-webkit-transform: translate(0, 0);-moz-transform: translate(0, 0);-ms-transform: translate(0, 0);-o-transform: translate(0, 0);transform: translate(0, 0);transition: 150ms, opacity 120ms;visibility: hidden; opacity:0}
+    .signin label.field-active span,
+    .ie .signin label span {visibility: visible; -webkit-transform: translate(0, 0.2em);-moz-transform: translate(0, 0.2em);-ms-transform: translate(0, 0.2em);-o-transform: translate(0, 0.2em);transform: translate(0, 0.2em);transition: transform 100ms, opacity 120ms; opacity:1}
+    .signin p label{ margin: 0;}
+    .signin p small{ font-size: 80%;}
+    .signin fieldset{margin:0 10%}
+    .signin legend{ position: relative;border-top: 1px solid #ddd;left: 0;padding: 0 0 14px 0;margin:18px  0 18px -12.5%;width: 125%; top:8px}
+    .signin legend span{position: absolute; padding: 2px;background:#f3f8fc;top: -9px;left: 49%;font-weight:bold;}
+    .signin button.button,
+    .signin button.button-primary{ width: 100%;font-size: 125%;margin: 10px 0;display: block; padding:0 5%}
+    .signin .action-secondary{ text-align: right;margin:10px 3% 15px 0}
+    .signin.signinToView form{ min-height: 270px;}
+        /* Mini profile */
+        .login-profile{ position: absolute;margin: -2% 0;height: 100%;background: #e3e3e3;right: 0;}
+        .login-profile h4{ margin: 8% 0;font-size: 18px;color: #3376b3; word-wrap:break-word}
+        .login-profile p{margin:0 0 8% 0}
+        .login-profile p strong{ display: block;}
+        .login-profile .card{ margin-top: -20px; padding:035px}
+            .card div{ width: 150px;height: 150px;background: #494949;line-height: 100px;text-align: center;vertical-align: middle;position: relative;}
+            .card div img{ position: relative;height: 100%;max-height: 150px;max-width: 150px;}
+            .card div em{font-style:normal}
+            .card div span{ position: absolute;bottom: 10px;right: 10px;background: black; background: rgba(0,0,0, 0.6);border-radius: 8px;box-shadow:0 0 8px #eee ; color: white;height: 20px;line-height: 20px; padding:0 5px}
+    /* Logout overrides */
+    .logout{max-width:1000px}
+    .logout .signin dd{ margin:0 0 0 3%}
+    .logout .signin h2{ padding: 2%;}
+    .logout .signin dl {margin:2%}
+    .logout .signin dt{width: 2%;}
+    .logout .signin fieldset{ float: left;width: 28%;margin: 0;padding: 0 2%;}
+    .logout .signin fieldset legend{ border-top: none;border-left: 1px solid #ddd;top: 0;float: left;height: 135px;padding: 0;margin: 0 2% 0 0;width: 7%;}
+    .logout .signin fieldset legend span{ top: 50px;left: -8px;}
+    .logout .button.button-facebook{ width: 90%; }
+    .logout .autologin-status{ padding: 1% 2%; margin:0 0 2% 0}    
+
+    .resetPass, .recoverEmail { max-width: 860px;}
+    .forgotPass { max-width: 700px;}
+    .resetPass .field-title, .recoverEmail .field-title { margin: 15px 0;font-size: 18px;}
+        .field-title .email { margin: 10px 0; color: #c2c2c2; -ms-word-wrap: break-word; word-wrap: break-word; }
+    .resetPass .ico-left, .recoverEmail .ico-left {float: left; font-size: 30px; padding: 20px; margin: 0 20px; color: #fff;background-color: #8e8e8e; border-radius: 100%;}
+    #error, #validationError { color: #eb2026;font-size: 15px;margin-bottom: 10px; display: none; }
+    .recoverEmail #error { font-size: 13px;margin-right: -20px; }
+    .signin .resetPass .fps .ico-left { margin-top: 10px; }
+    .signin .resetPass .action-secondary {text-align: left; margin-top: 15px; }
+    .logout .signin .resetPass fieldset { width: auto; }
+    .recoverEmail fieldset { width: 240px; }
+    .recoverEmail label { line-height: 2em; font-weight: bold; }
+    .recoverEmail label em { display: block; font-weight: normal; font-style: normal; }
+    .recoverEmail label.ui-toggle { margin-bottom: 0;}
+    .signin .recoverEmail .selector span { font-weight: normal; font-size: 100%; -webkit-transform: none;-moz-transform: none;-ms-transform: none;-o-transform: none; transform: none; transition: none; visibility: visible; opacity: 1; }
+
+    .recoverEmail input, .recoverEmail .selector { font-size: 14px; }
+    .ie9 .selector { width: 63px; }
+    .recoverEmail .buttons { margin: 2em 0; }
+    .form-content { float: left; width: 80%; }
+        .form-content fieldset { margin: 0; padding: 0; width: 100%; }
+        .signin .form-content .button.button-blue { padding: 14px 10%; height: auto; }
+    #changeEmail { width: 20px; margin-left: -22px; }
+    .input { padding: 0; position: relative; }
+        .input .icon { position: absolute; line-height: 32px; top: 0; right: 0; }
+        .input .icon-valid { color: #39b449; }
+        .input .icon-invalid { color: #eb2026; }
+
+    .signin .error { background-color: #eb2026;}
+    .signin .success { background-color: #39b449;}
+    .resetPass .fields {width: 550px;}
+    .resetPass h3, .forgotPass h3, .forgotEmail h3 { font-size: 16px; }
+    .forgotPass h3, .forgotEmail h3 {padding: 15px;}
+    .resetPass .fields .buttons { width: 90%; }
+    .resetPass form { padding: 0;margin: 0;}
+    .resetPass .fields a { margin-right: 10px; }
+        .resetPass .fields a:last-of-type { margin-right: 0; }
+    .signin .button.button-blue { height: 45px; border-radius: 24px; }
+        
+    /* Registration */
+    .signup{ text-align: center;font-size: 16px;}
+    .signup a{ font-weight: bold;}
+
+    .cta-upsell{ padding: 20px;border: 1px solid #cecece;background: white; width: 260px; color:#4f4f4f}
+    .cta-upsell h5{ font-size: 16px;}
+    .cta-upsell p{margin:15px 0}
+    .cta-upsell .button{ font-size: 150%;width: 100%;display: block;padding: 0;font-weight:normal}
+
+    /* Advertising */
+    .advertising{ margin:10px 0 20px 0;}
+    .advertising h6{ font-size: 11px;}
+        
+/* Facebook */
+#facebook-modal{ background: none;border: none;top: 15%;margin-top: 0 !important;position: absolute;}
+.facebook-signin{font-weight: bold; color: #2b88c8;font-size: 16px; padding:2% 0 0 0}
+    .fb-like{ width: 90px !important;display: inline-block !important;*dislay: inline;*zoom: 1; vertical-align: middle !important}
+
+/* Legacy support */
+.signin-error label span{ opacity: 1;visibility: visible}
+.signin-error p{ text-align: right;}
+.signin-error .button{ width: 400px;margin: 0 auto;display: block;}
+.signin-error input.button:hover{ cursor: pointer; outline:none}
+
+body.embedded { background: #f3f8fc; }
+    body.embedded .field-title { margin: 15px 10%; }
+    body.embedded input { border-radius: 6px; box-shadow: 0 2px 3px #ddd inset; }
+body.mobi .signin { margin: 0; border-radius: 0; box-shadow: none; }
+    body.mobi .signin h2 { border-radius: 0; }
+    body.mobi select { font-size: 14px; border: 1px solid #ddd; height: 32px; }
+
+    input::-ms-clear {
+   display: none;
+}
+
+/* Media queries */
+@media only screen and (max-width: 690px), only screen and (max-device-width: 690px)
+{
+    html { background: none !important; }
+    .logout .signin button.button,
+    .logout .signin button.button-primary{font-size: inherit;}    
+}
+
+@media only screen and (max-width: 485px), only screen and (max-device-width: 485px)
+{
+    #bodyContentInner.content{ width: 98%; margin: 0 1%; padding:0 }
+    .grid-r,
+    .grid-l,
+    .logout .signin fieldset{ width: 100%; float: none; margin: 0 auto; }
+    .logout .signin dd{margin:0 0 0 6%;}
+    .login-profile{ width: 100%;position: relative;}
+
+    .signin h2 {padding: 2% 4%;}
+    .signin h2 b{font-size: 20px;}
+    .signin h2 span{ font-size: 12px;}
+    .signin button.button,
+    .signin .button.button-facebook,
+    .signin input[type="email"],
+    .signin input[type="text"],
+    .signin input[type="password"]{ width: 97%;}
+    .signin .input .icon { right: 3%; }
+
+    .logout .signin dt{width: 6%;}
+    .logout .signin fieldset legend{ position: relative;border-top: 1px solid #ddd;left: 0;padding: 0 0 14px 0;margin: 0  0 18px -12.5%;width: 125%;top: 8px;float: none;border-left: none; height:auto}
+    .logout .signin fieldset legend span{top: -9px;left: 49%;}
+
+    .signin form.recoverEmail { padding: 0 4%; }
+    .signin .ico-left { display: none; }
+    .signin .form-content { margin-left: 10%; }
+    .signin .confirm { margin: 0 5%; }
+        .signin .confirm h3 { padding: 15px 0; }
+
+    .resetPass .field-title, .recoverEmail .field-title { margin: 15px 10%; }
+    .resetPass .fields { width: auto; }
+}
+            

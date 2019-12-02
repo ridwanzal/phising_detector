@@ -1,0 +1,5 @@
+//tealium universal tag - utag.252 ut4.0.201601202015, Copyright 2016 Tealium.com Inc. All Rights Reserved.
+var fb_param={};try{(function(id,loader,u){try{u=utag.o[loader].sender[id]={}}catch(e){u=utag.sender[id]};u.ev={'view':1};u.qsp_delim="&";u.kvp_delim="=";u.pixel_id="";u.value="0.0";u.base_url="//connect.facebook.net/en_US/fp.js";u.map={"js_page.USAA.ent.digitalData.campaign.fbConvWWW":"pixel_id"};u.extend=[];u.send=function(a,b,c,d,e,f){if(u.ev[a]||typeof u.ev.all!="undefined"){c=[];for(d in utag.loader.GV(u.map)){if(typeof b[d]!="undefined"&&b[d]!=""){e=u.map[d].split(",");for(f=0;f<e.length;f++){u[e[f]]=b[d];}}}
+if(u.value==""){u.value=b._csubtotal;}
+fb_param.pixel_id=u.pixel_id;fb_param.value=u.value||"0.00";(function(){var fpw=document.createElement('script');fpw.async=true;fpw.src=(location.protocol=='http:'?'http':'https')+'://connect.facebook.net/en_US/fp.js';var ref=document.getElementsByTagName('script')[0];ref.parentNode.insertBefore(fpw,ref);})();}}
+try{utag.o[loader].loader.LOAD(id)}catch(e){utag.loader.LOAD(id)}})('252','usaa.main');}catch(e){}

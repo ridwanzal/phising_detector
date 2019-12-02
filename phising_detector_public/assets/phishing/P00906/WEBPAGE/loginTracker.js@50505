@@ -1,0 +1,10 @@
+﻿var Cubby = Cubby || { };
+
+Cubby.TrackLogin = function () {
+    if (Cubby.IsAfterLogin) {
+        gaSetUserType(Cubby.PlanType);
+        if (Cubby.IsFirstLogin) {
+            gaSetGoalComplete('account', window.location.pathname);
+        }
+    }  
+};

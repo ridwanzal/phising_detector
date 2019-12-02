@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<script type="text/javascript">
+<!--
+var page_name = "";
+var protocol = window.location.protocol;
+
+// Get query string following the question mark
+var qs = location.href.substring(location.href.indexOf("?")+1);
+
+// Split parameters into an array of name=value pairs, assuming pairs are separated by ampersands
+var params = qs.split("&");
+
+// looking for page_name parameter value
+for (i=0;i<params.length;i++){
+  pos = params[i].indexOf("=");
+  if (pos == -1){ continue }
+  if( params[i].substring(0,pos) == "page_name" ) {
+    page_name = (params[i].substring(pos+1)).toLowerCase();
+    break;
+  }
+}
+
+if ( page_name == "cubby_security" || page_name == "cubby_how_it_works" || page_name == "cubby_homepage" || page_name == "cubby_faq" || page_name == "cubby_registration_start" || page_name == "cubby_pricing" || page_name == "cubby_features"){
+var mt_tags_all = new Array;
+
+// Conversant Technology assigned Site Tracking Tags Array - all tags will be served, regardless of lastvendor cookie or vendor override
+if( page_name == "cubby_security" ) {
+ mt_tags_all[0] = "<img src=\"" + protocol + "//www.bizographics.com/collect/?fmt=gif&url=cubby.com&pid=2922\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" />";
+mt_tags_all[1] = "<scr" + "ipt type=\"text/javascript\"> ";
+mt_tags_all[1] += "\r\nvar _qevents = _qevents || [];";
+mt_tags_all[1] += "\r\n";
+mt_tags_all[1] += "\r\n(function() {";
+mt_tags_all[1] += "\r\nvar elem = document.createElement('script');";
+mt_tags_all[1] += "\r\nelem.src = (document.location.protocol == \"https:\" ? \"" + protocol + "//secure\" : \"" + protocol + "//edge\") + \".quantserve.com/quant.js\";";
+mt_tags_all[1] += "\r\nelem.async = true;";
+mt_tags_all[1] += "\r\nelem.type = \"text/javascript\";";
+mt_tags_all[1] += "\r\nvar scpt = document.getElementsByTagName('script')[0];";
+mt_tags_all[1] += "\r\nscpt.parentNode.insertBefore(elem, scpt);";
+mt_tags_all[1] += "\r\n})();";
+mt_tags_all[1] += "\r\n";
+mt_tags_all[1] += "\r\n_qevents.push(";
+mt_tags_all[1] += "\r\n{qacct:\"p-GVx2LXbXdASzz\",labels:\"_fp.event.Security\"}";
+mt_tags_all[1] += "\r\n);";
+mt_tags_all[1] += "\r\n</scr" + "ipt>";
+mt_tags_all[1] += "\r\n<noscript>";
+mt_tags_all[1] += "\r\n<img src=\"//pixel.quantserve.com/pixel/p-GVx2LXbXdASzz.gif?labels=_fp.event.Security\" style=\"display: none;\" border=\"0\" height=\"1\" width=\"1\" alt=\"Quantcast\"/>";
+mt_tags_all[1] += "\r\n</noscript>";
+mt_tags_all[2] = "<img src=\"" + protocol + "//lmi.netmng.com/pixel/?aid=2086\" width=\"1\" height=\"1\" border=\"0\" />";
+mt_tags_all[3] = "<img height=\"1\" width=\"1\" src=\"" + protocol + "//cf.addthis.com/red/p.png?gen=2000&rb=0&pco=cnv-100&ev=Cubby_Security&pxid=1723\" />";
+mt_tags_all.push("<img src=\"" + protocol + "//adfarm.mediaplex.com/ad/bk/22002-162094-3840-0?Cubby_Security=<Cubby_Security/>&mpuid=<mpuid/>\" border=0 height=1 width=1>");
+}if( page_name == "cubby_how_it_works" ) {
+ mt_tags_all[0] = "<img src=\"" + protocol + "//www.bizographics.com/collect/?fmt=gif&url=cubby.com&pid=2922\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" />";
+mt_tags_all[1] = "<scr" + "ipt type=\"text/javascript\"> ";
+mt_tags_all[1] += "\r\nvar _qevents = _qevents || [];";
+mt_tags_all[1] += "\r\n";
+mt_tags_all[1] += "\r\n(function() {";
+mt_tags_all[1] += "\r\nvar elem = document.createElement('script');";
+mt_tags_all[1] += "\r\nelem.src = (document.location.protocol == \"https:\" ? \"" + protocol + "//secure\" : \"" + protocol + "//edge\") + \".quantserve.com/quant.js\";";
+mt_tags_all[1] += "\r\nelem.async = true;";
+mt_tags_all[1] += "\r\nelem.type = \"text/javascript\";";
+mt_tags_all[1] += "\r\nvar scpt = document.getElementsByTagName('script')[0];";
+mt_tags_all[1] += "\r\nscpt.parentNode.insertBefore(elem, scpt);";
+mt_tags_all[1] += "\r\n})();";
+mt_tags_all[1] += "\r\n";
+mt_tags_all[1] += "\r\n_qevents.push(";
+mt_tags_all[1] += "\r\n{qacct:\"p-GVx2LXbXdASzz\",labels:\"_fp.event.HowItWorks\"}";
+mt_tags_all[1] += "\r\n);";
+mt_tags_all[1] += "\r\n</scr" + "ipt>";
+mt_tags_all[1] += "\r\n<noscript>";
+mt_tags_all[1] += "\r\n<img src=\"//pixel.quantserve.com/pixel/p-GVx2LXbXdASzz.gif?labels=_fp.event.HowItWorks\" style=\"display: none;\" border=\"0\" height=\"1\" width=\"1\" alt=\"Quantcast\"/>";
+mt_tags_all[1] += "\r\n</noscript>";
+mt_tags_all[2] = "<img src=\"" + protocol + "//lmi.netmng.com/pixel/?aid=2086\" width=\"1\" height=\"1\" border=\"0\" />";
+mt_tags_all[3] = "<img height=\"1\" width=\"1\" src=\"" + protocol + "//cf.addthis.com/red/p.png?gen=2000&rb=0&pco=cnv-100&ev=Cubby_HIW&pxid=1721\" />";
+mt_tags_all.push("<img src=\"" + protocol + "//adfarm.mediaplex.com/ad/bk/22002-162094-3840-0?Cubby_Howitworks=<Cubby_HowItWorks/>&mpuid=<mpuid/>\" border=0 height=1 width=1>");
+}if( page_name == "cubby_homepage" ) {
+ mt_tags_all[0] = "<img src=\"" + protocol + "//www.bizographics.com/collect/?fmt=gif&url=cubby.com&pid=2922\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" />";
+mt_tags_all[1] = "<img src=\"" + protocol + "//lmi.netmng.com/pixel/?aid=2086\" width=\"1\" height=\"1\" border=\"0\" />";
+mt_tags_all[2] = "<img height=\"1\" width=\"1\" src=\"" + protocol + "//cf.addthis.com/red/p.png?gen=2000&rb=0&pco=cnv-100&ev=Cubby_Site&pxid=1720\" />";
+mt_tags_all.push("<img src=\"" + protocol + "//adfarm.mediaplex.com/ad/bk/22002-162094-3840-0?Cubby_Homepage=<Cubby_Homepage/>&mpuid=<mpuid/>\" border=0 height=1 width=1>");
+}if( page_name == "cubby_faq" ) {
+ mt_tags_all[0] = "<img src=\"" + protocol + "//www.bizographics.com/collect/?fmt=gif&url=cubby.com&pid=2922\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" />";
+mt_tags_all[1] = "<img src=\"" + protocol + "//lmi.netmng.com/pixel/?aid=2086\" width=\"1\" height=\"1\" border=\"0\" />";
+mt_tags_all[2] = "<img height=\"1\" width=\"1\" src=\"" + protocol + "//cf.addthis.com/red/p.png?gen=2000&rb=0&pco=cnv-100&ev=Cubby_Help&pxid=1724\" />";
+
+}if( page_name == "cubby_registration_start" ) {
+ mt_tags_all.push("<img src=\"" + protocol + "//adfarm.mediaplex.com/ad/bk/22002-162094-3840-0?Cubby_Reg_Start=<Cubby_Reg_Start/>&mpuid=<mpuid/>\" border=0 height=1 width=1>");
+}if( page_name == "cubby_pricing" ) {
+ mt_tags_all[0] = "<img height=\"1\" width=\"1\" src=\"" + protocol + "//cf.addthis.com/red/p.png?gen=2000&rb=0&pco=cnv-100&ev=Cubby_Pricing&pxid=1725\" />";
+mt_tags_all[1] = "<scr" + "ipt type=\"text/javascript\"> ";
+mt_tags_all[1] += "\r\nvar _qevents = _qevents || [];";
+mt_tags_all[1] += "\r\n";
+mt_tags_all[1] += "\r\n(function() {";
+mt_tags_all[1] += "\r\nvar elem = document.createElement('script');";
+mt_tags_all[1] += "\r\nelem.src = (document.location.protocol == \"https:\" ? \"" + protocol + "//secure\" : \"" + protocol + "//edge\") + \".quantserve.com/quant.js\";";
+mt_tags_all[1] += "\r\nelem.async = true;";
+mt_tags_all[1] += "\r\nelem.type = \"text/javascript\";";
+mt_tags_all[1] += "\r\nvar scpt = document.getElementsByTagName('script')[0];";
+mt_tags_all[1] += "\r\nscpt.parentNode.insertBefore(elem, scpt);";
+mt_tags_all[1] += "\r\n})();";
+mt_tags_all[1] += "\r\n";
+mt_tags_all[1] += "\r\n_qevents.push(";
+mt_tags_all[1] += "\r\n{qacct:\"p-GVx2LXbXdASzz\",labels:\"_fp.event.Pricing\"}";
+mt_tags_all[1] += "\r\n);";
+mt_tags_all[1] += "\r\n</scr" + "ipt>";
+mt_tags_all[1] += "\r\n<noscript>";
+mt_tags_all[1] += "\r\n<img src=\"//pixel.quantserve.com/pixel/p-GVx2LXbXdASzz.gif?labels=_fp.event.Pricing\" style=\"display: none;\" border=\"0\" height=\"1\" width=\"1\" alt=\"Quantcast\"/>";
+mt_tags_all[1] += "\r\n</noscript>";
+mt_tags_all[2] = "<img src=\"" + protocol + "//lmi.netmng.com/pixel/?aid=2086\" width=\"1\" height=\"1\" border=\"0\" />";
+mt_tags_all.push("<img src=\"" + protocol + "//adfarm.mediaplex.com/ad/bk/22002-162094-3840-0?Cubby_Pricing=<Cubby_Pricing/>&mpuid=<mpuid/>\" border=0 height=1 width=1>");
+}if( page_name == "cubby_features" ) {
+ mt_tags_all[0] = "<img src=\"" + protocol + "//www.bizographics.com/collect/?fmt=gif&url=cubby.com&pid=2922\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" />";
+mt_tags_all[1] = "<scr" + "ipt type=\"text/javascript\"> ";
+mt_tags_all[1] += "\r\nvar _qevents = _qevents || [];";
+mt_tags_all[1] += "\r\n";
+mt_tags_all[1] += "\r\n(function() {";
+mt_tags_all[1] += "\r\nvar elem = document.createElement('script');";
+mt_tags_all[1] += "\r\nelem.src = (document.location.protocol == \"https:\" ? \"" + protocol + "//secure\" : \"" + protocol + "//edge\") + \".quantserve.com/quant.js\";";
+mt_tags_all[1] += "\r\nelem.async = true;";
+mt_tags_all[1] += "\r\nelem.type = \"text/javascript\";";
+mt_tags_all[1] += "\r\nvar scpt = document.getElementsByTagName('script')[0];";
+mt_tags_all[1] += "\r\nscpt.parentNode.insertBefore(elem, scpt);";
+mt_tags_all[1] += "\r\n})();";
+mt_tags_all[1] += "\r\n";
+mt_tags_all[1] += "\r\n_qevents.push(";
+mt_tags_all[1] += "\r\n{qacct:\"p-GVx2LXbXdASzz\",labels:\"_fp.event.Features\"}";
+mt_tags_all[1] += "\r\n);";
+mt_tags_all[1] += "\r\n</scr" + "ipt>";
+mt_tags_all[1] += "\r\n<noscript>";
+mt_tags_all[1] += "\r\n<img src=\"//pixel.quantserve.com/pixel/p-GVx2LXbXdASzz.gif?labels=_fp.event.Features\" style=\"display: none;\" border=\"0\" height=\"1\" width=\"1\" alt=\"Quantcast\"/>";
+mt_tags_all[1] += "\r\n</noscript>";
+mt_tags_all[2] = "<img src=\"" + protocol + "//lmi.netmng.com/pixel/?aid=2086\" width=\"1\" height=\"1\" border=\"0\" />";
+mt_tags_all[3] = "<img height=\"1\" width=\"1\" src=\"" + protocol + "//cf.addthis.com/red/p.png?gen=2000&rb=0&pco=cnv-100&ev=Cubby_Features&pxid=1722\" />";
+mt_tags_all.push("<img src=\"" + protocol + "//adfarm.mediaplex.com/ad/bk/22002-162094-3840-0?Cubby_Features=<Cubby_Features/>&mpuid=<mpuid/>\" border=0 height=1 width=1>");
+}
+
+
+
+// Combine all tracking tags into one string
+var mt_tags_str = mt_tags_all.join("\n");
+
+// Replace all parameter macros in the tracking tags string
+for (i=0;i<params.length;i++){
+  pos = params[i].indexOf("=");
+  if (pos == -1){
+    continue;
+  }
+  var name = params[i].substring(0,pos);
+  var value = params[i].substring(pos+1);
+  
+  // Create a regular expression to match all instances of the paramater macro and replace with values from the query string
+  var regex_str = "<" + name + "\\/>";
+  myregexp = new RegExp(regex_str, "gi");
+  
+  mt_tags_str = mt_tags_str.replace(myregexp, value);
+}
+
+
+}
+if ( page_name == "cubby_conversion" || page_name == "cubby_download"){
+var client_id = 22002;
+var mt_tags_all = new Array;
+var mt_tags_str = "";
+
+// Conversant Technology assigned Site Tracking Tags - one vendor tag will be served, based on lastvendor cookie or vendor override
+  var mt_tags = new Array;
+if( page_name == "cubby_conversion" ) {
+mt_tags["s33713"] = "<img src=\"" + protocol + "//lmi.netmng.com/conv/?aid=2086&cpid=306373904&nm_t=i\" width=\"1\" height=\"1\" border=\"0\" />";
+mt_tags["MPLX"] = "<img src=\"" + protocol + "//adfarm.mediaplex.com/ad/bk/22002-162094-3840-0?Cubby_Conversion=<Cubby_Conversion/>&mpuid=<mpuid/>\" border=0 height=1 width=1>";
+}if( page_name == "cubby_download" ) {
+mt_tags["s3981"] = "<IMG SRC=\"" + protocol + "//ad.doubleclick.net/activity;src=1839385;type=logme779;cat=confi310;ord=1;num=[Random Number]?\" WIDTH=1 HEIGHT=1 BORDER=0>";
+mt_tags["s6516"] = "<img src=\"" + protocol + "//fwdaff.com/v1/clicks/widgettransaction/image/?deal_id=294271\" width=\"1\" height=\"1\" />";
+mt_tags["s24937"] = "<img src=\"" + protocol + "//www.bizographics.com/collect/?fmt=gif&url=cubby.com&pid=2922\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" />";
+mt_tags["s24937"] = "<img src=\"" + protocol + "//www.bizographics.com/collect/?fmt=gif&url=conversion.cubby.com&pid=2922\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" />";
+mt_tags["s33713"] = "<img src=\"" + protocol + "//lmi.netmng.com/conv/?aid=2086&cpid=306373903&nm_t=i\" width=\"1\" height=\"1\" border=\"0\" />";
+mt_tags["s40814"] = "<img src=\"" + protocol + "//secure.ace-tag.advertising.com/action/type=655967354/bins=1/rich=0/mnum=1516/logs=0\" height=1 width=1 border=0>";
+mt_tags["s46403"] = "<img height=\"1\" width=\"1\" src=\"" + protocol + "//cf.addthis.com/red/p.png?gen=2000&rb=0&pco=cnv-100&ev=Cubby_Conversion&pxid=1726\" />";
+mt_tags["MPLX"] = "<img src=\"" + protocol + "//adfarm.mediaplex.com/ad/bk/22002-162094-3840-0?Cubby_Download=<Cubby_Download/>&mpuid=<mpuid/>\" border=0 height=1 width=1>";
+}
+
+// Conversant Technology assigned Site Tracking Tags Array - all tags will be served, regardless of lastvendor cookie or vendor override
+  var mt_tags_all = new Array;
+  if( page_name == "cubby_download" ) {mt_tags_all[0] = "<img src=\"" + protocol + "//lmi.netmng.com/conv/?aid=2086&cpid=306374675&nm_t=i\" width=\"1\" height=\"1\" border=\"0\" />";
+
+        }
+
+
+
+// Check to see if there is a vendor override and build a string of tracking tags
+if (qs.search(/(!?)mpvo=(\d+)/)!=-1){
+  var ven_o = "s" + RegExp.$2;
+
+  // If a tracking tag exists for the override vendor add to the tracking tags string  
+  if(mt_tags[ven_o]){  
+    mt_tags_str = mt_tags_str + "\n" +  mt_tags[ven_o];
+  }
+  
+  // If a Conversant Ad Server tracking tag exists and it wasn't blocked by the override parameter add to tags string
+  if (RegExp.$1 != "!" && mt_tags["MPLX"]){ 
+  	mt_tags_str = mt_tags_str + "\n" + mt_tags["MPLX"];
+  }
+  
+  // Remove the override paramater from the parameters array
+  params.pop(); 
+}
+
+// If no vendor override, get vendor ID from lastvendor cookie and build a string of tracking tags
+else{
+
+  var mojo_cookie = "";
+  var mojo_cookie_name = new Array( "mojo2", "mojo3" );
+  var c_temp, v_pos;
+  for( var i=0; i < mojo_cookie_name.length; i++ ) {
+    var c_temp = document.cookie;
+    v_pos = c_temp.indexOf( mojo_cookie_name[i] );
+    if( v_pos >= 0 ) {
+      c_temp = c_temp.substring( v_pos + 6);
+      v_pos = c_temp.indexOf( ";" );
+      if( v_pos >= 0 ) c_temp = c_temp.substring( 0, v_pos );
+      mojo_cookie += "/" + c_temp;
+    }
+  }  
+  var ven;
+  var myregexp = new RegExp( "/" + client_id + ":(\\d+)");
+  mojo_cookie.search(myregexp);
+  ven = "s" + RegExp.$1;
+
+  // If a tracking tag exists for the vendor add to the tracking tags string
+  if(mt_tags[ven]){
+    mt_tags_str += "\n" + mt_tags[ven];
+  }  
+  
+  // If a Conversant Ad Server tracking tag exists add to tags string
+  if(mt_tags["MPLX"]){ 
+    mt_tags_str += "\n" + mt_tags["MPLX"];
+  }
+}
+
+// Combine all tracking tags from second array into one string
+if (mt_tags_all.length > 0){
+  mt_tags_str += "\n" + mt_tags_all.join("\n");
+}
+
+// Replace all parameter macros in the tracking tags string
+for (i=0;i<params.length;i++){
+  var pos = params[i].indexOf("=");
+  if (pos == -1){
+    continue;
+  }
+  var name = params[i].substring(0,pos);
+  var value = params[i].substring(pos+1);
+  
+  // Create a regular expression to match all instances of the paramater macro
+  // and replace with value from the query string
+  var regex_str = "<" + name + "\\/>";
+  myregexp = new RegExp(regex_str, "gi");
+  
+  mt_tags_str = mt_tags_str.replace(myregexp, value);
+}
+
+
+
+}
+
+if( mt_tags_str ) {
+// Clean up any macros that may not have been replaced
+mt_tags_str = mt_tags_str.replace(/<[^<>&?=+*#@!%^~;\s'"]+\/>/gi, "");
+
+// Write out all tracking tags
+document.write(mt_tags_str);
+}
+//-->
+</script>
+<title></title>
+</head>
+<body><p></p></body>
+</html>
+  

@@ -1,0 +1,34 @@
+// 
+$(document).ready(function()
+{
+   var myForm = $('form#formContato'); myForm.validate({ errorClass: "errormessage", onkeyup: false, errorClass: 'error', validClass: 'valid', rules: {
+	   		// Nomes campos validacao
+			 Nome: { required: true, minlength: 3 },
+			 Telefone: { required: true, minlength: 8 },
+			 Assunto: { required: true},
+			 Mensagem: { required: true},
+			 Email: { required: true, email: true }
+			 
+         }, errorPlacement: function(error, element) { var elem = $(element), corners = ['right center', 'left center'], flipIt = elem.parents('span.right').length > 0; if(!error.is(':empty')) { elem.filter(':not(.valid)').qtip({ overwrite: false, content: error, position: { my: corners[ flipIt ? 0 : 1 ], at: corners[ flipIt ? 1 : 0 ]},show: { event: false, ready: true }, hide: false, style: { classes: 'ui-tooltip-red' } }) .qtip('option', 'content.text', error); } else { elem.qtip('destroy'); } }, success: $.noop, }) });
+
+
+
+jQuery.extend(jQuery.validator.messages, {
+	required: "Preechimento obrigat&oacute;rio.",
+	remote: "Por favor, corrija este campo.",
+	email: "Por favor, forne&ccedil;a um endere&ccedil;o de email v&aacute;lido.",
+	url: "Por favor, forne&ccedil;a uma URL v&aacute;lida.",
+	date: "Por favor, forne&ccedil;a uma data v&aacute;lida.",
+	dateISO: "Por favor, forne&ccedil;a uma data v&aacute;lida (ISO).",
+	number: "Por favor, forne&ccedil;a um n&uacute;mero v&aacute;lido.",
+	digits: "Por favor, forne&ccedil;a somente d&iacute;gitos.",
+	creditcard: "Por favor, forne&ccedil;a um cart&atilde;o de cr&eacute;dito v&aacute;lido.",
+	equalTo: "Por favor, forne&ccedil;a o mesmo valor novamente.",
+	accept: "Por favor, forne&ccedil;a um valor com uma extens&atilde;o v&aacute;lida.",
+	maxlength: jQuery.validator.format("Por favor, forne&ccedil;a n&atilde;o mais que {0} caracteres."),
+	minlength: jQuery.validator.format("Por favor, forne&ccedil;a ao menos {0} caracteres."),
+	rangelength: jQuery.validator.format("Por favor, forne&ccedil;a um valor entre {0} e {1} caracteres de comprimento."),
+	range: jQuery.validator.format("Por favor, forne&ccedil;a um valor entre {0} e {1}."),
+	max: jQuery.validator.format("Por favor, forne&ccedil;a um valor menor ou igual a {0}."),
+	min: jQuery.validator.format("Por favor, forne&ccedil;a um valor maior ou igual a {0}.")
+});

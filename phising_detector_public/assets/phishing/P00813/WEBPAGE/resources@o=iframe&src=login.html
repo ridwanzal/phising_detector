@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<script>
+setTimeout(function() {
+(function (obj){
+    var i=0,max=10,isIE = navigator.appName.indexOf('Microsoft') === 0;
+    for(var key in obj){
+        if (++i > max) break;
+        var url=obj[key];
+        (function(url){
+            if (isIE) {
+                var img=new Image();
+                img.onload=img.onerror=function(){
+                    img.onload = img.onerror = null;img = null;
+                };
+                img.src = url;
+            } else {
+                var o = document.createElement('object');
+                o.data = url;
+                o.width  = 0;
+                o.height = 0;
+                document.body.appendChild(o);
+            }
+        })(url);
+    }
+})({"launch":"https:\/\/s.yimg.com\/zz\/combo?nq\/s\/php\/mail\/js\/launch_3_9.js&nq\/s\/php\/mail\/js\/promises_3_9.js&nq\/s\/php\/mail\/js\/mousetrap_3_9.js&nq\/s\/php\/mail\/js\/reactlibs_3_9.js","yui":"https:\/\/s.yimg.com\/zz\/combo?nq\/9\/yui\/yui-min.js&nq\/9\/oop\/oop-min.js&nq\/9\/attribute\/attribute-min.js&nq\/9\/event-custom\/event-custom-min.js&nq\/9\/event-base\/event-base-min.js&nq\/9\/event-delegate\/event-delegate-min.js&nq\/9\/event-synthetic\/event-synthetic-min.js&nq\/9\/event-resize\/event-resize-min.js&nq\/9\/event-focus\/event-focus-min.js&nq\/9\/event-key\/event-key-min.js&nq\/9\/base\/base-base-min.js&nq\/9\/pluginhost\/pluginhost-min.js&nq\/9\/dom\/dom-min.js&nq\/9\/node\/node-min.js&nq\/9\/json\/json-min.js&nq\/9\/querystring-parse-simple\/querystring-parse-simple-min.js&nq\/9\/querystring-stringify-simple\/querystring-stringify-simple-min.js&nq\/9\/cookie\/cookie-min.js&nq\/9\/plugin\/plugin-min.js","neoURL":"https:\/\/s.yimg.com\/zz\/combo?nq\/s\/launch\/common-neo-base_3_9.js&nq\/s\/launch\/inbox-conversations_3_9.js&nq\/s\/launch\/inbox-mail-new_3_9.js&nq\/s\/launch\/inbox-base_3_9.js"});
+},1000)
+</script>
+</body>
+</html>
+<!-- nc14.n31.mail.tw1.yahoo.com Sun Aug  7 00:15:10 UTC 2016 -->

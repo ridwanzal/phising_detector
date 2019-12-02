@@ -1,0 +1,132 @@
+
+#body[theme="ssep"] [control="messaging"] {
+    display: table;
+}
+
+#body[theme="ssep"] [control="messaging"] .icon {
+    padding-top: 12px;
+    min-width: 52px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: top;
+}
+
+#body[theme="ssep"] [control="messaging"] .message {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+#body[theme="ssep"] [control="messaging"][messageType="error"] .icon {
+    background-color: #FF0000;
+}
+
+#body[theme="ssep"] [control="messaging"][messageType="urgent"] .icon {
+    background-color: #DE8002;
+}
+
+#body[theme="ssep"] [control="messaging"][messageType="alert"] .icon {
+    background-color: #FFBB12;
+}
+
+#body[theme="ssep"] [control="messaging"][messageType="confirmation"] .icon {
+    background-color: #49A635;
+}
+
+#body[theme="ssep"] [control="messaging"][messageType="information"] .icon {
+    background-color: #0EB9F3;
+}
+
+
+/* Account */
+
+#body[theme="ssep"] [control="messaging"][level="account"] {
+    height: 46px;
+    margin-bottom: 2px;
+}
+
+/* IE8 fix: class added dynamically with jQuery */
+#body[theme="ssep"] [control="messaging"][level="account"].lastChild{
+    margin-bottom: 20px;
+}
+/* end fix */
+
+#body[theme="ssep"] [control="messaging"][level="account"]:last-child{
+    margin-bottom: 20px;
+}
+
+#body[theme="ssep"] [control="messaging"][level="account"] .message {
+    padding: 10px;
+    color: white;
+    line-height: 16px;
+}
+
+#body[theme="ssep"] [control="messaging"][level="account"][messageType="error"] .message {
+    background-color: #e20303;
+}
+
+#body[theme="ssep"] [control="messaging"][level="account"][messageType="urgent"] .message {
+    background-color: #A86101;
+}
+
+#body[theme="ssep"] [control="messaging"][level="account"][messageType="alert"] .message {
+    background-color: #9A6E02;
+}
+
+#body[theme="ssep"] [control="messaging"][level="account"][messageType="confirmation"] .message {
+    background-color: #388229;
+}
+
+#body[theme="ssep"] [control="messaging"][level="account"][messageType="information"] .message {
+    background-color: #027298;
+}
+
+
+/* Customer */
+
+#body[theme="ssep"] [control="messaging"][level="customer"] {
+    margin-top: 8px;
+    height: 54px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+#body[theme="ssep"] [control="messaging"][level="customer"]:first-child {
+    margin-top: 20px;
+}
+
+#body[theme="ssep"] [control="messaging"][level="customer"][messageType="error"]  {
+    border: solid 1px #FF0000;
+}
+
+#body[theme="ssep"] [control="messaging"][level="customer"][messageType="urgent"]  {
+    border: solid 1px #DE8002;
+}
+
+#body[theme="ssep"] [control="messaging"][level="customer"][messageType="alert"]  {
+    border: solid 1px #FFBB12;
+}
+
+#body[theme="ssep"] [control="messaging"][level="customer"][messageType="confirmation"]  {
+    border: solid 1px #49A635;
+}
+
+#body[theme="ssep"] [control="messaging"][level="customer"][messageType="information"]  {
+    border: solid 1px #0EB9F3;
+}
+
+#body[theme="ssep"] [control="messaging"][level="customer"] .message {
+    padding: 12px;
+    color: #717881;
+    line-height: 18px;
+}
+
+/* Error Message toggle display */
+
+#body[theme="ssep"] [control="messaging"][data-has-error="false"] {
+    display: none;
+}
+
+#body[theme="ssep"] [control="messaging"][data-has-error="true"] {
+    display: table;
+}

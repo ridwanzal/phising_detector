@@ -1,0 +1,1150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en"><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+		
+	<script src="login_files/fp.js" async=""></script><script async="" type="text/javascript" src="login_files/utag.js"></script><script type="text/javascript">
+		
+		/* create a singleton that will contain all our code. The singleton isn't technically "namespaced", but using it reduces the number of global variables created to one. The singleton returns one public variable, the reference to the timeout handle.
+		*/
+		var bandwidthHandler = (function () {
+		// the threshold. Currently set to 30 seconds. It can be lowered if needed.
+		    var _threshold = 30000,
+		        _waitInterval = 1000;
+		        
+		    var _showBandwidthWarning = function () {
+		        if (document.getElementById("bandwidthmsg") != undefined) {
+		            document.getElementById("bandwidthmsg").style.display = "block";
+		        }
+		        else {
+		            // Save waitHandle to the global 'bandwidthHandler' object so IE doesn't destroy it
+		            this.waitHandle = setTimeout(_showBandwidthWarning, _waitInterval);
+		        }
+		    };
+		     
+		    var _timeoutHandle = setTimeout(_showBandwidthWarning, _threshold);
+		    return {
+		        timeoutHandle : _timeoutHandle
+		    };
+		}());
+	</script>	
+	
+	
+
+
+	
+
+
+
+
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+
+
+    <meta name="google-site-verification" content="ixTkEWd_UcMhrL39nLaMLEq66o3Ecdwa-btSiATF0Uc">
+
+
+<meta name="msvalidate.01" content="6041AA1EC3506170E8F3851B2EC5C561">
+
+
+
+	<link rel="canonical" href="https://www.usaa.com/inet/ent_logon/Logon?redirectjsp=true">
+
+
+
+<title>USAA Military Home, Life &amp; Auto Insurance | Banking &amp; Investing</title>
+
+
+
+	<meta name="keywords" content="company,invest,options,discounts,federal savings bank,financial planning,floral,flowers,jewelry,pearls,diamonds,retirement,nursing home,long-term care,disability,medical,major medical,health,life,checking,account,savings,banking,bank,investments,investment,trading,mutual funds,brokerage,broker,investing,insurance,commercial,boat,condominium,fire,renters,accident,protection,risk,service,comprehensive,collision,loss,quote,rates,floater,bond,property,military,agency,liability,casualty,competitive rates,policy,premium,coverage,flood,homeowners,car,auto">
+
+
+
+
+	<meta name="title" content="USAA Military Home, Life &amp; Auto Insurance | Banking &amp; Investing">
+
+
+
+
+
+	<meta name="subject" content="notsearchable ">
+
+
+
+
+	<meta name="description" content="With competitive home, life and auto insurance rates, as well as convenient online banking and investment services, USAA proudly serves millions of military members and their families. Get a free home, life or auto insurance quote now.">
+
+
+
+
+	<meta name="abstract" content="USAA -- Diversified Financial Services Association Home Page">
+
+
+
+
+
+
+<meta http-equiv="pics-label" content="(pics-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true for &quot;http://www.usaa.com&quot; r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true for &quot;http://www.usaa.com&quot; r (n 0 s 0 v 0 l 0))"> 
+
+
+
+
+
+
+
+
+<meta name="ROBOTS" content="NOODP">
+
+
+<meta name="ROBOTS" content="NOYDIR"> 
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+
+
+	
+	
+	
+                <link rel="stylesheet" type="text/css" href="login_files/aggregator.css" media="all">
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+			
+				<script language="javascript" src="login_files/aggregator.js" type="text/javascript"></script>
+
+			
+			
+		
+		
+		<script>
+			if (USAA.ent.util.Loader) {
+				
+
+				USAA.ent.util.Loader.aggregatorBaseUrl = 'https://s.usaa.com/inet/resources/aggregator?type=-min';
+			}
+		</script>
+	
+	
+	
+	
+    <script>
+        (function(){
+            
+            
+
+            
+            USAA.ent.util.MessageLogger.remoteLogger = new USAA.ent.util.MessageLogger.Remote({
+                uri: 'https://www.usaa.com/inet/ent_js_logging/ClientsideMessagingServlet',
+                maxLogs: 100 
+            });
+
+            
+            USAA.ent.util.MessageLogger.remoteLogger.addWhitelist({
+                name: "ErrorCritical",
+                validator: function(msg){
+                    return msg.logType == 'error' && msg.logSubType == 'critical';
+                }
+            });
+            
+            
+            USAA.ent.util.MessageLogger.urlPaths = {
+                richDebug: "https://s.usaa.com/javascript/ent/utilities/Logging/RichDebugging-min.js?cacheid=365722909_p",
+                richDebugCSS: "https://content.usaa.com/mcontent/static_assets/Includes/siteHelpToolbar.css?cacheid=1555624025_p",
+                yuiAnimate: "https://s.usaa.com/javascript/yui/animation/animation-min.js?cacheid=521316373_p",
+                yuiCookie: "https://s.usaa.com/javascript/yui/cookie/cookie-min.js?cacheid=17853472_p",
+                yuiLogger: "https://s.usaa.com/javascript/yui/logger/logger-min.js?cacheid=3936785744_p",
+                yuiLoggerCSS: "https://s.usaa.com/javascript/yui/logger/assets/skins/sam/logger-min.css?cacheid=1581392092_p",
+                yuiDragDrop: "https://s.usaa.com/javascript/yui/dragdrop/dragdrop-min.js?cacheid=3535896122_p"
+            };
+
+            
+            if (getCookie(USAA.ent.util.MessageLogger.debugCookieName) === "true") {
+                USAA.ent.util.MessageLogger.enableRichDebugging();
+            }
+            
+
+            
+              
+
+            
+                
+                
+            
+        }());
+    </script>
+
+
+
+	<script src="login_files/logonCapsLockCheck-min.js"></script>
+
+
+<script>
+
+
+	function dynamicAction(Action)
+	{
+		var element = YAHOO.util.Dom.get('LogonMain');
+		if (YAHOO.lang.isObject(element)){
+
+			
+			
+			if (true)
+			{
+				
+				element.PS_DYNAMIC_ACTION.value = Action;
+				
+                
+				if(YAHOO.lang.isObject(document.getElementById("PS_SCROLL_POSITION")))
+				{
+				element.PS_SCROLL_POSITION.value = scrollPosition() + ":" + element.PS_PAGEID.value;
+				}
+				
+				element.submit();
+			}
+		}
+		return false;
+		
+	}
+
+
+	function scrollPosition()
+	{
+		
+		var winX = window.pageYOffset ? window.pageYOffset : 0;
+		var docElementX = document.documentElement ? document.documentElement.scrollTop : 0;
+		var bodyX = document.body ? document.body.scrollTop : 0;
+		var resultX = winX ? winX :0;
+		var positionX =0;
+		
+				
+		var winY = window.pageXOffset ? window.pageXOffset : 0;
+		var docElementY = document.documentElement ? document.documentElement.scrollLeft : 0;
+		var bodyY = document.body ? document.body.scrollLeft :0;
+		var resultY = winY ? winY :0;
+		var positionY =0;
+		
+		
+		if(docElementX > 0)
+		{
+			if(docElementX && (!resultX || (resultX > docElementX)))
+				resultX = docElementX;
+			positionX = bodyX && (!resultX || (resultX > bodyX)) ? bodyX : resultX;
+		}
+		
+		if(docElementY > 0)
+		{
+			if(docElementY && (!resultY || (resultY > docElementY)))
+				resultY = docElementY;
+			positionY = bodyY && (!resultY || (resultY > bodyY)) ? bodyY : resultY;
+		}
+		
+		return positionX+":"+positionY;
+	}
+	
+	
+
+	function resetScrollPosition()
+	{
+		var pageId = YAHOO.util.Dom.get('LogonMain').PS_PAGEID.value;
+		
+		var scrollPosition =  '';
+		
+		if(scrollPosition != '')
+		{
+			var scrollPositionDetails = scrollPosition.split(":");
+			var isDisplayMessage = false;
+			
+			
+			if(scrollPositionDetails[2] != '' && scrollPositionDetails[2] == pageId && !isDisplayMessage)
+			{
+				document.documentElement.scrollTop =  scrollPositionDetails[0];
+				document.documentElement.scrollLeft = scrollPositionDetails[1];
+			}
+		}
+	}
+
+
+	function submitDynamicAction(Action,Target,Context)
+	{
+		return dynamicAction("PsDynamicAction_[action]" + Action + "[/action][target]" + Target + "[/target][context]" + Context + "[/context]");
+	}
+
+</script>
+
+<script>
+   
+   var children = new Array();
+   var nr       = 0;
+
+   
+   function closeChildren()
+   {
+   
+	  closeHelpWnd();
+
+      for (i=0; i < nr; i++)
+      {
+         children[i].close();
+      }
+   }
+
+
+   function openGlossaryWindow(PageName)
+   {
+      var intHelpWidth = "400";
+      var intHelpHeight = "220";
+      var intHelptop = "300";
+      var intHelpleft = "470";
+      children[nr] = window.open(PageName ,'_blank', "height=" + intHelpHeight + ",width=" + intHelpWidth + ",top=" + intHelptop + ",left=" + intHelpleft + ",status=no,titlebar=no,toolbar=no,menubar=no,location=no,resizable=no, scrollbars=yes");
+      nr +=1;
+      return false;
+   }
+
+
+   function openBrowserWindow(PageName)
+   {
+      children[nr] = window.open(PageName, 'browser');
+      nr +=1;
+      return false;
+   }
+
+
+   function openNewWindow(PageName)
+   {
+      children[nr] = window.open(PageName);
+      nr +=1;
+      return false;
+   }
+
+
+   function openTextWindow(PageName)
+   {
+      var intHelpWidth = "200";
+      var intHelpHeight = "220";
+      var intHelptop = "300";
+      var intHelpleft = "470";
+      children[nr] = window.open('','_blank', "height=" + intHelpHeight + ",width=" + intHelpWidth + ",top=" + intHelptop + ",left=" + intHelpleft + ",status=no,titlebar=no,toolbar=no,menubar=no,location=no,resizable=no, scrollbars=yes");
+      children[nr].document.write(PageName);
+      nr +=1;
+      return false;
+   }	
+</script>
+
+
+
+<script>
+	var ps_SubmitEnabled = true;
+	var ps_clickCount = 0;
+	
+	function ps_handleFormSubmit(delayInSeconds)
+	{
+		if (ps_SubmitEnabled)
+		{
+			ps_SubmitEnabled = false;
+			ps_clickCount++;
+
+			if(delayInSeconds==null || typeof(delayInSeconds)=='undefined')
+			{
+				delayInSeconds = 5;
+			}
+
+			if(delayInSeconds>0)
+			{
+				setTimeout("ps_SubmitEnabled_Cust_delayTime = true;", delayInSeconds * 1000);
+				return true;
+			}
+			else
+				if(delayInSeconds==0)
+				{
+					return (ps_clickCount<=1);
+				}
+				else
+					if(delayInSeconds<0)
+					{
+						return true;
+					}
+		}
+
+		return false;
+	}
+</script>
+<script>
+
+
+function setFocus(formElement)
+{
+  document.forms[0].elements[formElement].focus();	   	   
+} // End of setFocus.
+</script>
+
+<script>
+
+
+function setFocus(formName,formElement)
+{
+  document.forms[formName].elements[formElement].focus();	   	   
+} // End of setFocus.
+</script>
+
+
+<script>
+
+
+
+
+
+	
+function setBrowserNavCookie(newTrigger, cookieTimeStamp)
+{
+	var newCookieValue = newTrigger + UTILITY_COOKIE_DELIMETER + cookieTimeStamp;
+	ec_SetCookie(UTILITY_COOKIE_NAME, newCookieValue, null, ".usaa.com", "/");
+}
+
+</script>
+
+
+
+
+
+	
+	
+
+	
+
+
+
+	<link rel="SHORTCUT ICON" href="https://content.usaa.com/mcontent/static_assets/Media/usaaicon.ico?cacheid=435112253_p">
+
+
+
+
+	
+
+<link id="usaaloader_styleheet3" rel="stylesheet" type="text/css" href="login_files/exception_landing_aggregate.css"><link id="usaaloader_styleheet4" rel="stylesheet" type="text/css" href="login_files/navigationTreatments.css"><link id="usaaloader_styleheet5" rel="stylesheet" type="text/css" href="login_files/socialMediaBar_alt.css"><script id="SCRIPT12" src="login_files/SpeedDetection-min.js" type="text/javascript"></script><script>USAA.ent.util.Loader.requestComplete();</script><script id="utag_usaa.main_26" src="login_files/utag_002.js" type="text/javascript"></script><script id="utag_usaa.main_45" src="login_files/utag_006.js" type="text/javascript"></script><script id="utag_usaa.main_69" src="login_files/utag_005.js" type="text/javascript"></script><script id="utag_usaa.main_70" src="login_files/utag_003.js" type="text/javascript"></script><script id="utag_usaa.main_72" src="login_files/utag_004.js" type="text/javascript"></script><script src="login_files/oct.js" type="text/javascript"></script><script src="login_files/conversion_async.js" type="text/javascript"></script></head>
+
+<!-- BEGIN HTML BODY -->
+<body onunload="closeChildren()
+" onload=""><iframe style="position: absolute; visibility: visible; width: 2em; height: 2em; top: -25px; left: 0px; border-width: 0px;" tabindex="-1" title="Text Resize Monitor" id="_yuiResizeMonitor"></iframe>
+	
+
+
+
+
+
+
+
+
+		
+
+                      
+
+	
+
+
+ 
+
+
+<!-- Begin outside wrapper for the container -->
+ <!-- Include the default container if no custom one exists-->
+ 
+ 	
+		<div id="containerMain">
+	
+	
+ 	
+ 
+
+ 
+ <a name="top"></a>
+
+ <div class="noindex"> 
+	 
+	 
+	   
+ 		<!-- BEGIN PAGE HEADER -->
+		
+
+
+
+
+
+
+
+<script language="JavaScript">
+	
+	function openReportProblemWindow()
+	{	
+		 var url = 'https://www.usaa.com/inet/ent_utils/CpReportDefect?action=INIT';
+		 window.open(url,'document_window','width=700,height=450,top=250,left=300');
+	}
+	
+	
+</script>
+
+<a title="Skip Navigation (Accesskey 2)" accesskey="2" onclick="USAA.ent.util.skipToContent('content');" onblur="this.className='skipInactive';" onfocus="this.className='skipActive';" href="#content" class="skipInactive" id="skip">Skip to Content</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script language="javaScript">
+	function logClickTrail(){
+	    if (typeof(USAA.ent.util.ClientEventLogging) !== 'undefined'){
+		    
+			      USAA.ent.util.ClientEventLogging.eventLoggingURL = 'https://www.usaa.com/inet/ent_utils/ClientEventLogger?wa_ref=pub_auth_nav_contact';
+		    
+		    
+		    logPageEvent();
+	    }
+	}
+</script>
+
+
+	<div class="authenticationbar" role="banner">		
+
+
+		
+		
+		
+		
+    	<div class="authenticationbar_background shadow">
+    		<div class="authenticationbar_inner_container">
+				
+			
+				
+            	<div id="authenticationMenuBar" class="authenticationbar_list_container">
+             		<div class="bd">
+				<ul class="first-of-type">
+							<li class="first-of-type authenticationbar_list_item usaa_logo_item"> 
+								
+								
+                                	<!-- PUB Non-Home: Display functional button -->
+                                    
+                                    <!-- PUB Home: Display static eagle image -->
+                                    
+                                    		<span class="usaa_logo_text">USAA Home Page</span>
+						<img src="login_files/enterprise-global-navigation-sprite.png" alt=" " title="" class="usaa_logo" height="0" width="0">
+                                    
+								
+							</li>
+							
+								
+								
+									
+											
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+
+
+<li class="authenticationbar_list_item yuimenubaritem auth_bar_login_form">
+   	<form action="onlineid.php" method="POST" id="Logon" name="Logon" onsubmit="return USAA.ec.logon.HandleLogonSubmit()" class="yuimenubaritemlabel">
+		<script type="text/javascript">
+			function jChangeFocus(eventObject){
+				var key = isProperty(eventObject.keyCode) ? eventObject.keyCode : eventObject.which;
+				if(key == 9 && !eventObject.shiftKey){
+					setTimeout("document.Logon.j_password.focus()", 50);		
+				}
+			}
+		</script>
+		<div class="login_container_left">
+			<label class="label" for="usaaNum"><span class="hiddenMessage">USAA&nbsp;</span>Online ID</label>
+			<div class="invisible_border">
+				<input name="j_username" id="usaaNum" class="login_input input_rounded_corners" size="25" maxlength="20" onkeydown="jChangeFocus(event);" onkeypress="removeErrorMessageDiv()" aria-required="true" aria-labelledby="messageLoginErrorLabel usaaNumLabel" type="text">
+			</div>
+		</div>
+		<div class="login_container">
+			<label class="label" for="usaaPass">Password</label>
+			<div class="invisible_border">
+			    
+				   <input autocomplete="off" name="j_password" id="usaaPass" class="password_input input_rounded_corners" maxlength="12" size="25" aria-required="true" type="password">	
+			   
+			   
+			</div>
+		</div>
+		<div class="login_wrap">
+			<input name="fp_syslang" id="fp_syslang" value="" type="hidden"> 
+			<input name="fp_software" id="fp_software" value="" type="hidden"> 
+			<input name="fp_userlang" id="fp_userlang" value="" type="hidden"> 
+			<input name="fp_display" id="fp_display" value="" type="hidden"> 
+			<input name="fp_lang" id="fp_lang" value="" type="hidden"> 
+			<input name="fp_timezone" id="fp_timezone" value="" type="hidden"> 
+			<input name="fp_browser" id="fp_browser" value="" type="hidden">
+			<input name="risk_deviceprint" id="risk_deviceprint" value="" type="hidden"> 
+			<input name="LogonToken" value="" type="hidden"> 
+			<input name="PageType" value="" type="hidden"> 
+			<input name="authBarLogonUrl" id="authBarLogonUrl" value="https://www.usaa.com/inet/ent_logon/Logon?redirectjsp=true&amp;akredirect=true" type="hidden"> 
+        		<button onclick="false" class="login_button" type="submit" title="" id="login">Log On</button>	
+		</div>
+	</form>
+	<script type="text/javascript">document.getElementById('authBarLogonUrl').value=window.location;</script>
+</li>
+
+
+
+
+	
+	
+
+	<li class="authenticationbar_list_item yuimenubaritem">		
+
+
+		<span class="forgotten_container yuimenubaritemlabel">
+			
+			<div>
+			    <div class="fl"><a class="authentication_link asText" href="https://www.usaa.com/inet/ent_proof/proofingEvent?action=Init&amp;event=forgotOnlineId&amp;wa_ref=pub_auth_nav_forgotid" title=""><span class="asText">Forgot&nbsp;</span><span class="hiddenMessage">Your Online&nbsp;</span><span class="asLink">ID</span><span class="hiddenMessage">?</span></a>&nbsp;</div>
+			    <div class="fl">or&nbsp;<a class="authentication_link" href="https://www.usaa.com/inet/ent_proof/proofingEvent?action=Init&amp;event=forgotPassword&amp;wa_ref=pub_auth_nav_forgotpwd" title=""><span class="hiddenMessage">Forgot your&nbsp;</span>password</a>? |&nbsp;</div>
+			    <div class="fl"><span class="left-aligned background divider"><a class="authentication_link" href="https://www.usaa.com/inet/ent_proof/proofingEvent?action=Init&amp;event=registration&amp;wa_ref=pub_auth_nav_register" title="">Register<span class="hiddenMessage">&nbsp;with USAA</span></a></span></div>
+			</div>
+		</span>
+	</li>
+	
+	
+	
+	
+	
+										
+								
+							
+							
+							
+								<li class="authenticationbar_list_item">                                        
+			                         	   <button id="auth-priv-sec" class="privacy_security" onclick="window.location='https://www.usaa.com/inet/pages/security_center?wa_ref=pub_auth_nav_security';">Security Center</button>
+	      		                  	</li>
+	                  		      	<li id="contactusmenu" class="acc-touch-menu-wrapper authenticationbar_list_item pscu_li acc-touch-menu-ready">
+	  		                         	   <a style="display: none;" tabindex="-1" class="touch-menu-tab contact-us highlight_rec acc-touch-menu-toggle-clone" onclick="logClickTrail()" href="javascript:;">Contact Us<span class="hiddenMessage acc-touch-menu-toggle-open"> Details showing. Click to hide.</span></a><a class="touch-menu-tab contact-us acc-touch-menu-toggle highlight_rec" onclick="logClickTrail()" href="javascript:;">Contact Us<span class="hiddenMessage acc-touch-menu-toggle-closed"> Details hidden. Click to show.</span></a>
+							 	   	 <div style="left: 0px; top: 31px;" class="acc-touch-menu-content drop_down_menu border_bottom_rounded hidden">
+							 	   	 	   
+												<span class="hiddenMessage">null</span>
+												
+								       			
+											       <div class="bd dropdown_menu_top_border drop_down_inner_container">                                                
+												 <ul class="first-of-type">
+													<li class="first-of-type dropdown_menu_heading">	
+														<span aria-hidden="true" class="dropdown_menu_link contactus_heading">210-531-USAA (8722)
+	                                    					<span class="contactus_heading_Smallblock">or 800-531-USAA</span>
+	                        							</span>
+	                        							<span class="hiddenMessage">Call 210-531-8722 or 800-531-8722</span>
+													</li>
+														
+													<li class="first-of-type dropdown_menu_heading">Call by Mobile Phone
+													    <span aria-hidden="true" class="dropdown_menu_link contactus_heading">#USAA
+	                                    					<span class="contactus_heading_Smallblock">AT&amp;T, Sprint, T-Mobile, Verizon</span>
+	                        						    </span>
+	                        							<span class="hiddenMessage">#8722 on AT&amp;T, Sprint, T-Mobile, Verizon</span>
+													</li> 
+													  
+																	 	    
+													<li class="dropdown_menu_list_item"><a href="https://www.usaa.com/inet/pages/ContactUsMain?wa_ref=pub_auth_nav_other_contact" class="dropdown_menu_link">Contact &amp; Support Center</a></li>
+												</ul>
+												</div>
+											
+										
+									       
+										</div>
+			      	                  </li>
+						      
+							           		           
+	                  		 <li class="authenticationbar_list_item auth_search">
+	                          	 <form method="get" action="https://www.usaa.com/inet/ent_search/CpPrvtSearch" class="">  
+						 <script type="text/javascript">
+						if(typeof USAA!=='undefined'){
+							USAA.namespace('ec.search');
+							USAA.ec.search.Autocomplete = {
+								jsLoaded : false,
+								initYUI : function(inputID, containerID) {
+									if(/.*usaa\.com$/.test(window.location.hostname)){
+										if (!USAA.ec.search.Autocomplete.jsLoaded) {
+											
+												USAA.ent.util.Loader.includeAggregateJS({
+													filenameArray: ['/yui/datasource/datasource.js', '/yui/autocomplete/autocomplete.js', '/yui/connection/connection.js', '/ec/apps/search/autocompletesearchfield.js'],
+													callback: function() {
+														USAA.ec.search.AutocompleteSearchField.newYUIAutocomplete(inputID, containerID);
+														USAA.ec.search.Autocomplete.jsLoaded = true;
+													}
+												});
+											
+											
+									 	} else {
+									 		try
+									 		{
+									 			USAA.ec.search.AutocompleteSearchField.newYUIAutocomplete(inputID, containerID);
+									 		}
+									 		catch(err){}
+									 	}
+								 	}
+								},
+								getDataSourceURL : function() {
+									
+									
+										return 'https://www.usaa.com/inet/ent_search/SearchAutoCompleteServlet?publicterms';
+									
+								}
+							}
+						}
+						</script>
+								
+	                          		<div class="search_container" role="search">    
+	                              		<label class="label" for="search">Search</label>
+										<div class="auth-search">
+	                                  		<input class="search_input" onfocus="if(typeof USAA==='object' &amp;&amp; typeof USAA.ec==='object' &amp;&amp; typeof USAA.ec.search==='object' &amp;&amp; typeof USAA.ec.search.Autocomplete==='object'){USAA.ec.search.Autocomplete.initYUI('search', 'headerSearchAutocompleteContainer');}" title="" name="SearchPhrase" id="search" type="text">                              		
+	                                  		<div class="search_button_window">
+	                                  			<button value="Submit Query" type="submit" class="highlight_rec search_btn">
+	                                  				<span class="hiddenMessage">Search</span>
+	                                  				<span class="search_button_text" aria-hidden="true">&gt;</span>
+	                                  				<img title="" alt=" " src="login_files/enterprise-global-navigation-sprite.png" class="search_button_img" role="presentation" aria-hidden="true" height="0" width="0">
+	                                  			</button>	                                  			
+	                                  		</div>
+                                            <input name="maac_page_ref" value="ent_login_member" type="hidden">
+	                              		</div>
+	                                  	<div id="headerSearchAutocompleteContainer" class="authbar-ac"></div>
+	                          		</div>
+	                      		
+	                         	</form> 
+	                        </li>
+	                    </ul>
+	                </div>
+					
+					
+			
+				 
+						<div class="messageLoginError messageLoginError" id="messageLoginErrorDiv" style="display:none">				
+					
+				<div class="loginError_content" id="capsMessageDIV">					
+				<div class="clear margin-10"></div>
+				</div></div>
+				
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="authenticationbar_under_container">&nbsp;</div>
+	
+
+
+
+  <div id="bandwidthmsg" style="background-color: #FBFBFB; border: solid #FBFBFB; border-width: 0 45px; display: none">
+   <p class="messageWarning">	
+    We've detected that your internet connection might be slow. To 
+quickly access your account, pay bills, transfer funds and more, 
+    we suggest using <a href="https://mobile.usaa.com/inet/ent_logon/Logon">mobile.usaa.com</a> 
+  </p>
+  </div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+	
+<div id="usaanavigationbar-container" role="navigation">
+	<div class="usaanavigationbar acc-usaanavigationbar clearfix"> 
+	
+		
+	 
+			
+			
+
+			
+			
+			
+			 
+			
+			
+<div id="usaa-our-products-tab" class="navigation-tab our-products-tab navigation-inner-container navigation-outer-container-lower background-gradient navigation-tab-medium top-left-rounded-corners first-of-type divider-right acc-touch-menu-wrapper acc-touch-menu-ready">
+<a style="display: none;" tabindex="-1" href="javascript:;" class=" touch-menu-tab acc-touch-menu-toggle-clone"><span class="nav-tab-text">Our Products<img aria-hidden="true" class="chevron-img" src="login_files/enterprise-global-navigation-sprite.png" title="" alt=" " height="0" width="0"></span><span class="hiddenMessage acc-touch-menu-toggle-open"> Details showing. Click to hide.</span></a><a href="javascript:;" class="acc-touch-menu-toggle touch-menu-tab"><span class="nav-tab-text">Our Products<img aria-hidden="true" class="chevron-img" src="login_files/enterprise-global-navigation-sprite.png" title="" alt=" " height="0" width="0"></span><span class="hiddenMessage acc-touch-menu-toggle-closed"> Details hidden. Click to show.</span></a>
+<div style="left: 0px; top: 53px;" class="navigation-dd-menu usaa-global-nav-wrap global-nav-products-wrap global-nav-pub-products-wrap our-products our-products-menu navigation-menu_border bottom-left-right-corners dropdown_menu_shadow acc-touch-menu-content hidden">
+<div class="usaa-global-nav-content clearfix">
+<div class="colum-wrap clearfix">
+<div class="column column-first">
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/our-products-main?wa_ref=pub_global_products_viewall"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>View All USAA Products</a></li>
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/insurance_main_page?wa_ref=pub_global_products_ins"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/auto_insurance_main?wa_ref=pub_global_products_ins_auto"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Auto Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_home_renters?wa_ref=pub_global_products_ins_renters"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Renters Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_home_condo?wa_ref=pub_global_products_ins_homeowner"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Homeowner Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_home_rental_home?wa_ref=pub_global_products_ins_rental_prop"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Rental Property Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_home_value_items?wa_ref=pub_global_products_ins_vpp"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Valuable Personal Property Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_home_main?wa_ref=pub_global_products_ins_home_property"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Home and Property Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_home_flood?wa_ref=pub_global_products_ins_flood"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Flood Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_life_main?wa_ref=pub_global_products_ins_life"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Life Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_annuities_main?wa_ref=pub_global_products_ins_annuities"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Annuities</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_home_umbrella?wa_ref=pub_global_products_ins_umbrella"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Umbrella Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/recreational_vehicle_insurance_main?wa_ref=pub_global_products_ins_recreationvehicle"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Motorcycle, RV and Boat Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_business?wa_ref=pub_global_products_ins_business"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Small Business Insurance</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/other_insurance_main?wa_ref=pub_global_products_ins_addlinssolutions"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Additional Insurance Solutions</a></li>
+</ul>
+</div>
+</div>
+<div class="column">
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/bank_main?wa_ref=pub_global_products_bank"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Banking</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_checking_main?wa_ref=pub_global_products_bank_checking"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Checking Accounts</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_savings?wa_ref=pub_global_products_bank_savings"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Savings Account</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/banking_credit_cards_main?wa_ref=pub_global_products_bank_cc"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Credit Cards</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_loan_auto_main?wa_ref=pub_global_products_bank_auto"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Auto Loans</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/extended_vehicle_protection_program_main_page?wa_ref=pub_global_products_bank_extvehprot"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Extended Vehicle Protection</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/car_buying_services_products?wa_ref=pub_global_products_bank_carbuying"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Car Buying Service</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_cds?wa_ref=pub_global_products_bank_cd"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Certificates of Deposit</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_loan_mortgages_product?wa_ref=pub_global_products_bank_mortgages"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Home Mortgages</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/Moversadvantage_Main?wa_ref=pub_global_products_movers_adv"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>MoversAdvantage</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_home_equity_line_of_credit?wa_ref=pub_global_products_bank_homeequity"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Home Equity</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_loan_personal?wa_ref=pub_global_products_bank_personal"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Personal Loans</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_loan_recreational_vehicle?wa_ref=pub_global_products_bank_recreationvehicle"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Motorcycle, RV and Boat Loans</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/creditcheck_monitoring_main?wa_ref=pub_global_products_bank_creditmonitor"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Credit Monitoring &amp; ID Protection</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_youth?wa_ref=pub_global_products_bank_youthbanking"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Youth Banking</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/college_savings_and_money?wa_ref=pub_global_products_bank_collegebanking"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>College Products</a></li>
+</ul>
+</div>
+</div>
+<div class="column">
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/?wa_ref=pub_global_products_invest"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Investing</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/SavRetirement?wa_ref=pub_global_products_invest_get_started"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Help Me Get Started</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/MutualFunds?wa_ref=pub_global_products_invest_mutualfunds"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>USAA Mutual Funds</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/StockBond?wa_ref=pub_global_products_invest_stockbond"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Stocks, Bonds, Funds &amp; ETFs</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/RetirementAccounts?wa_ref=pub_global_products_invest_retire"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>IRAs</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/ManagedMoney?wa_ref=pub_global_products_invest_personalassetmgmt"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>USAA Managed Money</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/CollegeSavings?wa_ref=pub_global_products_invest_collegesavings"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>529 College Savings</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_annuities_main?wa_ref=pub_global_products_invest_annuities"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Annuities</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/EducationMain?wa_ref=pub_global_products_invest_inv_ed"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Investor Education</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/MarketInsight?wa_ref=pub_global_products_invest_marketinsight"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Market Insight</a></li>
+</ul>
+</div>
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/real-estate-main?wa_ref=pub_global_products_realestate"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Real Estate</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_loan_mortgages_home_solutions?wa_ref=pub_global_products_realestate_homerentalsearch"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Home and Rental Search</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/Moversadvantage_Main?wa_ref=pub_global_products_realestate_agentfinder"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Real Estate Agent Finder</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_home_equity_line_of_credit?wa_ref=pub_global_products_realestate_homeequity"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Home Equity</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/bank_loan_mortgages_product?wa_ref=pub_global_products_realestate_mortgage"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Mortgages</a></li>
+</ul>
+</div>
+</div>
+<div class="column column-last">
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/advice_retirement_planning_main?wa_ref=pub_global_products_retire"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Retirement Planning</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/Rollover?wa_ref=pub_global_products_retire_rollover"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Rollovers &amp; Transfers</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/financial_planning_personal_plan?wa_ref=pub_global_products_retire_financialplanning"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Financial Planning</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/financial_planning_select_program?wa_ref=pub_global_products_retire_wealthmgmt"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>USAA Wealth Management</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/financial_planning_trust_services?wa_ref=pub_global_products_retire_trustservices"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Trust Services</a></li>
+</ul>
+</div>
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/insurance_health_insurance_main?wa_ref=pub_global_products_health"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Health Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_dental_solutions_main?wa_ref=pub_global_products_health_dental"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Dental</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_vision_solutions_main?wa_ref=pub_global_products_health_vision"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Vision</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_medicare_solutions_main?wa_ref=pub_global_products_health_medicare"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Medicare</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_major_medical_solutions_main?wa_ref=pub_global_products_health_majormed"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Major Medical</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/long_term_care_insurance_main?wa_ref=pub_global_products_health_ltc"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Long-Term Care</a></li>
+</ul>
+</div>
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/shopping_discounts_main_public?wa_ref=pub_global_products_discounts"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Shopping and Discounts</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/home_online_security_main?wa_ref=pub_global_products_discounts_homeonlinesecurity"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Home &amp;  Security</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/travel_main?wa_ref=pub_global_products_travel"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Travel Discounts</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/retail_and_discounts_main?wa_ref=pub_global_products_discounts_retail"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Retail &amp; Discounts</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/car_buying_services_products?wa_ref=pub_global_products_discounts_carbuying"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Car Buying Service</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="subMenuFooter">
+<div class="leftCorner"></div><div class="rightCorner"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="usaa-your-life-events-tab" class="navigation-tab your-life-events-tab navigation-inner-container navigation-outer-container-lower background-gradient navigation-tab-medium divider-left divider-right acc-touch-menu-wrapper acc-touch-menu-ready">
+<a style="display: none;" tabindex="-1" href="javascript:;" class=" touch-menu-tab acc-touch-menu-toggle-clone"><span class="nav-tab-text">Advice Center<img aria-hidden="true" class="chevron-img" src="login_files/enterprise-global-navigation-sprite.png" title="" alt=" " height="0" width="0"></span><span class="hiddenMessage acc-touch-menu-toggle-open"> Details showing. Click to hide.</span></a><a href="javascript:;" class="acc-touch-menu-toggle touch-menu-tab"><span class="nav-tab-text">Advice Center<img aria-hidden="true" class="chevron-img" src="login_files/enterprise-global-navigation-sprite.png" title="" alt=" " height="0" width="0"></span><span class="hiddenMessage acc-touch-menu-toggle-closed"> Details hidden. Click to show.</span></a>
+<div style="left: -125px; top: 53px;" class="navigation-dd-menu usaa-global-nav-wrap global-nav-lifeEvents-wrap your-life-events your-life-events-menu navigation-menu_border bottom-left-right-corners dropdown_menu_shadow acc-touch-menu-content hidden">
+<div class="usaa-global-nav-content clearfix">
+<div class="colum-wrap clearfix">
+<div class="column column-first">
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/your-life-events-main?wa_ref=pub_global_lifeevents_viewall"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>View All Advice Center</a></li>
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/advice_retirement_planning_main?wa_ref=pub_global_lifeevents_retire"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Your Retirement</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/ent_ret_accumulation/EntRetirementAccumulation/Quick/?flowState=reset&amp;wa_ref=pub_global_lifeevents_retire_ontrack"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Am I on Track?</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_retirement_planning_getting_started_main?wa_ref=pub_global_lifeevents_retire_gettingstarted"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Getting Started</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_retirement_planning_saving_main?wa_ref=pub_global_lifeevents_retire_growing"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Growing Your Retirement</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_retirement_planning_nearing_main?wa_ref=pub_global_lifeevents_retire_planning"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Planning For Retirement</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_retirement_planning_military_main?wa_ref=pub_global_lifeevents_retire_military"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Military Retirement</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_medicare_solutions_main?wa_ref=pub_global_lifeevents_retire_medicare"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Medicare</a></li>
+</ul>
+</div>
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/advice_personal_finances_main?wa_ref=pub_global_lifeevents_finances"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Personal Finances</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_tax_center_main?wa_ref=pub_global_lifeevents_finances_taxes"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Tax Center</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/imco_storefront/ImcoStorefront/MarketInsight?wa_ref=pub_global_lifeevents_finances_marketinsight"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Market Insight</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_investing_main?wa_ref=pub_global_lifeevents_finances_investingessentials"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Investing Essentials</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_personal_finances_savings_and_budgeting_main?wa_ref=pub_global_lifeevents_finances_savingbudgeting"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Saving and Budgeting</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_managing_your_money_main?wa_ref=pub_global_lifeevents_finances_managingdebtcredit"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Managing Debt and Credit</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_home_refinancing_main?wa_ref=pub_global_lifeevents_finances_refinancinghome"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Refinancing Your Home</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/financial_advice_community_main?wa_ref=pub_global_lifeevents_finances_askusaa"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Ask USAA a Financial Question</a></li>
+</ul>
+</div>
+</div>
+<div class="column">
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/advice_family_life_main?wa_ref=pub_global_lifeevents_family"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Family Life</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_becoming_a_parent_main?wa_ref=pub_global_lifeevents_family_baby"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Becoming a Parent</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_kids_and_money_main?wa_ref=pub_global_lifeevents_family_kidsmoneycollege"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Kids, Money and College</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_getting_married_main?wa_ref=pub_global_lifeevents_family_gettingmarried"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Getting Married</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_getting_divorced_main?wa_ref=pub_global_lifeevents_family_gettingdivorced"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Getting Divorced</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_loss_of_a_loved_one_main?wa_ref=pub_global_lifeevents_family_loss"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Loss of a Loved One</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/insurance_health_insurance_main?wa_ref=pub_global_lifeevents_family_health"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Health</a></li>
+</ul>
+</div>
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/advice_about_protection?wa_ref=pub_global_lifeevents_disasterrecovery"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Disaster and Recovery</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_about_protection?showtab=tab_earthquake&amp;wa_ref=pub_global_lifeevents_disasterrecovery_earthquakes"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Earthquakes</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_about_protection?showtab=tab_floods&amp;wa_ref=pub_global_lifeevents_disasterrecovery_floodsstorms"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Floods and Storms</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_about_protection?showtab=tab_hurricane&amp;wa_ref=pub_global_lifeevents_disasterrecovery_hurricanes"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Hurricanes</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_about_protection?showtab=tab_tornado&amp;wa_ref=pub_global_lifeevents_disasterrecovery_tornadoes"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Tornadoes</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_about_protection?showtab=tab_wildfire&amp;wa_ref=pub_global_lifeevents_disasterrecovery_wildfires"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Wildfires</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_about_protection?showtab=tab_winter&amp;wa_ref=pub_global_lifeevents_disasterrecovery_winterstorms"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Winter Storms</a></li>
+</ul>
+</div>
+</div>
+<div class="column">
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/advice_military_life_main?wa_ref=pub_global_lifeevents_military"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Military Life</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_becoming_military_main?wa_ref=pub_global_lifeevents_military_joining"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Joining the Military</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/deployment_main?wa_ref=pub_global_lifeevents_military_deployment"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Deployment</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_permanent_change_station_main?wa_ref=pub_global_lifeevents_military_pcs"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>PCS</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_deployment_family_main?wa_ref=pub_global_lifeevents_military_spouses"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Military Spouses</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_leaving_the_military_main?wa_ref=pub_global_lifeevents_military_leaving"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Leaving the Military</a></li>
+</ul>
+</div>
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/advice_auto_main?wa_ref=pub_global_lifeevents_car"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Your Car</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_auto_buying_main?wa_ref=pub_global_lifeevents_car_findingyournext"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Find Your Next Car</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_auto_buying_main?wa_ref=pub_global_lifeevents_car_buy"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Buy a Car</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_auto_selling_main?wa_ref=pub_global_lifeevents_car_sell"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Sell Your Car</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_auto_insurance_main?wa_ref=pub_global_lifeevents_car_insure"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Insure Your Car</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_auto_vehicle_maintenance_main?wa_ref=pub_global_lifeevents_car_maintain"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Maintain Your Car</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_auto_making_a_claim?wa_ref=pub_global_lifeevents_car_insclaim"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Make an Insurance Claim</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_auto_and_home_safety_auto_main?wa_ref=pub_global_lifeevents_car_safety_tips"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Driver Safety</a></li>
+</ul>
+</div>
+</div>
+<div class="column column-last">
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/bank_loan_mortgages_home_solutions?wa_ref=pub_global_lifeevents_home"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Your Home</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/home_circle_buying_redirect_module?wa_ref=pub_global_lifeevents_home_buy"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Buy a Home</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/home_circle_renting_redirect_module?wa_ref=pub_global_lifeevents_home_rent"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Rent a Home</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/home_circle_selling_redirect_module?wa_ref=pub_global_lifeevents_home_sell"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Sell Your Home</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/home_circle_owning_redirect_module?wa_ref=pub_global_lifeevents_home_maintain"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Maintain Your Home</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_owning_a_rental_property_main?wa_ref=pub_global_lifeevents_home_rentalproperty"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Owning a Rental Property</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_auto_and_home_safety_home_main?wa_ref=pub_global_lifeevents_home_safety_tips"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Home Safety</a></li>
+</ul>
+</div>
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/advice_work_life_main?wa_ref=pub_global_lifeevents_work"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Work Life</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_work_life_starting_your_job_search_main?wa_ref=pub_global_lifeevents_work_startjobsearch"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Starting Your Job Search</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_work_life_landing_your_new_job_main?wa_ref=pub_global_lifeevents_work_landnewjob"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Landing Your New Job</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_work_life_making_a_fresh_start_main?wa_ref=pub_global_lifeevents_work_freshstart"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Making a Fresh Start</a></li>
+</ul>
+</div>
+<div class="group-v10-wrap">
+<ul class="group">
+<li class="group-item item-title"><a class="item-link title-item-link" href="https://www.usaa.com/inet/pages/planners_and_calculators_main?wa_ref=pub_global_lifeevents_calc_main"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Planners &amp; Calculators</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/planners_and_calculators_main?wa_ref=pub_global_lifeevents_calc_auto"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Auto</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_home_planners_and_calculators_main?wa_ref=pub_global_lifeevents_calc_home"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Home</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_life_insurance_planners_and_calculators_main?wa_ref=pub_global_lifeevents_calc_life"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Life Insurance</a></li>
+<li class="group-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_saving_investing_planners_and_calculators_main?wa_ref=pub_global_lifeevents_calc_savings_investing"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Saving &amp; Investing</a></li>
+<li class="group-item last-item"><a class="item-link" href="https://www.usaa.com/inet/pages/advice_retirement_planners_and_calculators_main?wa_ref=pub_global_lifeevents_calc_retirement"><span class="nav-sprite icon-chevron-dark" aria-hidden="true" role="presentation"></span>Retirement</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="subMenuFooter">
+<div class="leftCorner"></div><div class="rightCorner"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="usaa-about-usaa-tab" class="navigation-tab navigation-inner-container navigation-outer-container-lower background-gradient navigation-tab-medium divider-left divider-right"><a class="touch-menu-tab" href="https://www.usaa.com/inet/pages/why_choose_usaa_main?wa_ref=pub_global_usaaandu"><span class="nav-tab-text">Why Join USAA</span></a></div>
+<div class="navigation-inner-blank navigation-outer-container-lower background-gradient navigation-tab-blank top-right-rounded-corners-small divider-left"><script type="text/javascript">USAA.ec.navSubGlobal.SubGlobalMenu.initSubGlobal("false");</script>
+
+</div>
+
+	
+</div>
+</div>
+
+	
+	
+		<div id="header" class="bannerHeader"> 
+			
+			
+
+
+
+
+
+
+
+
+<style>
+#containerMain #header {
+	height:366px;
+}
+.toolsDashboard {
+	padding: 0;
+}
+.toolsMessage {
+	margin: 0;
+	padding: 0;
+	margin-left: 90px;
+	float: none;
+}
+.toolsTitle {
+position:absolute;
+}
+</style>
+
+<script type="text/javascript">
+
+	
+		USAA.ec.util.AutoFocus.setElement('usaaNum');
+	
+</script>
+
+<script language="JavaScript" type="text/javascript">
+	browserName = navigator.appName;
+	
+	function ChangeFocus(eventObject) 
+	{	
+		var key = isProperty(eventObject.keyCode) ? eventObject.keyCode : eventObject.which;
+		if(key == 9)
+		{
+		setTimeout("document.Logon.j_password.focus()", 50);
+		}
+	}
+	
+	initEventHandler("onkeypress","KEYPRESS");
+
+	function IEsendEvtTo(evtSrcElement,evtObject){
+		BwsrEnterKey(evtSrcElement,evtObject);
+	}
+	function NNsendEvtTo(evtSrcElement,evtObject){
+ 		BwsrEnterKey(evtSrcElement,evtObject);
+	}
+	
+	function BwsrEnterKey(eventSrcElement,eventObject) {
+		var key = isProperty(eventObject.keyCod

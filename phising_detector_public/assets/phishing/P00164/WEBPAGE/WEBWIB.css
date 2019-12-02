@@ -1,0 +1,146 @@
+/*
+    The CSS assumptions for WEBstyle.css and vudu.css differ as base starting point
+    Take whats' needed from vudu.css and wibscreen.css and tie to a selector in the layout
+*/
+* {font-family:arial, helvetica, sans-serif}
+.webwib {color:#000;background-color:#FFF;font-style:normal; font-size:75%}
+.webwib #title h1 {font-size:133%;}
+.webwib #footer {margin-right:0;margin-left:0;}
+.webwib a.fieldhelp, .webwib a.printerfriendly {font-size:83%;text-decoration:none;background:url(ico_newwin.gif) right no-repeat;padding-right:15px;margin-left:6px;}
+.webwib a.fieldhelp:hover, .webwib a.printerfriendly:hover {text-decoration:underline;}
+.webwib a.printerfriendly {float:right;}
+.webwib fieldset.plain {border:none;padding:0;margin:0}
+.webwib legend.hide {display:none;}
+.webwib input, .webwib select {font-size:92%;padding:1px 2px;}
+.webwib .formlabel {font-weight: bold;}
+.webwib .verifyFormData, .confirmFormData {font-weight:normal;}
+.webwib .formPseudoTable { border:1px solid black; padding: 5px 5px 5px 5px; }
+.webwib .formPseudoRow {vertical-align:top;margin-top:1em;clear:both;}
+.webwib .acrossColumn {width:100%}
+.webwib .acrossColumnForm {width:400px;}
+.webwib .labelColumn {width:165px;float:left;vertical-align:top;padding-left:.5em;}
+.webwib .labelColumnPaymentAllocationType {width:170px;float:left;vertical-align:top;padding-left:.3em;}
+.webwib .formCtlColumn {vertical-align:top;margin-left:180px;}
+.webwib .formSectionHead {border-bottom:1px solid #666;width:100%;color:#000;} /* already covered by another selector, or could function as separate semantic */
+.webwib .horizontalRule {border-bottom:1px solid #cccccc;width:100%;color:#000;margin-bottom:5px;margin-top:5px;}
+.webwib div.acrossColumn  {padding-left:.5em;}
+.webwib .labelHint, .webwib .formCtlHint {font-weight:normal;margin-left:6px;color:#666;}
+.webwib .formCtlHintDescription {font-weight:normal;margin-left:0px;color:#666;}
+.webwib .labelHintlalign {font-weight:normal;margin-left:0px;color:#666;}
+.webwib .column-one {clear:both;float:left;margin-right:10px;}
+.webwib .column-other {float:left;margin-right:10px;}
+.webwib div#buttonBar.altauthBtnBar {margin:1em 0 0 0;}
+.webwib div#buttonBar {
+ 	width:100%; /* rule needed to maintain desired margin below buttons in IE6Win */
+ 	/*background-color:#FFFFE2;*/
+ 	border-top:0px solid #999;
+ 	border-bottom:0px solid #999;
+ 	/*text-align:right; This rule causes button display problem in IE5.2Mac, so both buttons are wrapped in floated divs */
+ 	padding:4px 0;
+ 	margin-top:5px;
+ }
+ .webwib span#buttonPrimary {
+ 	border:0.001em solid ;
+ 	background:#4986FF;  /*blue background for Safari - not sure if this is the desired color */
+ 	float:right;
+ 	padding:0;
+ 	margin:0 0 0 10px;
+ }
+
+ .webwib span#buttonPrimary input {
+ 	font-weight:normal;
+ 	padding: 1px 2px;
+ }
+.webwib  span#buttonSecondary input{
+ 	float:right;
+ 	padding: 1px 2px;
+ }
+
+.webwib div#buttonBar div.clearer {
+ 	clear:right;
+ 	line-height:0;
+ 	height:0;
+ 	margin:0;
+ 	font-size:1px; /* needed to keep the non-breaking space from showing full height in some browsers */
+ }
+
+.webwib label {
+    cursor: pointer;   /* cursor:pointer is valid for CSS2 */
+    cursor: hand;      /* cursor:hand is valid for IE, DO NOT DELETE */
+}
+
+.webwib div#buttonBar {
+    width:100%; /* rule needed to maintain desired margin below buttons in IE6Win */
+    background-color:#FFFFE2;
+    border-top:1px solid #666;
+    border-bottom:1px solid #666;
+    /*text-align:right; This rule causes button display problem in IE5.2Mac, so both buttons are wrapped in floated divs */
+    padding:4px 0;
+    margin-top:5px;
+}
+.webwib span#buttonPrimary {
+    border: 1px solid #000;
+    background:#4986FF;  /* blue background for Safari - not sure if this is the desired color */
+    float:right;
+    padding:0;
+    margin:0 0 0 4px;
+}
+.webwib div#buttonBar input {
+    font-size: 92%;
+    padding:1px 2px;
+}
+.webwib span#buttonPrimary input {
+    font-weight:bold;
+    padding: 0px 2px; /* Top and bottom padding set to 0 to compensate for 2px height difference created by 1px border in "buttonPrimary" span */
+}
+.webwib span#buttonAssociated { /* Removed descendant selector "input" as it was causing problems in IE5.2Mac */
+    float:right;
+    margin-right: 4px;
+}
+.webwib span#buttonPeripheral { /* Removed descendant selector "input" as it was causing problems in IE5.2Mac */
+ 	float:right;
+	margin-right:3px;
+}
+.webwib span#buttonTertiary {
+    float:right;
+    margin-right:18px;
+}
+
+.webwib .buttonBarEnclosed {
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right:1px solid black;
+    background-color:#FFFFE2;
+    padding: 5px 5px 5px 5px;
+    text-align:right;
+    height:20px;
+}
+
+.webwib #StandAloneSignonOther {border-top:1px solid #666;padding-top:0.5em;padding-bottom:3em;}
+.webwib #StandAloneLinks {margin:1em 0 3em 0;}
+/*.webwib #gobtn {}*/
+.webwib .footer1 {font-size:83%;}
+.webwib .footer2 {font-size:91%;}
+.alert {color:#CC0000;margin:3px 0 0 0;padding:0}
+.alert a {color:#cc0000;}
+.alert a:hover {color:#ff3333;}
+table#reorderchecks td, table#reorderchecks th {border:1px solid black; padding:4px;}
+
+/*Begin- WFA Alt Signon */
+#wfaAltSignon {margin:0 0 2px 4px;}
+#wfaAltSignon #wfaAltSignonHeader {width:100%;}
+#wfaAltSignon div.horizontalRule {border-top:1px solid #999;margin:10px 0 5px 0;border-bottom:none;}
+#wfaAltSignon #wfaAltSignonHeader td {vertical-align:top;padding-left:12px;}
+#wfaAltSignon #wfaAltSignonBody h1 {margin-top:35px;}
+#wfaDisclaimers {margin-top:34px; font-size:91%;color:#666666;}
+#wfaDisclaimers div.NotNotDisclaimer {border:1px solid #666;padding:6px;}
+#wfaDisclaimers #wfaDisclaimer1 {margin:0px;font-weight:bold;}
+#wfaDisclaimers #wfaDisclaimer2 {margin-top:12px;}
+#wfaAltSignonBody {width:820px}
+#wfaAltSignon div#title {border-bottom:none;margin-top:35px;}
+#wfaAltSignonBody div.wfaLabelColumn {padding-left:0px;}
+div#footer.wfaFooter {margin-top:50px; border-color:#999;padding-top:1em;}
+div#footer.wfaFooter a {text-decoration:underline}
+#topBar {margin-top:-5px;padding:0;line-height:0.5;height:5px;background-color:#dddece;}
+#wfafootercopyright {margin-top:10px;}
+/*End- WFA Alt Signon */

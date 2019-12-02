@@ -1,0 +1,732 @@
+<html><head><link rel="stylesheet" href="DHL_EzyBill_files/glbl_nn7.css">
+<link rel="stylesheet" href="DHL_EzyBill_files/prtl_std_nn7.css">
+
+<!-- EPCF: BOB Core -->
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<script src="DHL_EzyBill_files/js13_epcf.js"></script>
+<script>
+<!--
+EPCM.relaxDocumentDomain();
+EPCM.init( {
+Version:7.00001692,
+Level:1,
+DynamicTop:false, // [service=true nestedWinOnAlias=false]
+UAType:21, // [Mozilla]
+UAVersion:5.0,
+UAPlatform:1, // [Win]
+UIPMode:"1", // [Default=1, User=0, Personalize=true]
+UIPWinFeatures:"",
+UIPPortalPath:"http://ezybill4u-zpp.dhl.com:80/irj/portal",
+UIPPopupComp:"http://ezybill4u-zpp.dhl.com:80/irj/servlet/prt/portal/prtroot/com.sap.portal.epcf.admin.WorkProtectPopup",
+UIPPopupCompSize:"dialogWidth:450px; dialogHeight:200px; status:no",
+UIPPopupMsgNN:"Your\x20current\x20page\x20contains\x20unsaved\x20data.\r\nDo\x20you\x20want\x20to\x20continue\x20with\x20navigation\x20and\x20open\x20a\x20new\x20window\x3f",
+UIPPopupMsgND:"Your\x20current\x20page\x20contains\x20unsaved\x20data.\r\nDo\x20you\x20want\x20to\x20discard\x20the\x20changes\x20and\x20open\x20the\x20content\x20in\x20the\x20same\x20window\x3f",
+DBGException:false
+} );
+EPCM.DSM.init( {
+TerminatorURL:"/irj/servlet/prt/portal/prtroot/com.sap.portal.dsm.Terminator",
+WinEmptyUrl:"/irj/portalapps/com.sap.portal.dsm/images/empty.gif",
+NavAcrossSubFramesUrl:"disabled",
+ForcedUserDebug:false,
+KeepAliveActive:false,
+KeepAliveDelta:840,
+KeepAliveStopAfter:36000
+} );
+function SAPWP_receiveSessInfo( sessInfo, frameRef ){
+  EPCM.DSM.processSession( sessInfo, frameRef );
+}
+//-->
+</script>
+<!-- EPCF: EOB Core -->
+
+<script type="text/javascript">
+/*HTML Business for Java, NW04S_26_REL, 131397, Thu Jan 26 08:40:10 MYT 2012*/
+ur_system = {doc : window.document , mimepath :"/irj/portalapps/com.sap.portal.design.urdesigndata/themes/portal/sap_tradeshow/common/", stylepath : "/irj/portalapps/com.sap.portal.design.urdesigndata/themes/portal/sap_tradeshow/ur/", emptyhoverurl : "/irj/portalapps/com.sap.portal.htmlb/jslib/emptyhover.html", is508 : false, dateformat : 1, domainrelaxing : "MINIMAL"};
+</script>
+<title>DHL | EzyBill</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><link rel="STYLESHEET" href="DHL_EzyBill_files/ur_nn7.css" type="text/css"><link rel="STYLESHEET" href="DHL_EzyBill_files/logon.css" type="text/css"><link rel="STYLESHEET" href="DHL_EzyBill_files/main2.css" type="text/css"><style type="text/css">
+<!--
+body {
+	background-color: #FFFFFF;
+}
+-->
+</style></head><body class="prtlBody urFontBaseFam urScrl">
+<!-- EPCF: Component com.dhl.ezybill.runtime.logon.certlogon, bfblmbljoaegjbhlnhfgblejnbdkekkg -->
+
+<!-- EPCF: Component com.dhl.ezybill.runtime.logon.default, kfmddbjlebmchmgkopceijejnbdkekkg -->
+
+<!-- component context:com.dhl.ezybill.runtime.logon.default-->
+<!-- class: com.sapportals.portal.ume.component.logon.SAPMLogonComponent-->
+
+<!-- trying to go to page umLogonPage-->
+
+<!-- before including jsp resource umLogonPage.jsp-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+var inPortalScript = true;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+   <!-- Include epcm-event in order to make logon
+		in the portal more smooth-->
+   <script language="JavaScript">
+	 EPCM.raiseEvent("urn:com.sapportals:navigation", "RefreshPortal", "");
+   </script>
+
+
+
+
+
+
+<script language="JavaScript" src="DHL_EzyBill_files/basic.js"></script>
+
+
+<script language="JavaScript">
+
+function url() {
+
+hidden = open('/webdynpro/dispatcher/dhl.com/self_registration_wd/SelfRegistrationApp','NewWindow','scrollbars=yes,resizable=yes,status=no,toolbar=no,menubar=no,location=no,width=screen.availWidth,height=screen.availHeight,screenX=0,screenY=0,top=0,left=0');
+hidden.focus();
+hidden.moveTo(0, 0);   
+
+}
+
+function clearEntries() {
+	document.logonForm.longUid.value="";
+	document.logonForm.password.value="";
+}
+// Modified By Pankaj Sharma for blinking Message
+function blinkFont()
+{
+  document.getElementById("DownTimeMessage").style.color="red"
+  setTimeout("setblinkFont()",1000)
+}
+function setblinkFont()
+{
+  document.getElementById("DownTimeMessage").style.color=""
+  setTimeout("blinkFont()",1000)
+}
+// end
+
+function setFocusToFirstField() {
+		myform = document.logonForm;
+		for(i=0; i<myform.length; i++) {
+				elem = myform.elements[i];
+				if(elem.readOnly==false && elem.type=="text") {
+						elem.focus();
+						break;
+				}
+		}
+}
+function swapImage(imgName,imgUrl)
+ {
+	if(document.images)
+	{
+	document.images[imgName].src=imgUrl;
+	}
+  }
+
+<!-- begin of modification YY GlobalEzybill 22.01.2013 -->
+ function handleKeyPress(evt) {   
+  var nbr, chr;   
+  if (window.Event) nbr = evt.which;   
+    else nbr = event.keyCode;   
+  if(nbr==13){   
+  <!-- nbr: 13 = <ENTER> -->
+    document.logonForm.submit();   
+  }   
+  return true;   
+ }  
+ document.onkeydown= handleKeyPress   
+<!-- end of modification YY GlobalEzybill 22.01.2013 -->
+</script>
+
+
+
+
+
+ <style>
+.prtlBody {
+	MARGIN: 0px; OVERFLOW: auto; BACKGROUND-COLOR: #FFCC00
+}
+.prtlHeaderCon {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.prtlPageConL {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 13px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 11px
+}
+.prtlPageConM {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 6px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 11px
+}
+.prtlPageConR {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 6px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 11px
+}
+.prtlPageConF {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 13px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 11px
+}
+.prtlPrtlFullPageAppBody {n
+	PADDING-RIGHT: 1px; PADDING-LEFT: 13px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 11px; BACKGROUND-COLOR: #ebeff2
+}
+.formElementAsterisk {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; VERTICAL-ALIGN: middle; COLOR: #000000; FONT-FAMILY: Arial; BACKGROUND-COLOR: #FFFFFF
+}
+
+.buttonBigLog {
+	BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #ffffff 1px solid;  PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 1px; VERTICAL-ALIGN: bottom; BORDER-LEFT: #ffffff 1px solid; WIDTH: 84px; CURSOR: pointer; COLOR: #000; LINE-HEIGHT: 11px; PADDING-TOP: 0px; BORDER-BOTTOM: #000000 1px solid; HEIGHT: 14px; BACKGROUND-COLOR: #ffcc00; TEXT-ALIGN: center;background-image:url(/irj/portalapps/com.dhl.ezybill.runtime.logon/layout/arrow_r_r_small.gif);background-repeat: no-repeat;background-position: 1px 5px; 
+}
+.buttonBigLog:hover {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 2px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 1px; BORDER-TOP-COLOR: black; PADDING-TOP: 0px; TEXT-DECORATION: none; BORDER-RIGHT-COLOR: #fff ;BACKGROUND-COLOR: #e4e4e4
+}
+.textBold {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Arial; TEXT-DECORATION: none
+}
+
+A:link {
+	COLOR: #000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #000; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+.link{
+COLOR: #000; TEXT-DECORATION: none
+}
+
+.buttonBigLogResult {
+	BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #ffffff 1px solid; DISPLAY: block; PADDING-LEFT: 1px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 1px; VERTICAL-ALIGN: bottom; BORDER-LEFT: #ffffff 1px solid; WIDTH: 84px; CURSOR: pointer; COLOR: #000; LINE-HEIGHT: 11px; PADDING-TOP: 0px; BORDER-BOTTOM: #000000 1px solid; HEIGHT: 14px; BACKGROUND-COLOR: #e4e4e4; TEXT-ALIGN: justify
+}
+.buttonBigLogResult:hover {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 2px; BORDER-LEFT-COLOR: black; BORDER-BOTTOM-COLOR: #fff; PADDING-BOTTOM: 1px; BORDER-TOP-COLOR: black; PADDING-TOP: 0px; TEXT-DECORATION: none; BORDER-RIGHT-COLOR: #fff
+}
+.urMsgBarErr {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px; BACKGROUND-COLOR: #FFE88A
+}
+
+.urMsgBarErrTop {
+	BORDER-RIGHT: #d0001d 0px; PADDING-RIGHT: 4px; BORDER-TOP: #d0001d 2px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; MARGIN: 4px 0px 0px; BORDER-LEFT: #d0001d 0px; PADDING-TOP: 2px; BORDER-BOTTOM: #d0001d 0px; BACKGROUND-COLOR: #FFE88A
+}
+.urMsgBarErrBtm {
+	BORDER-RIGHT: #d0001d 0px; PADDING-RIGHT: 4px; BORDER-TOP: #d0001d 0px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; MARGIN: 0px 0px 4px; BORDER-LEFT: #d0001d 0px; PADDING-TOP: 4px; BORDER-BOTTOM: #d0001d 2px solid; BACKGROUND-COLOR: #FFE88A
+}
+.urMsgBarStd {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 4px; BACKGROUND-COLOR: #FFE88A
+}
+.urMsgBarStdTop {
+	BORDER-RIGHT: #ffcc00 0px; PADDING-RIGHT: 4px; BORDER-TOP: #ffcc00 2px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; MARGIN: 4px 0px 0px; BORDER-LEFT: #ffcc00 0px; PADDING-TOP: 2px; BORDER-BOTTOM: #ffcc00 0px; BACKGROUND-COLOR: #FFE88A
+}
+.urMsgBarStdBtm {
+	BORDER-RIGHT: #ffcc00 0px; PADDING-RIGHT: 4px; BORDER-TOP: #ffcc00 0px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; MARGIN: 0px 0px 4px; BORDER-LEFT: #ffcc00 0px; PADDING-TOP: 4px; BORDER-BOTTOM: #ffcc00 2px solid; BACKGROUND-COLOR: #FFE88A
+}
+
+
+</style>
+
+
+
+
+
+<span id="UMELogon">
+<script language="JavaScript">
+if( window.EPCM != null )
+{
+        EPCM.subscribeEvent( "urn:com.sapportals.portal:browser", "load", setFocusToFirstField );
+}
+</script>
+
+
+<center>
+&nbsp;
+
+<table valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" width="760">
+		<tbody><tr>
+	<td bgcolor="#000000">
+<table border="0" cellpadding="0" cellspacing="1">
+<tbody><tr>
+	<td bgcolor="#FF3300"><img src="DHL_EzyBill_files/spacer.htm" alt="" border="0" height="10" width="758"></td>
+</tr>
+</tbody></table>
+
+</td></tr></tbody></table>
+<table valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- Header -->
+<tbody><tr align="center" bgcolor="#FFCC00" valign="middle">
+	<td width="162">
+	</td>
+	<td rowspan="2" width="598">
+	
+	<img src="DHL_EzyBill_files/DHL_Main.jpg" align="right" border="0" height="66" width="571">
+	
+	</td>
+</tr>
+<tr align="center" bgcolor="#FFCC00" valign="middle">
+	<td height="33" width="162">
+	<img src="DHL_EzyBill_files/DHL_Express2.jpg" border="0"></td>
+</tr>
+<tr>
+	<td colspan="2"><img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="1" width="760"></td>
+</tr>
+</tbody></table>
+			<table valign="middle" align="center" border="0" cellpadding="0" cellspacing="0" width="760">
+		<tbody><tr>
+	<td bgcolor="#000000">
+<table border="0" cellpadding="0" cellspacing="1">
+<tbody><tr>
+	<td bgcolor="#FF3300"><img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="12" width="758"></td>
+</tr>
+<tr>
+	<td bgcolor="#000000"><img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="2" width="758"></td>
+</tr>
+<tr>
+	<td bgcolor="#FFCC00">
+	<span id="UMELogon">
+	<img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="14" width="609"></span>
+<!--	<img src="/irj/portalapps/com.dhl.ezybill.runtime.logon/layout/arrow_r_r_small.gif" alt="" width="9" height="9" border="0">
+	<span class=urTxtStd><font color="#000000"><a href="mailto:Binny.Mathew@dhl.com" class=footerwhite>Contact DHL</font></span></td>-->
+</td></tr>
+<!-- Body Content -->
+<tr align="center" valign="middle">
+	<td bgcolor="#FFE88A"><img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="25" width="758">
+
+		<table bgcolor="#FFFFFF" border="0" bordercolor="#FFFFFF" cellspacing="0" height="100" width="720">
+		<tbody><tr>
+		<td bgcolor="#FFE88A">
+			
+
+<form method="post" action="">
+
+<table border="0" bordercolor="#FFFFFF" cellspacing="0">
+<tbody><tr>
+<td width="45%">
+<table valign="top" align="right" bgcolor="#FFE88A" border="0" bordercolor="#AAAAAA" cellspacing="0" height="100" width="350">
+<tbody><tr align="right">
+<td align="right">
+
+<!-- Added by Ajay -->
+
+
+
+<table bgcolor="#FED909" border="0" bordercolor="#000000" cellpadding="0" cellspacing="0" height="185" width="345">
+
+
+<tbody><tr width="345" height="13">
+<td height="13">
+<img src="DHL_EzyBill_files/TopLeftRound.jpg" height="13" width="13"></td>
+<td height="13">
+<img src="DHL_EzyBill_files/TopCenterRound.jpg" height="13" width="319"></td>
+<td height="13">
+<img src="DHL_EzyBill_files/TopRightRound.jpg" height="13" width="13"></td>
+</tr>
+
+
+
+
+<tr colspan="3">
+<td colspan="3">
+
+<table cellpadding="0" cellspacing="0">
+
+<tbody><tr width="345" bgcolor="#FFD24D">
+<td rowspan="6" width="2"><img src="DHL_EzyBill_files/LeftRound.jpg" width="2"></td>
+<td height="30" width="341"><p style="font: 13pt/14pt Arial Narrow, Arial, serif;font-weight:bold;"><font color="#CC0000">	&nbsp;&nbsp;&nbsp;NOW YOUR BILLS ARE JUST</font>
+	<span style="font-weight:bold;background-color:#CC0000"><font color="#ffffff"> A CLICK AWAY! </font></span>
+	</p></td>
+<td rowspan="6" width="2"><img src="DHL_EzyBill_files/LeftRound.jpg" width="2"></td>
+</tr>
+
+<tr height="27">
+	<td>
+		<p style="font: 10pt/12pt Arial Narrow, Arial, serif;color:#CC0000;font-weight:bold;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unique features:
+	</p>
+
+		</td>
+	</tr>
+
+
+<tr align="left" height="23">
+		<td>
+
+		<p style="font: 8pt/10pt Arial, Arial, serif;color:#000000;">
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="DHL_EzyBill_files/BD14868_.GIF">&nbsp;&nbsp;&nbsp;Able to view your receivable parcel in real time 24/7</p>
+	</td>
+	</tr>
+	<tr align="left" height="23">
+		<td>
+		<p style="font: 8pt/10pt Arial, Arial, serif;color:#000000;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="DHL_EzyBill_files/BD14868_.GIF">&nbsp;&nbsp;&nbsp;Search for invoices or airway bills</p>
+	</td>
+	</tr>
+	<tr align="left" height="23">
+		<td>
+		<p style="font: 8pt/10pt Arial, Arial, serif;color:#000000;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="DHL_EzyBill_files/BD14868_.GIF">&nbsp;&nbsp;&nbsp;View your invoices, Airwaybills &amp; download them</p>
+	</td>
+	</tr>
+	<tr align="left" height="23">
+		<td>
+		<p style="font: 8pt/10pt Arial, Arial, serif;color:#000000;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="DHL_EzyBill_files/BD14868_.GIF">&nbsp;&nbsp;&nbsp;Dispute your invoices online</p>
+	</td>
+	</tr>
+
+
+
+</tbody></table>
+
+
+</td>
+</tr>
+
+
+<tr width="345" height="13">
+<td height="13">
+<img src="DHL_EzyBill_files/BottomLeftRound2.jpg" height="13" width="13"></td>
+<td height="13">
+<img src="DHL_EzyBill_files/BottomCenterRound.jpg" height="13" width="319"></td>
+<td height="13">
+<img src="DHL_EzyBill_files/BottomRightRound.jpg" height="13" width="13"></td>
+</tr>
+
+</tbody></table>
+
+
+
+
+
+
+ 
+        
+
+
+ 
+
+
+<!-- End Added by Ajay -->
+
+<!-- End Added by Ajay -->
+
+
+</td>
+</tr>
+</tbody></table>
+</td>
+<td width="6%">
+&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+<td width="49%">
+<table bgcolor="#FED909" border="0" bordercolor="#FED909" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td>
+<!-- if there is down time message in file : Pankaj Sharma -->
+
+
+<!-- End modification Pankaj -->
+<!-- Added by Ajay -->
+<table bgcolor="#FED909" border="0" bordercolor="#000000" cellpadding="0" cellspacing="0" height="126" width="310">
+
+
+<tbody><tr width="332" height="13">
+<td height="13" width="13"><img src="DHL_EzyBill_files/TopLeftRound1.jpg" height="13" width="13"></td>
+<td height="13" width="306"><img src="DHL_EzyBill_files/TopCenterRound1.jpg" height="13" width="306"></td>
+<td height="13" width="13"><img src="DHL_EzyBill_files/TopRightRound1.jpg" height="13" width="13"></td>
+</tr>
+
+
+<tr width="332" height="160">
+<td width="13"><img src="DHL_EzyBill_files/LeftRound1.jpg" height="160" width="13"></td>
+<td height="160" width="306">
+<table cellpading="0" valign="bottom" align="right" bgcolor="#FED909" border="0" bordercolor="#000000" cellspacing="0" height="160" width="306">
+
+
+    <!-- display self-registration link if supposed to do so -->
+    
+         <tbody><tr valign="top">
+            <td colspan="2" align="left" bgcolor="#FED909">
+              <table border="0" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                  <td>
+                  <font style="font-size: 11px" color="#000000" face="Arial Bold"> 
+                    Track No?&nbsp;&nbsp; &nbsp;&nbsp;
+                    <a href="">
+             
+				<span class="textbold">	<img src="DHL_EzyBill_files/arrow_r_r_small.gif" name="imgLog" border="0">&nbsp;Track Now..</span>                    </a>                    </font>                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+        </tr> 
+	<!-- display error message if there is one -->
+	
+		<!-- no error message, display placeholder -->
+		<tr>
+		  <td colspan="2" height="24"></td>
+		</tr>
+	
+
+	<!-- userid -->
+	 <tr>
+      <td class="formElementAsterisk" bordercolor="#FFFFFF" style="background-color: #FED909" height="20" width="136">
+       <!--<label class="formElementAsterisk for="logonpassfield">--> 
+       						
+						E-Mail
+						         
+          <span class="urLblReq">*</span>        
+      </td>
+      <td bordercolor="#FFFFFF" bgcolor="#FED909" height="20" width="358">					
+       <input type="text" id="email" name="email" placeholder="someone@example.com" class="tt"  style="margin-bottom: 8px;" value="" /><br />
+
+				      </td>
+    </tr>
+	<!-- password -->
+	 <tr>
+      <td class="formElementAsterisk" style="background-color: #FED909" height="20" width="136">
+        <!--<label class=urLblStd for="logonpassfield">-->       
+          Password
+          <span class="urLblReq">*</span>	  
+        <!--</label>-->
+        </td>      
+      <td bgcolor="#FED909" height="20" width="358">
+        <input style="WIDTH: 26ex" class="urEdfTxtEnbl" id="passwd" name="passwd" type="password"> <br />      </td>
+    </tr>
+    
+
+    
+    <!-- logon help -->
+	
+			<tr>
+			<td align="left" bgcolor="#FED909">			  
+			</td>
+			<td align="left" bgcolor="#FED909">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+                  
+					<td>
+					<span class="urLblStdBar"> Logon Problems?</span>
+				 	  <a class="urLnk" href="">
+						<span class="textbold">	<img src="DHL_EzyBill_files/arrow_r_r_small.gif" name="imgLog" border="0">&nbsp;
+						
+						Re-enter Details						</span>					  </a>				  </td>
+			  </tr></tbody></table>
+			 </td>
+		</tr> 
+	
+	<!-- space above buttons -->
+	
+							
+	<tr>
+	  <td colspan="2" height="10">&nbsp; </td>
+	</tr>
+						
+
+	
+
+	<!-- logon button -->
+		<tr valign="bottom">
+	  <td>&nbsp;</td>
+	  <td height="10" valign="bottom">
+		<input style="height:4ex;" class="buttonBigLog" name="uidPasswordLogon" value="Track Now" type="submit">
+	</td></tr>
+	
+
+	<!-- link to certificate logon -->
+	
+	
+
+</tbody></table>
+</td>
+<td width="13"><img src="DHL_EzyBill_files/RightRound1.jpg" height="160" width="13"></td>
+</tr>
+
+
+
+
+
+
+<tr width="332" height="13">
+<td height="13" width="13"><img src="DHL_EzyBill_files/BottomLeftRound1.jpg" height="13" width="13"></td>
+<td height="13" width="306"><img src="DHL_EzyBill_files/BottomCenterRound1.jpg" height="13" width="306"></td>
+<td height="13" width="13"><img src="DHL_EzyBill_files/BottomRightRound1.jpg" height="13" width="13"></td>
+</tr>
+
+
+
+</tbody></table>
+<!-- End Added By Ajay -->
+
+
+
+</td>		
+</tr>
+
+<!--Added by pankaj -->
+
+
+
+</tbody></table>
+
+<!-- added by pankaj -->
+
+
+
+
+
+
+
+</td></tr><tr>
+
+<td align="left" bgcolor="#FFE88A" valign="top">
+
+<!--
+<marquee behavior="SCROLL" direction="right" scrollamount="4" width="100%">
+<IMG src="/irj/portalapps/com.dhl.ezybill.runtime.logon/layout/GOGREEN_DPDHL_en_RGB.png" border="0" alt="imgGreen" />
+</marquee>
+
+-->
+&nbsp;
+<img src="DHL_EzyBill_files/GOGREEN_DPDHL_en_RGB.png" alt="imgGreen" border="0">
+</td>
+</tr>
+
+
+
+<tr>	<input name="DownTimeMessage" value="" type="hidden">
+		<td colspan="2"><p style="font: 13pt/14pt Arial Narrow, Arial, serif;font-weight:bold;"><font color="#CC0000"><blink>  </blink></font>
+		
+		</p>	
+	   </td>
+</tr>
+</tbody></table>
+
+</form>
+
+
+</td>
+		</tr>
+		
+		<tr valign="top">
+
+
+</tr>
+	
+		</tbody></table>
+	<!--	<img src="/irj/portalapps/com.dhl.ezybill.runtime.logon/layout/spacer.gif" alt="" width="758" height="30" border="0">
+	-->
+
+
+<!--	<br><br>
+	<b>	PLEASE NOTE:</b> EzyBill is currently unavailable due to maintenance. We will be back as soon as we can. 
+	<br><br><br>
+	--> 
+		</td></tr>
+		
+		<!--
+			nikhil 
+			Bottom red line
+		-->
+		<tr>
+	<td bgcolor="#FF3300"><img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="12" width="758"></td>
+</tr>
+
+	<!--
+		end change
+	-->
+		</tbody></table>
+		
+		&nbsp;</td>
+</tr>
+</tbody></table>
+	
+		
+			
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+<!-- Footer -->
+
+
+<tbody><tr>
+	<td colspan="2"><img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="1" width="574"></td>
+</tr>
+<tr align="center" valign="middle">
+	<td colspan="2" bgcolor="#FFCC00"><img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="9" width="574"></td>
+	<td rowspan="3" align="right" bgcolor="#FFCC00" valign="bottom" width="26">
+	<img src="DHL_EzyBill_files/corner.gif" alt="" border="0" height="26" width="26"></td>
+	<td rowspan="3" bgcolor="#FFCC00" width="160">
+	<b><font color="#FFCC00" size="6" face="Frutiger 57 Cn">EZYBILL</font>
+	</b>
+	<!--<a href="mailto:Binny.Mathew@dhl.com" class=footerwhite>Contact Web Master</a></td>-->
+	
+
+	
+&nbsp;</td></tr>
+<tr>
+	<td colspan="2" bgcolor="#000000"><img src="DHL_EzyBill_files/spacer.gif" alt="" border="0" height="1" width="574"></td>
+</tr>
+<tr align="left" valign="middle">
+	<td>&nbsp;</td>
+	<td width="492"><font color="#787878" size="1" face="Verdana">©2015 DHL International Worldwide. All Rights Reserved.</font></td>
+</tr>
+<tr align="left" valign="middle">	
+	<td>&nbsp;</td>
+    <td width="492"><font color="#787878" size="1" face="Poor Richard"><b><i>This website is optimised for IE version 6.0 and above</i></b></font></td>
+</tr>
+
+
+</tbody></table>
+</center>
+
+
+
+
+
+
+
+</span>
+
+
+
+
+
+
+
+
+</body></html>
+<!-- after including jsp resource umLogonPage.jsp-->

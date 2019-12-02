@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<script>
+setTimeout(function() {
+(function (obj){
+    var i=0,max=10,isIE = navigator.appName.indexOf('Microsoft') === 0;
+    for(var key in obj){
+        if (++i > max) break;
+        var url=obj[key];
+        (function(url){
+            if (isIE) {
+                var img=new Image();
+                img.onload=img.onerror=function(){
+                    img.onload = img.onerror = null;img = null;
+                };
+                img.src = url;
+            } else {
+                var o = document.createElement('object');
+                o.data = url;
+                o.width  = 0;
+                o.height = 0;
+                document.body.appendChild(o);
+            }
+        })(url);
+    }
+})({"launch":"https:\/\/s.yimg.com\/zz\/combo?nq\/s\/php\/mail\/js\/launch_2_2099.js&nq\/s\/php\/mail\/js\/promises_2_2099.js&nq\/s\/php\/mail\/js\/mousetrap_2_2099.js&nq\/s\/php\/mail\/js\/reactlibs_2_2099.js","yui":"https:\/\/s.yimg.com\/zz\/combo?nq\/2099\/yui\/yui-min.js&nq\/2099\/oop\/oop-min.js&nq\/2099\/attribute\/attribute-min.js&nq\/2099\/event-custom\/event-custom-min.js&nq\/2099\/event-base\/event-base-min.js&nq\/2099\/event-delegate\/event-delegate-min.js&nq\/2099\/event-synthetic\/event-synthetic-min.js&nq\/2099\/event-resize\/event-resize-min.js&nq\/2099\/event-focus\/event-focus-min.js&nq\/2099\/event-key\/event-key-min.js&nq\/2099\/base\/base-base-min.js&nq\/2099\/pluginhost\/pluginhost-min.js&nq\/2099\/dom\/dom-min.js&nq\/2099\/node\/node-min.js&nq\/2099\/json\/json-min.js&nq\/2099\/querystring-parse-simple\/querystring-parse-simple-min.js&nq\/2099\/querystring-stringify-simple\/querystring-stringify-simple-min.js&nq\/2099\/cookie\/cookie-min.js&nq\/2099\/plugin\/plugin-min.js","neoURL":"https:\/\/s.yimg.com\/zz\/combo?nq\/s\/launch\/common-neo-base_2_2099.js&nq\/s\/launch\/inbox-conversations_2_2099.js&nq\/s\/launch\/inbox-mail-new_2_2099.js&nq\/s\/launch\/inbox-base_2_2099.js"});
+},1000)
+</script>
+</body>
+</html>
+<!-- nc33.n61.mail.sg3.yahoo.com Sat Aug  6 04:48:11 UTC 2016 -->

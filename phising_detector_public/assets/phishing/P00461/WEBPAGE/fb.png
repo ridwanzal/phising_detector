@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr"><head><META http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>BNP PARIBAS | La banque et l'assurance d'un monde qui change</title><meta content="IE=edge,chrome=1" http-equiv="X-UA-compatible"><!--ls:begin[stylesheet]--><!--ls:end[stylesheet]--><!--ls:begin[meta-keywords]--><meta name="keywords" content=""><!--ls:end[meta-keywords]--><!--ls:begin[meta-description]--><meta name="description" content=""><!--ls:end[meta-description]--><!--ls:begin[meta-vpath]--><meta name="vpath" content=""><!--ls:end[meta-vpath]--><!--ls:begin[meta-page-locale-name]--><meta name="page-locale-name" content=""><!--ls:end[meta-page-locale-name]--><!--ls:begin[meta-viewport]--><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><!--ls:end[meta-viewport]--><!--ls:begin[stylesheet]-->
+
+<style>
+
+@font-face {
+    font-family: 'bnpp_sansregular';
+    src: url('/erreur_tech/font/bnpp_sans-webfont-webfont.eot');
+    src: url('/erreur_tech/font/bnpp_sans-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/erreur_tech/font/bnpp_sans-webfont-webfont.woff2') format('woff2'),
+         url('/erreur_tech/font/bnpp_sans-webfont-webfont.woff') format('woff'),
+         url('/erreur_tech/font/bnpp_sans-webfont-webfont.ttf') format('truetype'),
+         url('/erreur_tech/font/bnpp_sans-webfont-webfont.svg#bnpp_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bnpp_sans_condensedregular';
+    src: url('/erreur_tech/font/bnpp_sans_cond_light-webfont-webfont.eot');
+    src: url('/erreur_tech/font/bnpp_sans_cond_light-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/erreur_tech/font/bnpp_sans_cond_light-webfont-webfont.woff2') format('woff2'),
+         url('/erreur_tech/font/bnpp_sans_cond_light-webfont-webfont.woff') format('woff'),
+         url('/erreur_tech/font/bnpp_sans_cond_light-webfont-webfont.ttf') format('truetype'),
+         url('/erreur_tech/font/bnpp_sans_cond_light-webfont-webfont.svg#bnpp_sans_condensedregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*** Global styles ***/
+
+html {
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  color: #424242;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #e0e0e0;
+  font-family: 'bnpp_sansregular', Arial,sans-serif;
+  width: 100%;
+  margin: 0 auto;
+  background: #F8F8F8;
+} 
+
+.mw-1400 {
+  max-width: 1400px;
+}
+
+h1, h2 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: Arial,sans-serif;
+  margin: .6em 0;
+  line-height: 1;
+  color: #FFF;
+  font-family: 'bnpp_sans_condensedregular';
+}
+
+.mw-1400 {
+
+}
+
+#header {
+  height: 70px;
+  overflow: hidden;
+} 
+
+body.mw-1400 .bottom-header, 
+body.mw-1400 .bottom-header-connected {
+  max-width: 1400px;
+}
+
+.bottom-header, .bottom-header-connected {
+  background-image: none;
+  border-bottom: 3px solid #2aa080;
+  background-color: #fff;
+  filter: none;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  z-index: 201;
+}
+
+.bottom-header .logoBNP-container, .bottom-header-connected .logoBNP-container {
+  position: relative;
+  width: calc(100% - 378px);
+  height: 70px;
+  float: left;
+  background-color: #fff;
+  z-index: 201;
+  border-bottom: 3px solid #2aa080;
+}
+
+.bottom-header .logoBNP, .bottom-header-connected .logoBNP {
+  width: 326px;
+  height: 67px;
+  display: block;
+  background-image: url(/erreur_tech/img/bnp.png);
+  background-repeat: no-repeat;
+}
+
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.bottom-header-connected.mobile-only, .bottom-header.mobile-only {
+  min-width: 320px;
+  border-bottom: 0;
+  background: 0 0;
+}
+
+.bottom-header-connected.mobile-only {
+  z-index: 200;
+}
+
+.bottom-header-connected.mobile-only ul.list-header-connected, .bottom-header.mobile-only ul.list-header-connected {
+  border-bottom: 3px solid #2aa080;
+}
+
+.bottom-header .list-header-connected, .bottom-header .logoBNP-container, .bottom-header-connected .list-header-connected, .bottom-header-connected .logoBNP-container {
+  z-index: 201;
+}
+
+[class*=list-] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-header-connected {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.list-header-connected.left {
+  float: left;
+  width: 100%;
+}
+
+.list-header-connected li {
+  display: block;
+  float: left;
+  border-bottom: 3px solid #2aa080;
+  height: 70px;
+  background: #fff;
+  position: relative;
+}
+
+.list-header-connected li a.logoBNP {
+  background: url(/erreur_tech/img/logo_bnp.jpg) no-repeat;
+  height: 58px;
+  width: 208px;
+}
+
+.bottom-header-connected.mobile-only ul.list-header-connected li.logo, .bottom-header.mobile-only ul.list-header-connected li.logo {
+  padding-top: 12px;
+}
+
+.bottom-header-connected.mobile-only .list-header-connected li {
+  border-bottom: 0;
+  height: 67px;
+}
+
+.bottom-header-connected.mobile-only li, .bottom-header.mobile-only li {
+  padding: 6px 1px;
+  border-left: 1px solid #f0f0f0;
+}
+
+.bottom-header-connected.mobile-only a.logoBNP, .bottom-header.mobile-only a.logoBNP {
+  background-size: 100%;
+  width: 150px;
+}
+
+.bottom-header-connected.mobile-only li>a, .bottom-header.mobile-only li>a {
+  padding: 0;
+  border: 0;
+}
+
+.bottom-header .logoBNP, .bottom-header-connected .logoBNP {
+  width: 326px;
+  height: 67px;
+  display: block;
+  background-repeat: no-repeat;
+}
+
+.list-header-connected li>a {
+  border-left: 1px solid #f0f0f0;
+}
+
+.pull-left {
+  float: left;
+}
+
+.mobile-only {
+  min-width: 320px;
+  border-bottom: 0;
+  background: 0 0;
+}
+
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.pull-left:after, .pull-right:after {
+  clear: both;
+  content: " ";
+  display: table;
+}
+
+#footer {
+  z-index: 201;
+  position: relative;
+}
+
+.footer-contact-bel {
+  text-transform: uppercase;
+  background-color: #212121;
+  padding: 15px;
+  text-align: center;
+}
+
+.footer-contact-bel h2 {
+  font-family: 'bnpp_sans_condensedregular';
+  font-size: 2.5em;
+  color:#5dc66a; 
+}
+
+.footer-contact-bel {
+    text-transform: uppercase;
+    background-color: #212121;
+    color: #5dc66a;
+    padding: 15px;
+    text-align: center;
+}
+
+/*** Specific styles ***/
+
+#wrapper-maintenance {
+  background: url(/erreur_tech/img/sitenondisponible.jpg) no-repeat 100%;
+  background-size: cover;
+  height: 100%; 
+  width: 100%;
+  display: inline-block;
+  position: relative;
+} 
+
+.content, .content a {
+  color: #FFF;
+  position: relative;
+  top: 30%;
+  text-align: center;
+  padding: rem(20);
+  text-transform: uppercase;
+}
+
+/*** Media queries ***/
+
+@media screen and (max-width: 768px) {
+  .no-mob {
+    display: none;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  .content {
+    top: 5%;
+  }
+
+  .footer-contact-bel h2 {
+    font-size: 2em;
+  }
+}
+</style>
+</head>
+ 
+<body class="mw-1400">
+
+
+
+<div id="header">
+    <header class="bottom-header">     
+      <div class="no-mob">         
+        <div class="logoBNP-container">        
+          <a href="/" class="logoBNP text-hide">BNP Paribas La banque et l'assurance d'un monde qui change</a>        
+        </div>        
+      </div>    
+      <header class="bottom-header-connected mobile-only pull-left">
+        <ul id="" class="list-header-connected left mobile-only">
+          <li class="logo"><a href="/" class="logoBNP"></a></li>        
+        </ul>    
+      </header>
+    </header>
+</div>
+
+<div id="wrapper-maintenance">
+  <div class="content">
+    <h1>Impossible d'afficher la page que vous recherchez...</h1>
+    <p>Son adresse est peut-être erronée, ou bien la page en question n'existe pas.</p>
+    <p><a href="https://mabanque.bnpparibas/">Retour à mabanque.bnpparibas</a></p>
+  </div>
+</div>
+
+
+<div id="footer">
+  <div class="footer-contact-bel">
+    <h2>Votre patrimoine à une histoire. Écrivons son avenir</h2>
+  </div>
+</div>
+</body>
+</html>

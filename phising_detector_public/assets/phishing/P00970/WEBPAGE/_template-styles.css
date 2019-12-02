@@ -1,0 +1,693 @@
+
+/*Last updated 5th May 2010 by Adem Cifcioglu*/
+
+
+/* ================= @Table of content ========================
+***************************************************************
+***************************************************************
+********** Seperate css into logical chunks of code ***********
+***************************************************************
+***************************************************************
+	@Tags
+	@Links
+	@Images
+	@Base Font
+	@WebFonts
+	@Default Content Styles
+	@Clear
+	@Skip-links
+	@Base Font
+	@Structual
+
+==================== =Table of content - end ================*/
+
+/* @Tags - START: direct tag styling that are not related font sizing */
+*, html { font-family: Arial, Geneva, Helvetica, sans-serif; }
+
+/* @Links */
+a { text-decoration: none; color: #e20000; font-weight: bold; }
+a:hover{ color: #9c0000;}
+	
+/* @Images */
+img { border: none; display: block;  }
+
+/* @Base Font - START: Styles for scalable font consistency */
+html { font-size: 100%; /* IE hack */ }
+body { font-size: 0.75em; /* Sets base font size to 12px */ }
+table { font-size: 100%; /* IE hack */ }
+input, select, textarea, th, td { font-size: 1em; }
+
+h1 { font-size: 1.5em; line-height: 1em; margin-bottom: 1em; }		/* all em = 18px */
+h1.title-1 { font-size: 7.5em; margin-bottom: 0.022em; }
+
+h2 { font-size: 1.417em; line-height: 1em; margin-bottom: 1em; }	/* all em = 17px */
+
+h3 { font-size: 1.333em; line-height: 1em; margin-bottom: 1em; }	/* all em = 16px */
+h4 { font-size: 1.25em; line-height: 1em; margin-bottom: 1em; }		/* all em = 15px */
+h5 { font-size: 1.167em; line-height: 1em; margin-bottom: 1em; }	/* all em = 14px */
+h6 { font-size: 1.083em; line-height: 1em; margin-bottom: 1em; }	/* all em = 13px */
+
+.subtitle-1 { font-size: 1.667em; line-height: 1.3em; margin-bottom: 0.55em; } /* 20px/11px */
+
+/* @WebFonts - START: web font family */
+@font-face {
+	font-family: 'CorpidBlack';
+	src: url('http://canusatools.com/wp-admin/ajax/webfonts/corpid-b-webfont.eot');
+	src: local('☺'), url('http://canusatools.com/wp-admin/ajax/webfonts/corpid-b-webfont.woff') format('woff'), url('http://canusatools.com/wp-admin/ajax/webfonts/corpid-b-webfont.ttf') format('truetype'), url('http://canusatools.com/wp-admin/ajax/webfonts/corpid-b-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'CorpidLight';
+	src: url('http://canusatools.com/wp-admin/ajax/webfonts/corpid-l-webfont.eot');
+	src: local('☺'), url('http://canusatools.com/wp-admin/ajax/webfonts/corpid-l-webfont.woff') format('woff'), url('http://canusatools.com/wp-admin/ajax/webfonts/corpid-l-webfont.ttf') format('truetype'), url('http://canusatools.com/wp-admin/ajax/webfonts/corpid-l-webfont.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* @Default Content Styles */
+p {	margin: 0 0 1em 0; padding: 0; }
+ul, ol { color: #4d4d4d; margin-bottom: 1.538em; }
+	li  { font-size: 1em; line-height: 1.500em; margin: 0 0 0.769em; } /* 13px / 18px / 10px */
+	ul ul { margin: 0.769em  0 0 0;}
+	ul li { background: url(http://canusatools.com/wp-admin/ajax/canus/images/login/gr_dot-1.gif) 0 7px no-repeat; padding: 0 0 0 12px; }
+	ul ul li, ol ol li { margin-bottom: 0;}
+ol { list-style-type: decimal; list-style-position: outside; margin-left: 2.25em;}
+ul { list-style-type: none; }
+ul a, ol a {  }
+
+sup,
+sub {
+	height: 0;
+	line-height: 1;
+	vertical-align: baseline;
+	_vertical-align: bottom;
+	position: relative;
+	font-size: 0.8em;
+}
+
+sup {
+	bottom: 1ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+/* Push styles */
+.push-1 { line-height: 1px; font-size: 1px; overflow: hidden; text-indent: -9999em; width: 1px; height: 1px; position: absolute; top: 0; left: 0; margin: 0 !important; padding: 0 !important;}
+
+/* @Clear */
+.clear
+{
+	height: 0px !important;
+	line-height: 0 !important; /* if causing problems, remove */
+	clear: both !important;
+	font-size: 1px !important;
+	float: none !important;
+	padding: 0px !important;
+	margin: 0px !important;
+	width: auto !important;
+	display: block !important;
+	visibility: hidden !important;
+	overflow: hidden !important;
+}
+.clearfix:after 
+{
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
+
+/* @Skip-links */
+.skip-links {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+/* @Structual - START: structural styles */
+html, body { height: 100%; min-width: 980px; } /* Sticky footer */
+* html body { width: 100%; }
+
+#bodycontainer {
+	text-align: center;
+	/* sticky footer */
+	position: relative;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+#bodycontainer #bodycontainer_inside {
+	margin: 0 auto;
+	padding-bottom: 430px; /* sticky footer */
+	text-align: left;
+	background: #ffffff;
+}
+
+/* @Header  */
+#header { height: 46px; z-index: 5; overflow: visible; }
+	#header .inside { width: 960px; margin: 0 auto; position: relative; }
+	#header a.link-logo { position: absolute; top: 0; left: 0px; width: 76px; height: 111px; }
+	#header img.logo { }
+	#header .column-1 {  width: 250px; float: left; height: auto !important; height: 10px; display: inline; }
+	#header .column-1 p { font-size: 1.083em; float: left; line-height: 1.154em; margin: 8px 0 0 90px; } /* 13px / 14px / 32px */
+	#header .column-1 p.slogan a { color: #000000; border: 0; font-weight: normal; font-family: CorpidBlack; }
+	#header .column-2 { float: right; min-height: 10px; height: auto !important; height: 10px; width: 540px; display: inline; }
+	#header .column-2 p { font-size: 1.167em; margin: 10px 0 0 0; float: right; font-family: CorpidLight !important; display: inline-block; } /* 14px / 32px */
+
+	/*Altered the rule below to remove the font-family: attribute */
+
+	#header .column-2 p strong { font-size: 1.357em;  }
+	#header .column-2 ul { float: right; list-style-type: none; margin: 12px 28px 0 0px; display: inline-block; }
+
+		#header .column-2 ul li { float: left; background: url(http://canusatools.com/wp-admin/ajax/canus/images/login/gr_arrow-1.gif) 0 50% no-repeat; padding: 0 0 0 11px; margin-left: 15px; margin-bottom: 0;}
+		#header .column-2 ul li.first { margin-left: 0;}
+	#header a { font-size: 1em; color: #d01f2e; font-weight: bold; }	
+		#header a:hover { color: #9C0000;}	
+
+/* @Banner */
+#banner { } 
+	#banner .inside { width: 960px; margin: 0 auto; }
+
+/* Content */
+#content { font-size: 1.083em; z-index: 20; } /* 13px Base font */
+#content { background: #ffffff; z-index: 2; position: relative;}
+.default #content .inside { padding: 20px 0 0;} 
+#content .inside { padding: 40px 0 0; width: 960px; margin: 0 auto; position: relative; } 
+
+/* @Columns */
+/*
+.three-col-1 .col { float: left; display: inline; }
+.three-col-1 .col-1{ width: 140px ; margin-left: 0; margin-right: 20px; }
+.three-col-1 .col-3 { position: relative; width: 230px; margin-right: 0; z-index: 10; margin-top: -152px; margin-left: 55px;  }
+.three-col-1 .col-2 { width: 510px; float: right;  }
+*/
+
+.two-col-1 { width: 100%;}
+.two-col-1 .col { float: left; display: inline;  position: relative;}
+.two-col-1 .col-1 { width: 680px ; margin-right: 50px; }
+.two-col-1 .col-2 { width: 230px; z-index: 10; }
+	
+	#sidebar { float: right; width: 230px; margin-top: -176px; position: relative;}
+	.default #sidebar { margin-top: -336px;}
+	.campaign #sidebar { margin-top: -5px;}
+
+.two-col-2 { width: 100%;}
+.two-col-2 .col { float: left; margin: 0 10px; display: inline; }
+.two-col-2 .col-1 { width: 700px ; }
+.two-col-2 .col-2 { position: relative; width: 220px; }
+
+	/* Columns on the Homepage */
+	.two-col-3 { margin: 0; width: 680px; position: relative; }
+		.two-col-3 .col { float: left; display: inline; }
+		.two-col-3 .col-1 { width: 470px; margin: 0; }
+		.two-col-3 .col-2 { width: 195px; float: right; }
+	.two-col-4 { margin: 0 0 0 0px; position: relative; }
+		.two-col-4 .col { float: left; display: inline; }
+		.two-col-4 .col-1{ width: 290px; margin-right: 75px; }
+		.two-col-4 .col-2 { margin-right: 0px; width: 290px; } 
+
+.two-col-5 { width: 680px; float: left; display: inline;}
+.two-col-5 .col { float: left; display: inline;  osition: relative; }
+.two-col-5 .col-1 { width: 510px ; margin-right: 0px; float: right; padding: 0 0 0 10px; }
+.two-col-5 .col-2 { width: 140px; z-index: 10; }
+
+.four-col-1 { width: 100%;}
+.four-col-1 .col { float: left; margin: 0 10px; display: inline; }
+.four-col-1 .col-1 { width: 220px; }
+
+/* @Breadcrumbs */
+.breadcrumbs {list-style: none; float: left; width: 100%; margin: 0;}
+.breadcrumbs li {float: left; background: none; padding: 0; white-space: nowrap; margin-bottom: 0; }
+.breadcrumbs a { color: #e20000; font-weight: normal; }
+.breadcrumbs a:hover { color: #9c0000}	
+
+/* @Navigation // Tabs */
+.nav-tab { width: 960px; margin: -46px auto 0 auto;  list-style-type: none; position: relative; }
+.nav-tab li { background: none; display: block; float: left; font-size: 1.538em; font-weight: normal; line-height: 1em; position: relative; padding: 4px 0 0 0; margin: 0 2px 0 0;} /* 20px */
+	.nav-tab li a { display: block; padding: 12px 19px 10px 19px; background: #000000 url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_nav.gif) 0 0 repeat-x; color: #ffffff; border: 1px solid #4d4d4d; width: auto; }
+	.nav-tab li a:hover { background: #363636 url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_nav-2.gif) 0 0 repeat-x; color: #ffffff;}
+	.nav-tab li.active, 
+	.nav-tab li.active:hover { padding-top: 0;}
+	.nav-tab li.active a,
+	.nav-tab li.active a:hover { background: #ffffff; color: #000000; border: 1px solid #fff; padding: 16px 19px 10px 19px; }
+	.nav-tab * { font-family: CorpidBlack; }
+
+/* @Navigation // Homepage */	
+ul.nav-main { list-style-type: none; padding: 0; display: inline-block;  margin: 0;}
+ul.nav-main li { background: none; padding: 0;  margin: 0; line-height: 0px;}
+ul.nav-main li span.push-1 { position: absolute; }
+ul.nav-main ul { list-style-type: none; padding: 0 0 0 2px; margin: 0; }
+ul.nav-main ul li { 
+	background: url(http://canusatools.com/wp-admin/ajax/canus/images/login/gr_arrow-1.gif) 0px 13px no-repeat; 
+	font-size: 1.538em; /* 20px */ 
+	line-height: 1.800em; /* 36px */ 
+	padding: 0 0 0 18px;
+	margin: 0;
+	width: 212px;
+	float: left;
+	display: inline-block;
+}
+	ul.nav-main ul li a { color: #E20000; }
+	ul.nav-main ul li a:hover { color: #9c0000; }
+
+/* @Navigation Listing // LHS */
+ul.nav-list {padding: 0; margin: 0;}	
+ul.nav-list li { background: none; padding: 0; margin: 0; line-height: 0;}
+ul.nav-list li span.push-1 { position: absolute; }
+ul.nav-list ul { border-bottom: 1px solid #dadada; list-style-type: none; margin: 0; }
+	ul.nav-list ul li { display: block; background: none; padding: 0; font-size: 1.667em; line-height: 1.250em; border-top: 1px solid #dadada; min-height: 10px; height: auto !Important; height: 10px; margin: 0; }
+	ul.nav-list ul li a { display: block; min-height: 10px; height: auto !Important; height: 10px; }
+	ul.nav-list ul ul { list-style-type: none;  margin: 0; }
+	ul.nav-list ul ul li { font-size: 0.600em; line-height: 1.333em; border-top: 1px solid #ebebeb;  height: auto !Important; height: 10px; margin: 0;  }
+	ul.nav-list ul li a { 
+		background-image: url(http://canusatools.com/wp-admin/ajax/canus/images/login/gr_arrow-1.gif); 
+		background-repeat: no-repeat; 
+		background-position: 0px 14px;
+		padding: 7px 0 5px 18px; 
+		color: #e20000; }
+	ul.nav-list ul li a:hover { color: #9C0000;}
+	ul.nav-list ul ul li a { font-weight: normal; }
+	ul.nav-list ul li.active a { 
+		background-image: url(http://canusatools.com/wp-admin/ajax/canus/images/login/gr_arrow-4.gif); 
+		background-repeat: no-repeat; 
+		background-position: 0px 16px;  
+		padding: 7px 0 5px 18px; 
+		color: #000000;  
+	}
+	ul.nav-list ul li.active ul li a { background: none; padding: 6px 0 5px 18px; }
+	ul.nav-list ul li.active ul li a:hover { background-color: #f4f4f4;}
+	ul.nav-list ul li.active ul li.active a { font-weight: bold; }
+ul.nav-list ul ul { border-bottom: none; }
+ul.nav-list ul ul ul li { font-size: 1em; } 
+
+ul.nav-list ul li.active ul li.active ul li a { padding-left: 30px; background-image: url("http://canusatools.com/wp-admin/ajax/canus/images/login/gr_arrow-3.gif"); background-repeat: no-repeat; background-position: 20px 12px;   font-weight: normal; }
+ul.nav-list ul li.active ul li.active ul li a:hover { background-color: #f4f4f4; }
+ul.nav-list ul li.active ul li.active ul li.active a { background-image: url("http://canusatools.com/wp-admin/ajax/canus/images/login/gr_arrow-7.gif"); background-repeat: no-repeat; background-position: 20px 12px;  font-weight: bold; } 
+
+/* pagination styles */
+ul.pagination { list-style-type: none; margin: 0; padding: 0; display: inline-block; }
+ul.pagination li { margin: 0; padding: 0; background: none; float: left; margin-right: 6px; }
+ul.pagination li a { background-color: #eeeeee; padding: 7px 12px; color: #4d4d4d; font-size: 1.077em; border: 1px solid #dcdcdc; display: block; } /* 14px */
+ul.pagination li a:hover { background-color: #ffffff; color: #4d4d4d; }
+ul.pagination li.active a { background: url("http://canusatools.com/wp-admin/ajax/canus/images/login/bg_btn.gif") repeat-x 0 0 #CF0118; color: #ffffff; border: 1px solid #960721; }
+
+/* Related Links */
+.related-links { padding: 40px 0 0 0; overflow:hidden;}
+.related-links ul { list-style-type: none; margin-bottom: 0; overflow: hidden; }
+.related-links ul li { 
+	background: url(http://canusatools.com/wp-admin/ajax/canus/images/login/gr_arrow-3.gif) 0 3px no-repeat; 
+	padding: 0 0 0 11px; 
+	font-size: 1em; 
+	line-height: 1.154em; 
+	width: 224px; 	
+	float: left; 
+	margin: 0 20px 0.615em 0; 
+	display: inline-block;
+} /* 13px / 15px / 8px */
+
+
+.related-links ul li.first { margin-left: 0;}
+.related-links ul a { color: #E20000; }
+.related-links ul a:hover { color: #9c0000;}	
+	
+/* @Footer */
+#footer { 	
+	background: #e8e8e8; 
+	color: #877b75;
+	/* sticky footer */
+	margin-top: -346px;
+	position: relative;
+	zoom: 1;
+}
+	#footer .inside	{ margin: 0 auto; padding: 22px 0 60px 0; width: 960px;	}
+	
+	#footer h3	{
+		font-family: Arial, Helvetica, sans-serif;
+		font-weight:bold;
+		font-size: 1em;
+		line-height: 1.667em; /* 20px */
+		margin-bottom: 1.083em; /* 13px */
+	}
+		#footer h3	a { font-weight: bold;}
+	
+	#footer a { color: #4d4d4d; font-weight: normal;  }
+	#footer a:hover { color: #4d4d4d; border-bottom: 1px solid #bcbcbc; }
+		
+	#footer p a { color: #d5352e; font-weight: bold; }
+	#footer p { font-size: 1em; line-height: 1.333em;} /* 12px / 16px */
+	
+	#footer ul { list-style-type: none; margin: 0 0 1.667em 0; display: inline-block; } /* 20px */
+		#footer ul li { background: none; padding: 0; font-size: 1em; /* 12px */ line-height: 1.667em; /* 20px */ margin: 0;}
+	
+	#footer .first { margin-left: 0 !important;}
+	
+	#footer .language-options h3 { margin-bottom: 0.250em; } /* 3px */
+	#footer .language-options ul { display: inline-block; }
+	#footer .language-options ul li { 
+		display: inline-block; 
+		margin-right: 0; 
+		font-size: 1em; /* 12px */
+		line-height: 1em; /* 12px */
+		border-left: 1px solid #636363; 
+		padding: 0 5px;
+		float: left;
+	}
+	#footer .language-options ul li.first { padding: 0 5px 0 0; border: none; }
+	
+	#footer ul.list-logo li { margin-right: 14px; float: left; }
+		#footer ul.list-logo li a { display: inline-block; }
+		#footer ul.list-logo li a:hover {text-decoration: none;}
+		#footer ul.list-logo li a img { display: block; }
+		#footer ul.list-logo li a:hover
+		{
+			background: transparent;
+			border: none;
+		}
+	
+		#footer ul.list-logo li a img.img_off,
+		#footer ul.list-logo li a:hover img.img_hover,
+		#footer ul.list-logo li a img.img_off,
+		#footer ul.list-logo li a.hover img.img_hover
+		{
+			display: inline;
+		}
+		#footer ul.list-logo li a:hover img.img_off,
+		#footer ul.list-logo li a img.img_hover,
+		#footer ul.list-logo li a.hover img.img_off,
+		#footer ul.list-logo li a img.img_hover
+		{
+			display: none;
+		}
+
+
+/* @Color/background styles */
+.highlight-1	{ color: #e20000; }
+.highlight-2	{ background: #eeeeee; }
+p .highlight-2 {padding: 0 4px;}
+
+/* @Position styles */
+.posrel { position: relative; }
+.posabs { position: absolute; }
+.possta { position: static; }
+
+/* @Display styles */
+.disblock	{ display: block; }
+.disinline	{ display: inline; }
+.disbloinl	{ display: inline-block; }
+
+/* @Box model styles */
+.boxmodel-1 { -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.boxmodel-2 { -moz-box-sizing: content-box; -ms-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+
+.page-heading {margin-bottom: 3.5em;}
+
+/* @breadcrumbs */
+.breadcrumbs {list-style: none; float: left; width: 100%; margin: 0;}
+.breadcrumbs li {float: left; background: none; padding: 0; white-space: nowrap; margin-bottom: 0; }
+.breadcrumbs a { color: #e20000; font-weight: normal; }
+.breadcrumbs a:hover { color: #9c0000}	
+	
+/* @Link Styles */
+a.link-btn { 
+	background: #cf0118 url(http://canusatools.com/wp-admin/ajax/canus/images/login/gr_bg_btn01.gif) 0 0 repeat-x; 
+	border: 1px solid #b70136; 
+	padding: 4px 10px; 
+	color: #ffffff; 
+	display: inline-block; 
+	white-space: nowrap;
+	font-family: CorpidBlack;
+}
+a.link-btn span {font-family: CorpidBlack;}
+
+a.link-btn02 { 
+	background: #cf0118 url(http://canusatools.com/wp-admin/ajax/canus/images/login/gr_bg_btn02.gif) 0 0 repeat-x; 
+	border: 1px solid #b70136; 
+	padding: 8px 23px 13px 23px; 
+	color: #ffffff; 
+	display: inline-block; 
+	font-size: 2.5em; /* 30px */
+	white-space: nowrap;
+}
+
+a.link-btn:hover { background-position: 0 100%; border: 1px solid #b70136; color: #ffffff;  }
+
+/* @Rounded corners */
+/* all corners */
+/* @Rounded Corners */
+.rc-1 { 
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.rc-2,
+input.btn,
+.link-btn,
+ul.pagination li a {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.rc-3
+{
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-topright: 2px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.rc-4
+{
+	-webkit-border-bottom-right-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-moz-border-radius-bottomright: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+
+
+/* @shadow */
+.shadow-1 {
+	-webkit-box-shadow:0px 0px 5px #5d5d5d;
+	-moz-box-shadow:0px 0px 5px #5d5d5d;
+	box-shadow:0px 0px 5px #5d5d5d;
+}
+
+/* @Forms - START: form styling */
+.form-layout-1 { }
+.form-layout-1 fieldset { border: none; }
+.form-layout-1 legend {	display: none; }
+
+.form-layout-1 .field-1 {
+	margin-bottom: 10px;
+	width: 100%;
+	float: left;
+}
+.form-layout-1 .field-1 label {
+	width: 100px;
+	font-size: 1em;
+	float: left;
+	margin-top: 3px;
+}
+.form-layout-1 .field-1 label span {
+	font-size: 1em;
+}
+.form-layout-1 .field-1 input, .form-layout-1 .field-1 select {
+	float: left;
+	width: 132px;
+	font-size: 1em;
+	padding: 2px;
+}
+
+.form-layout-1 .field-1 textarea {
+	height: 70px;
+	width: 380px;
+	float: left;
+	overflow: auto;
+}
+.form-layout-1 .error {
+	float: left;
+	display: block;
+	margin: 3px 0 0 5px;
+}
+.form-layout-1 .buttons {
+	padding: 20px 0 0 100px;
+}
+.form-layout-1 .buttons input {
+	float: left;
+	width: auto;
+	margin-right: 5px;
+}
+.form-layout-1 .radiocheckboxes { float: left; }
+
+.form-layout-1 .radiocheckboxes input {
+	width: 15px;
+	height: 14px;
+	margin: 5px 5px 0 0;
+	float: left;
+}
+
+.form-layout-1 .radiocheckboxes label {	width: auto; margin: 3px 20px 0 0; }
+.form-layout-1 .field-1 select.select-1 { width: 136px; float: left; margin-right: 10px; padding: 2px;}
+
+/* @Buttons */
+.form-layout-1 .btn-left { float: left; }
+.form-layout-1 .btn-right{ float: right; }
+.form-layout-1 input.btn {  width: 0;  /* IE table-cell margin fix */ overflow: visible; background: #cf0118 url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_btn.gif) 0 0 repeat-x; border: 1px solid #b70136; padding: 3px 10px 2px 10px; color: #ffffff; font-family: CorpidBlack; }
+
+.form-layout-1 input.btn[class] {  /* IE ignores [class] */
+    width: auto;  /* cancel margin fix for other browsers */
+}
+
+.form-layout-1 input.btn:hover ,
+.form-layout-1 input.btn-hover { background: #b90321 url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_btn-hover.gif) 0 0 repeat-x; }
+.btn-press { border: 1px solid #000000 !important; background: #2f2f2f url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_btn-press.gif) 0 0 repeat-x !important; }
+
+/* @NAB Search */ 
+.nab-search { width: 262px; margin: 0 -16px 24px -16px; padding-top: 15px; position: relative; }
+.nab-search input.nab-search-btn { background: none; width: auto; border: none; position: absolute; right: 24px; top: 8px; padding: 0;}
+.nab-search input.nab-search-btn:hover,
+.nab-search input.btn-hover { background: none; width: auto; border: none; position: absolute; right: 24px; top: 8px; padding: 0; }
+.nab-search input.nab-search-text { background: #ffffff url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_input_search.gif) 0 0 repeat-x; border: 1px solid #adadad; width: 192px; font-size: 1.167em; line-height: 0.929em; /* 14px / 13px */ padding: 8px 26px 6px 10px; color: #7f7f7f; margin-left: 16px;}
+.nab-search label {display: none;}
+.nab-search .nab-search-field {position: relative;}
+
+.nab-search .nab-search-results {display: none; position: absolute; top: 48px; left: 0; width: 100%; padding-bottom: 16px; background: url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_nab-search-bot.png) no-repeat bottom left;}
+.nab-search .nab-search-results ul {list-style: none; margin: 0; padding: 0; width: 243px; margin-left: 10px;}
+.nab-search .nab-search-results ul li {background: none; margin: 0; padding: 0; border-top: 1px #3a3a3a solid;}
+.nab-search .nab-search-results ul li.first {border: none; }
+.nab-search .nab-search-results a {color: #ffffff; display: block; padding: 9px 8px 9px 16px; width: 219px;}
+.nab-search .nab-search-results a:hover {background-color: #3a3a3a;}
+.nab-search .nab-search-results .nab-search-inside {background: url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_nab-search-rep.png) repeat-y top left;z-index: 9001;}
+
+.nab-search.active .nab-search-results {display: block;}
+.nab-search.active .nab-search-results {display: block;}
+#sidebar .nab-search.active {background: url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_nab-search-top.png) no-repeat top left;}
+.nab-search.active input.nab-search-text {border-color: #272727;}
+
+/* @NAB Search wide */
+.nab-search.wide { width: 539px; margin: 0 -16px 10px -16px; padding-top: 15px; position: relative; }
+.nab-search.wide .nab-search-results {background-image: url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_nab-search-wide-bot.png);}
+.nab-search.wide .nab-search-results .nab-search-inside {background-image: url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_nab-search-wide-rep.png);}
+.nab-search input.nab-search-text.red-border {border-color: #ac2623;}
+.nab-search.wide.active {background-image: url(http://canusatools.com/wp-admin/ajax/canus/images/login/bg_nab-search-wide-top.png);}
+.nab-search.wide .nab-search-results ul {width: 520px;}
+.nab-search.wide .nab-search-results a {width: 496px;}
+.nab-search.wide input.nab-search-text {width: 469px;}
+
+/* Fix for IE7/IE6 */
+* + html .nab-search .nab-search-results { top: 51px;}
+* html .nab-search .nab-search-results { top: 50px; padding-bottom: 1.199em;}
+* html .nab-search .nab-search-results iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0;
+	width: 1px;
+	height: 1px;
+	z-index: 9000;
+	background: transparent;
+	overflow: hidden;
+	visibility: hidden;
+	filter: alpha(opacity=0);
+}
+
+/* @Search Buttons */
+.form-layout-1 .search input { border: 1px solid #a72320; color: #7f7f7f; }	
+
+.nab-search-utils					{ margin: 0 0 1.69em 0; }
+.nab-search-utils a				{ float: right; }
+
+/* @Overides */
+* + html .form-layout-1 input.btn {  padding: 1px 10px 1px 10px !important; }
+* html .form-layout-1 input.btn {  padding: 1px 10px 1px 10px !important;  }
+* html #nab-search input.nab-search-btn {  padding: 0px !important; }
+
+/* @LHS */
+.lhs h3 { font-size: 1.538em; line-height: 1.300em; font-weight: normal; margin-bottom: 0.800em; }
+
+/* @GreyBox */
+.box-1 { 
+	background: #EEEEEE; 
+	border: 1px solid #DCDCDC; 
+	margin-bottom: 2px; 
+	padding: 10px; 
+}
+	.box-1 .right { float: right; margin-top: 5px; position: relative; font-size: 0.923em; }
+	.box-1 .left { float: left; margin-top: 8px; position: relative; font-size: 0.923em; }
+
+	/* GreyBox Content Styles */
+	.box-1 h3 { font-size: 1.462em; line-height: 1.053em; margin-bottom: 0.526em; font-family: CorpidBlack; } /* 19px / 20px / 10px */
+		.box-1 a.ico-alert  { font-size: 0.846em; color: #4d4d4d; line-height: 1.455em; font-weight: bold; border-bottom: none; } /* 11px / 16px */
+		.box-1 a.ico-alert:hover span { color: #4d4d4d; border-bottom: 1px solid #bcbcbc; }
+	.box-1 .notice-1 p { margin-bottom: 0; }
+	.box-1 .ico-bigGreyArrow { 
+		background-position: 0px 4px;
+		background-color: #f1f1f1;	
+		font-size: 1.231em; /* 16px */
+		 margin-bottom: 0.769em; /* 10px */
+		 display: inline-block;
+	}
+	
+	/*GreyBox Form Styles */
+	.box-1 .form-layout-1 .field-1 { width: 100%; margin-bottom: 6px; display: inline-block; }
+	.box-1 .form-layout-1 .field-1 select.select-3 { width: 142px;}
+	.box-1 .form-layout-1 .field-1 select.select-4 { width: 155px;}
+	.box-1 .form-layout-1 .field-2 { margin-bottom: 5px; }
+	.box-1 .form-layout-1 .field-2 input.input-1 { width: 126px; margin-right: 4px; float: left; }
+	.box-1 .form-layout-1 .field-2 select.select-2 { width: 64px; float: right; margin-right: 0; }
+	.box-1 .form-layout-1 .field-3 { margin: 0 -10px; padding: 4px 0px 4px 10px; border-top: 1px solid #DADADA; display: block; width: 218px; position: relative; }
+	.box-1 .form-layout-1 .field-3 label { float: left; width: 90px; color: #4d4d4d; font-weight: bold; padding-top: 5px; }
+	.box-1 .form-layout-1 .field-3 input { float: right; width: 68px; margin-right: 9px; }
+	.box-1 .form-layout-1 .radiocheckboxes {}
+	.box-1 .form-layout-1 .radiocheckboxes input { margin-top: 0 !important; padding: 0;  }
+	.box-1 .form-layout-1 .radiocheckboxes .radiocheckboxes-item-1 { float: left; display: inline-block; margin-bottom: 8px; width: 100px; }
+
+.box-2 { margin-bottom: 22px; }
+.box-3 { padding-bottom: 0;  }
+
+/* popup styles */
+body.popup { background: #FFFFFF; font-size: 0.813em; } /* 13px */
+body.popup .close-container { display: block; text-align: right; border-bottom: 1px solid #b2b2b2; margin-bottom: 20px; padding: 0 0 16px 0;}
+body.popup .ico-popup-close 
+{ 
+	background-position: 100% -206px; 
+	color: #e20000; 
+	padding: 2px 18px 2px 0;
+}
+body.popup h1 { font-size: 1.538em; line-height: 1em; margin-bottom: 0.500em; font-weight: normal; } /* 20px / 10px */
+
+/* breakpage styles */
+/* breakpage styles */
+html#break-page , #break-page body { 
+	background: #ffffff; 
+	min-width: 1120px; width: auto !important; width: 100%;
+}
+
+#break-page #header .inside,
+#break-page #banner .inside,
+#break-page #content .inside,
+#break-page #footer .inside,
+#break-page .nav-tab { min-width: 1120px; }
+
+* html#break-page #header .inside { width: 1120px;}
+* html#break-page #banner .inside { width: 1120px;}
+* html#break-page #content .inside { width: 1120px;}
+* html#break-page #footer .inside { width: 1120px;}
+* html#break-page .nav-tab { width: 1120px;}
+
+

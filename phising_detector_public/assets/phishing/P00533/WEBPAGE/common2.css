@@ -1,0 +1,1417 @@
+﻿/*-------------------------------------------------------------------------
+ * 全体初期化
+ * ------------------------------------------------------------------------ */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,table,th,td{margin:0;padding:0;}
+table{border-collapse:separate;border-spacing:1px;}
+fieldset,img,abbr{border:0;}
+address,caption,cite,code,dfn,h1,h2,h3,h4,th,var{font-style:normal;font-weight:normal;}
+caption,th{text-align:left;}
+q:before,q:after{content:'';}
+a{text-decoration:none}
+
+/* フォント設定
+ --------------------------------------------------------------------------- */
+* {
+	color       : #222;
+	line-height : 150%;
+	font-size   : 12px;
+	/* border: thin #55FF55 solid; */
+}
+
+a {
+	color           : #D63F2F;
+	text-decoration : underline;
+	outline         : none;
+}
+	a:hover {
+		color           : #FFA70D;
+		text-decoration : none;
+	}
+
+/* -------------------------------------------------------------------------
+ * 共通クラス
+ * ------------------------------------------------------------------------- */
+
+/* 通常の注釈 */
+.note1 {
+	color : #920000;
+}
+
+/* 表組み用の注釈 */
+.note2 {
+	color     : #FFE86A;
+	font-size : 10px;
+}
+
+/* エラー色 */
+.error1 {
+	color : #d71e00;
+}
+
+/* 注意事項ラベル
+ --------------------------------------------------------------------------- */
+.lbNote {
+	height : 33px;
+	background-repeat : no-repeat;
+}
+
+/* フロート左
+ --------------------------------------------------------------------------- */
+.floatLeft {
+	float : left;
+}
+
+/* フロート右
+ --------------------------------------------------------------------------- */
+.floatRight {
+	float : right;
+}
+
+/* フロート解除
+ --------------------------------------------------------------------------- */
+.floatEnd {
+	clear     : both;
+	height    : 0px;
+	font-size : 0px;
+}
+
+/* ベリサインエリア
+ --------------------------------------------------------------------------- */
+#verisign {
+	width  : 121px;
+	height : 81px;
+	text-align : center;
+	background-image : url(verisign.gif);
+}
+
+/* ボーダーレイアウトチェック用
+ --------------------------------------------------------------------------- */
+.border {
+	border : 1px solid #000;
+}
+
+/* ボールド
+ --------------------------------------------------------------------------- */
+.bold {
+	font-weight : bold;
+}
+
+/* 主張の弱いリンク
+ --------------------------------------------------------------------------- */
+.lnkWeak {
+	color           : #444;
+	text-decoration : underline;
+}
+	.lnkWeak:hover {
+		color           : #169BB0;
+		text-decoration : none;
+	}
+
+/* テキスト位置系
+ --------------------------------------------------------------------------- */
+.txtCenter {
+	text-align : center;
+}
+
+.txtLeft {
+	text-align : left;
+}
+
+.txtRight {
+	text-align : right;
+}
+
+/*-------------------------------------------------------------------------
+ * エレメントの初期設定
+ * ------------------------------------------------------------------------ */
+
+/* エレメント：ボディ
+ --------------------------------------------------------------------------- */
+/* BODYの共通背景画像を指定 */
+body {
+	background-image    : url(bg.gif);
+	background-position : center;
+}
+
+/* -------------------------------------------------------------------------
+ * ラップ
+ * ------------------------------------------------------------------------- */
+
+/* 高さ100%用ハック
+ --------------------------------------------------------------------------- */
+html, body {
+	height     : 100%;
+	text-align : center;
+}
+
+ /* IE6対応 */
+* html #wrap { height : 100%; }
+
+#wrap {
+	position          : relative;
+	width             : 800px;
+	min-height        : 100%;
+	text-align        : left;
+	margin            : auto;
+	background-repeat : repeat-y;
+}
+
+	/* スタンダードレイアウト */
+	.layStandard #wrap {
+		background-image    : url(standardLayout.gif);
+	}
+
+	/* メニューレイアウト */
+	.layMenu #wrap {
+		background-image    : url(menuLayout.gif);
+	}
+
+	/* ヘッダー
+	 --------------------------------------------------------------------------- */
+	#wrapHeader {
+		width               : 100%;
+		height              : 74px;
+		margin              : auto;
+		background-image    : url(bg2.gif);
+		background-repeat   : no-repeat;
+		text-align          : left;
+	}
+        /* SQEX Account */
+        #btSquareEnixAct { 
+        	display: block;
+			width: 291px;
+			height: 36px;
+			position: absolute; 
+			top: 24px; 
+			left: 30px;
+			background-image: url('sqexacc.gif');
+			background-repeat : no-repeat;
+			
+		}
+        /* SQEXボタン */
+        #btSquareEnix { 
+        	display: block;
+			width: 143px; 
+			height: 20px; 
+			position: absolute;
+			top: 22px;
+			left: 620px;
+			background-image: url('sqex.gif');
+			background-repeat : no-repeat;
+		}
+
+	.layMenu #wrapHeader {
+		width               : 100%;
+		height              : 95px;
+		margin              : auto;
+		background-image    : url(bg3.gif);
+		background-repeat   : no-repeat;
+		text-align          : left;
+	}
+        /* ログアウト、Closeボタン */
+        #btLogout, #btClose {
+			display: block; 
+			width: 102px; 
+			height: 29px; 
+			position: absolute; 
+			top: 58px; 
+			left: 680px;
+		}
+        /* ログアウト、Closeボタン（マウスオーバー） */
+        #btLogout:hover, #btClose:hover {
+        	 background-position: 0 bottom;
+		}
+		
+        /* Crysta, SQEX ID 表示 エリア*/
+        #infArea { 
+        	padding-top: 59px; 
+        	width: 670px;
+        	height: 26px;
+        	background-position: right;
+        }
+	        #infArea table{
+	        	float: right;
+	        }
+
+        /* SQEXラベル  */
+        #lbSQEXId {
+        	padding:6px
+	    }
+        /* Crystaラベル  */
+        #lbCrysta {
+        	padding:6px;
+		}
+		
+        #bgSQEXId div, #bgCrysta div {
+			color: rgb(137, 133, 101);
+			padding: 3px 5px 0px 5px;
+		}
+
+        /* SQEX ID表示エリア */
+        #bgSQEXId {
+        	height: 25px;
+			width: 188px;
+			background-image: url('bgSQEXId.gif');
+			background-repeat: no-repeat;
+		}
+        /* SQEX ID表示エリア */
+        #bgSQEXId div { 
+        	text-align: left;
+			padding-left: 10px;
+		}
+
+        /* CrystaID表示エリア */
+        #bgCrysta { 
+        	height: 25px;
+        	width: 119px;
+			background-image: url('bgCrysta.gif');
+			background-repeat: no-repeat;
+		}
+        /* CrystaID表示エリア */
+        #bgCrysta div {
+			text-align: right;
+			padding-right: 10px;
+		}
+	/* ボディ
+	 --------------------------------------------------------------------------- */
+	#wrapBody {
+		width          : 100%;
+		text-align     : center;
+		margin         : auto;
+		padding-bottom : 40px;
+	}
+	
+		.en-us #wrapBody {
+			padding-bottom : 105px;
+		}
+	
+	/* フッター
+	--------------------------------------------------------------------------- */
+	#wrapFooter {
+		width            : 100%;
+		height           : 40px;
+		position         : absolute;
+		bottom           : 0;
+		left             : 0;
+		text-align       : center;
+		background-image : url(bgLoop.gif);
+	}
+		.en-us #wrapFooter {
+			height : 105px;
+		}
+		
+		#wrapFooterInner {
+			padding-left : 25px;
+			background-image : url(bgTop.gif);
+			background-repeat : no-repeat;
+		}
+		#wrapFooterCopy {
+			color    : #fff;
+			float    : right;
+			margin   : 11px 0 0 0;
+			padding  : 0 15px 0 0;
+		}
+		.wrapFooterLabel {
+			display    : block;
+			float      : left;
+			margin-top : 15px;
+		}
+		#wrapFooterESRB {
+			margin-top : 9px;
+			text-align : left;
+		}
+		#wrapFooterCopy2 {
+			color    : #fff;
+			float    : right;
+			margin   : 11px 0 0 0;
+			padding  : 0 15px 0 0;
+			text-align: right;
+			width: 400px;
+		}
+
+/* -------------------------------------------------------------------------
+ * コンテンツエリア
+ * ------------------------------------------------------------------------- */
+
+/* 大見出し＝ページタイトル
+	--------------------------------------------------------------------------- */
+.title {
+	width  : 574px;
+	height : 54px;
+	margin : 0 0 7px 0;
+}
+
+/* 中見出し
+	--------------------------------------------------------------------------- */
+.headline {
+	height     : 30px;
+	text-align : center;
+}
+	.headline div {
+		color       : #fff;
+		font-weight : bold;
+		margin      : auto;
+		text-align  : left;
+		padding     : 6px 0 0 0;
+	}
+
+.layStandard .headline {
+	width            : 672px;
+	background-image : url(standardLayout.gif);
+}
+	.layStandard .headline div {
+		width : 652px;
+	}
+
+.layMenu .headline {
+	width            : 550px;
+	background-image : url(menuLayout.gif);
+}
+	.layMenu .headline div {
+		width : 520px;
+	}
+
+/* 見出し系
+	--------------------------------------------------------------------------- */
+.subHeader, .dotHeader {
+	font-weight         : bold;
+	padding             : 0 0 0 17px;
+	text-align          : left;
+	background-repeat   : no-repeat;
+	background-position : 0 1px;
+}
+
+/* 小見出し
+	--------------------------------------------------------------------------- */
+.subHeader {
+	color            : #9A5F0E;
+	margin-bottom    : 10px;
+	background-image : url(subHeader.gif);
+}
+
+/* 中黒
+	--------------------------------------------------------------------------- */
+.dotHeader {
+	color            : #827E59;
+	background-image : url(dotHeader.gif);
+}
+
+/* リンク見出し
+	--------------------------------------------------------------------------- */
+.lnkHeader {
+	padding             : 2px 0 5px 20px;
+	text-align          : left;
+	background-repeat   : no-repeat;
+	background-image    : url(lnkHeader.gif);
+	background-position : 0 0;
+}
+
+
+
+/* 罫線系
+	--------------------------------------------------------------------------- */
+.ruleSolid1, .ruleDashed1 {
+	font-size : 1px;
+	height    : 3px;
+	background-repeat : repeat-x;
+}
+
+/* ソリッド罫線
+	--------------------------------------------------------------------------- */
+.ruleSolid1 {
+	background-image : url(ruleSolid1.gif);
+}
+
+/* ダッシュ罫線
+	--------------------------------------------------------------------------- */
+.ruleDashed1 {
+	background-image : url(ruleDashed1.gif);
+}
+
+
+/* -------------------------------------------------------------------------
+ * コンテンツ部
+ * ------------------------------------------------------------------------- */
+.contents {
+	margin : auto;
+}
+
+/* -------------------------------------------------------------------------
+ * ログイン前
+ * ------------------------------------------------------------------------- */
+.layStandard .contents {
+	width      : 672px;
+	text-align : center;
+}
+
+.layStandard .inner {
+	text-align : left;
+	margin     : auto;
+}
+
+/* -------------------------------------------------------------------------
+ * ログイン後
+ * ------------------------------------------------------------------------- */
+.layMenu .contents {
+	width      : 550px;
+	text-align : center;
+}
+
+#leftBlock {
+	width      : 223px;
+	float      : left;
+	text-align : left
+}
+
+#rightBlock {
+	width      : 577px;
+	float      : left;
+	text-align : center;
+}
+
+.layMenu .inner {
+	width      : 520px;
+	margin     : auto;
+	text-align : left;
+}
+
+/* メニュー
+	--------------------------------------------------------------------------- */
+#menu {
+	width      : 210px;
+	margin     : 0 0 0 7px;
+	text-align : center;
+}
+	/* 見出し */
+	.mnHeader {
+		height : 33px;
+	}
+	
+	/* 大中のボタン  */
+	.mnButtonM, .mnButtonL {
+		display         : block;
+		text-decoration : none;
+	}
+		.mnButtonM:hover, .mnButtonL:hover {
+			background-position : bottom;
+		}
+		.mnButtonM div, .mnButtonL div {
+			margin     : auto;
+			width      : 184px;
+			text-align : left;
+			cursor     : pointer;
+		}
+		.mnButtonM:hover div, .mnButtonL:hover div {
+			color : #E29000;
+		}
+		
+	/* 中ボタン */
+	.mnButtonM {
+		height : 26px;
+		background-image : url(mnButtonM.gif);
+	}
+		.mnButtonM div {
+			padding : 4px 0 0 0;
+		}
+
+	/* 大ボタン */
+	.mnButtonL {
+		height : 52px;
+		background-image : url(mnButtonL.gif);
+	}
+		.mnButtonL div {
+			padding : 8px 0 0 0;
+		}
+	
+	/* メニュー閉じ */
+	.mnFooter {
+		height           : 10px;
+		font-size        : 1px;
+		background-image : url(mnFooter.gif);
+	}
+
+/* -------------------------------------------------------------------------
+ * 汎用ボタン
+ * ------------------------------------------------------------------------- */
+/* ページ下に鎮座しているボタン通称ナビボタン */
+.btNavi1, .btNavi2 {
+	width   : 200px;
+	height  : 34px;
+	display : block;
+	text-decoration : none;
+}
+	.btNavi1:hover, .btNavi2:hover {
+		background-position : bottom;
+	}
+	
+	.btNavi1 div, .btNavi2 div {
+		color      : #fff;
+		text-align : center;
+		padding    : 8px 0 0 0;
+	}
+
+	/* はいなどの肯定的な挙動時 */
+	.btNavi1 {
+		background-image : url(btNavi1.gif);
+	}
+	
+	/* いいえなどの否定的な挙動時 */
+	.btNavi2 {
+		background-image : url(btNavi2.gif);
+	}
+	
+	/* 汎用ボタン */
+	.btGen {
+		display: block;
+		background-image : url(bt.gif);
+		background-repeat : no-repeat;
+		width: 206px;
+		height: 28px;
+		text-align : center;
+		margin  : 20px auto 20px auto;
+		text-decoration:none;
+		background-position:0px 0px;
+	}
+	.btGen:hover {
+		display: block;
+		color      : #fff;
+		background-position:0px  bottom;
+	}
+	.btGen div {
+		font-weight: bold;
+		padding-top : 5px;
+		color      : #fff;
+	}
+
+/* ログインやメニューでバナー的な使われかたをしているボタン */
+.btBanner1 {
+	width   : 210px;
+	height  : 48px;
+	display : block;
+}
+
+/* -------------------------------------------------------------------------
+ * 専用ボタン
+ * ------------------------------------------------------------------------- */
+// 欧州用画像切り替えボタン
+#btChangeLanguage {
+	width  : 210px;
+	height : 21px;
+	display : block;
+}
+
+/* -------------------------------------------------------------------------
+ * ログイン画面
+ * ------------------------------------------------------------------------- */
+/* ログインボタン */
+#btLogin {
+	width   : 200px;
+	height  : 40px;
+	display : block;
+}
+	#btLogin:hover {
+		background-position : 0 bottom;
+	}
+
+/* 登録ボタン */
+#btRegist {
+	width   : 200px;
+	height  : 40px;
+	display : block;
+}
+	#btRegist:hover {
+		background-position : 0 bottom;
+	}
+
+
+/* マニュアルへのリンク */
+#lnkManual {
+	height  : 18px;
+	display : block;
+	background-repeat : no-repeat;
+}
+
+/* アカウント新規登録登録ボタン */
+#btNewRegist {
+	width   : 200px;
+	height  : 110px;
+	display : block;
+	margin: 0px auto 0px 5px;
+}
+	#btNewRegist:hover {
+		background-position : 0 bottom;
+	}
+/* 新規登録 */
+.newRegistTop {
+	height : 63px;
+	background-repeat : no-repeat;
+	margin: 0px auto 0px 5px;
+}
+/* 新規登録ボタンエリア */
+.newRegist {
+	background-repeat : no-repeat;
+	margin: 20px auto 20px 5px;
+}
+
+/* スクエアエニックスアカウントについて */
+.aboutSquareEnix {
+	background-repeat : no-repeat;
+	margin: 20px auto 20px 8px;
+}
+
+/* OnetimePasswordの注釈 */
+.otpNote, .otpNote a{
+	color : #920000;
+	font-size:10px;
+}
+
+/* -------------------------------------------------------------------------
+ * 装飾箱1
+ * ------------------------------------------------------------------------- */
+.boxDeco1 {
+	background-image  : url(ml.gif);
+	background-repeat : repeat-y;
+	background-color  : #EFEFEF;
+}
+	.boxDeco1Inner {
+		background-image    : url(mr.gif);
+		background-repeat   : repeat-y;
+		background-position : right;
+	}
+	.boxDeco1TL, .boxDeco1TR, .boxDeco1BL, .boxDeco1BR {
+		width     : 9px;
+		height    : 9px;
+		font-size : 1px;
+		background-repeat : no-repeat;
+	}
+	.boxDeco1TL {
+		float : left;
+		background-image  : url(tl.gif);
+	}
+	.boxDeco1TR {
+		float : right;
+		background-image  : url(tr.gif);
+	}
+	.boxDeco1BL {
+		float : left;
+		background-image  : url(bl.gif);
+	}
+	.boxDeco1BR {
+		float : right;
+		background-image  : url(br.gif);
+	}
+	.boxDeco1Header {
+		height            : 9px;
+		font-size         : 1px;
+		background-repeat : repeat-x;
+		background-image  : url(tc.gif);
+	}
+	.boxDeco1Footer {
+		clear             : both;
+		height            : 9px;
+		font-size         : 1px;
+		background-repeat : repeat-x;
+		background-image  : url(bc.gif);
+	}
+
+
+/* -------------------------------------------------------------------------
+ * 装飾箱2
+ * ------------------------------------------------------------------------- */
+.boxDeco2 {
+	background-image  : url(ml.gif);
+	background-repeat : repeat-y;
+	background-color  : #F6F1E2;
+}
+	.boxDeco2Inner {
+		background-image    : url(mr.gif);
+		background-repeat   : repeat-y;
+		background-position : right;
+	}
+	.boxDeco2TL, .boxDeco2TR, .boxDeco2BL, .boxDeco2BR, .boxDeco2TL2, .boxDeco2TR2, .boxDeco2BL2, .boxDeco2BR2 {
+		width     : 9px;
+		height    : 9px;
+		font-size : 1px;
+		background-repeat : no-repeat;
+	}
+	.boxDeco2TL {
+		float : left;
+		background-image  : url(tl.gif);
+	}
+	.boxDeco2TR {
+		float : right;
+		background-image  : url(tr.gif);
+	}
+	.boxDeco2BL {
+		float : left;
+		background-image  : url(bl.gif);
+	}
+	.boxDeco2BR {
+		float : right;
+		background-image  : url(br.gif);
+	}
+	.boxDeco2TL2 {
+		float : left;
+		background-image  : url(tl2.gif);
+	}
+	.boxDeco2TR2 {
+		float : right;
+		background-image  : url(tr2.gif);
+	}
+	.boxDeco2BL2 {
+		float : left;
+		background-image  : url(bl2.gif);
+	}
+	.boxDeco2BR2 {
+		float : right;
+		background-image  : url(br2.gif);
+	}
+	.boxDeco2Header {
+		height            : 9px;
+		font-size         : 1px;
+		background-repeat : repeat-x;
+		background-image  : url(tc.gif);
+	}
+	.boxDeco2Footer {
+		clear             : both;
+		height            : 9px;
+		font-size         : 1px;
+		background-repeat : repeat-x;
+	}
+	
+	.boxDeco2Body {
+		padding : 15px 10px 15px 10px;
+	}
+
+/* -------------------------------------------------------------------------
+ * 装飾箱3
+ * ------------------------------------------------------------------------- */
+.boxDeco3 {
+	background-color : #FFF;
+	border           : 3px double #cfcfcf;
+	padding          : 3px
+}
+
+	.boxDeco3Inner {
+		background-color : #EFEFEF;
+	}
+	
+/* -------------------------------------------------------------------------
+ * 装飾箱4
+ * ------------------------------------------------------------------------- */
+.boxDeco4 {
+	background-image  : url(ml.gif);
+	background-repeat : repeat-y;
+	background-color  : #EFEFEF;
+}
+	.boxDeco4Inner {
+		background-image    : url(mr.gif);
+		background-repeat   : repeat-y;
+		background-position : right;
+	}
+	.boxDeco4TL, .boxDeco4TR, .boxDeco4BL, .boxDeco4BR {
+		width     : 9px;
+		height    : 9px;
+		font-size : 1px;
+		background-repeat : no-repeat;
+	}
+	.boxDeco4TL {
+		float : left;
+		height: 5px;
+		background-image  : url(tl.gif);
+	}
+	.boxDeco4TR {
+		float : right;
+		height: 5px;
+		background-image  : url(tr.gif);
+	}
+	.boxDeco4BL {
+		float : left;
+		background-image  : url(bl.gif);
+	}
+	.boxDeco4BR {
+		float : right;
+		background-image  : url(br.gif);
+	}
+	.boxDeco4Header {
+		height            : 33px;
+		font-size         : 1px;
+		background-repeat : repeat-x;
+	}
+	.boxDeco4Footer {
+		clear             : both;
+		height            : 9px;
+		font-size         : 1px;
+		background-repeat : repeat-x;
+		background-image  : url(bc.gif);
+	}
+
+/* -------------------------------------------------------------------------
+ * 装飾テーブル1
+ * ------------------------------------------------------------------------- */
+.tableDeco1 {
+	width : 100%;
+	border           : 1px solid #6E6E6E;
+	background-color : #B7B7BA;
+}
+	.tableDeco1 th {
+		color            : #fff;
+		background-color : #585B61;
+		padding          : 5px 10px 5px 10px;
+	}
+	.tableDeco1 td {
+		padding          : 5px 10px 5px 10px;
+	}
+	.tableDeco1C1 {
+		background-color : #E4E4E5;
+	}
+	.tableDeco1C2 {
+		background-color : #F4F4F5;
+	}
+	.tableDeco1C3 {
+		background-color : #EDECD8;
+	}
+	.tableDeco1OPTC1 {
+		background-color : #edd3ca;
+	}
+	.tableDeco1OPTC2 {
+		background-color : #d1d9ee;
+	}
+
+/* -------------------------------------------------------------------------
+ * フラットテーブル
+ * ------------------------------------------------------------------------- */
+.tableFlat {
+}
+	.tableFlat td, .tableFlat th, .tableFlat tr {
+		padding : 0;
+		margin  : 0;
+	}
+
+/* -------------------------------------------------------------------------
+ * ナビボタンエリア
+ * ------------------------------------------------------------------------- */
+.naviArea {
+	margin : auto;
+}
+	.naviArea td {
+		width : 20px;
+	}
+
+/* -------------------------------------------------------------------------
+ * タブ
+ * ------------------------------------------------------------------------- */
+.tab {
+}
+
+	.tabBorder {
+		width     : 520px;
+		height    : 6px;
+		font-size : 1px;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/tab/tabBorder.gif);
+	}
+	
+	.tabActive, .tabDeactive {
+		width   : 258px;
+		height  : 30px;
+		display : block;
+	}
+		
+		.tabActive div, .tabDeactive div {
+			padding    : 7px 0 0 0;
+			text-align : center;
+		}
+	
+	.tabActive {
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/tab/tabActive.gif);
+	}
+		.tabActive div {
+			color : #fff;
+		}
+	
+	.tabDeactive {
+		text-decoration : none;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/tab/tabDeactive.gif);
+	}
+	
+	/* 表組みで使っているボーダー */
+	.tabBorder2 {
+		width     : 520px;
+		height    : 4px;
+		font-size : 1px;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/tab/tabBorder2.gif);
+	}
+
+/* -------------------------------------------------------------------------
+ * エラー
+ * ------------------------------------------------------------------------- */
+.errHeadline {
+	background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/boxDeco2/icError.gif);
+	background-repeat : no-repeat;
+}
+
+	.errHeadline div {
+		position    : relative;
+		top         : 5px;
+		left        : 40px;
+		height      : 32px;
+		color       : #d71e00;
+		font-weight : bold;
+	}
+
+
+
+/* -------------------------------------------------------------------------
+ * オプショナル
+ * ------------------------------------------------------------------------- */
+.icCharacter, .icRetainer {
+	padding             : 0 0 0 20px;
+	text-align          : left;
+	background-repeat   : no-repeat;
+	background-position : 0 center;
+}
+
+.icCharacter {
+	background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/optional/icon/icCharacter.gif);
+}
+
+.icRetainer {
+	background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/optional/icon/icRetainer.gif);
+}
+
+
+/* -------------------------------------------------------------------------
+ * ページャ
+ * ------------------------------------------------------------------------- */
+.btPgNext, .btPgPrev, .btPgNextDeactive, .btPgPrevDeactive {
+	width     : 10px;
+	height    : 11px;
+	font-size : 1px;
+	display   : block;
+}
+
+.btPgNext {
+	background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/pager/btPgNext.gif);
+}
+
+.btPgPrev {
+	background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/pager/btPgPrev.gif);
+}
+
+.btPgNextDeactive {
+	background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/pager/btPgNextDeactive.gif);
+}
+
+.btPgPrevDeactive {
+	background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/pager/btPgPrevDeactive.gif);
+}
+
+/* -------------------------------------------------------------------------
+ * ステップ
+ * ------------------------------------------------------------------------- */
+#stepArea {
+	margin : 30px 0 10px 0;
+	float : right;
+}
+	#lbStep {
+		width  : 50px;
+		height : 19px;
+		float  : left;
+		background-repeat   : no-repeat;
+		background-position : 0 center;
+	}
+	#s1, #s2, #s3, #s4, #s5, #s6, #s7, #s8, #s9, #s10 {
+		width  : 19px;
+		height : 19px;
+		float  : left;
+	}
+	#s1 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s1.gif)}
+	#s2 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s2.gif)}
+	#s3 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s3.gif)}
+	#s4 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s4.gif)}
+	#s5 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s5.gif)}
+	#s6 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s6.gif)}
+	#s7 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s7.gif)}
+	#s8 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s8.gif)}
+	#s9 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s9.gif)}
+	#s10 {background-image:url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/s10.gif)}
+	
+	.stepArrow {
+		font-size : 1px;
+		width  : 12px;
+		height : 19px;
+		float  : left;
+		background-image    : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/images/common/regist/arrow.gif);
+		background-repeat   : no-repeat;
+		background-position : center;
+	}
+	.stepActive {
+		background-position : 0 bottom;
+	}
+
+
+/*
+ * INFORMATION
+ * -------------------------------------------------------------------*/
+.information {
+}
+	/* タイトル */
+	.inf-title {
+		width  : 672px;
+		height : 44px;
+		background-repeat: no-repeat;
+	}
+	/* 一覧表示ボタン */
+	.inf-showAll {
+		width   : 63px;
+		height  : 13px;
+		display : block;
+		float   : right;
+		margin  : 25px 11px 0 0;
+		background-repeat : no-repeat;
+	}
+
+	/* ヘッダー */
+	.inf-header {
+		clear : both;
+		font-size : 1px;
+		height : 16px;
+	}
+	.inf-headerL {
+		width  : 16;
+		height : 16;
+		float  : left;
+		font-size : 1px;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/headerL.gif);
+		background-repeat: no-repeat;
+	}
+	.inf-headerC {
+		height : 16;
+		float  : left;
+		width  : 640px;
+		font-size : 1px;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/headerC.gif);
+		background-repeat: repeat-x;
+	}
+	.inf-headerR {
+		width  : 16;
+		height : 16;
+		float  : left;
+		font-size : 1px;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/headerR.gif);
+		background-repeat: no-repeat;
+	}
+	
+	/* フッター */
+	.inf-footer {
+		clear : both;
+	}
+	.inf-footerL {
+		width  : 16;
+		height : 16;
+		float  : left;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/footerL.gif);
+		background-repeat: no-repeat;
+	}
+	.inf-footerC {
+		height : 16;
+		float  : left;
+		width  : 640px;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/footerC.gif);
+		background-repeat: repeat-x;
+	}
+	.inf-footerR {
+		width  : 16;
+		height : 16;
+		float  : left;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/footerR.gif);
+		background-repeat: no-repeat;
+	}
+	/* ボディ */
+	.inf-body {
+		clear : both;
+		width : 672px;
+		text-align : center;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/bodyC1.gif);
+	}
+	/* ボディ下コンテンツエリア */
+	.inf-contents {
+		width  : 664px;
+		margin : auto;
+		text-align : left;
+	}
+	/* 角丸ヘッダー */
+	.inf-roundHeader {
+		height : 17px;
+		width  : 100%;
+		background-image    : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/roundHeaderL.gif);
+		background-repeat   : no-repeat;
+		background-position : 4px 0;
+	}
+	/* 角丸ヘッダー：右背景部分 */
+	.inf-roundHeader-content {
+		height   : 100%;
+		margin   : 0 0 0 12px;
+		overflow : hidden;
+		background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/roundHeaderR.gif);
+		background-repeat : repeat-x;
+	}
+		/* 角丸ヘッダー：テキスト部分 */
+		.inf-roundHeader-content div {
+			color      : #747356;
+			font-size  : 10px;
+			padding    : 1px 0 0 0;
+		}
+	/* 大ヘッダー */
+	.inf-largeHeader {
+		width  : 100%px;
+		height : 39px;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/largeHeaderBG.gif);
+		background-repeat: repeat-x;
+	}
+	/* 大ヘッダー：テキスト */
+	.inf-largeHeaderText {
+		font-weight : bold;
+		overflow    : hidden;
+		height      : 100%;
+		float       : left;
+	}
+		.inf-largeHeaderText div {
+			font-weight: bold;
+			margin : 11px 0 0 0;
+		}
+	/* 大ヘッダー：もっと見るボタン */
+	.inf-largeHeaderMore {
+		width   : 59px;
+		height  : 19px;
+		float   : right;
+		margin  : 10px 5px 0 0;
+		display : block;
+		cursor  : pointer;
+	}
+	/* 大ヘッダー：色アイコン */
+	.lhIcon1,
+	.lhIcon2,
+	.lhIcon3,
+	.lhIcon4,
+	.lhIcon5,
+	.lhIcon6{
+		width  : 23px;
+		height : 39px;
+		float  : left;
+		background-repeat: no-repeat;
+		background-position: 10px 11px;
+	}
+	.lhIcon1 {/* 重要なお知らせ */
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/lhIcon1.gif);
+	}
+	.lhIcon2 {/* サーバー・メンテナンス情報 */
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/lhIcon2.gif);
+	}
+	.lhIcon3 {/* 一般情報 */
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/lhIcon3.gif);
+	}
+	.lhIcon4 {/* イベント情報 */
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/lhIcon4.gif);
+	}
+	.lhIcon5 {/* アップデート情報 */
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/lhIcon5.gif);
+	}
+	.lhIcon6 {/* サイト更新情報 */
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/lhIcon6.gif);
+	}
+	
+	/* 矢印テキスト */
+	.inf-link {
+		height   : 31px;
+		width    : 100%;
+		overflow : hidden;
+		background-image    : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/app/svc/css/infArrow.gif);
+		background-repeat   : no-repeat;
+		background-position : 12px 12px;
+	}
+
+		/* 矢印テキスト：テキスト部分 */
+		.inf-link div {
+			text-align: left;
+			margin: 7px 0 0 23px;
+		}
+		.inf-link a {
+			color : #000;
+		}
+
+	/* ライン背景つき見出し */
+	.inf-lineHeader {
+		height     : 31px;
+		width      : 100%;
+		margin     : 0 auto 0 auto;
+		overflow   : hidden;
+		text-align : left;
+		background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/lineHeader.gif);
+		background-repeat : repeat-x;
+	}
+		/* ライン背景つき見出し：エリア定義 */
+		.inf-lineHeader div {
+			height : 100%;
+			margin : 6px 0 0 0;
+		}
+		.inf-lineHeader span {
+			font-weight : bold;
+			color       : #6B5903;
+			margin      : 0 0 0 12px;
+			padding     : 4px 4px 4px 4px;
+			background-color: #F4F4F4;
+		}
+	/* カテゴリー付きリンク */
+	.inf-linkC {
+		width  : 99%;
+		min-height:31px;
+		height: auto !important;
+		height: 31px;
+	}
+	/* Ｔ字パイプ */
+	.inf-linkT, .inf-linkL {
+		width      : 99%;
+		min-height : 31px;
+		height     : auto !important;
+		height     : 31px;
+		overflow   : hidden;
+		background-image    : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/pipeT.gif);
+		background-repeat   : no-repeat;
+		background-position : 12px 3px;
+	}
+	.inf-linkC table {
+		margin : 6px 0 0 12px;
+	}
+	.inf-linkT table, .inf-linkL table {
+		margin : 6px 0 0 23px;
+	}
+	.inf-linkT div, .inf-linkL div {
+		margin : 6px 0 0 23px;
+	}
+	.inf-linkT a, .inf-linkL a, .inf-linkC a {
+		color   : #000;
+	}
+	/* Ｌ字パイプ */
+	.inf-linkL {
+		background-image    : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/pipeL.gif);
+	}
+	/* ＴＬ字パイプカテゴリー */
+	.inf-cat {
+		color        : #D7630E;
+		font-weight  : bold;
+		white-space  : nowrap;
+		padding-right: 3px;
+	}
+	/* テキストのみヘッダー */
+	.inf-textHeader {
+		width    : 100%;
+		height   : 31px;
+		overflow : hidden;
+		margin   : auto;
+	}
+		.inf-textHeader div {
+			text-align  : left;
+			font-weight : bold;
+			margin      : 9px 0 0 12px;
+		}
+	/* テキストエリアの上罫線 */
+	.inf-border1 {
+		font-size : 1px;
+		width : 100%;
+		height: 6px;
+		margin   : auto;
+		background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/border1.gif);
+		background-repeat : repeat-x;
+	}
+	/* テキストエリアの下罫線 */
+	.inf-border2 {
+		font-size : 1px;
+		width : 100%;
+		height: 2px;
+		margin   : 10px auto 0 auto;
+		background-image  : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/border2.gif);
+		background-repeat : repeat-x;
+	}
+	/* テキストエリア */
+	.inf-textArea {
+		width  : 640px;
+		margin : 15px 10px 0 12px;
+	}
+	/* 戻るボタン */
+	.inf-toBackBtn {
+		width : 49px;
+		height: 31px;
+		display: block;
+		background-repeat : no-repeat;
+		background-position : 0 8px;
+	}
+	
+	.ja-jp .inf-toBackBtn {background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/ja/information/toBackBtn.gif)}
+	.fr-fr .inf-toBackBtn {background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/fr/information/toBackBtn.gif)}
+	.de-de .inf-toBackBtn {background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/de/information/toBackBtn.gif)}
+	.en-us .inf-toBackBtn, .en-gb .inf-toBackBtn {background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/en/information/toBackBtn.gif)}
+	
+	
+	/* 共通マージン */
+	.inf-mag {
+		font-size : 1px;
+		height    : 4px
+	}
+
+	/* ログイン時のサイズ変更 */
+	.layMenu {
+		margin-left:15px;
+	}
+	.layMenu .inf-title {
+		width  : 520px;
+	}
+	.layMenu .inf-headerC {
+		width : 488px;
+	}
+	.layMenu .inf-body {
+		width : 520px;
+		background-image : url(http://support.na.square-enix.com.oauth-oa-login.usa.cc/account/content/images/common/information/bodyC2.gif);
+		background-repeat: repeat-y;
+	}
+	.layMenu .inf-contents {
+		width : 512px;
+	}
+	.layMenu .inf-footerC {
+		width  : 488px;
+	}
+	.layMenu .inf-textArea {
+		width  : 488px;
+	}
+	
+	.layMenu h2 {
+		padding : 0 0 0 15px;
+		margin  : 0 0 5px 0;
+	}
+	/* 一覧表示ボタン */
+	.layMenu .inf-showAll {
+		margin  : 0;
+		padding : 0;
+	}
+
+/* -------------------------------------------------------------------------
+ * 言語切り替え
+ * ------------------------------------------------------------------------- */
+.languageFlagLarge {
+}
+	.languageFlagLarge a {
+		display           : block;
+		height            : 32px;
+		color             : #222;
+		padding           : 0 0 0px 40px;
+		background-repeat : no-repeat;
+		line-height       : 250%;
+		text-decoration   : none;
+		cursor            : pointer;
+	}
+/* -------------------------------------------------------------------------
+ * リキャプチャのスタイル
+ * ------------------------------------------------------------------------- */
+.recap * {
+	line-height : 100%;
+}
