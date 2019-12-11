@@ -20,9 +20,6 @@
           <li class="nav-item px-2">
             <a class="nav-link"  href="<?= base_url()?>legitimate"  data-toggle="tooltip" title="Legitimate">Legitimate</a>
           </li>
-          <li class="nav-item px-2">
-            <a class="nav-link" href="<?= base_url()?>dataset" data-toggle="tooltip" title="Scan" >Dataset</a>
-          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item px-2"><a class="nav-link" href="#"><span class="badge badge-warning">v1.0</span></a></li>

@@ -4,7 +4,7 @@
     <div class="row">
           <div class="col-lg-6 col-md-6 col-xs-12 w-50">
               <ul class="breadcrumbs">
-                <li><a href="#">Home</a></li>
+                <li><a href="<?php echo base_url()?>">Home</a></li>
                 <li>Legitimate  </li>
               </ul>
           </div>

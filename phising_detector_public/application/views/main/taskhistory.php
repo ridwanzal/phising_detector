@@ -3,7 +3,7 @@
     <div class="row">
           <div class="col-lg-12 col-md-12 col-xs-12 w-50">
               <ul class="breadcrumbs">
-                <li><a href="#">Home</a></li>
+                <li><a href="<?php echo base_url()?>">Home</a></li>
                 <li>Task History</li>
               </ul>
               <ul style="float:right;">
@@ -18,6 +18,13 @@
     <br/>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-xs-12">
+            <?php
+                 if(sizeof($task) == 0) {?>
+                    <div class="alert alert-info" role="alert">
+                            You dont have any task yet.
+                    </div>
+                <?php }
+            ?>
             <?php if(isset($task)) {?>
                 <?php foreach($task as $tasklist) { ?>
                         <div class="card" style="margin-bottom:10px;">
