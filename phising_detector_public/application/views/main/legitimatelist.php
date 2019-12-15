@@ -34,11 +34,10 @@
                                 <span><?php echo 'Test data scanned: '.$tasklist->sch_scanned; ?></span>
                                 
                                 <form method="POST" action="<?php echo base_url('legitimate/result'); ?>">
-                                <input type="hidden" name="task_id" value="<?php echo $tasklist->task_id; ?>">
-                                    <input type="hidden" name="sch_id" value="<?php echo $tasklist->sch_id; ?>">
-                                    <?php var_dump($tasklist->sch_id); ?>
-                                    <input type="hidden" name="task_scanned" value="<?php echo $tasklist->sch_scanned; ?>">
-                                    <input style="right:10px;bottom:12px;  width:100px;font-size:13px;position:absolute;" name="analyze" type="submit" class="btn btn-primary btn-sm" value="Show Details"/> 
+                                        <input type="hidden" name="task_id" value="<?php echo $tasklist->task_id; ?>">
+                                        <input type="hidden" name="sch_id" value="<?php echo $tasklist->sch_id; ?>">
+                                        <input type="hidden" name="task_scanned" value="<?php echo $tasklist->sch_scanned; ?>">
+                                        <input style="right:10px;bottom:12px;  width:100px;font-size:13px;position:absolute;" name="analyze" type="submit" class="btn btn-primary btn-sm" value="Show Details"/> 
                                 </form>
                                 <form method="POST" action="<?php echo base_url('legitimate/deletetask'); ?>">
                                     <input type="hidden" name="sch_id" value="<?php echo $tasklist->sch_id; ?>">
