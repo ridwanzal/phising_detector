@@ -36,10 +36,10 @@
               <div class="col-lg-12 col-md-12 col-xs-6 w-100">
                 <form method="POST" action="<?php echo base_url('train/fetchraw'); ?>">
                         <div class="form-group">
-                          <label for="">Select Training Score Task</label>
+                          <label for="">Select dataset amount</label>
                           <select class="form-control" name="dataset_amount">
-                            <option value="10">10 Sample</option>
-                            <option value="100">100 Sample</option>
+                            <option value="10">10</option>
+                            <option value="100">100</option>
                           </select>
                         </div>
                       <!-- <button class="btn btn-outline-secondary" style="width:100%;background:#3B9174;color:#fff;font-weight:bold;padding:20px;font-size:20px;border : 3px solid #3B9174; position:relative; left:-2px;" id="analyze" name="submit_analyze" type="button"><i style="position:relative;top:6px;" data-feather="rotate-ccw"></i>&nbsp;&nbsp;Analyze Dataset</button> -->
