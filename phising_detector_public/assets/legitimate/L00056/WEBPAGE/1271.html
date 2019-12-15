@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<style type="text/css">
+	* {
+		padding:0;
+		margin:0;
+	}
+	#as-sys {
+		width:100%;
+	}
+</style>
+<body>
+	<div id="as-sys" data-z="1271" data-c="11" data-t="229"><script type="text/javascript">
+var microadCompass = microadCompass || {};
+microadCompass.queue = microadCompass.queue || [];
+</script>
+<script type="text/javascript" charset="UTF-8" src="compass.js" onload="new microadCompass.AdInitializer().initialize();" async></script>
+<div id="71895412e930f1593a7c66c1016f71f7" >
+ <script type="text/javascript">
+  microadCompass.queue.push({
+   "spot": "71895412e930f1593a7c66c1016f71f7",
+   "url": "${COMPASS_EXT_URL}",
+   "referrer": "${COMPASS_EXT_REF}"
+  });
+ </script>
+</div></div>
+	<script src="ajax.module.js"></script>
+	<script type="text/javascript">
+	(function(){
+		var doc = document;
+		var ready = setInterval(function(){
+
+			if(doc.readyState === "complete") {
+
+				clearInterval(ready);
+				var el = doc.getElementById('as-sys');
+
+				AjaxReq.request({
+					url:"./",
+					method:"POST",
+					data:{
+						"zoneid":el.getAttribute("data-z"),
+						"clientid":el.getAttribute("data-c"),
+						"tagid":el.getAttribute("data-t")
+					}
+				}).success(function(res){
+
+				}).failed(function(res){
+
+				});
+
+			}
+		},100);
+	})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+var pix = pix || {};
+
+(function($){
+    if (new Date().getTime() >= 1406563200000 && new Date().getTime() < 1406649600000) {
+	$(function() {
+	    var div = $("#extradiv6").css({
+		'position': 'absolute',
+		'z-index': 999999,
+		'top': 0
+	    });
+
+	    div.append('<div id="flashcontent_PT1228"> 請安裝最新 flash 播放器.  </div> <script type="text/javascript"> var so = new SWFObject("http://demoidea.events.pixnet.net/files/pixfox_20140729.swf?clickTAG=http://ad.pixnet.net/newdirect.php?aid=138684", "PT1228", 980, 625, "9", "high"); so.addParam("allowScriptAccess", "always"); so.addParam("scale", "noscale"); so.addParam("salign", "lt"); so.addParam("wmode", "transparent"); so.addParam("allowscriptaccess", "always"); so.addVariable(\'fieldid\', \'1228\'); so.write("flashcontent_PT1228"); pix.ad_loaded(\'1228\', \'PT1228\', 0, 1); </script> <script type="text/javascript"> pix.ad_load_func[1228] = function(embedid) { jQuery(\'#\' + embedid).width(980); jQuery(\'#\' + embedid).height(625); openMove(); }; pix.ad_unload_func[1228] = function(embedid) { jQuery(\'#\' + embedid).width(980); jQuery(\'#\' + embedid).height(350); closeMove(); }; function closeMove() { jQuery(\'#main\').css(\'position\', \'relative\'); jQuery(\'#extradiv6\').animate({ top : 90, left : 0 }, 0); jQuery(\'#release\').animate({ top : 360 }, 500); jQuery(\'#main\').animate({ top : 370 }, 500); jQuery(\'#footer\').animate({ top : 370 }, 500); jQuery(\'#container3\').animate({ height : 2000 }, 500); } function openMove() { jQuery(\'#main\').css(\'position\', \'relative\'); jQuery(\'#extradiv6\').animate({ top : 0, left : 0 }, 0); jQuery(\'#release\').animate({ top : 10 }, 500); jQuery(\'#main\').animate({ top : 10 }, 500); jQuery(\'#footer\').animate({ top : 10 }, 500); jQuery(\'#container3\').animate({ height : 1650 }, 500); } </script>');
+	});
+    } else if (new Date().getTime() >= 1354075200000) {
+        /*$(function() {
+            var ww = $(window).width();
+            var sw = ww > 1280 ? 1280 : 1024;
+            var sh = $(document).scrollTop()+350;
+
+            var div = $("#extradiv6").css({
+                'width': 25,
+                'height': 240,
+                'top': sh,
+                'left': 0,
+                'background':'none',
+                'position': 'absolute',
+		'z-index' : 99999
+            }).append('<a href="http://move.events.pixnet.net/ad.php?type=link_s" target="_blank"><img class="ad-image" src="http://move.events.pixnet.net/ad.php?type=small"></a>');
+
+	    $('.ad-image').mouseover(function() {
+		$(this).attr('src', 'http://move.events.pixnet.net/ad.php?type=big');
+		$(this).parents('a:first').attr('href', 'http://move.events.pixnet.net/ad.php?type=link_b');
+	    }).mouseout(function() {
+		$(this).attr('src', 'http://move.events.pixnet.net/ad.php?type=small');
+		$(this).parents('a:first').attr('href', 'http://move.events.pixnet.net/ad.php?type=link_s');
+	    }).mouseout(function() {
+	    });
+
+	    jQuery(window).scroll(function() {
+		var sh = $(document).scrollTop()+350;
+		jQuery('#extradiv6').css('top', sh);
+	    });
+        });*/
+    }
+})(jQuery);

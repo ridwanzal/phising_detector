@@ -1,0 +1,1 @@
+var adobeGnavProps=adobe.dom.GNav();adobeGnavProps.InjectCSS&&adobe.dom.injectFile(adobeGnavProps.CDN+"/assets/globalnav/"+adobeGnavProps.Version+"/css/globalnav.css","css"),document.writeln('<script src="'+adobeGnavProps.CDN+adobeGnavProps.JSFile+'"></script>');

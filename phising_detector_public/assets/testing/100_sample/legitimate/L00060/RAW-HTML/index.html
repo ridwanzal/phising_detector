@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html ng-app="diplyApp">
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Render Styles from Bundle -->
+
+    <link href="/bundles/new_homepage_styles.css?v=q3QCiGmtdyJViiXDjI_rPyb-gcQcoX3xLZSPkHVfK5c1" rel="stylesheet"/>
+
+    <link href="/bundles/diply-style.css?v=nLD69Gj8nXSaMrH2A18WnDKeH5fgynD2YBE4JpusZ1A1" rel="stylesheet"/>
+
+
+    <link href="//cdn.diply.com/resources/Fonts/Font-Roboto.css?v=2016-04-20_100954_25" rel="stylesheet" type='text/css'/>
+    <link href="//cdn.diply.com/resources/Fonts/Font-Lobster.css?v=2016-04-20_100954_25" rel="stylesheet" type='text/css' />
+
+   
+
+    <link rel="stylesheet" href="//cdn.diply.com/resources/css/font-awesome.min.css?v=2016-04-20_100954_25">
+	<title>Diply.com | Go for a Dip!</title>
+
+	<meta name="msvalidate.01" content="98B2763A598EFF9B842C6B968852D893"/>
+	<meta name="google-site-verification" content="ifjhKnrVHlp7XLoAz3eN62Dji-SYkz6-PYteuHJXlSY"/>
+	<meta name="bitly-verification" content="83e25f7b6f76"/>
+    <meta name="fragment" content="!">
+    <meta name="p:domain_verify" content="8085c66258a4952103e193000f2c1c0d" />
+
+    <meta property="fb:app_id" content="627392657291988" />
+            <meta property="fb:admins" content="516504890" />
+            <meta property="fb:admins" content="509937923" />
+    <meta property="og:url" content="http://diply.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Diply" />
+    <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="http://cdn.diply.com/article-images/8c24e768-60cd-423a-a635-1a9eafb15ca3/951e2b6e-10e6-4472-8807-ff688673886b_desktop.jpg" />
+    <meta property="og:image:width" content="210" />
+    <meta property="og:image:height" content="210" />
+    <meta property="og:description" content="Diply is the fastest-growing website in internet history. It's the best place to find the funniest, craftiest, nerdiest, most inspiring content the internet has to offer..." />
+    <meta property="og:site_name" content="Diply.com." />
+    <meta name="version" content="2016-04-20_100954_25" />
+
+	<!-- fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Content/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Content/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Content/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/Content/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" type="image/x-icon" href="/content/ico/favicon.ico">
+
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-WRQVHK" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WRQVHK');
+    </script>
+    <!-- End Google Tag Manager -->
+
+	<base href="/"/>
+
+</head>
+<body>
+    <div class="diply-modal-cover" id="js_modal_cover" data-active-modal="">
+        <!-- SIGN IN MODAL-->
+        <div class="diply-modal" id="diply_signin_modal" onclick="Modal.Core.default(event)">
+            <a class="modal-close visible-xs" href="javascript:void(0)" onclick="Modal.Signin.hide()">
+                <i class="fa fa-fw fa-times"></i>
+            </a>
+            <div class="modal-header">
+                <div class="modal-header-title" translate>
+                    Join the Diply Community
+                </div>
+                <div class="modal-header-subtitle" translate>
+                    We have double dip donuts!
+                </div>
+            </div>
+            <div class="modal-body signin-body">
+<form action="/account/externallogin" method="post"><input name="__RequestVerificationToken" type="hidden" value="dmUd-qsYcjWCG4yODDeXd0xteC7iymuUUj0_mhCsMuoirbw6fvLcphbPaY6KHPo0hPahsFXCXcwvOrzUdyUNTWigO-w1" />                    <input type="hidden" name="provider" id="providerInput"/>
+                    <button value="facebook" onclick="javascript: $('#providerInput').val('facebook'); $(this).parent().submit();" class="diply-signup-btn diply-signup-facebook">
+                        <i class="fa fa-fw fa-facebook"></i>
+                        &nbsp;<span translate>Sign In With Facebook</span>
+                    </button>
+                    <button value="twitter" onclick="javascript: $('#providerInput').val('twitter'); $(this).parent().submit();" class="diply-signup-btn diply-signup-twitter">
+                        <i class="fa fa-fw fa-twitter"></i>
+                        &nbsp;<span translate>Sign In with Twitter</span>
+                    </button>
+</form>
+                <hr/>
+
+                <span translate="NoAccount">Don't Have An Account? Click a Service to Make One!</span>
+            </div>
+        </div>
+        <!-- END SIGN IN MODAL -->
+        <!-- GENERAL PURPOSE MODAL -->
+        <div class="diply-modal" id="diply_general_modal" onclick="Modal.Core.default(event)">
+            <div class="modal-header">
+                <div class="modal-header-title"></div>
+                <div class="modal-header-subtitle"></div>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+
+
+    <div class="diply-nav-anti-jitterbug">
+    <div class="diply-nav" ng-controller="NavController">
+        <div class="diply-float-wrap relative">
+            <div class="display-table">
+                <div class="display-row relative">
+                    <div class="display-cell diply-brand-nav">
+                        <a ui-sref="home" onclick="angularizer.Home.scrollToTop()">
+                            <img src="/Content/img/diply-logo-nav.png" alt="Diply: Go For a Dip!">
+                        </a>
+                    </div><!-- /.diply-brand -->
+
+                    <div class="diply-navlinks-float">
+
+                        <div class="diply-navlink nohover">
+                                    <!-- SIGN IN MODAL -->
+                                    <div class="diply-nav-create lang">
+                                        <a href="javascript:void(0)" class="diply-nav-create-btn no-user" onclick="Modal.Signin.show()" translate>
+                                            Sign In
+                                        </a>
+                                        <a class="diply-nav-account-btn" href="javascript:void(0)">
+                                            <i class="fa fa-globe fa-2x"></i>
+                                        </a>
+                                    </div>
+                                    <div ng-class="['diply-nav-account-menu', 'closed']">
+                                        <ul ng-class="['diply-nav-account-menu-inner']" language-picker>
+                                        </ul>
+                                    </div>
+                                    <!-- END SIGN IN MODAL -->
+                        </div>
+                        <a class="diply-navlink" id="nav-explore">
+                            <p class="navlink-text explore" translate>Explore</p>
+                        </a>
+                        <a href="/c/videos" class="diply-navlink hidden-sm hidden-xs">
+                            <p class="navlink-text" translate>Watch</p>
+                        </a>
+                        <a href="/c/life/fun" class="diply-navlink hidden-sm hidden-xs">
+                            <p class="navlink-text" translate>Laugh</p>
+                        </a>
+                        <a href="/c/life/inspirational" class="diply-navlink hidden-sm hidden-xs">
+                            <p class="navlink-text" translate>Inspire</p>
+                        </a>
+
+                    </div><!-- /.diply-navlinks-float -->
+                </div>
+            </div>
+        </div><!-- /.diply-float-wrap -->
+    
+        <!-- Explore Shelf -->
+        <ng-include src="'/Content/static/diply-new-angular/src/app/explore/explore.html'"></ng-include>
+        <!-- / Explore Shelf -->
+    </div><!-- /.diply-nav -->
+</div>
+
+    <div ui-view id="testBody"></div>
+    
+    <script src="//cdn.diply.com/resources/js/angular-1.3.14.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/angular-ui-router-0.2.17.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/ui-bootstrap-tpls-0.12.1.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/angular-resource.min-1.3.14.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/angular-sanitize-1.3.14.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/angular-file-model-0.0.0.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/angular-translate-2.7.2.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/angular-translate-loader-static-files-2.7.2.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/angular-cookies.min-1.3.17.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/jquery-2.1.3.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/lodash-3.1.0.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/enquire-2.1.2.min.js?v=2016-04-20_100954_25"></script>
+
+    <script src="//cdn.diply.com/resources/js/sweet-alert.min-0.0.0.js?v=2016-04-20_100954_25"></script>
+
+    <script src="/bundles/new_homepage_scripts.js?v=x3jQE9F0P4Eztpbh7omBGhCVCqgc0bRbM8vtsKpUtFg1"></script>
+
+    <script src="/bundles/common.js?v=xiPbi8dZqV_1_XsCtiM24DUhP5JR4JS3m1bXEmweiK81"></script>
+
+    <script src="//cdn.diply.com/resources/js/ng-infinite-scroll-1.2.0.min.js?v=2016-04-20_100954_25"></script>
+
+
+    <script type ="text/javascript">
+        setUpdateVisitor("SharedAccessSignature sr=http%3a%2f%2fgoviral-engine-bus.servicebus.windows.net%2f&sig=lc%2f2B9OdDND1TcJmmymAqrC4zyIdawt4mGvrRgYPjWw%3d&se=1461568316&skn=ClientSendAccessPolicy", "https://goviral-engine-bus.servicebus.windows.net/", "views-in-hub");
+    </script>
+
+    <div id="fb-root"></div>
+
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P269BG"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P269BG');</script>
+<!-- End Google Tag Manager -->
+
+<script>
+    window.fbAsyncInit = function () {
+        // init the FB JS SDK
+        FB.init({
+            appId: '627392657291988', // App ID from the app dashboard
+            status: true,                                 // Check Facebook Login status
+            xfbml: true,                                  // Look for social plugins on the page
+            version: 'v2.5'
+        });
+    };
+
+
+    function loadFacebookAPI() {
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    }
+
+    window.onscroll = function () {
+        var titleRect = document.getElementById("postTitle");
+        if (titleRect) titleRect = titleRect.getBoundingClientRect();
+
+        var nextRect = document.getElementsByClassName("controls-next")[0];
+        if (nextRect) nextRect = nextRect.getBoundingClientRect();
+
+        var commentsRect = document.getElementById('fbComments');
+        if (commentsRect) commentsRect = commentsRect.getBoundingClientRect();
+
+        if ((titleRect && titleRect.bottom < 0)
+            || (nextRect && nextRect.top < window.innerHeight)
+            || (commentsRect && commentsRect.top < window.innerHeight)) {
+            loadFacebookAPI();
+            window.onscroll = null;
+        }
+    }
+
+    // AdSense Analytics Linking Code
+    window.google_analytics_uacct = "UA-44184928-2";
+
+
+    // Start Alexa Certify Javascript
+    _atrk_opts = { atrk_acct: "PA4wi1asyr00gj", domain: "diply.com", dynamic: true };
+    (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
+    // End Alexa Certify Javascript
+
+
+    // Begin comScore Tag
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "17462746" });
+    (function () {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+    //End comScore Tag
+
+    // Quantcast Tag
+    qcdata = {} || qcdata;
+    (function () {
+        var elem = document.createElement('script');
+        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://pixel") + ".quantserve.com/aquant.js?a=p-z0zMG4nCgXzzj";
+        elem.async = true;
+        elem.type = "text/javascript";
+        var scpt = document.getElementsByTagName('script')[0];
+        scpt.parentNode.insertBefore(elem, scpt);
+    }());
+
+    var qcdata = {
+        qacct: 'p-z0zMG4nCgXzzj',
+        uid: "-1",
+        labels: ""
+    };
+</script>
+
+<noscript>
+    <img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=PA4wi1asyr00gj" style="display: none" height="1" width="1" alt="" />
+</noscript>
+<noscript>
+    <img src="http://b.scorecardresearch.com/p?c1=2&c2=17462746&cv=2.0&cj=1" />
+</noscript>
+<noscript>
+    <img src="//pixel.quantserve.com/pixel/p-z0zMG4nCgXzzj.gif?labels=" style="display: none;" border="0" height="1" width="1" alt="Quantcast" />
+</noscript>
+
+</body>
+</html>

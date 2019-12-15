@@ -1,0 +1,17 @@
+   window._xh_st_global_obj.location="-";
+   window._xh_st_global_obj.cfg_1={
+		ck:"",
+		et:"",
+		cb:"default",
+		wt:"4",
+		at:"xhwhome",
+		pt:"",
+		ce:"",
+		ct:"",
+		th:"",
+		st:"1",
+		ni:"01", 
+		cf:"",
+		xzn:"kan",     
+	    ext:function(){}  
+};

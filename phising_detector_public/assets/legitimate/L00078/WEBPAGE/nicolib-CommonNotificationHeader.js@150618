@@ -1,0 +1,1071 @@
+/**
+ * @author Kenta Takahashi
+ */
+if (typeof Nico === 'undefined') Nico = {};
+
+/**
+ * '+' icon which shows dialog for nicorepo.
+ */
+Nico.CommonNotificationHeader = {
+    
+  /**
+   * @type boolean
+   * @default false
+   * @private
+   */
+  isLoading: false,
+
+  /**
+   * @type boolean
+   * @default false
+   * @private
+   */
+  isShown: false,
+  
+  /**
+   * @type boolean
+   * @default true
+   * @private
+   */
+  isError: true,
+
+  /**
+   * @type boolean
+   * @default false
+   * @private
+   */
+  isMaintenance: false,
+
+  /**
+   * @type object
+   * @default null
+   * @private
+   */
+  isConfigChanged: null,
+  
+  /**
+   * total count of notifications.
+   * 
+   * @type number
+   * @default null
+   * @private
+   */
+  count: null,
+
+  /**
+   * user id.
+   * 
+   * @type string
+   * @private
+   */
+  userId: '',
+
+  /**
+   * site id.
+   * 
+   * @type string
+   * @private
+   */
+  siteId: '',
+
+  /**
+   * API Key.
+   * 
+   * @type string
+   * @private
+   */
+  APIKey: '',
+
+  /**
+   * APIKey generated Date
+   * 
+   * @type string
+   * @private
+   */
+  APIDate: '',
+
+  /**
+   * API Version
+   * 
+   * @type string
+   * @private
+   */
+  APIVersion: '',
+  
+  /**
+   * message's locale which is returned from server-side. If this value is
+   * null, locale is specitied automatically by server-side.
+   * 
+   * @type string
+   * @private
+   * @default ''
+   */
+  locale: '',
+
+  /**
+   * user icon's url.
+   * 
+   * @type string
+   * @private
+   */
+  userIconUrl: '',
+  
+  /**
+   * JSONP timeout threshold
+   * 
+   * @type number
+   * @default 4000
+   */
+  timeoutThreshold: 4000,
+  
+  /**
+   * threshold time for using cache on JSONP request. [milliseconds]
+   * 
+   * @type number
+   * @default 60000
+   */
+  requestCachingThreshold: 60000, // 1 minute
+
+  /**
+   * base url
+   */
+  JSONPUrl: 'http://www.nicovideo.jp/api/notification',
+  
+  /**
+   * @private
+   */
+  notificationUrl: this.JSONPUrl+'/count',
+  
+  /**
+   * @private
+   */
+  notificationDetailUrl: this.JSONPUrl+'/detail',
+  
+  /**
+   * setTimeout ID for JSONP timeout.
+   * 
+   * @type number
+   * @default null
+   * @private
+   */
+  _requestSetTimeoutId: null,
+
+  /**
+   * A type of last JSONP request.
+   * 
+   * @type string
+   * @default ''
+   * @private
+   */
+  _requestType: '',
+  
+  /**
+   * @private
+   */
+  dropDownLoadingNodeContainer: null,
+
+  /**
+   * @private
+   */
+  dropDownWithNotificationNodeContainer: null,
+
+  /**
+   * @private
+   */
+  dropDownWithoutNotificationNodeContainer: null,
+
+  /**
+   * @private
+   */
+  dropDownMaintenanceNodeContainer: null,
+
+  /**
+   * @private
+   */
+  dropDownErrorNodeContainer: null,
+
+  /**
+   * @private
+   */
+  dropDownOptionNodeContainer: null,
+
+  /**
+   * User's icon container Node.
+   * 
+   * @private
+   */
+  userIconContainer: null,
+
+  /**
+   * millesecond in previous JSONP request. Cache is used within
+   * 'requestCachingThreshold' property.
+   * 
+   * @type number
+   * @default null
+   * @private
+   */
+  _requestTime: null,
+  
+  /**
+   * target DOMNode
+   */
+  domNode: null,
+  
+  /**
+   * notification dropdown container
+   */
+  notificationContainer: null,
+  
+  /**
+   * Reference to total count Node
+   * 
+   * @private
+   */
+  countNode: document.createElement('span'),
+
+  /**
+   * Object which stores notification's configurations
+   * 
+   * @private
+   */
+  config : null,
+  /**
+   * amount of nicopoints user have.
+   * @var int
+   */
+  nicopoint: null,
+  /**
+   * do not update nicopoint by api result (use original count)
+   */
+  useAssignedNicopoint : null,
+  /**
+   * dom element, displays nicopoint
+   */
+  nicopointContainer: null,
+  nicopointCallback: null,
+
+  isAutoRefreshKey: null,
+  autoRefreshKeyIntervalId: null,
+  autoRefreshKeyIntervalMilliseconds: 3540000, // 59 min.
+
+  isAutoRefreshNicopoint: null,
+  autoRefreshNicopointIntervalId: null,
+  autoRefreshNicopointIntervalMilliseconds: 60000, // 1 min.
+
+  jsonp: {},
+
+  /**
+   * Initialize process which is called by constructor. This function sends
+   * first JSONP request.
+   * 
+   * @private
+   */
+  init: function() {
+    var _self = this;
+    this.domNode = document.getElementById('siteHeaderNotification');
+    
+    if (!this.domNode) {
+      //#siteHeaderNotificationがなければ、期待されているDOMはないはずなので、何もしない
+    } else {
+      try {
+        this.countNode = document.createElement('span');
+        this.isError = (this.domNode.getAttribute('data-nico-isError') === 'true') ? true : false;
+        this.isMaintenance = (this.domNode.getAttribute('data-nico-isMaintenance') === 'true') ? true : false;
+        this.count = (this.domNode.getAttribute('data-nico-count')) ? this.domNode.getAttribute('data-nico-count') : null;
+        this.userId = this.domNode.getAttribute('data-nico-userId');
+        this.siteId = this.domNode.getAttribute('data-nico-siteId');
+        this.APIKey = this.domNode.getAttribute('data-nico-API-Key');
+        this.APIDate = this.domNode.getAttribute('data-nico-API-Date');
+        this.APIVersion = this.domNode.getAttribute('data-nico-API-Version');
+        this.locale = (this.domNode.getAttribute('data-nico-locale')) ? this.domNode.getAttribute('data-nico-locale') : '';
+        this.userIconUrl = (this.domNode.getAttribute('data-nico-userIconUrl')) ? this.domNode.getAttribute('data-nico-userIconUrl') : null;
+        this.config = {};
+        this.config.nicorepores = (this.domNode.getAttribute('data-nico-config-nicorepores') === '1') ? true : false;
+        this.config.stampget = (this.domNode.getAttribute('data-nico-config-stampget') === '1') ? true : false;
+        this.config.blomagacomment = (this.domNode.getAttribute('data-nico-config-blomagacomment') === '1') ? true : false;
+        this.nicopointCallback = this.domNode.getAttribute('data-nico-nicopointCallback');
+        this.useAssignedNicopoint  = (this.domNode.getAttribute('data-nico-useAssignedNicopoint') === '1') ? true : false;
+        this.isConfigChanged = {};
+        this.isConfigChanged.nicorepores = false;
+        this.isConfigChanged.stampget = false;
+        this.isConfigChanged.blomagacomment = false;
+        this.isAutoRefreshKey  = (this.domNode.getAttribute('data-nico-isAutoRefreshKey') === '1') ? true : false;
+        this.isAutoRefreshNicopoint  = (this.domNode.getAttribute('data-nico-isAutoRefreshNicopoint') === '1') ? true : false;
+
+        this._initUrl();
+
+        this.dropDownLoadingNodeContainer = document.getElementById('siteHeaderNotificationLoading');
+        this.dropDownWithNotificationNodeContainer = document.getElementById('siteHeaderNotificationWithNotification');
+        this.dropDownWithoutNotificationNodeContainer = document.getElementById('siteHeaderNotificationWithoutNotification');
+        this.dropDownMaintenanceNodeContainer = document.getElementById('siteHeaderNotificationMaintenance');
+        this.dropDownErrorNodeContainer = document.getElementById('siteHeaderNotificationError');
+        this.dropDownOptionNodeContainer = document.getElementById('siteHeaderNotificationOption');
+        this.userIconContainer = document.getElementById('siteHeaderUserIconContainer');
+        this.notificationContainer = document.getElementById('siteHeaderNotificationContainer');
+        this.showConfigButton = document.getElementById('siteHeaderShowConfigButton');
+        this.configNicoreporesButton = document.getElementById('siteHeaderConfigNicoreporesButton');
+        this.configStampgetButton = document.getElementById('siteHeaderConfigStampgetButton');
+        this.configBlomagacommentButton = document.getElementById('siteHeaderConfigBlomagacommentButton');
+        this.applyConfigButton = document.getElementById('siteHeaderApplyConfigButton');
+        this.backDetail = document.getElementById('siteHeaderBackDetail');
+        this.backDetailChanged = document.getElementById('siteHeaderBackDetailChanged');
+        this.nicopointContainer = document.getElementById('siteHeaderNicopointContainer');
+        
+        this.errorMessage503Detail = document.getElementById('siteHeaderNotificationError503Detail');
+        this.errorMessage503Config = document.getElementById('siteHeaderNotificationError503Config');
+        this.errorMessage401 = document.getElementById('siteHeaderNotificationError401');
+        
+        if (this.isError || this.isMaintenance) {
+          this._refreshNodes();
+          this._init();
+        } else if (this.count !== null) {
+          this._init();
+        } else if (this.notificationContainer) {
+          // initialize DOMNode
+          var jsonp = document.createElement('script');
+
+          // call setTimeout before call JSONP for IE
+          this._requestSetTimeoutId = window.setTimeout(function(){
+            _self.isError = true;
+            _self._refreshNodes();
+          }, this.requestCachingThreshold);
+
+          jsonp.setAttribute('src', this.notificationUrl+'&t='+new Date().getTime()); // avoid cache
+          this.domNode.appendChild(jsonp);
+          this._requestType = 'count';
+        } else {
+          // 非ログイン状態ではnotificationContainerは存在しない
+        }
+        
+      } catch (e) {
+        if (typeof console !== 'undefined') {
+          console.error(e);
+        }
+        this.isError = true;
+        this._refreshNodes();
+      }
+    }
+  },
+  _initUrl: function(){
+      this.JSONPUrl = (this.domNode.getAttribute('data-nico-JSONP-URL')) ? this.domNode.getAttribute('data-nico-JSONP-URL') : 'http://www.nicovideo.jp/api/notification';
+      this.notificationUrl = this._getNotificationCountUrl('Nico.CommonNotificationHeader.initialize');
+      this.notificationDetailUrl = this.JSONPUrl+'/detail?user_id='+this.userId+'&site_id='+this.siteId+'&api_key='+this.APIKey+'&time='+this.APIDate+'&api_version='+this.APIVersion+'&callback=Nico.CommonNotificationHeader.refreshNotification&locale='+this.locale;
+      this.notificationDetailUrl = encodeURI(this.notificationDetailUrl);
+      this.notificationConfigureUrl = this.JSONPUrl+'/configure?user_id='+this.userId+'&site_id='+this.siteId+'&api_key='+this.APIKey+'&time='+this.APIDate+'&api_version='+this.APIVersion+'&callback=Nico.CommonNotificationHeader.refreshNotification&locale='+this.locale;
+      this.notificationConfigureUrl = encodeURI(this.notificationConfigureUrl);
+  },
+
+  _getNotificationCountUrl: function(callback){
+    var url =  this.JSONPUrl+'/count?user_id='+this.userId+'&site_id='+this.siteId+'&api_key='+this.APIKey+'&time='+this.APIDate+'&api_version='+this.APIVersion+'&locale='+this.locale;
+    if(typeof callback !== 'undefined' && callback){
+      url += '&callback='+callback;
+    }
+    return encodeURI(url);
+  },
+
+  /**
+   * internal initialization process.
+   * This function is called when some properties are set by JSONP or data-* attribute.
+   */
+  _init: function(){
+    var _self = this;
+    if (this.userIconUrl) {
+      var img = document.createElement('img');
+      img.setAttribute('src', this.userIconUrl);
+      this.userIconContainer.appendChild(img);
+    }
+    
+    this.notificationContainer.appendChild(_self.countNode);
+    this._refreshNodes(null, _self.count);
+    
+    // initialize event
+    this.countNode.onclick = function(e) {
+      _self.onClick();
+    };
+    this.showConfigButton.onclick = function(e) {
+      _self.showOption();
+    };
+    this.backDetail.onclick = function(e) {
+      _self.show();
+    };
+    this.backDetailChanged.onclick = function(e) {
+      _self.hide();
+    };
+    var changeConfig = function(targetNode, type){
+      //このオプション値を有効にするのか無効にするのか（今siteHeaderEnableなら、変更してDisableにするのでfalse）
+      var changeTo = (targetNode.className === 'siteHeaderEnable') ? false : true;
+      //有効にするならsiteHeaderEnable, 無効にするならsiteHeaderDisable
+      targetNode.className = (changeTo) ? 'siteHeaderEnable' : 'siteHeaderDisable';
+      //変更先のオプション値と、キャッシュしているconfigの値が一致していない場合、変更がある
+      if (changeTo !== _self.config[type]) {
+        _self.isConfigChanged[type] = true;
+      } else {
+        _self.isConfigChanged[type] = false;
+      }
+      
+      var isChanged = false;
+      for (var props in _self.isConfigChanged) {
+        if (_self.isConfigChanged[props] === true) {
+          isChanged = true;
+        }
+      }
+      
+      if (isChanged) {
+        _self.applyConfigButton.className = 'siteHeaderSubmitButtonEnable';
+        _self.backDetail.style.display = 'none';
+        _self.backDetailChanged.style.display = 'inline-block';
+      } else {
+        _self.applyConfigButton.className = 'siteHeaderSubmitButtonDisable';
+        _self.backDetail.style.display = 'inline-block';
+        _self.backDetailChanged.style.display = 'none';
+      }
+    };
+    this.configNicoreporesButton.onclick = function(e){ changeConfig(this, 'nicorepores'); };
+    this.configStampgetButton.onclick = function(e){ changeConfig(this, 'stampget'); };
+    this.configBlomagacommentButton.onclick = function(e){ changeConfig(this, 'blomagacomment'); };
+    this.applyConfigButton.onclick = function(e){
+      var isChanged = false;
+      for (var props in _self.isConfigChanged) {
+        if (_self.isConfigChanged[props] === true) {
+          isChanged = true;
+        }
+      }
+      
+      if (isChanged) {
+        var query = '';
+        if (_self.isConfigChanged.nicorepores) {
+          query += (_self.configNicoreporesButton.className === 'siteHeaderEnable') ? 'nicorepores=1' : 'nicorepores=0';
+          query += '&';
+        }
+        if (_self.isConfigChanged.stampget){
+          query += (_self.configStampgetButton.className === 'siteHeaderEnable') ? 'stampget=1' : 'stampget=0';
+          query += '&';
+        }
+        if (_self.isConfigChanged.blomagacomment){
+          query += (_self.configBlomagacommentButton.className === 'siteHeaderEnable') ? 'blomagacomment=1' : 'blomagacomment=0';
+        }
+        _self.configure(query);
+      }
+    };
+    if(this.nicopointContainer && !this.useAssignedNicopoint){
+        this.updateNicopoint(this.nicopoint);
+    }
+    if(this.isAutoRefreshKey){
+      if(!this.autoRefreshKeyIntervalId){
+          this.autoRefreshKeyIntervalId = window.setInterval(function(){
+            _self.refreshAPIKey();
+        }, this.autoRefreshKeyIntervalMilliseconds);
+      }
+    }
+    if(this.isAutoRefreshNicopoint){
+      if(!this.autoRefreshNicopointIntervalId){
+        this.autoRefreshNicopointIntervalId = window.setInterval(function(){
+          _self.reload();
+        }, this.autoRefreshNicopointIntervalMilliseconds);
+      }
+    }
+  },
+
+  /**
+   * ニコニコポイントの残高表示を更新します。
+   * @param nicopoint ポイント残高
+   */
+  updateNicopoint: function(nicopoint){
+      var point;
+      var callbackSegment;
+      var i;
+      var callbackFunction = window;
+      var container = this.nicopointContainer;
+
+      //ニコポイントをintに変換
+      nicopoint = parseInt(''+nicopoint, 10);
+
+      //渡されたニコポイントが有効なポイント数かどうかを確認s
+      var isInvalidNicopoint = isNaN(nicopoint) || nicopoint < 0;
+
+      if (isInvalidNicopoint) {
+        //数値以外の値が渡された場合や、マイナス値の場合は '-' をポイントとして表示する
+        point = '-';
+      } else if (nicopoint >= 10000) {
+        //5桁以上の場合は丸めて表示する
+        point = '9999+';
+      } else {
+        //数値を文字列に変換しておく
+        point = nicopoint + '';
+      }
+
+      if (typeof container.textContent != "undefined") {
+          container.textContent = point;
+      } else {
+          container.innerText = point;
+      }
+
+      // additional callback
+      if(!this.nicopointCallback){
+          return;
+      }
+      // doing eval(this.nicopointCallback + '(' + nicopoint + ', container);');
+      callbackSegment = this.nicopointCallback.split('.');
+      for(i = 0;i < callbackSegment.length; i++){
+        if(typeof callbackFunction === 'undefined'){
+          return;
+        }
+        callbackFunction = callbackFunction[callbackSegment[i]];
+      }
+      if(typeof callbackFunction === 'function'){
+        //ニコポイントが取得できない場合や0未満の場合は0にまるめてコールバックを実行する
+        callbackFunction((isInvalidNicopoint ? 0 : nicopoint), container);
+      }
+  },
+
+  /**
+   * Initialize process which is called by first JSONP request.
+   * 
+   * @private
+   */
+  initialize: function(notification){
+    this._setPropsByJSONP(notification);
+
+    if (this._requestSetTimeoutId !== null) {
+      window.clearTimeout(this._requestSetTimeoutId);
+      this._requestSetTimeoutId = null;
+      this._init();
+    }
+  },
+
+  /**
+   * JSONP callback.
+   * Reload count and nicopoint data
+   *
+   * @private
+   */
+  _doReload: function(notification){
+    var _self = this;
+    this._setPropsByJSONP(notification);
+    if(notification.status != "ok"){
+      window.clearInterval(_self.autoRefreshNicopointIntervalId);
+      _self.autoRefreshNicopointIntervalId = null;
+      return;
+    }
+    this._refreshNodes(null, this.count);
+    if(this.nicopointContainer && !this.useAssignedNicopoint){
+      this.updateNicopoint(this.nicopoint);
+    }
+  },
+
+  /**
+   * ニコニコポイントの残高をお知らせ通知APIサーバから取得し、表示を更新します。
+   * @param is_reload_nicopoint bool trueの場合、ニコニコポイント残高を強制的に更新する
+   */
+  reload: function(is_reload_nicopoint){
+    var url = this._getNotificationCountUrl();
+    if(is_reload_nicopoint){
+      url += '&reload_nicopoint=1';
+    }
+    this.doJSONP(url, Nico.CommonNotificationHeader._doReload.bind(this));
+  },
+
+  /**
+   * jsonpリクエストを行う。
+   * @param url string リクエスト先URL。callbackパラメータをこの関数が勝手に付与する。
+   * @param callback Function コールバック。jsonpの返り値がそのまま引数に入る
+   */
+  doJSONP: function(url, callback){
+    var reqId = 'fn' + new Date().getTime();
+    var elm = document.createElement("script");
+    elm.setAttribute('id', reqId);
+    var manager = this.jsonp;
+    var callbackName = "Nico.CommonNotificationHeader.jsonp." + reqId + ".callback";
+
+    manager[reqId] = {};
+    manager[reqId].callback = function(data){
+      callback(data);
+      window.setTimeout(function(){
+        if (manager[reqId].requestSetTimeoutId !== null) {
+          window.clearTimeout(manager[reqId].requestSetTimeoutId);
+            manager[reqId].requestSetTimeoutId = null;
+        }
+        delete manager[reqId];
+        elm.parentNode.removeChild(elm);
+      }, 100);
+    };
+    manager[reqId].requestSetTimeoutId = window.setTimeout(function(){
+      this.isError = true;
+    }, this.requestCachingThreshold);
+
+
+    elm.src = url + "&callback=" + callbackName;
+    elm.type = "text/javascript";
+    this.domNode.appendChild(elm);
+  },
+
+  /**
+   * callback function for by JSONP request to retrieve details.
+   * 
+   * @private
+   */
+  refreshNotification: function(notification){
+    this._setPropsByJSONP(notification);
+    
+    // If _requestSetTimeoutId is null, JSONP request is timed out.
+    if (notification.content && this._requestSetTimeoutId !== null) {
+      window.clearTimeout(this._requestSetTimeoutId);
+      this._requestSetTimeoutId = null;
+      this.isLoading = false;
+      this._refreshNodes(notification.content, notification.count);
+      
+      // If dropdown is hided before called this function, show() should NOT be
+      // executed.
+      if (this.isShown === true) {
+        this.show();
+      }
+    }
+  },
+
+  /**
+   * お知らせAPIキーを更新する。このクラスのフィールドAPIKey, APIDateが更新される
+   * @param callback Function 更新後に行いたい処理。
+   */
+  refreshAPIKey: function(callback){
+    var _self = this;
+    var query = 'user_id='+this.userId+'&site_id='+this.siteId+'&api_key='+this.APIKey+'&time='+this.APIDate+'&api_version='+this.APIVersion;
+      query += '&session_id=' + this._getCookie('user_session');
+
+    if(window.XDomainRequest){
+        var xdr = new XDomainRequest();
+        xdr.onerror = function(){
+            window.clearInterval(this.autoRefreshKeyIntervalId);
+            _self.autoRefreshKeyIntervalId = null;
+        }
+        xdr.onload = function(){
+            var obj;
+            if(typeof JSON === 'object' && typeof JSON.parse === 'function' ){
+                obj = JSON.parse(xdr.responseText);
+            }else{
+                obj = eval(xdr.responseText);
+            }
+            if(obj.status == "ok"){
+                _self.APIKey = typeof obj.api_key !== 'undefined' ? obj.api_key : '';
+                _self.APIDate = typeof obj.time !== 'undefined' ? obj.time : 0;
+                _self._initUrl();
+            }else{
+                window.clearInterval(this.autoRefreshKeyIntervalId);
+                _self.autoRefreshKeyIntervalId = null;
+            }
+        }
+        xdr.open( "post", this.JSONPUrl + '/refreshKey' );
+        xdr.send( query );
+    }else{
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', this.JSONPUrl + '/refreshKey', true);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+        xhr.onreadystatechange = function(){
+          var obj;
+          if (xhr.readyState === 4 && xhr.status === 200){ // state4=done
+            if(typeof JSON === 'object' && typeof JSON.parse === 'function' ){
+              obj = JSON.parse(xhr.responseText);
+            }else{
+              obj = eval(xhr.responseText);
+            }
+            if(obj.status == "ok"){
+                _self.APIKey = typeof obj.api_key !== 'undefined' ? obj.api_key : '';
+                _self.APIDate = typeof obj.time !== 'undefined' ? obj.time : 0;
+                _self._initUrl();
+            }else{
+                window.clearInterval(this.autoRefreshKeyIntervalId);
+                _self.autoRefreshKeyIntervalId = null;
+            }
+          }
+          if(typeof callback === 'function'){
+            callback();
+          }
+        };
+        xhr.send(query);
+    }
+  },
+  _getCookie: function(key){
+    var pair;
+    if(document.cookie == '') return null;
+    var a = document.cookie.split(';');
+    for(var i=0;i< a.length;i++){
+      pair = a[i].replace(/^\s+|\s+$/g, '').split('=');
+      if(pair.length === 2 && pair[0] == key){
+        return pair[1];
+      }
+    }
+    return null;
+  },
+
+  _setPropsByJSONP: function(notification){
+    if (notification['status_code'] !== '200') {
+      if (notification['is_maintenance']) {
+        this.isError = false;
+        this.isMaintenance = true;
+      } else {
+        this.isError = true;
+        this.isMaintenance = false;
+        this.errorCode = notification['status_code'];
+      }
+    } else {
+      this.count = notification['notification_count_total'];
+      this.userIconUrl = notification['user_icon_url'];
+      if (notification['config']) {
+        this.config.nicorepores = notification['config']['nicorepores'];
+        this.config.stampget = notification['config']['stampget'];
+        this.config.blomagacomment = notification['config']['blomagacomment'];
+      }
+      if (notification['nicopoint'] !== null && !isNaN(notification['nicopoint'])) {
+        this.nicopoint = notification['nicopoint'];
+      }
+    }
+  },
+  
+  /**
+   * show dropdown menu by its status and bind onClickDocument function to
+   * document. display logic is described in internal functions.
+   */
+  show: function(isOption){
+    var _self = this;
+    
+    this.isShown = true;
+    this._refreshNodes();
+    if (isOption === true) {
+      this._showOption();
+    } else if (this.isMaintenance === true) {
+      this._showMaintenance();
+    } else if (this.isError === true) {
+      this._showError();
+    } else if (this.isLoading === true) {
+      this._showLoading();
+    } else {
+      if (this.count > 0) {
+        this._showWithNotification();
+      } else {
+        this._showWithoutNotification();
+      }
+    }
+    
+    if (!this._hideFunctionCache) {
+      this._hideFunctionCache = function(e){
+        _self.onClickDocument(e);
+      };
+      
+      setTimeout(function(){
+        if (document.addEventListener) {
+          document.addEventListener('click', _self._hideFunctionCache, false);
+        } else if (document.attachEvent) {
+          // for IE (Note: IE doesn't implement onclick event on window object)
+          document.attachEvent('onclick', _self._hideFunctionCache);
+        };
+      }, 10);
+    }
+  },
+
+  /**
+   * hide dropdown menu and unbind onClickDocument function to document.
+   */
+  hide: function(){
+    var _self = this;
+    
+    this.isShown = false;
+    this.dropDownWithNotificationNodeContainer.style.display = 'none';
+    this.dropDownWithoutNotificationNodeContainer.style.display = 'none';
+    this.dropDownLoadingNodeContainer.style.display = 'none';
+    this.dropDownErrorNodeContainer.style.display = 'none';
+    this.dropDownOptionNodeContainer.style.display = 'none';
+    this.dropDownMaintenanceNodeContainer.style.display = 'none';
+    
+    setTimeout(function(){
+      if (document.removeEventListener) {
+        document.removeEventListener('click', _self._hideFunctionCache, false);
+      } else if (document.detachEvent) {
+        // for IE (Note: IE doesn't implement onclick event on window object)
+        document.detachEvent('onclick', _self._hideFunctionCache);
+      }
+      _self._hideFunctionCache = null;
+    }, 10);
+  },
+  
+  /**
+   * Event handler for onClick event from notification header Node. JSONP
+   * request is NOT sent following case: - this.count is 0 - this.isError is
+   * true - this.isLoading is true - this._requestTime within
+   * this.requestCachingThreshold
+   * 
+   * @private
+   */
+  onClick : function() {
+    var now = new Date().getTime();
+// if (true) {
+    if (this.count > 0 && this.isError === false && this.isLoading === false) {
+      if (this._requestTime === null || now - this._requestTime > this.requestCachingThreshold) {
+        this._request();
+        this._requestTime = now; // refresh cache.
+      }
+// } else { //use cache. (do nothing)
+//      
+    }
+    this.show();
+  },
+
+  /**
+   * Event handler for onClick event from 'document' object. This function is
+   * binded when some dropdown is shown. (unbind when hide() is called.) Menu
+   * should be hided on following cases: - clicked node is NOT menu node - menu
+   * node doesn't contain clicked node. : contains() is not implemented in
+   * FF3.6. In this case, Node object's prototype is extended.
+   * 
+   * @private
+   */
+  onClickDocument: function(e){
+    if (!e.target) {
+      e.target = e.srcElement;
+    }
+    if (this.countNode === e.target || !this.domNode.contains(e.target)) {
+      this.hide();
+    }
+  },
+  
+  /**
+   * request to retrieve detail information of notifications.
+   * 
+   * @private
+   */
+  _request: function(){
+    var _self = this;
+    
+    this.isLoading = true;
+    while (this.dropDownWithNotificationNodeContainer.hasChildNodes()) {
+      this.dropDownWithNotificationNodeContainer.removeChild(this.dropDownWithNotificationNodeContainer.firstChild);
+    }
+    
+    // call setTimeout before call JSONP for IE
+    this._requestSetTimeoutId = window.setTimeout(function(){
+      _self._requestSetTimeoutId = null;
+      _self.isLoading = false;
+      _self.isError = true;
+      _self.show();
+    }, this.timeoutThreshold);
+    this._requestType = 'detail';
+    
+    var jsonp = document.createElement('script');
+    jsonp.setAttribute('src', this.notificationDetailUrl+'&t='+new Date().getTime()); // avoid cache
+    this.domNode.appendChild(jsonp);
+  },
+
+  /**
+   * request to configure notification.
+   * 
+   * @private
+   */
+  configure: function(query){
+    var _self = this;
+    
+    for (var props in this.isConfigChanged) {
+      this.isConfigChanged[props] = false;
+    }
+    this.isLoading = true;
+    _self.applyConfigButton.className = 'siteHeaderSubmitButtonDisable';
+    
+    // call setTimeout before call JSONP for IE
+    this._requestSetTimeoutId = window.setTimeout(function(){
+      _self._requestSetTimeoutId = null;
+      _self.isLoading = false;
+      _self.isError = true;
+      _self.show();
+    }, this.timeoutThreshold);
+    this._requestType = 'configure';
+    
+    var jsonp = document.createElement('script');
+    var url = this.notificationConfigureUrl+'&t='+new Date().getTime(); // avoid cache
+    if (query) {
+      url += '&' + query;
+    }
+    jsonp.setAttribute('src', url);
+    this.domNode.appendChild(jsonp);
+    
+    this.show();
+  },
+
+  /**
+   * @private
+   */
+  _showLoading: function(){
+    this._hideAll();
+    this.dropDownLoadingNodeContainer.style.display = 'block';
+  },
+
+  /**
+   * @private
+   */
+  _hideLoading: function(){
+    this.dropDownLoadingNodeContainer.style.display = 'none';
+  },
+
+  /**
+   * @private
+   */
+  _showWithNotification: function() {
+    this._hideLoading();
+    this._hideAll();
+    this.dropDownWithNotificationNodeContainer.style.display = 'block';
+  },
+
+  /**
+   * @private
+   */
+  _showWithoutNotification: function() {
+    this._hideLoading();
+    this._hideAll();
+    this.dropDownWithoutNotificationNodeContainer.style.display = 'block';
+  },
+
+  /**
+   * @private
+   */
+  _showMaintenance: function() {
+    this._hideLoading();
+    this._hideAll();
+    this.dropDownMaintenanceNodeContainer.style.display = 'block';
+  },
+
+  /**
+   * @private
+   */
+  _showError: function() {
+    this._hideLoading();
+    this._hideAll();
+    
+    this.errorMessage401.style.display = 'none';
+    this.errorMessage503Config.style.display = 'none';
+    this.errorMessage503Detail.style.display = 'none';
+    
+    if (this.errorCode === '401') {
+      this.errorMessage401.style.display = 'inline-block';
+    } else if(this._requestType === 'configure') {
+      this.errorMessage503Config.style.display = 'inline-block';
+    } else {
+      this.errorMessage503Detail.style.display = 'inline-block';
+    }
+    
+    this.dropDownErrorNodeContainer.style.display = 'block';
+  },
+
+  showOption: function(){
+    this.show(true);
+  },
+  
+  _hideAll: function(){
+    this.dropDownWithNotificationNodeContainer.style.display = 'none';
+    this.dropDownWithoutNotificationNodeContainer.style.display = 'none';
+    this.dropDownMaintenanceNodeContainer.style.display = 'none';
+    this.dropDownErrorNodeContainer.style.display = 'none';
+    this.dropDownOptionNodeContainer.style.display = 'none';
+  },
+  
+  /**
+   * @private
+   */
+  _showOption: function() {
+    this._hideLoading();
+    this.dropDownWithNotificationNodeContainer.style.display = 'none';
+    this.dropDownWithoutNotificationNodeContainer.style.display = 'none';
+    this.dropDownMaintenanceNodeContainer.style.display = 'none';
+    this.dropDownErrorNodeContainer.style.display = 'none';
+    this.dropDownOptionNodeContainer.style.display = 'block';
+  },
+
+  /**
+   * @private
+   */
+  _refreshNodes: function(string, count) {
+    this._setContent(string);
+    this._setCount(count);
+    this._setConfig();
+  },
+
+  /**
+   * set content of dropdown menu. this function is called by _refreshNodes().
+   * Note: innerHTML is used to push contents. string must be escaped.
+   * 
+   * @private
+   */
+  _setContent: function(string) {
+    var _self = this;
+    if (string !== undefined && this.dropDownWithNotificationNodeContainer) {
+      this.dropDownWithNotificationNodeContainer.innerHTML = string; 
+      for (var i=0; i<this.dropDownWithNotificationNodeContainer.childNodes.length; i++) {
+        var target = this.dropDownWithNotificationNodeContainer.childNodes[i];
+        if (target.className === 'siteHeaderInformationOption' && target.childNodes.length > 0) {
+          target.childNodes[0].onclick = function(){
+            _self.showOption();
+          };
+        }
+      }
+    }
+  },
+
+  /**
+   * refresh count node. set count and change CSS class by its state. this
+   * function is called by _refreshNodes().
+   * 
+   * @private
+   */
+  _setCount: function(count) {
+    if (this.countNode) {
+      if (this.isError === true || this.isMaintenance === true) {
+        this.count = 'x';
+        this.countNode.innerHTML = this.count;
+        this.countNode.className = 'siteHeaderNotNotifications';
+      } else {
+        if (count !== undefined) {
+          this.count = count;
+        }
+        this.countNode.innerHTML = this.count;
+        if (this.count > 0) {
+          this.countNode.className = 'siteHeaderNotifications';
+        } else {
+          this.countNode.className = 'siteHeaderNotNotifications';
+        }
+      }
+    }
+  },
+  
+  _setConfig: function() {
+    this.configNicoreporesButton.className = (this.config.nicorepores) ? 'siteHeaderEnable' : 'siteHeaderDisable';
+    this.configStampgetButton.className = (this.config.stampget) ? 'siteHeaderEnable' : 'siteHeaderDisable';
+    this.configBlomagacommentButton.className = (this.config.blomagacomment) ? 'siteHeaderEnable' : 'siteHeaderDisable';
+    this.applyConfigButton.className = 'siteHeaderSubmitButtonDisable';
+    this.backDetail.style.display = 'inline-block';
+    this.backDetailChanged.style.display = 'none';
+    for (var props in this.isConfigChanged) {
+      this.isConfigChanged[props] = false;
+    }
+  }
+};
+
+(function() {
+  var init = function() {
+    Nico.CommonNotificationHeader.init();
+  };
+
+  if (window.addEventListener) {
+    window.addEventListener('DOMContentLoaded', init, false);
+  } else {
+    try {
+      document.documentElement.doScroll('left');
+    } catch(error){
+      setTimeout(arguments.callee, 50);
+      return;
+    }
+    init();
+  }
+  
+  // Reference: contains() for Mozilla - QuirksBlog :
+  // http://www.quirksmode.org/blog/archives/2006/01/contains_for_mo.html
+  if (window.Node && Node.prototype && !Node.prototype.contains) {
+      Node.prototype.contains = function (arg) {
+          return !!(this.compareDocumentPosition(arg) & 16);
+      };
+  }
+})();

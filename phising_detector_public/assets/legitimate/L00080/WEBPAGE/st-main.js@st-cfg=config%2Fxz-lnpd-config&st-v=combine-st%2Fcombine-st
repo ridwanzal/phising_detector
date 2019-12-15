@@ -1,0 +1,41 @@
+(function(doc){
+
+	var url_arr=doc.getElementById("st-main").src.split("\?");
+
+	var script_src_KV=url_arr[1];
+
+	var tmisc_flag=(url_arr[0].match(/^(https?:\/\/)?(([\da-z-]+)\.)+([a-z]{2,6})/ig))[0] == "http://tmisc.home.news.cn";
+
+	var script_src_KV_arr=script_src_KV.split("&");
+
+	if(tmisc_flag){
+
+		window._xh_st_global_obj.fetch_url="http://tmisc.home.news.cn";
+
+	}
+
+	var combine_path=(window._xh_st_global_obj.fetch_url || "http://192.168.86.49")+(tmisc_flag ? "/da/js/??" : "/js/??");
+
+	for(var i=0;i<script_src_KV_arr.length;i++){
+
+		if(i == (script_src_KV_arr.length-1)){
+
+			combine_path+=(script_src_KV_arr[i].split("=")[1]+".js");
+
+			break;
+
+		}
+
+		combine_path+=(script_src_KV_arr[i].split("=")[1]+".js,");
+
+	}
+
+	var create_script=doc.createElement("script");
+
+	create_script.setAttribute("type","text/javascript");
+
+	create_script.setAttribute("src",combine_path);
+
+	doc.body.appendChild(create_script);
+
+})(document);

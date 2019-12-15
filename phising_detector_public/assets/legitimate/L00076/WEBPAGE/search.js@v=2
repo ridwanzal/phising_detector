@@ -1,0 +1,220 @@
+var TRANSITION_MS = 200;    // how many ms spent sliding things up or down
+var TYPING_MS = 75;         // how long we wait after keyup  before sending query to search
+
+var typingTimeout = null;   // used with setTimeout
+var old_results_html = null;
+
+function search(query,lng){
+	if (!query || query === undefined || !lng || lng === undefined) return;
+
+	var url = server+'/faq/search.php?query='+encodeURIComponent(query)+'&lang='+encodeURIComponent(lng);
+	if (platform) url += '&platform='+platform; // FIXME: platform defined globally
+
+	$.ajax({url:url, dataType: "json", success:function(items) {
+
+		/* sometimes we will get 1 empty item from the script — need to account to that */
+ 		if (items.length === 0 || items[0]['description'] === '') {
+ 			results_empty();
+			if (!nosearch) {
+				$('#search-results').slideDown(TRANSITION_MS);
+			}
+ 		}
+		else {
+			var results = [];
+			results.push('<div class="list"><ul>');
+			var oe = 'odd';
+
+			for (var i = 0; i < items.length; i++) {
+				var item = items[i];
+				if (item.url && item.url !== undefined) {
+					results.push('<li class="'+oe+'"><a href="'+item.url+'"><span class="platform-icon icon-'+item.platform+'"></span><h3>'+item.title+'</h3><div class="text">'+item.description+'</div></a></li>');
+					oe = (oe === 'even') ? 'odd' : 'even';
+				}
+			}
+
+			results.push('</ul></div>');
+			results_html = results.join('');
+
+			if (results_html !== old_results_html) {
+				old_results_html = results_html;
+				$('#search-results').html(results_html);
+				if (!nosearch) {
+					$('#search-results').slideDown(TRANSITION_MS);
+				}
+			}
+		}
+	}});
+
+	update_title();
+}
+
+function loader_show() {
+	$('#search-results').html('<div id="loader"><div class="load-spinner"></div>'+loading_results+'</div>')
+}
+
+function loader_hide() {
+	$('#search-results').html('')
+}
+
+$(function(){
+
+	$('input.query').keyup(function(e){
+		if (e.keyCode === 13 /* enter */) {
+ 			load_search();
+ 		}
+
+ 		var newQuery = $('input.query').val().trim();
+
+ 		if (typingTimeout) {
+ 			clearTimeout(typingTimeout);
+ 		}
+
+ 		if (newQuery.length === 0 ||
+			(newQuery.length === 1 && newQuery.charCodeAt(0) <= 0xffff) ||
+			(newQuery.length === 2 && newQuery.charCodeAt(0) <= 0x7f && newQuery.charCodeAt(1) <= 0x7f)) {
+ 			console.log('bad searcho');
+			if (!nosearch) {
+				$('#search-results').slideUp(TRANSITION_MS);
+			}
+			if (newQuery === '') {
+				$('span.btn-clear').fadeOut(TRANSITION_MS);
+			}
+			else {
+				$('span.btn-clear').show();
+			}
+			results_empty();
+			update_title();
+			return false;
+ 		} else if (newQuery !== query) {
+			typingTimeout = setTimeout (function() {
+				query = newQuery;
+				search(query, lng);
+			}, TYPING_MS);
+		}
+	});
+
+	$('span.btn-clear').mousedown(function(){
+		return false;
+	});
+
+	$('span.btn-clear').mouseup(function(){
+		clear();
+		$('input.query').focus();
+	});
+
+	$('.search').click(function(event){
+		event.stopPropagation();
+ 	});
+
+	$('input.query').focus(function() {
+		query = $('input.query').val().trim();
+		if (!nosearch && query !== '') {
+			$('#search-results').slideDown(TRANSITION_MS);
+		}
+	});
+});
+
+$(document).keyup(function(e) {
+	// ESC or (BACKSPACE/DELETE & empty query)
+	if (e.keyCode === 27 || ((e.keyCode == 8 || e.keyCode == 46) && $('input.query').val() === '')) {
+		clear();
+	}
+});
+
+$(document).click(function() {
+	if (!nosearch) {
+		hide_results();
+	}
+});
+
+function results_empty() {
+	var query = $('input.query').val();
+	$('#search-results').html('<div id="no-results"><div id="img"></div><h4>'+no_results+'</h4><p>'+try_again+'</p></div>');
+	if (nosearch) {
+		if (query !== '') {
+			$('#search-results').show();
+		} else {
+			$('#search-results').hide();
+		}
+	}
+}
+
+function clear() {
+	$('input.query').val('');
+	$('span.btn-clear').fadeOut(TRANSITION_MS);
+
+	update_title();
+
+	if (!nosearch) {
+		$('#search-results').slideUp(TRANSITION_MS,function(){
+			$('#search-results').html('');
+		});
+	}
+}
+
+function hide_results() {
+	if (!nosearch) {
+		$('#search-results').hide(0);
+		if ($('.compact #query')) {
+			$('.compact #query').removeClass('focused');
+		}
+		update_title();
+	}
+}
+
+function load_search() {
+	var query = $('input.query').val();
+	var redirect = server + "/faq/search?q=" + query;
+	if (platform !== '' && platform !== 'false') {
+		redirect = redirect + "&p=" + platform;
+	}
+	window.location = redirect;
+}
+
+function update_title() {
+	var title;
+	var query = $('input.query').val();
+	if (query !== '') {
+		title = search_title_template.replace('%s', query);
+	} else {
+		title = search_title_empty;
+	}
+	$('#search-title').text(title);
+}
+
+if (typeof(nosearch) === "undefined") {
+ 	var nosearch = false;
+}
+
+if (typeof(query) === "undefined") {
+ 	var query = '';
+}
+
+$(document).ready(function() {
+    input_query_val = $('input.query').val();
+    if (input_query_val === undefined) {
+        query = "";
+    }
+    else {
+        query = $('input.query').val().trim();
+    }
+
+	if (nosearch) {
+		$('#btn-search').click(function () {
+			load_search();
+		});
+
+		$('#search-results').appendTo('#results');
+
+		if (query !== '') {
+			search(query,lng);
+			$('#search-results').show();
+		}
+	}
+
+	if ($('.compact #query')) {
+		$('.compact #query').focus(function() {
+			$(this).addClass('focused');
+		})
+	}
+});

@@ -1,0 +1,49 @@
+Nico.onReady(function() {
+  var win = window, doc = document;
+
+  /* image size ajusting */
+  var p = function(b, s, m) {
+    return (s ? b * (m / s) : b);
+  };
+
+  $$('img.adjust').each(
+      function(el) {
+        var src = el.getAttribute('longdesc') || el.src, pr = el.up(), isR = el.hasClassName('rn'), dim = pr
+            .getDimensions(), pw = isR ? 96 : dim.width, ph = isR ? 72 : dim.height, img = new Image();
+
+        img.onload = function() {
+          var w = img.width, h = img.height, f = w >= h, ew = w, eh = h;
+          if (w > pw || h > ph) {
+            ew = f ? p(pw) : p(w, h, pw);
+            eh = f ? p(h, w, ph) : p(ph);
+            el.setStyle({
+              width : ew + 'px',
+              height : eh + 'px'
+            });
+          }
+
+          el.hasClassName('tm') && f && el.setStyle({
+            marginTop : Math.floor((ph - eh) / 2) + 'px'
+          });
+
+          el.src = src;
+          img.onload = null;
+          img = void 0;
+        };
+        img.src = src;
+      });
+
+  /* scroll to page top */
+  var toTop = function(e) {
+    var x = doc.documentElement.scrollLeft || doc.body.scrollLeft || 0, y = doc.documentElement.scrollTop
+        || doc.body.scrollTop || 0;
+
+    e && Event.stop(e);
+    win.scrollTo(Math.floor(x / 2), Math.floor(y / 2));
+    x > 0 || y > 0 && setTimeout(toTop, 25);
+  };
+
+  $$('.toPageTopBtn').each(function(el) {
+    el.observe('click', toTop);
+  });
+});

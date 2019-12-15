@@ -1,0 +1,63 @@
+
+/* swap IMG */
+
+function swapIMG(url,name){
+document[name].src=url;
+}
+
+
+/* show-hide OBJ */
+
+function showOBJ(block){
+document.getElementById(block).style.display = "block";
+}
+function hideOBJ(block){
+document.getElementById(block).style.display = "none";
+}
+
+
+/* ANCHOR */
+
+function ANCHOR(id){
+	obj = document.getElementById(id);
+	y = obj.offsetTop;
+	scrollTo(0,y);
+}
+
+
+/* jump MENU */
+
+function jumpMENU(targ,selObj,restore){ //v3.0
+	eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+	if (restore) selObj.selectedIndex=0;
+}
+
+
+/* pursuit CURSOR */
+
+var pursuitCalled = false;
+function pursuitCURSOR(cursorId) {
+	if (!pursuitCalled) {
+		pursuitCalled = true;
+		var cursorMove = function (ev) {
+			var cursor = $(cursorId);
+			if (cursor) {
+				cursor.style.left = Event.pointerX(ev) + "px";
+				cursor.style.top  = Event.pointerY(ev) + "px";
+			}
+		}.bindAsEventListener();
+
+		Event.observe(document, "mousemove", cursorMove);
+		Event.observe(window, "unload", function () {
+			Event.stopObserving(document, "mousemove", cursorMove);
+		});
+	}
+}
+
+
+/* rewrite HTML */
+/* ! prototype.js ! */
+
+function rewriteHTML(id, filename){
+	new Ajax.Updater(id, filename, {method:'get'});
+}

@@ -1,0 +1,439 @@
+Nico.onReady(function() {
+    /* search form */
+    var isIPad = window.orientation !== undefined,
+        div    = $('searchFormInner'),
+        form   = $('searchForm'),
+        input  = $('searchWord'),
+        textp  = $('migiueText'),
+        cn = {migiue: 'migiue', active: 'active'},
+        track = 'track=nicouni_search_keyword',
+        suggestSearch = new Nico.SuggestSearch({targetInput: '#searchWord'}),
+        fn = {
+            _getUrl: function(action, word, params) {
+                return [
+                    action,
+                    encodeURIComponent(word),
+                    params || '',
+                    params ? '&' : '?',
+                    track
+                ].join('');
+            },
+            getUrl: {
+                sVideo: function(a, w) {
+                    return fn._getUrl(a, w.replace(/%20/g, '+'));
+                },
+                sMylist: function(a, w) {
+                    return fn._getUrl(a, w.replace(/%20/g, '+'));
+                },
+                sSeiga: function(a, w) {
+                    return fn._getUrl(a, w.replace(/([\.\/\#\?\&\%])/g, function(w, p){
+                        return String.fromCharCode(p.charCodeAt(0) + 0xfee0);
+                    }), '?mode=keyword&target=illust');
+                },
+                sLive: function(a, w) {
+                    return fn._getUrl(a, w, '?kind=content');
+                }
+            },
+            focus: function() {
+                if (textp) {
+                    textp.style.display = 'none';
+                }
+                input.focus();
+                input.select();
+            },
+            search: function(e) {
+                e && Event.stop(e);
+                var word = input.value.strip(),
+                    func = fn.getUrl[form.className];
+
+                if (!word || !func) {
+                  fn.focus();
+                } else {
+                  window.optimizely.push(["trackEvent", "s_s"]);
+                  window.optimizely.push(["trackEvent", "s_h"]);
+                  location.href = func(form.action, word);
+                }
+            },
+            changeSuggestTargetPage: function() {
+                $$('#searchFormInner li.active a').each(function(element){
+                    if (element.hasClassName('sVideo')) {
+                        suggestSearch.start();
+                        suggestSearch.setTargetPage(Nico.SuggestSearch.TARGET_PAGE_KEYWORD_SEARCH);
+                    } else if(element.hasClassName('sMylist')) {
+                        suggestSearch.start();
+                        suggestSearch.setTargetPage(Nico.SuggestSearch.TARGET_PAGE_MYLIST_SEARCH);
+                    } else {
+                        suggestSearch.stop();
+                    }
+                });
+            }
+        };
+
+    // tabs
+    $$('#searchFormInner li a').each(function(el) {
+        Event.observe(el, 'click', function(e) {
+            Event.stop(e);
+            var pr = el.up();
+            if (pr.hasClassName(cn.active)) return;
+            pr.addClassName(cn.active).siblings()
+                .each(function(elm) {elm.removeClassName(cn.active);});
+            form.action = el.href;
+            form.className = el.className;
+            fn.changeSuggestTargetPage();
+            fn.search();
+        });
+    });
+
+    // form
+    form && Event.observe(form, 'submit', fn.search);
+
+    // textbox
+    input && Event.observe(input, 'focus', fn.focus);
+    isIPad && input && input.setStyle({width: '440px'});
+
+    // migiue text
+    textp && Event.observe(textp, 'click', fn.focus);
+
+    /* suggest */
+    fn.changeSuggestTargetPage();
+
+    /* topics */
+    var tabs = $$('#topicsTab li a'),
+        cont = $$('#topicsInner .topic'),
+        act = 'active';
+
+    tabs.length && tabs.each(function(el) {
+        el.observe('click', function(e) {
+            Event.stop(e);
+            var p = el.up(), id = el.readAttribute('href').replace('#', '');
+            if (p.hasClassName(act)) return;
+
+            p.addClassName(act).siblings().each(function(elm) {
+                elm.removeClassName(act);
+            });
+
+            cont.each(function(elm) {
+                elm[(elm.id == id ? 'add' : 'remove') + 'ClassName'](act);
+            });
+        });
+    });
+
+    /* personal frame */
+    if ($('personalFrameDisplayed')) {
+        Event.observe('personalFrameDisplayed', 'click', function (e) {
+            var href = $('personalFrameDisplayed').href;
+            if (!href) {
+                return false;
+            }
+            var param = href.substring(href.indexOf('#') + 1);
+
+            if (param) {
+                new Ajax.Request(
+                    '/api/closepersonalframe',
+                    {
+                        method: "get",
+                        parameters: param,
+                        onComplete: function () {
+                            $('personalFrame').style.display = 'none';
+                        }
+                    }
+                );
+            }
+            Event.stop(e);
+        });
+    }
+
+    (function($) {
+        $('#feature_container').height($('.feature_content').height());
+        $('#feature img').each(function() {
+            var url = $(this).attr('src');
+            $(this).attr('src', url).load(function() {
+                var height = 0;
+                $('.feature_content').each(function() {
+                    if (height < $(this).height() + 15) {
+                        height = $(this).height() + 15;//GINZAリリースに伴い特集枠のheightを15px広げる対応
+                    }
+                });
+                if ($('#feature_container').height() < height) {
+                    $('#feature_container').height(height);
+                }
+            })
+        })
+
+        $('#enjoy').contentSlide({'direction': 'vertical'});
+        $('#entertainment').contentSlide({'direction': 'horizontal'});
+        $('#feature').contentSlide({'direction': 'horizontal'});
+
+        var flogTimeout;
+        $(window).unload(function () {
+            if (flogTimeout) clearTimeout(flogTimeout);
+        });
+        $('#hotVideo li a').each(function () {
+            var $this = $(this);
+            $this.click(function (ev) {
+                if (ev.shiftKey || ev.altKey || ev.ctrlKey || ev.metaKey) { return; }
+                flogTimeout = setTimeout(function () {
+                    var url = $this.attr("href");
+                    url = url.replace(/^http:\/\/www\.flog\.jp\/w\.php\//, '');
+                    url = url.replace(/^http:\/\/rd\.nicovideo\.jp\/.+\?cc_id=([^&]+)/, '/watch/$1');
+                    location.href = url;
+                }, 5000);
+            });
+        });
+        $('#reloadHotVideo').click(function() {
+            redrawHotList(extractHotList());
+        });
+        function extractHotList() {
+            var count = $('#hotVideoCount').text();
+            var indexes = [];
+            for(var i = 0; i < count; i++) {
+                indexes[i] = i;
+            }
+            var targets = [];
+            for(var i = 0; i < count && i <= 3; i++) {
+                var pos = parseInt(Math.random() * indexes.length);
+                targets.push(indexes.splice(pos, 1));
+            }
+            return targets;
+        }
+        function redrawHotList(list) {
+            for(var i = 0; i < list.length; i++) {
+                $('#hotVideo div.listWrap ul li').each(function(index) {
+                    $('a img', this).attr('src', $('#hotvideo_thumbnail_' + list[index]).text());
+                    $('a.videoTitle', this).text($('#hotvideo_title_' + list[index]).text());
+                    $('a.videoTitle', this).attr('title', $('#hotvideo_title_' + list[index]).text());
+                    $('p.videoComment', this).text($('#hotvideo_comment_' + list[index]).text());
+                    $('a', this).attr('href', $('#hotvideo_url_' + list[index]).text() + '?top_flog&num=' + index);
+                });
+            }
+        }
+    })(jQuery);
+});
+
+
+
+/**
+ * 総合トップ
+ */
+(function($) {
+  'use strict';
+  $(document).ready(function() {
+
+    //--------------------------------------------------------------------------------
+    //
+    // UniIndexView
+    //
+    //--------------------------------------------------------------------------------
+    /**
+     * 総合トップページです
+     * @constructor
+     */
+    function UniIndexView(selector) {
+      this._$node = $(selector);
+      var initializeEnableStatus = !this._$node.find('body').hasClass('nofix');
+
+      this._uniIndexFollowHeaderView = new UniIndexFollowHeaderView(this._$node.find('#follow-header'), {
+        initializeEnableStatus: initializeEnableStatus, // 初期化時の固定状態
+        visibleFollowHeaderBorderLine: this._$node.find('#News_tab').offset().top || 520 // 追従ヘッダー表示ライン
+      });
+
+      this._$node.find('#siteHeaderRightMenuFix').on('click', $.proxy(this._onCommonHeaderFixButtonClick, this));
+      this._$node.find('#siteHeaderRightMenuUnfix').on('click', $.proxy(this._onCommonHeaderUnfixButtonClick, this));
+      if (initializeEnableStatus) {
+        this._$node.on('scroll', $.proxy(this._onWindowScroll, this));
+      }
+    }
+
+    /**
+     * 共通ヘッダー追従ボタンがクリックされた時のイベントハンドラです
+     * @private
+     */
+    UniIndexView.prototype._onCommonHeaderFixButtonClick = function() {
+      this._$node.on('scroll', $.proxy(this._onWindowScroll, this));
+      this._uniIndexFollowHeaderView.updateEnableStatus(true);
+    };
+
+    /**
+     * 共通ヘッダー固定ボタンがクリックされた時のイベントハンドラです
+     * @private
+     */
+    UniIndexView.prototype._onCommonHeaderUnfixButtonClick = function() {
+      this._$node.off('scroll', $.proxy(this._onWindowScroll, this));
+      this._uniIndexFollowHeaderView.updateEnableStatus(false);
+    };
+
+    /**
+     * 画面がスクロールされた時のイベントハンドラです
+     * @private
+     */
+    UniIndexView.prototype._onWindowScroll = function() {
+      this._uniIndexFollowHeaderView.updateVisibleStatus(this._$node.scrollTop());
+    };
+
+    //--------------------------------------------------------------------------------
+    //
+    // UniIndexFollowHeaderView
+    //
+    //--------------------------------------------------------------------------------
+    /**
+     * 追従ヘッダーです
+     * @constructor
+     */
+    function UniIndexFollowHeaderView(selector, attrs) {
+      this._$node = $(selector);
+      this._visibleFollowHeaderBorderLine = attrs.visibleFollowHeaderBorderLine;
+      this.updateEnableStatus(attrs.initializeEnableStatus);
+      new UniIndexFollowHeaderSearchView(this._$node.find('.fh-search'));
+    }
+
+    /**
+     * 有効状態を更新します
+     * @params {boolean} isEnable 有効であるか
+     * @public
+     */
+    UniIndexFollowHeaderView.prototype.updateEnableStatus = function (isEnable) {
+      this._$node.toggleClass('fh-enable', isEnable);
+    };
+
+    /**
+     * 表示状態を更新します
+     * @params {number} scrollTop 画面のスクロール位置
+     * @public
+     */
+    UniIndexFollowHeaderView.prototype.updateVisibleStatus = function (scrollTop) {
+      this._$node.toggleClass('fh-visible', scrollTop >= this._visibleFollowHeaderBorderLine);
+    };
+
+    //----------------------------------------------------------------------
+    //
+    // UniIndexFollowHeaderSearchView
+    //
+    //----------------------------------------------------------------------
+    /**
+     * 追従ヘッダー検索です
+     * @param selector
+     * @constructor
+     */
+    function UniIndexFollowHeaderSearchView(selector) {
+      this._$node = $(selector);
+      this._$searchInput = this._$node.find('.fh-search-text');
+      this._$node.find('.fh-search-category li').on('click', $.proxy(this._onSearchCategoryClick, this));
+      this._$node.find('.fh-search-beta').on('click', $.proxy(this._onSearchBetaClick, this));
+      this._$node.find('form').on('submit', $.proxy(this._onSubmit, this));
+      this._suggestSearch = new Nico.SuggestSearch({targetInput: '.fh-search-text'});
+      this._searchCategory = {VIDEO: 'video', MYLIST: 'mylist', SEIGA: 'seiga', LIVE: 'live'};
+    }
+
+    /**
+     * 追従ヘッダー検索のカテゴリーが選択された時のイベントハンドラです
+     * @private
+     */
+    UniIndexFollowHeaderSearchView.prototype._onSearchCategoryClick = function(e) {
+      e.preventDefault();
+      this._updateSearchCategory(e.currentTarget);
+      if (this._$searchInput.val()) {
+        this._search(this._$searchInput.val());
+      }
+    };
+
+    /**
+     * 追従ヘッダー検索のカテゴリーが選択された時のイベントハンドラです
+     * @private
+     */
+    UniIndexFollowHeaderSearchView.prototype._onSubmit = function(e) {
+      e.preventDefault();
+      this._search(this._$searchInput.val());
+    };
+
+    /**
+     * 新検索β(すごい検索)が選択された時のイベントハンドラです
+     * @private
+     */
+    UniIndexFollowHeaderSearchView.prototype._onSearchBetaClick = function(e) {
+      e.preventDefault();
+      this._searchBeta(this._$searchInput.val());
+    };
+
+    /**
+     * 追従ヘッダー検索のカテゴリーを更新します
+     * @param selectTarget
+     * @private
+     */
+    UniIndexFollowHeaderSearchView.prototype._updateSearchCategory = function(selectTarget) {
+      this._$node.find('.fh-search-category').children().removeClass('active');
+      $(selectTarget).addClass('active');
+
+      var selectCategory = $(selectTarget).data().category;
+      switch (selectCategory) {
+        case this._searchCategory.VIDEO:
+          this._suggestSearch.start();
+          this._suggestSearch.setTargetPage(Nico.SuggestSearch.TARGET_PAGE_KEYWORD_SEARCH);
+          break;
+        case this._searchCategory.MYLIST:
+          this._suggestSearch.start();
+          this._suggestSearch.setTargetPage(Nico.SuggestSearch.TARGET_PAGE_MYLIST_SEARCH);
+          break;
+        default:
+          this._suggestSearch.stop();
+      }
+    };
+
+    /**
+     * 検索を実行します
+     * @param searchWord
+     * @private
+     */
+    UniIndexFollowHeaderSearchView.prototype._search = function(searchWord) {
+      if (!searchWord) {
+        this._$searchInput.focus();
+        return;
+      }
+      window.optimizely.push(["trackEvent", "s_s"]);
+      window.optimizely.push(["trackEvent", "s_fh"]);
+      location.href = this._getSearchUrl(searchWord);
+    };
+
+    /**
+     * 新検索β(すごい検索)を実行します
+     * @param searchWord
+     * @private
+     */
+    UniIndexFollowHeaderSearchView.prototype._searchBeta = function(searchWord) {
+      var searchUrl = this._$node.find('.fh-search-beta').children().attr('href');
+      location.href = searchUrl + searchWord;
+    };
+
+    /**
+     * 検索ページのURLを取得します
+     * @param searchWord
+     * @private
+     */
+    UniIndexFollowHeaderSearchView.prototype._getSearchUrl = function(searchWord) {
+      var searchUrl = this._$node.find('.active').children().attr('href');
+      var params = '?track=nicouni_follow_header';
+      if (!searchUrl || !searchWord) {
+        throw new Error('UniIndexFollowHeaderSearchView._getSearchUrl: 必要な値が参照できません。');
+      }
+      switch (this._$node.find('.active').data().category) {
+        case this._searchCategory.SEIGA:
+          params = params + '&mode=keyword&target=illust';
+          break;
+        case this._searchCategory.LIVE:
+          params = params + '&kind=content';
+          break;
+      }
+      return searchUrl + searchWord + params;
+    };
+
+    //--------------------------------------------------------------------------------
+    //
+    // Execute
+    //
+    //--------------------------------------------------------------------------------
+    // optimizely
+    window['optimizely'] = window['optimizely'] || [];
+
+    new UniIndexView(document);
+
+  });
+})(jQuery);

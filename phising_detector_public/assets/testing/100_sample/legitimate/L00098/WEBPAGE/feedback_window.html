@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk">
+<title>意见反馈</title>
+<style>
+body{line-height:1.5;font-family:arial,"\5b8b\4f53";background:#fff;font-size:12px}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+ol,ul{list-style:none}
+address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:normal}
+input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;*font-size:100%}
+fieldset,img,a img,:link img,:visited img{border:0}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+:focus{outline:0}
+.clear{display: block;clear:both;}
+body{
+	background: #fff;
+}
+.feedback_window{
+	background: #fff;
+}
+.feedback_window h1{
+	height: 40px;
+	line-height: 40px;
+	font-weight: normal;
+	padding: 0 20px;
+	font-size: 14px;
+	color: #888;
+}
+.feedback_window ol{
+	padding: 0px 20px 0 20px;
+}
+.feedback_window li{
+	margin-bottom: 10px;
+	font-size: 12px;
+	color: #999999;
+}
+.feedback_window li input{
+	color: #999999;
+	height: 28px;
+	line-height: 28px;
+	text-indent: 6px;
+	font-size: 12px;
+	border: 1px solid #a9a9a9;
+	display: block;
+	width: 100%;
+}
+.feedback_window li textarea{
+	color: #999999;
+	line-height: 28px;
+	font-size: 12px;
+	border: 1px solid #a9a9a9;
+	display: block;
+	height: 72px;
+	width: 100%;
+	text-indent: 6px;
+}
+.feedback_window li textarea:focus{
+	color: #252525;
+}
+.feedback_window .mail_line{height: 30px;}
+.feedback_window .mail_line label{
+	width: 36px;
+	height: 29px;
+	display: block;
+	float: left;
+	background: url(main_ico_2.jpg) 50% 50% no-repeat;
+	overflow: hidden;
+	text-indent: -9999em;
+	margin-right: -36px;
+	display: none;
+}
+.feedback_window .mail_line input{
+	text-indent: 32px;
+	background: url(main_ico_2.jpg) 8px 50% no-repeat;
+}
+.feedback_window .mail_line input:focus{
+	text-indent: 6px;
+	background: #fff;
+	color: #252525;
+}
+.feedback_window .phone_line{height: 30px;}
+.feedback_window .phone_line label{display: none;}
+.feedback_window .words_line{height: 74px;}
+.feedback_window .words_line label{display: none;}
+.feedback_window .picture_line{
+	height: 30px;
+	line-height: 30px;
+}
+.feedback_window .picture_line label{
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #252525;
+	float: left;
+}
+.feedback_window .picture_line input{
+	opacity:0;
+	filter:alpha(opacity=0);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 200;
+	text-indent: 0;
+	left: -1px;
+	top: -1px;
+	cursor: pointer;
+}
+.feedback_window .picture_line .addbtn{
+	cursor: pointer;
+	float: left;
+	position: relative;
+	display: block;
+	font-size: 14px;
+	color: #252525;
+	border: 1px solid #cfcfcf;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 16px;
+	background: #f6f6f6;
+	background-image: -webkit-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));
+	background-image: -moz-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));
+	background-image: -o-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));
+	background-image: -ms-linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));
+	background-image: linear-gradient(top, rgb(254, 254, 254), rgb(237, 237, 237));
+}
+.feedback_window .picture_line .addbtn:hover{
+	text-decoration: none;
+	background: #f6f6f6;
+	background-image: -webkit-linear-gradient(top, rgb(248, 248, 248), rgb(226, 226, 226));
+	background-image: -moz-linear-gradient(top, rgb(248, 248, 248), rgb(226, 226, 226));
+	background-image: -o-linear-gradient(top, rgb(248, 248, 248), rgb(226, 226, 226));
+	background-image: -ms-linear-gradient(top, rgb(248, 248, 248), rgb(226, 226, 226));
+	background-image: linear-gradient(top, rgb(248, 248, 248), rgb(226, 226, 226));
+}
+.feedback_window .picture_line .picture_path{
+	font-size: 12px;
+	color: #252525;
+	position: absolute;
+	cursor: text;
+	left: 110%;
+	top: 0;
+	width: 158px;
+	height: 28px;
+	overflow: hidden;
+}
+.feedback_window .picture_line .picture_view{
+	font-size: 12px;
+	color: #252525;
+	position: absolute;
+	cursor: text;
+	left: 110%;
+	top: 0;
+	width: 28px;
+	height: 28px;
+	overflow: hidden;
+	margin-left: 160px;
+}
+.feedback_window .picture_line .picture_view img{
+	display: block;
+	width: 28px;
+	height: 28px;
+	border:0;
+}
+.feedback_window .common_form_btns{
+	height: 39px;
+	line-height: 39px;
+	padding: 0 20px;
+	text-align: right;
+}
+.feedback_window .common_form_submit{
+	cursor: pointer;
+	float: right;
+	display: block;
+	font-size: 14px;
+	color: #fff;
+	border: 1px solid #239438;
+	height: 28px;
+	line-height: 26px;
+	padding: 0 16px;
+	background: #4cad5f;
+	background-image: -webkit-linear-gradient(top, rgb(93, 185, 108), rgb(61, 161, 82));
+	background-image: -moz-linear-gradient(top, rgb(93, 185, 108), rgb(61, 161, 82));
+	background-image: -o-linear-gradient(top, rgb(93, 185, 108), rgb(61, 161, 82));
+	background-image: -ms-linear-gradient(top, rgb(93, 185, 108), rgb(61, 161, 82));
+	background-image: linear-gradient(top, rgb(93, 185, 108), rgb(61, 161, 82));
+}
+.feedback_window .common_form_submit:hover{
+	background: #4cad5f;
+	background-image: -webkit-linear-gradient(top, rgb(53, 171, 74), rgb(35, 148, 56));
+	background-image: -moz-linear-gradient(top, rgb(53, 171, 74), rgb(35, 148, 56));
+	background-image: -o-linear-gradient(top, rgb(53, 171, 74), rgb(35, 148, 56));
+	background-image: -ms-linear-gradient(top, rgb(53, 171, 74), rgb(35, 148, 56));
+	background-image: linear-gradient(top, rgb(53, 171, 74), rgb(35, 148, 56));
+}
+.feedback_success,.feedback_fail{
+	padding:0 20px;
+	height: 248px;
+	line-height: 248px;
+	text-align: center;
+	display: none;
+}
+.feedback_success .thanks,.feedback_fail .thanks{
+	font-size: 20px;
+	color: #888;
+}
+.hiddeninfo,.mail_line,.sourcepage_line, .os_line, .browser_line, .ip_line, .district_line,.ua_line{display: none;}
+</style>
+<script src="ne.js"></script>
+</head>
+<body>
+<div class="feedback_window" id="feedback_window">
+	<form id="form_2553" name="form_2553" class="common_form" action="http://active.163.com/service/form/v1/2553/submit" method="POST" enctype="multipart/form-data">
+		<h1>期待您的反馈</h1>
+		<div class="hiddeninfo" id="hiddeninfo"></div>
+		<ol>
+			<li class="mail_line">
+				<label for="form_2553_email">电子邮箱</label>
+				<input id="form_2553_email" class="common_form_text form_2553_email" name="email" type="text" value="" placeholder="电子邮箱" autocomplete="off" />
+				<span class="clear"></span>
+			</li>
+			<li class="phone_line">
+				<label for="form_2553_phone">联系方式</label>
+				<input id="form_2553_phone" class="common_form_text form_2553_phone" name="phone" type="text" value="" placeholder="联系方式" autocomplete="off" />
+				<span class="clear"></span>
+			</li>
+			<li class="words_line">
+				<label for="form_2553_words">意见或建议</label>
+				<textarea id="form_2553_words" class="common_form_desc form_2553_words" name="words" placeholder="意见或建议" autocomplete="off" ></textarea>
+				<span class="clear"></span>
+			</li>
+			<li class="picture_line">
+				<label for="form_2553_picture">添加图片：</label>
+				<a href="javascript:;" target="_self" class="addbtn">
+					<input id="form_2553_picture" class="common_form_file form_2553_picture" name="picture" type="file" onchange="addFile(this)" />
+					<span>上传</span>
+					<em class="picture_path" id="picture_path"></em>
+					<em class="picture_view" id="picture_view"></em>
+				</a>
+				<span class="clear"></span>
+			</li>
+			<li class="sourcepage_line">
+				<label for="form_2553_sourcepage">来源页面</label>
+				<input id="form_2553_sourcepage" class="common_form_text form_2553_sourcepage" name="sourcepage" type="text" value="" autocomplete="off"/>
+			</li>
+			<li class="os_line">
+				<label for="form_2553_os">操作系统</label>
+				<input id="form_2553_os" class="common_form_text form_2553_os" name="os" type="text" value="" autocomplete="off"/>
+			</li>
+			<li class="browser_line">
+				<label for="form_2553_browser">浏览器</label>
+				<input id="form_2553_browser" class="common_form_text form_2553_browser" name="browser" type="text" value="" autocomplete="off"/>
+			</li>
+			<li class="ip_line">
+				<label for="form_2553_ip">IP地址</label>
+				<input id="form_2553_ip" class="common_form_text form_2553_ip" name="ip" type="text" value="" autocomplete="off"/>
+			</li>
+			<li class="district_line">
+				<label for="form_2553_district">地理位置</label>
+				<input id="form_2553_district" class="common_form_text form_2553_district" name="district" type="text" value="" autocomplete="off"/>
+			</li>
+			<li class="ua_line">
+				<label for="form_2553_ua">完整UA</label>
+				<input id="form_2553_ua" class="common_form_text form_2553_ua" name="ua" type="text" value="" autocomplete="off"/>
+			</li>
+		</ol>
+		<div class="common_form_btns">
+			<input type="submit" class="common_form_submit" value="提交">
+			<span class="clear"></span>
+		</div>
+	</form>
+</div>
+<div class="feedback_success" id="feedback_success">
+	<span class="thanks">谢谢您的反馈</span>
+</div>
+<div class="feedback_fail" id="feedback_fail">
+	<span class="thanks">您的反馈已提交</span>
+</div>
+<script>
+String.prototype.replaceAll = function(reallyDo, replaceWith, ignoreCase) {
+	if (!RegExp.prototype.isPrototypeOf(reallyDo)) {
+		return this.replace(new RegExp(reallyDo, (ignoreCase ? "gi": "g")), replaceWith);
+	} else {
+		return this.replace(reallyDo, replaceWith);
+	}
+};
+;(function(){
+	var search_str = location.search;
+	if(search_str.indexOf('?success')!= -1){
+		document.getElementById("feedback_window").style.display = "none";
+		document.getElementById("feedback_success").style.display = "block";
+	}else if(search_str.indexOf('?fail') != -1){
+		document.getElementById("feedback_window").style.display = "none";
+		document.getElementById("feedback_fail").style.display = "block";
+	}else{
+	}
+	var page_url = location.href.replace(/(.*)\?.*/g,'$1').replaceAll("<","").replaceAll(">","");	
+	var hiddeninfo_str = '<input name="_success" type="hidden" value="'+page_url+'?success"/> <input name="_fail" type="hidden" value="'+page_url+'?fail"/>';
+	document.getElementById("hiddeninfo").innerHTML = hiddeninfo_str;
+	var passport = detectPassport();
+	var sourcepage = document.referrer;
+	var os = detectOS();
+	var browser = detectBrowser();
+	var ip = detectIP();
+	var ua = navigator.userAgent;
+	detectDistrict();
+	document.getElementById("form_2553_email").value = passport;
+	document.getElementById("form_2553_sourcepage").value = sourcepage;
+	document.getElementById("form_2553_os").value = os;
+	document.getElementById("form_2553_browser").value = browser;
+	document.getElementById("form_2553_ip").value = ip;
+	document.getElementById("form_2553_ua").value = ua;
+	window.addFile = function(elem){
+		var ireg = /image\/.*/i;
+		if(window.FileReader){
+			if(elem.files.length>0){
+				if(!elem.files[0].type.match(ireg)){
+					alert("请上传图片文件");
+					return;
+				}
+				var reader = new FileReader();
+				reader.onload = (function(file) {
+					return function() {
+						document.getElementById('picture_view').innerHTML = '<img src="http://www.163.com/special/0077450P/'+&#32;this.result&#32;+'" alt="'+ file.name +'" title="'+ file.name +'" />';
+					};
+				})(elem.files[0]);
+				//读取文件内容
+				reader.readAsDataURL(elem.files[0]);
+			}else{
+				document.getElementById('picture_view').innerHTML = '';
+			}
+		}else{
+			document.getElementById("picture_path").innerHTML = document.getElementById("form_2553_picture").value;
+			document.getElementById("picture_path").title = document.getElementById("form_2553_picture").value;
+		}
+	}
+	
+	NE("#form_2553 *[placeholder]").each(function(i,item){
+		var nonsupport = NE.browser.msie && parseInt(NE.browser.version) < 9;
+		if(nonsupport){
+			item.value = NE(item).attr("placeholder");
+		}
+		NE(item).bind('blur',function(){
+			if(item.value != ''){
+				item.style.color = "#252525";
+			}
+			if(item.value == ''){
+				item.style.color = "#999999";
+			}
+			if(nonsupport){
+				if(item.value == ''){
+					item.value = NE(item).attr("placeholder");
+				}
+			}
+		}).bind('focus',function(){
+			item.style.color = "#252525";
+			if(nonsupport){
+				if(item.value == NE(item).attr("placeholder")){
+					item.value = '';
+				}
+			}
+		});
+	});
+	function verifyLoginCookie() {
+		var S_INFO = NE.cookie.get('S_INFO'), P_INFO = NE.cookie.get('P_INFO');
+		return (S_INFO && (P_INFO[2] != '2'));
+	}
+	function detectPassport(){
+		var _mail = "";
+		if(verifyLoginCookie()){
+			var _p_info = NE.cookie.get("P_INFO").split("|");
+			_mail = _p_info[0];
+		}
+		return _mail;
+	}
+	function detectBrowser() {
+		var b = "Unknown";
+		if(NE.browser.webkit) b="Webkit";
+		if(NE.browser.safari) b="Safari";
+		if(NE.browser.chrome) b="Chrome";
+		if(NE.browser.opera) b="Opera";
+		if(NE.browser.msie) b="IE";
+		if(NE.browser.mozilla) b="Firefox";
+		var v = NE.browser.version;
+		var bit = NE.browser.is64 ? 64 : 32;
+		return b+"/"+v+"/"+bit+"bit";
+	}
+	function detectOS() {
+		var sUserAgent = navigator.userAgent;
+		var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+		var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
+		var isAndroid = (sUserAgent.indexOf("Android") > -1);
+		var isIpad = (sUserAgent.indexOf("iPad") > -1);
+		var isIphone = (sUserAgent.indexOf("iPhone") > -1);
+		if (isMac) return "Mac";
+		var isUnix = (navigator.platform == "X11") && !isWin && !isMac;
+		if (isUnix) return "Unix";
+		var isLinux = (String(navigator.platform).indexOf("Linux") > -1);
+		if (isLinux) return "Linux";
+		if (isWin) {
+			var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
+			if (isWin2K) return "Win2000";
+			var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 || sUserAgent.indexOf("Windows XP") > -1;
+			if (isWinXP) return "WinXP";
+			var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
+			if (isWin2003) return "Win2003";
+			var isWinVista= sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
+			if (isWinVista) return "WinVista";
+			var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
+			if (isWin7) return "Win7";
+		}
+		if(isAndroid){
+			return sUserAgent.replace(/.*(Android.*);.*/g,"$1");
+		}
+		if(isIpad){
+			return "iOS/iPad" +"/" +sUserAgent.replace(/.*OS (.*) like Mac.*/g,"$1");
+		}
+		if(isIphone){
+			return "iOS/iPhone" +"/" +sUserAgent.replace(/.*OS (.*) like Mac.*/g,"$1");
+		}
+		return "other";
+	}
+	function detectIP(){
+		return "";
+	}
+	function detectDistrict(){
+		NE.load.js("http://ip.ws.126.net/ipquery",function(){
+			var district = localAddress.province + "/" + localAddress.city;
+			document.getElementById("form_2553_district").value = district;
+		},"gb2312");
+	}
+})();
+</script>
+<!-- 校验表单 -->
+<script type="text/javascript">
+(function(){
+	var form = document.getElementById('form_2553');
+	form.onsubmit = function(){
+		NE("#form_2553 *[placeholder]").each(function(i,item){
+			if(item.value == NE(item).attr("placeholder")){
+				item.value = '';
+			}
+		});
+		if(form.elements['email'].value != ''){
+			var pattern = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
+			if(!pattern.test(form.elements['email'].value)){
+				alert('请填入正确的电子邮箱。');
+				form.elements['email'].focus();
+				return false;
+			}
+		}
+		if(form.elements['words'].value == ''){
+			alert('"意见或建议" 为必填项，请填写完整。');
+			form.elements['words'].focus();
+			return false;
+		}
+		if(form.elements['words'].value.match(/\[\/url\]/g).length > 0 || form.elements['words'].value.match(/[\u4E00-\u9FA5]/g).length < 5){
+			alert('请填写有实际意义的内容。');
+			form.elements['words'].focus();
+			return false;
+		}
+	};
+	var checkRadio = function(obj){
+		if(obj.checked != undefined){
+			if(obj.checked){
+				return true;
+			}
+		}
+		else{
+			var len = obj.length;
+			for(i=0; i<len; i++)  
+			{  
+				if(obj[i].checked){
+					return true;
+				}
+			}
+		}
+		return false;
+	};
+})();
+</script>
+</body>
+</html>

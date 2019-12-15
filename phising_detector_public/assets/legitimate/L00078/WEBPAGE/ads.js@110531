@@ -1,0 +1,884 @@
+/*
+ * Nicovideo Advertisement Framework
+ */
+// requires nicolib.js
+
+var Advertisement = {
+
+	initialize: function (url, options) {
+		this.url = url;
+		this.options = Object.extend({
+			parameters: {},
+			onLoaded: Prototype.emptyFunction
+		}, options || {});
+	},
+
+	load: function () {
+		this.options.parameters = this.buildParameters(this.options.parameters);
+		new JSONP(this.url, { parameters: this.options.parameters });
+		return this;
+	},
+
+	buildParameters: function (parameters) {
+		return parameters;
+	},
+
+	update: function (data) {
+		this.options.onLoaded.call(this, data, this);
+	}
+
+};
+
+var TemplateAdvertisementMixin = {
+
+	update: function (data) {
+		this.options.onLoaded.call(this, data, this);
+		var container = $(this.options.container || this.options.parameters.location);
+		var template = this.options.template || this.defaultTemplate;
+		if (container && template) {
+			var html;
+			if (typeof template.evaluate == "function") {
+				html = template.evaluate(data);
+			} else if (typeof template == "function") {
+				html = template(data, this);
+			}
+			if (html && container && container.update)
+				container.update(html);
+		}
+	}
+
+};
+
+
+var NicoAdvertisement = Class.create();
+NicoAdvertisement.API_URL = "http://ad.nicovideo.jp/server/get";
+Object.extend(NicoAdvertisement.prototype, Advertisement);
+Object.extend(NicoAdvertisement.prototype, {
+
+	initialize: function (options) {
+		Advertisement.initialize.call(this, NicoAdvertisement.API_URL, options);
+	},
+
+	load: function () {
+		this.options.parameters = this.buildParameters(this.options.parameters);
+		NicoAdvertisement.load(this);
+		return this;
+	},
+
+	buildParameters: function (parameters) {
+		parameters.carrier = '5';
+		parameters.format = 'json';
+		return parameters;
+	}
+
+});
+
+Object.extend(NicoAdvertisement, {
+
+	packLocations: [],
+	packAdvertisements: {},
+	packParameters: {},
+	packTimer: null,
+
+	load: function (ads) {
+		var loc = ads.options.parameters.location;
+		if (!loc || typeof loc != "string") return;
+
+		var count = ads.options.count || 1;
+		var locations = [];
+		for (var i = 0; i < count; i++) {
+			locations.push(loc);
+		}
+
+		if (this.packAdvertisements[loc]) {
+			var adhash = {};
+			adhash[loc] = ads;
+			this.sendRequest(locations, adhash, ads.options.parameters);
+			return;
+		}
+
+		this.packLocations = this.packLocations.concat(locations);
+		this.packAdvertisements[loc] = ads;
+		Object.extend(this.packParameters, ads.options.parameters || {});
+
+		this.wait();
+	},
+
+	wait: function () {
+		if (this.packTimer) return;
+
+		this.packTimer = setTimeout((function () {
+			this.sendRequest(this.packLocations,
+					this.packAdvertisements, this.packParameters);
+			this.packTimer = null;
+			this.packLocations = [];
+			this.packAdvertisements = {};
+			this.packParameters = {};
+		}).bind(this), 500);
+	},
+
+	sendRequest: function (locations, advertisements, parameters) {
+		parameters = parameters || {};
+		parameters.location = locations.join(",");
+		parameters.callback = function (r) {
+			if (!r || !r.status || !r.data) return;
+			$H(r.status).each(function (pair) {
+				var data = r.data[pair.key];
+				var ads = advertisements[pair.key];
+				if (pair.value == 200 && data && ads) {
+					if (!ads.options.count || ads.options.count <= 1) {
+						data = data[ Math.floor(Math.random() * data.length) ];
+					}
+					ads.update(data);
+				}
+			});
+		}
+
+		new JSONP(NicoAdvertisement.API_URL, { parameters: parameters });
+	}
+
+});
+
+var NicoAdvertisementFrequency = Class.create();
+Object.extend(NicoAdvertisementFrequency.prototype, {
+
+	initialize: function () {
+		this.checked = false;
+		this.display = false;
+	},
+
+	checkFrequency: function (data) {
+		if (!this.checked) {
+			if (data.views < 0) {
+				this.display = true;
+			} else if (this.getFrequency(data.campaignid) < data.views) {
+				this.display = true;
+				this.logFrequency(data.campaignid);
+			}
+			this.checked = true;
+		}
+		return this.display;
+	},
+
+	getCampaigns: function () {
+		var cookies = document.cookie.split(';');
+		for (var i = 0; i < cookies.length; i++) {
+			if (cookies[i].match(/^\s*nicoads_fc/)) {
+				return cookies[i].replace(/^\s*nicoads_fc=/, '').split('|');
+			}
+		}
+		return [];
+	},
+
+	getFrequency: function (campaignid) {
+		var campaigns = this.getCampaigns();
+		for (var i = 0; i < campaigns.length; i++) {
+			if (campaigns[i].match('^' + campaignid + '=')) {
+				return campaigns[i].split('=')[1] - 0;
+			}
+		}
+		return 0;
+	},
+
+	logFrequency: function (campaignid) {
+		var next = this.getFrequency(campaignid) + 1;
+		var expire = new Date();
+		expire.setDate(expire.getDate() + 1);
+		expire.setHours(0);
+		expire.setMinutes(0);
+		expire.setSeconds(0);
+
+		var campaigns = this.getCampaigns();
+		for (var i = 0; i < campaigns.length; i++) {
+			if (campaigns[i].match('^' + campaignid + '=')) {
+				campaigns.splice(i, 1); break;
+			}
+		}
+
+		campaigns.push(campaignid + '=' + next);
+		document.cookie = 'nicoads_fc=' + campaigns.join('|') + '; domain=.nicovideo.jp; path=/; expires=' + expire.toGMTString();
+	}
+
+});
+
+
+var NicoTemplateAdvertisement = Class.create();
+Object.extend(NicoTemplateAdvertisement.prototype, NicoAdvertisement.prototype);
+Object.extend(NicoTemplateAdvertisement.prototype, TemplateAdvertisementMixin);
+
+
+var NicoRotationAdvertisement = Class.create();
+Object.extend(NicoRotationAdvertisement.prototype, Advertisement);
+Object.extend(NicoRotationAdvertisement.prototype, {
+
+	initialize: function (options) {
+		this.updater = null;
+		Advertisement.initialize.call(this, NicoAdvertisement.API_URL, options);
+	},
+
+	buildParameters: function (parameters) {
+		parameters.carrier = '5';
+		parameters.format = 'json';
+		parameters.all = '1';
+		parameters.callback = this.update.bind(this);
+		return parameters;
+	},
+
+	update: function (r) {
+		Advertisement.update.call(this, r);
+		if (!r || !r.status || !r.data) return;
+		$H(r.status).each((function (pair) {
+			var data = r.data[pair.key];
+			if (pair.value == 200 && data) {
+				this.updater = new NicoRotationUpdater(data, this.options);
+				throw $break;
+			}
+		}).bind(this));
+	},
+
+	next: function (counting, round) {
+		return this.updater ? this.updater.next(counting, round) : false;
+	},
+
+	prev: function (counting, round) {
+		return this.updater ? this.updater.prev(counting, round) : false;
+	},
+
+	pause: function () {
+		if (this.updater) this.updater.pause();
+	},
+
+	resume: function () {
+		if (this.updater) this.updater.resume();
+	}
+
+});
+
+
+var NicoRotationUpdater = Class.create();
+Object.extend(NicoRotationUpdater.prototype, TemplateAdvertisementMixin);
+Object.extend(NicoRotationUpdater.prototype, {
+
+	SECONDS_TO_SETTLE_VIEW: 3,
+
+	initialize: function (rows, options) {
+		if (!(rows instanceof Array) || rows.length == 0) {
+			throw new Exception('Illegal rotation ad data');
+		}
+
+		NicoRotationUpdater.initialize();
+		this.rows = rows;
+		this.current = 0;
+		this.options = Object.extend({
+			onLoaded: Prototype.emptyFunction,
+			onValidate: Prototype.emptyFunction,
+			onTick: Prototype.emptyFunction,
+			onMove: Prototype.emptyFunction,
+			parameters: {},
+			viewParameters: {},
+			stopsOnEdge: true
+		}, options || {});
+		this.options.onLoaded =
+			this.options.onBannerLoaded || Prototype.emptyFunction;
+
+		this.wrapper = $(this.options.container || this.options.parameters.location);
+		this.wrapper.setAttribute('id', (this.options.container || this.options.parameters.location) + '_wrapper');
+		Element.setStyle(this.wrapper, { width: this.options.width + 'px', height: this.options.height + 'px',
+			margin: '0px', padding: '0px', backgroundColor: '#ededed' });
+
+		this.container = document.createElement('div');
+		this.container.setAttribute('id', (this.options.container || this.options.parameters.location));
+		this.wrapper.appendChild(this.container);
+
+		this.timer = null;
+		this.seconds = 0;
+		this.nextSeconds = 0;
+		this.currentData = null;
+		this.ticker = null;
+		this.lastActive = true;
+
+		this.validate(true);
+	},
+
+	validate: function (counting) {
+		var data = this.rows[this.current % this.rows.length];
+		this.currentData = data;
+		this.update(data);
+		this.options.onValidate(this, data);
+
+		this.seconds = 0;
+		this.nextSeconds = data.rotation_time || 30;
+		this.resume();
+
+		if (data && data.view) {
+			var url = data.view;
+			if (this.options.viewParameters) {
+				var params = Hash.toQueryString(this.options.viewParameters);
+				if (params) url += (url.indexOf("?") < 0 ? "?" : "&") + params;
+			}
+			if (counting) {
+				new JSONP(url);
+			} else {
+				var sec = this.SECONDS_TO_SETTLE_VIEW;
+				this.ticker = function () {
+					if (--sec == 0) {
+						this.ticker = null;
+						new JSONP(url);
+					}
+				};
+			}
+		}
+
+		return data;
+	},
+
+	tick: function () {
+		var active = this.isActive();
+		this.options.onTick(this, active);
+		if (active != this.lastActive) {
+			this.lastActive = active;
+			if (active) {
+				this.next(true, true);
+				return;
+			}
+		}
+		if (!active) {
+			return;
+		}
+		if (this.ticker) {
+			this.ticker();
+		}
+		if (this.nextSeconds > 0 && ++this.seconds >= this.nextSeconds) {
+			this.nextSeconds = 0;
+			this.next(true, true);
+		}
+	},
+
+	getData: function (index, relative) {
+		if (index === false || index === undefined) {
+			index = this.current;
+		} else if (relative) {
+			index = index + this.current;
+			if (index < 0) index += this.rows.length;
+			if (index >= this.rows.length) index -= this.rows.length;
+			if (index < 0) index = 0;
+			if (index >= this.rows.length) index = this.rows.length;
+		}
+		if (index < 0 || index >= this.rows.length) return null;
+		return this.rows[index];
+	},
+
+	show: function (index, counting) {
+		if (index < 0 || index >= this.rows.length) {
+			return false;
+		}
+
+		this.current = index;
+		return this.validate(counting);
+	},
+
+	next: function (counting, round) {
+		var nextIndex = this.current + 1;
+		if (nextIndex >= this.rows.length) {
+			if (!round) return false;
+			nextIndex = 0;
+		}
+		var oldIndex = this.current;
+		this.current = nextIndex;
+
+		try {
+			this.options.onMove(this, "next", oldIndex, counting);
+		} catch (e) {
+			if (e === $break) return false;
+			throw e;
+		}
+
+		return this.validate(counting);
+	},
+
+	prev: function (counting, round) {
+		var prevIndex = this.current - 1;
+		if (prevIndex < 0) {
+			if (!round) return false;
+			prevIndex = this.rows.length - 1;
+		}
+		var oldIndex = this.current;
+		this.current = prevIndex;
+
+		try {
+			this.options.onMove(this, "prev", oldIndex, counting);
+		} catch (e) {
+			if (e === $break) return false;
+			throw e;
+		}
+
+		return this.validate(counting);
+	},
+
+	wait: function (time) {
+		var self = this;
+		var container = $(self.options.container || self.options.parameters.location);
+		Element.setStyle(container, { display: 'none' });
+		setTimeout(function () {
+			Element.setStyle(container, { display: 'block' });
+		}, time);
+	},
+
+	isActive: function () {
+		return (NicoRotationUpdater.hasFocus() && this.inScreen());
+	},
+
+	inScreen: function () {
+		var el = this.container;
+		var p1 = Position.cumulativeOffset(el), p2 = Position.realOffset(el);
+		var d = el.getDimensions();
+
+		if (this.options.stopsOnEdge) {
+			if (p1[0] < p2[0] || p1[1] < p2[1]) return false;
+		} else {
+			if (p1[0] + d.width < p2[0] || p1[1] + d.height < p2[1]) return false;
+		}
+
+		var p = { };
+		p.left	 = p1[0] - p2[0];
+		p.top	 = p1[1] - p2[1];
+		p.right  = p.left + d.width;
+		p.bottom = p.top + d.height;
+		var w = {
+			width: document.documentElement.clientWidth
+				|| document.body.clientWidth
+				|| document.body.offsetWidth
+				|| window.innerWidth,
+			height: document.documentElement.clientHeight
+				|| document.body.clientHeight
+				|| document.body.offsetHeight
+				|| window.innerHeight
+		};
+
+		if (this.options.stopsOnEdge) {
+			if (p.right > w.width || p.bottom > w.height) return false;
+		} else {
+			if (p.left > w.width || p.top > w.height) return false;
+		}
+
+		return true;
+	},
+
+	pause: function () {
+		if (this.timer) {
+			clearInterval(this.timer);
+			this.timer = null;
+		}
+	},
+
+	resume: function () {
+		this.pause();
+		if (this.rows && this.rows.length > 1) {
+			this.timer = setInterval(this.tick.bind(this), 1000);
+		}
+	}
+
+});
+
+NicoRotationUpdater.initialized = false;
+NicoRotationUpdater.initialize = function () {
+	if (this.initialized) return;
+	this.initialized = true;
+
+	if (typeof document.hasFocus != "undefined") {
+		NicoRotationUpdater.hasFocus = function () {
+			return document.hasFocus();
+		}
+	} else {
+		var focused = true;
+		Event.observe(window, "focus", function (ev) { focused = true; });
+		Event.observe(window, "blur", function (ev) { focused = false; });
+		NicoRotationUpdater.hasFocus = function () { return focused; };
+	}
+}
+
+
+NicoTemplateAdvertisement.prototype.defaultTemplate =
+NicoRotationUpdater.prototype.defaultTemplate = function (data, ad) {
+	if (!data || (!data.image && !data.text)) return;
+	ad = ad || {}; ad.options = ad.options || {};
+
+	var html;
+	if (data.image &&  data.type == "swf" && typeof SWFObject != "undefined") {
+		var so = new SWFObject(
+			data.image,
+			"ads_" + (new Date()).getTime() + "_" + Math.floor(Math.random()*1000000),
+			data.width || ad.options.width || "100%",
+			data.height || ad.options.height || "100%"
+		);
+		if (data.url) {
+			so.addVariable("clickTAG", encodeURIComponent(data.url));
+		}
+		if (data.flashvars) {
+			$H(data.flashvars).each(function (pair) {
+				so.addVariable(pair.key, encodeURIComponent(pair.value));
+			});
+		}
+		so.addParam("wmode", "opaque");
+		html = so.getSWFHTML();
+		delete so;
+	} else {
+		if (data.image && data.type != 'html') {
+			html = '<img src="' + data.image.escapeHTML() + '"'
+				+ (data.text ? ' alt="' + data.text.escapeHTML() + '"' : '')
+				+ ((data.width || ad.options.width) ? ' width="' + (data.width || ad.options.width) + '"' : '')
+				+ ((data.width || ad.options.height) ? ' height="' + (data.height || ad.options.height) + '"' : '')
+				+ '>';
+		} else if (data.image && data.type == 'html') {
+			var query = $H(ad.options.parameters || {}).toQueryString();
+			if (navigator && navigator.userAgent && navigator.userAgent.toLowerCase().indexOf('firefox') == -1) {
+				html = '<iframe src="' + data.image + '&' + query + '" vSpace="0" hSpace="0" marginWidth="0" marginHeight="0" '
+				+ 'width="' + ((data.width || ad.options.width) ? (data.width || ad.options.width) : 0) + '" '
+				+ 'height="' + ((data.height || ad.options.height) ? (data.height || ad.options.height) : 0) + '" '
+				+ 'frameborder="0" scrolling="no" allowTransparency="true" noresize></iframe>';
+			} else {
+				html = '<object data="' + data.image + '&' + query
+				+ '" vspace="0" hspace="0" marginwidth="0" marginheight="0" type="text/html" '
+				+ 'width="' + ((data.width || ad.options.width) ? (data.width || ad.options.width) : 0) + '" '
+				+ 'height="' + ((data.height || ad.options.height) ? (data.height || ad.options.height) : 0) + '" '
+				+ 'border="0">';
+			}
+		} else {
+			html = (data.text || "").escapeHTML();
+		}
+		if (data.url && data.type !== 'html') {
+			html = '<a href="' + data.url.escapeHTML() + '" target="_blank">'
+				+ html
+				+ '</a>';
+		}
+	}
+	return html;
+}
+
+var NicoSidewallAdvertisement = Class.create();
+Object.extend(NicoSidewallAdvertisement.prototype, NicoAdvertisement.prototype);
+Object.extend(NicoSidewallAdvertisement.prototype, {
+
+	load: function () {
+		this.options.parameters = this.buildParameters(this.options.parameters);
+		NicoSidewallAdvertisement.load(this);
+		return this;
+	},
+
+	buildParameters: function (parameters) {
+		parameters.carrier = '5';
+		parameters.format = 'json';
+		parameters.impression = '0';
+		return parameters;
+	}
+
+});
+
+Object.extend(NicoSidewallAdvertisement, {
+	locations: [],
+	advertisements: {},
+	parameters: {},
+
+	load: function (ads) {
+		var loc = ads.options.parameters.location;
+		this.locations.push(loc);
+		this.advertisements[loc] = ads;
+		Object.extend(this.parameters, ads.options.parameters);
+
+		if (this.locations.length >= 2) {
+			this.sendRequest(this.locations, this.advertisements, this.parameters);
+		}
+	},
+
+	sendRequest: function (locations, advertisements, parameters) {
+		parameters = parameters || {};
+		parameters.location = locations.join(",");
+		parameters.callback = function (r) {
+			if (!r || !r.status || !r.data) return;
+			$H(r.status).each(function (pair) {
+				var data = r.data[pair.key];
+				var ads = advertisements[pair.key];
+				if (pair.value == 200 && data && ads) {
+					if (!ads.options.count || ads.options.count <= 1) {
+						data = data[ Math.floor(Math.random() * data.length) ];
+					}
+					ads.update(data);
+				}
+			});
+		}
+
+		new JSONP(NicoAdvertisement.API_URL, { parameters: parameters });
+	}
+});
+
+var NicoSidewallAdvertisementLoader = Class.create();
+Object.extend(NicoSidewallAdvertisementLoader.prototype, {
+
+	initialize: function (options) {
+		this.options = options;
+		this.swfs = {};
+		this.swfTime = (new Date()).getTime();
+		this.swfLayer = null;
+
+		var frequency = new NicoAdvertisementFrequency();
+		var self = this;
+		(new NicoSidewallAdvertisement({
+			parameters: { location: this.options.locationLeft },
+			onLoaded: function (data) {
+				if (frequency.checkFrequency(data)) {
+					self.update(data, "Left");
+					new JSONP(data.view);
+				}
+			}
+		})).load();
+
+		(new NicoSidewallAdvertisement({
+			parameters: { location: this.options.locationRight },
+			onLoaded: function (data) {
+				if (frequency.checkFrequency(data)) {
+					self.update(data, "Right");
+					new JSONP(data.view);
+				}
+			}
+		})).load();
+	},
+
+	update: function (data, dir) {
+		this.prepare();
+
+		if (data.optional) {
+			$(this.options.pageContent).setStyle({ "background-color": "#FFF" });
+			$(this.options.pageContainer).setStyle({ "background-color": data.optional });
+		}
+
+		var swfId = "ads_" + dir + "_" + (new Date()).getTime() + "_" + Math.floor(Math.random()*1000000);
+		var so = new SWFObject(
+			this.options["swfOpener" + dir], swfId,
+			this.options.swfWidth, this.options.swfHeight);
+		so.addVariable("clickTAG", encodeURIComponent(data.url));
+		so.addVariable("file", encodeURIComponent(data.image));
+		so.addVariable("x", "0");
+		so.addVariable("now", this.swfTime);
+		so.addParam("wmode", "transparent");
+		new Insertion.Bottom(this.swfLayer, so.getSWFHTML());
+
+		this.swfs[dir] = $(swfId).setStyle({
+			position: "absolute",
+			left:	  dir === "Left" ? "0" : this.options.swfWidth + "px",
+			top:	  "0",
+			width:	  this.options.swfWidth  + "px",
+			height:   this.options.swfHeight + "px"
+		});
+
+		this.fitToWindow();
+	},
+
+	prepare: function () {
+		if (this.swfLayer) return;
+
+		this.swfLayer = $(document.createElement("div"));
+		this.swfLayer.setStyle({
+			position: "absolute",
+			left:	  "0",
+			top:	  "28px",
+			width:	  "100%",
+			height:   this.options.swfHeight + "px",
+			overflow: "hidden"
+		});
+		$(this.options.pageContainer).appendChild(this.swfLayer);
+
+		var margin = this.options.swfMargin || 0;
+		$(this.options.pageContent).setStyle({
+			position: "relative",
+			"z-index": "1",
+			paddingLeft: margin + "px",
+			paddingRight: margin + "px"
+		});
+
+		Event.observe(window, "resize", this.fitToWindow.bind(this));
+	},
+
+	fitToWindow: function () {
+		var width = this.swfLayer.setStyle({ width: "100%" }).getWidth();
+		var left = ((width - this.options.swfWidth - this.options.swfOffset) >> 1);
+		var margin = this.options.swfMargin || 0;
+		if (Prototype.Browser.Gecko) left++;
+		this.swfs.Left	&& this.swfs.Left.setStyle({
+			left: (left - margin) + "px"
+		});
+		this.swfs.Right && this.swfs.Right.setStyle({
+			left: (Math.max(-this.options.swfWidth, left) + this.options.swfOffset + margin) + "px"
+		});
+	}
+
+});
+
+var ChannelAdvertisement = Class.create();
+ChannelAdvertisement.API_URL = "http://anime-ch.nicovideo.jp/api/getBanner.php";
+Object.extend(ChannelAdvertisement.prototype, Advertisement);
+Object.extend(ChannelAdvertisement.prototype, TemplateAdvertisementMixin);
+Object.extend(ChannelAdvertisement.prototype, {
+
+	initialize: function (options) {
+		Advertisement.initialize.call(this, ChannelAdvertisement.API_URL, options);
+	},
+
+	buildParameters: function (parameters) {
+		parameters.li = '1';
+		parameters.cb = this.update.bind(this);
+		return parameters;
+	},
+
+	defaultTemplate: function (data) {
+		if (!data || !data.l || !data.b) return;
+		return '<a href="' + data.l.escapeHTML() + '" target="_blank">' +
+			'<img src="' + data.b.escapeHTML() +  '"></a>';
+	}
+
+});
+
+var UserAdvertisement = Class.create();
+UserAdvertisement.API_URL = "http://api.uad.nicovideo.jp/UadsVideoService/getAdvertisingJsonp";
+Object.extend(UserAdvertisement.prototype, Advertisement);
+Object.extend(UserAdvertisement.prototype, {
+
+	LEVEL_IMAGE_URL: "http://res.nimg.jp/img/cmn_thumb/uad/icon_%s.gif",
+
+	initialize: function (options) {
+		this.targets = {};
+
+		options = Object.extend({
+			eachVideo: this.defaultEachVideo.bind(this)
+		}, options || {});
+
+		Advertisement.initialize.call(this, UserAdvertisement.API_URL, options);
+	},
+
+	addTarget: function (videoId, target) {
+		if (this.targets[videoId])
+			this.targets[videoId] = [target].concat(this.targets[videoId]);
+		else
+			this.targets[videoId] = target;
+	},
+
+	buildParameters: function (parameters) {
+		parameters.callback = this.update.bind(this);
+		parameters.videoid = $H(this.targets).keys().join(",");
+		return parameters;
+	},
+
+	update: function (data) {
+		Advertisement.update.apply(this, arguments);
+		if (!(data instanceof Array)) return;
+
+		var targets = this.targets, _yield = this.options.eachVideo;
+		var items = data.findAll(function (item) {
+			return targets[item.idvideo] && parseInt(item.total);
+		});
+
+		var index = 0;
+		var proceed = function () {
+			var item = items[index++], target = targets[item.idvideo];
+			if (target instanceof Array) {
+				target.each(function (t) { _yield(item, t); });
+			} else {
+				_yield(item, target);
+			}
+		};
+		(function () {
+			Math.min(10, items.length-index).times(proceed);
+			if (index < items.length)
+				setTimeout(arguments.callee, 50);
+		})();
+	},
+
+	defaultEachVideo: function (item, iid) {
+		var el;
+		if (el = $(iid + "_uad_point")) {
+			el.show();
+		}
+		if (item.total && (el = $(iid + "_uad_point_number"))) {
+			el.update(item.total.toString().replace(/(\d)(?=(?:\d{3})+$)/g, "$1,"));
+		}
+		if (item.adflg == "1") {
+			if (el = $(iid)) {
+				el.show();
+				var rank = parseInt(item.level) <= 5 ? "1" : "2";
+				if (el.hasClassName("thumb_frm")) {
+					el.removeClassName("thumb_frm");
+					el.addClassName("thumb_frm_rank_" + rank);
+				} else if (el.hasClassName("thumb_uad")) {
+					el.removeClassName("thumb_uad");
+					el.addClassName("thumb_uad_" + rank);
+				}
+			}
+			if (el = $(iid + "_thumb")) {
+				el.removeClassName("uad_thumbfrm");
+				el.addClassName("uad_thumbfrm_" + rank);
+			}
+			if (el = $(iid + "_uad_current")) {
+				el.show();
+			}
+			if (item.level && (el = $(iid + "_uad_current_level_image"))) {
+				el.src = this.LEVEL_IMAGE_URL.replace(/%s/, item.level <= 5 ? "silver" : "gold");
+			}
+			if (item.level && (el = $(iid + "_uad_level"))) {
+				el.update(item.level);
+			}
+			if (item.comments && (el = $(iid + "_uad_comment"))) {
+				el.update(item.comments);
+			}
+			if (item.total && (el = $(iid + "_uad_point_number2"))) {
+				el.update(item.total.toString().replace(/(\d)(?=(?:\d{3})+$)/g, "$1,"));
+			}
+		}
+	}
+
+});
+
+function getAds(locations, options) {
+	if (!locations || locations.length <= 0) return;
+
+	options = options || {};
+	options.parameters = options.parameters || {};
+
+	if (locations instanceof Array) {
+		locations.each(function (loc) {
+			getAds(loc, options);
+		});
+	} else {
+		options.parameters.location = locations;
+		new NicoTemplateAdvertisement(options).load();
+	}
+}
+
+function getAdsNoop(location) {
+	new NicoAdvertisement({ parameters: { location: location } }).load();
+}
+
+var rotationAdvertisement = undefined;
+
+function getRotationAdsFor468x60(parameters, viewParameters, migiue) {
+	rotationAdvertisement = new NicoRotationAdvertisement({
+		width: '468',
+		height: '60',
+		parameters: parameters,
+		viewParameters: viewParameters,
+		stopsOnEdge: false,
+		onMove: function (updater, dir, oldIndex, counting) {
+			var data = updater.getData();
+			var time = (data.type != 'html' ? 400 : 1000);
+			updater.wait(time);
+		},
+		onLoaded: function (r) {
+			if (migiue && r && r.data && r.data[parameters.location]) {
+				var ads = r.data[parameters.location];
+				ads.each(function (ad) {
+					ad.flashvars = { "migiue": migiue };
+				});
+			}
+		}
+	}).load();
+}
+
+

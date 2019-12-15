@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><head>
+    <style>
+        body {
+            margin:0px;
+        }
+    </style>
+</head><body>
+    <a id="anchor" class="twitter-timeline" href="https://twitter.com/IMDb" data-widget-id="354387022028357633">Follow on Twitter</a>
+    <script>
+    (function(doc, JSON){
+        var fallback = {
+            'screen-name':"IMDb",
+            'height':"500px",
+            'width':"300px"
+        };
+        var args, queryArgs = {};
+        var all_args = location.search.replace(/^\?/, "").split("&");
+        for (var i = 0; i < all_args.length; i++) {
+            var pair = all_args[i].split("=");
+            queryArgs[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+        }
+        try {
+            args = queryArgs.config ? JSON.parse(queryArgs.config) : fallback;
+        } catch (e) {
+            console.log("Failed to decode JSON string: " + queryArgs.config + " ; exception: " + e);
+            args = fallback;
+        }
+        
+        var anchor = doc.getElementById('anchor');
+        var screenName = args["screen-name"];
+        var listName = args["list-name"];
+        var heading = args["heading"];
+        var href = args["href"];
+        var widgetId = args["widget-id"];
+
+        if (listName && screenName) {
+            anchor.setAttribute("data-list-owner-screen-name", screenName);
+            anchor.setAttribute("data-list-slug", listName);
+        } else if (screenName) {
+            anchor.setAttribute("data-screen-name", screenName);
+        }
+        anchor.setAttribute("width", args["width"]);
+        anchor.setAttribute("height", args["height"]);
+        if (href) {
+        	anchor.setAttribute("href", href);
+        }
+        if (widgetId) {
+        	anchor.setAttribute("data-widget-id", widgetId);
+        }
+        if (heading) {
+        	anchor.innerHTML = heading;
+        }
+    })(document, window.JSON);
+    </script>
+    <script src="widgets.js"></script>
+</body></html>

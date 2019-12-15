@@ -1,0 +1,231 @@
+(function() {
+  var _init = function() {
+    // properties
+    var rightMenu = document.getElementById("siteHeaderRightMenu");
+    var rightMenuContainer = document.getElementById("siteHeaderRightMenuContainer");
+    var leftMenu = document.getElementById("siteHeaderLeftMenu");
+    var leftMenuContainer = document.getElementById("siteHeaderLeftMenuContainer");
+    
+    var rightMenuFix = document.getElementById("siteHeaderRightMenuFix");
+    var rightMenuUnfix = document.getElementById("siteHeaderRightMenuUnfix");
+
+    var nicopoPurchase = document.getElementById("siteHeaderNicopoPurchase") || false;
+    var getFirstElementByClassName = function(className){
+      if(typeof document.getElementsByClassName !== "function") {
+        return false;
+      }
+      var elms = document.getElementsByClassName(className);
+      if(elms.length === 0) {
+        return false;
+      }
+      return elms[0];
+    };
+    var siteHeaderUpgrade = getFirstElementByClassName("siteHeaderUpgrade");
+    var siteHeaderRegister = getFirstElementByClassName("siteHeaderRegister");
+
+    var getCookieValue = function(key){
+      var re = new RegExp("(?:^|;\\s*)" + escape(key) + "\\s*=\\s*([^;]*)");
+      return re.test(document.cookie) ? unescape(RegExp.$1) : null;
+    };
+    var setCookieValue = function(string) {
+      var domain = ".nicovideo.jp";
+      var path = "/";
+      var expiresTime = 1000 * 60 * 60 * 24 * 365;
+      var expires = new Date();
+      expires.setTime(expires.getTime() + expiresTime);
+      expires = expires.toGMTString();
+      document.cookie = string+"; expires="+expires+"; domain="+domain+"; path="+path;
+    };
+    
+    // event initialization
+    // dropdown menu
+    var show = function(target){
+      target.style.display = "block";
+    };
+    var hide = function(target){
+      target.style.display = "none";
+    };
+    var rightMenuCloseByMouseOut = true, leftMenuCloseByMouseOut = true;
+    rightMenu.onmouseover = function(e) { show(rightMenuContainer); };
+    rightMenuContainer.onmouseover = function(e) { show(rightMenuContainer); };
+    rightMenu.onmouseout = function(e) { rightMenuCloseByMouseOut && hide(rightMenuContainer); };
+    rightMenuContainer.onmouseout = function(e) { rightMenuCloseByMouseOut && hide(rightMenuContainer); };
+    rightMenu.onclick = function(e) {rightMenuCloseByMouseOut && show(rightMenuContainer); rightMenuCloseByMouseOut = !rightMenuCloseByMouseOut; };
+    leftMenu.onmouseover = function(e) { show(leftMenuContainer); };
+    leftMenuContainer.onmouseover = function(e) { show(leftMenuContainer); };
+    leftMenu.onmouseout = function(e) { leftMenuCloseByMouseOut && hide(leftMenuContainer); };
+    leftMenuContainer.onmouseout = function(e) { leftMenuCloseByMouseOut && hide(leftMenuContainer); };
+    leftMenu.onclick = function(e) { leftMenuCloseByMouseOut && show(leftMenuContainer); leftMenuCloseByMouseOut = !leftMenuCloseByMouseOut; };
+    var bothCloseAndReset = function(e) {
+      var target = e.target ? e.target : e.srcElement;
+      if (target === leftMenu || leftMenu.contains(target) || target === rightMenu || rightMenu.contains(target)) {
+        return;
+      }
+      rightMenuCloseByMouseOut = leftMenuCloseByMouseOut = true;
+      hide(rightMenuContainer);
+      hide(leftMenuContainer);
+    };
+    if (document.addEventListener) {
+      document.addEventListener('click', bothCloseAndReset, false);
+    } else if (document.attachEvent) {
+      document.attachEvent('onclick', bothCloseAndReset);
+    }
+
+    // ニコポ購入リンクをpostする
+    var postNicopoPurchase = function(event){
+      if(!nicopoPurchase){ return false; }
+      if(!nicopoPurchase.getAttribute("data-F_site_cd")){ return true; } // そのまま別窓リンクとして扱う
+      if(typeof event.preventDefault=="function"){
+        event.preventDefault();
+      }else{
+        event.returnValue=false;
+      }
+      var addParam = function(var_string){
+        var value = nicopoPurchase.getAttribute("data-"+var_string) || undefined;
+        if(value==undefined){ return false };
+        var input = document.createElement("input");
+        input.name = var_string;
+        input.value = value;
+        form.appendChild(input);
+      };
+
+      var form = document.createElement("form");
+      form.action = nicopoPurchase.getAttribute("data-post-url") || nicopoPurchase.href;
+      form.method = "post";
+      if(false === addParam("F_return_url")){
+          var input = document.createElement("input");
+          input.name = "F_return_url";
+          input.value = location.href;
+          form.appendChild(input);
+      }
+      addParam("F_site_cd");
+      addParam("F_adult_flag");
+      document.documentElement.appendChild(form);//for IE&Firefox
+      return form.submit();
+    };
+    // ニコポ購入アンカーからpostを行う
+    if(nicopoPurchase){
+      if (document.addEventListener) {
+        nicopoPurchase.addEventListener('click', postNicopoPurchase, false);
+      } else if (document.attachEvent) {
+        nicopoPurchase.attachEvent('onclick', postNicopoPurchase);
+      }
+    }
+
+    // プレミアム入会リンクやアカウント登録リンクにnext_urlとsiteを付与する。
+    var assignSiteHeaderNextUrl = function(elm){
+      var _assign = function(){
+        var site = this.getAttribute("data-site");
+        var next_url = window.location.pathname + window.location.search;
+        var current_href = this.getAttribute("href");
+        var glue = (current_href.indexOf("?") !== -1)?"&":"?";
+        this.setAttribute("href", current_href + glue + "site=" + encodeURIComponent(site) + "&next_url=" + encodeURIComponent(next_url));
+        return true;
+      };
+      if(elm){
+        if(elm.getAttribute("data-site")) {
+          if (document.addEventListener) {
+            elm.addEventListener('click', _assign, false);
+          } else if (document.attachEvent) {
+            elm.attachEvent('onclick', _assign);
+          }
+        }
+      }
+    };
+    assignSiteHeaderNextUrl(siteHeaderUpgrade);
+    assignSiteHeaderNextUrl(siteHeaderRegister);
+
+    // 低解像度端末でfix状態だとメニューが操作できないので、fix状態の場合はヘッダを横スクロールに追従させる
+    var sideScrollHeader = function(){
+      var getPageOffset = function(){
+        return {
+          x: (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft,
+          y: (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop
+        };
+      };
+      var prevDocOffsetX = getPageOffset().x;
+      var prevDocWidth = document.width || document.documentElement.clientWidth;
+      var siteHeader = document.getElementById("siteHeader");
+      return function(){
+        var docWidth = document.width || document.documentElement.clientWidth;
+        var docOffsetX = getPageOffset().x;
+        if(document.body.className && document.body.className.indexOf('nofix') != -1){
+          return true;
+        }
+        if(prevDocOffsetX == docOffsetX && prevDocWidth == docWidth){
+          return true;
+        }
+        siteHeader.style.left = (-1 * docOffsetX) + 'px';
+        siteHeader.style.width = docWidth + docOffsetX;
+        prevDocOffsetX = docOffsetX;
+        prevDocWidth = docWidth;
+      };
+    }();
+
+    // ヘッダーの追従/固定切替のサンプル
+    var fixHeader = function(){
+      var currentClasses = document.body.className.split(/\s+/);
+      var newClasses = [];
+      for (var i = 0, _loopend = currentClasses.length; i < _loopend; i++) {
+        var kls = currentClasses[i];
+        if (kls !== 'nofix') {
+          newClasses.push(kls);
+        }
+      }
+      document.body.className = newClasses.join(' ');
+      hide(rightMenuFix);
+      show(rightMenuUnfix);
+      if (document.addEventListener) {
+        document.addEventListener('scroll', sideScrollHeader, false);
+        document.addEventListener('resize', sideScrollHeader, false);
+      } else if (window.attachEvent) {
+        window.attachEvent('onscroll', sideScrollHeader);
+        window.attachEvent('onresize', sideScrollHeader);
+      }
+      sideScrollHeader();
+    };
+    var unfixHeader = function(){
+      document.body.className = (document.body.className) ? document.body.className+" nofix" : "nofix"; //既にクラス名があれば後ろにくっつける、なければnofixだけ
+      show(rightMenuFix);
+      hide(rightMenuUnfix);
+      document.getElementById("siteHeader").style.left = 0;
+      document.getElementById("siteHeader").style.width = "100%";
+      if (document.removeEventListener){
+        document.removeEventListener ('scroll', sideScrollHeader, false);
+        document.removeEventListener ('resize', sideScrollHeader, false);
+      }else if (window.detachEvent){
+        window.detachEvent ('onscroll', sideScrollHeader);
+        window.detachEvent ('onresize', sideScrollHeader);
+      }
+    };
+    getCookieValue("nofix") ? unfixHeader() : fixHeader();
+    rightMenuFix.onclick = function(e){
+      fixHeader();
+      setCookieValue("nofix=");
+    };
+    rightMenuUnfix.onclick = function(e){
+      unfixHeader();
+      setCookieValue("nofix=1");
+    };
+  };
+  
+  // Reference: contains() for Mozilla - QuirksBlog :
+  // http://www.quirksmode.org/blog/archives/2006/01/contains_for_mo.html
+  if (window.Node && Node.prototype && !Node.prototype.contains) {
+      Node.prototype.contains = function (arg) {
+          return !!(this.compareDocumentPosition(arg) & 16);
+      };
+  }
+  
+  if (window.addEventListener) {
+    window.addEventListener("DOMContentLoaded", _init, false);
+  } else {
+    try {
+      document.documentElement.doScroll("left");
+    } catch(error){
+      setTimeout(arguments.callee, 50);
+      return;
+    }
+    _init();
+  }
+})();

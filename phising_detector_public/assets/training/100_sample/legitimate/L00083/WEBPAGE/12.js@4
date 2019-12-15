@@ -1,0 +1,428 @@
+(function () {
+    'use strict';
+
+    var domain        = //@@domain
+            'http://rotator.trafficstars.com/api/v1/direct/',
+        version       = '0.1.10',
+        build_version = '95';
+
+    function createCookie ( cookieName, cookieState, cookieLifetime ) {
+        document.cookie = cookieName + '=' + cookieState + '; expires=' +
+                          new Date( new Date().getTime() + (cookieLifetime * 3600000) ).toGMTString() +
+                          ((!!cookieDomain) ? '; domain=' + cookieDomain : '') + '; path=/';
+    }
+
+    function getCookie ( cookieName ) {
+        var resultCookie = document.cookie.match( '(^|;) ?' + cookieName + '=([^;]*)(;|$)' );
+        if ( resultCookie ) {
+            return (decodeURIComponent( resultCookie[ 2 ] ));
+        }
+        return null;
+    }
+
+    function canPopunder ( cookieName ) {
+        return (getCookie( cookieName ) === null);
+    }
+
+    function getStringFormat ( arr ) {
+        var lastItem = arr && arr[ arr.length - 1 ];
+        var formatText = !!lastItem &&
+                            lastItem
+                             .split( /[?#]/ )[ 0 ]
+                             .replace( /(x?html?)$/gi, '' )
+                             .match( /([a-zA-Z]+)/g );
+         formatText = formatText &&
+                        formatText
+                             .join( ' ' )
+                             .replace( /(\b(\w{1,2})\b(\s|$))/g, '' );
+
+        return formatText || '';
+    }
+
+    function getMetaWords () {
+        var meta = document.getElementsByTagName( 'meta' );
+        var metaCount = meta.length;
+        var i = 0;
+        var getWords = '';
+
+        while ( i < metaCount ) {
+            if ( meta[ i ].getAttribute( 'name' ) === 'description' ||
+                    meta[ i ].getAttribute( 'name' ) === 'keywords' ) {
+                getWords += meta[ i ]
+                    .getAttribute( 'content' )
+                    .replace( /[^\w\s]/gi, ' ' )
+                    .replace( /(\b(\w{1,2})\b(\s|$))/g, '' );
+            }
+            i++;
+        }
+
+        if ( !getWords.length ) {
+            getWords = getStringFormat( window.location.pathname.split( '/' ) );
+        }
+
+        return getWords;
+    }
+
+    function getAttrParams(element, count) {
+        var i = 1;
+        var arr = [];
+        var param;
+
+        while (i < count + 1) {
+            param = element.getAttribute('data-ts-param' + i);
+            param !== null && arr.push('param' + i + '=' + param);
+            i++;
+        }
+
+        return arr;
+    }
+
+    if ( !Function.prototype.bind ) {
+        Function.prototype.bind = function ( oThis ) {
+            if ( typeof this !== 'function' ) {
+                throw new TypeError( 'Function.prototype.bind - what is trying to be bound is not callable' );
+            }
+            var aArgs   = Array.prototype.slice.call( arguments, 1 ),
+                fToBind = this,
+                Fnop    = function () {},
+                fBound  = function () {
+                    return fToBind.apply(
+                        this instanceof Fnop && oThis ? this : oThis,
+                        aArgs.concat( Array.prototype.slice.call( arguments ) )
+                    );
+                };
+            Fnop.prototype = this.prototype;
+            fBound.prototype = new Fnop();
+            return fBound;
+        };
+    }
+
+    var phantomPopunder = phantomPopunder || {},
+        objs            = document.getElementsByTagName( 'script' ),
+        dataspot,
+        defaultUrl,
+        dataCategories  = '',
+        ignoreList,
+        paramsListScript,
+        redirectUrl,
+        cookieName      = 'ts_popunder',
+        domainParam     = location.host || '',
+        cookieDomain    = '',
+        params          = !!domainParam ? [ 'domain=' + domainParam, 'rnd=' + Math.random() ] : [ 'rnd=' + Math.random()],
+        attrMode;
+
+    for ( var i = 0; i < objs.length; i++ ) {
+        var attrSpot = objs[ i ].getAttribute( 'data-ts-spot' ) || objs[ i ].getAttribute( 'data-id' );
+        var attrCookieName = objs[ i ].getAttribute( 'data-ts-cookie-name' ) || objs[ i ].getAttribute( 'data-cookie-name' );
+        var attrDefaultUrl = objs[ i ].getAttribute( 'data-ts-default' ) || objs[ i ].getAttribute( 'data-default' );
+        var attrCategories = objs[ i ].getAttribute( 'data-ts-categories' ) || getMetaWords();
+        var attrCookieDomain = objs[ i ].getAttribute( 'data-ts-cookie-domain' );
+        var attrIgnoreList = objs[ i ].getAttribute( 'data-ts-ignore-filter' );
+        var attrParams = getAttrParams(objs[i], 3);
+        var attRedirectUrl = objs[i].getAttribute('data-ts-redirect');
+        var attrWidth = objs[ i ].getAttribute('data-ts-width');
+        var attrHeight = objs[ i ].getAttribute('data-ts-height');
+        
+        attrMode = objs[ i ].getAttribute( 'data-ts-mode' );
+
+        if ( !!attrSpot ) {
+            dataspot = attrSpot;
+        }
+        if ( !!attrCookieName ) {
+            cookieName = attrCookieName;
+        }
+        if ( !!attrDefaultUrl ) {
+            defaultUrl = attrDefaultUrl;
+        }
+        if ( !!attrCategories ) {
+            dataCategories = 'categories=' + attrCategories;
+        }
+        if ( !!attrCookieDomain ) {
+            cookieDomain = attrCookieDomain;
+        }
+        if ( !!attrIgnoreList ) {
+            ignoreList = attrIgnoreList.replace( /\s+/g, '' ).split( ',' );
+        }
+        if (attrParams.length) {
+            paramsListScript = attrParams;
+        }
+
+        if (!!attRedirectUrl) {
+            if (!/^(f|ht)tps?:\/\//i.test(attRedirectUrl)) {
+                attRedirectUrl = 'http://' + attRedirectUrl;
+            }
+            if (attRedirectUrl.slice(-1) !== '/') {
+                attRedirectUrl += '/';
+
+            }
+            redirectUrl = attRedirectUrl;
+        }
+
+        if((!!attrSpot || !!attRedirectUrl) &&
+           (!attrWidth && !attrHeight)) break;
+    }
+
+    phantomPopunder = {
+        url : '',
+        reRuntime : phantomPopunder.reRuntime || 6,
+        cookieCategoriesLive : (phantomPopunder.reRuntime || 6) * 2,
+        width : phantomPopunder.width || 1100,
+        height : phantomPopunder.height || 800,
+        top : phantomPopunder.top || 0,
+        left : phantomPopunder.left || 0,
+        cookieName : phantomPopunder.cookieName || cookieName,
+        tabDisabled : phantomPopunder.tabDisabled || false,
+        mode : attrMode,
+        mainWindow : top != self && typeof top.document.location.toString() == 'string' ? top : self,
+        popUp : null,
+
+        browser : (function () {
+            var n = navigator.userAgent.toLowerCase(),
+                b = {
+                    webkit : /webkit/gi.test( n ),
+                    mozilla : (/mozilla/gi.test( n )) && (!/(compatible|webkit)/.test( n )),
+                    chrome : /chrome/gi.test( n ),
+                    maxthon : /maxthon/gi.test( n ),
+                    samsung : /samsungbrowser/gi.test( n ),
+                    msie : (/msie/gi.test( n )) && (!/opera/.test( n )),
+                    firefox : /firefox/gi.test( n ),
+                    safari : (/safari/gi.test( n ) && !(/chrome/.test( n ))),
+                    opera : /opera|opr/gi.test( n ),
+                    macosx : /mac os x/gi.test( n ),
+                    ios : /iphone|ipad/gi.test( n ),
+                    crios : /crios/gi.test( n ),
+                    android : /android/gi.test( n ),
+                    mobile : /mobile/gi.test( n ) || /tablet/gi.test( n ),
+                    winphone : /windows phone/gi.test( n )
+                };
+            b.version = (b.safari) ? (n.match( /.+?(?:on|ri)[\/: ]([\d.]+)/ ) || [])[ 1 ] : (n.match( /.+(?:ox|me|ra|ie|opr)[\/: ]([\d.]+)/ ) || [])[ 1 ];
+            return b;
+        })(),
+        catchEvent : function () {
+            try {
+                this.popUp.blur();
+                this.popUp.opener.window.focus();
+                window.self.window.blur();
+                window.focus();
+                this.browser.firefox && this.firefoxEvent();
+                this.browser.webkit && this.webkitEvent();
+            } catch ( e ) {}
+        },
+        firefoxEvent : function () {
+            var blank = window.open( 'about:blank' );
+            blank.focus();
+            blank.close();
+        },
+        webkitEvent : function () {
+            var a = document.createElement( 'a' ),
+                e = document.createEvent( 'MouseEvents' );
+            a.href = 'data:text/html;charset=utf-8,%3Cscript%3Ewindow.close()%3C/script%3E';
+            document.getElementsByTagName( 'body' )[ 0 ].appendChild( a );
+            e.initMouseEvent( 'click', !1, !0, window, 0, 0, 0, 0, 0, !0, !1, !1, !0, 0, null );
+            a.dispatchEvent( e );
+            a.parentNode.removeChild( a );
+        },
+        openWindow : function ( e, params ) {
+            window.open( 'javascript:window.focus();', '_self', '' );
+            this.popUp = this.mainWindow.window.open( this.url, '_blank', params );
+            if ( this.popUp ) {
+
+                createCookie( this.cookieName, 1, this.reRuntime );
+
+                if ( this.browser.ios && e.target.tagName.toLowerCase() === 'img' ) {
+                    e.preventDefault();
+                }
+                if ( this.browser.msie ) {
+                    document.onclick = null;
+                    this.popUp.blur();
+                    window.focus();
+                } else {
+                    this.catchEvent();
+                }
+            }
+        },
+        openTab : function ( e ) {
+            var event = e || window.event;
+            var target = event.target || event.srcElement;
+            var COUNT_PARENT = 4;
+            var depth = 0;
+            var newTab;
+
+            e.preventDefault();
+
+            if ( target.nodeName.toLowerCase() !== 'a' ) {
+                while ( target.parentNode && depth++ <= COUNT_PARENT &&
+                        target.nodeName.toLowerCase() !== 'html' ) {
+                    target = target.parentNode;
+                    if ( target.nodeName.toLowerCase() === 'a' &&
+                            target.href !== '' ) {
+                        break;
+                    }
+                }
+            }
+
+            newTab = window.open( target.href || this.mainWindow.location );
+
+            if (newTab) {
+                newTab.focus();
+                createCookie( this.cookieName, 1, this.reRuntime );
+            } else {
+                this.url = target.href || this.mainWindow.location;
+            }
+
+            this.mainWindow.location = this.url;
+        },
+        parentFilter : function ( e ) {
+            var parentElm = e.parentNode;
+            var isHtml = e.nodeName === 'HTML' || parentElm.nodeName === 'HTML';
+
+            if ( parentElm && !isHtml ) {
+                if ( this.ignoreFilter( parentElm, true ) ) {
+                    return true;
+                }
+                return this.parentFilter( parentElm );
+            }
+        },
+        ignoreFilter : function ( elm, parentFilter ) {
+            var i             = 0,
+                selectorsList = elm.className.split( ' ' ),
+                elementTag    = elm.tagName.toLowerCase(),
+                count;
+
+            elm.id && selectorsList.push( elm.id );
+
+            if ( ignoreList ) {
+                count = selectorsList.length;
+
+                for ( ; i < count; i++ ) {
+                    if ( this.checkIgnore( selectorsList[ i ] ) ) {
+                        return true;
+                    }
+                }
+                if ( parentFilter ) {
+                    return false;
+                }
+                if ( this.parentFilter( elm ) ) {
+                    return true;
+                }
+            }
+
+            if ( typeof window.pop_ts_click_filter === 'function' ) {
+                return window.pop_ts_click_filter( e );
+            }
+
+        },
+        checkIgnore : function ( elClass ) {
+            var i = 0;
+            var count = ignoreList.length;
+
+            for ( ; i < count; i++ ) {
+                if ( ignoreList[ i ] === elClass ) {
+                    return true;
+                }
+            }
+            return false;
+        },
+        getRedirectUrl: function() {
+            var redirectUrlHasSpot = redirectUrl &&
+                                     redirectUrl.indexOf('{spot}') >= 0;
+            var redirectReplaceUrl = redirectUrlHasSpot &&
+                                     redirectUrl.replace('{spot}', dataspot);
+
+            if (redirectReplaceUrl) {
+                return redirectReplaceUrl;
+            }
+
+            return (redirectUrl || domain) + dataspot;
+        },
+        setUrl : function ( href ) {
+            var categories;
+            var url = this.getRedirectUrl() + '?' + params.join('&');
+
+            if ( '' !== dataCategories ) {
+                categories = dataCategories;
+            } else if ( href ) {
+                categories = 'categories=' + href;
+            } else {
+                categories = getCookie( 'categories' );
+            }
+            if (paramsListScript) {
+                url += '&' + paramsListScript.join('&');
+            }
+            if (categories) {
+                createCookie('categories', categories, this.cookieCategoriesLive);
+                url += '&' + categories;
+            }
+
+            this.url = url;
+        },
+        isSelectiveTarget : function ( elm ) {
+            var tag = elm.tagName.toLowerCase();
+
+            while ( tag && 'body' !== tag ) {
+                if ( 'a' === tag ) return true;
+
+                elm = elm.parentNode;
+                tag = elm.tagName && elm.tagName.toLowerCase();
+            }
+
+            return false;
+        },
+        addEvent: function (event, elem, func) {
+            if (elem.addEventListener) {
+                elem.addEventListener(event, func, false);
+            } else if (elem.attachEvent) {
+                var r = elem.attachEvent('on' + event, func);
+                return r;
+            }
+        },
+        checkAdBlock: function() {
+            var checkAdBlockScript = document.createElement('script');
+
+            checkAdBlockScript.src = '//ads.adsclean.com/ads/ads.js';
+            document.body.appendChild(checkAdBlockScript);
+        },
+        showPopunder : function () {
+            var params = 'toolbar=no,scrollbars=yes,location=yes,statusbar=yes,menubar=no,resizable=1,width=' + this.width + ',height=' + this.height + ',screenX=' + this.left + ',screenY=' + this.top;
+            this.checkAdBlock();
+
+            this.addEvent('click', document, function (e) {
+                    var event = e || window.event;
+                    var target = event.target || event.srcElement;
+                    var categories = target.href && getStringFormat(target.href.split('/'));
+                    var isATag = this.isSelectiveTarget(target);
+
+                    this.setUrl(categories);
+                    if (
+                        !canPopunder(this.cookieName) ||
+                        this.ignoreFilter(target) ||
+                        ('selective' === this.mode && !isATag) ||
+                        (!window._noAdBlock && !isATag) ||
+                        !!target.getAttribute('target')
+                    ) {
+                        return;
+                    }
+                    if (
+                        this.browser.ios &&
+                        this.browser.safari &&
+                        this.browser.mobile &&
+                        parseInt(this.browser.version) > 1000
+                    ) {
+                        this.openWindow(e, params);
+                        this.mainWindow.location = target.getAttribute('href');
+                    } else if (window._noAdBlock &&
+                               !this.browser.mobile &&
+                               !this.browser.android &&
+                               !this.browser.ios
+                    ) {
+                        this.openWindow(e, params);
+                    } else {
+                        this.openTab(e);
+                    }
+                }.bind(phantomPopunder)
+            );
+        }
+    };
+
+    phantomPopunder.showPopunder();
+})();

@@ -50,14 +50,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 // $route['default_controller'] = 'welcome';
-$route['default_controller'] = 'main';
-$route['phising'] = 'main/phising';
-$route['legitimate'] = 'main/legitimate';
-$route['task'] = 'main/taskhistory';
-$route['scan'] = 'main/scan';
-$route['dataset'] = 'main/dataset';
-$route['fetchraw'] = 'main/fetch_dataset';
-$route['deletealltask'] = 'main/deletealltask';
-$route['taskdetail'] = 'main/taskhistory_detail';
+$route['default_controller'] = 'training';
+$route['phishing'] = 'phishing';
+$route['legitimate'] = 'legitimate';
+$route['train/task'] = 'training/taskhistory';
+$route['train/scan'] = 'training/scan';
+$route['train/dataset'] = 'training/dataset';
+$route['train/fetchraw'] = 'training/fetch_dataset';
+$route['train/deletealltask'] = 'training/deletealltask';
+$route['train/deletetask'] = 'training/deletetask';
+// $route['taskdetail'] = 'training/tasklist_train';
+$route['train/result'] = 'training/tasklist_train';
+
+$route['phishing/fetch_phishing'] = 'phishing/fetch_phishing';
+$route['phishing/testlist'] = 'phishing/testlist';
+$route['phishing/result'] = 'phishing/phishingresult';
+
+
+$route['legitimate/fetch_phishing'] = 'legitimate/fetch_legitimate';
+$route['legitimate/testlist'] = 'legitimate/testlist';
+$route['legitimate/result'] = 'legitimate/legitimateresult';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -9,16 +9,16 @@
               <img src="<?= base_url()?>/assets/foto/logo_phising.svg" width="180px" style="top:6px;position:relative;">
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link" href="<?= base_url()?>"data-toggle="tooltip" title="Home" >Scan</a>
+            <a class="nav-link" href="<?= base_url()?>"data-toggle="tooltip" title="Home" >Train Data</a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link" href="<?= base_url()?>task" data-toggle="tooltip" title="Scan" >Task History <span class="badge badge-primary">New</span></a>
+            <a class="nav-link" href="<?= base_url()?>train/task" data-toggle="tooltip" title="Scan" >Train Task</a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link" href="<?= base_url()?>phising" data-toggle="tooltip" title="Phising">Phishing</a>
+            <a class="nav-link" href="<?= base_url()?>phishing" data-toggle="tooltip" title="Phising">Test Phishing</a>
           </li>
           <li class="nav-item px-2">
-            <a class="nav-link"  href="<?= base_url()?>legitimate"  data-toggle="tooltip" title="Legitimate">Legitimate</a>
+            <a class="nav-link"  href="<?= base_url()?>legitimate"  data-toggle="tooltip" title="Legitimate">Test Legitimate</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

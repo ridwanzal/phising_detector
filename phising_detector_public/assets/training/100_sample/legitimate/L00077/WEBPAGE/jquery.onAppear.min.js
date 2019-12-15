@@ -1,0 +1,8 @@
+/*
+ * jQuery.onAppear v0.1.2
+ * https://github.com/neopeak/jquery.onAppear
+ *
+ * Copyright 2014, Cedric Veilleux <cveilleux@neopeak.com>
+ *
+ * Licensed under the Apache v2 Licence
+ */(function(a){function b(b,c){if(!a(b).is(":visible"))return!1;var d=b.getBoundingClientRect(),e=[{x:d.left,y:d.top},{x:d.right,y:d.top},{x:d.left,y:d.bottom},{x:d.right,y:d.bottom}];for(var f=0;f<e.length;f++){var g=e[f];if(g.y<=c.bottom&&g.y>=c.top&&g.x>=c.left&&g.x<=c.right)return!0}return d.top<=c.top&&d.bottom>=c.bottom?!0:d.left<=c.left&&d.right>=c.right?!0:!1}function c(b,c){return b[0]==window?a("body")[0].contains(c):b[0].contains(c)}function d(a){if(a[0]==window){var b=window.innerHeight||document.documentElement.clientHeight,c=window.innerWidth||document.documentElement.clientWidth;return{top:0,left:0,right:c,bottom:b,height:b,width:c}}return a[0].getBoundingClientRect()}function e(a){a.timer&&clearTimeout(a.timer),a.timer=setTimeout(function(){a.timer=!1,f(a)},a.options.scrollDelay)}function f(e){if(e.items.length==0)return;var f=d(e.options.container),g=[];for(var h=0;h<e.items.length;h++){var i=!0;c(e.options.container,e.items[h])?b(e.items[h],f)&&(a(e.items[h]).trigger(e.options.event),i=!e.options.once):i=!1,i&&g.push(e.items[h])}e.items=g}a.fn.initAppear=function(b){if(a(this).length==0)return;var c={container:a(window),scrollDelay:200,event:"appear",once:!1};b=a.extend(c,b);var d={options:b,items:this.get()},g=function(){e(d)};b.container.on("scroll",g),a(window).on("resize",g),f(d)}})(jQuery);

@@ -1,0 +1,101 @@
+/**
+ * TimeShift API Client Library
+ * @require jQuery
+ * @copyright 2010 DWANGO Co., LTD. All rights reserved.
+ */
+var TimeShift = {};
+
+TimeShift.toggleOverlapElement = function (f) {
+	jQuery("object, embed").css({visibility: f? "visible":"hidden"}); //flashを表示/非表示
+}
+
+//モーダルを表示して表示内容をリクエストする
+TimeShift.register = function (vid, url) {
+	TimeShift.toggleOverlapElement(false);
+
+	jQuery("#watching_reservation_info").empty().addClass("load_spinner");
+	jQuery("#timeshift_modal").show();
+
+	var params = jQuery("#timeshift_button_" + vid).serialize();
+	params.timestamp = parseInt((new Date) / 1000);
+	jQuery.ajax({
+		url: url,
+		data: params,
+		dataType: "jsonp"
+	});
+}
+
+//apiからの返答をモーダル内に出力する。apiからcallされる
+TimeShift.popupCallback = function (html) {
+	TimeShift.toggleOverlapElement(false);
+	jQuery("#timeshift_modal").show();
+	jQuery("#watching_reservation_info").removeClass("load_spinner").html(html);
+}
+
+//モーダルを非表示
+TimeShift.registHide = function () {
+	jQuery("#timeshift_modal").hide();
+	TimeShift.toggleOverlapElement(true);
+}
+
+//タイムシフトを予約する
+TimeShift.regist = function (vid, url, overwrite, key) {
+	jQuery("#watching_reservation_info").empty().addClass("load_spinner");
+
+	var params = jQuery("#timeshift_button_" + vid).serialize();
+	params += "&regist=1&overwrite=" + overwrite + "&key=" + key + "&timestamp=" + parseInt((new Date) / 1000);
+	jQuery.ajax({
+		url: url,
+		data: params,
+		dataType: "jsonp"
+	});
+
+	return false;
+}
+
+//タイムシフト予約完了処理
+TimeShift.registSucceed = function (vid) {
+	var	target_item     = jQuery(".timeshift_button.lv"+vid),
+		target_ts_anchor= target_item.find("a"),
+		target_ts_count = target_item.find(".timeshift_count .count");
+	target_ts_count.html( parseInt( target_ts_count.html().replace(",","") ) +1 );//TS数を+1
+	target_ts_anchor.addClass("timeshift_reserved");//表現を「登録済み」に変化させる
+}
+
+//どこかに移動する apiからcallされる
+TimeShift.redirect_callback = function (url) {
+	location.href = url;
+}
+
+TimeShift.initialize = function(target_selector){
+	
+	var	target_selector = target_selector || ".timeshift_button a";
+	
+	jQuery("body").delegate(target_selector,"click",
+		function(event){
+			
+			var	caller  = jQuery(this),
+				parent	= caller.closest(".timeshift_button"),
+				live_id = parent.attr("data-live_id"),
+				api_url = parent.attr("data-api_url") || "/api/live.timeshift",
+				status  = parent.attr("data-live_status");
+			
+			if(status=="aired"){
+				return true;//リンククリック実行
+			}
+			
+			if(parent && live_id && api_url){
+				event.preventDefault();
+				TimeShift.register(live_id,api_url);
+				return false;
+			}else{
+				return true;
+			}
+		}
+	);
+	
+}
+
+Nico.onReady(function() {
+	TimeShift.initialize();
+});

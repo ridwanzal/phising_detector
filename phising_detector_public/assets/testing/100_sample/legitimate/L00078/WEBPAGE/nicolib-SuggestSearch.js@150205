@@ -1,0 +1,1531 @@
+/**
+ * @author Takayuki Yamaguchi
+ */
+if (typeof Nico === 'undefined') {
+  Nico = {};
+}
+
+//TODO: サジェスト機能無効時に有効にするためのUIを実装
+
+/*
+ * 指定された入力フィールド(<input type="text">)に対してサジェスト検索機能を追加する
+ * (使い方例) ※jQuery必須 ※入力フィールドのDOM生成後に呼び出してください ※(required)と書いてるプロパティは必須です
+ * new Nico.SuggestSearch({
+ *   targetInput: '#bar_search', //(required) キーワードが入力される入力フィールドのセレクタかjQueryオブジェクト
+ *   submitFunction: function(){ //(optional) サジェストされたキーワード選択時に実行されるfunction。指定が無ければ選択時に入力フィールドに選択されたキーワードが入力されるだけ。
+ *     jQuery('#form').submit();
+ *   },
+ *   maxShowItemsCount: 10, //(optional) 最大表示件数。増やしてもサジェストAPIの上限が10件
+ *   requestDelay: 500, //(optional) サジェストAPIの連投を制限するためのディレイ。直前のリクエストからここで指定したミリ秒を過ぎないと次のリクエストが飛ばない
+ *   showSuggestMinLength: 1 //(optional) サジェストのリクエストを飛ばす最小文字数。デフォルトでは入力されてない状態ではお気に入りタグのみ検索する
+ * });
+ */
+
+/**
+ * @class
+ * @requires jQuery 1.3-1.7
+ * @constructor
+ * @param {object<targetInput<jQuery|string>,submitFunction<function>,maxShowItemsCount<number>,requestDelay<number>>} config
+ */
+Nico.SuggestSearch = function(config) {
+  //念のためjQueryが使えない場合にエラーになりにくいように何も処理しないようにする
+  if (!Nico.SuggestSearch.IS_ENABLED || typeof jQuery === 'undefined') return;
+
+  var self = this;
+
+  /**
+   * IE8+においてクロスサイトリクエストを飛ばすための設定
+   */
+  if (!jQuery.support.cors && window.XDomainRequest) {
+    jQuery.ajaxTransport(function(xhrOptions) {
+      if (xhrOptions.crossDomain && xhrOptions.async) {
+        var xdr, send, abort, noop = jQuery.noop;
+        send = function(_, complete) {
+          var callback = function(status, statusText, responses, responseHeaders) {
+            xdr.onload = xdr.onerror = xdr.ontimeout = xdr.onprogress = noop;
+            xdr = null;
+            if (typeof complete === 'function') complete(status, statusText, responses, responseHeaders);
+          };
+          xdr = new XDomainRequest();
+          xdr.open(xhrOptions.type, xhrOptions.url);
+          xdr.onload = function() {
+            callback(200, 'OK', { text: xdr.responseText }, 'Content-Type: ' + xdr.contentType);
+          };
+          xdr.onerror = function() {
+            callback(404, 'Not Found');
+          };
+          xdr.send(( xhrOptions.hasContent && xhrOptions.data ) || null);
+        };
+        abort = function() {
+          if (xdr) {
+            xdr.onerror = noop;
+            xdr.abort();
+          }
+        };
+        return {send: send, abort: abort};
+      }
+    });
+  }
+
+  /**
+   * コンストラクタ処理
+   */
+
+  config = (config) ? config : {};
+
+  //URL関連の定義
+  //お気に入りタグの一覧を取得するAPIのURL
+  this.favoriteTagsApiUrl = ('favoriteTagsApiUrl' in config) ? config.favoriteTagsApiUrl : '/api/favtag/list';
+  //サジェストAPIのURL
+  this.suggestApiUrl = ('suggestApiUrl' in config) ? config.suggestApiUrl : Nico.SuggestSearch.SUGGEST_API_URL;
+
+  //jQueryメソッド名のバージョンによる処理分け
+  this.jQueryMethodOnName = (typeof jQuery.fn.on === 'function') ? 'on' : 'bind';
+
+  //サジェスト対象の入力フィールド(<input type="text">）をセット
+  this.$targetInput = null;
+  this._hasInput = false; //入力フィールドがセットされているかどうかを判断するフラグ
+  if ('targetInput' in config) {
+    this._hasInput = this.setTargetInput(config.targetInput);
+  }
+
+  //サジェスト候補選択時の挙動
+  this._targetPage = Nico.SuggestSearch.TARGET_PAGE_DEFAULT; //デフォルトはキーワード検索
+  if ('targetPage' in config) this.setTargetPage(config.targetPage);
+
+  //submit時にサジェストを閉じるかどうか
+  this._hideOnSubmit = false;
+  if ('hideOnSubmit' in config) this._hideOnSubmit = !!config.hideOnSubmit;
+
+  //初回フォーカス時にcheckInput()を実行するかどうかのオプションフラグ(/my用)
+  this.skipFirstFocus = ('skipFirstFocus' in config) ? !!config.skipFirstFocus : false;
+  this._isFirstFocus = true;
+
+  //検索結果送信functionをセット
+  this.submitFunction = null;
+  if ('submitFunction' in config) this.setSubmitFunction(config.submitFunction);
+
+  //お気に入りタグの一覧を保持する変数
+  this.favoriteTags = null;
+
+  //最大表示件数を設定
+  this.maxShowItemsCount = ('maxShowItemsCount' in config) ? +config.maxShowItemsCount : 10;
+
+  //サジェストAPIを叩くディレイの設定（前回リクエスト時からここで指定したms待たないとリクエストされない）デフォルト:0.5秒
+  this.requestDelay = ('requestDelay' in config) ? +config.requestDelay : 500;
+
+  //サジェスト結果を表示する最小文字数
+  this.showSuggestMinLength = ('showSuggestMinLength' in config) ? +config.showSuggestMinLength : 1;
+
+  //リクエスト処理中フラグ
+  this._isRequestSending = false;
+
+  //サジェスト機能が有効状態かどうかを保持するフラグ(一時的に無効にするケースがあるstart()/stop()）
+  this._isEnabled = true;
+
+  //初回フォーカス時ログ送信済みかどうか
+  this._isInitLogged = false;
+
+  //初回フォーカス時のタイムスタンプ
+  this._initFocusTimestamp = null;
+
+  //サジェストワードのキャッシュ
+  this._suggestWordCache = {};
+
+  //最後の検索ワード（入力フィールドの値を初期値としてもっておく）
+  this._recentSearchWord = this.getQuery();
+
+  //最後のkeyupから(this.requestDelay)ms後に再チェックを行うイベント(setTimeoutを格納）
+  this._recheckEvent = null;
+
+  ///favtagAPIにリクエストしたかどうかのフラグを保持する
+  this._isFavtagRequested = false;
+
+  //テンプレートのaliasを作成
+  this.templates = Nico.SuggestSearch.templates;
+
+  //レギュラータグ形式変換用テーブルのaliasを作成
+  this.regularTagTable = Nico.SuggestSearch.REGULAR_TAG_TRANSFORM_TABLE;
+
+  //レギューラタグ形式変換用のRegExpオブジェクトを事前生成しておく
+  this.regularTagTableRegExp = (function(table) {
+    var keys = '', key;
+    for (key in table) {
+      keys += key;
+    }
+    return new RegExp('[' + keys + ']', 'g');
+  })(this.regularTagTable);
+  this.regularTagRegExpAlphaNum = new RegExp('[Ａ-Ｚａ-ｚ０-９]', 'g');
+  this.regularTagRegExpHiragana = new RegExp('[ぁ-ん]', 'g');
+
+  //DOMの生成とjQueryObject化
+  this.$container = jQuery(this.templates.container(Nico.SuggestSearch.ENABLE_SUGGEST_SWITCH)); //メインとなるコンテナ
+  this.$favoriteTagsHeader = this.$container.find('.nicolib-SuggestSearch-footer-favtag-edit-container');
+  this.$list = this.$container.find('.nicolib-SuggestSearch-suggestion-list'); //<ul>のラッパー
+  this.$suggestWords = this.$list.find('ul.nicolib-SuggestSearch-suggestion-suggest-items'); //サジェストワードの<ul>
+  this.$favoriteTags = this.$list.find('ul.nicolib-SuggestSearch-suggestion-favtag-items'); //お気に入りタグの<ul>
+
+  //サジェスト有効・無効スイッチ周りのDOMを取得しておく
+  this.$switchContainer = this.$container.find('.nicolib-SuggestSearch-footer-switch-container');
+  this.$enableLink = this.$switchContainer.find('.nicolib-SuggestSearch-switch-enable-link');
+  this.$enabledSpan = this.$switchContainer.find('.nicolib-SuggestSearch-switch-enabled');
+  this.$disableLink = this.$switchContainer.find('.nicolib-SuggestSearch-switch-disable-link');
+  this.$disabledSpan = this.$switchContainer.find('.nicolib-SuggestSearch-switch-disabled');
+
+  //DOMを突っ込んでおく
+  this.$container.hide();
+  if (this._hasInput) {
+    this.$targetInput.after(this.$container);
+    this.fitContainerPositionToInput();
+  }
+
+  //現在のアイテムを格納しておく変数
+  this.$items = null;
+
+  //入力フィールドへのイベントの登録
+  this._registerEventToTargetInput('focus', this._onInputFocus);
+  this._registerEventToTargetInput('blur', this._onInputBlur);
+  this._registerEventToTargetInput('keyup', this._onInputKeyUp);
+  this._registerEventToTargetInput('keydown', this._onInputKeyDown);
+  this._registerEventToTargetInput('mousedown', this._onInputMouseDown);
+
+  //サジェストアイテムへのイベントの登録
+  this._registerEventToItems('click', this._onItemClicked);
+  this._registerEventToItems('mouseenter', this._onItemMouseEntered);
+  this._registerEventToItems('mouseleave', this._onItemMouseLeaved);
+
+  this._registerEventToElement(this.$container, 'mouseenter', this._onContainerMouseEntered);
+  this._registerEventToElement(this.$container, 'mouseleave', this._onContainerMouseLeaved);
+
+  //サジェストの有効・無効のイベントの登録
+  if (Nico.SuggestSearch.ENABLE_SUGGEST_SWITCH) {
+    this._registerEventToElement(this.$enableLink, 'click', this._onEnableLinkClicked);
+    this._registerEventToElement(this.$disableLink, 'click', this._onDisableLinkClicked);
+  }
+
+  //ドキュメントクリック時に隠すようにイベント登録
+  this._registerEventToElement(jQuery(document), 'mousedown', this._onInputBlur);
+
+  //Firefoxは日本語入力中のkeydown/keyupが取得できないのでintervalでループする
+  if (((typeof navigator !== "undefined" && navigator !== null ? navigator.userAgent : void 0) != null)
+    && navigator.userAgent.indexOf('Firefox') >= 0) {
+    setInterval(function() {
+      if (self.$targetInput.is(':focus')) {
+        self._checkInput.call(self);
+      }
+    }, 250);
+  }
+};
+
+/**
+ * 定数定義エリア
+ */
+//キーコードの定義
+Nico.SuggestSearch.KEY_CODE_UP_ARROW = 38; //キーボードの「↑」のキーコード
+Nico.SuggestSearch.KEY_CODE_DOWN_ARROW = 40; //キーボードの「↓」のキーコード
+Nico.SuggestSearch.KEY_CODE_ENTER = 13; //キーボードの「ENTER」のキーコード
+
+//CSS用のクラス名の定義
+Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME = 'active';
+Nico.SuggestSearch.CONTAINER_ACTIVE_CLASS_NAME_FOR_JS = '_active';
+
+//サジェスト有効・無効スイッチのCookieのキー
+Nico.SuggestSearch.SUGGEST_DISABLED_COOKIE_KEY = 'suggestDisabled';
+
+//サジェスト無効の時のCookieの値
+Nico.SuggestSearch.SUGGEST_DISABLED_COOKIE_VALUE = 'disabled';
+
+//サジェスト有効・無効をスイッチするかどうか
+Nico.SuggestSearch.ENABLE_SUGGEST_SWITCH = false;
+
+//サジェスト検索機能が有効かどうか
+Nico.SuggestSearch.IS_ENABLED = true;
+
+//ユーザーがログインしているかどうか
+Nico.SuggestSearch.IS_LOGIN = false;
+
+//サジェスト候補を選択（Enter||クリック）した時の飛び先を定義する定数
+Nico.SuggestSearch.TARGET_PAGE_KEYWORD_SEARCH = 0;
+Nico.SuggestSearch.TARGET_PAGE_TAG_SEARCH = 1;
+Nico.SuggestSearch.TARGET_PAGE_MYLIST_SEARCH = 2;
+Nico.SuggestSearch.TARGET_PAGE_NONE = 3; //noneの時は入力欄に文字列が入力される
+Nico.SuggestSearch.TARGET_PAGE_RELATED_TAG_SEARCH = 4;
+Nico.SuggestSearch.TARGET_PAGE_DEFAULT = Nico.SuggestSearch.TARGET_PAGE_KEYWORD_SEARCH; //デフォルトの対象
+
+//サジェストAPIのURLを定義
+Nico.SuggestSearch.SUGGEST_API_URL = '//sug.search.nicovideo.jp/suggestion/complete';
+
+/**
+ * prototypeを定義
+ */
+Nico.SuggestSearch.prototype = {
+
+  //サジェストAPIを叩いた結果を格納
+  suggestList: [],
+
+  /**
+   * 対象の入力フィールドをプロパティにセットする
+   * @param targetInput string|jQueryオブジェクト
+   * @returns {boolean}
+   * @public
+   */
+  setTargetInput: function(targetInput) {
+    //文字列で渡ってきたらjQuery叩いてjQueryオブジェクトに変換
+    if (typeof targetInput === 'string') {
+      var $targetInput = jQuery(targetInput);
+      if ($targetInput.length > 0) targetInput = $targetInput;
+    }
+
+    //jQueryオブジェクトならそのままセットして、そうでなければnullをセットする
+    //<input>のDOMに _isNicoLibSuggestSearch フラグが立ってる場合は既にサジェスト検索機能の対象になってるDOMなので何もしない
+    if (this._isJQueryObject(targetInput) && targetInput.length > 0 && targetInput[0]
+      && (!('_isNicoLibSuggestSearch' in targetInput[0]) || !targetInput[0]._isNicoLibSuggestSearch)) {
+      this.$targetInput = targetInput;
+      //サジェストが表示される場合はオートコンプリートを無効にしておく
+      this.$targetInput.attr('autocomplete', 'off');
+      //targetInputのDOMに対して(jQueryオブジェクトじゃなくてDOM)サジェスト検索の対象になってるかどうかのフラグを立てる
+      this.$targetInput[0]._isNicoLibSuggestSearch = true;
+      return true;
+    } else {
+      this.$targetInput = null;
+      return false;
+    }
+  },
+
+  /**
+   * 検索送信functionをセットする。このfunctionの使い道はsendSubmit()メソッド参照してください
+   * @param {function} submitFunction
+   * @returns {boolean}
+   * @public
+   */
+  setSubmitFunction: function(submitFunction) {
+    //function以外が渡された場合はnullをセットしておく
+    if (typeof submitFunction === 'function') {
+      this.submitFunction = submitFunction;
+      return true;
+    } else {
+      this.submitFunction = null;
+      return false;
+    }
+  },
+
+  /**
+   * リンク先の対象ページをセットする
+   * @param {number} targetPage
+   * @returns {boolean}
+   */
+  setTargetPage: function(targetPage) {
+    if (!isNaN(targetPage)) {
+      //configで渡された飛び先のページをセットする
+      targetPage = +targetPage;
+      if (targetPage === Nico.SuggestSearch.TARGET_PAGE_KEYWORD_SEARCH
+        || targetPage === Nico.SuggestSearch.TARGET_PAGE_TAG_SEARCH
+        || targetPage === Nico.SuggestSearch.TARGET_PAGE_MYLIST_SEARCH
+        || targetPage === Nico.SuggestSearch.TARGET_PAGE_NONE
+        || targetPage === Nico.SuggestSearch.TARGET_PAGE_RELATED_TAG_SEARCH) {
+        this._targetPage = targetPage;
+        return true;
+      }
+    }
+    this._targetPage = Nico.SuggestSearch.TARGET_PAGE_DEFAULT;
+    return false;
+  },
+
+  /**
+   * サジェストを有効にする
+   */
+  start: function() {
+    if (this._hasInput) {
+      this.$targetInput.attr('autocomplete', 'off');
+    }
+    this._isEnabled = true;
+  },
+
+  /**
+   * サジェストを一時無効にする
+   */
+  stop: function() {
+    if (this._hasInput) {
+      this.$targetInput.attr('autocomplete', null);
+    }
+    this._isEnabled = false;
+    this.hideSuggest();
+  },
+
+  /**
+   * 完了時の処理が存在するかどうかを返す
+   * @returns {boolean}
+   * @private
+   */
+  _hasSubmitFunction: function() {
+    return typeof this.submitFunction === 'function';
+  },
+
+  /**
+   * フォーム送信処理を実施する。処理の中身は渡されたものを利用する.
+   * @param {object} $targetItem 選択された$('li')
+   * @param {boolean} [natural=false] JS側でページ遷移せずにそのままreturn trueを返すかどうか
+   * @returns {boolean}
+   * @public
+   */
+  sendSubmit: function($targetItem, natural) {
+    var targetText = this._getItemText($targetItem);
+
+    //送信時にサジェストを隠すオプションが有効な場合隠す
+    if (this._hideOnSubmit) {
+      this.$targetInput.blur(); //Firefox用にblurしておく
+      this.hideSuggest();
+    }
+
+    if (this._hasSubmitFunction()) {
+      //完了処理が定義されている場合は実行する
+      var params = this._generateLogParams();
+      this.submitFunction(targetText, $targetItem, params.ct === 1, params, this._generateLogParamsRequestString());
+      return false;
+    } else if ((typeof natural !== 'undefined') && !!natural) {
+      if ($targetItem.parents('.nicolib-SuggestSearch-suggestion-favtag-items').length > 0) {
+        $targetItem.find('a').attr('href', this._getTargetPageUrl(targetText, Nico.SuggestSearch.TARGET_PAGE_TAG_SEARCH));
+      } else {
+        $targetItem.find('a').attr('href', this._getTargetPageUrl(targetText));
+      }
+      return true;
+    } else if (this._isFavoriteTagItem($targetItem)) {
+      //クリックされたのがお気に入りタグならタグ検索ページに移動する
+      return this._redirectToTagSearchPage(targetText);
+    } else {
+      //お気に入りタグでなければ適当なところに移動する
+      return this._redirectToTargetPage(targetText);
+    }
+  },
+
+  /**
+   * フォームに入力されている検索文字列を取得する（前後の空白は無視）
+   * @returns {string}
+   * @public
+   */
+  getQuery: function() {
+    return (this._hasInput) ? jQuery.trim(this.$targetInput.val()) : '';
+  },
+
+  /**
+   * お気に入りタグ一覧を取得する
+   * @param callback function
+   * @public
+   */
+  fetchFavoriteTagsFromAPI: function(callback) {
+
+    //すでに取得済みの場合はそのままコールバックを実行
+    if (this.favoriteTags instanceof Array) {
+      if (typeof callback === 'function') callback.call(this);
+      return;
+    } else if(this._isFavtagRequested) {
+      return;
+    }
+    this._isFavtagRequested = true;
+
+    var favoriteTags = []
+      , self = this;
+    jQuery.ajax({
+      type: 'GET',
+      url: this.favoriteTagsApiUrl + '?t=' + (new Date()).getTime(),
+      dataType: 'json',
+
+      //成功時はfavoriteTagsを更新する
+      success: function(data, status) {
+        //status=ok で、favtag_itemsが配列の場合の時のみ更新
+        if (('status' in data) && data.status === 'ok'
+          && ('favtag_items' in data) && (data.favtag_items instanceof Array)) {
+          favoriteTags = data.favtag_items;
+          for (var i = 0, len = favoriteTags.length; i < len; i++) {
+            favoriteTags[i].regular_tag = self._regularize(favoriteTags[i].tag);
+          }
+        }
+      },
+      error: function(xhr, status, error) {
+      },
+
+      //成功/失敗に関わらず、this.favoriteTagsを更新してコールバックを実行する
+      complete: function() {
+        self.favoriteTags = favoriteTags;
+        if (typeof callback === 'function') callback.call(self);
+      }
+    });
+  },
+
+  /**
+   * 渡された文字列を元にサジェストの単語一覧を取得する
+   * @param {string} searchWord
+   * @param {function} callback
+   * @public
+   */
+  fetchSuggestWordsFromAPI: function(searchWord, callback) {
+    if (this._isRequestSending) return false;
+
+    this._isRequestSending = true;
+
+    var self = this
+      , searchWords = [];
+    jQuery.ajax({
+      type: 'GET',
+      url: this.suggestApiUrl + '/' + encodeURIComponent(searchWord),
+      dataType: 'json',
+      crossDomain: true,
+      //成功時はsuggestWordsを更新する
+      success: function(data) {
+        if ((typeof data !== 'undefined') && ('candidates' in data) && (data.candidates instanceof Array)) {
+          for (var i = 0; i < data.candidates.length; i++) {
+            searchWords.push(jQuery.trim(data.candidates[i]));
+          }
+          //結果をキャッシュしておく
+          self._suggestWordCache[searchWord] = searchWords;
+        }
+      },
+      error: function(xhr, status, error) {
+      },
+
+      //成功・失敗に関わらずコールバックを実行
+      complete: function() {
+        //指定されたディレイ後にリクエストフラグをオフにする
+        setTimeout(function() {
+          self._isRequestSending = false;
+        }, self.requestDelay);
+
+        //コールバックが指定されている場合はコールバックを叩く
+        if (typeof callback === 'function') callback.call(self, searchWords);
+      }
+    });
+
+    return true;
+  },
+
+  /**
+   * サジェストAPI叩いた結果を取得する
+   * すでに取得済みの単語の場合はキャッシュから返す
+   * @param {string} searchWord
+   * @param {function} callback
+   */
+  getSuggestWords: function(searchWord, callback) {
+    if (searchWord in this._suggestWordCache) {
+      if (typeof callback === 'function') callback.call(this, this._suggestWordCache[searchWord]);
+    } else if (!this.fetchSuggestWordsFromAPI(searchWord, callback)) {
+      return false;
+    }
+    return true;
+  },
+
+  /**
+   * サジェストを表示させる
+   * @returns {boolean}
+   * @public
+   */
+  showSuggest: function() {
+    //入力フィールドがなければ何もしない
+    if (!this._hasInput || !this.isSuggestEnabled()) return false;
+
+    if (this.getQuery().length <= 0 && this.$favoriteTags.find('li').length > 0) {
+      this.$favoriteTagsHeader.show();
+    } else {
+      this.$favoriteTagsHeader.hide();
+    }
+
+    this.$container.show();
+    return true;
+  },
+
+  /**
+   * サジェストを非表示にする
+   * @returns {boolean}
+   */
+  hideSuggest: function() {
+    //入力フィールドがなければ何もしない
+    if (!this._hasInput) return false;
+
+    this.$container.hide();
+    return true;
+  },
+
+  /**
+   * お気に入りタグだけでサジェストを表示させる
+   * @param {array.<string>} favoriteTags
+   * @returns {boolean}
+   */
+  showSuggestWithFavoriteTags: function(favoriteTags) {
+    if (this._renderSuggest(favoriteTags)) {
+      this.showSuggest();
+      return true;
+    } else {
+      this.hideSuggest();
+      return false;
+    }
+  },
+
+  /**
+   * サジェストのコンテナの位置を入力フィールドに合わせる
+   * @returns {boolean}
+   * @public
+   */
+  fitContainerPositionToInput: function() {
+    //入力フィールドがなければ何もしない
+    if (!this._hasInput) return false;
+    var inputPosition = this.$targetInput.position()
+      , marginLeft = this.$targetInput.css('margin-left')
+      , paddingTop = this.$targetInput.css('padding-top')
+      , paddingBottom = this.$targetInput.css('padding-bottom');
+
+    //margin/paddingをINTに整形
+    if (marginLeft) marginLeft = marginLeft.toString().replace('px', '');
+    if (paddingTop) paddingTop = paddingTop.toString().replace('px', '');
+    if (paddingBottom) paddingBottom = paddingBottom.toString().replace('px', '');
+    marginLeft = isNaN(marginLeft) ? 0 : +marginLeft;
+    paddingTop = isNaN(paddingTop) ? 0 : +paddingTop;
+    paddingBottom = isNaN(paddingBottom) ? 0 : +paddingBottom;
+
+    this.$container.css({
+      top: inputPosition.top + this.$targetInput.height() + paddingTop + paddingBottom,
+      left: inputPosition.left + marginLeft
+    });
+    return true;
+  },
+
+  /**
+   * サジェスト機能が有効になってるかどうかを返す
+   * @returns {boolean}
+   */
+  isSuggestEnabled: function() {
+    return Nico.SuggestSearch.IS_ENABLED && this._isEnabled
+      && this._getCookie(Nico.SuggestSearch.SUGGEST_DISABLED_COOKIE_KEY, 'enabled') !== Nico.SuggestSearch.SUGGEST_DISABLED_COOKIE_VALUE;
+  },
+
+  /**
+   * サジェスト機能を有効にする
+   * @public
+   */
+  enableSuggest: function() {
+    this._setCookie(Nico.SuggestSearch.SUGGEST_DISABLED_COOKIE_KEY, '', '-1');
+    this.$disabledSpan.hide();
+    this.$disableLink.show();
+    this.$enabledSpan.show();
+    this.$enableLink.hide();
+  },
+
+  /**
+   * サジェスト機能を無効にする
+   * @public
+   */
+  disableSuggest: function() {
+    this._setCookie(Nico.SuggestSearch.SUGGEST_DISABLED_COOKIE_KEY, Nico.SuggestSearch.SUGGEST_DISABLED_COOKIE_VALUE);
+    this.$disabledSpan.show();
+    this.$disableLink.hide();
+    this.$enabledSpan.hide();
+    this.$enableLink.show();
+  },
+
+  /**
+   * 指定したキーで値をクッキーにセットする
+   * @param {string} name
+   * @param {string} value
+   * @param {string|Date} expires
+   * @private
+   */
+  _setCookie: function(name, value, expires) {
+
+    //指定が無い場合は1日保存
+    if (typeof expires === 'undefined') {
+      expires = new Date();
+      expires.setDate(expires.getDate() + 1);
+    }
+
+    //日付の場合は文字列に変換しておく
+    if (expires instanceof Date) {
+      expires = expires.toUTCString();
+    }
+
+    //Cookieにセットする
+    document.cookie = [
+      encodeURIComponent(name), '=', '' + value,
+      '; domain=.nicovideo.jp',
+      '; path=/',
+      '; expires=', expires
+    ].join('');
+  },
+
+  /**
+   * 指定したクッキーの値を取得して返す
+   * @param {string} name
+   * @param {string} defaultValue
+   * @returns {*}
+   * @private
+   */
+  _getCookie: function(name, defaultValue) {
+    if (typeof defaultValue === 'undefined') defaultValue = null;
+
+    var cookies = document.cookie ? document.cookie.split('; ') : []
+      , i = 0
+      , len = cookies.length
+      , parts
+      , key
+      , value;
+
+    for (; i < len; i++) {
+      parts = cookies[i].split('=');
+      key = decodeURIComponent(parts.shift());
+      value = parts.join('=');
+
+      if (name && name === key) return decodeURIComponent(value);
+    }
+
+    return defaultValue;
+  },
+
+  /**
+   * サジェストの中身のHTMLを更新する
+   * @param {array.<string>} [favoriteTags] 表示させるお気に入りタグの文字列が格納されてる配列
+   * @param {array.<string>} [suggestWords] 描画するサジェスト文字列が格納されてる配列
+   * @returns {boolean}
+   * @private
+   */
+  _renderSuggest: function(favoriteTags, suggestWords) {
+    if (!this._hasInput) return false;
+
+    //サジェストが指定されているかどうか
+    var hasSuggestWords = (typeof suggestWords !== 'undefined') && (suggestWords instanceof Array)
+      , favoriteTagsHtml = '' //お気に入りタグ一覧のHTML
+      , suggestWordsHtml = '' //サジェスト一覧のHTML
+      , currentSearchWord = this.getQuery()
+      , $activeItem
+      , activeItemIndex = null
+      , itemCounter = 0
+      , existsOnFavoriteTag
+      , suggestWord
+      , i, n;
+
+    //お気に入りタグ一覧が渡されてない場合の初期化
+    if ((typeof favoriteTags === 'undefined') || !(favoriteTags instanceof Array)) {
+      //サジェストが指定されている場合は空の配列とし、指定が無い場合は全お気に入りタグとする
+      favoriteTags = (hasSuggestWords) ? [] : this._getFavoriteTagStrings();
+    }
+
+    //現在activeなアイテムがあれば上から何番目かを取得しておく
+    if (this._isJQueryObject(this.$items)) {
+      $activeItem = this.$items.filter('.' + Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME + ':first');
+      if ($activeItem.length > 0) {
+        this.$items.each(function(index, item) {
+          if (item === $activeItem[0]) {
+            activeItemIndex = index;
+            return false; //break;
+          }
+        });
+      }
+    }
+
+    //サジェストワードが渡されてない場合は空の配列とする
+    if (!hasSuggestWords) suggestWords = [];
+
+    //お気に入りタグ一覧のHTMLを生成する
+    for (i = 0; i < favoriteTags.length; i++) {
+      favoriteTagsHtml += this.templates.favoriteTagItem(jQuery.trim(favoriteTags[i]));
+      itemCounter++;
+    }
+
+    //サジェスト一覧のHTMLを生成する（お気に入りタグと合わせて最大10件(this.maxShowItemsCount)分まで生成）
+    for (i = 0; i < suggestWords.length && itemCounter < this.maxShowItemsCount; i++) {
+      if (currentSearchWord !== suggestWords[i]) {
+        //お気に入りタグで同じものが既に表示されているかどうかを確認
+        existsOnFavoriteTag = false;
+        for (n = 0; n < favoriteTags.length; n++) {
+          if (favoriteTags[n] === suggestWords[i]) {
+            existsOnFavoriteTag = true;
+            break;
+          }
+        }
+
+        //お気に入りタグで同じものが既に表示されている場合はスキップ
+        if (existsOnFavoriteTag) continue;
+
+        suggestWord = jQuery.trim(suggestWords[i]);
+        suggestWordsHtml += this.templates.suggestWordItem(suggestWord, this._getTargetPageUrl(suggestWord));
+        itemCounter++;
+      }
+    }
+
+    //ULのHTMLを更新
+    this.$suggestWords.empty().html(suggestWordsHtml);
+    this.$favoriteTags.empty().html(favoriteTagsHtml);
+    if (favoriteTagsHtml.length > 0) {
+      this.$favoriteTags.addClass(Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME);
+    } else {
+      this.$favoriteTags.removeClass(Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME);
+    }
+
+    //LIを変数として格納しておく
+    this.$items = this.$list.find('li');
+
+    //activeだったアイテムがあれば上から何番目の位置だったかに合わせて新しいアイテム一覧にactiveをつける
+    if (activeItemIndex !== null && this.$items[activeItemIndex]) {
+      jQuery(this.$items[activeItemIndex]).addClass(Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME);
+    }
+
+    //HTMLが空ならfalseを返す
+    return favoriteTagsHtml.length > 0 || suggestWordsHtml.length > 0;
+  },
+
+  /**
+   * 現在表示されてる全アイテム（サジェスト+お気に入りタグ）からactiveクラスを削除する
+   * @private
+   */
+  _removeAllActiveClasses: function() {
+    if (this._isJQueryObject(this.$items)) this.$items.removeClass(Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME);
+  },
+
+  /**
+   * 入力された値を取得して、お気に入りタグを検索して、
+   * マッチしたお気に入りタグが10件未満ならサジェストAPIを叩いてサジェストを取得・表示させる
+   * ※ここは this._hasInput === true 前提
+   * @param {boolean} [forceCheck = false] 前回の入力値と同じ場合もスキップしないようにするかどうか
+   * @returns {boolean}
+   * @private
+   */
+  _checkInput: function(forceCheck) {
+
+    //サジェストが無効なら何もしない
+    if (!this.isSuggestEnabled()) {
+      this.hideSuggest();
+      return false;
+    }
+
+    forceCheck = (typeof forceCheck === 'undefined') ? false : !!forceCheck;
+
+    //入力値を取得
+    var self = this
+      , inputValue = this.getQuery()
+      , inputValueModified = (this._recentSearchWord === inputValue)
+      , matchedFavoriteTags;
+
+    //最後の入力値を登録
+    this._recentSearchWord = inputValue;
+
+    //入力値が空の場合お気に入りタグだけでサジェストを表示させる
+    if (inputValue.length === 0) {
+      this.showSuggestWithFavoriteTags(); //全お気に入りタグを表示
+      return true;
+    } else if (!forceCheck && !inputValueModified) {
+      return true; //値に変更がなければ何もしない
+    }
+
+    //お気に入りタグを取得
+    matchedFavoriteTags = this._getMatchFavoriteTags(inputValue);
+
+    //一致したお気に入りタグの数が表示件数を満たしてるか、サジェスト表示文字数を満たしてない場合はそのままサジェストを描画して表示させる
+    if (inputValue.length < this.showSuggestMinLength || matchedFavoriteTags.length >= this.maxShowItemsCount) {
+      this.showSuggestWithFavoriteTags(matchedFavoriteTags);
+      return true;
+    }
+
+    //サジェストワード一覧を取得して、サジェストを表示させる
+    this.getSuggestWords(inputValue, function(searchWords) {
+      if (self._renderSuggest(matchedFavoriteTags, searchWords)) {
+        self.showSuggest();
+      } else {
+        self.hideSuggest();
+      }
+    });
+
+    return true;
+  },
+
+  /**
+   * お気に入りタグ(Object)一覧の配列をタグ名の文字列だけの配列に変換して返す
+   * @returns {array.<string>}
+   * @private
+   */
+  _getFavoriteTagStrings: function() {
+    var favoriteTags = [];
+
+    //お気に入りタグが取得されてない場合は空の配列を返す
+    if (this.favoriteTags === null) return favoriteTags;
+
+    for (var i = 0; i < this.favoriteTags.length; i++) {
+      favoriteTags.push(this.favoriteTags[i].tag);
+    }
+    return favoriteTags;
+  },
+
+  /**
+   * 渡された「検索文字列が格納された配列」に一致するお気に入りタグ一覧を返す
+   * @param {string} inputValue
+   * @returns {array.<string>}
+   * @private
+   */
+  _getMatchFavoriteTags: function(inputValue) {
+    var matchedFavoriteTags = []
+      , i
+      , favoriteTags
+      , favoriteTag
+      , tagMatched;
+
+    //お気に入りタグ取得前か、引数が配列でない、あるいは空であればそのまま空の配列を返す
+    if (this.favoriteTags === null || !inputValue || (inputValue += '').length === 0) return matchedFavoriteTags;
+
+    //お気に入りタグを全件ループさせて、引数で指定されたtagsと全部一致するものを取得する
+    favoriteTags = (this.favoriteTags !== null) ? this.favoriteTags : [];
+    inputValue = this._regularize(jQuery.trim(inputValue));
+    for (i = 0; i < favoriteTags.length; i++) {
+      favoriteTag = favoriteTags[i];
+      tagMatched = true; //一致しているかどうかのフラグ
+
+      //入力文字列と先頭一致したなら追加する
+      if (favoriteTag.regular_tag.indexOf(inputValue) === 0) {
+        matchedFavoriteTags.push(favoriteTag.tag);
+        //すでに10件マッチしてる場合はループを抜ける
+        if (matchedFavoriteTags.length >= this.maxShowItemsCount) break;
+      }
+    }
+
+    return matchedFavoriteTags;
+  },
+
+  /**
+   * jQueryオブジェクトかどうかを返す
+   * 環境によっては(obj instanceof jQuery)がfalseになるケースがあるようなのでプロパティから判断する
+   * @param {*} obj
+   * @returns {boolean}
+   * @private
+   */
+  _isJQueryObject: function(obj) {
+    return (typeof obj !== 'undefined') && (obj !== null) && obj && ('jquery' in obj) && obj.jquery;
+  },
+
+  /**
+   * 渡されたjQueryObjectに対して指定された内容でイベントを登録する
+   * @param {jQuery} $element
+   * @param {string} eventName
+   * @param {function} callback
+   * @private
+   */
+  _registerEventToElement: function($element, eventName, callback) {
+    var self = this;
+    $element[this.jQueryMethodOnName](eventName, function() {
+      callback.apply(self, arguments);
+    });
+  },
+
+  /**
+   * 対象の入力フィールドに対してイベントを登録する
+   * @param {string} eventName
+   * @param {function} callback
+   * @returns {boolean}
+   * @private
+   */
+  _registerEventToTargetInput: function(eventName, callback) {
+    //入力フィールドが無い場合は何もしない
+    if (!this._hasInput) return false;
+    //入力フィールドに対してイベントを登録
+    this._registerEventToElement(this.$targetInput, eventName, callback);
+    return true;
+  },
+
+  /**
+   * サジェストのアイテムに対してイベントを登録する
+   * @param {string} eventName
+   * @param {function} callback
+   * @returns {boolean}
+   * @private
+   */
+  _registerEventToItems: function(eventName, callback) {
+    //入力フィールドが無い場合は何もしない
+    if (!this._hasInput) return false;
+
+    var self = this;
+
+    //サジェスト内の要素がクリックされた時のイベントの登録
+    if (this.jQueryMethodOnName === 'on') {
+      this.$list.on(eventName, 'li a', function() {
+        callback.apply(self, arguments);
+      });
+    } else {
+      //.on()が使えない場合はliveで代用する
+      jQuery('.nicolib-SuggestSearch-suggestion-list ul li a').live(eventName, function() {
+        callback.apply(self, arguments);
+      });
+    }
+
+    return true;
+  },
+
+  /**
+   * 最後の入力のタイミングがディレイと被ると最後の入力状態で更新されないので、
+   * 最後の入力の時に更新するsetTimeoutを登録する処理
+   * @param {string} searchWord
+   * @private
+   */
+  _registerEventRecheckInputIfNotModified: function(searchWord) {
+    var self = this;
+
+    //既に再チェックイベントが登録されてる場合は削除しておく
+    if (this._recheckEvent) {
+      clearTimeout(this._recheckEvent);
+      this._recheckEvent = null;
+    }
+
+    //再チェックを登録する
+    this._recheckEvent = setTimeout(function() {
+      if (self.$targetInput.is(':focus')) {
+        self._checkInput.apply(self, arguments);
+      }
+    }, this.requestDelay + 1);
+  },
+
+  /**
+   * 対象の入力フィールドにフォーカスされた時の処理
+   * サジェストを表示する。
+   * 初回フォーカス時はお気に入りタグを取得する。
+   * @param {object} event
+   * @returns {boolean}
+   * @private
+   */
+  _onInputFocus: function(event) {
+    if (!this._initFocusTimestamp) {
+      this._initFocusTimestamp = (new Date()).getTime();
+    }
+    if (!this._isInitLogged) {
+      this._isInitLogged = true;
+      jQuery.get('/api/1?target=search_suggest&t=' + (new Date()).getTime());
+    }
+
+    //初回フォーカス時のチェック
+    if (this._isFirstFocus) {
+      //フラグを折る
+      this._isFirstFocus = false;
+      //初回表示時にcheckInputを行わないフラグが立ってる場合何もしない
+      if (this.skipFirstFocus) {
+        return true;
+      }
+    }
+
+    //フォーカス時にPositionをセットし直す
+    if (this._hasInput) {
+      this.fitContainerPositionToInput();
+    }
+
+    if (this.isSuggestEnabled()) {
+      //ログイン状態での初回フォーカス時はお気に入りタグを取得して、サジェスト表示を登録する
+      if (Nico.SuggestSearch.IS_LOGIN && this.favoriteTags === null) {
+        this.fetchFavoriteTagsFromAPI(this._checkInput);
+      } else {
+        //サジェストを表示する
+        this._checkInput();
+      }
+    }
+    return true;
+  },
+
+  /**
+   * フォーカスアウト時に必要があればサジェストを非表示にする
+   * @param event
+   * @private
+   */
+  _onInputBlur: function(event) {
+    if ((event.type === 'mousedown' || event.type === 'click')) {
+      //クリック系イベントの場合は対象がサジェストアイテムであれば何もしない
+      if (event.target && (
+        jQuery(event.target).parents('.nicolib-SuggestSearch-suggestions').length <= 0
+          && (!('_isNicoLibSuggestSearch' in event.target) || !event.target._isNicoLibSuggestSearch)
+        )) {
+        this.hideSuggest();
+      }
+    } else if (!this.$container.hasClass(Nico.SuggestSearch.CONTAINER_ACTIVE_CLASS_NAME_FOR_JS)) {
+      //それ以外であればフォーカスアウト時なので隠す
+      this.hideSuggest();
+    }
+  },
+
+  /**
+   * 対象の入力フィールドにてkeyupイベントが発生した時の処理
+   * @param {object} event
+   * @returns {boolean}
+   * @private
+   */
+  _onInputKeyUp: function(event) {
+    if (event.keyCode === Nico.SuggestSearch.KEY_CODE_DOWN_ARROW || event.keyCode === Nico.SuggestSearch.KEY_CODE_UP_ARROW
+      || event.keyCode === Nico.SuggestSearch.KEY_CODE_ENTER) {
+      event.preventDefault();
+      return false;
+    }
+    this._checkInput(true);
+    this._registerEventRecheckInputIfNotModified(this.getQuery());
+    return true;
+  },
+
+  /**
+   * 対象の入力フィールドにkeydownイベントが発生した時の処理
+   * @param {object} event
+   * @returns {boolean}
+   * @private
+   */
+  _onInputKeyDown: function(event) {
+    if (event.keyCode === Nico.SuggestSearch.KEY_CODE_DOWN_ARROW || event.keyCode === Nico.SuggestSearch.KEY_CODE_UP_ARROW) {
+      event.preventDefault();
+      this._moveActiveItem(event.keyCode === Nico.SuggestSearch.KEY_CODE_DOWN_ARROW);
+      return false;
+    } else if (event.keyCode === Nico.SuggestSearch.KEY_CODE_ENTER) {
+      //ENTERが押された場合、アクティブなアイテムがあればフォームの送信をキャンセルして値をセットしにいく
+      var $currentActiveItem = this._getCurrentActiveItem();
+      if (this._isJQueryObject($currentActiveItem)) {
+        event.preventDefault();
+        this.sendSubmit($currentActiveItem);
+        return false;
+      }
+    }
+    this._checkInput();
+    return true;
+  },
+
+  /**
+   * フォーカスとは別にクリック時にもフラグを折る
+   * @param {object} event
+   * @private
+   */
+  _onInputMouseDown: function(event) {
+    this._onInputFocus();
+  },
+
+  /**
+   * サジェストを有効にする「オン」リンクがクリックされた時の動作
+   * @param {object} event
+   * @returns {false}
+   * @private
+   */
+  _onEnableLinkClicked: function(event) {
+    this.enableSuggest();
+    return false;
+  },
+
+  /**
+   * サジェストを無効にする「オフ」リンクがクリックされた時の動作
+   * @param {object} event
+   * @returns {false}
+   * @private
+   */
+  _onDisableLinkClicked: function(event) {
+    this.disableSuggest();
+    this.hideSuggest();
+    return false;
+  },
+
+  /**
+   * サジェストアイテムがクリックされた時の処理
+   * @param {object} event
+   * @private
+   */
+  _onItemClicked: function(event) {
+    var $targetItem = this._getTargetItemFromEvent(event);
+    this.sendSubmit($targetItem, true);
+    if (this._hasSubmitFunction()) {
+      event.preventDefault();
+      return false;
+    }
+  },
+
+  /**
+   * サジェストアイテムにマウスカーソルがあたったらアクティブにする
+   * @param event
+   * @private
+   */
+  _onItemMouseEntered: function(event) {
+    this._removeAllActiveClasses();
+    if (event.target) {
+      var $item = jQuery(event.target);
+      if (event.target.nodeName.toLowerCase() !== 'li') {
+        $item = $item.parents('li');
+      }
+      $item.addClass(Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME);
+    }
+  },
+
+  /**
+   * サジェストアイテムからマウスカーソルが外れたらアクティブクラスを削除する
+   * @param event
+   * @private
+   */
+  _onItemMouseLeaved: function(event) {
+    this._removeAllActiveClasses();
+  },
+
+  /**
+   * サジェストアイテムへのホバー時にその要素に対してホバー状態を表すクラスを付与する
+   * @param {object} event
+   * @return {bool} return only true
+   * @private
+   */
+  _onContainerMouseEntered: function(event) {
+    this.$container.addClass(Nico.SuggestSearch.CONTAINER_ACTIVE_CLASS_NAME_FOR_JS);
+    return true;
+  },
+
+  /**
+   * サジェストアイテムからのホバーアウト時にその要素に対してホバー状態を表すクラスを削除する
+   * @param {object} event
+   * @return {bool} return only true
+   * @private
+   */
+  _onContainerMouseLeaved: function(event) {
+    this.$container.removeClass(Nico.SuggestSearch.CONTAINER_ACTIVE_CLASS_NAME_FOR_JS);
+    return true;
+  },
+
+  /**
+   * 入力フィールドの末尾にフォーカスを移動させる
+   * 参考： http://d.hatena.ne.jp/minmin_lucky7/20110426/1303804105
+   * @private
+   */
+  _focusInputEnd: function() {
+    var targetInput = this.$targetInput[0];
+    targetInput.focus();
+    targetInput.value += '';
+  },
+
+  /**
+   * 渡されたイベントから対象の<li>のjQueryオブジェクトを返す
+   * @param {object} event
+   * @private
+   */
+  _getTargetItemFromEvent: function(event) {
+    var $target = jQuery(event.target);
+    if (event.target.tagName.toLowerCase() !== 'li') $target = $target.parents('li');
+    return $target;
+  },
+
+  /**
+   * 渡されたサジェストアイテムの値を入力要素に転記する
+   * @param {jQuery} $targetItem
+   * @private
+   */
+  _setSelectedItemToInput: function($targetItem) {
+    this._setWordToTargetInput(this._getItemText($targetItem));
+  },
+
+  /**
+   * 渡された文字列を入力要素に転記する
+   * @param {string} word
+   * @private
+   */
+  _setWordToTargetInput: function(word) {
+    this.$targetInput.val(word);
+  },
+
+  /**
+   * 渡されたサジェストアイテムの文字列を返す
+   * @param $targetItem
+   * @returns {bool|string}
+   * @private
+   */
+  _getItemText: function($targetItem) {
+    if (!this._isJQueryObject($targetItem) || $targetItem.length === 0
+      || $targetItem[0].nodeName.toLowerCase() !== 'li') {
+      return false;
+    }
+    return jQuery.trim($targetItem.find('.nicolib-SuggestSearch-suggestion-item-name').text());
+  },
+
+  /**
+   * サジェストのフォーカス位置を移動させる
+   * @param {boolean} toDown フォーカスを1個下に移動させる場合はtrue,1個上の場合はfalse
+   * @returns {boolean}
+   */
+  _moveActiveItem: function(toDown) {
+    var $currentItem = null
+      , $previousItem = null
+      , $targetItem = null
+      , nextIsTarget = false;
+
+    //アイテム一覧が取得できなかった場合は何もしない
+    if (!this._isJQueryObject(this.$items)) {
+      return false;
+    }
+
+    //UL2つをまたいだ<li>のリストから対象となる前後のアイテムを取得する
+    this.$items.each(function(index, item) {
+      var $item = jQuery(item);
+
+      //nextIsTargetフラグがONならこれが移動先のアイテム
+      if (nextIsTarget) {
+        $targetItem = $item;
+        return false; //break
+      }
+
+      //現在フォーカス中のクラスの場合
+      if ($item.hasClass(Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME)) {
+        //現在のアイテムをセットする
+        $currentItem = $item;
+
+        if (toDown) {
+          //下に移動する場合
+          nextIsTarget = true;
+        } else {
+          //上に移動する場合
+          $targetItem = $previousItem;
+          return false; //break
+        }
+      }
+      $previousItem = $item;
+      return true; //continue
+    });
+
+    //移動先のアイテムが取得できない場合、移動先をセットする
+    if (!this._isJQueryObject($targetItem)) {
+      if (this._isJQueryObject($currentItem)) {
+        //先頭か末尾にフォーカスがある場合は選択中アイテムを無くし、inputにフォーカスを戻す
+        this._removeAllActiveClasses();
+        this._focusInputEnd();
+        return true;
+      } else {
+        //フォーカスが無い場合（フォーカスがinputにある場合）先頭(or末尾)のアイテムにフォーカスをセットする
+        $targetItem =  this.$items.filter(toDown ? ':first' : ':last');
+      }
+    }
+
+    //他のすべてのアイテムからactiveクラスを削除し、対象のアイテムにactiveクラスを追加する
+    this._removeAllActiveClasses();
+    $targetItem.addClass(Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME);
+
+    return true;
+  },
+
+  /**
+   * 現在アクティブな（矢印キーでフォーカスされてる）アイテムのjQueryオブジェクトを返す
+   * @returns {false|jQuery}
+   * @private
+   */
+  _getCurrentActiveItem: function() {
+    //コンテナが非表示なのであれば全activeクラスを削除したうえで何もしない
+    if (this.$container.is(':visible')) {
+      //コンテナが表示状態であればactiveな行を返す
+      var $activeItem = this.$items.filter('.' + Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME + ':first');
+      if ($activeItem.length > 0) {
+        return $activeItem;
+      }
+    }
+    return false;
+  },
+
+  /**
+   * 渡されたjQueryオブジェクトがお気に入りタグの候補かどうかを返す
+   * @param {object} $item
+   * @returns {boolean}
+   * @private
+   */
+  _isFavoriteTagItem: function($item) {
+    return this._isJQueryObject($item) && $item[0].nodeName.toLowerCase() === 'li'
+      && $item.parents('ul.nicolib-SuggestSearch-suggestion-favtag-items').length > 0;
+  },
+
+  /**
+   * 対象の入力要素にフォーカスがあたってるかどうかを返す
+   * @returns {boolean}
+   * @private
+   */
+  _isFocusedToTargetInput: function() {
+    return this._hasInput && this.$targetInput.is(':focus');
+  },
+
+  /**
+   * レギュラータグ形式に変換する
+   * @param {string} string
+   * @returns {string}
+   * @private
+   */
+  _regularize: function(string) {
+    var self = this;
+    return string
+      //全角スペースを半角スペースに変換
+      .replace('　', ' ')
+      //大文字に変換
+      .toUpperCase()
+      //全角英数を半角英数に変換
+      .replace(this.regularTagRegExpAlphaNum, function(character) {
+        return String.fromCharCode(character.charCodeAt(0) - 0xFEE0);
+      })
+      //ひらがなをカタカナに変換
+      .replace(this.regularTagRegExpHiragana, function(character) {
+        return String.fromCharCode(character.charCodeAt(0) + 0x60);
+      })
+      //変換テーブルにしたがって変換
+      .replace(this.regularTagTableRegExp, function(character) {
+        if ((character in self.regularTagTable) && self.regularTagTable[character]) {
+          return self.regularTagTable[character];
+        } else {
+          return character;
+        }
+      });
+  },
+
+  /**
+   * リンク先のURLを生成して返す
+   * @param {string} targetText 検索文字列
+   * @param {undefined|number} targetPage 対象ページを明示的に指定する場合必要。指定が無ければインスタンスに設定されたリンク先が利用される
+   * @returns {string|false}
+   * @private
+   */
+  _getTargetPageUrl: function(targetText, targetPage) {
+    if (typeof targetPage === 'undefined' || isNaN(targetPage)) {
+      targetPage = this._targetPage;
+    }
+
+    var encodedText = encodeURIComponent(targetText) + '?' + this._generateLogParamsRequestString();
+
+    if (targetPage === Nico.SuggestSearch.TARGET_PAGE_KEYWORD_SEARCH) {
+      return '/search/' + encodedText;
+    } else if (targetPage === Nico.SuggestSearch.TARGET_PAGE_TAG_SEARCH) {
+      return '/tag/' + encodedText;
+    } else if (targetPage === Nico.SuggestSearch.TARGET_PAGE_MYLIST_SEARCH) {
+      return '/mylist_search/' + encodedText;
+    } else if (targetPage === Nico.SuggestSearch.TARGET_PAGE_RELATED_TAG_SEARCH) {
+      return '/related_tag/' + encodedText;
+    } else {
+      return false;
+    }
+  },
+
+  /**
+   * ログ出力用のパラメータObjectを返す
+   * @returns {{hft: number, st: number, itc: number, ct: number, cip: number}}
+   * @private
+   */
+  _generateLogParams: function() {
+    var params = {
+        hft: ((this.favoriteTags instanceof Array) && this.favoriteTags.length > 0) ? 1 : 0,
+        st: this._initFocusTimestamp,
+        itc: this.$suggestWords.find('li').length,
+        ct: 0,
+        cip: 0
+      }
+      , $currentItem = this._getCurrentActiveItem();
+    if ($currentItem) {
+      params.ct = $currentItem.parents('.nicolib-SuggestSearch-suggestion-favtag-items').length > 0 ? 1 : 2;
+      this.$items.each(function(index, element) {
+        if (jQuery(element).hasClass(Nico.SuggestSearch.ITEM_ACTIVE_CLASS_NAME)) {
+          params.cip = index + 1;
+          return false;
+        }
+      });
+    }
+    return params;
+  },
+
+  /**
+   * ログ出力用のパラメータのGET URL用の文字列を返す（先頭の?/&は含まない)
+   * @returns {string}
+   * @private
+   */
+  _generateLogParamsRequestString: function() {
+    var params = this._generateLogParams();
+    var stringParams = [];
+    jQuery.each(params, function(key, value) {
+      stringParams.push(key + '=' + value);
+    });
+    return stringParams.join('&');
+  },
+
+  /**
+   * 対象ページにリダイレクトする
+   * @param {string} targetText
+   * @returns {bool}
+   * @private
+   */
+  _redirectToTargetPage: function(targetText) {
+    var targetPageUrl = this._getTargetPageUrl(targetText);
+    if (targetPageUrl) {
+      location.href = targetPageUrl;
+      return false;
+    } else {
+      //対象ページがNONEの場合は入力欄に文字列を設定する
+      this._removeAllActiveClasses();
+      return this._setWordToTargetInput(targetText);
+    }
+  },
+
+  /**
+   * タグ検索ページにリダイレクトする
+   * @param {string} targetText
+   * @private
+   */
+  _redirectToTagSearchPage: function(targetText) {
+    location.href = this._getTargetPageUrl(targetText, Nico.SuggestSearch.TARGET_PAGE_TAG_SEARCH);
+  }
+};
+
+/**
+ * HTMLテンプレート
+ * @type {object.<function>}
+ */
+Nico.SuggestSearch.templates = {
+  /**
+   * サジェストを表示するメインのコンテナのHTMLを返す
+   * @returns {string}
+   */
+  container: function(suggestSwitchEnabled) {
+    suggestSwitchEnabled = (typeof suggestSwitchEnabled === 'undefined') ? true : !!suggestSwitchEnabled;
+    return '<div class="nicolib-SuggestSearch-suggestions suggestBox" style="display: none;">' +
+      '<div class="nicolib-SuggestSearch-suggestion-list suggestBoxInner">' +
+      '<div class="nicolib-SuggestSearch-footer-favtag-edit-container favTagEditBox">' +
+      '<p>★お気に入りタグ</p>' +
+      '<a href="/my/fav/tag">編集</a>' +
+      '</div>' +
+      '<ul class="nicolib-SuggestSearch-suggestion-favtag-items favTagItem"></ul>' +
+      '<ul class="nicolib-SuggestSearch-suggestion-suggest-items suggestItem"></ul>' +
+      '</div>' +
+      '<div class="nicolib-SuggestSearch-footer">' +
+      ( (suggestSwitchEnabled) ?
+        '<div class="nicolib-SuggestSearch-footer-switch-container">' +
+          '候補の表示：' +
+          '<a href="#" class="nicolib-SuggestSearch-switch-enable-link" style="display: none;">オン</a>' +
+          '<span class="nicolib-SuggestSearch-switch-enabled">オン</span>' +
+          ' / ' +
+          '<a href="#" class="nicolib-SuggestSearch-switch-disable-link">オフ</a>' +
+          '<span class="nicolib-SuggestSearch-switch-disabled" style="display: none;">オフ</span>' +
+          '</div>' : ''
+        ) +
+      '</div>' +
+      '</div>';
+  },
+  /**
+   * お気に入りタグの各行となる<li>タグを返す
+   * @param {string} tagName
+   * @returns {string}
+   */
+  favoriteTagItem: function(tagName) {
+    return '<li>' +
+      '<a href="/tag/' + tagName.toString() + '">' +
+      /*'<span class="nicolib-SuggestSearch-suggestion-favtag-star">★</span>' + */
+      '<span class="nicolib-SuggestSearch-suggestion-item-name">' + tagName.toString() + '</span>' +
+      '</a>' +
+      '</li>';
+  },
+  /**
+   * サジェストの各行となる<li>タグを返す
+   * @param {string} suggestWord
+   * @returns {string}
+   */
+  suggestWordItem: function(suggestWord, link) {
+    return '<li>' +
+      '<a href="' + link + '">' +
+      '<span class="nicolib-SuggestSearch-suggestion-item-name">' + suggestWord.toString() + '</span>' +
+      '</a>' +
+      '</li>';
+  }
+};
+
+/**
+ * レギューラータグ変換用テーブル
+ * @type {object<string>}
+ */
+Nico.SuggestSearch.REGULAR_TAG_TRANSFORM_TABLE = {
+  'ｶﾞ': 'ガ', 'ｷﾞ': 'ギ', 'ｸﾞ': 'グ', 'ｹﾞ': 'ゲ', 'ｺﾞ': 'ゴ', 'ｻﾞ': 'ザ', 'ｼﾞ': 'ジ', 'ｽﾞ': 'ズ', 'ｾﾞ': 'ゼ', 'ｿﾞ': 'ゾ',
+  'ﾀﾞ': 'ダ', 'ﾁﾞ': 'ヂ', 'ﾂﾞ': 'ヅ', 'ﾃﾞ': 'デ', 'ﾄﾞ': 'ド', 'ﾊﾞ': 'バ', 'ﾊﾟ': 'パ', 'ﾋﾞ': 'ビ', 'ﾋﾟ': 'ピ', 'ﾌﾞ': 'ブ',
+  'ﾌﾟ': 'プ', 'ﾍﾞ': 'ベ', 'ﾍﾟ': 'ペ', 'ﾎﾞ': 'ボ', 'ﾎﾟ': 'ポ', 'ｳﾞ': 'ヴ', 'ｧ': 'ァ', 'ｱ': 'ア', 'ｨ': 'ィ', 'ｲ': 'イ',
+  'ｩ': 'ゥ', 'ｳ': 'ウ', 'ｪ': 'ェ', 'ｴ': 'エ', 'ｫ': 'ォ', 'ｵ': 'オ', 'ｶ': 'カ', 'ｷ': 'キ', 'ｸ': 'ク', 'ｹ': 'ケ', 'ｺ': 'コ',
+  'ｻ': 'サ', 'ｼ': 'シ', 'ｽ': 'ス', 'ｾ': 'セ', 'ｿ': 'ソ', 'ﾀ': 'タ', 'ﾁ': 'チ', 'ｯ': 'ッ', 'ﾂ': 'ツ', 'ﾃ': 'テ', 'ﾄ': 'ト',
+  'ﾅ': 'ナ', 'ﾆ': 'ニ', 'ﾇ': 'ヌ', 'ﾈ': 'ネ', 'ﾉ': 'ノ', 'ﾊ': 'ハ', 'ﾋ': 'ヒ', 'ﾌ': 'フ', 'ﾍ': 'ヘ', 'ﾎ': 'ホ', 'ﾏ': 'マ',
+  'ﾐ': 'ミ', 'ﾑ': 'ム', 'ﾒ': 'メ', 'ﾓ': 'モ', 'ｬ': 'ャ', 'ﾔ': 'ヤ', 'ｭ': 'ュ', 'ﾕ': 'ユ', 'ｮ': 'ョ', 'ﾖ': 'ヨ', 'ﾗ': 'ラ',
+  'ﾘ': 'リ', 'ﾙ': 'ル', 'ﾚ': 'レ', 'ﾛ': 'ロ', 'ﾜ': 'ワ', 'ｦ': 'ヲ', 'ﾝ': 'ン'
+};
