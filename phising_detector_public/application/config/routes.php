@@ -73,3 +73,4 @@ $route['legitimate/result'] = 'legitimate/legitimateresult';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['assets/(:any)'] = 'assets/$1';

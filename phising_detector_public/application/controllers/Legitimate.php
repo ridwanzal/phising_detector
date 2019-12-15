@@ -82,10 +82,10 @@ class Legitimate extends CI_Controller {
         $task_id = $this->input->post('task_id');
         switch($count){
             case 10 :
-                $main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/testing/10_sample/legitimate/';
+                $main_path1 = $_SERVER['DOCUMENT_ROOT'].'/assets/testing/10_sample/legitimate/';
             break;
             case 100 :
-                $main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/testing/100_sample/legitimate/';
+                $main_path1 = $_SERVER['DOCUMENT_ROOT'].'/assets/testing/100_sample/legitimate/';
             break;
         }
 

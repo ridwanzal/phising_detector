@@ -560,12 +560,12 @@ class Training extends CI_Controller {
 
 			switch($count){
 				case 10 :
-					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/10_sample/phishing/';
-					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/10_sample/legitimate/';
+					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/assets/training/10_sample/phishing/';
+					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/assets/training/10_sample/legitimate/';
 				break;
 				case 100 :
-					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/100_sample/phishing/';
-					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/100_sample/legitimate/';
+					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/assets/training/100_sample/phishing/';
+					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/assets/training/100_sample/legitimate/';
 				break;
 			}
 ;			if($check_ifclick){
