@@ -66,7 +66,7 @@ class Legitimate extends CI_Controller {
 	public function deletetask(){
 		$id = $this->input->post('sch_id');
 		$type = 'legitimate';
-		$sql_task = $this->Mphschedule->delete_id($i, $type);
+		$sql_task = $this->Mphschedule->delete_id($id, $type);
 		if(!$sql_task){
 			echo 'gagal delete';
 		}else{
