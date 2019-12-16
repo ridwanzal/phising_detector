@@ -1,0 +1,782 @@
+@charset "UTF-8";
+/* CSS Document */
+/*    *** begin reset css - note: with tweeks ***    */
+
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* @version v4.5-220609 */
+
+.txtbanking html, .txtbanking body, .txtbanking div, .txtbanking span, .txtbanking applet, .txtbanking object, .txtbanking iframe,
+.txtbanking h1, .txtbanking h2, .txtbanking h3, .txtbanking h4, .txtbanking h5, .txtbanking h6, .txtbanking p, .txtbanking blockquote, .txtbanking pre,
+.txtbanking abbr, .txtbanking acronym, .txtbanking address, .txtbanking big, .txtbanking cite, .txtbanking code,
+.txtbanking del, .txtbanking dfn, .txtbanking em, .txtbanking font, .txtbanking img, .txtbanking ins, .txtbanking kbd, .txtbanking q, .txtbanking s, .txtbanking samp,
+.txtbanking small, .txtbanking strike, .txtbanking strong, .txtbanking sub, .txtbanking sup, .txtbanking tt, .txtbanking var,
+.txtbanking b, .txtbanking u, .txtbanking i, .txtbanking center,
+.txtbanking dl, .txtbanking dt, .txtbanking dd, .txtbanking ol, .txtbanking ul, .txtbanking li,
+.txtbanking fieldset, .txtbanking form, .txtbanking label, .txtbanking legend,
+.txtbanking table, .txtbanking caption, .txtbanking tbody, .txtbanking tfoot, .txtbanking thead, .txtbanking tr, .txtbanking th, .txtbanking td {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+}
+.txtbanking a {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+}
+
+.txtbanking body {
+line-height: 1.5;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 81.25%; /* 100% / 16 = 6.25 (equivalent to setting the font size to 10pt). 6.25 * 13 = 81.25 (%)  */
+color: #000;
+background: #FFF;
+position: relative;
+}
+
+.txtbanking {
+	line-height: 1.5;
+}
+
+.txtbanking ol, .txtbanking ul {
+list-style: none;
+}
+.txtbanking blockquote, .txtbanking q {
+quotes: none;
+}
+.txtbanking blockquote:before, .txtbanking blockquote:after,
+.txtbanking q:before, .txtbanking q:after {
+content: '';
+content: none;
+}
+/* remember to define focus styles! */
+/*
+a:focus {
+outline: dotted 1px #000;
+}
+*/
+/* remember to highlight inserts somehow! */
+.txtbanking ins {
+text-decoration: none;
+}
+.txtbanking del {
+text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+.txtbanking table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/*    *** end reset css ***    */
+
+/* 
+	font sizes - relative to 13px being the default, which equals 1em. 
+	[h1] 24pt: 24 / 13 = 1.84em
+	[h2] 18pt:  18 / 13 = 1.385em
+	[h3] 15pt = 15 / 13 = 1.15em
+	[h4] 13pt = 13 / 13 = 1em
+	16pt = 16 / 13 = 1.231
+	14pt = 14 / 13 = 1.08em ## changed to 1.077
+	12pt = 12 / 13 = 0.92em
+	11pt = 11 / 13 = 0.846em
+		
+	Note: values limited to two decimal places in most cases
+	Note: content area is 768px
+	
+*/
+
+
+/*    *** begin westpac css ***    */
+
+	/* ## general page layout ## */
+	
+#wrapper {
+float: left; /* ensures the red bar appears in all browsers */
+position: relative; /* logo is absolutely positioned */
+padding-bottom: 50px;
+}
+#logo {
+position: absolute;
+top: 0;
+left: 9px;
+}
+#container { /* contains the navigation and content */
+width: 928px;
+}
+#navigation {
+float: left;
+width: 140px;
+margin-top: 60px; /* appears 53 pixels below the red bar */
+}
+
+	/* popup window styles */
+
+#wrapper.popup {
+}
+.txtbanking .popup #container {
+width: 100%;
+}
+
+
+	/* ## heading styles ## */
+	
+.txtbanking h1 { /* equivalent to:  Arial, 24pt, regular */
+position: relative;
+display: inline;
+font-size: 1.846em;
+font-weight: normal;
+color: #DC241F;
+margin-top: -6px; /* adjustment to match design */
+}
+.txtbanking h2 { 
+font-size: 1.385em;
+font-weight: bold;
+color: #333333;
+margin-top: 5px;
+}
+.txtbanking h2.margin-top {
+margin-top: 5px;
+}
+.txtbanking h3 { /* equivalent to:  Arial, 18pt, regular. Red dotted line below */
+font-size: 1.385em;
+font-weight: normal;
+color: #DC241F;
+padding-bottom: 3px; /* allows for the space between the text and the dotted line */
+margin-bottom: 10px;
+margin-top: 19px;
+}
+.txtbanking h3.black { /* equivalent to:  Arial, black, 15pt, bold. Red dotted line below */
+font-size: 1.15em;
+font-weight: bold;
+color: #333;
+margin-top: 35px;
+padding-bottom: 5px;
+}
+.txtbanking h4 { /* equivalent to Arial, 13pt, bold. */
+margin-bottom: 10px;
+color: #333;
+}
+.txtbanking h3.section, h4.section {
+font-size: 1.154em;
+font-weight: bold;
+color: #333;
+background: none;
+padding-bottom: 8px;
+margin-top: 45px;
+margin-bottom: 0;
+border-bottom: 1px solid #565C64;
+}
+.txtbanking h3.first-item, h4.first-item {
+margin-top: 17px;
+}
+.txtbanking h3.margin-top, h4.margin-top {
+margin-top: 25px; 
+}
+.txtbanking h3.margin-bottom, h4.margin-bottom {
+margin-bottom: 10px; 
+}
+.txtbanking h4.no-margin-bottom {
+margin-bottom: 0;
+}
+.txtbanking h4.extramargin-bottom {
+margin-bottom: 20px;
+}
+.txtbanking h4 span.regular {
+color: #434343;
+}
+.txtbanking h3.section-complete, h4.section-complete {
+font-size: 1em;
+font-weight: bold;
+color: #DC241F;
+background: none;
+padding-top: 8px;
+border-top: 1px solid #DC241F;
+}
+.txtbanking h1, h2, h3, h4 {
+clear: left;
+}
+	/* ## LHS navigation - input fields set up as standard Westpac navigation ## */
+	
+#navigation .nav-list {
+color: #DE001F;
+width: 139px;
+margin: 0;
+font-family: Tahoma, Arial, Helvetica, sans-serif;
+font-size: 0.85em;
+letter-spacing: 1.1px;
+line-height: 1.36;
+}
+#navigation .nav-list .condense {
+letter-spacing: normal;
+word-spacing: normal;
+}
+#navigation .nav-list li {
+float: left;
+width: 139px;
+padding-bottom: 1px;
+}
+#navigation .nav-list li ul {
+float: left;
+padding-top: 1px;
+}
+#navigation .nav-list li ul li {
+float: left;
+width: 139px;
+}
+#navigation .nav-list li a {
+display: block;
+position: relative;
+width: 125px;
+color: #0A1926;
+text-decoration: none;
+padding: 4px 5px 5px 9px;
+}
+#navigation .nav-list li.new a {
+padding: 4px 31px 5px 9px;
+width: 99px;
+}
+#navigation .nav-list li.new a span {
+position: absolute;
+bottom: 5px;
+right: 3px;
+width: 25px;
+height: 15px;
+}
+#navigation .nav-list li.new a span em {
+display: none;
+}
+#navigation .nav-list li.new-highlight a {
+padding: 4px 34px 5px 9px;
+width: 96px;
+}
+#navigation .nav-list li.new-highlight a span {
+position: absolute;
+bottom: 5px;
+right: 3px;
+background: #F6FC00;
+padding: 0 1px;
+}
+#navigation .nav-list li.new-highlight a span em {
+font-style: normal;
+}
+#navigation .nav-list li.new a.current span, #navigation .nav-list li.new-highlight a.current span {
+display: none;
+}
+#navigation .nav-list li a.current {
+display: block;
+background: #FFF;
+margin: 0 0 -1px 0; /* top -1px is to pull this up and hide the border from the item above */ 
+padding: 4px 5px 6px 9px;
+position: relative;
+float: left;
+width: 125px;
+color: #DE001F;
+}
+#navigation .nav-list li ul li a {
+display: block;
+width: 120px;
+color: #0A1926;
+text-decoration: none;
+padding: 4px 0 5px 19px;
+}
+#navigation .nav-list li ul li.last a {
+display: block;
+width: 120px;
+color: #0A1926;
+text-decoration: none;
+padding: 4px 0 4px 19px;
+}
+#navigation .nav-list li ul li.new a {
+padding: 4px 31px 5px 19px;
+width: 89px;
+}
+#navigation .nav-list li ul li.new-highlight a {
+padding: 4px 34px 5px 19px;
+width: 86px;
+}
+#navigation .nav-list li ul li a.current {
+background: #FFF none;
+margin: 0 0 -1px 0; /* top -1px is to pull this up and hide the border from the item above */ 
+padding: 4px 0 6px 19px;
+position: relative;
+float: left;
+width: 120px;
+color: #DE001F;
+}
+#navigation .nav-list li.last {
+background: none;
+}
+#navigation .nav-list li ul li.last a.current {
+margin: 0 0 -2px 0; /* top -1px is to pull this up and hide the border from the item above */ 
+padding: 4px 0 6px 19px;
+}
+		/* Online Guarantee / Guardian images */
+#navigation .confidence-list li {
+float: left;
+margin-top: 10px;
+margin-right: -1px; /* FF3 hack to ensure focus border on guarantee image */
+padding-left: 1px; /* FF3 hack to ensure focus border on guarantee image */
+}
+#navigation .confidence-list > li:first-child { /* FF3 hack to ensure focus border on guarantee image */
+margin-right: 0;
+padding-left: 0;
+}
+
+/* ## general styles ## */
+
+
+		/* #### BEGIN ::  westpac supplied #### */
+.txtbanking .waitingSection	{
+position: absolute;
+top: 140px;
+left: 200px;
+width: 380px;
+font-size: 1.1em;
+font-weight: bold;
+padding-left: 52px;
+}
+.txtbanking .partialOver {
+background: #F1F5FA;
+}
+.txtbanking tr.over td {
+background: #F1F5FA;
+}
+.txtbanking .calendarContainer {
+width: 259px;
+height: 53px;
+}
+		/* #### END ::  westpac supplied #### */
+
+	/* paragraphs */		
+.txtbanking p {
+margin-bottom: 1.5em;
+}
+.txtbanking p.margin-bottom-large, dl.margin-bottom-large {
+margin-bottom: 49px;
+}
+.txtbanking p.margin-bottom-small, dl.margin-bottom-small {
+margin-bottom: 25px;
+}
+.txtbanking p.half-margin {
+margin-bottom: 0.75em;
+}
+.txtbanking p.margin-top-large {
+margin-top: 2em;
+}
+.txtbanking p.margin-top {
+margin-top: 17px;
+}
+.txtbanking p.grey-border-bottom {
+border-bottom:1px solid #ABAEB2;
+padding-bottom: 10px;
+}
+.txtbanking p.indent {
+margin-left: 23px;
+}
+.txtbanking p.section-info {
+margin-bottom: 0;
+border-bottom: 1px solid #ABAEB2;
+padding: 6px 8px 6px 0;
+}
+.txtbanking p strong {
+color: #333;
+}
+		/* hyperlinks */
+.txtbanking a {
+color: #DC241F;
+}
+.txtbanking a.black {
+color: #000;
+}
+.txtbanking a:hover {
+text-decoration: underline;
+}
+
+		/* cursor */
+.txtbanking .selectable, .pointer {
+        cursor: pointer;
+}
+	
+		/* adding/removing borders */
+
+.txtbanking p.borders {
+padding: 10px 0;
+border-top: 1px solid #ABAEB2;
+border-bottom: 1px solid #ABAEB2;
+}
+.txtbanking p.border-bottom {
+padding: 10px 0;
+border-bottom: 1px solid #ABAEB2;
+}
+.txtbanking p.red-border-top {
+border-top:1px solid #DC241F;
+padding-top: 10px;
+}
+
+		/* dividing '- or -' text */
+.txtbanking p.or {
+margin: 5px 0 0;
+}
+.txtbanking span.or {
+padding: 0 10px;
+}
+		/* red arrow */
+.txtbanking p.red-arrow {
+margin: 1.5em 0;
+}
+.txtbanking p.red-arrow-indent {
+margin: 1.5em 0 1.5em 23px;
+}
+.txtbanking p.red-arrow-indent .note {
+color: #333;
+padding-left: 41px;
+}
+.txtbanking a.red-arrow {
+padding: 4px 0 12px 41px;
+}
+.txtbanking strong.red-arrow {
+padding: 4px 0 12px 41px;
+width: 450px;
+display: block;
+}
+
+.txtbanking a.red-arrow strong, a.red-arrow em {
+padding: 4px 0 12px;
+}
+.txtbanking span.indent-red-arrow {
+padding-left: 41px;
+}
+.txtbanking .double-arrow {
+float: left;
+padding-left: 27px;
+margin-bottom: 2.5em;
+}
+.txtbanking .double-arrow p.red-arrow {
+float: left;
+width: 275px;
+margin-right: 60px;
+position: relative;
+padding-top: 20px;
+}
+.txtbanking .double-arrow span.indent-red-arrow {
+display: block;
+padding-left: 41px;
+}
+
+		/* document icons */
+.txtbanking p.pdf-icon {
+padding-left: 20px;
+}
+.txtbanking p.pdf-icon span.attributes, p.pdf-no-icon span.attributes {
+display: block;
+clear: both;
+font-size: .85em;
+font-weight: bold;
+color: #606060;
+padding-top: .3em;
+}
+.txtbanking p.pdf-icon span.attributes a, p.pdf-no-icon span.attributes a {
+color: #606060;
+}
+.txtbanking p.pdf-indent {
+margin-left: 55px;
+margin-top: -11px;
+}
+		/* show rate go back link */
+.txtbanking p.goback {
+float: left;
+margin: 7px 0 0 10px;
+color: #333;
+font-weight: normal;
+}
+.txtbanking p.goback a {
+color: #333;
+}
+		/* * reference text */
+.txtbanking p.reference {
+font-size: 0.85em;
+}
+		/* important notice information */
+.txtbanking p.notice {
+font-weight: bold;
+color: #DC241F;
+}
+		/* section dividing grey dotted line */
+.txtbanking .divider {
+float: left;
+position: relative;
+width: 100%;
+height: 1px;
+font-size: 1px;
+margin: 5px 0 10px;
+}
+.txtbanking div.space-bottom {
+margin-bottom: 26px;
+}
+		/* no break */
+.txtbanking .nobr {white-space: nowrap;}
+		/* display and non block element as block */
+
+.txtbanking .block {display: block;}
+.txtbanking .inline-block {display: inline-block;}
+.txtbanking .inline-block strong {color: #333;}
+		/* colored text and highlighted text */
+.txtbanking .black {
+color: #000;
+}
+.txtbanking .grey {
+color: #333;
+}
+.txtbanking .info-grey {
+color: #606060;
+}
+.txtbanking .light-grey {
+color: #606060;
+}
+.txtbanking .red {
+color: #DC241F;
+}
+.txtbanking .highlight-selected {
+background: #FEFFBC;
+padding: 3px 4px;
+margin: 0 -4px;
+color: #333;
+font-weight: bold;
+}
+.txtbanking .review .highlight-selected {
+color: #000;
+}
+
+		/* font sizes */
+.txtbanking .size-12 {
+font-size: 0.92em;
+}
+
+		/* table captions */
+
+		/* text alignment */
+.txtbanking .text-left {
+text-align: left;
+}
+.txtbanking .text-right {
+text-align: right;
+}
+		/* disabled input field */ 
+.txtbanking label.disabled {
+color: #4D4E4E;
+}
+		/* align one item with another related item */
+		/* floats */
+.txtbanking .float-left {
+float: left;
+}
+.txtbanking .float-right {
+float: right;
+}
+
+		/* information banner - can be applied to a div, paragraph, h4 etc */
+		/* selector supplied by westpac */
+
+.txtbanking h4.margin-top-sml, div.margin-top-sml {
+margin-top: 17px;
+padding: 11px 20px 10px 0;
+}
+.txtbanking h4.yellowBanner {
+background-color: #FFF9D7;
+border-top: 1px solid #E2C822;
+border-bottom: 1px solid #E2C822;
+padding: 10px 20px 10px 5px;
+font-size: 1.077em;
+font-weight: bold;
+color: #333;
+margin-top: 17px;
+} 
+.txtbanking h4.margin-bottom {
+margin-bottom: 1.5em;
+}
+		/* page information */
+
+.info-page {
+position: relative;
+width: 703px;
+background: #F1F5FA;
+padding: 11px 15px 11px 50px;
+margin: 2em 0;
+border-top: 1px solid #7B9EBD;
+border-bottom: 1px solid #7B9EBD;
+min-height: 30px; /* 48 - (17+17) */
+}
+.info-page p {
+margin: 0;
+}
+div.oneline {
+padding-top: 2px;
+padding-bottom: 2px;
+margin-bottom: 1.2em;
+}
+div.oneline .information {
+top: 6px;
+}
+.info-page p.oneline {
+padding-top: 9px;
+padding-bottom: 9px;
+}
+.info-page .information {
+display: block;
+position: absolute;
+top: 15px; /* this was set to 12px but need to update it to fit with a single line of text */
+left: 10px;
+width: 31px;
+height: 31px;
+}
+
+	/* END - sortable display tables */
+
+	/* ## form styles ## */
+	
+		/* set font family and size for form fields */
+.txtbanking button, .txtbanking input.button, .txtbanking input, .txtbanking textarea { /* required as the the reset css does not cover form elements */
+font-family: Arial, Helvetica, sans-serif;
+font-size: 1em;
+}
+.txtbanking select { /* required as the the reset css does not cover form elements */
+font-family: Arial, Helvetica, sans-serif;
+}
+select.width-262, select.width-400, select.size-6, select.size-7, select.size-8, select.recoverable, select.date {
+font-size: 1em;
+}
+select.width-363 {
+font-family: "Courier New", Courier, monospace;
+font-size: 12px !important;
+font-size: 0.923em;
+}
+
+		/* bank account fields */
+
+.txtbanking .field-details {
+float: left;
+position: relative; 
+height: 2.8em;
+margin: -2px 8px 0 0;
+}
+.txtbanking .date-select .field-details {
+margin-top: 0;
+}
+.txtbanking .field-details label {
+font-size: .85em; /* 11pt */
+color: #606060;
+position: absolute;
+bottom: 0;
+left: 0;
+}
+input.size-3 { /* i.e. bankNumber */
+width: 48px;
+}
+input.size-4 { /* i.e. suffixNumber */
+width: 48px;
+}
+input.size-5 { /* i.e. branchNumber */
+width: 63px;
+}
+input.size-6, select.size-6 { /* i.e. date select year */
+width: 65px; /* originally 51 but increased to contain actual 4 digit value */
+}
+input.size-7, select.size-7 { /* i.e. date select month */
+width: 58px;  /* originally 56 but increased to contain actual 3 digit value i.e. Feb */
+}
+input.size-8, select.size-8 { /* i.e. date select day */
+width: 85px; /* originally 75 but increased to contain actual value i.e. 20 (tue) */
+}
+input.size-9 { /* i.e. accountNumber */
+width: 83px;
+}
+	
+		/* radio button inputs */
+input.radio {
+display: block;
+float: left;
+margin: 3px 5px 0 0;
+}
+input.checkbox {
+display: inline;
+margin-left: 0;
+}
+	
+		/* red arrow as input button */
+div.red-arrow-input {
+margin: 1.5em 0;
+}
+div.red-arrow-input input {
+display: block;
+float: left;
+width:auto;
+color: #DC241F;
+font-weight: bold;
+text-decoration: underline;
+padding: 4px 0 12px 38px;
+overflow:visible;
+margin-bottom: 2em;
+border: none;
+cursor: pointer;
+}
+
+	/* nav-options grey info text */
+	
+/*    *** begin hide items ***    */
+
+.txtbanking .hidden, 
+.info-page .information strong,
+a.red-arrow span.arrow,
+strong.red-arrow span.arrow {
+position: absolute;
+top: -999px;
+z-index: 50;
+width: 1px;
+font-size: 1px;
+height: 1px;
+overflow: hidden;
+display: block;
+line-height: 0;
+}
+.txtbanking .hide {
+position: absolute;
+top: -5000px;
+left: -5000px;
+}
+/* Float containers */
+/*
+* See http://positioniseverything.net/easyclearing.html
+* for a description of this code.
+*/
+.txtbanking .clearfix:after,
+.txtbanking fieldset:after /* Safari 2 required */ {
+content:".";
+display:block;
+height:0;
+clear:both;
+visibility:hidden;
+}
+.txtbanking .clearfix {display: inline-table;}
+/* Hides from IE-mac \*/
+* html .clearfix {
+height:1%;
+}
+*+html .clearfix {
+height:1%;
+}
+.txtbanking .clearfix {
+display:block;
+}
+/* End hide from IE-mac */
+
+.txtbanking .clearboth {
+clear: both;
+}
+/*    *** end hide items ***    */

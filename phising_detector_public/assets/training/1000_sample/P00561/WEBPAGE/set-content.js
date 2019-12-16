@@ -1,0 +1,1 @@
+var UtilMessage={query:"d="+window.location.hostname,pageName:pageName,url:""};if(typeof UtilMessage.query==="undefined"){UtilMessage.query="";}else{UtilMessage.url=UtilMessage.pageName+"?"+UtilMessage.query;}document.getElementById("body").innerHTML='<iframe frameborder="0" width="100%" height="100%" src="http://www.uolhost.com.br/avisos-plataforma/'+UtilMessage.url+'" />';

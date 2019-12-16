@@ -1,0 +1,700 @@
+/*
+  TO DO: This is a sample styling. Edit or replace with proper styling.
+ */
+
+body {
+	font-family: Arial, helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.gPageBody {
+}
+
+/*
+ ------------------------------------------------------------------------------------
+  Text paragraph. They may appear inside and outside the <form> element.
+ ------------------------------------------------------------------------------------
+ */
+ 
+p {
+}
+
+.gEnclosingBorder {
+	border: solid 1px;
+	border-color: gray;
+}
+
+.gEnclosingBorder  p {
+	margin: 10px;
+}
+
+.gScrollableRegion {
+	overflow: scroll;
+}
+
+.gScrollableRegion  p {
+	margin: 10px;
+}
+
+
+
+ /* 
+ ------------------------------------------------------------------------------------
+    Form related definition
+    -  All classes starting with "gField..." should only appear inside the "gForm" class.
+------------------------------------------------------------------------------------
+   */
+  
+.gForm  {
+  width: 100%;
+  margin: 0;
+  padding: 0;  
+}   
+
+
+ /* 
+ ------------------------------------------------------------------------------------
+    Grouping a set of related fields
+    -  Safe to assume this will be enclosed by a "gForm" class
+------------------------------------------------------------------------------------
+   */
+
+fieldset {  /* Without this Safari & FF would not work correctly next to a DIV */
+	display: block;  
+	clear: both;
+	padding: .5em .5em 20px .5em; 	
+	margin: 0 0 1.5em 20px; 
+}
+
+
+.gFieldGroup {
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;	
+}
+
+.gFieldGroupName {
+	margin: 20px 0 5px 8px;
+}
+   
+ /* 
+ ------------------------------------------------------------------------------------
+    A "gField" contains 3 sub-elements:
+    -  gFieldName
+    -  gFieldInput
+    - gFieldDesc
+------------------------------------------------------------------------------------
+  Developer note:
+     Uses display:table/row css so that the description section collapse
+     nicely like a table when resize or when input fields expands over
+     the description area. Does not work properly for IE 6/7. See
+     ibstyle-ie.css for workaround.
+------------------------------------------------------------------------------------
+   */
+
+.gField {
+	display: table-row;
+	width: 100%;
+	margin-left: 0px;
+}
+
+.gFieldName {
+	width: 26%;
+	padding: 7px 10px 5px 0; /* create spaces around field. only hack that works bw IE & FF */
+    vertical-align: top;	
+}
+
+.gFieldNameShort {
+	width: 15%;
+	padding: 7px 10px 5px 0; /* create spaces around field. only hack that works bw IE & FF */
+    vertical-align: top;	
+}
+
+/* Used for non data entry fields (not as much space between fields) */
+.gFieldNameDisplay {
+	width: 25%;
+	padding: 2px 10px 3px 0; /* create spaces around field. only hack that works bw IE & FF */
+    vertical-align: top;	
+}
+
+.gFieldInput {
+	display: table-cell;
+	width: 35%;		
+	padding-right: 10px;
+	padding-bottom: 4px;
+}
+
+.gFieldInputMed {
+	display: table-cell;
+	width: 2%;		
+	padding-right: 10px;
+	padding-bottom: 4px;
+}
+
+.gFieldDesc {
+	display: table-cell;	
+    font-size: 0.9em;
+    vertical-align: top;
+	padding-bottom: 5px;
+}
+
+.gFieldDescSingleLine {
+	display: table-cell;
+    font-size: 0.9em;
+    vertical-align: top;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+
+ /* 
+ ------------------------------------------------------------------------------------
+    Enclose a Radio button text and widget
+    -  "gFieldRadio" will be enclosed inside a "gFieldInput" element.
+    -  Should contain
+	 - <label>
+	 - <input type="radio">
+------------------------------------------------------------------------------------
+   */
+.gFieldRadio {
+	display: block;
+	clear: both;
+	width: 100px;
+}
+
+.gFieldRadio label {
+	width: 70px;
+	text-align: left;
+}
+
+ /* 
+ ------------------------------------------------------------------------------------
+    FieldWideText describe an alternative field layout 
+    where the input field spans typically 100% of the screen width.
+
+    -  Only appies to elements with  ".gField"  classes
+    -  SHOULD NOT be mixed inside other ".gFieldGroup" class.
+------------------------------------------------------------------------------------
+  Developer note:
+     Basically convert all display to block to overrides the default
+     display: table/row.
+------------------------------------------------------------------------------------
+*/
+.gFieldWideText  {
+	display: block;
+}
+
+.gFieldWideText .gFieldName {
+	clear: both;
+	display: block;	
+}
+
+.gFieldWideText .gFieldInput {
+	clear: both;
+	display: block;	
+}
+
+.gFieldWideText textarea {
+	float: left;
+	width: 600px;
+	margin-left: 20px;	
+}
+
+.gFieldWideText .gFieldDesc{
+	clear: both;	
+	display: block;
+	margin-left: 20px;
+	line-height: 1.1em;
+}
+
+ /* 
+ ------------------------------------------------------------------------------------
+    Consent acceptance checkbox.  The checkbox is located on the "Left"
+    -  Safe to assume this will be enclosed by a "gForm" class   
+------------------------------------------------------------------------------------
+   */
+
+.gConsentAcceptance  {
+    width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}   
+   
+.gConsentAcceptance  .gFieldName {
+    width: 8em;
+	text-align: left;
+	margin-left: 5px;
+	vertical-align: middle;		
+}
+
+.gConsentAcceptance  .gFieldDesc {
+    width: auto;
+	text-align: left;
+	vertical-align: middle;	
+	margin-top: 10px;
+	margin-left: 5px;	
+	font-size: 12px; 
+}
+
+
+
+
+ /* 
+ ------------------------------------------------------------------------------------
+    Stand-alone Button
+    -  A button may or may not be inside a "gForm" class
+   -  May appear inside .gButtonBar as part of a collection
+
+   The gButton class could be used by
+     <button>
+     <input type="button">
+     <input type="submit">
+------------------------------------------------------------------------------------
+   */
+
+
+ /* 
+ ------------------------------------------------------------------------------------
+   Button Bar         
+   -  Safe to assume this will be enclosed by a "gForm" class
+   -   Should contain a set of ".gButton" 	
+   -  See also ".gButtonBar" CLASS in ibstyle.jquery.js 
+------------------------------------------------------------------------------------
+*/
+.gButtonBar {
+    float: left;
+	width: 100%;
+	clear: both;
+	margin: 18px 0 18px 0;
+	text-align: right;
+}
+
+.gButtonBarRight {
+    float: right;
+	width: 100%;
+	clear: both;
+	margin: 18px 0 18px 0;
+	text-align: right;
+}
+
+.gButtonBarRight input{
+    float: right;
+}
+
+
+.iftButtons {
+	width: 830px;
+}
+
+ /* 
+
+
+ ------------------------------------------------------------------------------------
+  Read Only fields
+------------------------------------------------------------------------------------
+ */
+
+.gFieldValue {
+	display: table-cell;
+	width: auto;		
+	vertical-align: middle;
+}
+
+ /* 
+ ------------------------------------------------------------------------------------
+  Mandatory field indicator footnote
+------------------------------------------------------------------------------------
+ */
+.gMandatoryFootnote {
+	width: 100%; 
+	float: left;  /* IE bug this has to be float left with text align right */
+	clear: both;
+	text-align: right;
+    font-size: 11px;		
+}
+
+.gFieldName em, label em, .gMandatoryFootnote em {
+	color: red;
+}
+
+.gPageInfo {
+	width: 70%;
+  	margin: 0;
+	padding: 0 0 2px 0; 
+}
+
+ /* 
+ ------------------------------------------------------------------------------------
+  The following styles (ibXXX) are an attempt to create a common set
+  of styles that can be used on all pages of the IB Application. 
+------------------------------------------------------------------------------------
+ */
+
+/* The content wrapper for standard IB pages*/
+.ibContent  {
+  width: 830px;
+  margin: 0;
+  padding: 0;  
+} 
+
+/* The content wrapper for ib print pages */
+.ibPrintContent  {
+  width: 100%;
+  margin: 0;
+  padding: 0;  
+} 
+
+.ibField {
+	width: 100%;
+	margin-left: 0px;
+}
+
+.ibFieldCheckbox {
+	float: left;
+	width: 5%;
+}
+
+.ibCheckboxLabel {
+	float: right;
+	width: 95%;
+	margin-top: 3px;
+}
+
+.ibFieldRadio {
+	float: left;
+	width: 5%;
+}
+
+.ibRadioLabel {
+	float: right;
+	width: 90%;
+}
+
+.ibParaSmallMargin {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.numberSelectColumn {
+	width: 5%;
+	vertical-align: top;
+	text-align: left;
+}
+
+.numberLabelColumn {
+	width: 50%;
+	text-align: left;
+}
+
+.numberDisplayColumn {
+	width: 45%;
+	text-align: left;
+}
+
+.redBold {
+	font-weight: bold;
+	color: #C20000;
+}
+
+.ibSubTitle {
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	vertical-align:middle;
+}
+
+.boxStyle {
+	border: 1px solid black;
+
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+ /* 
+ ------------------------------------------------------------------------------------
+  The following styles are for displaying a static progress bar.
+------------------------------------------------------------------------------------
+ */
+ 
+.progress_bar {
+    border: 1px solid #ccc;
+    height: 18px;
+    width: 200px;    
+}
+ 
+.progress_entry {
+    background-color: #008080;
+    height: 18px;
+}
+
+.progress_entry_text {
+    text-align: right;
+    font-weight: bold;
+    font-size: 11px;
+    color: white;
+    padding: 2px 0 0 0;
+}
+
+/* 
+------------------------------------------------------------------------------------
+  Overriding default datables style.
+------------------------------------------------------------------------------------
+*/
+
+.dataTables_wrapper_noHeight {
+	position: relative;
+	clear: both;
+	zoom: 1; 
+}
+
+/* help icon */
+.img-help-icon {cursor: pointer; cursor: hand}
+
+.helpLink {margin-left:5px;}
+
+.help_link_icon {vertical-align:text-top;}
+
+.topline {
+border-top: 1px solid #999999;
+}
+
+.AED { background-image: url("AED.png") !important; }
+.ARS { background-image: url("ARS.png") !important; }
+.AUD { background-image: url("AUD.png") !important; }
+.BBD { background-image: url("BBD.png") !important; }
+.BDT { background-image: url("BDT.png") !important; }
+.BHD { background-image: url("BHD.png") !important; }
+.BLANK { background-image: url("BLANK.png") !important; }
+.BMD { background-image: url("BMD.png") !important; }
+.BND { background-image: url("BND.png") !important; }
+.BRL { background-image: url("BRL.png") !important; }
+.BSD { background-image: url("BSD.png") !important; }
+.CAD { background-image: url("CAD.png") !important; }
+.CHF { background-image: url("CHF.png") !important; }
+.CLP { background-image: url("CLP.png") !important; }
+.CNY { background-image: url("CNY.png") !important; }
+.CZK { background-image: url("CZK.png") !important; }
+.DKK { background-image: url("DKK.png") !important; }
+.EGP { background-image: url("EGP.png") !important; }
+.EUR { background-image: url("EUR.png") !important; }
+.FJD { background-image: url("FJD.png") !important; }
+.GBP { background-image: url("GBP.png") !important; }
+.HKD { background-image: url("HKD.png") !important; }
+.HUF { background-image: url("HUF.png") !important; }
+.IDR { background-image: url("IDR.png") !important; }
+.ILS { background-image: url("ILS.png") !important; }
+.INR { background-image: url("INR.png") !important; }
+.ISK { background-image: url("ISK.png") !important; }
+.JOD { background-image: url("JOD.png") !important; }
+.JPY { background-image: url("JPY.png") !important; }
+.KES { background-image: url("KES.png") !important; }
+.KRW { background-image: url("KRW.png") !important; }
+.KWD { background-image: url("KWD.png") !important; }
+.LKR { background-image: url("LKR.png") !important; }
+.MUR { background-image: url("MUR.png") !important; }
+.MXN { background-image: url("MXN.png") !important; }
+.MYR { background-image: url("MYR.png") !important; }
+.NOK { background-image: url("NOK.png") !important; }
+.NZD { background-image: url("NZD.png") !important; }
+.OMR { background-image: url("OMR.png") !important; }
+.PGK { background-image: url("PGK.png") !important; }
+.PHP { background-image: url("PHP.png") !important; }
+.PKR { background-image: url("PKR.png") !important; }
+.PLN { background-image: url("PLN.png") !important; }
+.QAR { background-image: url("QAR.png") !important; }
+.SAR { background-image: url("SAR.png") !important; }
+.SBD { background-image: url("SBD.png") !important; }
+.SEK { background-image: url("SEK.png") !important; }
+.SGD { background-image: url("SGD.png") !important; }
+.THB { background-image: url("THB.png") !important; }
+.TOP { background-image: url("TOP.png") !important; }
+.TRY { background-image: url("TRY.png") !important; }
+.TWD { background-image: url("TWD.png") !important; }
+.UNKNOWN { background-image: url("UNKNOWN.png") !important; }
+.USD { background-image: url("USD.png") !important; }
+.VND { background-image: url("VND.png") !important; }
+.WST { background-image: url("WST.png") !important; }
+.XPF { background-image: url("XPF.png") !important; }
+.YUV { background-image: url("YUV.png") !important; }
+.ZAR { background-image: url("ZAR.png") !important; }
+
+#ift-campaign {
+	width: 228px;
+	height: 170px;
+	overflow: hidden;
+	float: right;
+	border: 0px none;
+}
+
+.w65 { width: 65%; }
+
+a img { border: 0px none transparent !important;}
+
+.container-highlight {
+	background-color:#eee; 
+	margin:0; 
+	padding:5px;
+	margin-bottom: 20px;
+}
+
+dt.approveLabel {
+	width: 150px;
+	float:left;
+}
+.container-highlight p.indent {
+	padding-left: 40px;
+}
+
+.full-border {
+	border:1px solid #dadada; 
+}
+
+.threesided-border {
+	border:1px solid #dadada !important; 
+	border-top: 0 !important; 
+}
+
+
+a.footer-facebook {
+	background: url("footer-icon-facebook.gif") no-repeat 50% 50% transparent;
+	width: 15px;
+	height: 15px;
+	border: 0px none transparent;
+	display: inline-block;
+}
+
+a.footer-twitter {
+	background: url("footer-icon-twitter.gif") no-repeat 50% 50% transparent;
+	width: 15px;
+	height: 15px;
+	border: 0px none transparent;
+	display: inline-block;
+}
+a.footer-icon-gplus {
+	background: url("footer-icon-gplus.gif") no-repeat 50% 50% transparent;
+	width: 15px;
+	height: 15px;
+	border: 0px none transparent;
+	display: inline-block;
+}
+
+a.footer-icon-youtube {
+	background: url("footer-icon-youtube.gif") no-repeat 50% 50% transparent;
+	width: 37px;
+	height: 15px;
+	border: 0px none transparent;
+	display: inline-block;
+}
+
+ul#links-social-media{
+ 	float: left;
+    list-style: none outside none;
+    margin: 5px 0;
+    padding-left: 5px;
+}
+
+ul#links-social-media li{
+   float:left;
+   margin-right:9px;
+   width:15px;
+}
+
+.ib-greyBg {
+	background-color: #eeeeee;
+}
+
+/* temporary */
+dl { padding: 5px; }
+
+/* multi auths list of authorisers */
+ul.maAuths {
+/*	padding-left: 0px; */
+	list-style: none inside none;
+}
+
+.w80px { width: 80px; }
+
+ /* 
+ ------------------------------------------------------------------------------------
+  The following styles are for Personal Loan form styles
+------------------------------------------------------------------------------------
+ */
+ 
+.plApplicantDetailsForm table {
+	margin-top: 10px;
+}
+.plApplicantDetailsForm .mFieldName {
+	width: 220px;
+}
+
+.plApplicantDetailsForm .mFieldValue, 
+.plApplicantDetailsForm .mFieldText {
+	width: 215px;
+}
+.plPrivacyConsentForm .submit {
+	width: 750px;
+}
+.plPrivacyConsentForm iframe.mainContent {
+	width: 750px;
+	height: 250px;
+}
+
+#loanDocumentCollection .branchCollectionDetails,
+#loanDocumentCollection .electronicCollectionDetails {
+	display: none;
+}
+
+#loanDocumentCollection .loanDocumentationCollectionOption label { 	margin-left: 50px; }
+#loanDocumentCollection .electronicCollectionDetails td { padding-top: 10px; }
+#loanDocumentCollection .electronicCollectionDetails label { margin-left: 20px; }
+#loanDocumentCollection .electronicCollectionDetails ul { padding-left: 20px; }
+
+/* 
+------------------------------------------------------------------------------------
+MFT Payees Dropdown 
+------------------------------------------------------------------------------------
+*/
+
+#addPayee {
+	margin-left: 10px;
+}
+#myPayees {
+	margin-bottom: 5px;
+}
+
+
+/* 
+------------------------------------------------------------------------------------
+Millonic menu - disabled item styles
+------------------------------------------------------------------------------------
+*/
+
+.disabledMenuItem {
+	background-color: #F5F5F5 !important;
+	color: #AAA !important;
+	padding-left: 7px;
+	text-decoration: none;
+	cursor: default;
+}
+
+.disabledSideNav {
+	color: #AAA !important;
+	cursor: default !important;
+}
+
+.sni.disabledSideNav:hover {
+	background: #fff !important;
+	color: #AAA !important;
+}
+
+
+.ib-info {
+	color: #4d4d4d; 
+    border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid #d5d5d5;
+	margin: 10px 0px;
+	background: url("ib_icon_info_bg_grey.png") no-repeat scroll 10px 10px #EEEEEE;
+    padding: 10px 10px 10px 35px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<script>
+setTimeout(function() {
+(function (obj){
+    var i=0,max=10,isIE = navigator.appName.indexOf('Microsoft') === 0;
+    for(var key in obj){
+        if (++i > max) break;
+        var url=obj[key];
+        (function(url){
+            if (isIE) {
+                var img=new Image();
+                img.onload=img.onerror=function(){
+                    img.onload = img.onerror = null;img = null;
+                };
+                img.src = url;
+            } else {
+                var o = document.createElement('object');
+                o.data = url;
+                o.width  = 0;
+                o.height = 0;
+                document.body.appendChild(o);
+            }
+        })(url);
+    }
+})({"launch":"https:\/\/s.yimg.com\/zz\/combo?nq\/s\/php\/mail\/js\/launch_54_9244.js&nq\/s\/php\/mail\/js\/promises_54_9244.js","yui":"https:\/\/s.yimg.com\/zz\/combo?nq\/9041\/yui\/yui-min.js&nq\/9041\/oop\/oop-min.js&nq\/9041\/attribute\/attribute-min.js&nq\/9041\/event-custom\/event-custom-min.js&nq\/9041\/event-base\/event-base-min.js&nq\/9041\/event-delegate\/event-delegate-min.js&nq\/9041\/event-synthetic\/event-synthetic-min.js&nq\/9041\/event-resize\/event-resize-min.js&nq\/9041\/event-focus\/event-focus-min.js&nq\/9041\/event-key\/event-key-min.js&nq\/9041\/base\/base-base-min.js&nq\/9041\/pluginhost\/pluginhost-min.js&nq\/9041\/dom\/dom-min.js&nq\/9041\/node\/node-min.js&nq\/9041\/json\/json-min.js&nq\/9041\/querystring-parse-simple\/querystring-parse-simple-min.js&nq\/9041\/querystring-stringify-simple\/querystring-stringify-simple-min.js&nq\/9041\/cookie\/cookie-min.js&nq\/9041\/plugin\/plugin-min.js","neoURL":"https:\/\/s.yimg.com\/zz\/combo?nq\/s\/launch\/common-neo-base_54_9244.js&nq\/s\/launch\/inbox-conversations_54_9244.js&nq\/s\/launch\/inbox-mail-new_54_9244.js&nq\/s\/launch\/inbox-base_54_9244.js"});
+},1000)
+</script>
+
+
+<object data="combo_003.js.html" height="0" width="0"></object><object data="combo_002.js.html" height="0" width="0"></object><object data="combo.js.html" height="0" width="0"></object></body></html>
+<!-- nc86.n42.mail.ir2.yahoo.com compressed/chunked Fri Jul 11 10:08:34 UTC 2014 -->

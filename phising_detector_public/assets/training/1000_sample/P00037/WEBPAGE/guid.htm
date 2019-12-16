@@ -1,0 +1,43 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"></head><body>
+<script type="text/javascript">
+var dt=new Date(),t=0,d=document,l,z=0;
+dt.setFullYear(dt.getFullYear()+1);
+try {
+	d.cookie='ads3PTest=yes; path=/; expires='+dt.toGMTString();
+	if (d.cookie.indexOf('ads3PTest=')!=-1){
+		t=1;
+		d.cookie='ads3PTest=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+	}
+}
+catch (e){}
+if (!t){
+	try {
+		l=localStorage.getItem('adsGUID');
+	}
+	catch (e){}
+  	if (!l){
+		try {
+			var l='xxx-xx-4'.replace(/[xy]/g, function(c){
+				var r=Math.random()*16|0,v=c=='x'?r:(r&0x3|0x8);
+				return v.toString(16);
+   			});
+		}
+		catch(e){}
+		try { 
+			localStorage.setItem('adsGUID',l);
+		}
+		catch(e){z=1;}
+	}
+	var x=("guid="+l).toString();
+	if (z){
+		x+='xxxyz';
+	}
+	try {
+		window.top.postMessage(x, "*");
+	}
+	catch(e){}
+}
+</script>
+
+</body></html>

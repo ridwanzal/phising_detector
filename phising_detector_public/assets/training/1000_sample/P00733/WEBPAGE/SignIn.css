@@ -1,0 +1,60 @@
+.SiteHeaderBar,
+.SiteHeaderUser,
+.SiteHeaderPopPanelShadow,
+.SiteHeaderPopPanel,
+.SiteHeaderPopPanelShadow,
+.site-header-global-menu,
+.SiteHeaderPopPanel { display: none }
+#SiteHeader { margin: 0;}
+html { background-color: #DAE1E7 }
+body { background: url(my_adobe.jpg) left -400px  no-repeat; height: 100%;  letter-spacing:  0;}
+body.Mirror { background: url(my_adobe_mirror.jpg) right -400px  no-repeat; }
+.LayoutGrid { height: 100%}
+#LayoutBody-Content { margin-top: 120px;}
+.FormTextField {
+    border: 1px solid;
+    border-color: #CBCCCC #EBECED #EBECED #CBCCCC;
+    color: #333;
+    line-height: 20px;
+    padding: 4px;
+    background:  #fff;
+    font-size: 11px;
+}
+.TextNormal { font-weight: 400}
+.IconGreenCheck { margin-top: 2px; }
+.Link a, .Link a:link, .Link a:visited, a.Link, a.Link:link, a.Link:visited { color: #3D93D4; font-weight: bold; }
+.Button { min-width: 130px; _width: 130px; cursor: pointer; }
+.Button:hover { opacity:  0.8; }
+
+#AdobeViewMask {
+    vertical-align: middle;
+    text-align: center;
+    z-index: 3; position: absolute; height: 350px; width: 560px; display: block;
+}
+
+.ViewMask {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    -moz-opacity:0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8
+}
+
+.AdobeViewMaskBusyIcon {
+    width:24px;
+    height:24px;
+    background:url(ajax-loader_trans.gif);
+    position: absolute; left: 170px; top: 60px;
+}
+
+@-moz-document url-prefix() {
+   .profile-select select {
+        font-size: 11px;
+    }
+    .FormTextField { padding: 4px; }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+    .FormTextField { padding: 1px 4px; }
+}

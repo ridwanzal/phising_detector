@@ -1,0 +1,370 @@
+	<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<title>404 Error page </title>
+   
+    <meta name="Distribution" content="Global">
+    <meta name="Rating" content="General">
+    <meta name="Robots" content="INDEX,FOLLOW">
+    <meta name="Revisit-after" content="7 Days">
+<meta property="og:type" content="Website"/>
+<meta property="og:    Hi Hungry  | Online Food Ordering Website - hihungry.com Online Food Ordering in lucknow , India" content="Hi Hungry Online Food Ordering  - hihungry.com Online Food Ordering in lucknow , India-Organize Party,Menu,Online Ordering, Deals, Discounts,Reviews,Maps,Rewards and More,Developed by Php Expert Group,india,online food ordering script"/>
+<meta property="og:http://hihungry.com/" content="    Hi Hungry  | Online Food Ordering Website - hihungry.com Online Food Ordering in lucknow , India -Organize Party,Menu,Online Ordering, Deals, Discounts,Reviews,Maps,Rewards and More,Developed by Php Expert Group,india,online food ordering script"/>
+<link href="http://hihungry.com/css/style.css" type="text/css" rel="stylesheet">
+<script src="http://hihungry.com/js/bootstrap-select.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://hihungry.com/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="http://hihungry.com/css/chosen.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body>
+ <header>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header-top sticky"  id="header1">
+      <div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nospace" style="z-index: 99999999;">
+          <div class="col-lg-4 col-md-6 col-sm-7 col-xs-7" itemscope itemtype="http://schema.org/Organization"> 
+		  
+<a itemprop="url" href="http://hihungry.com/">
+<img itemprop="logo" src='http://hihungry.com/mastercp/sitelogo/sitelogosmall/572702bba9d71Hi hungry logo finalN.png' alt="COME_CONNOSOTROS" title="COME CONNOSOTROS" style="height: 56px;
+    margin: 10px 0;
+    width: 59%;"/></a>
+	  
+		</div>
+          <div class="col-lg-8 col-md-6 col-sm-5 col-xs-5">
+          <div class="navbar navbar-default pull-right">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle Navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav header-menu" style="margin-top:25px;">
+			 <li><a href="http://hihungry.com/#downloadapp"><i class="fa fa-home"></i>Home</a></li>
+               <li><a href="http://hihungry.com/template/online_phpexpert_help.php"><i class="fa fa-question"></i>Help</a></li>
+           
+                               <li><a href="http://hihungry.com/template/login.php"><i class="fa fa-sign-in"></i>Sign In</a></li>
+              <li><a href="http://hihungry.com/template/signup.php"><i class="fa fa-sign-out"></i>Sign Up</a></li>
+              
+                             
+              </ul>
+            </div>
+          </div>
+          
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <div id="header" style="display:none;">
+  <div class="navbar top mini-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nospace">
+          <div class="col-lg-4 col-md-6 col-sm-7 col-xs-7" itemscope itemtype="http://schema.org/Organization"> 
+		  
+<a itemprop="url" href="http://hihungry.com/">
+<img itemprop="logo" src='http://hihungry.com/mastercp/sitelogo/sitelogosmall/572702bba9d71Hi hungry logo finalN.png' alt="COME_CONNOSOTROS" title="COME CONNOSOTROS" style="height: 56px;
+    margin: 10px 0;
+    width: 59%;"/></a>
+	  
+		</div>
+          <div class="col-lg-8 col-md-6 col-sm-5 col-xs-5">
+          <div class="navbar navbar-default pull-right">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle Navigation</span> <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </button>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav header-menu" style="margin-top:25px;">
+			 <li><a href="http://hihungry.com/#downloadapp"><i class="fa fa-home"></i>Home</a></li>
+               <li><a href="http://hihungry.com/template/online_phpexpert_help.php"><i class="fa fa-question"></i>Help</a></li>
+           
+                               <li><a href="http://hihungry.com/template/login.php"><i class="fa fa-sign-in"></i>Sign In</a></li>
+              <li><a href="http://hihungry.com/template/signup.php"><i class="fa fa-sign-out"></i>Sign Up</a></li>
+              
+                             
+              </ul>
+            </div>
+          </div>
+          
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </header>
+ 
+<script>
+$(window).scroll(function(){
+  var sticky = $('.sticky'),
+      scroll = $(window).scrollTop();
+
+  if (scroll >= 100) sticky.addClass('fixed');
+  else sticky.removeClass('fixed');
+});
+</script>
+<style type="text/css">
+.info, .success, .warning, .error, .validation {
+border: 1px solid;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+.info {
+color: #00529B;
+  margin-top: 12px;
+    margin-bottom: -1px;
+    text-align: center;
+background-color: #BDE5F8;
+}
+.success {
+color: #4F8A10;
+background-color: #DFF2BF;
+background-image:url('success.png');
+  margin-top: 12px;
+    margin-bottom: -1px;
+    text-align: center;
+}
+.warning {
+color: #9F6000;
+background-color: #FEEFB3;
+  margin-top: 12px;
+    margin-bottom: -1px;
+    text-align: center;
+}
+.error {
+color: #D8000C;
+    background-color: #FFBABA;
+    margin-top: 12px;
+    margin-bottom: -1px;
+    text-align: center;
+}
+
+.text-red {
+  font-weight: bold;
+     color: red;
+}
+</style>
+<script type="text/javascript">
+setTimeout(function() {
+    $('#successMessage').fadeOut('fast');
+}, 10000); // <-
+      
+	  </script>
+           
+  <script>
+  $(function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 10,
+      values: [00, 10 ],
+      slide: function( event, ui ) {
+        $( "#min-amount" ).val( "" + ui.values[ 0 ]*100  );
+		$( "#max-amount" ).val( "" +ui.values[ 1 ]*100 );
+      }
+    });
+    $( "#min-amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 )*100 );
+	  $( "#max-amount" ).val( "" + $( "#slider-range" ).slider( "values", 1 )*100 );
+  });
+  
+   $(function() {
+    $( "#slider-range-mini" ).slider({
+      range: true,
+      min: 0,
+      max: 10,
+      values: [00, 10 ],
+      slide: function( event, ui ) {
+        $( "#min-amount-mini" ).val( "" + ui.values[ 0 ]*100  );
+		$( "#max-amount-mini" ).val( "" +ui.values[ 1 ]*100 );
+      }
+    });
+    $( "#min-amount-mini" ).val( "" + $( "#slider-range-mini" ).slider( "values", 0 )*100 );
+	  $( "#max-amount-mini" ).val( "" + $( "#slider-range-mini" ).slider( "values", 1 )*100 );
+  });
+  
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 1){  
+        $('header').addClass("sticky");
+    }
+    else{
+        $('header').removeClass("sticky");
+		$('header').removeClass("hide-item");
+    }
+});
+
+window.onscroll = scrollheader;
+window.onload = scrollheader;
+window.onresize = scrollheader;
+function scrollheader() {
+var ww = window.innerWidth; //WINDOW WIDTH
+var wh = window.innerHeight; //WINDOW HEIGHT
+var hw = $("#header").width(); //HEADER WIDTH
+var hh = $("#header").height(); //HEADER HEIGHT
+var o = window.pageYOffset; //OFFSET OF THE WINDOW
+//IF THE PAGE IS SCROLLED TO WHERE THE HEADER WOULD BE INVISIBLE
+if(o>hh){
+//IF WINDOW WIDTH > HEADER WIDTH
+if (ww > hw) {
+$("#header").show();
+$("#header").css({"position":"fixed", "top":"0"});
+} else {
+$("#header").css({ "position": "static" });
+$("#header").hide();
+}
+} else {
+$("#header").css({ "position": "static" });
+$("#header").hide();
+}
+}
+</script>
+<script src="http://hihungry.com/js/jquery.min.js"></script>
+<div class="page-header col-md-12 bg-dimmed" style="background-image:url(http://hihungry.com/images/file.jpg);">
+<div class="container">
+        <div class="page-header-inner vc-outer">
+            <div class="vc-inner text-centered">
+              <div class="lead" id="restaurants-deliverycount">
+               404 Error<h1> <a href="http://hihungry.com/" class="text-color-btn">Home</a>
+    <i class="fa fa-angle-double-right pr7px"></i>
+    <a href="" class="text-color-btn">404 Error</a>
+   
+    </h1>
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<div class="col-lg-12 col-sm-12 col-xs-12">
+  <div class="container">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-search-result mb30px">
+      <div class="col-lg-12 col-sm-12 col-xs-12 rest-filter-content">
+        
+              <div style="padding:10px;">
+			  <h1>404! Content Not Found</h1> 
+			<p>Sorry, the page you are looking for is Unavailable. We would suggest you to visit our home page and start from there.</p>			  
+        </div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<footer>
+<style type="text/css">
+.newslatter {
+	margin-top:30px;
+}
+.search-input1 {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	text-indent: 8px;
+}
+</style>
+
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer-wrapper">
+  <div class="container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer-row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 nospace">
+          <h4>Hihungry.com</h4>
+          <ul class="footer-listing">
+            <li><a href="http://hihungry.com/aboutus"  title="About Us" >About us</a></li>
+            <li><a href="http://hihungry.com/press-media" title="Press" >Press</a></li>
+            <li><a href="http://hihungry.com/career" title="Career with Us" >Careers</a></li>
+            <li><a href="http://hihungry.com/contact-us" title="Contact Us" >Contact Us</a></li>
+            <li><a href="http://hihungry.com/faq" title="FAQ" >FAQ</a></li>
+            <li><a href="http://hihungry.com/help" title="Help" >Help</a></li>
+            <li><a href="http://hihungry.com/gift-vouchers" title="Gift Vouchers" >Gift Vouchers</a></li>
+            <li><a href="http://hihungry.com/fooddeals" title="Food Deals" >Today's Deals</a></li>
+            <li><a href="http://hihungry.com/terms-and-conditions"  title="Terms & Condition" >Terms and Conditions</a></li>
+            <li><a href="http://hihungry.com/privacy-policy" title="Privacy Policy" >Privacy Policy</a></li>
+          
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 nospace">
+          <h4>Popular Cuisines </h4>
+          <ul class="footer-listing">
+                        <li><a href="http://hihungry.com/cuisines/Desserts" title="Desserts">Desserts</a></li>
+                        <li><a href="http://hihungry.com/cuisines/Cakes" title="Cakes">Cakes</a></li>
+                        <li><a href="http://hihungry.com/cuisines/Punjabi" title="Punjabi">Punjabi</a></li>
+                        <li><a href="http://hihungry.com/cuisines/Burgers" title="Burgers">Burgers</a></li>
+                        <li><a href="http://hihungry.com/cuisines/Mughlai" title="Mughlai">Mughlai</a></li>
+                        <li><a href="http://hihungry.com/cuisines/South+Indian" title="South Indian">South Indian</a></li>
+                        <li><a href="http://hihungry.com/cuisines/Italian" title="Italian">Italian</a></li>
+                        <li><a href="http://hihungry.com/cuisines/Pizza" title="Pizza">Pizza</a></li>
+                        <li><a href="http://hihungry.com/cuisines/Chinese" title="Chinese">Chinese</a></li>
+                        <li><a href="http://hihungry.com/cuisines/Biryani" title="Biryani">Biryani</a></li>
+                      </ul>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 nospace">
+          <h4>Popular Cities</h4>
+          <ul class="footer-listing">
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Pune" title="Pune">Pune</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Pune" title="Pune">Pune</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Kanpur" title="Kanpur">Kanpur</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Kanpur" title="Kanpur">Kanpur</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Varanasi" title="Varanasi">Varanasi</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Varanasi" title="Varanasi">Varanasi</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Jaipur" title="Jaipur">Jaipur</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Jaipur" title="Jaipur">Jaipur</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Lucknow" title="Lucknow">Lucknow</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Lucknow" title="Lucknow">Lucknow</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Nagpur" title="Nagpur">Nagpur</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Nagpur" title="Nagpur">Nagpur</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Indore" title="Indore">Indore</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Indore" title="Indore">Indore</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Gandhinagar" title="Gandhinagar">Gandhinagar</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Gandhinagar" title="Gandhinagar">Gandhinagar</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Bhopal" title="Bhopal">Bhopal</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Bhopal" title="Bhopal">Bhopal</a></li>
+                        <!--<li><a href="http://hihungry.com/area/index.php?where=Kolkata" title="Kolkata">Kolkata</a></li>-->
+            <li><a href="http://hihungry.com/restaurants/Kolkata" title="Kolkata">Kolkata</a></li>
+                      </ul>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 nospace">
+          <h4>Popular Restaurants</h4>
+          <ul class="footer-listing">
+                                    <li><a class="" title="5 Spice in Pune" onClick="return alert('Sorry ! 5 Spice is closed this time');">5 Spice</a></li>
+                                                <li><a class="" title="I Scream in Jaipur" onClick="return alert('Sorry ! I Scream is closed this time');">I Scream</a></li>
+                                                <li><a class="" title="Catch 22 in Chandigarh" onClick="return alert('Sorry ! Catch 22 is closed this time');">Catch 22</a></li>
+                                                <li><a class="" title="Sundar Bakery in Lucknow" onClick="return alert('Sorry ! Sundar Bakery is closed this time');">Sundar Bakery</a></li>
+                                                <li><a class="" title="Tan-Sukh (Vaishali Nagar) in Jaipur" onClick="return alert('Sorry ! Tan-Sukh (Vaishali Nagar) is closed this time');">Tan-Sukh (Vaishali Nagar)</a></li>
+                                                <li><a class="" title="Bean Box Cafe in Nagpur" onClick="return alert('Sorry ! Bean Box Cafe is closed this time');">Bean Box Cafe</a></li>
+                                                <li><a class="" title="Mumbai Mail in Ranchi" onClick="return alert('Sorry ! Mumbai Mail is closed this time');">Mumbai Mail</a></li>
+                                                <li><a class="" title="New Novelty Restaurant in allahabad" onClick="return alert('Sorry ! New Novelty Restaurant is closed this time');">New Novelty Restaurant</a></li>
+                                                <li><a class="" title="The Punjabi Grill in Mohali" onClick="return alert('Sorry ! The Punjabi Grill is closed this time');">The Punjabi Grill</a></li>
+                                                <li><a class="" title="Kathi Crossing in Pune" onClick="return alert('Sorry ! Kathi Crossing is closed this time');">Kathi Crossing</a></li>
+                                  </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 footer-copyright">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left lh48px" style="line-height: 40px;"> &copy; 2015-16 <a href="http://hihungry.com/"><strong>Hihungry.com</strong></a> All rights reserved. </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right text-right"> <span class="footer-social"> <a href="" target="_blank"><img src="http://hihungry.com/images/icon-facebook.png"></a> <a href="" target="_blank"><img src="http://hihungry.com/images/icon-twitter.png"></a> <a href="" target="_blank"><img src="http://hihungry.com/images/icon-linkedin.png"></a> <a href="" target="_blank"><img src="http://hihungry.com/images/icon-google-plus.png"></a> <a href="" target="_blank"><img src="http://hihungry.com/images/icon-youtube.png"></a> <a href="" target="_blank"><img src="http://hihungry.com/images/icon-social-new.png"></a> </span> </div>
+    </div>
+  </div>
+</div>
+</footer>
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../js/owl.carousel.js" type="text/javascript"></script>
+<script src="../js/dev.min.js" type="text/javascript"></script>
+
+</body>
+</html>

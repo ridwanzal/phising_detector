@@ -1,0 +1,67 @@
+
+var jFieldNumbering = 1;  // Use by "gNumbering"
+var jGroupNumbering = 1;  // Use by "gNumbering"
+$(document).ready(function() {
+
+	
+	/*  Forces the buttom bar buttoms to align right, while each button still maintain left to right ordering
+     *  This alone cannot be done using CSS without having to create another unnecessary DIV tag in between.
+ 	 *  See also .gButtonBar CLASS in CSS.
+	 */
+	$(".gButtonBar").wrapInner("<div style='float:right; width:auto;'></div>");
+
+	/*
+	 *  ".gNumbering" CLASS
+	 *	
+	 *  Insert incremental numbering for field items.
+	 *  Expected to be use with ".gFieldName" class.
+	 *
+			<div class="gFieldGroupName gNumbering">				
+	 */
+	$('.gFieldGroupName.gNumbering').each(function(index) {
+		$(this).prepend("<b style='float:left'>" + jGroupNumbering + ".</b>&nbsp;&nbsp;");
+		$(this).css({'margin-left':'0px'});
+		jGroupNumbering++;
+	});
+	
+	/*
+	 *  ".gNumbering" CLASS
+	 *	
+	 *  Insert incremental numbering for field items.
+	 *  Expected to be use with ".gFieldName" class.
+	 *
+			<div class="gField">
+				<span class="gFieldName gNumbering">Text Field</span>
+				<span class="gFieldInput"><input type="text" /></span>
+				<span class="gFieldDesc" >This is a field description</span>
+			</div>
+	 */
+	$('.gField.gNumbering').each(function(index) {
+		$(this).prepend("<b style='float:left'>" + jFieldNumbering + ".</b>&nbsp;&nbsp;");
+		$(this).css({'margin-left':'12px'});
+		jFieldNumbering++;
+	});	
+
+	
+	/*
+	 *  ".gRequired" CLASS
+	 *
+ 	 *   Mark required field name with a red '*'
+	 *   Use on class with "gField".
+	 *  Example:
+	 			<div class="gField gRequired">
+	 */
+	//$('.gRequired .gFieldName, .gRequired label').append("<span style='color:red'>*</span>");
+	
+	/* "gMandatoryFootnote" CLASS
+	 * 
+	 * Creates a footnote that explains the mandatory field indicator.
+	 *
+	 * Usage: 
+	 *  <div class="gMandatoryFootnote" ></div>
+	 *  (MUST BE A SEPARATE <div></div> tag, not a single <div/> tag)
+	 */
+	//$('.gMandatoryFootnote').html("<span style='color:red'>* </span>denotes mandatory field");
+
+}); 
+

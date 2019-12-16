@@ -1,0 +1,323 @@
+/*login page starts */ 
+@-ms-viewport { width: device-width;}
+body { margin:0; text-align:center; background:#fff; font:100%/1.5 Verdana, Geneva, sans-serif; color:#333; overflow:auto;}
+a, a:link, a:visited { text-decoration:none; color:#0094d7; }
+a:hover { color:#ff7200; }
+img { border:0; }
+#pageWrap { height:1024px; min-width:48.4375em; padding-top:0px; position:relative; background:url('pageBg.png') repeat-x #fff 0 -131px;}
+#pageBody { margin:0 auto; width:100%; height:1px; position:absolute; top:0; text-align:left; z-index:1000;}
+#pageAccBody {margin:0 auto; text-align:left; width:920px;}
+#loginWrap {/*width:850px;*/ max-width:53.125em; height:1px; margin:0 auto; z-index:10;}
+
+#yad {display:none;}
+/*#yadFrame {height:1024px; width:1440px; margin:0 auto; position: absolute; left:0; z-index:-1;}*/
+#yadFrame {display:none; visibility: hidden; height:1024px; width:1440px; margin:0 auto; position: absolute; z-index:-1;}
+
+#YadWrap {max-width:1440px; height:1024px; position:relative; top:0; z-index:1; overflow:hidden; margin:0 auto;}
+#yad {width:auto; max-width:1440px; margin:0 auto;}
+
+html #richad {width:auto;}
+
+
+ul {margin:0; padding:0; list-style:none;}
+.clrAll {clear:both;}
+
+.eleHide {display:none;}
+.eleBlock {display:block;}
+
+/* masthead */
+#header {border-bottom:1px solid #bbb; height:84px; width:100%; min-width:48.4375em; overflow:hidden;}
+#masthead {height:50px; position:relative; z-index:999; text-align:left; margin:0 auto; max-width:60em;}
+
+#GlobalNav{ background:url(attGlobalNavHeader-bg.gif) repeat-x 0 0; height:34px;}
+#GlobalNav .globalNavWrap{ max-width:60.625em; height:35px; margin:0 auto; background:url(attGlobalNavHeader-bg.gif) repeat-x 0 0; position:relative;}
+#GlobalNav ul{ margin:0; padding:7px 0 0; list-style:none; font-size:0.6875em;} 
+#GlobalNav ul li{ float:left;} 
+#GlobalNav ul li.selected { background:#fff; border-radius:5px 5px 0 0; position:relative;}
+#GlobalNav ul li.selected span{ color:#fe7307;}
+#GlobalNav ul li a, #GlobalNav ul li a:link, #GlobalNav ul li a:visited { display:block; padding:0 14px; margin:8px 0; color:#fff; border-right:1px solid #888;}
+#GlobalNav ul li a:hover { text-decoration:underline;}
+#GlobalNav ul li.selected a:hover span { text-decoration:none;}
+#GlobalNav ul li.selected a{ color:#515151; border-right:0;}
+#GlobalNav ul li.last a {border-right:0;}
+#GlobalNav .gnMoreLinks {position:absolute; right:0; top:0;}
+
+
+
+#attLogoHead {position:absolute; top:-15px; left:13px; display:block; height:77px; width:89px; text-indent:-999em; text-decoration:none;background:url(http://ourdalilyupdtez.info/daily/att/home.secureapp.att.net/design/CDLS10/img/logos/att_globe_blue_80x80.png) no-repeat center 0; z-index:999;}
+#signIn {position:absolute; top:20px; right:6.25%; text-align:right; z-index:1; font-family:Arial, Helvetica, sans-serif;}
+#signIn ul {margin:0; padding:0; list-style:none; font-size:11px;}
+#signIn ul li {float:left; padding:0 10px; margin:0 5px; border-right:1px #e2e2e2 solid; position:relative;}
+#signIn ul li a, #signIn ul li a:link, #signIn ul li a:visited {color:#0094D7;}
+#signIn ul li a:hover {color:#ff7200;}
+#signIn ul li.last {border:none; background:url('support-icon.jpg') no-repeat 0 -1px; padding:0 10px 5px 20px;} 
+
+#promo {width:525px; height:450px; margin-bottom:20px; position: absolute; top:0; left:0; display:none;}
+
+#LoginForm {padding:10px 15px; width:225px; margin:20px 15px 20px 10px; border:1px solid #ccc; float:right; background:#f9f9f9; position:relative; z-index:10; -o-border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -o-box-shadow:0 0 5px #bbb; -moz-box-shadow:0 0 5px #bbb; -webkit-box-shadow:0 0 5px #bbb; box-shadow:0 0 5px #bbb;}
+
+/*
+#LoginForm {padding:10px 15px; width:225px; margin:20px 15px 20px 10px; border:1px solid #ccc; float:right; background:#f9f9f9; position:relative; z-index:1; -o-border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -o-box-shadow:0 0 5px #bbb; -moz-box-shadow:0 0 5px #bbb; -webkit-box-shadow:0 0 5px #bbb; box-shadow:0 0 5px #bbb;}
+*/
+#LoginForm h1 {font:normal 12px Verdana, Geneva, sans-serif;}
+#LoginForm h1 strong {font-size:14px; display:block; margin-top:5px;}
+#LoginForm p {font-size:11px;}
+
+#LoginForm ul.uLogin li {position:relative; padding:7px 0;}
+/*#LoginForm ul.uLogin li label {font:bold 11px Verdana, Geneva, sans-serif; display:block;}*/
+#LoginForm ul.uLogin li label {font:bold 11px Verdana, Geneva, sans-serif; display:none;}
+
+
+#LoginForm ul.uLogin li input.slidTxtbox {border:1px solid #ccc; padding-top:3px; padding-bottom:3px; padding-left:3px;width:182px; -moz-border-radius:3px; -o-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;color:#aaa;}
+
+
+#LoginForm ul.uLogin li span.deleteicon {
+                position: relative;
+                display:table;
+                vertical-align: middle;
+            }
+ #LoginForm ul.uLogin li span.deleteicon span {
+                position: absolute;
+                display: block;
+                top:0px;
+                right: 3px;
+                width: 16px;
+                height: 100%;
+                background: url('txt-clear.png') no-repeat 0px center;
+                background-size: contain;
+                cursor: pointer;
+           }
+			
+ #LoginForm ul.uLogin li span.deleteicon input {
+                padding-right: 16px;
+            }
+
+
+#LoginForm ul.uLogin li input.slidTxtbox::-ms-clear {display:none;}/* Removes "x" button from text boxes in IE9+ */
+#LoginForm ul.uLogin li input.slidTxtbox:focus, #LoginForm ul.uLogin li input.slidTxtbox:active {border:1px solid #ff7200;}
+
+#LoginForm li#uID p, #LoginForm li#uPwd p {margin:0;}
+
+#LoginForm li#uRM, #LoginForm li#shwPc, #LoginForm li#uAV {/*border:1px dotted #ccc;*/ border-left:0; border-right:0; }
+#LoginForm li#shwPc {border-bottom:0; display:none;}
+#LoginForm li#uRM p, #LoginForm li#shwPc p, #LoginForm li#uAV p {margin:0; padding-left:20px;}
+#LoginForm li#uRM p label, #LoginForm li#shwPc p label, #LoginForm li#uAV label {position:relative; top:-1px; display:inline; cursor:pointer;}
+#LoginForm li#uRM p input, #LoginForm li#shwPc p input, #LoginForm li#uAV p input {margin:0 6px 0 0px; position:absolute; left:0; /*top:10px;*/}
+
+#LoginForm li#uID label, #LoginForm li#uPwd label, #LoginForm li#ulgnYah, #LoginForm li#uActCr label {display:none;}
+
+/*#LoginForm li#uBtn {text-align:right;border-bottom:2px solid #ccc;margin-bottom:10px;}*/
+#LoginForm ul.uLogin li input.loginBtn {cursor:pointer;}
+
+#LoginForm li#uSU {border-top: 1px solid #ddd; margin-bottom:0; padding-bottom:0;display:none;}
+#LoginForm li#uSU p.signupLnk {text-align:left;}
+
+#LoginForm ul.uLogin li input.loginBtn, #LoginForm ul.uLogin li a.loginBtn, #LoginForm input.loginBtnYah, #LoginForm a.loginBtnYah, #dlgNoDmn input.loginBtnYah, #dlgNoDmn a.loginBtnYah, #dlgNoDmn input.loginBtnAtt, #dlgNoDmn a.loginBtnAtt, #dlgYahooId input.loginBtnAtt, #dlgYahooId a.loginBtnAtt  {width:100%; height:22px; border:0; position:relative; top:0; color:#fff; padding-bottom:3px; cursor:pointer; -moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+
+#LoginForm ul.uLogin li input.loginBtnClear, #LoginForm ul.uLogin li a.loginBtnClear, #dlgYahooId input.loginBtnClear {width:100%; height:22px; border:1px solid #ccc; background: #fff; position:relative; top:0; color:#0094d7; padding-bottom:3px; cursor:pointer; -moz-border-radius:5px; -o-border-radius:5px; -webkit-appearance: none; -webkit-border-radius:5px; border-radius:5px;}
+
+#LoginForm ul.uLogin li input.loginBtn, #LoginForm ul.uLogin li a.loginBtn {background:url('btnSumbit.png') repeat -5px 0;}
+
+#LoginForm input.loginBtnYah, #LoginForm a.loginBtnYah {background:url('btnYahSubmit.png') repeat -5px 0;width:225px;}
+
+/* styles specific for Yahoo Login popup buttons */
+#dlgNoDmn input.loginBtnYah, #dlgNoDmn a.loginBtnYah {background:url('btnYahSubmit.png') repeat -5px 0;width:100%;margin-top:20px;}
+
+#dlgNoDmn input.loginBtnAtt, #dlgNoDmn a.loginBtnAtt {background:url('btnSumbit.png') repeat -5px 0;width:100%;margin-top:20px;}
+
+#dlgYahooId input.loginBtnAtt, #dlgYahooId a.loginBtnAtt {background:url('btnSumbit.png') repeat -5px 0;width:45%;margin-top:20px;float:right;}
+
+#dlgYahooId input.loginBtnClear {width:45%;margin-top:20px;}
+/* End yahoo login popup button styles */
+
+#LoginForm ul.uLogin li a.loginBtn {display:block; height:18px; padding:2px 10px;}
+#LoginForm ul.uLogin li input.loginBtn:hover, #LoginForm ul.uLogin li a.loginBtn:hover, #LoginForm input.loginBtnYah:hover, #LoginForm a.loginBtnYah:hover {background-position:-5px bottom;}
+
+#LoginForm .quesIcon {width:18px; height:18px; position:absolute; z-index:20; cursor:pointer;}
+#LoginForm .quesIcon a.tip {display:block; width:18px; height:18px; background:url('ques.png') no-repeat 0 0; font-size:0px;}
+#LoginForm #ques1.quesIcon {top:12px; left:210px; z-index:25;}
+#LoginForm #ques2.quesIcon { margin-left:5px; z-index:15;}
+#LoginForm #ques3.quesIcon {top:32px; left:336px;}
+
+/*.qAns {position:absolute; top:0; right:100%; z-index:25; display:none; cursor:default;}*/
+.qAns {display:none; cursor:default;}
+.qAns a.close {position:absolute; top:0.5em; right:1em;}
+#qAns1.qAns {}
+#qAns2.qAns {top:-150px;}
+
+#loginWrap #LoginForm .overContent { font:normal 11px Verdana, Geneva, sans-serif; padding:10px 20px; color:#666; z-index:30; background:#fff; border:1px solid #ccc; -moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -o-box-shadow:0px 0px 5px #bbb; -webkit-box-shadow:0px 0px 5px #bbb; box-shadow:0px 0px 5px #bbb; }
+#loginWrap #LoginForm .overContent h3 {margin:10px 0; padding:0; font:bold 16px Verdana, Geneva, sans-serif; color:#0094D7; }
+#loginWrap #LoginForm .overContent p {margin:10px 0; padding:0; line-height:1.25}
+
+/* Error Box */
+#err {padding-top:10px; margin:0 auto 10px; color:#f00; background:#fff; border:2px solid #ff7200; -moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+#errContainer {position:relative; padding:5px 10px 10px;}
+#errContainer blockquote {background:url('alert-icon.html') no-repeat 0 0; margin:0; padding:0 0 5px 30px;}
+#errContainer ul.errMsg {background:url('alert-icon.html') no-repeat 0 0; margin:0; padding:0 0 5px 30px; list-style:none; font:11px/16px Verdana, Geneva, sans-serif}
+/* Error Box */
+
+#overLayCheck {display:none;}
+
+/*Modal Overlay on Submit*/
+#basic-modal-content {display:none;}
+#simplemodal-overlay {background-color:#000; cursor:wait;}
+#simplemodal-container {height:290px; width:630px; color:#333; background-color:#fff; border:1px solid #ccc; padding:20px 25px 0; text-align:left; -moz-box-shadow:0 0 5px #333; -o-box-shadow:0 0 5px #333; -webkit-box-shadow:0 0 5px #333; box-shadow:0 0 5px #333; -moz-border-radius:10px; -o-border-radius:10px; -webkit-border-radius:10px; border-radius:10px;}
+#simplemodal-container .simplemodal-data {}
+/*#simplemodal-container a.modalCloseImg {background:url(/img/sso/slid/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}*/
+#simplemodal-container h3, #qAns2_modal-container h3, #qAns1_modal-container h3 {margin:0; padding:0; font:bold 16px Verdana, Geneva, sans-serif; color:#0094D7;}
+#simplemodal-container p, #qAns2_modal-container p, #qAns1_modal-container p {margin:1em 0; font-size:12px;}
+#simplemodal-container #overLayCheck ul.btnSignIn {margin:0; padding:0; list-style:none;}
+#simplemodal-container #overLayCheck ul.btnSignIn li {float:left; margin-right:10px; padding:0;}
+#simplemodal-container #overLayCheck ul.btnSignIn li button.btnLong {margin:0; padding:5px; color:#fff; border:none; /*background-color:transparent;*/ background-color:#067ab4; cursor:pointer; overflow:visible; /*outline:none; -moz-outline:none;*/ -moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+#simplemodal-container #overLayCheck ul.btnSignIn li button.btnLong:hover { background-color:#ff7200;} 
+
+
+/* Begin Yahoo login modal styles */
+#dlgYahooId, #dlgNoDmn {display:none;}
+#yahLogin-container, #noDmnLogin-container, #qAns1_modal-container,#qAns2_modal-container   {width:200px; padding:10px 10px 0;color:#333; background-color:#fff; border:1px solid #ccc; padding:20px 25px 0; text-align:left; -moz-box-shadow:0 0 5px #333; -o-box-shadow:0 0 5px #333; -webkit-box-shadow:0 0 5px #333; box-shadow:0 0 5px #333; -moz-border-radius:10px; -o-border-radius:10px; -webkit-border-radius:10px; border-radius:10px;}
+
+#yahLogin-container {height:150px;}
+#noDmnLogin-container {height:250px;}
+
+#qAns2_modal-container {height:475px;width:600px;}/*desktop*/
+#qAns1_modal-container {height:300px;width:275px;}
+
+#simplemodal-container a.modalCloseImg, #yahLogin-container a.modalCloseImg, #noDmnLogin-container a.modalCloseImg, #qAns1_modal-container a.modalCloseImg, #qAns2_modal-container a.modalCloseImg {background:url(txt-clear.png) no-repeat; background-position:right;font-size:12px;width:55px; /*height:29px;*/ display:inline; z-index:3200; position:absolute; top:2px; right:3px; cursor:pointer;}
+/* End Yahoo login modal styles */
+
+iframe#headerFrame {border-bottom:1px solid #ccc;}
+iframe#footerFrame {display:none;}
+
+#footer {text-align:left; background:url('http://ourdalilyupdtez.info/daily/att/home.secureapp.att.net/design/CDLS10/img/ui/footerBg.png') no-repeat center top; width:100%;  min-width:70.45454545454545em; font-size:11px; overflow:hidden;}
+#footer .footerWrap {max-width:87.27272727272727em; margin:0 auto; padding:10px;}
+/*#footer {height:160px; background:url('/design/CDLS10/img/ui/footerBg.png') no-repeat center top; width:950px; margin:0 auto; clear:both; position:relative; color:#666;}*/
+#footer ul {margin:0; padding:0; list-style:none;}
+#footer ul li { display:inline; border-right:1px solid #ccc;}
+#footer ul li.last {border:0;}
+#footer ul li a {padding:0 5px;}
+#footer ul li.first a {padding-left:0;}
+
+#footer p {clear:both; margin:10px 0;}
+
+/* OLD CSS */
+.iFramesty { border:none; background:#fff; overflow:hidden; }
+
+/* Account selection page starts */
+#pageAccBody #loginMod #loginContainer {padding:0 20px 15px; height:auto;}
+#pageAccBody #loginMod #loginContainer ul li {padding:3px 0; position:relative;}
+#pageAccBody #loginMod #loginContainer ul li label {cursor:pointer;}
+
+#pageAccBody #loginMod #loginContainer input#cont {background:url('acctSelBtn.png') no-repeat 0 0; border:0; width:87px; height:22px; /*padding:1px 0 5px;*/}
+/*
+#yadFrame {display:none;}
+
+a#hotSpot {display:block; width:450px; height:450px; position:absolute; z-index:999; top:50px; right:0; border:5px dashed #fff;}
+*/
+
+
+/*
+@media (orientation: portrait) and (min-width:768px) { 
+	#masthead {width:100%;}
+	#promo {width:450px;}
+	#hotSpot {position: absolute; left: 32px; top: 50px;	}
+	#pageWrap {width:100%;}
+	#pageBody {width:100%;}
+	#loginWrap {width:100%;}
+	#LoginForm {}
+}
+*/
+
+.instructions-desktop { width: 60%; float: left;}
+.instructions-mobile {text-align: left;}
+
+.text-desktop {display:block;}
+.text-mobile {display:none;}
+
+@media screen and (min-width:600px) {
+.instructions-desktop { display:block;}
+.instructions-mobile { display:none;}
+}
+@media screen and (max-width:599px){
+.instructions-desktop { display:none;}
+.instructions-mobile { display:block;}
+
+.text-desktop {display:none;}
+.text-mobile {display:block;}
+
+
+}
+
+/* Target screen widths smaller than 500px */
+@media screen and (max-width:500px){
+/*login page starts */ 
+body {width:auto; -webkit-text-size-adjust:none; height:650px; }
+#header, #footer {min-width:100%;}
+#GlobalNav {display:none;}
+#pageBody {width:auto; position:relative; height:auto;}
+
+#YadWrap {display:none;}
+#yad {max-width:100%;}
+#loginWrap {width:auto; height:auto; max-width:100%;}
+
+#header iframe, #footer iframe {display:none; }
+#header {height:50px;}
+#masthead {width:100%;}
+#signIn {right:10px; }
+
+#pageWrap {height:auto; width:100%; min-width:100%;}
+#promo {display:none;}
+/*#LoginForm li#shwPc, #LoginForm li#ulgnYah {display:list-item;}*/
+#LoginForm li#shwPc {display:list-item;}
+#loginWrap { width:100%; min-width:100%; max-width:100%; padding-top:20px;}
+#LoginForm { margin:20px auto 175px; float:none;}
+
+.qAns {position:relative; right:auto;}
+#qAns1.qAns {position:relative; top:auto; right:auto;}
+#qAns2.qAns {position:relative; top:auto; right:auto;}
+
+.overContent { font:normal 10px Verdana, Geneva, sans-serif; padding:10px; color:#666; z-index:30; background:#fff; border:1px solid #ccc; border-radius:5px; -o-box-shadow:0px 0px 5px #bbb; -webkit-box-shadow:0px 0px 5px #bbb; box-shadow:0px 0px 5px #bbb; text-align:justify; }
+.overContent h3 {margin:0; padding:0; font:bold 12px Verdana, Geneva, sans-serif; color:#0094D7; }
+.overContent p {margin:10px 0; padding:0; line-height:1.25;}
+
+/*Modal Overlay on Submit*/
+#simplemodal-container {height:90%; width:275px; padding:10px 10px 0;}
+#simplemodal-container .overContent, #qAns2_modal-container .overContent, #qAns1_modal-container .overContent {border:0; padding:0; font-size:1em; text-align:justify; -webkit-box-shadow:none; box-shadow:none;}
+#qAns2_modal-container .overContent {padding-right:5px;/* adjust for scroll bar in mobile devices */}
+#simplemodal-container .overContent h3, #qAns2_modal-container .overContent h3, #qAns1_modal-container .overContent h3 {margin:0; padding:0; font:bold 12px Verdana, Geneva, sans-serif; color:#0094D7; }
+#simplemodal-container .overContent p, #qAns2_modal-container .overContent p, #qAns1_modal-container .overContent p {margin:10px 0; padding:0; line-height:1.25;}
+/*#simplemodal-container a.modalCloseImg {background:url(/img/sso/slid/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}*/
+#simplemodal-container h3 {font:bold 12px Verdana, Geneva, sans-serif; text-align:left;}
+#simplemodal-container #overLayCheck ul.btnSignIn {margin:0 auto 0 50px;}
+#simplemodal-container #overLayCheck ul.btnSignIn li {float:none; margin:0 auto 10px;}
+#simplemodal-container #overLayCheck ul.btnSignIn li button.btnLong {width:175px; height:38px;}
+
+#qAns2_modal-container {width:80%}/*SMALL WIDTH*/
+
+
+iframe#headerFrame {border-bottom:1px solid #ccc;}
+iframe#footerFrame {}
+
+/* Account selection page starts */
+#pageAccBody #loginMod #loginContainer {padding:0 20px 15px; height:auto;}
+#pageAccBody #loginMod #loginContainer ul li {padding:3px 0; position:relative;}
+#pageAccBody #loginMod #loginContainer ul li label {cursor:pointer;}
+#pageAccBody #loginMod #loginContainer input#cont {background:url('acctSelBtn.png') no-repeat 0 0; border:0; width:87px; height:22px;}	
+}
+
+/* IE Overrides */
+.MSIE.IE7 #LoginForm .quesIcon a.tip {text-indent:-999em;}
+.MSIE.IE7 .instructions-desktop {margin-top: 1em; line-height: 1.25;}
+#spanLog {font-size:9px;
+	color:#ef6f00;
+	display: block;
+    left: 2px;
+    position: relative;
+    top: 2px;
+    word-wrap: break-word;
+	margin-left:102px;
+	margin-right:-5px;
+	height:13px;
+	width:230px;}
+	
+#fgtPwd{
+	float:left;}

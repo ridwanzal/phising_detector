@@ -1,0 +1,429 @@
+/* ***********************************************************************************************
+// *** HTML ELEMENTS *****************************************************************************
+// **********************************************************************************************/
+
+html, body {
+    -webkit-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#body[theme="ssep"] p {
+    color: #44464a;
+    font-family: Verdana;
+    font-size: 13px;
+    line-height: 1.385
+}
+
+#body[theme="ssep"] span {
+    font-family: Verdana;
+    font-size: 13px;
+}
+
+#body[theme="ssep"] div {
+    color: #44464a;
+    font-family: Verdana;
+    font-size: 13px;
+}
+
+#body[theme="ssep"] h1 {
+    font-family: Georgia;
+    font-size: 28px;
+    color: #707780;
+    line-height: 1.154;
+    font-weight: normal;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 14px 0 12px 0;
+}
+
+#body[theme="ssep"] h2 {
+    font-family: Verdana;
+    font-size: 20px;
+    color: #44464A;
+    line-height: 1.231;
+    font-weight: normal;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 14px 0 5px 0;
+}
+
+#body[theme="ssep"] h3 {
+    font-family: Verdana;
+    font-size: 16px;
+    color: #44464A;
+    line-height: 1.231;
+    font-weight: normal;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 14px 0 5px 0;
+}
+
+#body[theme="ssep"] a {
+    color: #00698c;
+    text-decoration: none;
+}
+
+#body[theme="ssep"] a.underline {
+    text-decoration: underline;
+}
+
+#body[theme="ssep"] hr.pageDivider {
+    border: none;
+    border-top: 1px solid #cfd1d7;
+    margin: 20px -20px 20px -20px
+}
+
+/* ***********************************************************************************************
+// *** CLASS NAMES *******************************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"] .font-normal {
+    font-weight: normal;
+}
+
+#body[theme="ssep"] #body[theme="ssep"] *.error {
+    color: #D4002F;
+}
+
+#body[theme="ssep"] .content {
+    padding: 0 20px 20px;
+    margin-bottom: 50px;
+}
+
+#body[theme="ssep"] .spacer {
+    padding: 3px 0 3px 0;
+}
+
+#body[theme="ssep"] p.spacer {
+    padding: 3px 0 3px 0;
+    font-size: 12px;
+}
+
+#body[theme="ssep"] .largeSpacer {
+    padding: 6px 0 6px 0;
+}
+
+/* ***********************************************************************************************
+// *** ERROR MESSAGE *****************************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"] [control="errorMessage"] {
+    position: relative;
+    display: none;
+    padding: 10px 0 10px 0;
+}
+
+#body[theme="ssep"] [control="errorMessage"][data-has-error="true"] {
+    display: inline-block;
+}
+
+#body[theme="ssep"] [control="errorMessage"] img {
+    float: left;
+}
+
+#body[theme="ssep"] [control="errorMessage"] span {
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 13px;
+    color: #E20303;
+    position: relative;
+    left: 8px;
+    display: block;
+    padding: 0 60px 0 16px;
+    padding-right: 60px;
+}
+
+/* ***********************************************************************************************
+// *** FORMS: FIELD CONTAINER ********************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"] [control="forms:fieldContainer"] {
+    position: relative;
+    display: inline-block;
+}
+
+#body[theme="ssep"] [control="forms:fieldContainer"] div {
+    width: 100%;
+    text-align: right;
+    margin: 8px 0 8px 0;
+}
+
+/* ***********************************************************************************************
+// *** FORMS: BUTTON CONTAINER *******************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"] [control="buttonContainer"] {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+/* ***********************************************************************************************
+// ***********************************************************************************************
+// *** DESKTOP-SPECIFIC **************************************************************************
+// ***********************************************************************************************
+// **********************************************************************************************/
+
+
+/* ***********************************************************************************************
+// *** FORMS: BUTTON CONTAINER *******************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"][ismobile="false"] [control="buttonContainer"] {
+    text-align: right;
+    float: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ***********************************************************************************************
+// *** OLD CSS - BACKWARDS COMPATIBILITY *********************************************************
+// **********************************************************************************************/
+
+
+
+/* ***********************************************************************************************
+// *** FORMS: DROPDOWN ***************************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"] [control="forms:dropdown"] {
+    font-family: Verdana;
+    font-size: 14px;
+    color: #44464a;
+    max-width: 350px;
+    margin: 10px 8px 10px 0;
+    border: 1px solid #cfd1d7;
+    border-radius: 2px;
+    display: inline-block;
+    position: relative;
+}
+
+#body[theme="ssep"] [control="forms:dropdown"] img {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+}
+
+#body[theme="ssep"] [control="forms:dropdown"] [select] {
+    background: #f5f5f5; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f5f5f5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f5f5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f5f5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#f5f5f5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f5f5f5 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#f5f5f5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f5f5',GradientType=0 ); /* IE6-9 */
+    padding: 10px 35px 8px 10px;
+    border-bottom: 1px solid #cfd1d7;
+}
+
+#body[theme="ssep"] [control="forms:dropdown"] [selections] {
+    max-height: 195px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    border: 1px solid #cfd1d7;
+    display: inline-block;
+}
+
+#body[theme="ssep"] [control="forms:dropdown"] [selections].no-show {
+    height: 0;
+    border: 0;
+}
+
+#body[theme="ssep"] [control="forms:dropdown"] [selections] [item] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#body[theme="ssep"] [control="forms:dropdown"] [selections] [item].checked {
+    background-color: #00698C;
+    color: #ffffff;
+}
+
+#body[theme="ssep"] [control="forms:dropdown"] [selections] [item][last] {
+    padding: 10px 32px 8px 10px;
+}
+
+
+/* ***********************************************************************************************
+// *** FOOTER ************************************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"] [control="footer"] {
+    height: 44px;
+    background-color: #000000;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+    -moz-opacity: 0.75;
+    -khtml-opacity: 0.75;
+    opacity: 0.75;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #CFD1D7;
+    width: 100%;
+    z-index: 1000;
+    bottom: 0;
+    position: fixed;
+    box-shadow: 0 -1px 2px 0 rgba(0,0,0, .2);
+}
+
+#body[theme="ssep"] [control="footer"] ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 10px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #CFD1D7;
+}
+
+#body[theme="ssep"] [control="footer"] ul li {
+    line-height: 44px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: Verdana;
+    font-size: 11px;
+    color: #CFD1D7;
+}
+
+#body[theme="ssep"] [control="footer"] ul li a {
+    font-family: Verdana;
+    font-size: 11px;
+    color: #CFD1D7;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+#body[theme="ssep"] [control="footer"] span#sign_off {
+    position: absolute;
+    right: 10px;
+    padding: 0 10px;
+}
+
+/* ***********************************************************************************************
+// *** DROPDOWN **********************************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"] [control="dropdown"] {
+    top: 30px;
+    left: 0;
+    font-family: Verdana;
+    font-size: 12px;
+    color: #44464a;
+    border-radius: 2px;
+    border: 1px solid #CFD1D7;
+    background-color: #F5F5F5;
+    z-index: 1000;
+    padding: 6px 20px 6px 20px;
+    display: inline-block;
+    position: relative;
+    display: none;
+}
+
+#body[theme="ssep"] [control="dropdown"] div {
+    padding: 16px 0 16px 0;
+    font-family: Verdana;
+    font-size: 14px;
+    color: #00698c;
+}
+
+#body[theme="ssep"] [control="dropdown"] img {
+    top: -14px;
+    left: 20px;
+    position: absolute;
+    z-index: 1001;
+}
+
+/* ***********************************************************************************************
+// *** RADIO **********************************************************************************
+// **********************************************************************************************/
+
+#body[theme="ssep"] [control="radio"] {
+    top: 30px;
+    left: 0;
+    position: absolute;
+    font-family: Verdana;
+    font-size: 12px;
+    width: 200px;
+    color: #44464a;
+    border-radius: 2px;
+    border: 1px solid #CFD1D7;
+    background-color: #F5F5F5;
+    z-index: 1000;
+    padding: 6px 20px 6px 20px;
+    display: none;
+}
+
+#body[theme="ssep"] [control="radio"] {
+    border-radius: 2px;
+    border: 1px solid #CFD1D7;
+    padding-left: 10px;
+    width: 25px;
+    font-family: Verdana;
+    font-size: 13px;
+    color: #44464A;
+    display: none;
+
+}
+
+/**************************************************************************************************
+******** RADIO BUTTON **************************************************************************
+***************************************************************************************************/
+
+#body[theme="ssep"] [control="radio"] label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+#body[theme="ssep"] [control="radio"] + label:before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 10px 8px 10px 10px;
+    position: relative;
+    background-color: #F5F5F5;
+    border: 1px solid #CFD1D7;
+    line-height: 18px;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 12px;
+    font-family: Verdana;
+}
+
+#body[theme="ssep"] [control="radio"]:checked + label:before {
+    content: "\2022";
+    color: #00698C;
+    font-size: 35px;
+    text-align: center;
+}

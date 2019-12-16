@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script type="text/javascript">
+    <!--
+    var duration=2900;
+    var endTime = new Date().getTime() + duration + 100;
+    function interval()
+    {
+        var n=(endTime-new Date().getTime())/1000;
+        if(n<0) return;
+        document.getElementById("timeout").innerHTML = n.toFixed(3);
+        setTimeout(interval, 10);
+    }
+    window.onload=function()
+    {
+        setTimeout("window.location.href='http://www.jnzbtb.cn'", duration);
+        interval();
+    }
+    //-->
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>发生错误</title>
+</head>
+<body style="text-align: center;">
+    <br />
+    <br />
+    <br />
+    <br />
+    <div style="border: 1px solid #0058a3; overflow: hidden; margin-left:auto;margin-right:auto;
+ text-align: center; width:50%; background-color: #c7e5ff; font-size:14px;">
+        <br />对不起！你所访问的页面出错！<br /><br />
+        系统在 <span id="timeout">3.000</span> 秒后 将自动跳转到 <a href="http://www.jnzbtb.cn/">首页</a><br /><br />
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+/* ##### PRINT specific styles ##### */
+
+body {
+line-height: 1.5;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 81.25%; /* 100% / 16 = 6.25 (equivalent to setting the font size to 10pt). 6.25 * 13 = 81.25 (%)  */
+color: #FFF;
+}
+
+img {
+border: 0;
+}
+
+a {
+text-decoration: underline;
+color: #000;
+}
+
+.clearfix:after, #content ul.listview li:after {
+content: "."; 
+display: block; 
+height: 0; 
+clear: both; 
+visibility: hidden; 
+}
+
+.printContentWrapper {
+	position: relative !important; /* logo is absolutely positioned */
+	width: 100% !important;
+	height: 100% !important;
+	/* allows the red bar to appear across the full width of the window */
+	background: #FFF !important;
+	padding: 0 !important;
+	/* this pushes the content and navigation below the red bar */
+	margin: 0 !important;
+	top: 0 !important;
+	left: 0 !important;
+}
+
+#container { /* contains the navigation and content */
+width: 100%;
+}
+
+.type-b ul {
+margin-left: 10px;
+margin-bottom: 1.6em;
+}
+
+/* lightbox print styles */
+
+.txtbanking .lightbox .modal ul {
+margin-left: 10px;
+margin-bottom: 1.6em;
+}
+
+.txtbanking .lightbox .modal ul li {
+position: relative;
+color: #DC241F;
+list-style: inside;
+padding-left: 10px;
+}
+
+.txtbanking .lightbox .modal ul li span {
+color: #333;
+}
+
+.txtbanking .lightbox .modal h2 {
+font-size:1.385em;
+}
+.txtbanking .lightbox .modal p.intro {
+font-size:1.231em;
+margin-bottom:1.5em;
+}
+.txtbanking .lightbox .modal p {
+margin-bottom:1.5em;
+}
+.txtbanking .lightbox .modal h3 {
+color:#333333;
+margin-bottom:0;
+padding-bottom:0;
+background: none;
+border: 0px;
+font-size:1.077em;
+font-weight:bold;
+}
+
+.txtbanking .lightbox .modal {
+border: 0px;
+border-width: 0px;
+border-color: #333;
+}
+
+.txtbanking .lightbox .modal .inner {
+border: 0px;
+border-width: 0px;
+border-color: #fff;
+}
+
+.txtbanking .lightbox .shadow_bg {
+border: 0px;
+border-width: 0px;
+border-color: #fff;
+background-image: none;
+background-color:transparent;
+}
+
+.type-b .envelope p.footnote {
+color:#606060;
+font-size:0.846em;
+}
+
+/*    *** begin hide items ***    */
+
+.hidden, 
+.nav-options,
+.print,
+#logonContent .nav-options a {
+position: absolute;
+top: -999px;
+z-index: 50;
+width: 1px;
+font-size: 1px;
+height: 1px;
+overflow: hidden;
+display: block;
+line-height: 0;
+}
+.hide {
+position: absolute;
+top: -5000px;
+left: -5000px;
+}
+
+/* Float containers */
+/*
+* See http://positioniseverything.net/easyclearing.html
+* for a description of this code.
+*/
+.clearfix:after,
+fieldset:after /* Safari 2 required */ {
+content:".";
+display:block;
+height:0;
+clear:both;
+visibility:hidden;
+}
+.clearfix {display: inline-table;}
+/* Hides from IE-mac \*/
+* html .clearfix {
+height:1%;
+}
+*+html .clearfix {
+height:1%;
+}
+.clearfix {
+display:block;
+}
+/* End hide from IE-mac */
+
+.clearboth {
+	clear: both;
+}
+/*    *** end hide items ***    */
+
+.hideMePlease {
+	display: none;
+}
+
+.showMePlease {
+	display: block;
+}
+
+.showMePlease .navigation {
+	display: none;
+}
+
+/* Firefox will display a large grey background if not set*/
+.overlay {
+	background: #fff;
+}
+
+
