@@ -567,6 +567,10 @@ class Training extends CI_Controller {
 					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/100_sample/phishing/';
 					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/100_sample/legitimate/';
 				break;
+				case 1000 : 
+					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/1000_sample/phishing/';
+					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/1000_sample/legitimate/';
+				break;
 			}
 ;			if($check_ifclick){
 				$files_process = scandir($main_path1); // scan direktori
