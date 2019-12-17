@@ -1,1 +1,0 @@
-$(function(){$("#taskViewOverlay").delay(100).remove()});
