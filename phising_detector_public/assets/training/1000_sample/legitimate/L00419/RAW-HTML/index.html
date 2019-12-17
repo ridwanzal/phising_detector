@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UQYGUVNSGwUFUlRRAAk="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+        <!-- Google DFP Code -->
+    <script type="text/javascript">
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        })();
+    </script>
+
+    <!-- Start Visual Website Optimizer Asynchronous Code -->
+    <script type='text/javascript'>
+        var _vwo_code=(function(){
+            var account_id=192632,
+                    settings_tolerance=2000,
+                    library_tolerance=2500,
+                    use_existing_jquery=false,
+                    // DO NOT EDIT BELOW THIS LINE
+                    f=false,d=document;return{use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){settings_timer=setTimeout('_vwo_code.finish()',settings_tolerance);this.load('//dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&r='+Math.random());var a=d.createElement('style'),b='body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);return settings_timer;}};}());_vwo_settings_timer=_vwo_code.init();
+    </script>
+    <!-- End Visual Website Optimizer Asynchronous Code -->
+
+                    
+    <link rel="icon" sizes="192x192" href="/apple-touch-icon.png?v=2">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Add to homescreen for Safari on iOS -->
+                
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/apple-touch-icon.png?v=2">
+    <meta name="msapplication-TileColor" content="#15ace6">
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+
+    <title>            Home
+     | The SPORT Bible</title>
+
+    
+        <link rel="stylesheet" href="/css/main.min.css" />
+    
+    <!-- Start Alexa Certify Javascript -->
+    <script type="text/javascript">
+        _atrk_opts = { atrk_acct:"jzgkj1aAkN00Ej", domain:"thesportbible.com",dynamic: true};
+        (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+    </script>
+    <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=jzgkj1aAkN00Ej" style="display:none" height="1" width="1" alt="" /></noscript>
+    <!-- End Alexa Certify Javascript -->
+
+
+    
+                    
+
+    <!-- SEO Meta Information -->
+    
+    <!-- FB markup -->
+
+<meta property="fb:app_id" content="578356625574981">
+
+<!-- Twitter markup -->
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@TSBible">
+<meta name="twitter:domain" content="thesportbible.com">
+
+
+                
+    <!-- Real OG shizzle -->
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.thesportbible.com/">
+    <meta property="og:title" content="Home | The SPORT Bible">
+    <meta property="og:description" content="The Sport Bible is one of the largest communities for sports fans across the world. Send us your sporting pictures and videos!">
+    <meta property="og:image" content="http://www.thesportbible.com/apple-touch-icon.png">
+
+    <meta name="description" content="The Sport Bible is one of the largest communities for sports fans across the world. Send us your sporting pictures and videos!">
+    <link rel="image_src" href="http://www.thesportbible.com/apple-touch-icon.png">
+
+    <link rel="canonical" href="http://www.thesportbible.com/">
+
+
+    
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-56F8HP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-56F8HP');</script>
+        <!-- End Google Tag Manager -->
+
+    
+    
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+                <!--[if IE]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+                <script src="/js/matchMediaPolyfill.js"></script>
+                <![endif]-->
+
+    
+</head>
+<body>
+    <div class="app-launch-interstitial-container">
+        <div class="app-launch-interstitial-container__ios">
+            <div class="header clearfix">
+                                <img class="logo" src="/images/e0b4fab.png" />
+                                <p><a href="javascript:void(0);" id="ios-no-thanks">No Thanks</a></p>
+            </div>
+            <a class="ios-store-linkout" href="https://itunes.apple.com/us/app/theladbible/id1049341920?ls=1&mt=8" target="_blank">
+                                <img src="/images/b0676d5.png" class="phone" />
+                            </a>
+            <div class="copy">
+                <a class="ios-store-linkout" href="https://itunes.apple.com/us/app/theladbible/id1049341920?ls=1&mt=8" target="_blank">
+                                        <img src="/images/5b4b488.svg" />
+                                    </a>
+            </div>
+        </div>
+        <div class="app-launch-interstitial-container__android">
+            <div class="header clearfix">
+                                <img class="logo" src="/images/e0b4fab.png" />
+                                <p><a href="javascript:void(0);" id="android-no-thanks">No Thanks</a></p>
+            </div>
+            <a class="android-store-linkout" href="https://play.google.com/store/apps/details?id=com.theladbible.android" target="_blank">
+                                <img src="/images/b93ca21.png" class="phone phone__android" />
+                            </a>
+            <div class="copy">
+                <p>We didn't forget about you, available now</p>
+                <a class="android-store-linkout" href="https://play.google.com/store/apps/details?id=com.theladbible.android" target="_blank">
+                                        <img src="/images/7de91fc.png" />
+                                    </a>
+            </div>
+        </div>
+    </div>
+
+     
+    
+    <nav class="mega-menu">
+    <div class="wrapper">
+        <header>
+            <div class="nav-toggle">
+                                <img class="nav-icon close-icon" src="/images/42bf1a2.png" role="collapse" />
+                
+            </div>
+        </header>
+
+        <section class="primary-nav">
+    <ul>
+        <li><a data-trending="trending-news" href="/category/football">Football</a></li>
+        <li><a data-trending="trending-funny" href="/category/rugby">Rugby</a></li>
+        <li><a data-trending="trending-take-a-bow" href="/category/boxing">Boxing</a></li>
+        <li><a data-trending="trending-community" href="/category/other">Other</a></li>
+
+                
+        <li><a href="http://www.theoddsbible.com/?utm_source=thesportbible.com&utm_medium=channel&utm_campaign=TheSportBible" target="_blank">TheOddsBible</a></li>
+
+        <li><a href="/submit">Submit Your Content</a></li>
+    </ul>
+</section>
+
+<section class="trending-nav">
+
+    <div class="trending-content trending-news">
+        <section class="trending">
+    <h1>Trending in Football</h1>
+    <ul>
+                                    <li>
+                    <article>
+                        <a href="/articles/watch-anthony-martial-s-reaction-to-post-match-drugs-test-is-brilliant-230416">
+                            <img src="http://20.theladbiblegroup.com/s3/content/82x82/79ea1772571b8ca921eac1af9964f4aa.jpg">
+                            <h1>WATCH: Anthony Martial’s Reaction To Post-Match Drugs Test Is Brilliant</h1>
+                        </a>
+                                                
+                                                    
+                            <div class="taxonomy-container">
+                                <span class="taxonomy">
+                                    <a href="/category/football" class="category category-football">Football</a>
+                                    | <a href="/type/funny" class="type type-funny">Funny</a>
+                                </span>
+                            </div>
+                        
+                    </article>
+                </li>
+                            <li>
+                    <article>
+                        <a href="/articles/west-ham-s-first-olympic-stadium-opponents-revealed-250416">
+                            <img src="http://20.theladbiblegroup.com/s3/content/82x82/a6d110c2571d777723d296a5c667f560.png">
+                            <h1>West Ham&#039;s First Olympic Stadium Opponents Revealed</h1>
+                        </a>
+                                                
+                                                    
+                            <div class="taxonomy-container">
+                                <span class="taxonomy">
+                                    <a href="/category/football" class="category category-football">Football</a>
+                                    | <a href="/type/news" class="type type-news">News</a>
+                                </span>
+                            </div>
+                        
+                    </article>
+                </li>
+                            <li>
+                    <article>
+                        <a href="/articles/the-world-reacts-to-eden-hazard-finally-scoring-in-the-premier-league-230416">
+                            <img src="http://20.theladbiblegroup.com/s3/content/82x82/fc773d97571b7c3ac469a135df1dd475.png">
+                            <h1>The World Reacts To Eden Hazard Finally Scoring In The Premier League</h1>
+                        </a>
+                                                
+                                                    
+                            <div class="taxonomy-container">
+                                <span class="taxonomy">
+                                    <a href="/category/football" class="category category-football">Football</a>
+                                    | <a href="/type/reactions" class="type type-reactions">Reactions</a>
+                                </span>
+                            </div>
+                        
+                    </article>
+                </li>
+                        </ul>
+</section>
+    </div>
+    <div class="trending-content trending-funny">
+        <section class="trending">
+    <h1>Trending in Rugby</h1>
+    <ul>
+            </ul>
+</section>
+    </div>
+    <div class="trending-content trending-take-a-bow">
+        <section class="trending">
+    <h1>Trending in Boxing</h1>
+    <ul>
+                                    <li>
+                    <article>
+                        <a href="/articles/breaking-anthony-joshua-s-first-defence-confirmed-250416">
+                            <img src="http://20.theladbiblegroup.com/s3/content/82x82/fc331fe4571d86cd00d768bff30e00ab.jpg">
+                            <h1>BREAKING: Anthony Joshua&#039;s First Defence Confirmed</h1>
+                        </a>
+                                                
+                                                    
+                            <div class="taxonomy-container">
+                                <span class="taxonomy">
+                                    <a href="/category/boxing" class="category category-boxing">Boxing</a>
+                                    | <a href="/type/news" class="type type-news">News</a>
+                                </span>
+                            </div>
+                        
+                    </article>
+                </li>
+                            <li>
+                    <article>
+                        <a href="/articles/mike-tyson-pays-brilliant-respect-to-prince-220416">
+                            <img src="http://20.theladbiblegroup.com/s3/content/82x82/826a91f4571ad8def3b10163398526c0.png">
+                            <h1>Mike Tyson Pays Brilliant Respect To Prince</h1>
+                        </a>
+                                                
+                                                    
+                            <div class="taxonomy-container">
+                                <span class="taxonomy">
+                                    <a href="/category/boxing" class="category category-boxing">Boxing</a>
+                                    | <a href="/type/news" class="type type-news">News</a>
+                                </span>
+                            </div>
+                        
+                    </article>
+                </li>
+                        </ul>
+</section>
+    </div>
+    <div class="trending-content trending-community">
+        <section class="trending">
+    <h1>Trending in Other</h1>
+    <ul>
+                                    <li>
+                    <article>
+                        <a href="/articles/conor-mcgregor-confirms-he-s-back-on-ufc-200-250416">
+                            <img src="http://20.theladbiblegroup.com/s3/content/82x82/5a82f4e1571e5efe8dc8242b24a872f8.png">
+                            <h1>Conor McGregor Confirms He&#039;s Back On UFC 200!</h1>
+                        </a>
+                                                
+                                                    
+                            <div class="taxonomy-container">
+                                <span class="taxonomy">
+                                    <a href="/category/other" class="category category-other">Other</a>
+                                    | <a href="/type/news" class="type type-news">News</a>
+                                </span>
+                            </div>
+                        
+                    </article>
+                </li>
+                            <li>
+                    <article>
+                        <a href="/articles/nate-diaz-had-some-words-for-conor-mcgregor-at-ufc-200-press-conference-230416">
+                            <img src="http://20.theladbiblegroup.com/s3/content/82x82/f498e075571b876eee02fe6f8f5cc187.jpg">
+                            <h1>Nate Diaz Had Some Brutal Words For Conor McGregor At UFC 200 Press Conference</h1>
+                        </a>
+                                                
+                                                    
+                            <div class="taxonomy-container">
+                                <span class="taxonomy">
+                                    <a href="/category/other" class="category category-other">Other</a>
+                                    | <a href="/type/news" class="type type-news">News</a>
+                                </span>
+                            </div>
+                        
+                    </article>
+                </li>
+                            <li>
+                    <article>
+                        <a href="/articles/lads-travel-to-iceland-to-get-first-interview-with-conor-mcgregor-230416">
+                            <img src="http://20.theladbiblegroup.com/s3/content/82x82/e2e0a183571b99e2e3ed0c30abad8bd4.jpg">
+                            <h1>WATCH: Lads Travel To Iceland To Get First Interview With Conor McGregor</h1>
+                        </a>
+                                                
+                                                    
+                            <div class="taxonomy-container">
+                                <span class="taxonomy">
+                                    <a href="/category/other" class="category category-other">Other</a>
+                                    | <a href="/type/news" class="type type-news">News</a>
+                                </span>
+                            </div>
+                        
+                    </article>
+                </li>
+                        </ul>
+</section>
+    </div>
+
+</section>
+
+<section class="secondary-nav">
+    <ul>
+                    <li><a href="/type/weird">Weird</a></li>
+                    <li><a href="/type/foul-play">Foul Play</a></li>
+                    <li><a href="/type/gaming">Gaming</a></li>
+                    <li><a href="/type/reactions">Reactions</a></li>
+                    <li><a href="/type/fails">Fails</a></li>
+                    <li><a href="/type/reviews">Reviews</a></li>
+                    <li><a href="/type/transfers">Transfers</a></li>
+                    <li><a href="/type/exclusives">Exclusives</a></li>
+                    <li><a href="/type/charity">Charity</a></li>
+                    <li><a href="/type/kit">Kit</a></li>
+                    <li><a href="/type/classic">Classic</a></li>
+                    <li><a href="/type/news">News</a></li>
+                    <li><a href="/type/goals">Goals</a></li>
+                    <li><a href="/type/skills">Skills</a></li>
+                    <li><a href="/type/legends">Legends</a></li>
+                    <li><a href="/type/away-days">Away Days</a></li>
+                    <li><a href="/type/grass-roots">Grass Roots</a></li>
+                    <li><a href="/type/betting">Betting</a></li>
+                    <li><a href="/type/fantasy-football">Fantasy Football</a></li>
+                    <li><a href="/type/best-xi">Best XI</a></li>
+                    <li><a href="/type/rivalries">Rivalries</a></li>
+                    <li><a href="/type/top-10s">Lists</a></li>
+                    <li><a href="/type/funny">Funny</a></li>
+                    <li><a href="/type/take-a-bow">Take A Bow</a></li>
+                    <li><a href="/type/Community">Community</a></li>
+                    <li><a href="/type/Pub-talk">Pub Talk</a></li>
+            </ul>
+</section>
+
+        <ul class="tertiary-nav">
+            <li>&copy; 65twenty</li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/contact-us">Contact Us</a></li>
+            <li><a href="/terms-and-conditions">Website Terms &amp; Conditions</a></li>
+            <li><a href="/privacy-and-cookies">Privacy &amp; Cookies</a></li>
+            <li><a href="/advertise-with-us">Advertise With Us</a></li>
+        </ul>
+
+    </div>
+</nav>
+        <div id="container">
+
+            
+        <div class="appBanner">
+    <a class="appBanner__close">
+        <i class="fa fa-times"></i>
+    </a>
+    <div class="appBanner__ico">
+                    <img src="/images/ebd4912.png" />
+            </div>
+    <div class="appBanner__info">
+        <div class="title">TheLADbible</div>
+        <div class="stars">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </div>
+        <div class="price">
+            FREE - On the App Store
+        </div>
+    </div>
+    <a class="appBanner__link" href="https://itunes.apple.com/gb/app/theladbible/id1049341920?ls=1&mt=8" target="_blank">View</a>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        // check for a cookie.
+        var appurl = 'fb331116490288120://';
+        var appstore = 'https://itunes.apple.com/gb/app/theladbible/id1049341920?mt=8';
+
+        var timeout;
+
+        function preventPopup() {
+            clearTimeout(timeout);
+            timeout = null;
+            window.removeEventListener('pagehide', preventPopup);
+        }
+        function startApp() {
+            document.location = appurl;
+            timeout = setTimeout(function(){
+                document.location = appstore;
+            }, 2000);
+            window.addEventListener('pagehide', preventPopup);
+        }
+
+        var userAgent = window.navigator.userAgent.toLowerCase(),
+                ios = /iphone|ipod|ipad/.test( userAgent );
+
+        function setCookie() {
+            document.cookie = "ios_app_banner_dismissed=true";
+        }
+
+        function cookieExists() {
+            var cname = "ios_app_banner_dismissed";
+
+            var name = cname + "=",
+                    ca = document.cookie.split(';'),
+                    i,
+                    c,
+                    ca_length = ca.length;
+            for (i = 0; i < ca_length; i += 1) {
+                c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) !== -1) {
+                    return true; //c.substring(name.length, c.length);
+                }
+            }
+            return false;
+        }
+
+        $('a.appBanner__close').on('click', function(e) {
+            // set a cookie
+            e.preventDefault();
+            setCookie();
+            $('div.appBanner').removeClass('appBanner--active');
+            checkHeader();
+        });
+
+        $('.appBanner__link').on('click', function(e) {
+            if (ios) {
+                startApp();
+            }
+        });
+
+        function checkHeader() {
+            if ($('div.appBanner').hasClass('appBanner--active')) {
+                $('#container > header').css('top', '82px');
+            } else {
+                $('#container > header').css('top', '0');
+            }
+        }
+
+        if (ios && !cookieExists()) {
+            $('.appBanner').addClass('appBanner--active');
+            checkHeader();
+        }
+    });
+</script>
+<header>
+    <div class="wrapper">
+        <div class="nav-top">
+            <a href="/" class="logo-link">
+                                                                                <img class="logo" src="data:image/png;base64,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" />
+            </a>
+            <ul class="taxonomy" data-selected="home">
+                &nbsp;            </ul>
+
+            
+            <div class="nav-toggle">
+                                <img class="nav-icon hamburger-icon" src="/images/56ed8e2.png" role="expand" />
+                            </div>
+        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+</header>
+        <main>
+            
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var win = window || {};
+                        win.contentCategory = 'home';
+                        win.pageType = 'list';
+        });
+    </script>
+
+    
+    
+    <section class="list">
+        
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/breaking-manchester-united-move-close-to-renato-sanches-signing-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/9093d424571e43378b5811f022172903.png" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">BREAKING: Manchester United Move Close To Renato Sanches Signing</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Big signing this.</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/transfers" class="type type-transfers" itemprop="about" content="Transfers">Transfers</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T15:34:43+0100">3 minutes ago </time> | 0 Shares <meta itemprop="interactionCount" content="UserLikes:0" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/harry-kane-leads-four-man-premier-league-contingent-in-world-under-23-side-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/5ad1a7c4571e025ad60a056ef0a63546.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Harry Kane Leads Four Man Premier League Contingent In World Under 23 Side</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Do you agree?</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T15:19:37+0100">18 minutes ago </time> | 0 Shares <meta itemprop="interactionCount" content="UserLikes:0" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/bad-news-for-lord-bendtner-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/e7a8edb5571e587ae66d942ccf3aa9f9.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Bad News For Lord Bendtner</h1>
+            </span>
+
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/fails" class="type type-fails" itemprop="about" content="Fails">Fails</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T14:29:46+0100">1 hour ago </time> | 0 Shares <meta itemprop="interactionCount" content="UserLikes:0" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/sack-the-board-message-displayed-on-big-screen-at-celtic-player-of-the-year-awards-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/e08a12d5571ef424cdd813a97acac2fa.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">‘Sack the Board’ Message Displayed On Big Screen At Celtic Player Of The Year Awards</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Very embarrassing.</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/fails" class="type type-fails" itemprop="about" content="Fails">Fails</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T14:16:16+0100">1 hour ago </time> | 0 Shares <meta itemprop="interactionCount" content="UserLikes:0" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/yannick-bolasie-s-customised-boots-show-his-journey-to-the-fa-cup-final-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/6dc841e7571eb079a20f46fe282e482c.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Yannick Bolasie&#039;s Customised Boots Show His Journey To The FA Cup Final</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Awesome!</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/kit" class="type type-kit" itemprop="about" content="Kit">Kit</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T13:53:05+0100">2 hours ago </time> | 0 Shares <meta itemprop="interactionCount" content="UserLikes:0" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/arsenal-s-draw-against-sunderland-didn-t-just-impact-the-relegation-fight-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/3e851545571e056d28954aef7b6c74d2.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Arsenal&#039;s Draw Against Sunderland Didn&#039;t Just Impact The Relegation Fight</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">It&#039;s getting tight!</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T12:41:10+0100">3 hours ago </time> | 594 Shares <meta itemprop="interactionCount" content="UserLikes:594" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/chelsea-player-reveals-extra-motivation-in-spurs-match-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/651435a2571de11b6b3dccc2b37b801e.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Chelsea Player Reveals Extra Motivation In Spurs Match</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">It won&#039;t be easy.</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T12:08:10+0100">3 hours ago </time> | 0 Shares <meta itemprop="interactionCount" content="UserLikes:0" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/west-ham-s-first-olympic-stadium-opponents-revealed-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/a6d110c2571d777723d296a5c667f560.png" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">West Ham&#039;s First Olympic Stadium Opponents Revealed</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Good match to start.</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T11:26:36+0100">4 hours ago </time> | 1,374 Shares <meta itemprop="interactionCount" content="UserLikes:1374" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/breaking-anthony-joshua-s-first-defence-confirmed-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/fc331fe4571d86cd00d768bff30e00ab.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">BREAKING: Anthony Joshua&#039;s First Defence Confirmed</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">And still...</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/boxing" class="category category-boxing" itemprop="about" content="Boxing">Boxing</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T10:26:00+0100">5 hours ago </time> | 1,554 Shares <meta itemprop="interactionCount" content="UserLikes:1554" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/championship-midfielder-hilariously-mistaken-as-ladies-striker-at-pfa-awards-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/eadaff55571d99ccd2fce651da2a794b.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Championship Midfielder Hilariously Mistaken As Ladies Striker At PFA Awards</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Oops!</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/fails" class="type type-fails" itemprop="about" content="Fails">Fails</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T09:23:36+0100">6 hours ago </time> | 502 Shares <meta itemprop="interactionCount" content="UserLikes:502" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/conor-mcgregor-confirms-he-s-back-on-ufc-200-250416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/5a82f4e1571e5efe8dc8242b24a872f8.png" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Conor McGregor Confirms He&#039;s Back On UFC 200!</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Sense prevails!</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/other" class="category category-other" itemprop="about" content="Other">Other</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-25T07:41:00+0100">8 hours ago </time> | 9,070 Shares <meta itemprop="interactionCount" content="UserLikes:9070" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/chelsea-star-likes-post-linking-him-with-move-to-european-giant-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/eaa76193571ded7600b4bc10ddd4fb26.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Chelsea Star Likes Post Linking Him With Move To European Giant</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">It looks like he&#039;s on his way out of Stamford Bridge</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/transfers" class="type type-transfers" itemprop="about" content="Transfers">Transfers</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T22:22:01+0100">17 hours ago </time> | 584 Shares <meta itemprop="interactionCount" content="UserLikes:584" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/watch-fan-attacks-ref-during-trabzonspor-vs-fenerbahce-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/e902a3c1571d0398a7d35158d2c05049.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">WATCH: Fan Attacks Ref During Trabzonspor vs Fenerbahce</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">He&#039;d had enough</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/foul-play" class="type type-foul-play" itemprop="about" content="Foul Play">Foul Play</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T22:06:08+0100">18 hours ago </time> | 2,371 Shares <meta itemprop="interactionCount" content="UserLikes:2371" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/michael-carrick-has-the-perfect-reply-to-offensive-tweet-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/64121fe7571d2fabc8ec68c3347f80ab.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Michael Carrick Has The Perfect Reply To Offensive Tweet</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">United midfielder shows his sense of humour</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T18:24:59+0100">21 hours ago </time> | 3 Shares <meta itemprop="interactionCount" content="UserLikes:3" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/watch-leicester-fans-have-officially-released-the-worst-song-of-the-season-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/df1ae2a7571cca8b42e1ec006ece3033.png" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">WATCH: Leicester Fans Have Officially Released The Worst Song Of The Season</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">That&#039;s it, they don&#039;t deserve the Premier League title</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/fails" class="type type-fails" itemprop="about" content="Fails">Fails</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T18:05:44+0100">22 hours ago </time> | 5 Shares <meta itemprop="interactionCount" content="UserLikes:5" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/everton-player-likes-anti-martinez-post-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/c4ad3de0571c0482635c36380edad896.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Everton Player Likes Anti-Martinez Post</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Doesn&#039;t seem like he wants his manager at Goodison Park much longer</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T17:48:52+0100">22 hours ago </time> | 981 Shares <meta itemprop="interactionCount" content="UserLikes:981" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/gary-lineker-posts-excellent-message-about-n-golo-kante-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/195f05f6571c41427581cbd1b41511ab.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Gary Lineker Posts Excellent Message About N&#039;Golo Kante</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">The Leicester midfielder was in fine form once again, today</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/reactions" class="type type-reactions" itemprop="about" content="Reactions">Reactions</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T17:25:54+0100">22 hours ago </time> | 2,971 Shares <meta itemprop="interactionCount" content="UserLikes:2971" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/mesut-ozil-sets-new-premier-league-record-during-display-against-sunderland-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/d95a9ce7571cbfb6db8d5da62183cccf.png" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Mesut Ozil Sets New Premier League Record During Display Against Sunderland</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Very impressive from the Arsenal playmaker</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T17:10:31+0100">22 hours ago </time> | 1,520 Shares <meta itemprop="interactionCount" content="UserLikes:1520" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/piers-morgan-slams-olivier-giroud-for-another-goalless-display-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/349518d9571cbf105e542c166fdc776c.png" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Piers Morgan Slams Olivier Giroud For Another Goalless Display</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">The Frenchman is now 14 Premier League games without a goal</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/reactions" class="type type-reactions" itemprop="about" content="Reactions">Reactions</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T16:56:00+0100">23 hours ago </time> | 2,820 Shares <meta itemprop="interactionCount" content="UserLikes:2820" /></span>
+    </article>
+
+                
+    <article data-properties="" itemscope itemtype="http://schema.org/Article">
+        <a href="/articles/rumours-are-flying-that-everton-have-decided-to-sack-roberto-martinez-240416" itemprop="url">
+
+                                                    
+            <img src="http://20.theladbiblegroup.com/s3/content/320w/1b560e95571c17dc810b51d82d48e799.jpg" itemprop="image" />
+
+            <span class="headline-wrapper">
+                <h1 itemprop="headline">Rumours Are Flying That Everton Have Decided To Sack Roberto Martinez</h1>
+            </span>
+
+                            <p itemprop="alternativeHeadline">Not surprising, if true</p>
+            
+        </a>
+
+                            
+                                                                        
+            <span class="taxonomy">
+                <a href="/category/football" class="category category-football" itemprop="about" content="Football">Football</a>
+                | <a href="/type/news" class="type type-news" itemprop="about" content="News">News</a>
+            </span>
+                <span class="meta-data"><time itemprop="datePublished" datetime="2016-04-24T16:28:53+0100">23 hours ago </time> | 1,680 Shares <meta itemprop="interactionCount" content="UserLikes:1680" /></span>
+    </article>
+    </section>
+
+                <div class="list-footer">
+            <a href="#" data-base-url="" data-meta="home" class="load-more">Load More</a>
+        </div>
+    
+        </main>
+
+         
+        <footer>
+    <div class="wrapper">
+        <section class="footer-section-links">
+            <ul>
+                <a href="/category/football"><li class="footer-football"><span>Football</span></li></a>
+                <a href="/category/rugby"><li class="footer-rugby"><span>Rugby</span></li></a>
+                <a href="/category/boxing"><li class="footer-boxing"><span>Boxing</span></li></a>
+                <a href="/category/other"><li class="footer-other"><span>Other</span></li></a>
+                <a href="http://www.theladbible.com/?utm_source=thesportbible.com&utm_medium=channel&utm_campaign=TheSportBible" target="_blank"><li class="footer-lad"><span>TheLadBible</span></li></a>
+                <a href="http://www.theoddsbible.com/?utm_source=theoddsbible.com&utm_medium=channel&utm_campaign=TheSportBible" target="_blank"><li class="footer-odds"><span>TheOddsBible</span></li></a>
+            </ul>
+        </section>
+        <section class="footer-social-links">
+            <ul class="no-snapchat">
+                <a href="https://www.facebook.com/SPORTbible" target="_blank"><li class="footer-facebook"></li></a>
+                <a href="https://twitter.com/tsbible" target="_blank"><li class="footer-twitter"></li></a>
+                <a href="https://www.youtube.com/user/theladbible" target="_blank"><li class="footer-youtube"></li></a>
+                <a href="https://instagram.com/thesportbible/" target="_blank"><li class="footer-instagram"></li></a>
+                <!--<a href="snapchat://?u=TeamSPORTbible" target="_blank"><li class="footer-snapchat"></li></a>-->
+            </ul>
+        </section>
+        <section class="footer-company-links">
+            <ul>
+                <li><a href="/advertise-with-us">Advertise with us</a></li>
+                <li><a href="/contact-us">Contact us</a></li>
+                <li><a href="/about-us">About us</a></li>
+                <li><a href="http://www.theladbiblegroup.com/careers/" target="_blank">Jobs</a></li>
+                <li><a href="//www.theladbiblegroup.com">TheLADbible Group</a></li>
+                <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+                <li><a href="/privacy-and-cookies">Privacy &amp; Cookies</a></li>
+            </ul>
+        </section>
+
+    </div>
+</footer>    </div>
+
+
+    <script>
+        var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
+        var isWindows = /windows phone/i.test(navigator.userAgent.toLowerCase());
+        var isBlackberry = /blackberry/i.test(navigator.userAgent.toLowerCase());
+        var isiDevice = /ipad|iphone|ipod/i.test(navigator.userAgent.toLowerCase());
+        var isiPhone = /iphone|ipod/i.test(navigator.userAgent.toLowerCase());
+
+        if (!isAndroid || !isWindows || !isBlackberry || !isiDevice) {
+            $('.icon-whats-app').parent().remove();
+        }
+
+//        if(isAndroid){
+//            $('html').toggleClass('app-launch-interstitial');
+//            $('body').ready(function () {
+//                $('#app-no-thanks').click(function () {
+//                    if($('.app-launch-interstitial:visible')) {
+//                        $('html').toggleClass('app-launch-interstitial');
+//                    }
+//                });
+//
+//                $('.app-store-linkout').click(function () {
+//                    if($('.app-launch-interstitial:visible')) {
+//                        $('html').toggleClass('app-launch-interstitial');
+//                    }
+//                });
+//            });
+//        }
+
+    </script>
+
+    <!---
+    <div id="blocked-content">
+        <img src="https://lh4.googleusercontent.com/-1XOS9gxksvw/VMgvIrVlTwI/AAAAAAAAZcM/nZHTpwQghAc/s500/sad%2520agnes.gif" alt="">
+        <h3>It looks like your using AdBlocking Software</h3>
+        <p>We rely on revenue from advertisements to help maintain the highest levels of banter found on the net. Please consider supporting us by whitelisting our website.</p>
+    </div> -->
+
+        
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
+
+            <script src="/js/isotope-fit-columns.js"></script>
+    
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.min.js"></script> 
+    
+                    <script src="/js/modernizr-touch.js"></script>
+        
+        <script>
+            window.cookieconsent_options = {
+                learnMore: 'Click here to find out more.',
+                message: '<p>We\'re using cookies to improve your experience.</p>',
+                link: '/privacy-and-cookies',
+                dismiss: 'X',
+                theme: false
+            };
+        </script>
+
+                    <script src="/js/cookieconsent.min.js"></script>
+        
+                    <script src="/js/sixty520.js"></script>
+        
+                    <script src="/js/advert.js"></script>
+        
+        <script type="text/javascript">
+            var el = document.getElementById("adBlockTester");
+            window.adBlockoDetected = (el == undefined || el == null);
+            // document.getElementById('blocked-content').style.cssText = "right: 40px !important; display:block;";
+        </script>
+
+    
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"02e1d6149b","applicationID":"6565378","transactionName":"YAYDbBBYVkBYUE0KXFlMIFsWUFddFkBQG0dOVlMIPVpXXU1WVxdsVAwPTAdXTGxQXV0GSw==","queueTime":0,"applicationTime":657,"atts":"TEEAGlhCRU4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

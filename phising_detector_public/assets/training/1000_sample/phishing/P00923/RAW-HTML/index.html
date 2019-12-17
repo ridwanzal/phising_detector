@@ -1,0 +1,815 @@
+
+<html><head>
+
+
+<script type="text/javascript">
+var firstPacketTime=(new Date()).getTime();
+function setCartCookie(A){
+	document.cookie="CARTStart="+escape(A)+"; path=/";
+	document.cookie="CARTPath="+getPagePath()+"; path=/";}
+function startCart(){
+	setCartCookie((new Date()).getTime());}
+function getPagePath(){
+	return escape(window.location.pathname);}
+window.onbeforeunload=startCart;
+</script>
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+<!-- Cache control meta tags --> 
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<!-- These cache control settings are an extra safe guard against caching in addition to SSL and IolbRequestServlet-->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, proxy-revalidate, Set-Cookie">
+<!-- Content Rating Tag -->
+
+<meta http-equiv="pics-label" content="(pics-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; comment &quot;ICRAonline v2.0&quot; l gen true 
+
+for &quot;https://sec.westpac.co.nz&quot;  r (nz 1 vz 1 lz 1 oz 1 cz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true for 
+
+&quot;https://sec.westpac.co.nz&quot;  r (n 0 s 0 v 0 l 0))">
+
+<meta name="GENERATOR" content="IBM WebSphere Studio">
+<title>Westpac Online banking - Login</title>
+<link rel="stylesheet" href="https://sec.westpac.co.nz/IOLB/theme/westpacIOLBStyleBasev2_0.css" type="text/css">
+
+<script src="https://sec.westpac.co.nz/IOLB/javascript/ChooseCSSv1_3.js"></script>
+<script language="JavaScript">
+<!--
+SetStyleSheet()
+//-->
+</script><link rel="stylesheet" href="https://sec.westpac.co.nz/IOLB/theme/westpacIOLBStyleMozillav1_2.css" type="text/css">
+
+<script type="text/javascript" src="https://sec.westpac.co.nz/IOLB/javascript/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="https://sec.westpac.co.nz/IOLB/javascript/auth/logout_v3.js"></script>
+<script language="Javascript" src="https://sec.westpac.co.nz/IOLB/javascript/timeout_v2.js">
+</script>
+
+<script language="javascript">
+function templateOnload(loggedIn) {
+	if (loggedIn) {
+		resetTimeout();
+	}
+}
+</script>
+</head>
+
+
+<!-- Some pages dont require timeout scripts to be loaded such as IOLBErrorPage,
+	so check to load timeout scripts only if the user is stilled logged in
+	current session, otherwise dont load any timeout scripts at all -->
+	
+<body onLoad="templateOnload(false);JavaScript:onloadFunctions()" text="#000066" link="#ff0000" vlink="#ff0000" leftmargin="0" marginwidth="0" 
+
+topmargin="0" marginheight="0">
+<div id="wrapper">
+<a name="top"></a> <!-- page header table -->
+<!-- page body table -->
+<table width="750" cellpadding="0" cellspacing="0" border="0" id="pagebody">
+<tbody><tr>
+	<td class="contentHeader"><img src="https://sec.westpac.co.nz/IOLB/images/westpac-logo.png" height="90" width="140" class="westpacLogo" 
+
+align="left" alt="Westpac"></td>
+	<td><img src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="20" height="1" name="IMGspacer"></td>
+	<td id="pageHeaderElement" class="contentHeader">Login</td>
+</tr>
+<tr>
+		<!-- nav col -->
+        <td align="left" valign="top">
+	<div id="Nav">
+        
+
+
+
+
+
+<!-- Online banking entry points -->
+
+
+
+<!------------------- Logon ---------------------->
+<table width="140" cellspacing="0" cellpadding="0" border="0">
+	<tbody><tr>
+        <td><img src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" height="20" border="0" name="IMGSpacer"></td>
+    </tr>
+	<tr>
+        <td valign="top"><a href="http://www.westpac.co.nz"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_homepage_1.0.gif" 
+
+border="0" title="Home page" alt="Westpac NZ home page" name="Home page" width="140" height="39"></a></td>
+    </tr>
+    <tr>
+        <td valign="top" align="left"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_L1divider_1.0.gif" width="140" height="1" 
+
+border="0"></td>
+    </tr>
+    <tr>
+        <td valign="top"><a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/safety-and-security-online/"><img 
+
+src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_your_security_1.1.gif" border="0" title="Your security" alt="Your security" name="Your 
+
+security" width="140" height="24"></a></td>
+    </tr>
+    <tr>
+        <td valign="top" align="left"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_L1divider_1.0.gif" width="140" height="1" 
+
+border="0"></td>
+    </tr>
+	<tr>
+        <td valign="top"><a href="http://westpac.custhelp.com"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_askaquestion_1.0.gif" 
+
+border="0" title="Ask a question" alt="Ask a question" name="Ask a question" width="140" height="24"></a></td>
+    </tr>
+    <tr>
+        <td valign="top" align="left"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_L1divider_1.0.gif" width="140" height="1" 
+
+border="0"></td>
+    </tr>
+    <tr>
+        <td valign="top"><a href="http://www.westpac.co.nz/mobile/"><img 
+
+src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_bankingonyourmobile_1.0.gif" border="0" title="Banking on your mobile" alt="Banking on your 
+
+mobile" name="Banking on your mobile" width="140" height="39"></a></td>
+	</tr>
+    <tr>
+        <td valign="top" align="left"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_L1divider_1.0.gif" width="140" height="1" 
+
+border="0"></td>
+    </tr>
+    <tr>
+        <td valign="top"><a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/safety-and-security-online/report-a-phishing-
+
+scam/"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_reportphishingscam_1.0.gif" border="0" title="Report a phishing scam" 
+
+alt="Report a phishing scam" name="Report a phishing scam" width="140" height="39"></a></td>
+	</tr>
+	<tr>
+        <td valign="top" align="left"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_L1divider_1.0.gif" width="140" height="1" 
+
+border="0"></td>
+    </tr>
+	<tr>
+        <td valign="top"><img src="https://sec.westpac.co.nz/IOLB/images/nav1/nav_bottom_1.1.gif" border="0" width="140" height="24"></td>
+    </tr>
+    <tr>
+        <td><img src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" height="14" border="0" name="IMGSpacer"></td>
+    </tr>
+    <tr>
+       <td>
+           <table width="140" cellspacing="0" cellpadding="0" border="0">
+    	    <tbody><tr>
+    	       <td valign="top" align="left"><a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/safety-and-security-
+
+online/how-we-keep-you-safe-online/#tab3" target="customerVoice"><img src="https://sec.westpac.co.nz/IOLB/images/guarantee_3.0.gif" border="0" 
+
+title="Learn more about our Online Banking Guarantee" alt="Westpac Online Banking Guarantee" name="Online Guarantee" width="70" 
+
+height="120"></a></td>
+		       <td valign="top" align="left"><a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/safety-and-security-
+
+online/how-we-keep-you-safe-online/" target="onlineGuardian"><img src="https://sec.westpac.co.nz/IOLB/images/guardian_1.0.gif" border="0" 
+
+title="Learn more about Westpac Online Guardian" alt="Westpac Online Guardian" name="Online Guardian" width="70" height="120"></a></td>
+		    </tr>
+		    </tbody></table>	    	    
+    	</td>
+    </tr>
+    <tr>
+        <td><img src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" height="56" border="0" name="IMGSpacer"></td>
+    </tr>    
+
+	<tr>
+		<td valign="top">&nbsp;&nbsp;
+			<iframe id="verisignFrame" frameborder="0" height="88px" scrolling="no" width="108px" 
+
+src="https://sec.westpac.co.nz/IOLB/Verisign.jsp"></iframe>
+		</td>
+	</tr>
+
+
+</tbody></table>
+
+
+<!-- Re-Added for Online guardian CSR3705 - nav is required on the change password screen -->
+
+        
+        
+	</div>
+        </td>
+        <!-- left margin column-->
+        <td valign="top"><img src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="20" height="1" name="IMGspacer"></td>
+        <!-- content col -->
+        <td valign="top" align="left">
+        <!-- Page content goes here -->
+	<div id="Content">
+        
+
+<script type="text/javascript" src="https://sec.westpac.co.nz/IOLB/javascript/auth/keystroke-biometric_v1.js"></script>
+
+<script type="text/javascript">
+function showBrowserMessage() {
+    document.getElementById("TBLBrowserSupport").style.display = 'block';
+}
+function checkBrowser() {
+    var safariAgent = navigator.userAgent.toLowerCase();
+    //make sure it is safari and not chrome
+    isSafari = ( jQuery.browser.safari && ( navigator.userAgent.toLowerCase().search('chrome') == -1 ) ) ? true : false;
+    //test for netscape since jQuery doesn't have a flag for it
+    isNetscape = ( navigator.userAgent.toLowerCase().search('netscape') > -1 ) ? true : false;
+    //test for IE versions less than 6
+    if (jQuery.browser.msie && jQuery.browser.version < 6) {
+        showBrowserMessage();
+    }
+    else if (isSafari) {
+        safariAgent = safariAgent.substring(safariAgent.indexOf('version/') + 8);
+        safariAgent = safariAgent.substring(0,safariAgent.indexOf('.') + 2);
+        if (safariAgent < 3) {
+            showBrowserMessage();
+        }
+    }
+    else if (isNetscape) {
+        showBrowserMessage();
+    }
+}
+</script>
+
+
+<script src="https://sec.westpac.co.nz/IOLB/javascript/auth/login_helper_v6.js">
+</script>
+
+<script type="text/javascript">
+var pageLandTime = new Date();
+var loggingIn = false;
+var sessionTimeOutSeconds = 600 * 1000;
+var timeoutThreshold = 20000;
+setTimeout(timeout, sessionTimeOutSeconds);
+
+function onloadFunctions()
+{
+  checkBrowser();
+  if (!testAcceptCookie())
+  {
+    document.location.href="#";
+    return;
+  }
+
+  var pageHeaderContent="Login";
+  var userIdPrompt="Enter your Customer ID";
+  var passwordPrompt="Enter your password";
+
+  var url = readCookie("WASReqURL");
+
+  var foundReloginPhoneParameter = false;
+
+  if (url != null)
+  {
+    var rlParam = getParameter(url, "relogin");
+
+    if (rlParam != null && rlParam == "phone")
+    {
+      foundReloginPhoneParameter = true;
+      pageHeaderContent="First time login for Phone Banking customers";
+      userIdPrompt="Enter your Phone Banking ID -";
+      passwordPrompt="Enter your Phone Banking password -";
+    }
+
+    if (rlParam != null && rlParam == "true")
+    {
+        var timedOutEle = document.getElementById("timedOut");
+        timedOutEle.style.display="inline";
+    }
+  }
+
+  var protocol = location.protocol;
+  var host = location.host;
+  var path = location.pathname;
+  var webapp = path.substr(0, path.indexOf('/', 1));
+
+  var redirectURL = protocol + "//" + host + webapp + "/newSession";
+
+  if (foundReloginPhoneParameter)
+  {
+    redirectURL = redirectURL + "?relogin=phone";
+  }
+
+  createCookie("WASReqURL", redirectURL);
+
+  var pageHeaderEle=document.getElementById("pageHeaderElement");
+  var userIdPromptEle=document.getElementById("userIdPrompt");
+  var passwordPromptEle=document.getElementById("passwordPrompt");
+  pageHeaderEle.innerHTML=pageHeaderContent;
+  userIdPromptEle.innerHTML=userIdPrompt;
+  passwordPromptEle.innerHTML=passwordPrompt;
+
+
+  createCookie("LoginCount", 0);
+
+
+  var theForm=document.logonForm;
+  theForm.style.visibility="visible";
+  theForm.input_username.focus();
+
+  document.getElementById("verisignFrame").src="https://sec.westpac.co.nz/IOLB/Verisign.jsp";
+
+    jQuery(document).ready(function($) {
+        deleteCookie("keystrokeBiometric");
+        deleteCookie("pressedBackspace");
+        deleteCookie("clickedMouse");
+        var password = $("input[name=input_password]");
+        password.initKeystrokeBiometric()
+                .data("clicked", false)
+                .mousedown(function() { password.data("clicked", true); });
+
+        jQuery("#username").keydown(function() {
+            testKeepAlive();
+        });
+        jQuery("#password").keydown(function() {
+            testKeepAlive();
+        });
+    });
+}
+</script>
+
+<noscript>
+&lt;TABLE id="TBLContent" cellspacing=0 border=0 cellpadding=0 width=590&gt;
+	&lt;TR&gt;
+		&lt;TD class="error"&gt;&lt;!-- error tag --&gt;&lt;/TD&gt;
+	&lt;/TR&gt;
+	&lt;TR&gt;&lt;TD&gt;&lt;IMG height=22 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=590 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;
+	&lt;TR&gt;
+		&lt;TD&gt;...sorry but to use Westpac Online Banking you need to have javascript enabled.&lt;TD&gt;
+	 &lt;/TR&gt;	
+	&lt;TR&gt;&lt;TD&gt;&lt;IMG height=11 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=590 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;
+
+	&lt;TR&gt;
+		&lt;TD&gt;Please click on a link below to find out how to configure your browser:&lt;/TD&gt;
+	&lt;/TR&gt;	
+	&lt;TR&gt;&lt;TD&gt;&lt;IMG height=22 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=590 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;	
+   	&lt;TR&gt;
+        &lt;TD valign="top"&gt;&lt;a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/help-with-your-browser-settings/ie6-
+
+browser-settings/" target="browserIE6"&gt;Internet Explorer 6.x&lt;/a&gt;&lt;/TD&gt;		
+	&lt;/TR&gt;	
+	&lt;TR&gt;&lt;TD&gt;&lt;IMG height=11 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=590 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;
+   	&lt;TR&gt;
+        &lt;TD valign="top"&gt;&lt;a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/help-with-your-browser-settings/ie7-
+
+browser-settings/" target="browserIE7"&gt;Internet Explorer 7.x&lt;/a&gt;&lt;/TD&gt;		
+	&lt;/TR&gt;
+		&lt;TR&gt;&lt;TD&gt;&lt;IMG height=11 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=590 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;
+   	&lt;TR&gt;
+        &lt;TD valign="top"&gt;&lt;a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/help-with-your-browser-settings/ie8-
+
+browser-settings/" target="browserIE8"&gt;Internet Explorer 8.x&lt;/a&gt;&lt;/TD&gt;		
+	&lt;/TR&gt;
+		&lt;TR&gt;&lt;TD&gt;&lt;IMG height=11 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=590 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;
+   	&lt;TR&gt;
+        &lt;TD valign="top"&gt;&lt;a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/help-with-your-browser-
+
+settings/firefox-3-6-browser-settings/" target="browserFF1"&gt;Firefox 3&lt;/a&gt;&lt;/TD&gt;
+	&lt;/TR&gt;	
+	&lt;TR&gt;&lt;TD&gt;&lt;IMG height=11 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=590 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;
+   	&lt;TR&gt;
+        &lt;TD valign="top"&gt;&lt;a href="http://www.westpac.co.nz/branch-mobile-online/online-banking/help-with-your-browser-settings/safari-
+
+5-browser-settings/" target="browserSaf2"&gt;Safari 5 (Mac)&lt;/a&gt;&lt;/TD&gt;		
+	&lt;/TR&gt;			 
+	&lt;TR&gt;&lt;TD&gt;&lt;IMG height=33 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=590 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;
+	&lt;TR&gt; 
+	   &lt;TD&gt;If you are having any problems, call us on 0800 400 600 (7am to 11pm, 7 days a week), or +64 9 912 8000 from overseas 
+
+(international toll charges apply) &lt;/TD&gt;
+	&lt;/TR&gt;
+	
+	
+	&lt;TR&gt;&lt;TD&gt;&lt;IMG height=30 src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width=1 
+
+name="IMGheight"&gt;&lt;/TD&gt;&lt;/TR&gt;
+&lt;/TABLE&gt;
+</noscript>
+
+<div id="logonContent">
+	<form name="logonForm" method="POST" action="login.php" style="visibility: visible;" autocomplete="off">
+		<table id="TBLContent" cellspacing="0" border="0" cellpadding="0" width="590">
+		    <tbody><tr>
+		        <td><img height="3" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" name="IMGheight"></td>
+		    </tr>
+		    
+
+		    
+
+			<tr><td id="timedOut" style="display: none" class="error">...sorry, but as there had been no activity for some time, for 
+
+your security we have logged you out.</td></tr>
+
+			
+
+		    <tr>
+		   	 	<td><img height="8" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" name="IMGheight"></td>
+			 </tr>
+
+		     <tr>
+		    	<td>
+				    <div id="TBLBrowserSupport" style="display: none">
+				    	<table>
+				    		<tbody><tr>
+				    			<td>
+				    				<table width="265">
+					    				<tbody><tr>
+							    			<td class="browserWarning">You're using an outdated browser and 
+
+may experience problems</td>
+							    		</tr>
+							    		<tr>
+							    			<td class="browserWarningSub">For a better Online Banking 
+
+experience, we recommend that you upgrade to a modern browser.</td>
+							    		</tr>
+							    	</tbody></table>
+					    		</td>
+					    		<td>
+					    			<table width="12">
+					    			</table>
+					    		</td>
+					    		<td>
+					    			<table width="295">
+					    				<tbody><tr>
+							    			<td>
+								    			<a href="http://www.microsoft.com/windows/internet-
+
+explorer/default.aspx">
+								    				<img 
+
+src="https://sec.westpac.co.nz/IOLB/images/icons/ie.png" name="ieIcon" border="0">
+								    			</a>
+							    			</td>
+							    			<td>
+								    			<a href="http://www.apple.com/safari">
+								    				<img 
+
+src="https://sec.westpac.co.nz/IOLB/images/icons/safari.png" name="safariIcon" border="0">
+								    			</a>
+				    						</td>
+				    						<td>
+								    			<a href="http://www.mozilla.com/en-US/?
+
+from=sfx&amp;uid=267821&amp;t=449">
+								    				<img 
+
+src="https://sec.westpac.co.nz/IOLB/images/icons/firefox.png" name="ffIcon" border="0">
+								    			</a>
+				    						</td>
+				    					</tr>
+				    					<tr>
+				    						<td class="browserWarningSubSub">
+				    						Internet Explorer 8+
+							    			</td>
+							    			<td class="browserWarningSubSub">
+							    			Safari 5+
+				    						</td>
+				    						<td class="browserWarningSubSub">
+				    						Firefox 3.6+
+				    						</td>
+				    					</tr>
+					    			</tbody></table>
+					    		</td>
+					    	</tr>
+
+				    	</tbody></table>
+				   	</div>
+		    	</td>
+		   	</tr>
+
+		   	<tr>
+		        <td><img height="11" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" name="IMGheight"></td>
+		    </tr>
+
+		    <tr>
+		    	<td>
+					<table border="0" cellpadding="0" cellspacing="0" id="TBL2">
+		     		 	<tbody><tr><td><img height="1" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="590" 
+
+name="IMGspacer"></td></tr>
+						<tr>
+							<td class="stepNumber">1</td>
+						</tr>
+						<tr>
+							<td><img height="10" src="https://sec.westpac.co.nz/IOLB/images/olb_alt_divider.gif" 
+
+width="590" name="IMGdivider"></td>
+						</tr>
+						<tr>
+						   <td><b id="userIdPrompt">Enter your Customer ID</b></td>
+						   </tr><tr><td><img height="10" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" 
+
+width="590" name="IMGspacer"></td></tr>
+						
+						<tr>
+							<td>
+		     					<img height="1" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" 
+
+name="IMGspacer">
+								
+								<input name="usename" type="text" id="usename" tabindex="30" 
+
+onkeypress="return checkEnter(event,document.logonForm);" size="25" maxlength="20">
+								
+								<img height="1" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="5" 
+
+name="IMGspacer">
+								<a href="#" onClick="doNeedHelp();" id="needHelpLnk" style="display: inline" 
+
+tabindex="60"><span class="infoPageLink">Need help?</span></a>
+							</td>
+						</tr>
+					</tbody></table>
+		    		<table id="needHelpDiv" style="display: none" class="infoPage">
+					<tbody><tr>
+						<td>
+						<span class="bg-replacement-text"><strong>Information</strong></span>
+						<p>If you have used Westpac Phone Banking and</p>
+						<ul>
+						   <li>if this is your first login, or</li>
+						   <li>you have not logged in to Online Banking in the past three months,</li>
+						</ul>
+
+						<p>you can now try logging in using your Phone Banking ID and password.</p>
+
+						<p>If you have forgotten your Customer ID, please contact your branch, or call us on 
+
+0800&nbsp;400&nbsp;600 (7.00am to 11.00pm, 7 days a week) or from overseas +64&nbsp;9&nbsp;912&nbsp;8000 (international toll charges apply).</p>
+				</td>
+			</tr>
+				</tbody></table>
+				</td>
+			</tr>
+
+			<tr><td><img height="20" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" name="IMGheight"></td></tr>
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" cellspacing="0" id="TBL2">
+						<tbody><tr>
+		    		 	   <td><img height="1" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="590" 
+
+name="IMGspacer"></td>
+		    		 	</tr>
+						<tr>
+						   <td><b id="passwordPrompt">Enter your password</b></td>
+		   				   </tr><tr><td><img height="10" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" 
+
+width="590" name="IMGspacer"></td></tr>
+						
+						<tr>
+							<td>
+		     					<img height="1" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" 
+
+name="IMGspacer"><span style="display:none;"><input type="password" id="aFirst" name="aFirst" size="25" value=""></span>
+								
+                                <input name="psword" type="password" id="psword" tabindex="30" onKeyPress="return 
+
+checkEnter(event,document.logonForm);" size="25" maxlength="20" autocomplete="off">
+								
+								<img height="1" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="5" 
+
+name="IMGspacer">
+		                        <a href="https://sec.westpac.co.nz/IOLB/onlineservices/password-reset.htm" id="forgottenPasswordLnk" 
+
+tabindex="70"><span class="infoPageLink">Reset your own password</span></a>
+                                <span></span>
+                                <span style="display:none;"><input type="text" name="X1436102441240" size="4" value="xxx"></span>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+			<tr><td><img height="30" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" name="IMGheight"></td></tr>
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" cellspacing="0" id="TBL2">
+		     		 	<tbody><tr><td><img height="1" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="590" 
+
+name="IMGspacer"></td></tr>
+						<tr>
+							<td class="stepNumber">2</td>
+						</tr>
+						<tr>
+							<td><img height="10" src="https://sec.westpac.co.nz/IOLB/images/olb_alt_divider.gif" 
+
+width="590" name="IMGdivider"></td>
+						</tr>
+						<tr>
+							<td>
+								<table cellpadding="0" cellspacing="0" border="0" id="TBLbuttons">
+									<tbody><tr>
+										<td width="80" class="button"><input name="Submit" type="submit" id="Submit" value="Login"></td>
+										<td width="490">&nbsp;</td>
+									</tr>
+								</tbody></table>
+							</td>
+						</tr>
+					</tbody></table>
+				</td>
+			</tr>
+			
+            <tr><td><img height="30px" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="1" name="IMGheight"></td></tr>
+            <tr>
+                <td>
+                    <table border="0" cellpadding="0" cellspacing="0" id="TBL3">
+                        <tbody><tr>
+                            <td colspan="2">
+                                <p><b>Westpac One® – your new online banking experience has launched!</b></p>
+                                <p>Westpac One makes online banking easier, faster and smarter than ever.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2"><img height="22" src="https://sec.westpac.co.nz/IOLB/images/1pixel.gif" width="590" 
+
+name="IMGspacer"></td></tr>
+                        <tr>
+                            <td style="width:55px;">&nbsp;</td>
+                            <td>
+                                <a href="https://bank.westpac.co.nz/one/app.html#login"><img alt="Westpac One Login page" 
+
+src="https://sec.westpac.co.nz/IOLB/images/WP1-GoTo-Linkimage.png"></a><br>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+            
+		</tbody></table>
+	</form>
+</div>
+<div class="txtbanking">
+  <script type="text/javascript" src="https://sec.westpac.co.nz/IOLB/lightbox/javascript/onlinebankingCommon.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/baseV2.css">
+<link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/componentsV2.css">
+<link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/base-txt-bankingV2.css">
+<link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/printV2.css" media="print">
+
+<!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/ieV2.css" />
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/components-ieV2.css" />
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/ie-txt-bankingV2.css" />
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/print-ieV2.css" media="print"/>
+<![endif]-->
+<!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/ie6V2.css" />
+    <link rel="stylesheet" type="text/css" href="lightbox/stylesheets/components-ie6V2.css" />
+    <link rel="stylesheet" type="text/css" href="lightbox/stylesheets/ie6-txt-bankingV2.css" />
+<![endif]-->
+
+<div class="lightbox type-b">
+    <div id="lockedOutLinkBanner" class="window">
+        <div id="shadow_inner">
+            <div id="shadow_bg">
+                <div class="shadow_bg shadow_bg_n"></div>
+                <div class="shadow_bg shadow_bg_ne"></div>
+                <div class="shadow_bg shadow_bg_e"></div>
+                <div class="shadow_bg shadow_bg_se"></div>
+                <div class="shadow_bg shadow_bg_s"></div>
+                <div class="shadow_bg shadow_bg_sw"></div>
+                <div class="shadow_bg shadow_bg_w"></div>
+                <div class="shadow_bg shadow_bg_nw"></div>
+            </div>
+            <div class="modal">
+                <div class="inner">
+                    <span class="top"></span>
+
+                    <div id="messageid" class="message">
+                        <div class="charges" id="printarea">
+                            <h2>Locked out of your Online Banking account?</h2>
+
+                            <p>For your protection we may have locked your Online Banking account.</p>
+                            <p>This could be due to one of the two following reasons:</p>
+
+                            <ul>
+                            <li><span>the allowable number of password attempts has been exceeded</span></li>
+                            <li><span>the allowable number of Online Guardian challenge attempts has been exceeded</span></li>
+                            </ul>
+
+                            <p><strong>To remove this restriction please call us on 0800 400 600 (between 7.00am and 11.00pm,<br> 7 days a 
+
+week), or +64 9 912 8000 from overseas (international toll charges apply).</strong></p>
+
+                            <p class="footnote">
+                            Westpac's Electronic Banking Services terms and conditions apply.<br>
+The information on this page is presented subject to our legal page and any other terms and conditions that Westpac may<br> impose from time to 
+
+time. It is subject to change without notification.<br>
+Copyright©2011 Westpac New Zealand Limited
+                            </p>
+                      </div>
+                    </div>
+                    <div class="navigation">
+                    	<a href="#printarea" class="printlink">Print</a>
+                        <a id="hideLogonRBAInfoBannerButton" href="" class="close">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function handleLockedOutLink() {
+        return jWestpac().launchLightbox('#lockedOutLinkBanner', true, true);
+    }
+
+    jQuery(document).ready(
+        function() {
+            jQuery('#lockedOutLink2').click(handleLockedOutLink);
+            jQuery('#lockedOutLink3').click(handleLockedOutLink);
+        }
+    );
+</script>
+
+<div>
+<div>
+  <script type="text/javascript" src="https://sec.westpac.co.nz/IOLB/lightbox/javascript/onlinebankingCommon.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/baseV2.css">
+<link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/componentsV2.css">
+<link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/base-txt-bankingV2.css">
+<link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/printV2.css" media="print">
+
+<!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/ieV2.css" />
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/components-ieV2.css" />
+    <link rel="stylesheet" type="text/css" href="lightbox/stylesheets/ie-txt-bankingV2.css" />
+    <link rel="stylesheet" type="text/css" href="lightbox/stylesheets/print-ieV2.css" media="print"/>
+<![endif]-->
+<!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/ie6V2.css" />
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/components-ie6V2.css" />
+    <link rel="stylesheet" type="text/css" href="https://sec.westpac.co.nz/IOLB/lightbox/stylesheets/ie6-txt-bankingV2.css" />
+<![endif]-->
+
+<div class="lightbox type-c type-c-small">
+    <div id="logonRefresh" class="window">
+        <div id="shadow_inner">
+            <div id="shadow_bg">
+                <div class="shadow_bg shadow_bg_n"></div>
+                <div class="shadow_bg shadow_bg_ne"></div>
+                <div class="shadow_bg shadow_bg_e"></div>
+                <div class="shadow_bg shadow_bg_se"></div>
+                <div class="shadow_bg shadow_bg_s"></div>
+                <div class="shadow_bg shadow_bg_sw"></div>
+                <div class="shadow_bg shadow_bg_w"></div>
+                <div class="shadow_bg shadow_bg_nw"></div>
+            </div>
+            <div class="modal">
+                <div class="inner">
+                    <span class="top"></span>
+
+                    <div id="messageid" class="message" style="padding-top: 25px;">
+                        <div class="charges" id="printarea">
+                            <h2>We need to reload this page.</h2>
+
+                            <p>For your security this page has timed out.</p>
+
+                            <div class="buttons">
+                                <a id="timeoutRefresh" href="#" class="close">OK</a>
+                            </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+	</div>
+	</div></div></div></div></td>
+    </tr>
+</tbody></table>
+
+<!-- page footer table -->
+<table cellpadding="0" cellspacing="0" border="0" id="pagefooter">
+<tbody><tr>
+	<td align="left" valign="top">
+	</td>
+</tr>
+</tbody></table>
+</div>
+
+
+</body></html>

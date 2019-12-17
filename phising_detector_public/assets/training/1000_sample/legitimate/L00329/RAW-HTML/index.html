@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Malaysia Weather - AccuWeather.com</title>    
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"a690b21e9f","applicationID":"599479","transactionName":"NV0GYUFWCEUDBkNQDAwXKWNwGCpZAQRDUAwMewtbR0UJWg4ARRYgDU0KQUFOJV8WDFJK","queueTime":0,"applicationTime":76,"ttGuid":"41007E5A30C9D3F8","agent":""}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQUFVl5UGwYJXVVVDg=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
+          
+    <meta name="description" content="Get the Malaysia weather forecast. Access hourly, 10 day and 15 day forecasts along with up to the minute reports and videos from AccuWeather.com" />
+<link rel="canonical" href="http://www.accuweather.com/en/my/malaysia-weather" />
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.accuweather.com/en/my/malaysia-weather" />
+<link rel="alternate" media="handheld" href="http://m.accuweather.com/en/my/malaysia-weather" />
+
+    <meta name="viewport" content="width=988"/>
+    <link rel="stylesheet" href="http://vortex.accuweather.com/adc2010/stylesheets/site.min-20160314.css" type="text/css" media="all" /> 
+
+    <style type="text/css">
+        @media print{#header-davek,#header-links,#header-davek-2,#ad-prestitial-panel,#footer-nav,#offers,div.logo-ad,div.panel-ad-mr,div.ad-lr,#ad-links,#wrap-s .bt,.margusity,.column-2-r,.addthis_toolbox,body#news-news .column-2,body#news-news #news,body#news-news .panel-head-tabs-rt,#extras{display:none}body,#wrap,#wrap-content,.column-1,#panel-main,.strong .panel-body,.strong .panel-body-lt,.strong .panel-body-rt,.strong .panel-foot,.strong .panel-foot-lt,.strong .panel-foot-rt,.strong .panel-head,.strong .panel-head-lt,.strong .panel-head-rt{background:0}.clearfix{position:static;display:block}body#news-news .column-1{width:980px;float:none;}}
+    </style>
+
+
+    <link rel="shortcut icon" href="http://vortex.accuweather.com/adc2010/images/favicons/awx-2013-master.ico" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <style type="text/css">
+.flag-MY { background-image: url(http://vortex.accuweather.com/adc2010/images/flags/MY.png) !important;}
+.flag-US { background-image: url(http://vortex.accuweather.com/adc2010/images/flags/US.png) !important;}
+.flag-CN { background-image: url(http://vortex.accuweather.com/adc2010/images/flags/CN.png) !important;}
+        .i-38-header {background-image: url(http://vortex.accuweather.com/adc2010/images/header-bg-night/38-header.jpg);}
+         </style> 
+    
+    
+
+<meta property="fb:app_id" content="132437483467956" />
+<meta property="og:site_name" content="AccuWeather" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@breakingweather" />
+<meta name="twitter:image:src" content="http://vortex.accuweather.com/adc2010/images/awx-orange-sun-logo-180x180.png" />
+<meta name="twitter:image:width" content="180" />
+<meta name="twitter:image:height" content="180" />
+
+
+<meta property="og:image" content="http://vortex.accuweather.com/adc2010/images/awx-orange-sun-logo-650x315.png" />
+<meta property="og:type" content="website" />
+
+
+
+    <script type="text/javascript">
+    //all things being equal...
+    var amobeeParams = {
+        p:{
+            version:"",
+            adsource:"",
+            guid:"",
+            ira:"",
+            skymotion:"",
+            tzo:"",
+            lat:"",
+            long:"",
+            LotameID:"",
+            kw:"",
+            adtestkey:""
+        }
+    }
+
+    //ATP Config
+    var atp_config = {
+        AdPlatform: "GPT",
+        IsDebug: false,
+        PrebidTimeout: 10,
+        TargetingOverrides:
+        {
+        },
+        ForecastDays: 2,        //number of forecast days to send
+        //TargetingIndicies: ["migraine", "flu","cold","dust","asthma","pollen"]
+        //TargetingIndicies: []   //no indicies
+        TargetingIndicies: undefined //all indicies
+        //TargetingIndicies: ["cold", "flu"] // cold and flu indicies
+    }
+    var TILE_SIZES = {
+        ATFPENCIL: [[980, 30]],
+        ATF728: [[728, 90], [970, 250], [750, 100], [750, 200], [750, 300], [930, 180], [950, 90], [980, 90], [980, 120], [970, 90], [960, 90]],
+        ATF300: [[300, 250], [336, 280], [300, 1050], [250, 360], [240, 400]],
+        ATF300_NONPROD: [[300, 600]],
+        ATF160: [[160, 600], [120, 600], [120, 60], [120, 240]],
+        BTF160: [[160, 600], [120, 60], [120, 240]],
+        BTF300: [[300, 250], [300, 251], [250, 360], [240, 400]],
+        BTF300_NONPROD: [[300, 601]],
+        BTF728: [[728, 90], [728, 91], [750, 100], [950, 90], [980, 90], [970, 90], [960, 90]],
+        ATFVIDEOCOMP300: [[300, 250]],
+        ATF_TRR:[],
+        BTF_TRR:[[160,601]]
+    };
+    var pageWx = {
+        nwsalrt: 'TODO',
+        alerts: { source: '', category: '', typeid: '' },
+        isday: '0',
+        lfs: { day: '', category: '', severity: '' },
+        hdln: '',
+        ut: '0',
+cu: null,
+fc: null,
+        ix: {arthritis:'3',asthma:'2',bbq:'3',cold:'2',flu:'',lawnmowing:'1',migraine:'2',outdoor:'1',schoolclosing:'',sinus:'1',soil:'4',field:'',beach:'4',biking:'1',concert:'',construction:'1',composting:'5',dust:'5',fishing:'1',fueleconomy:'4',golf:'1',heart:'1',hiking:'1',hvac:'2',mosq:'5',sailing:'1',running:'1',schoolbus:'4',skiing:'1',star:'1',frizz:'5',pollen:'1',uvindex:'4',hunting:'1', driving:'3', travel:'5', airq:'1', pgrass:'1', pmold:'1', pweed:'1', ptree:'1' }
+    };
+</script>
+
+    
+<link rel="stylesheet" href="http://vortex.accuweather.com/adc2010/stylesheets/pages/home.min-20130404.css" type="text/css" media="all" /> 
+    <style type="text/css">
+.i-38-s{background-image:url(http://vortex.accuweather.com/adc2010/images/icons-numbered/38-s.png)} .i-15-s{background-image:url(http://vortex.accuweather.com/adc2010/images/icons-numbered/15-s.png)} .i-36-s{background-image:url(http://vortex.accuweather.com/adc2010/images/icons-numbered/36-s.png)} 
+    </style>
+
+
+
+    <!--[if gte IE 9]>
+    <meta content="AccuWeather.com" name="application-name" />
+    <meta content="width=1024;height=768" name="msapplication-window" />
+    <meta content="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776" name="msapplication-starturl" />
+    <meta name="msapplication-navbutton-color" content="#637ebe" />
+    <meta content="Kuala Lumpur Weather" name="msapplication-tooltip" />
+    <meta content="name=Kuala Lumpur Hourly;action-uri=http://www.accuweather.com/en/my/kuala-lumpur/233776/hourly-weather-forecast/233776;icon-uri=http://vortex.accuweather.com/adc2010/images/favicons/hourly_master.ico" name="msapplication-task" />
+    <meta content="name=Kuala Lumpur Weekend;action-uri=http://www.accuweather.com/en/my/kuala-lumpur/233776/weekend-weather/233776;icon-uri=http://vortex.accuweather.com/adc2010/images/favicons/weekend_master.ico" name="msapplication-task" />
+    <meta content="name=Kuala Lumpur Extended;action-uri=http://www.accuweather.com/en/my/kuala-lumpur/233776/daily-weather-forecast/233776;icon-uri=http://vortex.accuweather.com/adc2010/images/favicons/extended_master.ico" name="msapplication-task" />
+    <meta content="name=Kuala Lumpur Calendar;action-uri=http://www.accuweather.com/en/my/kuala-lumpur/233776/month/233776;icon-uri=http://vortex.accuweather.com/adc2010/images/favicons/month_master.ico" name="msapplication-task" />    
+    <meta name="msapplication-TileImage" content="http://vortex.accuweather.com/adc2010/images/favicons/windows8_tile_144x144.png"/>
+    <meta name="msapplication-TileColor" content="#006cb1"/>
+    <![endif]-->
+    <!--[if lte IE 6]>
+    <link rel="stylesheet" href="http://vortex.accuweather.com/adc2010/stylesheets/ie6.css" type="text/css" media="all" />
+    <script type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/ie6.js"></script>
+    <![endif]--> 
+    <!--[if lt IE 7]>
+    <script defer type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/ie6_png_fix.js"></script>
+    <![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" href="http://vortex.accuweather.com/adc2010/stylesheets/ie7.min-20130423.css" type="text/css" media="all" /><![endif]--> 
+    <!--[if IE 8]><link rel="stylesheet" href="http://vortex.accuweather.com/adc2010/stylesheets/ie8.min-20130423.css" type="text/css" media="all" /><![endif]--> 
+    <!--[if gte IE 9]><link rel="stylesheet" href="http://vortex.accuweather.com/adc2010/stylesheets/ie9.min-20121129.css" type="text/css" media="all" /><![endif]--> 
+
+    <script type="text/javascript">
+    //define our user bucket settings from config
+    var userLevelSettings = {
+        engagedUserSessionPageViews: 9,
+        ambassadorSessions: 5,
+        engagedAmbassadorTotalPageViews: 18
+        };
+
+    var bingMapsKey = 'Aq63PdcG0ddlLSi7wf0mYGOEp6l2fVZqDjlpBEIMjicZ38F6t9jlRdb1B0Y2tKgE';
+
+    var gaKey = 'UA-20804842-1';
+
+    var awxIsSlateSite = false;
+
+    </script>
+
+            <script type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/adclotaud.min-20150508.js"></script>
+    <script type="text/javascript">
+        var atp_queue = atp_queue ? atp_queue : [];
+        var pbjs = pbjs || {};
+        pbjs.que = pbjs.que || [];
+
+    var apgUserInfoObj = {
+        country: 'MY',
+        city: 'Kuala Lumpur',
+        state: '14',
+        metro: '',
+        zip: '',
+        fcode: 'WMPJ',
+        partner: 'accuweather',
+        sessionPartner: 'accuweather',
+        referer: '',
+        lang: 'en-us',
+        langid: '1',
+        lat: '3.15',
+        lon: '101.71',
+        dma: '',
+        ip: '115.132.142.240',
+        ipHash: 'd2558f6918ca2d9ffd4452d1cdc41fcd',
+        ipLocation: 'my/kuala-lumpur/233776/',
+        sessionViews: 1,
+    //visitFlow: '',
+    geo_dma: '',
+        geo_city: 'Kuala Lumpur',
+    geo_state: '14',
+    geo_zip: '',
+    geo_country: 'MY',
+    gmtOffset: '8',
+        locationKey: '233776',
+        canonicalLocationKey: '233776',
+        weatherDate:'20160425',
+        callRender:'1'
+        };
+
+
+var aadCustomKeyValuePairs = {};
+</script>
+    
+    <script type="text/javascript">
+    var AW_EXP_ID = null;
+    var AW_EXP_VAR = null;
+        var apgConfigObj = {};
+        apgConfigObj.showLifestyle = true;
+        apgConfigObj.prompts = {};
+    apgConfigObj.useBrightcoveVideoWall = true;
+    apgConfigObj.openBrightCoveVideoWallInNewTab = true;
+
+        var acm_RecentLocationsCarousel= new Array();
+
+acm_RecentLocationsCarousel.push({name:"Kuala Lumpur, Malaysia", daypart:'night', href:'/en/my/kuala-lumpur/233776/weather-forecast/233776', icon:'http://vortex.accuweather.com/adc2010/images/icons-numbered/38-m.png', bg:'s', temp:'82',  realfeel:'93',  text:'Mostly cloudy'});
+acm_RecentLocationsCarousel.push({name:"Ipoh, Malaysia", daypart:'night', href:'/en/my/ipoh/234818/weather-forecast/234818', icon:'http://vortex.accuweather.com/adc2010/images/icons-numbered/15-m.png', bg:'s', temp:'77',  realfeel:'92',  text:'Thunderstorm'});
+acm_RecentLocationsCarousel.push({name:"Johor Bahru, Malaysia", daypart:'night', href:'/en/my/johor-bahru/228029/weather-forecast/228029', icon:'http://vortex.accuweather.com/adc2010/images/icons-numbered/36-m.png', bg:'s', temp:'79',  realfeel:'90',  text:'Some clouds'});
+acm_RecentLocationsCarousel.push({name:"Kota Bharu, Malaysia", daypart:'night', href:'/en/my/kota-bharu/228390/weather-forecast/228390', icon:'http://vortex.accuweather.com/adc2010/images/icons-numbered/38-m.png', bg:'s', temp:'86',  realfeel:'99',  text:'Mostly cloudy'});
+acm_RecentLocationsCarousel.push({name:"Kota Kinabalu, Malaysia", daypart:'night', href:'/en/my/kota-kinabalu/229992/weather-forecast/229992', icon:'http://vortex.accuweather.com/adc2010/images/icons-numbered/38-m.png', bg:'s', temp:'84',  realfeel:'98',  text:'Mostly cloudy'});
+
+    </script>
+
+            <script type="text/javascript">
+                var acm_InterestLayers = [
+{group:'1.1', name:'Cold & Flu', code:'10302', icon: 'cold-flu', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/cold-flu-weather/233776', alarm:[3,4,5]},
+{group:'1.1', name:'Allergies', code:'10201', icon: 'allergies', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/allergies-weather/233776', alarm:[3,4,5]},
+{group:'1.1', name:'Respiratory', code:'10301', icon: 'respiratory', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/asthma-weather/233776', alarm:[3,4,5]},
+{group:'1.1', name:'Arthritis', code:'10102', icon: 'arthritis', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/arthritis-weather/233776', alarm:[3,4,5]},
+{group:'1.1', name:'Migraine', code:'10101', icon: 'migraine', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/migraine-weather/233776', alarm:[3,4,5]},
+{group:'1.1', name:'Sinus', code:'10103', icon: 'sinus', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/sinus-weather/233776', alarm:[3,4,5]},
+{group:'1.2', name:'Travel', code:'20501', icon: 'travel', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/air-travel-weather/233776', alarm:[1]},
+{group:'1.2', name:'Astronomy', code:'40501', icon: 'astro', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/astronomy-weather/233776', alarm:[1]},
+{group:'1.2', name:'Events', code:'41001', icon: 'events', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/events-weather/233776', alarm:[1]},
+{group:'2.1', name:'Driving', code:'20401', icon: 'driving', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/driving-weather/233776', alarm:[1]},
+{group:'2.1', name:'School Day', code:'30401', icon: 'school', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/school-day-weather/233776', alarm:[1]},
+{group:'2.1', name:'Hair Day', code:'30301', icon: 'hair', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/hair-day-weather/233776', alarm:[3,4,5]},
+{group:'2.1', name:'Snow Days', code:'30402', icon: 'snow', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/snow-day-weather/233776', alarm:[4,5]},
+{group:'2.2', name:'D.I.Y.', code:'30101', icon: 'diy', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/diy-weather/233776', alarm:[1]},
+{group:'2.2', name:'Lawn & Garden', code:'30201', icon: 'lawn-garden', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/lawn-garden-weather/233776', alarm:[1]},
+{group:'2.2', name:'Home Energy', code:'30501', icon: 'home-energy', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/home-energy-weather/233776', alarm:[1]},
+{group:'2.2', name:'Entertaining', code:'40102', icon: 'entertaining', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/outdoor-entertaining-weather/233776', alarm:[1]},
+{group:'3.1', name:'Golf', code:'40201', icon: 'golf', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/golf-weather/233776', alarm:[1]},
+{group:'3.1', name:'Ski', code:'40301', icon: 'ski', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/ski-weather/233776', alarm:[1]},
+{group:'3.1', name:'Hunting', code:'40601', icon: 'hunting', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/hunting-weather/233776', alarm:[1]},
+{group:'3.1', name:'Fishing', code:'40602', icon: 'fishing', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/fishing-weather/233776', alarm:[1]},
+{group:'3.1', name:'Running', code:'40901', icon: 'running', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/running-weather/233776', alarm:[1]},
+{group:'3.1', name:'Hiking', code:'40903', icon: 'hiking', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/hiking-weather/233776', alarm:[1]},
+{group:'3.1', name:'Biking', code:'40902', icon: 'biking', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/biking-weather/233776', alarm:[1]},
+{group:'3.1', name:'Sun & Sand', code:'40401', icon: 'sun-sand', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/sun-sand-weather/233776', alarm:[1]},
+{group:'3.1', name:'Sailing', code:'40402', icon: 'sailing', href:'http://www.accuweather.com/en/my/kuala-lumpur/233776/sailing-weather/233776', alarm:[1]}];                        
+            </script>    
+
+    <script type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/lib.min-20160106.js"></script> 
+    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=accuweather"></script>
+
+    
+        <script charset="UTF-8" type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=en-us"></script>
+        <script type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/maptiles/bing/bingmaps-oneframe-min-041212.js"></script>
+        <script type="text/javascript" src="http://vortex.accuweather.com/tiles/client/accuweather/?p=worldsat&r=js&cbt=635971827556219962"></script>
+        <script type="text/javascript">
+            bm_tileDataObj = new jsonWorldSat();
+            bm_animMaxFrames = 1;
+            bm_centerPoint = new Microsoft.Maps.Location(2.5, 112.5);
+            var infobox, mapDataLayer;
+            var clickablePinArray = new Array();
+            var pinLocations = new Array();
+
+            function GetMap() {
+                map = new Microsoft.Maps.Map(document.getElementById("map_canvas"), { credentials: "Aq63PdcG0ddlLSi7wf0mYGOEp6l2fVZqDjlpBEIMjicZ38F6t9jlRdb1B0Y2tKgE", mapTypeId: Microsoft.Maps.MapTypeId.aerial, labelOverlay: Microsoft.Maps.LabelOverlay.hidden, showMapTypeSelector: false, showScalebar: false });
+
+                // Register and load the animation module
+                Microsoft.Maps.registerModule('accuTileLayerModule', 'http://vortex.accuweather.com/adc2010/javascripts/maptiles/bing/accutilelayer.js');
+                Microsoft.Maps.loadModule("accuTileLayerModule", { callback: accuTileLayerModuleLoaded });
+
+                try {
+                    // Add Bing labels as a tile layer with higher z-index
+
+                    //var labelTileSource = new Microsoft.Maps.TileSource({ uriConstructor: 'http://ecn.t2.tiles.virtualearth.net/tiles/ho{quadkey}?g=671&stl=h' });    // borders only
+                    var labelTileSource = new Microsoft.Maps.TileSource({ uriConstructor: 'http://ecn.t2.tiles.virtualearth.net/tiles/ho{quadkey}?g=671&mkt=en-us' });            // borders and city names
+                    var labelTilelayer = new Microsoft.Maps.TileLayer({ mercator: labelTileSource, opacity: 1.0, zIndex: 97 });
+                    map.entities.push(labelTilelayer);
+                }
+                catch (err) {
+                    alert('Error Message:' + err.message);
+                }
+
+                mapDataLayer = new Microsoft.Maps.EntityCollection();
+                mapDataLayer.setOptions({ zIndex: 98 });
+                map.entities.push(mapDataLayer);
+
+                var infoboxLayer = new Microsoft.Maps.EntityCollection();
+                infoboxLayer.setOptions({ zIndex: 99 });
+                map.entities.push(infoboxLayer);
+
+                infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { width: 258, height: 219, showCloseButton: false, offset: new Microsoft.Maps.Point(-21, 219), showPointer: false, visible: false });
+                infoboxLayer.push(infobox);
+
+                AddData();
+
+                if (clickablePinArray.length > 1) {
+                    map.setView({ bounds: Microsoft.Maps.LocationRect.fromLocations(pinLocations) });
+                }
+
+                bm_startzoom = map.getZoom();
+
+                Microsoft.Maps.Events.addHandler(map, 'viewchangestart', bmViewChangeStart);
+                Microsoft.Maps.Events.addHandler(map, 'viewchangeend', bmViewChangeEnd);
+                Microsoft.Maps.Events.addHandler(map, 'mousewheel', function (e) {
+                    if (e.targetType == 'map') {
+                        e.handled = true;
+                    }
+                });
+
+            }
+
+            function AddData() {
+                var pinID;
+
+pinLocations[0] = new Microsoft.Maps.Location(6.11, 100.36);
+addIconPin(pinLocations[0], "36", true);
+clickablePinArray[0] = newTemperaturePin(pinLocations[0], 90, true);
+clickablePinArray[0].Description = jQuery('#marker0').html();
+mapDataLayer.push(clickablePinArray[0]);
+
+pinLocations[1] = new Microsoft.Maps.Location(3.15, 101.77);
+addIconPin(pinLocations[1], "38", true);
+clickablePinArray[1] = newTemperaturePin(pinLocations[1], 82, true);
+clickablePinArray[1].Description = jQuery('#marker1').html();
+mapDataLayer.push(clickablePinArray[1]);
+
+pinLocations[2] = new Microsoft.Maps.Location(5.39, 100.26);
+addIconPin(pinLocations[2], "36", true);
+clickablePinArray[2] = newTemperaturePin(pinLocations[2], 86, true);
+clickablePinArray[2].Description = jQuery('#marker2').html();
+mapDataLayer.push(clickablePinArray[2]);
+
+pinLocations[3] = new Microsoft.Maps.Location(1.85, 102.94);
+addIconPin(pinLocations[3], "38", true);
+clickablePinArray[3] = newTemperaturePin(pinLocations[3], 83, true);
+clickablePinArray[3].Description = jQuery('#marker3').html();
+mapDataLayer.push(clickablePinArray[3]);
+
+pinLocations[4] = new Microsoft.Maps.Location(3.17, 113.04);
+addIconPin(pinLocations[4], "35", true);
+clickablePinArray[4] = newTemperaturePin(pinLocations[4], 86, true);
+clickablePinArray[4].Description = jQuery('#marker4').html();
+mapDataLayer.push(clickablePinArray[4]);
+
+pinLocations[5] = new Microsoft.Maps.Location(5.42, 100.33);
+addIconPin(pinLocations[5], "38", true);
+clickablePinArray[5] = newTemperaturePin(pinLocations[5], 90, true);
+clickablePinArray[5].Description = jQuery('#marker5').html();
+mapDataLayer.push(clickablePinArray[5]);
+
+pinLocations[6] = new Microsoft.Maps.Location(4.59, 101.08);
+addIconPin(pinLocations[6], "15", true);
+clickablePinArray[6] = newTemperaturePin(pinLocations[6], 77, true);
+clickablePinArray[6].Description = jQuery('#marker6').html();
+mapDataLayer.push(clickablePinArray[6]);
+
+pinLocations[7] = new Microsoft.Maps.Location(1.5, 103.76);
+addIconPin(pinLocations[7], "36", true);
+clickablePinArray[7] = newTemperaturePin(pinLocations[7], 79, true);
+clickablePinArray[7].Description = jQuery('#marker7').html();
+mapDataLayer.push(clickablePinArray[7]);
+
+pinLocations[8] = new Microsoft.Maps.Location(6.12, 102.24);
+addIconPin(pinLocations[8], "38", true);
+clickablePinArray[8] = newTemperaturePin(pinLocations[8], 86, true);
+clickablePinArray[8].Description = jQuery('#marker8').html();
+mapDataLayer.push(clickablePinArray[8]);
+
+pinLocations[9] = new Microsoft.Maps.Location(5.97, 116.07);
+addIconPin(pinLocations[9], "38", true);
+clickablePinArray[9] = newTemperaturePin(pinLocations[9], 84, true);
+clickablePinArray[9].Description = jQuery('#marker9').html();
+mapDataLayer.push(clickablePinArray[9]);
+
+pinLocations[10] = new Microsoft.Maps.Location(3.15, 101.71);
+addIconPin(pinLocations[10], "38", true);
+clickablePinArray[10] = newTemperaturePin(pinLocations[10], 82, true);
+clickablePinArray[10].Description = jQuery('#marker10').html();
+mapDataLayer.push(clickablePinArray[10]);
+
+pinLocations[11] = new Microsoft.Maps.Location(5.32, 103.14);
+addIconPin(pinLocations[11], "36", true);
+clickablePinArray[11] = newTemperaturePin(pinLocations[11], 88, true);
+clickablePinArray[11].Description = jQuery('#marker11').html();
+mapDataLayer.push(clickablePinArray[11]);
+
+pinLocations[12] = new Microsoft.Maps.Location(3.82, 103.34);
+addIconPin(pinLocations[12], "38", true);
+clickablePinArray[12] = newTemperaturePin(pinLocations[12], 84, true);
+clickablePinArray[12].Description = jQuery('#marker12').html();
+mapDataLayer.push(clickablePinArray[12]);
+
+pinLocations[13] = new Microsoft.Maps.Location(1.55, 110.34);
+addIconPin(pinLocations[13], "07", true);
+clickablePinArray[13] = newTemperaturePin(pinLocations[13], 82, true);
+clickablePinArray[13].Description = jQuery('#marker13').html();
+mapDataLayer.push(clickablePinArray[13]);
+
+pinLocations[14] = new Microsoft.Maps.Location(2.2, 102.26);
+addIconPin(pinLocations[14], "07", true);
+clickablePinArray[14] = newTemperaturePin(pinLocations[14], 84, true);
+clickablePinArray[14].Description = jQuery('#marker14').html();
+mapDataLayer.push(clickablePinArray[14]);
+
+pinLocations[15] = new Microsoft.Maps.Location(3.11, 101.64);
+addIconPin(pinLocations[15], "38", true);
+clickablePinArray[15] = newTemperaturePin(pinLocations[15], 82, true);
+clickablePinArray[15].Description = jQuery('#marker15').html();
+mapDataLayer.push(clickablePinArray[15]);
+
+pinLocations[16] = new Microsoft.Maps.Location(3.04, 101.45);
+addIconPin(pinLocations[16], "38", true);
+clickablePinArray[16] = newTemperaturePin(pinLocations[16], 82, true);
+clickablePinArray[16].Description = jQuery('#marker16').html();
+mapDataLayer.push(clickablePinArray[16]);
+
+pinLocations[17] = new Microsoft.Maps.Location(5.84, 118.11);
+addIconPin(pinLocations[17], "36", true);
+clickablePinArray[17] = newTemperaturePin(pinLocations[17], 84, true);
+clickablePinArray[17].Description = jQuery('#marker17').html();
+mapDataLayer.push(clickablePinArray[17]);
+
+pinLocations[18] = new Microsoft.Maps.Location(2.71, 101.95);
+addIconPin(pinLocations[18], "38", true);
+clickablePinArray[18] = newTemperaturePin(pinLocations[18], 84, true);
+clickablePinArray[18].Description = jQuery('#marker18').html();
+mapDataLayer.push(clickablePinArray[18]);
+
+pinLocations[19] = new Microsoft.Maps.Location(3.08, 101.53);
+addIconPin(pinLocations[19], "38", true);
+clickablePinArray[19] = newTemperaturePin(pinLocations[19], 82, true);
+clickablePinArray[19].Description = jQuery('#marker19').html();
+mapDataLayer.push(clickablePinArray[19]);
+
+                for (var i = 0; i < clickablePinArray.length; i++) {
+                    Microsoft.Maps.Events.addHandler(clickablePinArray[i], 'click', displayInfobox);
+                }
+
+            }
+
+            function displayInfobox(e) {
+                if (e.targetType == 'pushpin') {
+                    infobox.setHtmlContent(e.target.Description);
+                    infobox.setLocation(e.target.getLocation());
+                    infobox.setOptions({ visible: true });
+                }
+            }
+
+            function hideInfobox(e) {
+                infobox.setOptions({ visible: false });
+            }
+
+            // override to turn off animation
+            function bmViewChangeStart() {
+                bm_startzoom = Math.round(map.getZoom());
+                bm_animate = false;
+            }
+
+            function addIconPin(location, icon, isNight) {
+                zindex = Math.round(900 - Math.abs(location.latitude * 10));
+                icon = setMarkerIcon(isNight, icon);
+                var iconPin = new Microsoft.Maps.Pushpin(location, { width: 50, height: 64, icon: "http://vortex.accuweather.com/adc2010/images/gmap-icons-v2/" + icon + ".png", zIndex: zindex });
+                mapDataLayer.push(iconPin);
+            }
+
+            function newTemperaturePin(location, temperature, isNight) {
+                zindex = Math.round(900 - Math.abs(location.latitude * 10));
+                var imgDir = (isNight) ? "gmap-temps-white" : "gmap-temps";
+                //alert("http://vortex.accuweather.com/adc2010/images/" + imgDir + "/" + temperature + ".png" + " " + zindex);
+                return new Microsoft.Maps.Pushpin(location, { width: 50, height: 67, icon: "http://vortex.accuweather.com/adc2010/images/" + imgDir + "/" + temperature + ".png", zIndex: zindex, anchor: new Microsoft.Maps.Point(22, 65) });
+            }
+
+            function setMarkerIcon(isNight, value) {
+                var icon = value;
+                if (isNight) {
+                    icon = parseInt(icon * 1);
+                    if (icon < 7) { icon += 32; }
+                    if (icon == 7 || icon == 8) { icon = 38; }
+                    if (icon == 11) { icon = 37; }
+                    if (icon == 12) { icon = 40; }
+                    if (icon == 13 || icon == 14) { icon = 39; }
+                    if (icon == 15 || icon == 16) { icon = 41; }
+                    if (icon == 17) { icon = 42; }
+                    if (icon == 18) { icon = 40; }
+                    if (icon == 19 || icon == 20) { icon = 43; }
+                    if (icon == 21 || icon == 22) { icon = 44; }
+                }
+                return icon;
+            }
+        </script>
+
+    <script type="text/javascript">
+        var apgPageInfoObj = { ad_site: 'world', section: 'home', ad_section: 'home', page: 'country', ad_page: 'country', page_code: '', crumb_trail: ["Home","Asia","Malaysia"], pageType: 'content', pageExt: '', adPos: { atf728: true, atfPencil: true, atf300: true, atf160: false, btf728: true, btf300: true, popunder: true, prestitial: true, links: true, ptoSkin: true, tiles: [
+{
+  divid: "header-davek-ps",
+  atf: true,
+  companion: false,
+  name: "Tile1",
+  enabled: true,
+  sizes: {
+    ATF728:true,
+    ATFPENCIL:true
+  }
+},
+{
+  divid: "top-panel-body-rt-body-ps",
+  atf: true,
+  companion: false,
+  name: "Tile2",
+  enabled: true,
+  sizes: {
+    ATF300:true,
+    ATF300_NONPROD:true,
+    ATF160:false
+  }
+},
+{
+  divid: "bottom-panel-body-ps",
+  atf: false,
+  companion: false,
+  name: "Tile3",
+  enabled: true,
+  sizes: {
+    BTF300:true,
+    BTF300_NONPROD:true
+  }
+},
+{
+  divid: "footer-stevem-ps",
+  atf: false,
+  companion: false,
+  name: "Tile4",
+  enabled: true,
+  sizes: {
+    BTF728:true
+  }
+},
+{
+  divid: "aadTop300",
+  atf: true,
+  companion: false,
+  name: "Tile2",
+  enabled: false,
+  sizes: {
+    ATF300:false,
+    ATF300_NONPROD:false,
+    ATF160:true,
+    ATF_TRR:true
+  }
+},
+{
+  divid: "aadTRR160",
+  atf: false,
+  companion: false,
+  name: "Tile6",
+  enabled: false,
+  sizes: {
+    ATF160:true,
+    BTF_TRR:true
+  }
+}]
+ } };
+    </script>
+
+
+    <script type="text/javascript">
+        if (apgConfigObj.minutecast) {
+            apgConfigObj.minutecast.contentAmount = '1';
+        }
+    </script>
+
+<script>
+    var acm = {};
+    acm.isOldIE = false;
+</script>    
+<!--[if lte IE 8]>
+    <script>acm.isOldIE = true;</script>
+<![endif]-->
+        <script type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/apt.min-20160315-1001.js"></script>
+        <script src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script type="text/javascript" src="http://vortex.accuweather.com/adc2010/javascripts/site.min-20160311-1001.js"></script>
+            <script src="https://tags.crwdcntrl.net/c/5354/cc.js?ns=_cc5354" id="LOTCC_5354"></script>
+            <script>
+                _cc5354.bcp();
+            </script>
+
+        <script type="text/javascript">
+        var settingsCke = "acm";
+        sj_SelectCountry = "Select a Country";
+
+            function acmCitySubmit(key) {
+
+                var s_value = document.getElementById('s').value;
+                if (s_value == "Enter postal code or city...") {
+                    return false;
+                }
+
+                if (s_value === "") {
+                    return false;
+                }
+                var isKeyPress = (key) ? 'EnterKey' : 'ButtonClick';
+
+                if (s_value == "Kuala Lumpur, Malaysia") {
+                    gaManager.trackEvent('LocationBox', 'DefaultLocation', s_value.toLowerCase());
+                    setTimeout(function () {
+                        window.location.href = 'http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776';
+                    }, 50);
+                } else {
+                    gaManager.trackEvent('LocationBox', 'SearchLocation', s_value.toLowerCase());
+                    //setTimeout(function () {
+                    //    document.forms["findcity"].submit();
+                    //}, 50);
+                    // Execute it right away to prevent double-submit.
+                    document.forms["findcity"].submit();
+                }
+            }
+
+
+        </script>
+
+    
+    <script>
+        var _comscore = _comscore || [];
+        _comscore.push({ c1: "2", c2: "6005068" });
+        (function () {
+            var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+            s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+            el.parentNode.insertBefore(s, el);
+        })();
+    </script>
+
+    <script type="text/javascript">
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })()
+    </script>
+    
+</head>
+<body id="home" class="">
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P7HTGM"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+        {'gtm.start': new Date().getTime(),event:'gtm.js'}
+        );var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P7HTGM');
+    </script>
+    <!-- End Google Tag Manager -->
+        <style type="text/css">
+        #cobrand-banner-wrap-head{border-bottom:#D1D4D9 2px solid;}
+        #cobrand-banner-head{width:900px;margin:0px auto;height:40px;overflow:hidden;}
+        </style>
+        <div id="cobrand-banner-wrap-head">
+          <div id="cobrand-banner-head">
+          <style>body{background: #f2f2f2;}#cobrand-banner-head{height:inherit !important; width:988px !important;}#cobrand-banner-wrap-head{background: #505e71 !important; border:none !important;}.cobrand-header{background: #505e71; width: 100%; font-family: "Helvetica",sans-serif;}.cobrand-header .cobrand-header-container{width: 100%; margin: 0 auto; position: relative;}.cobrand-header .cobrand-header-container p{width: 93%; padding: 15px 5% 15px 2%; margin: 0 auto; text-align: left; display: block; color: #ffffff; font-size: 14px;}.cobrand-header .cobrand-header-container span{width: 20px; height:20px; display:inline-block; position: absolute; right:20px; top:50%; margin-top: -10px; background: url(http://vortex.accuweather.com/adc2010/images/right-hollow-arrow.png) no-repeat 50% 50%; background-size: 20px 20px;}.cobrand-header a{text-decoration: none; margin: 0; padding: 0;}</style><div class="cobrand-header"> <a href="http://slate-dev.accuweather.com/" target="_blank" rel="nofollow"> <div class="cobrand-header-container"> <p>Preview our new website look, enhanced readability, and expanded features for weather information with Superior Accuracy here - Coming Soon!</p><span></span></div></a></div>
+          </div>
+        </div>
+
+
+
+<span id="dynamic-menu-container"></span> 
+<div id="menu-cities" class="menu menu-list add-interest-menu"> 
+  <div class="menu-head-lt"> 
+    <div class="menu-head-rt"> 
+      <div class="menu-head"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-head-lt --> 
+  <div class="menu-body-lt"> 
+    <div class="menu-body-rt"> 
+      <div class="menu-body"> 
+        <ul class="menu-items">
+            <li><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776">Kuala Lumpur, Malaysia</a></li>
+            <li><a href="http://www.accuweather.com/en/my/ipoh/234818/weather-forecast/234818">Ipoh, Malaysia</a></li>
+            <li><a href="http://www.accuweather.com/en/my/johor-bahru/228029/weather-forecast/228029">Johor Bahru, Malaysia</a></li>
+            <li><a href="http://www.accuweather.com/en/my/kota-bharu/228390/weather-forecast/228390">Kota Bharu, Malaysia</a></li>
+            <li><a href="http://www.accuweather.com/en/my/kota-kinabalu/229992/weather-forecast/229992">Kota Kinabalu, Malaysia</a></li>
+          <li><a href="http://www.accuweather.com/en/browse-locations">Browse for your location</a></li> 
+        </ul>
+        <span class="arrow"></span><span class="arrow-border"></span>
+      </div> 
+    </div> 
+  </div> 
+  <!-- /.menu-body-lt --> 
+  <div class="menu-foot-lt"> 
+    <div class="menu-foot-rt"> 
+      <div class="menu-foot"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-foot-lt --> 
+</div> 
+
+<!-- NEW! menu -->
+<div id="current-city-menu" class="menu menu-list add-interest-menu">
+  <div class="menu-head-lt"><div class="menu-head-rt"><div class="menu-head"></div></div></div><!-- /.menu-head-lt -->
+  <div class="menu-body-lt">
+  <div class="menu-body-rt">
+  <div class="menu-body">
+	<ul>
+        <li><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776">Today's Weather</a></li>
+        <li><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/hourly-weather-forecast/233776">Hourly Forecast</a></li> 
+        <li><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/daily-weather-forecast/233776">Extended</a></li> 
+        <li><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weekend-weather/233776">Weekend</a></li> 
+        <li><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/april-weather/233776">Month Outlook</a></li> 
+        <li><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/current-weather/233776">Current Weather</a></li> 
+	</ul>
+  <span class="arrow"></span>
+  <span class="arrow-border"></span>	
+  </div>
+  </div>
+  </div>
+  <!-- /.menu-body-lt -->
+  <div class="menu-foot-lt"><div class="menu-foot-rt"><div class="menu-foot"></div></div></div><!-- /.menu-foot-lt -->
+
+</div>
+<!-- #/current-city-menu -->
+
+<div id="current-country-menu" class="menu menu-list add-interest-menu">
+  <div class="menu-head-lt">
+    <div class="menu-head-rt">
+      <div class="menu-head"></div>
+    </div>
+  </div>
+  <!-- /.menu-head-lt -->
+  <div class="menu-body-lt">
+    <div class="menu-body-rt">
+      <div class="menu-body">
+        <ul>
+          <li class="first"><a href="http://www.accuweather.com/en/my/malaysia-weather">Home</a></li>
+        </ul>
+        <ul>
+                <li class="first"><a href="http://www.accuweather.com/en/my/national/satellite">Maps</a></li>
+                <li><a href="http://www.accuweather.com/en/my/national/satellite">Satellite</a></li>
+                <li><a href="http://www.accuweather.com/en/my/national/weather-forecast-maps">Weather Forecast Maps</a></li>
+        </ul>
+        <ul>
+          <li class="first"><a href="http://www.accuweather.com/en/weather-news">News & Video</a></li>
+          <li><a href="http://www.accuweather.com/en/weather-news">Weather News</a></li>
+          
+          <li><a href="http://videowall.accuweather.com?utm_source=accuweather&amp;utm_medium=accuweather&amp;utm_campaign=sitenav" target="_blank">Weather Video</a></li>
+          <li><a href="http://www.accuweather.com/en/weather-blogs">Weather Blogs</a></li>
+          <li><a href="http://www.accuweather.com/en/personalities">Personalities</a></li>
+        </ul>
+        <ul>
+          <li class="first"><a href="http://www.accuweather.com/en/climate-change">Extreme Weather</a></li>
+          <li><a href="http://www.accuweather.com/en/climate-change">Climate Change</a></li>
+        </ul>
+        <ul>
+          <li class="first"><a href="http://www.accuweather.com/en/social">Social</a></li>
+          <li><a href="http://www.accuweather.com/en/social">Social Media</a></li>
+          <li><a href="http://www.accuweather.com/en/downloads">Apps & Downloads</a></li>
+          <li><a href="http://photo.accuweather.com">Weather Photos</a></li>
+          <li><a href="http://forums.accuweather.com">Weather Forums</a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <span class="arrow"></span> <span class="arrow-border"></span> </div>
+    </div>
+  </div>
+  <!-- /.menu-body-lt -->
+  <div class="menu-foot-lt">
+    <div class="menu-foot-rt">
+      <div class="menu-foot"></div>
+    </div>
+  </div>
+  <!-- /.menu-foot-lt --> 
+</div>
+<!-- #/current-country-menu -->
+
+<div id="menu-premium" class="menu menu-with-title">
+  <h3 class="menu-title"><span>Login</span></h3> 
+  <div class="menu-head-lt"> 
+    <div class="menu-head-rt"> 
+      <div class="menu-head"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-head-lt --> 
+  <div class="menu-body-lt"> 
+    <div class="menu-body-rt"> 
+      <div class="menu-body"> 
+        <ul class="menu-items"> 
+          <li><a href="https://wwwl.AccuWeather.com/premium_login.php" target="_blank">AccuWeather.com Premium</a></li> 
+          
+          <li><a href="https://wwwl.AccuWeather.com/pro_login.php" target="_blank">AccuWeather.com Professional</a></li> 
+        </ul> 
+      </div> 
+    </div> 
+  </div> 
+  <!-- /.menu-body-lt --> 
+  <div class="menu-foot-lt"> 
+    <div class="menu-foot-rt"> 
+      <div class="menu-foot"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-foot-lt --> 
+</div> 
+
+
+<div id="menu-settings" class="menu menu-with-title"> 
+  
+  <h3 class="menu-title"><span></span></h3> 
+  
+  <div class="menu-head-lt"> 
+    <div class="menu-head-rt"> 
+      <div class="menu-head"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-head-lt --> 
+  <div class="menu-body-lt"> 
+    <div class="menu-body-rt"> 
+      <div class="menu-body"> 
+        
+      <h4>My Settings</h4> 
+      
+      <div class="control-wrap"> 
+      
+      <form action="" method="post" autocomplete="false"> 
+           
+      <label for="settings-language"></label> 
+      <select id="settings-language" name="language" class="match-toggle" onchange="acm_updateLanguage(this.options[this.selectedIndex].value, (this.selectedIndex+1));">
+       <option value="en-us">English (US)</option>
+<option value="es">Espa&#241;ol</option>
+<option value="fr">Fran&#231;ais</option>
+<option value="da">Dansk</option>
+<option value="pt">Portugu&#234;s</option>
+<option value="nl">Nederlands</option>
+<option value="no">Norsk</option>
+<option value="it">Italiano</option>
+<option value="de">Deutsch</option>
+<option value="sv">Svenska</option>
+<option value="fi">Suomi</option>
+<option value="zh-hk">中文 (HK)</option>
+<option value="zh-cn">中文 (SIM)</option>
+<option value="zh-tw">中文 (Taiwan)</option>
+<option value="es-ar">Espa&#241;ol (Argentina)</option>
+<option value="es-mx">Espa&#241;ol (Latin America)</option>
+<option value="sk">Slovenčinu</option>
+<option value="ro">Romana</option>
+<option value="cs">Čeština</option>
+<option value="hu">Magyar</option>
+<option value="pl">Polski</option>
+<option value="ca">Catal&#224;</option>
+<option value="pt-br">Portugu&#234;s (Brazil)</option>
+<option value="hi">हिन्दी</option>
+<option value="ru">русский</option>
+<option value="ar">عربي</option>
+<option value="el">Ελληνικά</option>
+<option value="en-gb">English (UK)</option>
+<option value="ja">日本語</option>
+<option value="ko">한국어</option>
+<option value="tr">T&#220;RK&#199;E</option>
+<option value="fr-ca">Fran&#231;ais (Canada)</option>
+<option value="he">עברית</option>
+<option value="sl">Slovenski</option>
+<option value="uk">Українське</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="bg">български</option>
+<option value="et">Eesti keeles</option>
+<option value="hr">Hrvatski</option>
+<option value="kk">Қазақша</option>
+<option value="lt">Lietuvių</option>
+<option value="lv">Latviski</option>
+<option value="mk">Македонски</option>
+<option value="ms">Bahasa Melayu</option>
+<option value="tl">Tagalog</option>
+<option value="sr">Srpski</option>
+<option value="th">ไทย</option>
+<option value="vi">Tiếng Việt</option>
+<option value="fa">فارسی</option>
+<option value="bn">বাংলা</option>
+<option value="bs">bosanski</option>
+<option value="is">íslenska</option>
+<option value="sw">Kiswahili</option>
+<option value="ur">اُردُو</option>
+<option value="sr-me">Crnogorski</option>
+<option value="uz">Oʻzbekcha</option>
+<option value="az">Azərbaycanca</option>
+<option value="ta">தமிழ்</option>
+<option value="gu">ગુજરાતી</option>
+
+      </select>
+
+      </div> 
+      <!-- /.control-wrap --> 
+ 
+      <div id="radio-toggle-temp-unit" class="radio-toggle"> 
+        <label for="settings-temp-unit-farenheit" class="first"> 
+          <span>&deg;F</span> 
+          <input id="settings-temp-unit-farenheit" name="temp_unit" type="radio" checked="checked" value="farenheit" onclick="acm_updateUnits('0');"/> 
+        </label> 
+ 
+        <label for="settings-temp-unit-celsius" class="last"> 
+          <span>&deg;C</span> 
+          <input id="settings-temp-unit-celsius" name="temp_unit" type="radio"  value="celsius" onclick="acm_updateUnits('1');"/> 
+        </label> 
+      </div> 
+      <!-- /.radio-toggle --> 
+    
+             </form>
+    
+      </div> 
+    </div> 
+  </div> 
+  <!-- /.menu-body-lt --> 
+  
+  <div class="menu-foot-lt"> 
+    <div class="menu-foot-rt"> 
+      <div class="menu-foot"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-foot-lt -->      
+  
+</div> 
+<!-- /#settings-menu -->
+
+<div id="menu-country" class="menu menu-with-title"> 
+ 
+  <h3 class="menu-title"><span><span class="flag-MY">Malaysia</span></span></h3> 
+ 
+  <div class="menu-head-lt"> 
+    <div class="menu-head-rt"> 
+      <div class="menu-head"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-head-lt --> 
+  <div class="menu-body-lt"> 
+    <div class="menu-body-rt"> 
+      <div class="menu-body"> 
+ 
+      <h4>My Recent Countries</h4> 
+ 
+      <ul class="menu-items"> 
+            <li><a href="http://www.accuweather.com/en/my/malaysia-weather" class="flag-MY">Malaysia</a></li>
+            <li><a href="http://www.accuweather.com/en/us/united-states-weather" class="flag-US">United States</a></li>
+            <li><a href="http://www.accuweather.com/en/cn/china-weather" class="flag-CN">China</a></li>
+      </ul> 
+ 
+      <a href="#country-selector" id="bt-more-countries">More Countries</a> 
+    
+      </div> 
+    </div> 
+  </div> 
+  <!-- /.menu-body-lt --> 
+  
+  <div class="menu-foot-lt"> 
+    <div class="menu-foot-rt"> 
+      <div class="menu-foot"></div> 
+    </div> 
+  </div> 
+  <!-- /.menu-foot-lt -->     
+    
+</div> 
+<!-- /#menu-country --> 
+
+<!-- add interest dropdown -->
+<div id="add-interest-dropdown" class="clearfix">
+
+	<div id="inner-content" class="clearfix">		
+	</div><!-- end add-interest-inner-content -->
+						
+	<!-- icons -->
+	<span class="arrow"></span>
+	<span class="arrow-border"></span>
+	<!-- end icons -->
+
+</div><!-- end id="add-interest-dropdown" -->
+
+<div id="wrap" class="spring h-s">
+  <div id="wrap-header-nav" class="night">
+    <div id="header-nav" class="i-38-header">
+      
+    
+<div id="header"> 
+
+    <div id="header-davek">
+        <div id="header-davek-ps"></div>
+        <div id="header-oop" style="position:absolute; width:1px; height:1px; left:0px; top:0px;"></div>
+                <script type="text/javascript">
+                    googletag.cmd.push(function () {
+                        //adManagerCopy.displayAd("header-davek-ps");
+                    });
+                </script>
+    </div>        
+
+  <!-- /#header-ad --> 
+  <style type="text/css">
+    #header-nav{overflow:visible;position:static;height:auto;}
+    #header-davek{margin-top:0px;padding-top:4px;}
+  </style>
+ 
+<div id="wrap-country-settings"> 
+    <div id="country-settings"> 
+        <a href="#menu-country" id="bt-menu-country" class="menu-arrow tmenu { el:'#menu-country', affix: { from: 'nw', to: 'nw', offset: [ -6, -8 ] } }"><strong><span class="ir flag-MY">Malaysia</span></strong></a>
+        <ul id="country-breadcrumbs"> 
+       
+                    <li class="first"><a href="http://www.accuweather.com/en/world-weather">World</a></li> 
+                    <li><a href="http://www.accuweather.com/en/asia-weather">Asia</a></li> 
+                        <li class="active"><strong>Malaysia</strong></li> 
+                    <li><a href="http://www.accuweather.com/en/my/14/kuala-lumpur-weather">Kuala Lumpur</a></li>           
+                    <li class="last"><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776">Kuala Lumpur</a></li>
+    </ul> 
+    <!-- /#country-breadcrumbs --> 
+  </div> 
+  <!-- /#nav-country --> 
+</div> 
+<!-- /#wrap-nav-country -->  
+
+<div id="country-selector" class="strong panel"> 
+ 
+  <div class="panel-head-lt"><div class="panel-head-rt"><div class="panel-head"></div></div></div> 
+  <div class="panel-body-lt"> 
+  <div class="panel-body-rt"> 
+  <div class="panel-body"> 
+    <div class="title"> 
+    <button class="bt bt-panel-close">Close</button> 
+    <div id="country-selector-recent"> 
+      <h3>My Recent Countries</h3>  
+      <ul> 
+            <li class="first"><a href="http://www.accuweather.com/en/my/malaysia-weather" class="flag-MY">Malaysia</a></li>
+            <li class=""><a href="http://www.accuweather.com/en/us/united-states-weather" class="flag-US">United States</a></li>
+            <li class=""><a href="http://www.accuweather.com/en/cn/china-weather" class="flag-CN">China</a></li>
+      </ul> 
+    </div> 
+    <!-- /#country-selector-recent --> 
+    </div> 
+    <!-- /.title --> 
+ 
+    <div id="country-selector-region" class="panel-content"> 
+      
+      <div class="title"> 
+        <h3>Select a Region</h3>
+      </div> 
+      
+      <div class="content"> 
+        
+        <ul id="country-selector-region-list" class="menu-items"> 
+          <li><a class="link-region" id="link-region-afr" href="#region-afr">Africa</a></li> 
+          <li><a class="link-region" id="link-region-ant" href="#region-ant">Antarctica</a></li> 
+          <li><a class="link-region" id="link-region-arc" href="#region-arc">Arctic</a></li> 
+          <li><a class="link-region" id="link-region-asi" href="#region-asi">Asia</a></li> 
+          <li><a class="link-region" id="link-region-cac" href="#region-cac">Central America</a></li> 
+          <li><a class="link-region" id="link-region-eur" href="#region-eur">Europe</a></li> 
+          <li><a class="link-region" id="link-region-mea" href="#region-mea">Middle East</a></li> 
+          <li><a class="link-region" id="link-region-nam" href="#region-nam">North America</a></li> 
+          <li><a class="link-region" id="link-region-ocn" href="#region-ocn">Oceania</a></li> 
+          <li><a class="link-region" id="link-region-sam" href="#region-sam">South America</a></li> 
+        </ul> 
+        <!-- /#country-selector-region-list --> 
+        
+        <div id="country-selector-region-map">         
+        </div> 
+        <!-- /#country-selector-region-map --> 
+      </div> 
+      <!-- /.content --> 
+    </div> 
+    <!-- /#country-selector-region --> 
+ 
+ 
+    <div id="country-selector-country" class="panel-content"> 
+      <div id="region-afr" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /africa--> 
+      <div id="region-eur" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /europe--> 
+      <div id="region-nam" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /north america--> 
+      <div id="region-sam" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /south america--> 
+      <div id="region-cac" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /central america--> 
+      <div id="region-ocn" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /oceania--> 
+      <div id="region-mea" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /middle east--> 
+      <div id="region-ant" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /antarctica--> 
+      <div id="region-arc" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /arctic--> 
+      <div id="region-asi" class="region"> 
+        <div class="title"> <a href="#country-selector-region" class="world"><span>World</span></a> 
+          <h3></h3> 
+        </div> 
+        <div class="items"> </div> 
+      </div> 
+      <!-- /asia--> 
+    </div> 
+    <!-- /#country-selector-country --> 
+ 
+
+    <div id="country-selector-notes"> 
+      <p class="first">
+        Note: Select a region before finding a country. 
+      </p> 
+ 
+      <p></p> 
+      
+    </div> 
+    <!-- /#country-selector-notes --> 
+ 
+    
+  </div> 
+  </div> 
+  </div> 
+  <!-- /.panel-body-lt --> 
+ 
+  <div class="panel-foot-lt"><div class="panel-foot-rt"><div class="panel-foot"></div></div></div> 
+ 
+</div> 
+<!-- / #country-selector --> 
+
+
+  <div id="header-logo-search" class="clearfix"> 
+        <div id="header-logo" class="ir"><span>Weather</span></div> 
+    <label for="s">for</label> 
+    
+    <div id="wrap-s-rt"> 
+    <div id="wrap-s-lt"> 
+    <div id="wrap-s" class="tmenu { affix: {offset: [ 0, 7 ], to: 'sw', from: 'nw'},el: '#menu-cities' }">
+        <form id="findcity" action="http://www.accuweather.com/en/search-locations" method="post">
+          <input onkeypress="acmCheckEnter(event);" id="s" name="s" type="text" autocomplete="off" 
+            class="text hint { help: 'Kuala Lumpur, Malaysia',className:'hintedLoc' }" /> 
+          <input type="hidden" name="rn" value="3day" />
+        <button onclick="acmCitySubmit()" type="button" class="bt bt-go">
+                    <div class="gold-go"></div>
+        </button>
+        </form> 
+        <script type="text/javascript">
+            (function ($) {
+                $('input.hint').hint();
+            })(jQuery);      
+        </script>
+    </div> 
+    </div> 
+    </div> 
+    <!-- /#wrap-s-rt --> 
+    
+      <div id="control-panel">
+          <div id="social-connect">
+              <ul class="social-list">
+                  <li class="label">Follow us on</li>
+                  <li class="social-icon"><a id="connect_googleplus" href="https://plus.google.com/+accuweather/posts" class="gplus"></a></li>
+                  <li class="social-icon"><a id="connect_youtube" href="https://www.youtube.com/user/accuweather" class="youtube"></a></li>
+                  <li class="social-icon"><a id="connect_twitter" href="https://twitter.com/breakingweather" class="twitter"></a></li>
+                  <li class="social-icon"><a id="connect_facebook" href="https://www.facebook.com/AccuWeather" class="facebook"></a></li>
+              </ul>
+          </div>
+          <a id="bt-menu-login" class="tmenu { el:'#menu-premium', affix: { to: 'ne', from: 'ne', offset: [ 0,-6 ] } }"><span class="menu-arrow"><span>Login</span></span></a>
+          <a id="bt-menu-settings" class="tmenu { el:'#menu-settings', affix: { from: 'ne', to: 'ne', offset: [ 0,-6 ] } }"><span class="menu-arrow"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>, &deg;F</span></a>
+      </div>
+      <!--#control-panel-->       
+  </div> 
+  <!-- /#header-logo-search --> 
+</div> 
+<!-- /#header --> 
+
+    </div>
+    <!-- /#header-nav -->
+  </div>
+  <!-- /#wrap-header-nav -->
+
+
+  <div id="wrap-content">
+    <div id="content">
+
+<!-- NEW! adding add-interest tab -->
+<div id="nav-main-add-interests" class="clearfix alpha">
+
+	<div id="nav-main-background"></div>
+
+	<ul id="nav-current-location" class="sub-nav">
+		<li id="current-country-tab" class="selected tmenu { affix: {offset: [ 0, 5 ], to: 'sw', from: 'nw' }, el: '#current-country-menu' }">
+			<a href="http://www.accuweather.com/en/my/malaysia-weather" class="tab">
+				<span class="current-country"><h1>Malaysia</h1></span>
+				<span class="title"><h2>Weather</h2></span>
+			</a>
+			<span class="bottom-line"></span>
+		</li>
+		<li id="current-city-tab" class=" tmenu { affix: {offset: [ 0, 5 ], to: 'sw', from: 'nw'}, el: '#current-city-menu' }">
+			<a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776" class="tab">
+				<span class="current-city">Kuala Lumpur, MY</span>
+				<span class="title">Local Weather</span>
+				<span class="divider"></span>
+                <span class="more-info-arrow"></span>
+				<div class="more-info-content">
+				</div><!-- end more-info-content -->
+			</a>
+		</li>
+		<li id="locations-dropdown-tab" class="location-menu { el: '#locations-dropdown-menu' }">
+			<a href="#" class="tab">
+				<span class="arrow"></span>
+				<span class="right-arrow"></span>
+			</a>
+			<span class="cover-line"></span>
+		</li>
+	</ul><!-- end nav-current-location -->
+
+		<ul id="nav-featured" class="sub-nav add-interest-nav">
+			<li class="migraine featured { code:'10101' }">
+				<a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/migraine-weather/233776" class="tab">
+					<span class="title">Migraine</span>
+						<!-- icons -->
+						<span class="close-outer">
+                            <span class="close">
+                                <span>x</span>
+                            </span>
+						</span>
+                        <span class="arrow"></span>
+                        <span class="arrow-border"></span>
+						<span class="icon migraine"></span>
+						<span class="featured-tag"></span>
+						<!-- end icons -->
+				</a>
+			</li>
+		</ul>
+	<div id="nav-interests-carousel" class="clearfix">
+		<div class="outer-carousel">
+			<div class="carousel-relative-container">
+				<button class="carousel-button carousel-left disabled">
+					<span class="inner-button">
+						<span class="arrow"></span>
+					</span><!-- end inner-button-->
+				</button>
+				<button class="carousel-button carousel-right">
+					<span class="inner-button">
+						<span class="arrow"></span>
+					</span><!-- end inner-button-->
+				</button>
+
+				<div class="inner-carousel clearfix">
+					<ul id="nav-interests" class="sub-nav add-interest-nav">
+
+						<li id="add-new-interest" class="{affix: {inset:[-218,-10]}, el: '#add-interest-dropdown'}">
+							<a href="#add-interest-dropdown" class="tab">
+								<span class="visuallyhidden">Add New Interest</span>
+									<!-- icons -->
+									<span class="icon"></span>
+									<!-- end icons -->
+							</a>
+						</li>
+					</ul><!-- end nav-interests -->
+				</div><!-- end inner-carousel -->
+			</div><!-- end carousel-relative-container -->
+		</div><!-- end outer-carousel-->
+	</div><!-- end nav-interests-carousel-->
+
+		<!-- New! locations dropdown menu -->
+		<div id="locations-dropdown-menu" class="menu">
+			<div class="outer-border">
+				<div id="locations-carousel" class="locations-carousel">
+					<button class="carousel-button carousel-left disabled">
+						<span class="inner-button">
+							<span class="arrow"></span>
+						</span><!-- end inner-button-->
+					</button>
+					<button class="carousel-button carousel-right">
+						<span class="inner-button">
+							<span class="arrow"></span>
+						</span><!-- end inner-button-->
+					</button>
+					<div class="outer-carousel">
+						<div class="inner-carousel clearfix">
+
+							<div class="my-recent-locations clearfix">
+								<h3>My Recent Locations</h3>
+								<ul>
+                                
+								</ul>
+							</div><!-- end my recent locations -->
+
+						</div><!-- end inner-carousel-->
+					</div><!-- end outer-carousel -->
+				</div><!-- end carousel -->
+			</div><!-- outer-border -->
+		</div><!-- end locations-dropdown-menu -->
+
+</div><!-- end nav-main-add-interests-->
+
+<script type="text/javascript">
+    acm.setupMenus();
+</script>
+
+        
+    <!-- moved this outside of panel-main below so it can be 100% of the content area -->
+<!-- NOTE: The left and right ordering is swapped for this one, since it's a two element stretch! -->
+      <div class="subnav-head-tabs-rt clearfix">
+          <div class="subnav-head-tabs-lt clearfix">
+          <ul class="subnav-tab-buttons">
+
+      <li class=" current">
+          <a href="http://www.accuweather.com/en/my/malaysia-weather">
+          <span><strong>Home</strong></span>
+          </a><div class="nub"></div>
+      </li>
+      <!-- 
+      <li class="">
+          <a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776">
+          <span>Forecast</span>
+          </a>
+      </li>
+      --> 
+      <li class="">   
+          <a href="http://www.accuweather.com/en/my/national/satellite" >
+          <span>Maps</span>
+          </a>
+          
+      </li>
+        <li class="">
+            <a href="http://www.accuweather.com/en/weather-news">
+            <span>News &amp; Video</span>
+            </a>
+        </li>
+          <li class="">
+              <a href="http://www.accuweather.com/en/climate-change">
+              <span>Climate</span>
+              </a>
+          </li>
+          <li class="last ">
+              <a href="http://www.accuweather.com/en/social">
+              <span>Social</span>
+              </a>
+          </li>
+<style type="text/css">
+    .subnav-tab-buttons li#subnavpromo {
+        float: right;
+        margin-right: 95px;
+    }
+    .subnav-tab-buttons li#subnavpromo a:hover {
+        border: 1px solid transparent;
+        background: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow:none;
+        box-shadow:none;
+    }
+</style>
+<li id="subnavpromo">
+    <a href="http://videowall.accuweather.com?utm_source=accuweather&utm_medium=accuweather&utm_campaign=orangenavbutton" target="_blank">
+        <img src="http://vortex.accuweather.com/adc2010/images/promos/watch-videos-button.png" />
+    </a>
+</li>
+  
+    <!--
+            <li class="current"><a href="forecast.html?t=day"><span><strong>Today's Weather</strong></span></a><div class="nub"></div></li>
+            <li><a href="forecast-weekend.html?t=day"><span>Weekend</span></a></li>
+            <li><a href="forecast-extended.html?t=day"><span>Extended Forecast</span></a></li>
+            <li class="last"><a href="forecast-month.html?t=day"><span>Month</span></a></li>
+            -->
+          </ul>
+          </div>
+      </div>
+      <!-- /.panel-head-rt -->
+    <div class="column-1 clearfix">
+        <div id="panel-main" class="strong panel">
+            <div class="panel-head-lt">
+                <div class="panel-head-rt">
+                    <div class="panel-head"></div>
+                </div>
+            </div>
+            <div class="panel-body-lt">
+                <div class="panel-body-rt">
+                    <div class="panel-body">
+                                <h3>Malaysia Weather</h3>
+                        <div id="radar" style="position:relative;overflow:hidden;background:#7a9fb9;">
+                                <a href="http://www.accuweather.com/en/my/national/satellite">
+                                    <div style="position:relative;width:308px;height:190px;background:#7a9fb9 url('http://onetile.accuweather.com/OneTile/en-us/WorldSat/dfabaa72c/gray/labels/2/2/4/12/7.jpg');background-position: -102px -133px;">
+                                    <i class="location-marker"></i>
+                                        <span class="bing-attrib"></span>
+                                    </div>
+                                </a>
+
+                        </div>
+
+
+                        <!-- /#radar -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.panel-body-lt -->
+            <div id="popular-locations">
+                <div id="popular-locations-content">
+                    <h4 id="popular-locations-h4">Local Weather</h4>
+                    <ul id="popular-locations-ul">
+
+                            <li class="night bg-s clx hv {href: &#39;/en/my/kuala-lumpur/233776/weather-forecast/233776&#39;, idx:0}">
+                                <div class="frame"></div>
+                                <div class="loc"><a href="/en/my/kuala-lumpur/233776/weather-forecast/233776">Kuala Lumpur</a></div>
+                                <div class="icon i-38-s"></div>
+                                    <div class="temp"><em>82<span>&deg;</span></em>RealFeel&reg; <strong>93<span>&deg;</span></strong></div>
+                                <div class="cond">Mostly cloudy</div>
+                            </li>
+                            <li class="night bg-s clx hv {href: &#39;/en/my/ipoh/234818/weather-forecast/234818&#39;, idx:1}">
+                                <div class="frame"></div>
+                                <div class="loc"><a href="/en/my/ipoh/234818/weather-forecast/234818">Ipoh</a></div>
+                                <div class="icon i-15-s"></div>
+                                    <div class="temp"><em>77<span>&deg;</span></em>RealFeel&reg; <strong>92<span>&deg;</span></strong></div>
+                                <div class="cond">Thunderstorm</div>
+                            </li>
+                            <li class="night bg-s clx hv {href: &#39;/en/my/johor-bahru/228029/weather-forecast/228029&#39;, idx:2}">
+                                <div class="frame"></div>
+                                <div class="loc"><a href="/en/my/johor-bahru/228029/weather-forecast/228029">Johor Bahru</a></div>
+                                <div class="icon i-36-s"></div>
+                                    <div class="temp"><em>79<span>&deg;</span></em>RealFeel&reg; <strong>90<span>&deg;</span></strong></div>
+                                <div class="cond">Some clouds</div>
+                            </li>
+
+                    </ul>
+                </div>
+                <div class="overlap"></div>
+            </div>
+            <div class="panel-foot-lt">
+                <div class="panel-foot-rt">
+                    <div class="panel-foot"></div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            (function ($) {
+                $('.clx').click(function () {
+                    var href = $(this).metadata().href;
+                    if (href && href != '') {
+                        location.href = href;
+                    }
+                });
+            })(jQuery);
+        </script>
+        <!-- /#panel-main -->
+            <div class="panel">
+                <div class="panel-head-rt">
+                    <div class="panel-head-lt">
+                        <div class="panel-head"></div>
+                    </div>
+                </div>
+                <div class="panel-body-lt">
+                    <div class="panel-body-rt">
+                        <div class="panel-body">
+                            <div class="panel-body-content">
+                                <div class="panel-title">
+                                        <h3>Malaysia Weather Map</h3>
+                                </div>
+                                <div id="mapTiles_map_container" style="position:relative;width:600px;height:355px;">
+                                    <div id="map_canvas"></div>
+                                    <div id="radarTime" style="display:none;"></div>
+                                </div>
+
+                                <div style="display:none;">
+
+                                        <div id="marker0">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/36.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/alor-setar/228319/weather-forecast/228319">Alor Setar</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">90&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 108&#176;</li>
+                                                    <li>Winds: 8mph W</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/alor-setar/228319/hourly-weather-forecast/228319" onclick="javascript:window.location='http://www.accuweather.com/en/my/alor-setar/228319/hourly-weather-forecast/228319';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/alor-setar/228319/daily-weather-forecast/228319">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker1">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/ampang/230437/weather-forecast/230437">Ampang</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">82&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 93&#176;</li>
+                                                    <li>Winds: 2mph SW</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/ampang/230437/hourly-weather-forecast/230437" onclick="javascript:window.location='http://www.accuweather.com/en/my/ampang/230437/hourly-weather-forecast/230437';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/ampang/230437/daily-weather-forecast/230437">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker2">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/36.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/ayer-itam/229887/weather-forecast/229887">Ayer Itam</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">86&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 98&#176;</li>
+                                                    <li>Winds: 4mph WSW</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/ayer-itam/229887/hourly-weather-forecast/229887" onclick="javascript:window.location='http://www.accuweather.com/en/my/ayer-itam/229887/hourly-weather-forecast/229887';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/ayer-itam/229887/daily-weather-forecast/229887">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker3">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/batu-pahat/228030/weather-forecast/228030">Batu Pahat</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">83&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 98&#176;</li>
+                                                    <li>Winds: 3mph ENE</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/batu-pahat/228030/hourly-weather-forecast/228030" onclick="javascript:window.location='http://www.accuweather.com/en/my/batu-pahat/228030/hourly-weather-forecast/228030';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/batu-pahat/228030/daily-weather-forecast/228030">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker4">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/35.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/bintulu/230208/weather-forecast/230208">Bintulu</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">86&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/35-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 100&#176;</li>
+                                                    <li>Winds: 4mph WNW</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/bintulu/230208/hourly-weather-forecast/230208" onclick="javascript:window.location='http://www.accuweather.com/en/my/bintulu/230208/hourly-weather-forecast/230208';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/bintulu/230208/daily-weather-forecast/230208">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker5">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/george-town/234975/weather-forecast/234975">George Town</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">90&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 106&#176;</li>
+                                                    <li>Winds: 8mph WNW</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/george-town/234975/hourly-weather-forecast/234975" onclick="javascript:window.location='http://www.accuweather.com/en/my/george-town/234975/hourly-weather-forecast/234975';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/george-town/234975/daily-weather-forecast/234975">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker6">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/15.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/ipoh/234818/weather-forecast/234818">Ipoh</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">77&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/15-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 92&#176;</li>
+                                                    <li>Winds: 0mph </li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/ipoh/234818/hourly-weather-forecast/234818" onclick="javascript:window.location='http://www.accuweather.com/en/my/ipoh/234818/hourly-weather-forecast/234818';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/ipoh/234818/daily-weather-forecast/234818">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker7">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/36.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/johor-bahru/228029/weather-forecast/228029">Johor Bahru</a></h1>
+                                                <p class="time">3:11am MYT</p>
+                                                <h2 class="temp">79&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 90&#176;</li>
+                                                    <li>Winds: 2mph N</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/johor-bahru/228029/hourly-weather-forecast/228029" onclick="javascript:window.location='http://www.accuweather.com/en/my/johor-bahru/228029/hourly-weather-forecast/228029';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/johor-bahru/228029/daily-weather-forecast/228029">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker8">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/kota-bharu/228390/weather-forecast/228390">Kota Bharu</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">86&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 99&#176;</li>
+                                                    <li>Winds: 9mph ENE</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/kota-bharu/228390/hourly-weather-forecast/228390" onclick="javascript:window.location='http://www.accuweather.com/en/my/kota-bharu/228390/hourly-weather-forecast/228390';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/kota-bharu/228390/daily-weather-forecast/228390">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker9">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/kota-kinabalu/229992/weather-forecast/229992">Kota Kinabalu</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">84&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 98&#176;</li>
+                                                    <li>Winds: 5mph ESE</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/kota-kinabalu/229992/hourly-weather-forecast/229992" onclick="javascript:window.location='http://www.accuweather.com/en/my/kota-kinabalu/229992/hourly-weather-forecast/229992';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/kota-kinabalu/229992/daily-weather-forecast/229992">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker10">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776">Kuala Lumpur</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">82&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 93&#176;</li>
+                                                    <li>Winds: 2mph SW</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/hourly-weather-forecast/233776" onclick="javascript:window.location='http://www.accuweather.com/en/my/kuala-lumpur/233776/hourly-weather-forecast/233776';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/daily-weather-forecast/233776">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker11">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/36.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/kuala-terengganu/230666/weather-forecast/230666">Kuala Terengganu</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">88&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 105&#176;</li>
+                                                    <li>Winds: 2mph E</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/kuala-terengganu/230666/hourly-weather-forecast/230666" onclick="javascript:window.location='http://www.accuweather.com/en/my/kuala-terengganu/230666/hourly-weather-forecast/230666';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/kuala-terengganu/230666/daily-weather-forecast/230666">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker12">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/kuantan/229423/weather-forecast/229423">Kuantan</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">84&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 91&#176;</li>
+                                                    <li>Winds: 5mph W</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/kuantan/229423/hourly-weather-forecast/229423" onclick="javascript:window.location='http://www.accuweather.com/en/my/kuantan/229423/hourly-weather-forecast/229423';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/kuantan/229423/daily-weather-forecast/229423">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker13">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/07.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/kuching/230204/weather-forecast/230204">Kuching</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">82&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/07-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 96&#176;</li>
+                                                    <li>Winds: 4mph SE</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/kuching/230204/hourly-weather-forecast/230204" onclick="javascript:window.location='http://www.accuweather.com/en/my/kuching/230204/hourly-weather-forecast/230204';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/kuching/230204/daily-weather-forecast/230204">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker14">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/07.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/malacca/229199/weather-forecast/229199">Malacca</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">84&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/07-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 102&#176;</li>
+                                                    <li>Winds: 1mph W</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/malacca/229199/hourly-weather-forecast/229199" onclick="javascript:window.location='http://www.accuweather.com/en/my/malacca/229199/hourly-weather-forecast/229199';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/malacca/229199/daily-weather-forecast/229199">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker15">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/petaling-jaya/228558/weather-forecast/228558">Petaling Jaya</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">82&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 93&#176;</li>
+                                                    <li>Winds: 2mph SW</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/petaling-jaya/228558/hourly-weather-forecast/228558" onclick="javascript:window.location='http://www.accuweather.com/en/my/petaling-jaya/228558/hourly-weather-forecast/228558';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/petaling-jaya/228558/daily-weather-forecast/228558">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker16">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/port-klang/230429/weather-forecast/230429">Port Klang</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">82&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 93&#176;</li>
+                                                    <li>Winds: 2mph SW</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/port-klang/230429/hourly-weather-forecast/230429" onclick="javascript:window.location='http://www.accuweather.com/en/my/port-klang/230429/hourly-weather-forecast/230429';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/port-klang/230429/daily-weather-forecast/230429">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker17">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/36.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/sandakan/229993/weather-forecast/229993">Sandakan</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">84&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 97&#176;</li>
+                                                    <li>Winds: 7mph E</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/sandakan/229993/hourly-weather-forecast/229993" onclick="javascript:window.location='http://www.accuweather.com/en/my/sandakan/229993/hourly-weather-forecast/229993';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/sandakan/229993/daily-weather-forecast/229993">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker18">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/seremban/229315/weather-forecast/229315">Seremban</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">84&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 95&#176;</li>
+                                                    <li>Winds: 5mph SSE</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/seremban/229315/hourly-weather-forecast/229315" onclick="javascript:window.location='http://www.accuweather.com/en/my/seremban/229315/hourly-weather-forecast/229315';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/seremban/229315/daily-weather-forecast/229315">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                        <div id="marker19">
+                                            <div class="info-win night" style="background-image:url('http://vortex.accuweather.com/adc2010/images/gmap-info-win/night/38.png');">
+                                                <h1><a href="http://www.accuweather.com/en/my/shah-alam/230464/weather-forecast/230464">Shah Alam</a></h1>
+                                                <p class="time">3:41am MYT</p>
+                                                <h2 class="temp">82&#176;</h2>
+                                                <img class="wx-icon" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-l.png" />
+                                                <ul class="data">
+                                                    <li>RealFeel&#174; 93&#176;</li>
+                                                    <li>Winds: 2mph SW</li>
+                                                    <li>Precipitation: 0 in</li>
+                                                </ul>
+                                                <div class="links">
+                                                    <a href="http://www.accuweather.com/en/my/shah-alam/230464/hourly-weather-forecast/230464" onclick="javascript:window.location='http://www.accuweather.com/en/my/shah-alam/230464/hourly-weather-forecast/230464';">Hourly</a><span> | </span><a href="http://www.accuweather.com/en/my/shah-alam/230464/daily-weather-forecast/230464">Extended</a>
+                                                </div>
+                                            </div>
+                                            <img src="http://vortex.accuweather.com/adc2010/images/misc/close.gif" class="info-win-close" style="right:-252px;" onclick="javascript:hideInfobox();" />
+                                        </div>
+                                </div>
+                                <script type="text/javascript">
+                                    GetMap();
+                                </script>
+
+                                <div class="clearfix">
+                                    <ul class="g g-nav rt">
+                                        <li class="first"><a href="http://www.accuweather.com/en/my/national/satellite">Animate &gt;</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-foot-lt">
+                    <div class="panel-foot-rt">
+                        <div class="panel-foot"></div>
+                    </div>
+                </div>
+            </div>
+        <!-- /.panel -->
+            <div class="panel">
+                <div class="panel-head-rt">
+                    <div class="panel-head-lt">
+                        <div class="panel-head"></div>
+                    </div>
+                </div>
+                <div class="panel-body-lt">
+                    <div class="panel-body-rt">
+                        <div class="panel-body">
+                            <div class="panel-body-content">
+                                <div class="panel-title">
+                                        <h3>Malaysia Weather Conditions</h3>
+                                </div>
+                                
+<ul class="top-cities lt">
+    <li class="night-cl cl hv { href: 'http://www.accuweather.com/en/my/alor-setar/228319/weather-forecast/228319' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/alor-setar/228319/weather-forecast/228319">Alor Setar</a></h6> 
+        <span style="color:#ffffff;">90&#176;</span><a href="http://www.accuweather.com/en/my/alor-setar/228319/weather-forecast/228319"><img alt="Alor Setar weather - Some clouds" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/ampang/230437/weather-forecast/230437' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/ampang/230437/weather-forecast/230437">Ampang</a></h6> 
+        <span style="color:#ffffff;">82&#176;</span><a href="http://www.accuweather.com/en/my/ampang/230437/weather-forecast/230437"><img alt="Ampang weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-cl cl hv { href: 'http://www.accuweather.com/en/my/ayer-itam/229887/weather-forecast/229887' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/ayer-itam/229887/weather-forecast/229887">Ayer Itam</a></h6> 
+        <span style="color:#ffffff;">86&#176;</span><a href="http://www.accuweather.com/en/my/ayer-itam/229887/weather-forecast/229887"><img alt="Ayer Itam weather - Some clouds" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/batu-pahat/228030/weather-forecast/228030' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/batu-pahat/228030/weather-forecast/228030">Batu Pahat</a></h6> 
+        <span style="color:#ffffff;">83&#176;</span><a href="http://www.accuweather.com/en/my/batu-pahat/228030/weather-forecast/228030"><img alt="Batu Pahat weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-cl cl hv { href: 'http://www.accuweather.com/en/my/bintulu/230208/weather-forecast/230208' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/bintulu/230208/weather-forecast/230208">Bintulu</a></h6> 
+        <span style="color:#ffffff;">86&#176;</span><a href="http://www.accuweather.com/en/my/bintulu/230208/weather-forecast/230208"><img alt="Bintulu weather - Partly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/35-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/george-town/234975/weather-forecast/234975' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/george-town/234975/weather-forecast/234975">George Town</a></h6> 
+        <span style="color:#ffffff;">90&#176;</span><a href="http://www.accuweather.com/en/my/george-town/234975/weather-forecast/234975"><img alt="George Town weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/ipoh/234818/weather-forecast/234818' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/ipoh/234818/weather-forecast/234818">Ipoh</a></h6> 
+        <span style="color:#ffffff;">77&#176;</span><a href="http://www.accuweather.com/en/my/ipoh/234818/weather-forecast/234818"><img alt="Ipoh weather - Thunderstorm" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/15-t.png" /></a></div> 
+    </li> 
+    <li class="night-cl cl hv { href: 'http://www.accuweather.com/en/my/johor-bahru/228029/weather-forecast/228029' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/johor-bahru/228029/weather-forecast/228029">Johor Bahru</a></h6> 
+        <span style="color:#ffffff;">79&#176;</span><a href="http://www.accuweather.com/en/my/johor-bahru/228029/weather-forecast/228029"><img alt="Johor Bahru weather - Some clouds" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/kota-bharu/228390/weather-forecast/228390' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/kota-bharu/228390/weather-forecast/228390">Kota Bharu</a></h6> 
+        <span style="color:#ffffff;">86&#176;</span><a href="http://www.accuweather.com/en/my/kota-bharu/228390/weather-forecast/228390"><img alt="Kota Bharu weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/kota-kinabalu/229992/weather-forecast/229992' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/kota-kinabalu/229992/weather-forecast/229992">Kota Kinabalu</a></h6> 
+        <span style="color:#ffffff;">84&#176;</span><a href="http://www.accuweather.com/en/my/kota-kinabalu/229992/weather-forecast/229992"><img alt="Kota Kinabalu weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    </ul>
+    <ul class="top-cities rt">
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776">Kuala Lumpur</a></h6> 
+        <span style="color:#ffffff;">82&#176;</span><a href="http://www.accuweather.com/en/my/kuala-lumpur/233776/weather-forecast/233776"><img alt="Kuala Lumpur weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-cl cl hv { href: 'http://www.accuweather.com/en/my/kuala-terengganu/230666/weather-forecast/230666' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/kuala-terengganu/230666/weather-forecast/230666">Kuala Terengganu</a></h6> 
+        <span style="color:#ffffff;">88&#176;</span><a href="http://www.accuweather.com/en/my/kuala-terengganu/230666/weather-forecast/230666"><img alt="Kuala Terengganu weather - Some clouds" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/kuantan/229423/weather-forecast/229423' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/kuantan/229423/weather-forecast/229423">Kuantan</a></h6> 
+        <span style="color:#ffffff;">84&#176;</span><a href="http://www.accuweather.com/en/my/kuantan/229423/weather-forecast/229423"><img alt="Kuantan weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-cl cl hv { href: 'http://www.accuweather.com/en/my/kuching/230204/weather-forecast/230204' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/kuching/230204/weather-forecast/230204">Kuching</a></h6> 
+        <span style="color:#ffffff;">82&#176;</span><a href="http://www.accuweather.com/en/my/kuching/230204/weather-forecast/230204"><img alt="Kuching weather - Cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/07-t.png" /></a></div> 
+    </li> 
+    <li class="night-cl cl hv { href: 'http://www.accuweather.com/en/my/malacca/229199/weather-forecast/229199' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/malacca/229199/weather-forecast/229199">Malacca</a></h6> 
+        <span style="color:#ffffff;">84&#176;</span><a href="http://www.accuweather.com/en/my/malacca/229199/weather-forecast/229199"><img alt="Malacca weather - Cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/07-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/petaling-jaya/228558/weather-forecast/228558' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/petaling-jaya/228558/weather-forecast/228558">Petaling Jaya</a></h6> 
+        <span style="color:#ffffff;">82&#176;</span><a href="http://www.accuweather.com/en/my/petaling-jaya/228558/weather-forecast/228558"><img alt="Petaling Jaya weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/port-klang/230429/weather-forecast/230429' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/port-klang/230429/weather-forecast/230429">Port Klang</a></h6> 
+        <span style="color:#ffffff;">82&#176;</span><a href="http://www.accuweather.com/en/my/port-klang/230429/weather-forecast/230429"><img alt="Port Klang weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-cl cl hv { href: 'http://www.accuweather.com/en/my/sandakan/229993/weather-forecast/229993' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/sandakan/229993/weather-forecast/229993">Sandakan</a></h6> 
+        <span style="color:#ffffff;">84&#176;</span><a href="http://www.accuweather.com/en/my/sandakan/229993/weather-forecast/229993"><img alt="Sandakan weather - Some clouds" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/36-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/seremban/229315/weather-forecast/229315' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/seremban/229315/weather-forecast/229315">Seremban</a></h6> 
+        <span style="color:#ffffff;">84&#176;</span><a href="http://www.accuweather.com/en/my/seremban/229315/weather-forecast/229315"><img alt="Seremban weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+    <li class="night-s cl hv { href: 'http://www.accuweather.com/en/my/shah-alam/230464/weather-forecast/230464' }"> 
+        <div class="frame"></div> 
+        <div class="info"> 
+        <h6><a href="http://www.accuweather.com/en/my/shah-alam/230464/weather-forecast/230464">Shah Alam</a></h6> 
+        <span style="color:#ffffff;">82&#176;</span><a href="http://www.accuweather.com/en/my/shah-alam/230464/weather-forecast/230464"><img alt="Shah Alam weather - Mostly cloudy" width="60" height="36" class="rt" src="http://vortex.accuweather.com/adc2010/images/icons-numbered/38-t.png" /></a></div> 
+    </li> 
+</ul>  
+    
+
+
+      
+
+
+                                <div class="clearfix">
+                                    <ul class="g g-nav rt">
+                                            <li class="first"><a href="http://www.accuweather.com/en/browse-locations/asi/my">more Malaysia Weather Forecasts &gt;</a> </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-foot-lt">
+                    <div class="panel-foot-rt">
+                        <div class="panel-foot"></div>
+                    </div>
+                </div>
+            </div>
+
+        
+       
+
+
+    </div>
+    <!-- /.column-1 -->
+    <!-- end column1 -->
+
+        <style>
+.addthis_floating_style {padding:0;border-radius:0;-webkit-border-radius:0;}
+.addthis_32x32_style {width:32px;padding:4px;}
+.addthis_floating_style .at300b, .addthis_floating_style .at300bo, .addthis_floating_style .at300m {padding:0;margin:0;}
+.addthis_floating_style .at300b > *, .addthis_floating_style .at300bo > *, .addthis_floating_style .at300m > *, .addthis_floating_style.addthis_32x32_style a {margin-bottom:0;}
+.addthis_floating_style.addthis_32x32_style, .addthis_floating_style.addthis_32x32_style .addthis_internal_container {width:32px;}
+</style>
+<script type="text/javascript">
+var addthisHtml = '<div id="addthis_widget" class="addthis_toolbox addthis_floating_style addthis_32x32_style" style="height:128px;">';
+addthisHtml += '<a class="addthis_button_facebook" style="cursor:pointer"></a>';
+addthisHtml += '<a class="addthis_button_twitter" style="cursor:pointer"></a>';
+addthisHtml += '<a class="addthis_button_google_plusone_share" style="cursor:pointer"></a>';
+addthisHtml += '<a class="addthis_button_compact"  style="cursor:pointer"></a>';
+addthisHtml += '</div>';
+
+var offset = $('#panel-main').offset();
+$('body').prepend(addthisHtml);
+$('#addthis_widget').css({ position:'fixed', top:390, left:(offset.left - 36)});
+
+$(window).resize(function () {
+var offset = $('#panel-main').offset();
+    $('#addthis_widget').css({ left:(offset.left - 36)});
+});
+
+$(window).scroll(function () {
+    
+    var addthisMaxScroll = offset.top + $('#panel-main').height() + 600 - $(window).height();
+    if ($(window).scrollTop() > addthisMaxScroll) {
+        if ($('#addthis_widget').css('display') != "none") {
+            $('#addthis_widget').fadeOut(400, function () {});
+        }
+    }
+    else {
+        if ($('#addthis_widget').css('display') == "none") {
+            $('#addthis_widget').fadeIn(400, function () {});
+        }
+    }
+});
+</script>
+        
+    <div class="column-2  clearfix">
+
+
+
+<div id="aadTop300" class="panel">
+  <div class="panel-head-lt">
+    <div class="panel-head-rt">
+      <div class="panel-head"></div>
+    </div>
+  </div>
+
+  <div class="panel-body-lt">
+    <div class="panel-body-rt">
+        <div id="top-panel-body-rt-body" class="ad-lr panel-body">
+            <div id="top-panel-body-rt-body-ps" ></div>
+                <script type="text/javascript">
+                    //adManagerCopy.displayAd("top-panel-body-rt-body-ps");
+                </script>
+        </div>
+    </div>
+  </div>
+
+  <div class="panel-foot-lt">
+    <div class="panel-foot-rt">
+      <div class="panel-foot"></div>
+    </div>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-head-rt">
+    <div class="panel-head-lt">
+      <div class="panel-head"></div>
+    </div>
+  </div>
+  <div class="panel-body-lt">
+    <div class="panel-body-rt">
+      <div class="panel-body">
+        <div class="panel-body-content">
+          <a href="http://www.accuweatherglobal.com/demo.php" target="_blank"><img src="http://vortex.accuweather.com/adc2010/images/misc/Ad_Weather_Data_Portal_0.jpg" style="margin:0px auto;" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-foot-lt">
+    <div class="panel-foot-rt">
+      <div class="panel-foot"></div>
+    </div>
+  </div>
+</div>
+<div id="aadBot300" class="panel panel-ad-mr">
+  <div class="panel-head-lt">
+    <div class="panel-head-rt">
+      <div class="panel-head"></div>
+    </div>
+  </div>
+  <div class="panel-body-lt">
+    <div class="panel-body-rt">
+        <div id="bottom-panel-body" class="panel-body">
+            <div id="bottom-panel-body-ps" ></div>
+                    <script type="text/javascript">
+                        //adManagerCopy.displayAd("bottom-panel-body-ps");
+                    </script>
+        </div>
+    </div>
+  </div>
+  <div class="panel-foot-lt">
+    <div class="panel-foot-rt">
+      <div class="panel-foot"> </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      <!-- /.column-2 -->
+
+
+
+<div id="offers" class="offers-extras">
+          <div class="panel">
+            <div class="panel-head-lt">
+              <div class="panel-head-rt">
+                <div class="panel-head"></div>
+              </div>
+            </div>
+            <div class="panel-body-lt">
+              <div class="panel-body-rt">
+                <div class="panel-body">
+                  <div class="panel-body-content">
+                  <a class="{type:'Image',label:'The Weather Station for Smartphone'}" href="https://www.netatmo.com/product/station" target="_blank"><img src="http://vortex.accuweather.com/adc2010/images/features/en/Netatmo_Extra_Ad_FINAL.jpg" width="300" height="140" alt="The Weather Station for Smartphone" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel-foot-lt">
+              <div class="panel-foot-rt">
+                <div class="panel-foot"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /extra 1 --> 
+          <div class="panel">
+            <div class="panel-head-lt">
+              <div class="panel-head-rt">
+                <div class="panel-head"></div>
+              </div>
+            </div>
+            <div class="panel-body-lt">
+              <div class="panel-body-rt">
+                <div class="panel-body">
+                  <div class="panel-body-content">
+                  <a class="{type:'Image',label:'Netatmo Weather Station'}" href="https://www.netatmo.com/product/station" target="_blank"><img src="http://vortex.accuweather.com/adc2010/images/features/en/Netatmo_Extra_Ad_FINAL.jpg" width="300" height="140" alt="Netatmo Weather Station" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel-foot-lt">
+              <div class="panel-foot-rt">
+                <div class="panel-foot"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /extra 2 --> 
+  
+  <div class="panel scroll-panel">
+    <div class="panel-head-lt">
+      <div class="panel-head-rt">
+        <div class="panel-head"></div>
+      </div>
+    </div>
+    <div class="panel-body-lt">
+      <div class="panel-body-rt">
+        <div class="panel-body">
+          <div class="panel-body-content">
+            <h3></h3>
+              <ul class="scroll-area scrollbar">
+                <li><a class="{type:'Text',label:'AccuWeather Subscription Portal'}" href="https://enterpriseportal-v2.accuweather.com/packages/#/package/medium" target="_blank">AccuWeather Subscription Portal</a></li>
+                <li><a class="{type:'Text',label:'New AccuWeather for Android'}" href="https://play.google.com/store/apps/details?id=com.accuweather.android&amp;hl=en" target="_blank">New AccuWeather for Android</a></li>
+                <li><a class="{type:'Text',label:'AccuWeather - Weather for Life'}" href="https://itunes.apple.com/us/app/accuweather-weather-for-life/id300048137?mt=8" target="_blank">AccuWeather - Weather for Life</a></li>
+                <li><a class="{type:'Text',label:'Corporate Solutions'}" href="http://enterprisesolutions.accuweather.com/?utm_source=ADC&amp;utm_medium=ExtraAd&amp;utm_campaign=CorporateSolutions" target="_blank">Corporate Solutions</a></li>
+                <li><a class="{type:'Text',label:'New! The AccuWeather Store'}" href="http://www.AccuWeatherStore.com" target="_blank">New! The AccuWeather Store</a></li>
+                <li><a class="{type:'Text',label:'The AccuWeather Network'}" href="http://getaccuweather.tv/" target="_blank">The AccuWeather Network</a></li>
+                <li><a class="{type:'Text',label:'The Weather Station for Smartphone'}" href="https://www.netatmo.com/product/station" target="_blank">The Weather Station for Smartphone</a></li>
+                <li><a class="{type:'Text',label:'Netatmo Weather Station'}" href="https://www.netatmo.com/product/station" target="_blank">Netatmo Weather Station</a></li>
+                <li><a class="{type:'Text',label:'Free Weather For Your Site'}" href="http://www.accuweather.com/en/free-weather-widgets?utm_source=adc&amp;utm_medium=ExtraAd&amp;utm_campaign=FreeWidget" target="_blank">Free Weather For Your Site</a></li>
+                <li><a class="{type:'Text',label:'The Weather Station by Netatmo'}" href="https://www.netatmo.com/product/station" target="_blank">The Weather Station by Netatmo</a></li>
+                <li><a class="{type:'Text',label:'Netatmo Weather Station'}" href="https://www.netatmo.com/product/station" target="_blank">Netatmo Weather Station</a></li>
+                <li><a class="{type:'Text',label:'Forensic Weather'}" href="http://enterprisesolutions.accuweather.com/legal-forensics?utm_source=adc&amp;utm_medium=ExtraAd&amp;utm_campaign=forensics" target="_blank">Forensic Weather</a></li>
+                <li><a class="{type:'Text',label:'Telemet Data Feeds'}" href="http://www.accuweatherglobal.com/default.php" target="_blank">Telemet Data Feeds</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-foot-lt">
+      <div class="panel-foot-rt">
+        <div class="panel-foot"></div>
+      </div>
+    </div>
+  </div>
+  <!-- /everything else --> 
+</div>
+<script>
+    (function ($) {
+        $('#offers.offers-extras a').click(function () {
+            var l = $(this).metadata().label;
+            var t = $(this).metadata().type;
+            if (l && t) {
+                gaManager.trackEvent('AccuWeatherExtras2012', t, l);
+            }
+        });
+    })(jQuery);
+</script>
+    </div>
+    <!-- /#content -->
+  </div>
+  <!-- /#wrap-content -->
+
+   <div id="footer">
+    <div id="footer-content-wrapper">
+        <div class="logo-ad">
+            <h5 class="logo">AccuWeather.com</h5>
+            <div id="footer-stevem">
+                <div id="footer-stevem-ps" ></div>
+                        <script type="text/javascript">
+                            //adManagerCopy.displayAd("footer-stevem-ps");
+                        </script>
+            </div>
+        </div>
+
+    <div id="custom-goog-search">
+        <style type="text/css">
+            @import url(http://www.google.com/cse/api/branding.css);
+        </style>
+        <div class="cse-branding-right" style="color:#000000">
+            <div class="cse-branding-form">
+                <form action="http://www.google.com" id="cse-search-box" target="_blank">
+                    <div>
+                        <input type="hidden" name="cx" value="partner-pub-5771594739411148:7839492073" />
+                        <input type="hidden" name="ie" value="UTF-8" />
+                        <input id="goog-cse-input" type="text" name="q" size="100" />
+                        <input id="goog-cse-submit" type="submit" name="sa" value="" />
+                    </div>
+                </form>
+            </div>
+            <div class="cse-branding-logo">
+                <img src="http://vortex.accuweather.com/adc2010/images/misc/googlelogo.png" alt="Google" />
+            </div>
+            <div class="cse-branding-text">
+                Custom Search
+            </div>
+        </div>
+    </div>
+      <div id="footer-nav-main" class="clearfix">
+        <div class="first">
+          <ul class="footer-nav-cols">
+            <li class="head">Company</li>
+            <li><a href="http://www.accuweather.com/en/about">About Us</a></li>
+            <li><a href="http://mediakit.accuweather.com" target="_blank">Advertise With Us</a></li>
+            <li><a href="http://mediakit.accuweather.com/self-service-ads" target="_blank">Self-Serve Advertising</a></li>
+            <li><a href="http://www.accuweather.com/careers" target="_blank">Careers</a></li>
+            <li><a href="http://www.accuweather.com/en/press">Press</a></li>
+            
+            <li><a href="http://www.accuweather.com/en/contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="footer-nav-cols">
+            <li class="head">Enterprise Solutions</li>
+            <li><a href="http://www.accuweather.com/adc2004/pub/products_services/media.asp" target="_blank">Media</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com/manufacturing" target="_blank">Manufacturing</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com/retail" target="_blank">Retail</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com/finance-banking" target="_blank">Finance &amp; Banking</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com/energy" target="_blank">Energy</a></li>
+              <li><a href="http://enterprisesolutions.accuweather.com/legal-forensics" target="_blank">Forensic Weather Experts</a></li>
+            <li><a href="http://enterprisesolutions.accuweather.com" target="_blank">All Enterprise Solutions</a></li>
+          </ul>
+        </div>
+        <div class="last">
+          <ul class="footer-nav-cols">
+            <li class="head">Subscription Services</li>
+            <li><a href="https://wwwl.accuweather.com/premium_login.php" target="_blank">AccuWeather Premium</a></li>
+            <li><a href="https://wwwl.accuweather.com/pro_login.php" target="_blank">AccuWeather Professional</a></li>
+          </ul>
+        </div>
+        
+      </div>
+      <div id="footer-tm"> &copy; 2016 AccuWeather, Inc. All Rights Reserved.<br />
+        AccuWeather.com is a registered trademark of AccuWeather, Inc.<br />
+        <a href="http://www.accuweather.com/en/legal">Terms of usage</a> under which this service is provided<br />
+        <a href="http://www.accuweather.com/en/privacy">Privacy Statement</a> | <a href="http://www.accuweather.com/en/privacy#adChoices">Ad Choices</a> </div>
+      <div id="footer-social">
+        <ul>
+          <li class="apps"><a href="http://www.accuweather.com/en/downloads">Apps &amp; Downloads</a></li>
+          <li class="fb"><a href="http://www.facebook.com/AccuWeather" target="_blank">Like Us</a></li>
+          <li class="twt"><a href="http://twitter.com/BreakingWeather" target="_blank">Follow Us</a></li>
+          <li class="utube"><a href="http://getaccuweather.tv/?utm_source=adc&utm_medium=icon&utm_campaign=footer" target="_blank">Watch Us</a></li>
+        </ul>
+      </div>
+      <!-- /#footer-info --> 
+    </div>
+    <!-- /#footer-content-wrapper --> 
+  </div>
+<!-- /#footer --> 
+
+    <script>
+        if (typeof (aadSponsoredLinksObj) != 'undefined' && aadSponsoredLinksObj.type == 'google' && aadSponsoredLinksObj.show_links == true) {
+            document.write('<scr' + 'ipt src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></scr' + 'ipt>');
+        } else if (typeof (aadSponsoredLinksObj) == 'undefined') {
+            jQuery('#ad-links').remove();
+        }
+    </script>
+<div id="tracking-pixels"></div>
+
+</div>
+<!-- /#wrap -->
+
+    <div class="vcard">
+        <span class="adr">
+            <span class="locality">
+                <span class="value-title" title="Kuala Lumpur" ></span>
+            </span>
+            <abbr class="region" title="Kuala Lumpur">
+                <span class="value-title" title="14" ></span>
+            </abbr>
+            <abbr class="country-name" title="Malaysia">
+                <span class="value-title" title="MY" ></span>
+            </abbr>
+        </span>
+        <span class="geo">
+            <span class="latitude">
+                <span class="value-title" title="3.15" ></span>
+            </span>
+            <span class="longitude">
+                <span class="value-title" title="101.71"></span>
+            </span>
+        </span>
+    </div>
+
+    <script type="text/javascript">
+        var _qoptions = { qacct: 'p-4b4gl_1fWISuU' };
+        if (typeof (apgPageInfoObj) != 'undefined' && apgPageInfoObj.crumb_trail) {
+            _qoptions.labels = apgPageInfoObj.crumb_trail.join('.');
+        }
+    </script>
+    <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+    <noscript>
+    <a href="http://www.quantcast.com/p-4b4gl_1fWISuU" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-4b4gl_1fWISuU.gif" style="display: none" border="0" height="1" width="1" alt="Quantcast"/></a>
+    </noscript>    <script type="text/javascript">
+        (function () {
+            var d = new Image(1, 1);
+            d.onerror = d.onload = function () {
+                d.onerror = d.onload = null;
+            };
+            d.src = ["//secure-us.imrworldwide.com/cgi-bin/m?ci=us-accuweather&cg=0&cc=1&si=", escape(window.location.href), "&rp=", escape(document.referrer), "&ts=compact&rnd=", (new Date()).getTime()].join('');
+        })();
+    </script>
+    <noscript>
+    <img style="display:none;" src="//secure-us.imrworldwide.com/cgi-bin/m?ci=us-accuweather&amp;cg=0&amp;cc=1&amp;ts=noscript" width="1" height="1" alt="" />
+    </noscript>
+    <script type="text/javascript">
+        var google_conversion_id = 1013122394;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <script>
+        (function() {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded)
+            { var fbds = document.createElement('script'); fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+            _fbq.push(['addPixelId', '513722158765166']);
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', 'PixelInitialized', {}]);
+    </script>
+    <script>
+        (function() {
+            var _fbq = window._fbq || (window._fbq = []);
+            if (!_fbq.loaded) { var fbds = document.createElement('script'); fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
+        })();
+        window._fbq = window._fbq || [];
+        window._fbq.push(['track', '6020195729798',
+        {'value':'0.00','currency':'CAD'}
+        ]);
+    </script>
+    <noscript>
+        
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1013122394/?value=0&guid=ON&script=0" />
+        </div>
+        <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=513722158765166&ev=PixelInitialized" />
+        <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6020195729798&cd[value]=0.00&cd[currency]=CAD&noscript=1" />
+        <img src="http://b.scorecardresearch.com/p?c1=2&c2=6005068&cv=2.0&cj=1" />
+    
+    </noscript>
+    <!-- Migraine/migraine -->
+
+
+</body>
+</html>

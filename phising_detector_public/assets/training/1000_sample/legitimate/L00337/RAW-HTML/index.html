@@ -1,0 +1,1844 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://www.facebook.com/2010/fbml"
+      xmlns:og="http://opengraphprotocol.org/schema/"
+      xmlns:d="http://dictionary.com/2011/dml">
+    
+    <head>
+        <title>Thesaurus.com | Find Synonyms and Antonyms of Words at Thesaurus.com</title>
+        <base href="http://www.thesaurus.com/">
+        <script type="text/javascript">
+    var cookiesManager = function (){
+        'use strict';
+
+        var persistentValues = [];
+
+        return {
+            getCookieValue : function(name) {
+                var value = null,
+                    cookies = document.cookie,
+                    searchedCookie = cookies.indexOf(" " + name + "=");
+
+                // it's worth to check, if cookie is not first cookie
+                if (searchedCookie === -1) {
+                    var checkFirstCookie = cookies.indexOf(name + "=");
+                    searchedCookie = checkFirstCookie == 0 ? 0 : -1;
+                }
+
+                if (searchedCookie > -1) {
+                    var startPositionOfValue = cookies.indexOf("=", searchedCookie) + 1,
+                        endPositionOfValue = cookies.indexOf(";", searchedCookie);
+
+                    if (endPositionOfValue === -1) {
+                        endPositionOfValue = searchedCookie.length;
+                    }
+
+                    value = cookies.substring(startPositionOfValue,endPositionOfValue);
+                }
+
+                return value;
+            },
+
+            setCookie: function(name, value, hours, domain) {
+                var expires = '',
+                    domain  = domain || UrlHelper.getCurrentDomain();
+
+                if(hours !== undefined) {
+                    var now     = new Date(),
+                        time    = now.getTime();
+
+                    time += (3600 * hours) * 1000;
+                    now.setTime(time);
+
+                    expires = ';expires=' + now.toGMTString();
+                }
+
+                document.cookie =
+                    name + '=' + value +
+                        expires +
+                        ';path=/' +
+                        ';domain=' + domain;
+            },
+
+            /*
+            * This method ensures, that everywhere on the page value of cookie will be the same.
+            * It's important in case of cookie, which value can change across the page.
+            */
+            getPersistentCookieValue: function(name) {
+                if (typeof persistentValues[name] === 'undefined') {
+                    persistentValues[name] = this.getCookieValue(name);
+                    // after reading value, cookie has to be removed
+                    this.setCookie(name, null, -1);
+                }
+
+                return persistentValues[name];
+            }
+        }
+    }();
+</script><script type="text/javascript">
+    /*jslint browser: true */
+
+    var UrlHelper = function() {
+        var COOKIE_DOMAIN_THESAURUS     = '.thesaurus.com';
+        var COOKIE_DOMAIN_DICTIONARY    = '.dictionary.com';
+        var COOKIE_DOMAIN_REFERENCE     = '.reference.com';
+
+        var domain = null;
+        var currentURL = null;
+        var spanidsUrl = null;
+
+        function getSpanidsUrl(bid, sid, currentDomain) {
+            var url     = 'http://';
+            var source  = '';
+
+            if(currentDomain == COOKIE_DOMAIN_DICTIONARY) {
+                url += 'spanids.reference.com/?';
+                source = 'd';
+            } else if (currentDomain == COOKIE_DOMAIN_REFERENCE){
+                url += 'spanids.dictionary.com/?';
+                source = 'r';
+            } else {
+                url += 'spanids.dictionary.com/?';
+                source = 't';
+            }
+
+            url += 'bid=' + bid + '&asid=' + sid + '&bidnew=1&asidnew=1&source=' + source + '&site=app';
+
+
+            return url;
+        }
+
+        function getCurrentDomain() {
+            var host = window.location.host;
+            var value = "";
+            if(host.indexOf(COOKIE_DOMAIN_THESAURUS) > -1) {
+                value = COOKIE_DOMAIN_THESAURUS;
+            } else if(host.indexOf(COOKIE_DOMAIN_DICTIONARY) > -1) {
+                value = COOKIE_DOMAIN_DICTIONARY;
+            } else if(host.indexOf(COOKIE_DOMAIN_REFERENCE) > -1){
+                value = COOKIE_DOMAIN_REFERENCE;
+            }
+
+            return value;
+        }
+
+        return {
+            getCurrentDomain : function() {
+                if(domain === null) {
+                    domain = getCurrentDomain();
+                }
+                return domain;
+            },
+
+            getCurrentDomainFromRequest : function() {
+                return window.location.host;
+            },
+
+            getCurrentUrl : function() {
+                if(currentURL === null) {
+                    currentURL = window.location.protocol + "//" + window.location.host + "" + window.location.pathname;
+                }
+                return currentURL;
+            },
+
+            getSpanidsUrl : function(bid, sid, domain) {
+                if(spanidsUrl === null) {
+                    spanidsUrl = getSpanidsUrl(bid, sid, domain);
+                }
+
+                return spanidsUrl;
+            }
+        }
+    }();
+</script><script type="text/javascript">
+    var BidSidGenerator = (function () {
+        'use strict';
+        var COOKIE_NAME_BID = 'bid',
+            COOKIE_NAME_SID = 'sid',
+            COOKIE_NAME_SPANIDS = 'spanids',
+            COOKIE_BID_EXPIRES = 17520, //two years
+            COOKIE_SID_EXPIRES = 0.5, //half an hour
+            bidCookieValue = null,
+            sidCookieValue = null,
+            bidCookieCreated = false,
+            sidCookieCreated = false,
+            spanIdsCookiePresent = false;
+
+        // generates value of bid/sid cookie
+        function generateCookieValue() {
+            var max = 999999,
+                min = 100000,
+                rand = Math.floor(Math.random() * (max - min)) + min,
+                time = new Date().getTime();
+
+            return rand + "-" + time;
+        }
+
+        // sets value of spanIdsCookiePresent attribute to true and delete spanids cookie,
+        // if cookie exist and have appropriate value
+        function processSpanIdsCookie() {
+            var spanIdsValue = cookiesManager.getCookieValue(COOKIE_NAME_SPANIDS);
+
+            if(spanIdsValue === '1') {
+                cookiesManager.setCookie(COOKIE_NAME_SPANIDS, 0, -1); //removes spanids cookie
+                spanIdsCookiePresent = true;
+            }
+
+            return false;
+        }
+
+        return {
+            init: function () {
+                bidCookieValue  = cookiesManager.getCookieValue(COOKIE_NAME_BID);
+                sidCookieValue  = cookiesManager.getCookieValue(COOKIE_NAME_SID);
+
+                if (bidCookieValue == null || bidCookieValue.length == 0) {
+                    bidCookieValue = generateCookieValue();
+                    cookiesManager.setCookie(COOKIE_NAME_BID, bidCookieValue, COOKIE_BID_EXPIRES);
+                    bidCookieCreated = true;
+                }
+
+                if (sidCookieValue == null || sidCookieValue.length == 0) {
+                    sidCookieValue = generateCookieValue();
+                    sidCookieCreated = true;
+                }
+
+                processSpanIdsCookie();
+                cookiesManager.setCookie(COOKIE_NAME_SID, sidCookieValue, COOKIE_SID_EXPIRES);
+            },
+            propagateCookies: function() {
+                if (bidCookieCreated || sidCookieCreated || spanIdsCookiePresent) {
+                    var url = UrlHelper.getSpanidsUrl(bidCookieValue, sidCookieValue, UrlHelper.getCurrentDomain()),
+                        iFrame = '<iframe id="spanids" style="width:1px;height:1px;margin-left:-1;position:absolute;border:none;" src="' + url + '"></iframe>';
+                    document.write(iFrame);
+                }
+            },
+            touchSidCookie: function () {
+                sidCookieValue  = cookiesManager.getCookieValue(COOKIE_NAME_SID);
+                if (sidCookieValue == null || sidCookieValue.length == 0) {
+                    sidCookieValue = generateCookieValue();
+                    sidCookieCreated = true;
+                }
+
+                cookiesManager.setCookie(COOKIE_NAME_SID, sidCookieValue, COOKIE_SID_EXPIRES);
+            },
+            isSidCookieCreated: function () {
+                return sidCookieCreated;
+            },
+            isSpanIdsCookiePresent: function () {
+                return spanIdsCookiePresent;
+            }
+        };
+    }());
+
+    BidSidGenerator.init();
+    BidSidGenerator.propagateCookies();
+</script>
+<script>
+    var DARCI = DARCI || {},
+        u = "http://track.thesaurus.com/main.gif?ev=p&pn=thes-home&st=thes&ab=&dc=desktop",
+        s = location.search.match(new RegExp('[\?\&]s=([^\&]*)(\&?)', 'i')),
+        ms = (typeof ms === 'undefined') ? cookiesManager.getCookieValue('mseg') || "" : ms,
+
+        /**
+         * Because this file is added only in case when CSL is enabled,
+         * we can be sure cookieManager will be available.
+         */
+        refQuery = cookiesManager.getPersistentCookieValue('ReferrerQuery'),
+        query, orgQuery;
+
+    DARCI.SearchBoxClickLinkId = '59wn52';
+
+    
+
+    if (s != null && s[1]) {
+        if (s[1] == 't' || s[1] == 'ts' || s[1] == 'tn') {
+            var ev = u.indexOf('ev=');
+            if (ev !== -1) {
+                ev = ev + 3;
+                u = u.slice(0, ev) + 'c' + u.slice(ev) + '&cl=59wn52&sc=1';
+                u = u.replace('%25%25REFQUERY%25%25', refQuery);
+            }
+        }
+    }
+
+    new Image().src = u + "&ms=" + ms + "&rf=" + encodeURIComponent(document.referrer) + "&cb=" + Math.floor((Math.random() * 899999999) + 100000000);
+</script>
+<link rel="dns-prefetch" href="//aax.amazon-adsystem.com" /><link rel="dns-prefetch" href="//static.dictionary.com" /><link rel="dns-prefetch" href="//www.googletagmanager.com" /><link rel="dns-prefetch" href="https://platform.twitter.com" /><link rel="dns-prefetch" href="//b.scorecardresearch.com" /><link rel="dns-prefetch" href="https://apis.google.com" /><link rel="dns-prefetch" href="https://securepubads.g.doubleclick.net" /><link rel="dns-prefetch" href="//rt.legolas-media.com" /><link rel="dns-prefetch" href="//connect.facebook.net" /><link rel="dns-prefetch" href="//www.google-analytics.com" /><link rel="dns-prefetch" href="//pixel.quantserve.com" /><meta property="og:title" content="synonyms and antonyms of words" /><meta property="og:site_name" content="www.thesaurus.com" /><meta property="og:image" content="http://static.sfdict.com/thescloud/img/thesaurus_social_logo-208ba.png" /><meta property="fb:app_id" content="118269238218175" /><meta property="fb:admins" content="100000304287730,109125464873" /><meta name="msvalidate.01" content="DF5542D7723770377E9ABFF59AC1DC97" /><meta name="description" content="Thesaurus.com - the largest and most trusted free online thesaurus brought to you by Dictionary.com. Quickly find synonyms and antonyms." /><meta name="keywords" content="Thesaurus, free online thesaurus, thes, thesarus, thesa, synonym, antonym, Roget's Thesaurus, related words, synonym dictionary, antonym dictionary, thesauras, thesau, thesaur, thesauraus, theasaurus, theasurus, thesuarus, thesaurs" /><link rel="shortcut icon" href="http://static.sfdict.com/thescloud/favicon.ico" /><link rel="apple-touch-icon-precomposed" href="http://static.sfdict.com/thescloud/img/touch_icon.png" /><link rel="search" type="application/opensearchdescription+xml" title="Dictionary.com" href="http://www.thesaurus.com/opensearch_desc.xml" /><link rel="canonical" href="http://www.thesaurus.com/" /><script type="text/javascript">
+    var searchURL = "http://www.thesaurus.com/browse/%40%40queryText%40%40?s=t";var CTSParams = {"infix":"","clkpage":"thes-home","clksite":"thes","clkld":0};</script>
+<link rel="stylesheet" href="http://www.thesaurus.com/trc/css/combinedHP-95fc7.css" type="text/css" media="all" /><script type="text/javascript">
+    var UserController = function() {
+        var USER_STATUS_LOGGED_IN = 'L';
+        var USER_STATUS_NOT_LOGGED = 'N';
+
+        var USER_UNDER_13 = 'Y';
+        var USER_OVER_13 = 'N';
+
+        var COOKIE_NAME_SESS = 'sess';
+        var COOKIE_NAME_FAV = 'fav';
+        var COOKIE_NAME_SUPERSESS = 'ss';
+
+        var PREMIUM_STATUS_VALUE = 9;
+        var FAV_COOKIE_PREMIUM_STATUS_KEY = 0;
+        var FAV_COOKIE_FAV_COUNT_KEY = 1;
+        var FAV_COOKIE_USER_UNDER_13_KEY = 2;
+
+        var isLoggedIn = null;
+        var isPremium = null;
+        var isSuperSess = null;
+        var favNumber = null;
+        var isUnder13 = null;
+        var displayAds = null;
+
+        /**
+         * Checking if user is under 13 using value from fav cookie
+         * @returns {boolean}
+         */
+        function checkIsUserUnder13() {
+            if (isLoggedIn !== true) {
+                return false;
+            }
+
+            var isUnder13 = USER_OVER_13;
+            var favCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_FAV);
+
+            if(favCookieValue != null) {
+                favCookieValue = decodeURIComponent(favCookieValue);
+                isUnder13 = favCookieValue.split('|')[FAV_COOKIE_USER_UNDER_13_KEY];
+            }
+
+            return isUnder13 === USER_UNDER_13;
+        }
+
+        function checkIsUserLoggedIn() {
+            var userStatus = USER_STATUS_NOT_LOGGED;
+            var sessCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_SESS);
+
+            if(sessCookieValue != null) {
+                userStatus = sessCookieValue.charAt(0);
+            }
+
+            return userStatus === USER_STATUS_LOGGED_IN;
+        }
+
+        function checkIfUserIsPremium() {
+            var premiumStatus = null;
+            var favCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_FAV);
+
+            if(favCookieValue != null) {
+                favCookieValue = decodeURIComponent(favCookieValue);
+                premiumStatus = favCookieValue.split('|')[FAV_COOKIE_PREMIUM_STATUS_KEY];
+            }
+
+            return premiumStatus == PREMIUM_STATUS_VALUE;
+        }
+
+        function getFavNum() {
+            var count = 0;
+            var favCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_FAV);
+
+            if(favCookieValue != null) {
+                favCookieValue = decodeURIComponent(favCookieValue);
+                count = favCookieValue.split('|')[FAV_COOKIE_FAV_COUNT_KEY];
+            }
+
+            return count;
+        }
+
+
+        /**
+         * Checking super session cookie and calling ajax endpoint if cookie exists
+         * @returns {boolean}
+         */
+        function checkIfUserHasSuperSession() {
+            // get ss cookie value
+            var superSessionCookieValue = cookiesManager.getCookieValue(COOKIE_NAME_SUPERSESS);
+
+            // if there is ss cookie then make ajax (cors) call to check ss cookie and get response on callback
+            if(superSessionCookieValue !== null){
+
+                var xhr = createCORSRequest('GET', 'http://app.dictionary.com/supersession/check/' + superSessionCookieValue);
+
+                if (xhr){
+                    // Define a callback function
+                    xhr.onload = function(){
+                        var responseData = xhr.responseText;
+                        var data = JSON.parse(responseData);
+                        // process the response.
+
+                        // if response is null then do nothing
+                        if(data == null) {
+                            // do nothing
+                        } else {
+                            // otherwise set the session cookie
+                            cookiesManager.setCookie("sess", data['sessionCookie']);
+
+                            // change header appropriately
+                            changeBodyClassNameForUser();
+                        }
+                    };
+
+                    // Send request
+                    xhr.send();
+                }
+
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        /**
+         * A method to create cors request
+         * @param method
+         * @param url
+         * @returns {XMLHttpRequest}
+         */
+        function createCORSRequest(method, url) {
+            var xhr = new XMLHttpRequest();
+            if ("withCredentials" in xhr) {
+
+                // Check if the XMLHttpRequest object has a "withCredentials" property.
+                // "withCredentials" only exists on XMLHTTPRequest2 objects.
+                xhr.open(method, url, true);
+
+            } else if (typeof XDomainRequest != "undefined") {
+
+                // Otherwise, check if XDomainRequest.
+                // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+                xhr = new XDomainRequest();
+                xhr.open(method, url);
+
+            } else {
+
+                // Otherwise, CORS is not supported by the browser.
+                xhr = null;
+
+            }
+
+            return xhr;
+        }
+
+        /**
+         * Checking user status and setting correct body className for user
+         */
+        function changeBodyClassNameForUser() {
+            if(isPremium)
+                document.body.className+=' premium';
+            if(isLoggedIn)
+                document.body.className+=' loggedin';
+            if(isUnder13)
+                document.body.className+=' isUnder13';
+        }
+
+        return {
+
+            initHead: function() {
+                isLoggedIn = checkIsUserLoggedIn();
+                isPremium = checkIfUserIsPremium();
+                isUnder13 = checkIsUserUnder13();
+            },
+
+            initBody: function(){
+                // on initialization check user status and change append body class name accordingly
+                changeBodyClassNameForUser();
+
+                // if the user is not logged in then check to see if the user has an ss cookie
+                if(isLoggedIn !== true) {
+                    // call function responsible for checking ss cookie and calling ajax endpoint
+                    isSuperSess = checkIfUserHasSuperSession();
+                }
+            },
+
+            isLoggedIn : function() {
+                return isLoggedIn;
+            },
+
+            isPremium : function() {
+                return isPremium
+            },
+
+            getFavNumber : function() {
+                if(favNumber === null) {
+                    favNumber = getFavNum();
+                }
+                return favNumber;
+            },
+
+            isUnder13 : function() {
+                return isUnder13;
+            },
+
+            shouldDisplayAds: function() {
+                if(displayAds === null) {
+                    displayAds = !isPremium && !checkIsUserUnder13();
+                }
+                return displayAds;
+            }
+        }
+
+
+    }();
+    UserController.initHead();
+</script>
+<script type="text/javascript">
+    "use strict";
+
+    var adStart = Date.now(),
+        OX_dfp_ads = [["/23219321/iac.dict.thesrs.dw/homepage/homepage/homepage",["728x90","970x90"],"tcomad_728x90_0",{'pos':'top','pos2':'728x90_1',}],["/23219321/iac.dict.thesrs.dw/homepage/homepage/homepage",["300x250"],"tcomad_top_300x250_1",{'pos':'top','pos2':'300x250_1',}],["/23219321/iac.dict.thesrs.dw/homepage/homepage/homepage",["300x250"],"tcomad_top_300x251_2",{'pos':'mid','pos2':'300x250_2',}],],
+        attachScriptAsync, targetingComplete ,oxDone,
+        gptCallIntiated = false,
+        completedTargeting = {},
+        gptApp = gptApp || {},
+        googletag = googletag || {},
+        targetingEvtResponseTime = [];
+
+    gptApp.ads = gptApp.ads || [];
+    googletag.cmd = googletag.cmd || [];
+
+    attachScriptAsync = function(scriptInfo) {
+
+        /* Method to inject script dynamically to have async support */
+
+        var tag = document.createElement("script"),
+            p, node = document.getElementsByTagName("script")[0];
+
+        tag.async = true;
+
+        for (p in scriptInfo) {
+            if (scriptInfo.hasOwnProperty(p) && p != "src") {
+                tag[p] = scriptInfo[p];
+            }
+        }
+        tag.src = scriptInfo.src;
+        node.parentNode.insertBefore(tag, node);
+    };
+
+    gptApp.renderAds = function() {
+
+        /* Render ad slot display after all targeting setup Adslots are pushed into gptApp array  */
+        var len = gptApp.ads.length;
+        for (var i = 0 ; i < len ; i++) {
+            gptApp.ads[i]();
+        }
+
+        gptApp.ads.push = function(fn) {
+            if ("function" === typeof fn) {
+                setTimeout(fn, 0);
+            }
+        };
+    };
+
+    targetingComplete = function(event) {
+        // enable and render ads for GPT services call that now all targeting finished
+        completedTargeting[event] = true;
+
+        if(!gptCallIntiated ) {
+            // Measuring Each traget event time to calculate timeout
+            targetingEvtResponseTime.push(event+"|"+(Date.now() - adStart));
+
+            if ((completedTargeting.lot && completedTargeting.amz && completedTargeting.ox) || event == "fallback") {
+                gptCallIntiated = true;
+                googletag.cmd.push(function(){
+                    googletag.enableServices();
+                    googletag.pubads().setTargeting("perf", targetingEvtResponseTime);
+                });
+                gptApp.renderAds();
+            }
+        }
+    };
+
+    oxDone = function(events) {
+        /* Global Callback Function invoked by OpenX to inform price support */
+        googletag.cmd.push(function() {
+            //OPEN X GPT targeting Params
+            try {
+                OX.dfp_bidder.setOxTargeting(googletag.pubads().getSlots());
+            } catch (e) {}
+        });
+        targetingComplete("ox");
+    };
+
+    // Google Publisher Tag
+    attachScriptAsync({ src: "//www.googletagservices.com/tag/js/gpt.js"  });
+
+    // AMAZON Bidder Tag
+    attachScriptAsync({
+        src: "//c.amazon-adsystem.com/aax2/amzn_ads.js",
+        onload : function () {
+            try {
+                amznads.getAdsCallback('3067', function(){
+                    googletag.cmd.push(function() {
+                        // Amazon GPT targeting Params
+                        amznads.setTargetingForGPTAsync('yip4');
+                    });
+                    targetingComplete("amz");
+                }, 1000);
+            } catch (e) { /* ignore */ }
+        }
+    });
+
+    // LOTAME Measurement Tag For Dictionary.com
+    attachScriptAsync({
+        id: "LOTCC_4845",
+        src: "//tags.crwdcntrl.net/c/4845/cc.js?ns=_cc4845",
+        onload: function() {
+            try {
+                _cc4845.add("ctax", "Sites^Dictionary^Desktop Sites^thes^PageName^thes-home^^thes-home");
+                _cc4845.bcp();
+            } catch (e) {}
+        }
+    });
+
+    // Lotame Audience Tag for IAC Network
+    attachScriptAsync({
+        src: "//ad.crwdcntrl.net/5/c=4736/pe=y/var=ccauds",
+        onload :function() {
+            googletag.cmd.push(function() {
+                // Lotame GPT targeting Params
+                var dartCC, lpid, ltpid, cci, audience;
+                if (typeof(ccauds) != 'undefined' && ccauds.Profile) {
+                    dartCC = [];
+                    lpid = (typeof(ccauds.Profile.pid) != 'undefined') ? ccauds.Profile.pid : "";
+                    ltpid = (typeof(ccauds.Profile.tpid) != 'undefined') ? ccauds.Profile.tpid : "";
+                    audience = ((ccauds.Profile.Audiences || {})
+                        .Audience) || [];
+                    for (cci = 0; cci < audience.length; cci++) {
+                        dartCC.push(audience[cci].abbr);
+                    }
+                    googletag.pubads().setTargeting("lpid", lpid).setTargeting("ltpid", ltpid).setTargeting("lseg", dartCC);
+                }
+            });
+            targetingComplete("lot");
+        }
+    });
+
+    // OPEN X Bidder Tag
+    attachScriptAsync({
+        src: "//ox-d.ask.servedbyopenx.com/w/1.0/jstag?nc=23219321-thesaurus",
+        onload: function() {
+            setTimeout(function() {
+                if (!('OX' in window)) {
+                    targetingComplete("ox");
+                }
+            }, 500);
+        }
+    });
+
+    // Fallback Method to invoke ad after 1000 miliseconds irrespective of targeting scripts
+
+    setTimeout(function() {
+        targetingComplete("fallback");
+    }, 1500);
+
+</script>
+
+<script>
+    function getRefValue(referrer) {
+        if(referrer.indexOf('dictionary.com') == -1 && referrer.indexOf('thesaurus.com') == -1 && referrer.indexOf('reference.com') == -1) {
+            return 'organic';
+        }
+        return 'direct';
+    }
+    function getRPV() {
+        return Math.floor((Math.random()*100)+1).toString();
+    }
+    function getDCRefValue() {
+        return encodeURIComponent(window.location.href);
+    }
+    function getDayofWeek() {
+        return new Date().getDay().toString();
+    }
+    
+    googletag.slots = {};
+    googletag.slotsCount = 3;
+    googletag.renderedAdsCount = 0;
+    /** Store spot data that has been already rendered **/
+    googletag.adsRenderedInfo = (function () {
+        var renderedAds = [];
+        return {
+            set: function(name, size) {
+                renderedAds[name] = {
+                    size: size
+                };
+            },
+            get: function(name) {
+                return renderedAds[name];
+            }
+        }
+    }());
+    googletag.cmd.push(function() {
+
+        googletag.slots["tcomad_728x90_0"] = googletag.defineSlot("/23219321/iac.dict.thesrs.dw/homepage/homepage/homepage", [[728,90],[970,90]], "tcomad_728x90_0").addService(googletag.pubads()).setTargeting("pos", "top").setTargeting("pos2", "728x90_1").setTargeting("tx1", "homepage").setTargeting("tx2", "homepage").setTargeting("ptype", "homepage");googletag.slots["tcomad_top_300x250_1"] = googletag.defineSlot("/23219321/iac.dict.thesrs.dw/homepage/homepage/homepage", [300,250], "tcomad_top_300x250_1").addService(googletag.pubads()).setTargeting("pos", "top").setTargeting("pos2", "300x250_1").setTargeting("tx1", "homepage").setTargeting("tx2", "homepage").setTargeting("ptype", "homepage");googletag.slots["tcomad_top_300x251_2"] = googletag.defineSlot("/23219321/iac.dict.thesrs.dw/homepage/homepage/homepage", [300,250], "tcomad_top_300x251_2").addService(googletag.pubads()).setTargeting("pos", "mid").setTargeting("pos2", "300x250_2").setTargeting("tx1", "homepage").setTargeting("tx2", "homepage").setTargeting("ptype", "homepage");
+        googletag.pubads().setTargeting("ref", getRefValue(document.referrer)).setTargeting("lang","en").setTargeting("rpv", getRPV()).setTargeting("dc_ref", getDCRefValue()).setTargeting("loc", "US").setTargeting("ld", "0").setTargeting("dow", getDayofWeek());
+
+        var get_request_identifier = (function () {
+                return Math.random().toString(36).substr(2)
+            })(),
+            get_modified_page_url = (function () {
+                sep = window.location.search.length >= 0 && window.location.href.indexOf("?") !== -1 ? "&" : "?";
+                return window.location.href + sep + "rquid=" + get_request_identifier
+            })();
+
+        googletag.pubads().setTargeting("rquid",get_request_identifier);
+        googletag.pubads().setTargeting("page_url",get_modified_page_url);
+
+        
+                var adtest = location.search.match(new RegExp("[\?\&]adtest=([^\&]*)(\&?)","i"));
+        if(adtest != null && adtest[1] != "" ){
+            googletag.pubads().setTargeting("adtest",adtest[1]);
+        }
+
+                googletag.pubads().enableSingleRequest();
+                        googletag.pubads().enableAsyncRendering();
+                
+        googletag.adsLoaded = function () {
+            return googletag.renderedAdsCount >= googletag.slotsCount;
+        };
+        googletag.pubads().addEventListener('slotRenderEnded', function(data) {
+
+            var slotKey;
+
+            for (slotKey in googletag.slots) {
+                if(googletag.slots[slotKey] == data.slot) {
+                    break;
+                }
+            }
+
+            googletag.adsRenderedInfo.set(slotKey, data.size);
+
+            googletag.renderedAdsCount += 1;
+                    });
+    });
+</script>
+        <script type="text/javascript">var pageName = 'thes-home';</script>
+        <script type="text/javascript">
+            var phpVarinJS = {
+                'socialClick':'http://track.thesaurus.com/track/social?site=thes&pageName=thes-home&ldid=0',
+                'favoritesAppUrl':'http://app.dictionary.com/favorites',
+                'stickyFooter':'http://track.thesaurus.com/track/stickyFooter?site=thes&pageName=thes-home&ldid=0',
+                'cornerPeelGif':'false',
+                'cornerPeelFlash':'false',
+                'gifCloseButtonImage':'',
+                'flashCloseButtonImage':'',
+                'cornerPeelGifHrefURL':'',
+                'cornerPeelFlashHrefURL':'',
+                'cornerPeelOpeninNewwindow':'false', 
+                'ThesaurusHp':'thesaurus',
+                'slideShowBaseURL':'http://www.thesaurus.com/',
+                'appDomainURL':'http://www.thesaurus.com/',
+                'ldid':'0',
+                'appcoreURL':'http://app.dictionary.com/',
+                'slideShowCloseTrackURL': 'http://track.thesaurus.com/track/close?site=thes&pageName=thes-home&ldid=0',
+                'subscriptionUrl':'http://app.thesaurus.com/api/ajaxmailer/subscription?pageName=thes-home&siteName=thes&ld=0&mseg=65'
+            };
+        </script>
+        <script type="text/javascript">
+    var src = null;
+                        var retina = window.devicePixelRatio > 1;
+            if(retina) {
+                new Image().src = 'http://www.thesaurus.com/trc/img/hp/sprite-lowdpi-36746.png';
+            } else {
+                new Image().src = 'http://www.thesaurus.com/trc/img/hp/sprite-lowdpi-36746.png';
+            }
+            </script><script type='text/javascript'>
+    window.dataLayer = window.dataLayer || [];
+
+    dataLayer.push({
+        'event': 'pageview',
+        'device': 'Desktop',
+        'pageName': 'thes-home',
+        'LDid': '0',
+        'mseg': cookiesManager.getCookieValue("mseg"),
+        'sessionId': cookiesManager.getCookieValue("sid"),
+        'browserId': cookiesManager.getCookieValue("bid")    });
+</script><!-- Begin Quantcast Tag, part 1 -->
+<script type="text/javascript"> 
+  
+  var _qevents = _qevents || [];
+
+  (function() {
+   var elem = document.createElement('script');
+
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem, scpt);  
+  })();
+</script>
+<!-- End Quantcast Tag, part 1 -->
+<script type="text/javascript" src="http://static.sfdict.com/app/js/jquery-1.11.3.min-6ea01.js" ></script><script type="text/javascript" src="http://static.sfdict.com/app/js/jquery-ui-1.11.4.min-d23d5.js" ></script><script type="text/javascript" src="http://static.sfdict.com/thescloud/js/home-64cfe.js" ></script><!--[if lt IE 9]><script type="text/javascript" src="http://static.sfdict.com/app/js/html5-92a89.js" ></script><![endif]-->                <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "http://www.thesaurus.com",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "http://www.thesaurus.com/browse/{search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
+                <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "http://www.thesaurus.com/",
+    "potentialAction":
+    { "@type": "ViewAction", "target": "android-app://com.dictionary/http/thesaurus.com/" }
+}
+</script>
+
+    </head>
+    <body>
+        <!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-PVMWP3" height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+</noscript>
+<script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+        j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j, f);
+    })(window,document,'script','dataLayer','GTM-PVMWP3');
+</script>
+<!-- End Google Tag Manager --><script type="text/javascript">
+    UserController.initBody();
+</script>
+        <style type="text/css">
+            #main {
+                top: 0px !important;
+            }
+        </style>
+        <script type="text/javascript">
+        /**
+     * Redirects user to address from parameter
+     *
+     * @param url
+     * @returns {boolean}
+     */
+    function submitForm(url) {
+        var queryText = document.getElementById('q').value || 'search';
+
+        queryText = encodeURIComponent(queryText);
+
+        url = url.replace('%40%40queryText%40%40', queryText);
+
+                location.href = url;
+        return false;
+    }
+
+    function prepareSearchBox(el) {
+        var dataTerm = el.getAttribute('data-term');
+        var value = el.value;
+        if (!(/(iPad|iPhone|iPod)/g.test(navigator.userAgent))) {
+            el.focus();
+            if (dataTerm == value) {
+                el.select();
+            }
+        }
+    }
+</script>
+<nav class="ham-nav">
+    <ul>
+        <li class="ham-main-menu"><a href="http://www.dictionary.com/" data-linkid="lxabec" >Dictionary.com</a></li>
+        <li>
+            <ul class="ham-submenu">
+                <li><a href="http://www.dictionary.com/wordoftheday/" data-linkid="1498ik" >Word <i class="wotd-italic">of the</i>  Day</a></li>
+                <li><a href="http://translate.reference.com/" data-linkid="au3zd1" >Translate</a></li>
+                <li><a href="http://www.dictionary.com/fun" data-linkid="yp2k17" >Games</a></li>
+                <li><a href="http://blog.dictionary.com/" data-linkid="t6ehki" >Blog</a></li>
+            </ul>
+        </li>
+                <li class="ham-main-menu">
+            <a href="http://www.dictionary.com/apps" data-linkid="jmrau8" >Apps
+            <span class="dicticon-header-apple"></span>
+            <span class="dicticon-header-android"></span>
+            </a>
+        </li>
+        <li class="ham-main-menu">
+            <a href="http://app.dictionary.com/favorites">Favorites
+                <span class="dicticon-header-favourites-star"></span>
+                <span class="ham-favourites-number"></span>
+            </a>
+        </li>
+                    <li class="ham-main-menu user-logged-in"><a href="http://app.dictionary.com/logout?logindest=http%3A%2F%2Fwww.thesaurus.com%2F">Log Out</a></li>
+            <li class="ham-main-menu user-logged-out"><a href="http://app.dictionary.com/login?source=header_core&amp;logindest=http%3A%2F%2Fwww.thesaurus.com%2F">Log In</a></li>
+            </ul>
+    </nav>
+<button class="dicticon-hamburger-menu slide-element"></button>
+<header class="js-header thesaurus-header">
+    <div class="header-nav-row">
+        <ul class="header-main-nav">
+                            <li >
+                    <a href="http://www.dictionary.com/" data-linkid="tqks0v" >Dictionary.com</a>
+                </li>
+                            <li class="nav-active">
+                    <a href="http://www.thesaurus.com/" data-linkid="qxnxzj" >Thesaurus.com</a>
+                </li>
+                    </ul>
+        <ul class="header-login-nav">
+                            <li class="user-logged-in account"><a href="http://app.dictionary.com/users/settings">My Account</a></li>
+                <li class="user-logged-in"><a href="http://app.dictionary.com/logout?logindest=http%3A%2F%2Fwww.thesaurus.com%2F">Log Out</a></li>
+                <li class="user-logged-out"><a rel="nofollow" href="http://app.dictionary.com/login?source=header_core&amp;logindest=http%3A%2F%2Fwww.thesaurus.com%2F">Log In</a></li>
+                    </ul>
+
+    <a href="http://www.dictionary.com/apps"  class="header-apps-links" data-linkid="dbvvdc" >        <span class="dicticon-header-app-android"></span>
+        <span class="dicticon-header-app-ios"></span>
+        Try Our Apps
+        </a>
+    </div>
+    
+    <div class="header-search-row">
+        <div class="header-wrapper-row">
+            <a href="http://www.thesaurus.com/" data-linkid="yg487x" >            <img src="http://www.thesaurus.com/trc/img/tcom-logo-b30fc.png" alt='Thesaurus.com'/>
+            </a>
+            <form id="main_search" class="header-search-form" action="http://www.thesaurus.com/search">
+                <div class="header-search-wrapper">
+                    <div class="search-filter-nav">
+                        <span class="dicticon-filter"></span>
+                        <span class="filter-item-active" data-filter-action="http://www.thesaurus.com/browse/%40%40queryText%40%40">synonyms</span>
+                    </div>
+                    <input type="text"
+                           value=""
+                           autoComplete="off"
+                           autocapitalize="off"
+                           autocorrect="off"
+                           name="q"
+                           class="search-input transparent-text"
+                           id="q"
+                           data-term="">
+                                        <input type="hidden" name="s" value="t"/>
+                    <button type="submit" id="search-submit" class="dicticon-search-submit" value=""></button>
+                    <ul class="filter-list filter-hidden">
+                                                    <li class="" data-filter="http://www.dictionary.com/browse/%40%40queryText%40%40">definitions</li>
+                                                    <li class="filter-hidden" data-filter="http://www.thesaurus.com/browse/%40%40queryText%40%40">synonyms</li>
+                                                    <li class="" data-filter="http://translate.reference.com/?query=%40%40queryText%40%40">translations</li>
+                                            </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="social-follow-module">
+    <ul class="social-follow-btns">
+        <li>
+            <div class="fb-like-wrapper">
+                <div class="fb-like" data-href="https://www.facebook.com/dictionarycom" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+            </div>
+        </li>
+        <li>
+            <a class="twitter-follow-button" href="https://twitter.com/dictionarycom" data-show-screen-name="false">Follow @dictionarycom</a>
+        </li>
+        <li>
+            <span class="ig-follow" data-id="17031a6e93" data-handle="igfbdotcom" data-count="true" data-size="medium" data-username="false"></span>
+        </li>
+        <li>
+            <div class="g-follow" data-annotation="bubble" data-height="20" data-href="https://plus.google.com/117428481782081853923" data-rel="publisher"></div>
+        </li>
+    </ul>
+    <p>follow Dictionary.com</p>
+</div></header>
+<script type="text/javascript">
+    var DARCI = DARCI || {};
+    DARCI.searchedTerm = typeof DARCI.OQR !== 'undefined' ? DARCI.OQR.getValue() : null;
+    DARCI.searchedTerm = DARCI.searchedTerm !== null ? DARCI.searchedTerm : '';
+
+    document.getElementById('main_search').onsubmit = function(e, url) {
+        // if url parameter wasn't passed submitFrom() is called with default parameter, which is searchURL
+        // searchURL is defined and added as a global js option in controller
+        return submitForm(url || searchURL);
+    }
+
+    prepareSearchBox(document.getElementById('q'));
+
+    cookiesManager.setCookie('ReferrerQuery', DARCI.searchedTerm);
+</script>        <div id="main">
+                <div class="container-sub-nav">
+        <ul class="sub-nav">
+            <li><a href="http://blog.dictionary.com/"  class="nbl" data-cts='{"linkId":"prrhwm","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"htwd","clksite":"thes","clkld":0}'>Our Blog</a></li>
+            <li><a href="http://www.dictionary.com/fun/crossword" data-cts='{"linkId":"dp2158","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"dstmp","clksite":"thes","clkld":0}'>Daily Crossword</a></li>
+            <li><a href="http://www.dictionary.com/fun/crosswordsolver" data-cts='{"linkId":"6g2ifa","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"crslv","clksite":"thes","clkld":0}'>Crossword Solver</a></li>
+            <li><a href="http://www.dictionary.com/apps"  class="nbr" data-cts='{"linkId":"d874f6","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"dmbl","clksite":"thes","clkld":0}'>Apps</a></li>
+        </ul>
+    </div>
+        
+    <!-- banner-holder -->
+    <div class="banner-holder" style="width:728px;min-height:30px;">
+        <div id="tcomad_728x90_0"><script type="text/javascript">if(typeof UserController !== "undefined" && !UserController.shouldDisplayAds()){document.getElementById("tcomad_728x90_0").parentNode.removeChild(document.getElementById("tcomad_728x90_0"));}else{gptApp.ads.push( function() {googletag.cmd.push(function() { googletag.display("tcomad_728x90_0"); });});}</script></div>    </div>
+
+    <!--buys ads link   -->
+        <!-- popup -->
+                    <!-- main-holder -->
+    <div class="main-holder">
+        <!-- side bar -->
+        <div id="sidebar">
+            <div class="sidebar-holder">
+                <div class="sidebar-frame">
+                    <!-- Word of the Day Section -->
+                    <div class="word-section">
+                       <h2>Word <em>of the</em> Day</h2>
+                        <a href="http://www.dictionary.com/wordoftheday/"  class="wotd"  style="font-size:20px" data-linkid="nx1fkx" >flivver</a>                        					                                                     <a href="http://www.dictionary.com/wordoftheday/"  class="wotd_txt" data-linkid="nx1fkx" >an automobile, especially one that is small, inexpensive, and old.                            </a>
+                        <div>
+                       <a href="http://www.dictionary.com/wordoftheday/" data-linkid="nx1fkx" >More...</a>
+                                                <div id="aud">
+                            <span id="spk0"><embed id="speaker" width="17" height="15" align="texttop" flashvars="soundUrl=http%3A%2F%2Fstatic.sfdict.com%2Fdictstatic%2Fdictionary%2Faudio%2Fluna%2FF02%2FF0220700.mp3" salign="t" menu="false" loop="false" quality="high" src="http://static.sfdict.com/thescloud/img/speaker-8e975.swf" type="application/x-shockwave-flash"></span>                        </div>
+                                                </div>
+                        <form action="#" class="sign-form" onsubmit="return emailSignUp()">
+                           <fieldset>
+                               <label>SIGN UP:</label>
+                               <div class="form-holder">
+                                   <div class="area-holder">
+                                       <input id="emailTbox" type="text" value="email" onclick="signup_blank()"/>
+                                   </div>
+                                                                           <input type="image" value="" class="img-holder" alt="">
+                                                                  </div>
+                           </fieldset>
+                        </form>
+
+                    <script type="text/javascript">
+                        wtd = "flivver";
+                        wdesc = "an automobile, especially one that is small, inexpensive, and old.";
+                        wln = 'http://www.dictionary.com';
+                        window.fbAsyncInit = function () {
+                            FB.JSON.stringify = function (value) {
+                                return JSON.stringify(value)
+                            };
+                            FB.init({appId:'123320894389614', status:true, cookie:true, xfbml:true});
+                            FB.XFBML.parse();
+                        };
+                    </script>
+
+                        <div class="social-networks">
+                           <a id="fbSh" class="facebook"></a>
+                           <a id="fbTw" class="twitter" href="http://twitter.com/share?url=http%3A%2F%2Fwww.dictionary.com%2Fwordoftheday&text=RT @  Word of the Day - flivver: an automobile, especially one that is small, inexpensive, and old.&via=dictionarycom"
+                                  rel="nofollow" target="_blank"></a>
+                            <div id="po_st">
+                                                                <a class="google" href="https://plus.google.com/share?url=http://www.dictionary.com/wordoftheday/archive/2016/04/25.html?word=flivver"
+                                   onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"></a>
+                            </div>
+                      </div>
+                       <div id="fb-root"></div>
+                       <div class="prev"><a id="prev_words" href="#prev-words" onclick="smoothscroll('prev-words')">Previous Words</a></div>
+                   </div>
+                    <div class="zigzag"></div>
+                    
+                    <div class="gray-box" id="gray-box">
+                                                    <h2 style="cursor: pointer;" data-href="http://www.thesaurus.com/browse/smart" data-linkid="rtourp">
+                                Synonym Sense                            </h2>
+                                                <div class="gray-item" >
+                                                            <h3 style="cursor: pointer;" class="gray-title" data-href="http://www.thesaurus.com/browse/smart" data-linkid="rtourp">
+                                    Smart has 67 synonyms!                                </h3>
+                                                        <p>Acute, adept, agile, alert, apt, astute. . .</p>
+                                                            <a href="http://www.thesaurus.com/browse/smart" class="more" data-linkid="rtourp">Improve your writing and learn these smart synonyms now</a>
+                                                    </div>
+                                                    <a href="http://blog.dictionary.com/austen-neologisms/" data-linkid="smtdvk" class="gray-item" style="cursor: pointer;text-decoration: none; color: inherit;">
+                                <h3>Why is my alphabet so much more sprawly than Yours?</h3>
+                            </a>
+                                                <a href="http://blog.dictionary.com/austen-neologisms/" data-linkid="smtdvk" class="image-holder" style="display: block">
+                                                            <img style="cursor: pointer;" src="http://static.sfdict.com/assets/4706-2324425-0.jpg" width="50" height="50" />
+                                                            <p style="cursor: pointer;" >Jane Austen (1775-1817)</p>
+                                                    </a>
+                    </div>
+                                                            <!-- white-box -->
+                    <div id ="prev-words" class="white-box">
+                        <h2>Previous<br>Words <em>of the</em> Day</h2>
+<ul>
+
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/07/25/scop">scop</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/07/11/flumadiddle">flumadiddle</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/06/20/cavil">cavil</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/07/03/quixotic">quixotic</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"2"}' data-ordinal="2" href="http://www.dictionary.com/wordoftheday/2015/06/27/preprandial">preprandial</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/05/13/syzygy">syzygy</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/05/11/bibliomania">bibliomania</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/05/26/quidnunc">quidnunc</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/05/10/frabjous">frabjous</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/04/15/schlemiel">schlemiel</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/06/23/otiose">otiose</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/04/24/sang-froid">sang-froid</a>
+<li><a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" href="http://www.dictionary.com/wordoftheday/2015/05/14/cynosure">cynosure</a>
+
+
+
+
+
+</ul>
+<a  data-cts='{"linkId":"fttu0h","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"pwotd","clksite":"thes","clkld":0,"ordinal":"8"}' data-ordinal="8" href="http://www.dictionary.com/wordoftheday">See More...</a>                    </div>
+                                        </div>
+                </div>
+            </div>
+            <!-- Two columns -->
+            <div id="twocolumns">
+                <!-- content -->
+                <div id="content">
+                                        <a href="http://www.dictionary.com/slideshows/sign-offs#regards" data-linkid="9q3oel" >                        <!-- gallery -->
+                        <ul class="gallery">
+                            <li class="active">
+                                <img src="http://static.sfdict.com/assets/6774-6017213-72.png" width="460" height="220" />                                <div class="text-box">
+                                    <div class="text-holder">
+                                        <h2></h2>
+                                        <p></p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </a>
+                                        <!-- two-columns -->
+                    <div class="two-columns">
+                        <!-- col -->
+                        <div class="col">
+                                                        <div class="word-box">
+                                <h2 class="title-reference">
+<a href="http://blog.dictionary.com/ampersand"  data-cts='{"linkId":"9emnlj","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero2","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1">
+<em>the</em> Alphabet</a>
+</h2>
+<a href="http://blog.dictionary.com/ampersand"  data-cts='{"linkId":"9emnlj","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero2","clksite":"thes","clkld":0,"ordinal":"2"}' data-ordinal="2">
+<img src="http://static.dictionary.com/homepage/carousel/July-2012/amper.jpg" width="208" height="74" alt="image description" />
+</a>
+<h3>
+<a href="http://blog.dictionary.com/ampersand"  data-cts='{"linkId":"9emnlj","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero2","clksite":"thes","clkld":0,"ordinal":"3"}' data-ordinal="3">A 27th letter of the alphabet</a>
+</h3>
+<p>There's a secret hiding in the alphabet that will surprise . . .  </p>
+<a class="more" href="http://blog.dictionary.com/ampersand"  data-cts='{"linkId":"9emnlj","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero2","clksite":"thes","clkld":0,"ordinal":"4"}' data-ordinal="4">What is it?</a>                                                            </div>
+                                                                                    <div class="diversion-box">
+                                <h2>Diversions<span class="mark">[dih-vur-zhuhnz]</span>
+</h2>
+<a href="http://blog.dictionary.com/category/quizzes/"  data-cts='{"linkId":"hc9y0a","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"diversion","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1">
+<img src="http://static.dictionary.com/homepage/carousel/2015/quiz2.png" width="175" height="49" alt="diversions" />
+</a>
+<h3>Remember last week's Words of the Day?
+</h3>
+<a class="more" href="http://blog.dictionary.com/category/quizzes/"  data-cts='{"linkId":"hc9y0a","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"diversion","clksite":"thes","clkld":0,"ordinal":"2"}' data-ordinal="2">Quiz yourself!</a>       
+<h3 class="title-more">More Ways <em>to</em> Play</h3>
+<ul> 
+<li>
+<a href="http://www.dictionary.com/fun/crossword"  data-cts='{"linkId":"hc9y0a","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"diversion","clksite":"thes","clkld":0,"ordinal":"3"}' data-ordinal="3">The Daily Crossword</a>
+</li>       
+<li>
+<a href="http://www.dictionary.com/fun/crosswordsolver"  data-cts='{"linkId":"hc9y0a","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"diversion","clksite":"thes","clkld":0,"ordinal":"4"}' data-ordinal="4">Crossword Solver</a>
+</li>      
+<li>
+<a href="http://www.dictionary.com/fun"  data-cts='{"linkId":"hc9y0a","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"diversion","clksite":"thes","clkld":0,"ordinal":"5"}' data-ordinal="5">All Dictionary.com Word Games</a>
+</li>     
+</ul>                            </div>
+                                                                                    <div class="reference-box">
+                                <h3 class="title-reference">For <em>your</em> Reference</h3>
+<ul>
+<li><a href="http://blog.dictionary.com/true-synonym/">Is there such a thing as a true synonym?</a></li>
+<li><a href="http://blog.dictionary.com/common-words/">What are the 100 most commonly used words in English?</a></li>
+<li><a href="http://blog.dictionary.com/rhyme-with-orange/">Does anything rhyme with <em>orange</em>?</a></li>
+</ul>                            </div>
+                                                    </div>
+                    <!-- col -->
+
+                    <div class="col">
+                                                                        <div class="word-dynamo-box word-box">
+                            <h2  class="title-word"  0 13px;">
+   <a href="http://blog.dictionary.com/supposedly-vs-supposably/"  data-cts='{"linkId":"bofuu0","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero3","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1">
+<a href="http://blog.dictionary.com/supposedly-vs-supposably/"  data-cts='{"linkId":"bofuu0","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero3","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1">Word <em>Fact</em></a></a>
+
+   <a href="http://blog.dictionary.com/supposedly-vs-supposably/"  data-cts='{"linkId":"bofuu0","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero3","clksite":"thes","clkld":0,"ordinal":"2"}' data-ordinal="1"></a>
+</h2>
+
+
+<a href="http://blog.dictionary.com/supposedly-vs-supposably/"  data-cts='{"linkId":"bofuu0","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero3","clksite":"thes","clkld":0,"ordinal":"3"}' data-ordinal="2">
+   <img src="http://static.dictionary.com/homepage/carousel/2014/cliches_cl.jpg" width="208" height="74" alt="books" />
+</a>
+
+<h3>
+   <a href="http://blog.dictionary.com/supposedly-vs-supposably/"  data-cts='{"linkId":"bofuu0","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hero3","clksite":"thes","clkld":0,"ordinal":"4"}' data-ordinal="3">
+Supposedly vs. Supposably
+   </a>
+</h3>
+<p>Is <em>supposably</em> a word?
+</p>
+<a class="more" href="http://blog.dictionary.com/supposedly-vs-supposably/"   data-ordinal="4">Find out now</a>                        </div>
+                                                                                                                        <div class="new-box" id="new-box">
+                            <h2 style="cursor: pointer" data-href="https://itunes.apple.com/us/app/thesaurus-rex-by-dictionary.com/id596491781?mt=8#" data-linkid="icvqvm">
+                                What's New</h2>
+                                                            <img style="cursor: pointer" data-href="https://itunes.apple.com/us/app/thesaurus-rex-by-dictionary.com/id596491781?mt=8#" data-linkid="icvqvm" src="http://static.sfdict.com/assets/3538-8510148-1.png" width="61" height="61" />
+                                                        <div class="text-box">
+                                                                <p><b>Thesaurus Rex by Dictionary.com</b> for iOS revolutionizes the thesaurus for the first time in 160 years.</p>
+                                <a href="https://itunes.apple.com/us/app/thesaurus-rex-by-dictionary.com/id596491781?mt=8#"  class="more"  style="cursor: pointer" data-cts='{"linkId":"icvqvm","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"mktgPromo","clksite":"thes","clkld":0}'>Get the app now.</a>
+                            </div>
+                        </div>
+                                                                                                </div>
+                </div>
+            </div>
+            <div class="aside">
+                <script type="text/javascript">
+                    document.write("<h2>"+day+", <span class=\"mark\">"+mon+" "+date+"</span></h2>");
+                </script>
+                                <!-- banner -->
+                <div class="banner" style="width:300px;min-height:250px;">
+                    <div id="tcomad_top_300x250_1"><script type="text/javascript">if(typeof UserController !== "undefined" && !UserController.shouldDisplayAds()){document.getElementById("tcomad_top_300x250_1").parentNode.removeChild(document.getElementById("tcomad_top_300x250_1"));}else{gptApp.ads.push( function() {googletag.cmd.push(function() { googletag.display("tcomad_top_300x250_1"); });});}</script></div>                </div>
+                                <!-- social-box -->
+                <div class="social-box">
+                    <h3>Thesaurus.com Social</h3>
+                    <ul>
+<p>
+<div class="g-page" data-href="https://plus.google.com/106020039066842075951" data-layout="landscape" data-rel="publisher"></div>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+</p>
+
+<p>
+<li style="background: url('http://static.sfdict.com/dictcloud/r16287/img/icons.png') no-repeat -2118px 0px;padding-top: 9px; padding-bottom: 0px;margin-top: 17px;height: 35px;">
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<a href="https://twitter.com/dictionarycom" data-show-count="true"  data-cts='{"linkId":"4r16v4","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hpSocial","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @dictionarycom</a>
+</li ></p>
+
+<p>&nbsp;</p></li><li style="padding-top: 6px; padding-bottom: 3px;"><a href="http://facebook.com/dictionarycom"  data-cts='{"linkId":"4r16v4","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hpSocial","clksite":"thes","clkld":0,"ordinal":"3"}' data-ordinal="3">facebook.com/dictionarycom</a> <p><a href="http://facebook.com/dictionarycom"  data-cts='{"linkId":"4r16v4","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"hpSocial","clksite":"thes","clkld":0,"ordinal":"4"}' data-ordinal="4"  style="color:black">Like us on Facebook!</a></p>       </li> 
+
+  </ul>                </div>
+                                <!-- banner -->
+                <div class="banner" style="width:300px;min-height:251px;">
+                    <div id="tcomad_top_300x251_2"><script type="text/javascript">if(typeof UserController !== "undefined" && !UserController.shouldDisplayAds()){document.getElementById("tcomad_top_300x251_2").parentNode.removeChild(document.getElementById("tcomad_top_300x251_2"));}else{gptApp.ads.push( function() {googletag.cmd.push(function() { googletag.display("tcomad_top_300x251_2"); });});}</script></div>                </div>
+                                <!-- popular-box -->
+                <div class="popular-box">
+                    <h3 class="popular-title">Dictionary <em>Decoder</em></h3>
+<div class="column-holder">
+<div class="column">
+<div class="section">
+<p><a href="http://www.dictionary.com/etymology/swing"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"1"}' data-ordinal="1">What's the funny original meaning of "swing"? </a></p>
+</div>
+<p>Five strong searches:</p>
+
+<ul>
+<li><a href="http://www.dictionary.com/browse/deficits"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"2"}' data-ordinal="2">deficits</a></li>
+<li><a href="http://www.dictionary.com/browse/heedless"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"3"}' data-ordinal="3">heedless</a></li>
+<li><a href="http://www.dictionary.com/browse/attrition"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"4"}' data-ordinal="4">attrition</a></li>
+<li><a href="http://www.dictionary.com/browse/inconsistent"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"5"}' data-ordinal="5">inconsistent</a></li>
+<li><a href="http://www.dictionary.com/browse/mitigation"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"6"}' data-ordinal="6">mitigation</a></li>
+</ul>
+
+</div>
+<div class="column">
+
+<h3>Can you connect these terms to events in the news?</h3>
+<ul>
+<li><a href="http://www.dictionary.com/browse/wallflower"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"7"}' data-ordinal="7">wallflower</a></li>
+<li><a href="http://www.dictionary.com/browse/tabby"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"8"}' data-ordinal="8">tabby</a></li>
+<li><a href="http://www.dictionary.com/browse/endeavor"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"9"}' data-ordinal="9">endeavor</a></li>
+<li><a href="http://www.dictionary.com/browse/coptic"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"10"}' data-ordinal="10">Coptic</a></li>
+<li><a href="http://dictionary.reference.com/browse/ios"  data-cts='{"linkId":"86gi5l","infix":"","domain":"dictionary.com","clkpage":"thes-home","clkmod":"popular","clksite":"thes","clkld":0,"ordinal":"11"}' data-ordinal="11">iOS</a></li>
+</ul>
+</div>
+</div>                </div>
+                            </div>
+       </div>
+    </div>
+    <div class="carousel-holder">
+    <div class="title-section">
+        <div class="btn-holder">
+            <div class="prev">prev</div>
+            <div class="next active">next</div>
+        </div>
+        <h3>Discover <em>Our</em> Greatest Slideshows</h3>
+    </div>
+    <div class="mask">
+        <ul class="carousel">
+                                <li>
+                        <a href="http://www.dictionary.com/slideshows/death-and-taxes"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg1" style="cursor: pointer;border: medium none;" src="http://static.sfdict.com/assets/1805-2251644-1.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/death-and-taxes"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                Death & Taxes: All We Can Do Is...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/death-and-taxes" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/horoscope"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg2" style="cursor: pointer;border: medium none;" src="http://static.sfdict.com/assets/6236-8849822-32.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/horoscope"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                What's Your Sign? 14 Astrological...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/horoscope" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/money"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg3" style="cursor: pointer;border: medium none;" src="http://static.sfdict.com/assets/2095-2710145-36.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/money"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                Dough, Clams, and Greenbacks:...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/money" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/baby-animals"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg4" style="cursor: pointer;border: medium none;" src="http://static.sfdict.com/assets/1174-9757434-13.png"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/baby-animals"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                12 Strange Names of These Baby...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/baby-animals" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/egg-expressions"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg5" style="cursor: pointer;border: medium none;" src="" class="not-loaded" data-src="http://static.sfdict.com/assets/4082-6785285-18.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/egg-expressions"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                All in One Basket: 8 Eggcentric...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/egg-expressions" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/spring-fever"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg6" style="cursor: pointer;border: medium none;" src="" class="not-loaded" data-src="http://static.sfdict.com/assets/1706-9739003-0.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/spring-fever"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                Was spring actually called "Lent"...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/spring-fever" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/irish-creatures"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg7" style="cursor: pointer;border: medium none;" src="" class="not-loaded" data-src="http://static.sfdict.com/assets/3794-7618446-7.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/irish-creatures"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                Beyond Leprechauns: 7 Creatures of...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/irish-creatures" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/green-words"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg8" style="cursor: pointer;border: medium none;" src="" class="not-loaded" data-src="http://static.sfdict.com/assets/3795-6555503-0.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/green-words"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                15 Shades of Green: Emerald...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/green-words" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/common-mispronunciations"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg9" style="cursor: pointer;border: medium none;" src="" class="not-loaded" data-src="http://static.sfdict.com/assets/5178-7909581-17.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/common-mispronunciations"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                11 Common Mispronunciations                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/common-mispronunciations" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                                        <li>
+                        <a href="http://www.dictionary.com/slideshows/movie-words"  class="inline" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                                    <img width="130" height="140" id="slideImg10" style="cursor: pointer;border: medium none;" src="" class="not-loaded" data-src="http://static.sfdict.com/assets/3696-2389417-0.jpg"/>
+                        
+                        </a>
+                        <div class="carousel-cont">
+                            <h3 class="h3-carousel-style">
+                                <a href="http://www.dictionary.com/slideshows/movie-words"  class="block" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>
+                                6 Words That Broke Through on the...                                </a>
+                            </h3>
+                            <a href="http://www.dictionary.com/slideshows/movie-words" data-cts='{"linkId":"pdoku0","infix":"","domain":"thesaurus.com","clkpage":"thes-home","clkmod":"contentPromo","clksite":"thes","clkld":0}'>Launch</a>
+                        </div>
+                    </li>
+                            </ul>
+    </div>
+</div>
+<div class="navigation-holder">
+    <div class="brw">Browse Thesaurus</div>
+    <div>
+        <div class="item"  data-linkid='74qg7q'>
+            <ul class="navigation">
+                <li><a href="/list/0/1">#</a></li>
+                                    <li><a href="/list/a/1">A</a></li>
+                                    <li><a href="/list/b/1">B</a></li>
+                                    <li><a href="/list/c/1">C</a></li>
+                                    <li><a href="/list/d/1">D</a></li>
+                                    <li><a href="/list/e/1">E</a></li>
+                                    <li><a href="/list/f/1">F</a></li>
+                                    <li><a href="/list/g/1">G</a></li>
+                                    <li><a href="/list/h/1">H</a></li>
+                                    <li><a href="/list/i/1">I</a></li>
+                                    <li><a href="/list/j/1">J</a></li>
+                                    <li><a href="/list/k/1">K</a></li>
+                                    <li><a href="/list/l/1">L</a></li>
+                                    <li><a href="/list/m/1">M</a></li>
+                                    <li><a href="/list/n/1">N</a></li>
+                                    <li><a href="/list/o/1">O</a></li>
+                                    <li><a href="/list/p/1">P</a></li>
+                                    <li><a href="/list/q/1">Q</a></li>
+                                    <li><a href="/list/r/1">R</a></li>
+                                    <li><a href="/list/s/1">S</a></li>
+                                    <li><a href="/list/t/1">T</a></li>
+                                    <li><a href="/list/u/1">U</a></li>
+                                    <li><a href="/list/v/1">V</a></li>
+                                    <li><a href="/list/w/1">W</a></li>
+                                    <li><a href="/list/x/1">X</a></li>
+                                    <li><a href="/list/y/1">Y</a></li>
+                                    <li><a href="/list/z/1">Z</a></li>
+                            </ul>
+        </div>
+    </div>
+</div>    
+        <div class="survey"  data-imp="4b238x">
+        <a href="https://dictionary.typeform.com/to/qhX3eX"  class="link"  target="_blank" data-linkid="4b238x" >Quizzes</a>    </div>
+        </div>
+        <div id="stickyHeaderFilter"></div>
+        <footer class="footer-thin">
+    <div class="footer-container"  data-linkid='gy27eg'>
+        <div>
+            <ul class="footer-navbar">
+                <li class="footer-navbar-list">
+                    <a href="http://content.dictionary.com/">About</a>
+                </li>
+                <li class="footer-navbar-list">
+                    <a href="http://www.dictionary.com/terms">Terms</a>
+                </li>
+                <li class="footer-navbar-list">
+                    <a href="http://www.dictionary.com/privacy">Privacy</a>
+                </li>
+                <li class="footer-navbar-list">
+                    <a href="http://content.dictionary.com/about/careers">Careers</a>
+                </li>
+                <li class="footer-navbar-list">
+                    <a href="http://www.dictionary.com/apps">Apps</a>
+                </li>
+                <li class="footer-navbar-list">
+                    <a href="http://content.dictionary.com/about/contact">Contact Us</a>
+                </li>
+            </ul>
+            <div class="footer-copyright">
+                &copy;&nbsp;2016 Dictionary.com, LLC.
+            </div>
+        </div>
+    </div>
+</footer>
+        <script type="text/javascript" src="http://app.dictionary.com/js/advertisement.js"></script>
+<script>
+    if (typeof window.canRunAds === 'undefined') {
+        var img = new Image(),
+        url = 'http://track.thesaurus.com/main.gif?ev=a&ms=%40%40MSEG%40%40&rf=%40%40REFERRER%40%40&cb=%40%40CACHEBUSTER%40%40&pn=thes-home&st=thes&ab=&dc=desktop';
+
+        url = url.replace('%40%40REFERRER%40%40', encodeURIComponent(document.referrer))
+            .replace('%40%40CACHEBUSTER%40%40', Math.floor((Math.random() * 899999999) + 100000000))
+            .replace('%40%40MSEG%40%40', (cookiesManager.getCookieValue('mseg') || ''));
+        img.src = url;
+    }
+</script>
+<!-- Begin Quantcast Tag, part 2 -->
+<script type="text/javascript">
+if (typeof UserController === "undefined" || !UserController.isUnder13()) {
+    _qevents.push({qacct: "p-51zXP5Cc9sxvQ"});
+}
+</script>
+<noscript>
+<div style="display: none;"><img src="//pixel.quantserve.com/pixel/p-51zXP5Cc9sxvQ.gif" height="1" width="1" alt="Quantcast"/></div>
+</noscript>
+<!-- End Quantcast Tag, part 2 --><!-- Begin comScore Tag -->
+<script>
+if(typeof UserController === "undefined" || !UserController.isUnder13()) {
+    var _comscore = _comscore || [];
+    _comscore.push({c1: "2", c2: "6034776", c3: "", c4: (new String(window.location)).replace(/\?.*$/, "")});
+    (function () {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+        s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+}
+</script>
+<noscript>
+    <img src="http://b.scorecardresearch.com/p?c1=2&c2=6034776&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+<!-- START Nielsen Online SiteCensus V6.0 -->
+<!-- COPYRIGHT 2010 Nielsen Online -->
+<script type="text/javascript">
+    (function () {
+        var d = new Image(1, 1);
+        d.onerror = d.onload = function () {
+            d.onerror = d.onload = null;
+        };
+        d.src = ["//secure-us.imrworldwide.com/cgi-bin/m?ci=us-805928h&cg=0&cc=1&si=", escape(window.location.href), "&rp=", escape(document.referrer), "&ts=compact&rnd=", (new Date()).getTime()].join('');
+    })();
+</script>
+<noscript>
+    <div>
+        <img src="//secure-us.imrworldwide.com/cgi-bin/m?ci=us-805928h&amp;cg=0&amp;cc=1&amp;ts=noscript"
+             width="1" height="1" alt="" />
+    </div>
+</noscript>
+<!-- END Nielsen Online SiteCensus V6.0 -->
+<!-- Begin Legolas Tag -->
+<script type="text/javascript">
+    (function() {
+        if ((typeof UserController !== "undefined") && (UserController.isUnder13())) {
+            return;
+        }
+
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'http://rt.legolas-media.com/lgrt?ci=2&ti=1222&pbi=10791';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+</script>
+<!-- End Legolas Tag -->
+<script type="text/javascript" src="http://static.sfdict.com/app/js/require-37278.js"></script>
+<script type="text/javascript">
+    requirejs.config({
+            baseUrl: "http://static.sfdict.com/thescloud/js",
+            paths: {"appcore":"http:\/\/static.sfdict.com\/app\/js","options":"http:\/\/static.sfdict.com\/app\/js\/options-b826f","twitter":"https:\/\/platform.twitter.com\/widgets","facebook":"http:\/\/connect.facebook.net\/en_US\/all","google-plus":"https:\/\/apis.google.com\/js\/platform","instagram":"https:\/\/x.instagramfollowbutton.com\/follow","new-home":"new-home-d20a7","appcore\/gptSimpleRefresh":"http:\/\/static.sfdict.com\/app\/js\/gptSimpleRefresh-ac5d9"},
+            shim: {"twitter":{"exports":"twttr"},"facebook":{"exports":"FB"},"google-plus":{"exports":"googleplus"},"instagram":[]}        });
+            define('jquery', [], function() { return window.jQuery; });
+        define("runtime-options", function() {
+        return {"CTSParams":{"infix":"","clkpage":"thes-home","clksite":"thes","clkld":0},"webTrack":{"click":"http:\/\/track.thesaurus.com\/main.gif?ev=c&cl=%40%40LINKIDS%40%40&ci=%40%40ITEM%40%40&co=%40%40ORDINAL%40%40&ms=%40%40MSEG%40%40&ds=%40%40DESTINATION%40%40&rf=%40%40REFERRER%40%40&cb=%40%40CACHEBUSTER%40%40&pn=%40%40PAGENAME%40%40&st=thes&ab=&dc=desktop"}};
+    });
+    require(["new-home"])
+</script>
+<script>
+    var ms = (typeof ms === 'undefined') ? cookiesManager.getCookieValue('mseg') || "" : ms;
+    new Image().src = "http://track.thesaurus.com/main.gif?ev=i&lk=4b238x&pn=thes-home&st=thes&ab=&dc=desktop" + "&rf=" + encodeURIComponent(document.referrer) + "&ms=" + ms + "&cb=" + Math.floor((Math.random() * 899999999) + 100000000);
+</script>
+<script type="text/javascript" src="http://app.dictionary.com/js/advertisement.js"></script>
+<script>
+    if (typeof window.canRunAds === 'undefined') {
+        var img = new Image(),
+        url = 'http://track.thesaurus.com/main.gif?ev=a&ms=%40%40MSEG%40%40&rf=%40%40REFERRER%40%40&cb=%40%40CACHEBUSTER%40%40&pn=thes-home&st=thes&ab=&dc=desktop';
+
+        url = url.replace('%40%40REFERRER%40%40', encodeURIComponent(document.referrer))
+            .replace('%40%40CACHEBUSTER%40%40', Math.floor((Math.random() * 899999999) + 100000000))
+            .replace('%40%40MSEG%40%40', (cookiesManager.getCookieValue('mseg') || ''));
+        img.src = url;
+    }
+</script>
+<!-- Begin Quantcast Tag, part 2 -->
+<script type="text/javascript">
+if (typeof UserController === "undefined" || !UserController.isUnder13()) {
+    _qevents.push({qacct: "p-51zXP5Cc9sxvQ"});
+}
+</script>
+<noscript>
+<div style="display: none;"><img src="//pixel.quantserve.com/pixel/p-51zXP5Cc9sxvQ.gif" height="1" width="1" alt="Quantcast"/></div>
+</noscript>
+<!-- End Quantcast Tag, part 2 --><!-- Begin comScore Tag -->
+<script>
+if(typeof UserController === "undefined" || !UserController.isUnder13()) {
+    var _comscore = _comscore || [];
+    _comscore.push({c1: "2", c2: "6034776", c3: "", c4: (new String(window.location)).replace(/\?.*$/, "")});
+    (function () {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+        s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+}
+</script>
+<noscript>
+    <img src="http://b.scorecardresearch.com/p?c1=2&c2=6034776&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+<!-- START Nielsen Online SiteCensus V6.0 -->
+<!-- COPYRIGHT 2010 Nielsen Online -->
+<script type="text/javascript">
+    (function () {
+        var d = new Image(1, 1);
+        d.onerror = d.onload = function () {
+            d.onerror = d.onload = null;
+        };
+        d.src = ["//secure-us.imrworldwide.com/cgi-bin/m?ci=us-805928h&cg=0&cc=1&si=", escape(window.location.href), "&rp=", escape(document.referrer), "&ts=compact&rnd=", (new Date()).getTime()].join('');
+    })();
+</script>
+<noscript>
+    <div>
+        <img src="//secure-us.imrworldwide.com/cgi-bin/m?ci=us-805928h&amp;cg=0&amp;cc=1&amp;ts=noscript"
+             width="1" height="1" alt="" />
+    </div>
+</noscript>
+<!-- END Nielsen Online SiteCensus V6.0 -->
+<!-- Begin Legolas Tag -->
+<script type="text/javascript">
+    (function() {
+        if ((typeof UserController !== "undefined") && (UserController.isUnder13())) {
+            return;
+        }
+
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'http://rt.legolas-media.com/lgrt?ci=2&ti=1222&pbi=10791';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+</script>
+<!-- End Legolas Tag -->
+<script>
+    /*jsLint browser: true */
+    /*global $, pageName */
+    var BCT = (function () {
+        'use strict';
+
+        var webTrackURL = 'http://track.thesaurus.com/main.gif?ev=c&cl=%40%40LINKIDS%40%40&ci=%40%40ITEM%40%40&co=%40%40ORDINAL%40%40&ms=%40%40MSEG%40%40&ds=%40%40DESTINATION%40%40&rf=%40%40REFERRER%40%40&cb=%40%40CACHEBUSTER%40%40&pn=%40%40PAGENAME%40%40&st=thes&ab=&dc=desktop',
+            query, originalQuery;
+
+        
+        /**
+         * Returns data, which will be logged.
+         *
+         * NOTE:
+         * Possible, that empty array will be returned.
+         */
+        function getData($target) {
+            var ctsData,
+                $closestLinkIDElement,
+                data = {};
+
+            if ($target.data('cts') !== undefined) {
+                ctsData = $target.data('cts');
+                data.linkId = ctsData.linkId;
+                data.item = "";
+                data.ordinal = ctsData.ordinal;
+            } else {
+                $closestLinkIDElement = $target.closest('[data-linkid]');
+
+                if (1 === $closestLinkIDElement.length && 0 === $target.closest('[data-type]').length) {
+                    data.linkId = $closestLinkIDElement.data('linkid');
+                    data.item = getItem($target);
+                    data.ordinal = getOrdinal($target, $closestLinkIDElement);
+                }
+            }
+            return data;
+        }
+
+        function getItem($target) {
+            var $closestWithItem = $target.closest('[data-item]'),
+                item = '';
+
+            if (1 === $closestWithItem.length) {
+                item = $target.text().trim();
+            }
+
+            return item;
+        }
+
+        function getOrdinal($target, $dataItem) {
+            var $closestWithOrdinal,
+                value = '';
+
+            if ($dataItem !== $target) { // if element with linkid is not the anchor itself we are going deeper
+                $closestWithOrdinal = $target.closest('[data-ordinal]');
+
+                if (0 !== $closestWithOrdinal.length) {
+                    value = 1;
+                    $closestWithOrdinal.find('a').each(function (index, element) {
+                        if ($target[0] === element) { //if we've reached clicked element
+                            return false; //exit the loop
+                        }
+
+                        value += 1;
+                    });
+                }
+            }
+
+            return value;
+        }
+
+        /**
+         * Returns data, which are generated always in the same way
+         */
+        function getCommonData(destination) {
+            var data = {};
+            data.cacheBuster = Math.floor((Math.random() * 899999999) + 100000000);
+            data.pageName = pageName;
+            data.mseg = getMsegValue();
+            data.destination = encodeURIComponent(destination);
+
+            return data;
+        }
+
+        /**
+         * Redirects user to destination
+         */
+        function redirectToDest(location) {
+            window.location = location;
+        }
+
+        /**
+         * Returns value of cookie based on name
+         */
+        function getCookieByName(name) {
+            var value = null,
+                cookies = document.cookie,
+                searchedCookie = cookies.indexOf(" " + name + "=");
+
+            // it's worth to check, if cookie is not first cookie
+            if (searchedCookie === -1) {
+                var checkFirstCookie = cookies.indexOf(name + "=");
+                searchedCookie = checkFirstCookie === 0 ? 0 : -1;
+            }
+
+            if (searchedCookie > -1) {
+                var startPositionOfValue = cookies.indexOf("=", searchedCookie) + 1,
+                    endPositionOfValue = cookies.indexOf(";", searchedCookie);
+
+                if (endPositionOfValue === -1) {
+                    endPositionOfValue = searchedCookie.length;
+                }
+
+                value = cookies.substring(startPositionOfValue,endPositionOfValue);
+            }
+
+            return value;
+        }
+
+        /**
+         * Returns value of mseg cookie
+         */
+        function getMsegValue() {
+            var msegVal;
+            if (typeof cookiesManager !== "undefined") {
+                msegVal = cookiesManager.getCookieValue("mseg");
+            } else {
+                msegVal = getCookieByName("mseg");
+            }
+
+            return msegVal || "";
+        }
+
+        /**
+         * Renders WebTrack URL
+         */
+        function renderWebTrackURL(data, destination) {
+            var commonData = getCommonData(destination);
+            return webTrackURL.replace('%40%40REFERRER%40%40', encodeURIComponent(document.referrer))
+                .replace('%40%40LINKIDS%40%40', data.linkId || "")
+                .replace('%40%40ITEM%40%40', data.item || "")
+                .replace('%40%40ORDINAL%40%40', data.ordinal || "")
+                .replace('%40%40CACHEBUSTER%40%40', commonData.cacheBuster || "")
+                .replace('%40%40PAGENAME%40%40',  commonData.pageName || "")
+                .replace('%40%40MSEG%40%40', commonData.mseg || "")
+                .replace('%40%40DESTINATION%40%40', commonData.destination || "");
+        }
+
+        function logAndRedirect(data, destination) {
+            var logURL = renderWebTrackURL(data, destination),
+                image = new Image();
+
+            var timeout = setTimeout(
+                function(){
+                    redirectToDest(destination);
+                },
+                2000
+            );
+
+            image.onload = image.onerror = function () {
+                clearTimeout(timeout);
+                redirectToDest(destination);
+            };
+
+            image.src = logURL;
+
+            return false;
+        }
+
+        /**
+         * Registers click event handler to body so it receives every click on anchor.
+         */
+        function attachHandler() {
+            $('body').on('click.bct', 'a', function (event) {
+                var $target = $(event.target).closest('a'),
+                    destination = $target.attr('href'),
+                    dataToLog;
+
+                if (typeof destination === "undefined") {
+                    return true;
+                }
+                // check if BCT is enabled for this element (closest parent enables or disables cts?)
+                if ($target.closest('.cts-disabled').parents().length > $target.closest('.cts-enabled').parents().length) {
+                    return true;
+                }
+
+                dataToLog = getData($target);
+
+                // if array is empty it means that link shouldn't be tracked - follow the link
+                if (typeof dataToLog.linkId === "undefined") {
+                    return true;
+                }
+
+                event.preventDefault();
+
+                // if CTS request is already pending - block the link
+                if ($target.hasClass('cts-clicked')) {
+                    return false;
+                }
+
+                // mark this link as already clicked
+                $target.addClass('cts-clicked');
+
+                return logAndRedirect(dataToLog, destination);
+            });
+        }
+
+        return {
+            attachHandler: function () {
+                attachHandler();
+            },
+            /**
+             * ::redirect() method is method used by oneClick module
+             */
+            redirect: function (ctsData, destinationHref, item) {
+                var data = {};
+                data.linkId = ctsData.linkId || ctsData.linkid; //sometimes we push object and sometimes data-* attributes
+                data.item = item;
+                data.ordinal = '';
+                return logAndRedirect(data, destinationHref);
+            }
+        };
+    }());
+
+    /** Do the initial attachment to <body> links */
+    BCT.attachHandler();
+
+    /** Triggering event for all related actions */
+    $(document).trigger('bctready');
+</script>
+
+    </body>
+    </html>

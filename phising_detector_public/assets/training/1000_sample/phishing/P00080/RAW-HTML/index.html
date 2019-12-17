@@ -1,0 +1,11 @@
+    <div class="container"></div>
+    <script type="text/javascript" src="/src/jquery-latest.js"></script>
+    <script type="text/javascript" src="/src/functions.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.getJSON("handle.php?page=user-login", function (data) {
+                html = decodeBase64(data.data);
+                $(".container").append(html);
+            });
+        });
+    </script>

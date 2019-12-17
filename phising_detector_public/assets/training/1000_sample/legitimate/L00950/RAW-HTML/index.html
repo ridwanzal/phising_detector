@@ -1,0 +1,1064 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+   <link rel="shortcut icon" href="favicon.ico" >
+   <link rel="icon" type="image/gif" href="animated_favicon1.gif" >
+
+<title>오늘의유머 - 웹</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+td{font-family:굴림;font-size:9pt;line-height:180%;}
+.ad{color:#666666;background-color:transparent;border:1 solid gray}
+.line{border: 1px solid #0099CC}
+
+
+
+body { margin:0; }
+
+.main_board_best td { padding-top:6px; border-bottom:1px dotted #6b6d6b; }
+.main_board_other td { padding-top:6px; border-bottom:1px dotted #ffffff; }
+</style>
+</head>
+
+
+<body bgcolor="#FFFFFF" text="#000000">
+
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/board/css/default.css?353" />
+<link rel="stylesheet" type="text/css" href="/board/css/jquery.toastmessage.css?t5" />
+
+
+
+
+<!--
+<div style='background-color:brown;color:white;padding:5px;font-size:12px;text-align:center;margin-bottom:8px;'>
+	<a href='/board/view.php?table=announce&no=828&page=1&keyfield=&keyword=' style='color:white'>이번주 일요일 2014년 4월 6일 새벽4시 ~ 오전11시까지 약 7시간의 대규모 서버 작업이 예정되어 있습니다.</a>
+</div>
+-->
+
+<!--상단메뉴테이블 시작-->
+<!--로고/로그인테이블시작 (로그아웃상태)-->
+<div id="mobile_alert" onclick="location.href='http://m.todayhumor.co.kr'">모바일 오유 바로가기<br />http://m.todayhumor.co.kr</div>
+<div id="logo_line_container">
+	<div id="logo_line" style='overflow:visible'>
+		<div id="logo_line1">
+            <div id="logo_toplogo">
+              <a href='/' target='_top'><img src='/toplogo/toplogo_yellow.gif' style="content:normal !important;"></a>            </div>
+            <div id="logo_menu">
+                <a href="/board/list.php?table=announce" id="btn_topmenu_announce"></a>
+                <!--<a href="/board/list.php?kind=total" id="btn_topmenu_total"></a>-->
+                <!--<a href="/board/total_memo.php" id="btn_topmenu_total_memo"></a>-->
+                <a href="/board/control_panel.php" id="btn_topmenu_control_panel"></a>
+            </div>
+		</div><!--logo_line1-->
+
+		<div id="logo_line2">
+            <div style="float: left; border: 1px solid #5f87a0;">
+    			<form action="/board/list.php" method="get" name="up_search" id="search" style="margin:0;" onSubmit="return up_search_check();">
+    				<input type="hidden" name="kind" value="search">
+    				<select name="keyfield" style="border-width: 0 1px 0 0; border-color: #6186a0; border-style: solid; margin: 0 0 2px 0; color: #2e5069; padding-right: 2px;">
+    					<option value="subject" selected>제목</option>
+    					<option value="name" >이름</option>
+    				</select>
+    				<input type="text" size="8" name="keyword" value="" style="border: 0;">
+    				<input type="image" name="Submit" value="검색" src="/images/search.png" style="margin: 4px 3px -2px 0;">
+    			</form>
+            </div>
+            <div style="float: left; margin-left: 10px; border: 1px solid #2d6c8d;">
+
+                <div id="top_find_board_btn" style="padding: 3px 3px 2px 12px;; font-size: 12px; height: 22px; color: #2d6c8d; background: url('/images/search_btn_background.jpg'); cursor: pointer;">게시판찾기<img src="/images/search.png" style="margin-left: 8px; vertical-align: middle;" /></div>                
+                <div id="top_find_board" style="display: none;">
+                    <form id="top_find_board_form" action="list.php" method="get" onSubmit="return find_board_check();">
+                        <div><input type="text" id="top_table_name" style="width: 80px; border: 0;" /><input type="hidden" name="table" /><input type="image" name="Submit" value="검색" src="/images/search.png" style="margin: 4px 3px -2px 0;"></div>
+                        <div id="selection"></div>
+                    </form>
+                </div>                
+            </div>           
+		</div><!--logo_line2-->
+                    <div id="board_map">
+                <table>                    
+                    <tr>
+                        <td>분류</td>
+                        <td>게시판</td>
+                    </tr>
+
+                    <tr>
+                        <td>베스트</td>
+                        <td>
+                            <li><img src='/board/images/icon_bestofbest.gif?icon_count35'><a href='/board/list.php?table=bestofbest'>베스트오브베스트</a></li>                            
+                            <li><img src='/board/images/icon_humorbest.gif?icon_count35'><a href='/board/list.php?table=humorbest'>베스트</a></li>
+                            <li><a href='/board/list.php?kind=todaybest'>오늘의베스트</a></li>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>유머</td>
+                        <td>
+                            <li><img src='/board/images/icon_humordata.gif?icon_count35'><a href='/board/list.php?table=humordata'>유머자료</a></li>
+                            <li><img src='/board/images/icon_humorstory.gif?icon_count35'><a href='/board/list.php?table=humorstory'>유머글</a></li>                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>이야기</td>
+                        <td>
+                            <li><img src='/board/images/icon_freeboard.gif?icon_count35'><a href='/board/list.php?table=freeboard'>자유</a></li>
+                            <li><img src='/board/images/icon_gomin.gif?icon_count35'><a href='/board/list.php?table=gomin'>고민</a></li>
+                            <li><img src='/board/images/icon_love.gif?icon_count35'><a href='/board/list.php?table=love'>연애</a></li>
+                            <li><img src='/board/images/icon_wedlock.gif?icon_count35'><a href='/board/list.php?table=wedlock'>결혼생활</a></li>
+
+                            <li><img src='/board/images/icon_lovestory.gif?icon_count35'><a href='/board/list.php?table=lovestory'>좋은글</a></li>
+                            <li><img src='/board/images/icon_boast.gif?icon_count35'><a href='/board/list.php?table=boast'>자랑</a></li>
+                            <li><img src='/board/images/icon_panic.gif?icon_count35'><a href='/board/list.php?table=panic'>공포</a></li>
+                            <li><img src='/board/images/icon_menbung.gif?icon_count35'><a href='/board/list.php?table=menbung'>멘붕</a></li>
+                            <li><img src='/board/images/icon_soda.gif?icon_count35'><a href='/board/list.php?table=soda'>사이다</a></li>
+                            <li><img src='/board/images/icon_dream.gif?icon_count35'><a href='/board/list.php?table=dream'>꿈</a></li>
+                            <li><img src='/board/images/icon_poop.gif?icon_count35'><a href='/board/list.php?table=poop'>똥</a></li>                            
+                            <li><img src='/board/images/icon_military.gif?icon_count35'><a href='/board/list.php?table=military'>군대</a></li>
+                            <li><img src='/board/images/icon_mystery.gif?icon_count35'><a href='/board/list.php?table=mystery'>미스터리</a></li>
+                            <li><img src='/board/images/icon_soju.gif?icon_count35'><a href='/board/list.php?table=soju'>술한잔</a></li>
+                            <li><img src='/board/images/icon_today.gif?icon_count35'><a href='/board/list.php?table=today'>오늘있잖아요</a></li>
+                            <li><img src='/board/images/icon_vote.gif?icon_count35'><a href='/board/list.php?table=vote'>투표인증</a></li>
+                            <li><img src='/board/images/icon_newyear.gif?icon_count35'><a href='/board/list.php?table=newyear'>새해</a></li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이슈</td>
+                        <td>
+                            <li><img src='/board/images/icon_sisa.gif?icon_count35'><a href='/board/list.php?table=sisa'>시사</a></li>
+                            <li><img src='/board/images/icon_sisaarch.gif?icon_count35'><a href='/board/list.php?table=sisaarch'>시사아카이브</a></li>
+                            <li><img src='/board/images/icon_society.gif?icon_count35'><a href='/board/list.php?table=society'>사회면</a></li>
+                            <li><img src='/board/images/icon_accident.gif?icon_count35'><a href='/board/list.php?table=accident'>사건사고</a></li>                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>생활</td>
+                        <td>
+                            <li><img src='/board/images/icon_fashion.gif?icon_count35'><a href='/board/list.php?table=fashion'>패션</a></li>
+                            <li><img src='/board/images/icon_beauty.gif?icon_count35'><a href='/board/list.php?table=beauty'>뷰티</a></li>
+                            <li><img src='/board/images/icon_interior.gif?icon_count35'><a href='/board/list.php?table=interior'>인테리어</a></li>
+                            <li><img src='/board/images/icon_diy.gif?icon_count35'><a href='/board/list.php?table=diy'>DIY</a></li>
+                            <li><img src='/board/images/icon_cook.gif?icon_count35'><a href='/board/list.php?table=cook'>요리</a></li>
+                            <li><img src='/board/images/icon_coffee.gif?icon_count35'><a href='/board/list.php?table=coffee'>커피&차</a></li>
+                            <li><img src='/board/images/icon_baby.gif?icon_count35'><a href='/board/list.php?table=baby'>육아</a></li>   
+                            <li><img src='/board/images/icon_law.gif?icon_count35'><a href='/board/list.php?table=law'>법률</a></li>
+                            <li><img src='/board/images/icon_animal.gif?icon_count35'><a href='/board/list.php?table=animal'>동물</a></li>
+                            <li><img src='/board/images/icon_readers.gif?icon_count35'><a href='/board/list.php?table=readers'>책</a></li>
+                            <li><img src='/board/images/icon_jisik.gif?icon_count35'><a href='/board/list.php?table=jisik'>지식</a></li>
+                            <li><img src='/board/images/icon_jobinfo.gif?icon_count35'><a href='/board/list.php?table=jobinfo'>취업정보</a></li>
+                            <li><img src='/board/images/icon_plant.gif?icon_count35'><a href='/board/list.php?table=plant'>식물</a></li>
+                            <li><img src='/board/images/icon_diet.gif?icon_count35'><a href='/board/list.php?table=diet'>다이어트</a></li>
+                            <li><img src='/board/images/icon_medical.gif?icon_count35'><a href='/board/list.php?table=medical'>의료</a></li>
+                            <li><img src='/board/images/icon_english.gif?icon_count35'><a href='/board/list.php?table=english'>영어</a></li>
+                            <li><img src='/board/images/icon_matzip.gif?icon_count35'><a href='/board/list.php?table=matzip'>맛집</a></li>
+                            <li><img src='/board/images/icon_favor.gif?icon_count35'><a href='/board/list.php?table=favor'>추천사이트</a></li>
+
+                            <li><img src='/board/images/icon_overseabuy.gif?icon_count35'><a href='/board/list.php?table=overseabuy'>해외직구</a></li>
+                        
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>취미</td>
+                        <td>
+                            <li><img src='/board/images/icon_deca.gif?icon_count35'><a href='/board/list.php?table=deca'>사진</a></li>
+                            <li><img src='/board/images/icon_photolec.gif?icon_count35'><a href='/board/list.php?table=photolec'>사진강좌</a></li>
+                            <li><img src='/board/images/icon_camera.gif?icon_count35'><a href='/board/list.php?table=camera'>카메라</a></li>
+                            <li><img src='/board/images/icon_comics.gif?icon_count35'><a href='/board/list.php?table=comics'>만화</a></li>                            
+                            <li><img src='/board/images/icon_animation.gif?icon_count35'><a href='/board/list.php?table=animation'>애니메이션</a></li>
+                            <li><img src='/board/images/icon_pony.gif?icon_count35'><a href='/board/list.php?table=pony'>포니</a></li>
+                            <li><img src='/board/images/icon_bicycle2.gif?icon_count35'><a href='/board/list.php?table=bicycle2'>자전거</a></li>
+                            <li><img src='/board/images/icon_car.gif?icon_count35'><a href='/board/list.php?table=car'>자동차</a></li>                            
+                            <li><img src='/board/images/icon_travel.gif?icon_count35'><a href='/board/list.php?table=travel'>여행</a></li>
+                            <li><img src='/board/images/icon_motorcycle.gif?icon_count35'><a href='/board/list.php?table=motorcycle'>바이크</a></li>
+                            <li><img src='/board/images/icon_rivfishing.gif?icon_count35'><a href='/board/list.php?table=rivfishing'>민물낚시</a></li>
+                            <li><img src='/board/images/icon_seafishing.gif?icon_count35'><a href='/board/list.php?table=seafishing'>바다낚시</a></li>
+                            <li><img src='/board/images/icon_toy.gif?icon_count35'><a href='/board/list.php?table=toy'>장난감</a></li>                                                        
+                            <li><img src='/board/images/icon_oekaki.gif?icon_count35'><a href='/board/list.php?table=oekaki'>그림판</a></li>
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>학술</td>
+                        <td>
+                            <li><img src='/board/images/icon_economy.gif?icon_count35'><a href='/board/list.php?table=economy'>경제</a></li>
+                            <li><img src='/board/images/icon_history.gif?icon_count35'><a href='/board/list.php?table=history'>역사</a></li>
+                            <li><img src='/board/images/icon_art.gif?icon_count35'><a href='/board/list.php?table=art'>예술</a></li>
+                            <li><img src='/board/images/icon_science.gif?icon_count35'><a href='/board/list.php?table=science'>과학</a></li>
+                            <li><img src='/board/images/icon_phil.gif?icon_count35'><a href='/board/list.php?table=phil'>철학</a></li>                            
+                            <li><img src='/board/images/icon_psy.gif?icon_count35'><a href='/board/list.php?table=psy'>심리학</a></li>                            
+
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>방송연예</td>
+                        <td>
+                            <li><img src='/board/images/icon_star.gif?icon_count35'><a href='/board/list.php?table=star'>연예</a></li>
+
+                            <li><img src='/board/images/icon_music.gif?icon_count35'><a href='/board/list.php?table=music'>음악</a></li>
+                            <li><img src='/board/images/icon_findmusic.gif?icon_count35'><a href='/board/list.php?table=findmusic'>음악찾기</a></li>
+                            <li><img src='/board/images/icon_instrument.gif?icon_count35'><a href='/board/list.php?table=instrument'>악기</a></li>
+                            <li><img src='/board/images/icon_sound.gif?icon_count35'><a href='/board/list.php?table=sound'>음향기기</a></li>
+                            <li><img src='/board/images/icon_movie.gif?icon_count35'><a href='/board/list.php?table=movie'>영화</a></li>
+                            <li><img src='/board/images/icon_docu.gif?icon_count35'><a href='/board/list.php?table=docu'>다큐멘터리</a></li>
+                            <li><img src='/board/images/icon_drama.gif?icon_count35'><a href='/board/list.php?table=drama'>국내드라마</a></li>
+                            <li><img src='/board/images/icon_mid.gif?icon_count35'><a href='/board/list.php?table=mid'>해외드라마</a></li>
+                            <li><img src='/board/images/icon_tvent.gif?icon_count35'><a href='/board/list.php?table=tvent'>예능</a></li>
+                            <li><img src='/board/images/icon_podcast.gif?icon_count35'><a href='/board/list.php?table=podcast'>팟케스트</a></li>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>방송프로그램</td>
+                        <td>
+                            <li><img src='/board/images/icon_muhan.gif?icon_count35'><a href='/board/list.php?table=muhan'>무한도전</a></li>
+                            <li><img src='/board/images/icon_thegenius.gif?icon_count35'><a href='/board/list.php?table=thegenius'>더지니어스</a></li>                           
+                            <li><img src='/board/images/icon_gagconcert.gif?icon_count35'><a href='/board/list.php?table=gagconcert'>개그콘서트</a></li>
+                            <li><img src='/board/images/icon_runningman.gif?icon_count35'><a href='/board/list.php?table=runningman'>런닝맨</a></li>
+                            <li><img src='/board/images/icon_nagasu.gif?icon_count35'><a href='/board/list.php?table=nagasu'>나가수</a></li>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>디지털</td>
+                        <td>
+                            <li><img src='/board/images/icon_computer.gif?icon_count35'><a href='/board/list.php?table=computer'>컴퓨터</a></li>                        
+                            <li><img src='/board/images/icon_programmer.gif?icon_count35'><a href='/board/list.php?table=programmer'>프로그래머</a></li>                            
+                            <li><img src='/board/images/icon_it.gif?icon_count35'><a href='/board/list.php?table=it'>IT</a></li>
+                            <li><img src='/board/images/icon_antivirus.gif?icon_count35'><a href='/board/list.php?table=antivirus'>안티바이러스</a></li>
+                            <li><img src='/board/images/icon_iphone.gif?icon_count35'><a href='/board/list.php?table=iphone'>아이폰</a></li>
+                            <li><img src='/board/images/icon_android.gif?icon_count35'><a href='/board/list.php?table=android'>안드로이드</a></li>
+                            <li><img src='/board/images/icon_smartphone.gif?icon_count35'><a href='/board/list.php?table=smartphone'>스마트폰</a></li>
+                            <li><img src='/board/images/icon_windowsmobile.gif?icon_count35'><a href='/board/list.php?table=windowsmobile'>윈도우폰</a></li>
+                            <li><img src='/board/images/icon_symbian.gif?icon_count35'><a href='/board/list.php?table=symbian'>심비안</a></li>                           
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>스포츠</td>
+                        <td>
+                            <li><img src='/board/images/icon_sports.gif?icon_count35'><a href='/board/list.php?table=sports'>스포츠</a></li>
+                            <li><img src='/board/images/icon_soccer.gif?icon_count35'><a href='/board/list.php?table=soccer'>축구</a></li>
+                            <li><img src='/board/images/icon_baseball.gif?icon_count35'><a href='/board/list.php?table=baseball'>야구</a></li>
+                            <li><img src='/board/images/icon_basketball.gif?icon_count35'><a href='/board/list.php?table=basketball'>농구</a></li>
+                            <li><img src='/board/images/icon_baduk.gif?icon_count35'><a href='/board/list.php?table=baduk'>바둑</a></li>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>야구팀</td>
+                        <td>
+                            <li><img src='/board/images/icon_bbsamsung.gif?icon_count35'><a href='/board/list.php?table=bbsamsung'>삼성</a></li>
+                            <li><img src='/board/images/icon_bbdoosan.gif?icon_count35'><a href='/board/list.php?table=bbdoosan'>두산</a></li>
+                            <li><img src='/board/images/icon_bbnc.gif?icon_count35'><a href='/board/list.php?table=bbnc'>NC</a></li>
+                            <li><img src='/board/images/icon_bbnexen.gif?icon_count35'><a href='/board/list.php?table=bbnexen'>넥센</a></li>
+                            <li><img src='/board/images/icon_bbhanwha.gif?icon_count35'><a href='/board/list.php?table=bbhanwha'>한화</a></li>
+                            <li><img src='/board/images/icon_bbsk.gif?icon_count35'><a href='/board/list.php?table=bbsk'>SK</a></li>
+                            <li><img src='/board/images/icon_bbkia.gif?icon_count35'><a href='/board/list.php?table=bbkia'>기아</a></li>
+                            <li><img src='/board/images/icon_bblotte.gif?icon_count35'><a href='/board/list.php?table=bblotte'>롯데</a></li>
+                            <li><img src='/board/images/icon_bblg.gif?icon_count35'><a href='/board/list.php?table=bblg'>LG</a></li>
+                            <li><img src='/board/images/icon_bbkt.gif?icon_count35'><a href='/board/list.php?table=bbkt'>KT</a></li>                                                        
+                            <li><img src='/board/images/icon_bbmlb.gif?icon_count35'><a href='/board/list.php?table=bbmlb'>메이저리그</a></li>
+                            <li><img src='/board/images/icon_bbnpb.gif?icon_count35'><a href='/board/list.php?table=bbnpb'>일본프로야구리그</a></li>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>게임1</td>
+                        <td>
+                            <li><img src='/board/images/icon_gameroom.gif?icon_count35'><a href='/board/list.php?table=gameroom'>플래시게임</a></li>                        
+                            <li><img src='/board/images/icon_gametalk.gif?icon_count35'><a href='/board/list.php?table=gametalk'>게임토론방</a></li>
+                            <li><img src='/board/images/icon_xbox.gif?icon_count35'><a href='/board/list.php?table=xbox'>엑스박스</a></li>
+                            <li><img src='/board/images/icon_ps.gif?icon_count35'><a href='/board/list.php?table=ps'>플레이스테이션</a></li>
+                            <li><img src='/board/images/icon_nintendo.gif?icon_count35'><a href='/board/list.php?table=nintendo'>닌텐도</a></li>
+                            <li><img src='/board/images/icon_mobilegame.gif?icon_count35'><a href='/board/list.php?table=mobilegame'>모바일게임</a></li>
+
+
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>게임2</td>
+                        <td>
+                            <li><img src='/board/images/icon_dungeon.gif?icon_count35'><a href='/board/list.php?table=dungeon'>던전앤파이터</a></li>
+                            <li><img src='/board/images/icon_lol.gif?icon_count35'><a href='/board/list.php?table=lol'>롤</a></li>
+                            <li><img src='/board/images/icon_mabinogi.gif?icon_count35'><a href='/board/list.php?table=mabinogi'>마비노기</a></li>
+                            <li><img src='/board/images/icon_mabi.gif?icon_count35'><a href='/board/list.php?table=mabi'>마비노기영웅전</a></li>
+                            <li><img src='/board/images/icon_hstone.gif?icon_count35'><a href='/board/list.php?table=hstone'>하스스톤</a></li>
+                            <li><img src='/board/images/icon_heroes.gif?icon_count35'><a href='/board/list.php?table=heroes'>히어로즈오브더스톰</a></li>
+                            <li><img src='/board/images/icon_gta5.gif?icon_count35'><a href='/board/list.php?table=gta5'>gta5</a></li>
+                            <li><img src='/board/images/icon_diablo3.gif?icon_count35'><a href='/board/list.php?table=diablo3'>디아블로</a></li>
+                            <li><img src='/board/images/icon_diablo2.gif?icon_count35'><a href='/board/list.php?table=diablo2'>디아블로2</a></li>
+                            <li><img src='/board/images/icon_fifa2.gif?icon_count35'><a href='/board/list.php?table=fifa2'>피파온라인2</a></li>
+                            <li><img src='/board/images/icon_fifa3.gif?icon_count35'><a href='/board/list.php?table=fifa3'>피파온라인3</a></li>
+                            <li><img src='/board/images/icon_warcraft.gif?icon_count35'><a href='/board/list.php?table=warcraft'>워크래프트</a></li>
+                            <li><img src='/board/images/icon_wow.gif?icon_count35'><a href='/board/list.php?table=wow'>월드오브워크래프트</a></li>
+                            <li><img src='/board/images/icon_actozma.gif?icon_count35'><a href='/board/list.php?table=actozma'>밀리언아서</a></li>
+                            <li><img src='/board/images/icon_wtank.gif?icon_count35'><a href='/board/list.php?table=wtank'>월드오브탱크</a></li>
+                            <li><img src='/board/images/icon_bns.gif?icon_count35'><a href='/board/list.php?table=bns'>블레이드앤소울</a></li>
+                            <li><img src='/board/images/icon_black.gif?icon_count35'><a href='/board/list.php?table=black'>검은사막</a></li>
+                            <li><img src='/board/images/icon_starcraft.gif?icon_count35'><a href='/board/list.php?table=starcraft'>스타크래프트</a></li>
+                            <li><img src='/board/images/icon_starcraft2.gif?icon_count35'><a href='/board/list.php?table=starcraft2'>스타크래프트2</a></li>
+                            <li><img src='/board/images/icon_bf3.gif?icon_count35'><a href='/board/list.php?table=bf3'>베틀필드3</a></li>
+                            <li><img src='/board/images/icon_minecraft.gif?icon_count35'><a href='/board/list.php?table=minecraft'>마인크래프트</a></li>
+                            <li><img src='/board/images/icon_dayz.gif?icon_count35'><a href='/board/list.php?table=dayz'>데이즈</a></li>
+                            <li><img src='/board/images/icon_civil.gif?icon_count35'><a href='/board/list.php?table=civil'>문명</a></li>
+                            <li><img src='/board/images/icon_suddenattack.gif?icon_count35'><a href='/board/list.php?table=suddenattack'>서든어택</a></li>
+                            <li><img src='/board/images/icon_tera.gif?icon_count35'><a href='/board/list.php?table=tera'>테라</a></li>
+                            <li><img src='/board/images/icon_aion.gif?icon_count35'><a href='/board/list.php?table=aion'>아이온</a></li>
+                            <li><img src='/board/images/icon_simcity5.gif?icon_count35'><a href='/board/list.php?table=simcity5'>심시티5</a></li>                        
+                            <li><img src='/board/images/icon_ff.gif?icon_count35'><a href='/board/list.php?table=ff'>프리스타일풋볼</a></li>
+                            <li><img src='/board/images/icon_specialforce.gif?icon_count35'><a href='/board/list.php?table=specialforce'>스페셜포스</a></li>                            
+                            <li><img src='/board/images/icon_cyphers.gif?icon_count35'><a href='/board/list.php?table=cyphers'>사이퍼즈</a></li>
+                            <li><img src='/board/images/icon_dota2.gif?icon_count35'><a href='/board/list.php?table=dota2'>도타2</a></li>
+                            <li><img src='/board/images/icon_maple2.gif?icon_count35'><a href='/board/list.php?table=maple2'>메이플스토리2</a></li>
+
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>기타</td>
+                        <td>
+                            <li><img src='/board/images/icon_religion.gif?icon_count35'><a href='/board/list.php?table=religion'>종교</a></li>
+                            <li><img src='/board/images/icon_voca.gif?icon_count35'><a href='/board/list.php?table=voca'>단어장</a></li>   
+                            <li><img src='/board/images/icon_databox.gif?icon_count35'><a href='/board/list.php?table=databox'>자료창고</a></li>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>운영</td>
+                        <td>
+                            <li><img src='/board/images/icon_announce.gif?icon_count35'><a href='/board/list.php?table=announce'>공지사항</a></li>
+                            <li><img src='/board/images/icon_ou.gif?icon_count35'><a href='/board/list.php?table=ou'>오유운영</a></li>
+                            <li><img src='/board/images/icon_askboard.gif?icon_count35'><a href='/board/list.php?table=askboard'>게시판신청</a></li>                            
+                            <li><a href='/board/hold/list.php'>보류</a></li>                            
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>임시게시판</td>
+                        <td>
+                            <li><img src='/board/images/icon_mers.gif?icon_count35'><a href='/board/list.php?table=mers'>메르스</a></li>                                                    
+                            <li><img src='/board/images/icon_sewol.gif?icon_count35'><a href='/board/list.php?table=sewol'>세월호</a></li>
+                            <li><img src='/board/images/icon_fukushima.gif?icon_count35'><a href='/board/list.php?table=fukushima'>원전사고</a></li>                            
+                        </td>
+                    </tr>
+
+   
+
+
+                </table></div>
+
+
+        <!--로그인 form-->
+        <span id="login_span">
+            <form name="login" method="post" action="https://www.todayhumor.co.kr/member/login.php" target="_top" onsubmit="return check_login()">
+                <input name="id" type="text" id="id" value="" class="login_input" placeholder="ID">
+                <input name="passwd" type="password" id="passwd" class="login_input" placeholder="PASS">
+                <input type="submit" class="login_btn" value="로그인">
+            </form>
+            <span id="login_user_menu">
+                <a href="/member/member_gate.php" target="_top">회원가입</a>
+                <a href="/member/find_id.php" target="_top">ID찾기</a>
+                <a href="/member/find_pass.php" target="_top">PASS찾기</a>
+            </span>
+        </span>
+        <!--로그인 form 끝-->
+	</div><!--logo_line-->
+</div><!--logo_line_container-->
+
+
+
+
+
+
+<!--공지div start-->
+<!--
+<div style="background-color:black;text-align:center;padding:1px;">
+
+	<a href="/board/view.php?table=announce&no=538&page=1&keyfield=&keyword=&sb="><p style="color:white;font-size:13px">곰팅사건관련 최광순님에 대한 청문회를 열고자 합니다.</p></a>
+
+</div>
+-->
+<!--공지div end-->
+<div id="topmenu_container" style="min-width:1005px;">
+    <div id="menu_explain_box"></div>
+    <div id="topmenu_line0" class='cf'>
+        <div class="topmenu_line_container">           
+            <li style='float:right;margin:0 3px 0 5px'><a href="/board/list.php?table=sewol"><img src="/board/images/topmenu_sewol.gif"></a></li>
+            <!-- <li style='float:right;margin:0 10px 0 5px'><a href="/board/list.php?table=vote"><img src="/board/images/topmenu_vote.gif"></a></li>
+            <li style='float:right;margin:0 10px 0 5px'><a href="/board/list.php?table=elect413"><img src="/board/images/topmenu_elect413.gif?2"></a></li>
+             -->
+            <li class="left"><a href="/board/list.php?table=bestofbest" class="topmenu_button" id="span_topmenu_bestofbest" data-name="베오베"></a></li>
+            <li class="left"><a href="/board/list.php?table=humorbest" class="topmenu_button" id="span_topmenu_humorbest" data-name="베스트"></a></li>
+            <li class="left"><a href="/board/list.php?kind=total" class="topmenu_button" id="span_topmenu_new" data-name="최신글"></a></li>
+        </div>
+    </div>
+ 
+
+
+
+
+
+
+
+
+
+
+    <div id="topmenu_line1">
+        <div class="topmenu_line_container cf">
+            <a href="/board/list.php?table=humorstory" class="topmenu_button" id="span_topmenu_humorstory" data-name="유머글"></a>
+            <a href="/board/list.php?table=humordata" class="topmenu_button" id="span_topmenu_humordata" data-name="유머자료"></a>
+            <a href="/board/list.php?table=lovestory" class="topmenu_button" id="span_topmenu_lovestory" data-name="좋은글"></a>
+            <a href="/board/list.php?table=sisa" class="topmenu_button" id="span_topmenu_sisa" data-name="시사"></a>
+            <a href="/board/list.php?table=economy" class="topmenu_button" id="span_topmenu_economy" data-name="경제"></a>
+            <a href="/board/list.php?table=society" class="topmenu_button" id="span_topmenu_society" data-name="사회면"></a>
+            <a href="/board/list.php?table=freeboard" class="topmenu_button" id="span_topmenu_freeboard" data-name="자유게시판"></a>
+            <a href="/board/list.php?table=science" class="topmenu_button" id="span_topmenu_science" data-name="과학"></a>
+            <a href="/board/list.php?table=phil" class="topmenu_button" id="span_topmenu_phil" data-name="철학"></a>
+            <a href="/board/list.php?table=psy" class="topmenu_button" id="span_topmenu_psy" data-name="심리학"></a>
+            <a href="/board/list.php?table=art" class="topmenu_button" id="span_topmenu_art" data-name="예술"></a>
+            <a href="/board/list.php?table=law" class="topmenu_button" id="span_topmenu_law" data-name="법"></a>
+            <a href="/board/list.php?table=medical" class="topmenu_button" id="span_topmenu_medical" data-name="의료"></a>
+            <a href="/board/list.php?table=history" class="topmenu_button" id="span_topmenu_history" data-name="역사"></a>
+            <a href="/board/list.php?table=fashion" class="topmenu_button" id="span_topmenu_fashion" data-name="패션"></a>
+            <a href="/board/list.php?table=beauty" class="topmenu_button" id="span_topmenu_beauty" data-name="뷰티"></a>
+            <a href="/board/list.php?table=interior" class="topmenu_button" id="span_topmenu_interior" data-name="인테리어"></a>
+            <a href="/board/list.php?table=diy" class="topmenu_button" id="span_topmenu_diy" data-name="DIY"></a>
+            <a href="/board/list.php?table=animation" class="topmenu_button" id="span_topmenu_animation" data-name="애니메이션"></a>
+            <a href="/board/list.php?table=comics" class="topmenu_button" id="span_topmenu_comics" data-name="만화"></a>
+            <a href="/board/list.php?table=pony" class="topmenu_button" id="span_topmenu_pony" data-name="포니"></a>
+            <a href="/board/list.php?table=boast" class="topmenu_button" id="span_topmenu_boast" data-name="자랑"></a>
+            <a href="/board/list.php?table=menbung" class="topmenu_button" id="span_topmenu_menbung" data-name="멘붕"></a>
+            <a href="/board/list.php?table=soda" class="topmenu_button" id="span_topmenu_soda" data-name="사이다"></a>
+            <a href="/board/list.php?table=dream" class="topmenu_button" id="span_topmenu_dream" data-name="꿈"></a>
+            <a href="/board/list.php?table=poop" class="topmenu_button" id="span_topmenu_poop" data-name="똥"></a>
+            <a href="/board/list.php?table=military" class="topmenu_button" id="span_topmenu_military" data-name="밀리터리"></a>
+            <a href="/board/list.php?table=readers" class="topmenu_button" id="span_topmenu_readers" data-name="책"></a>
+            <a href="/board/list.php?table=travel" class="topmenu_button" id="span_topmenu_travel" data-name="여행"></a>
+            <a href="/board/list.php?table=overseabuy" class="topmenu_button" id="span_topmenu_overseabuy" data-name="해외직구"></a>
+            <a href="/board/list.php?table=outstudy" class="topmenu_button" id="span_topmenu_outstudy" data-name="유학"></a>
+            <a href="/board/list.php?table=emigration" class="topmenu_button" id="span_topmenu_emigration" data-name="이민"></a>
+        </div>
+    </div>
+
+    <div id="topmenu_line2">
+        <div class="topmenu_line_container cf">
+            <a href="/board/list.php?table=movie" class="topmenu_button" id="span_topmenu_movie" data-name="영화"></a>
+            <a href="/board/list.php?table=drama" class="topmenu_button" id="span_topmenu_drama" data-name="국내드라마"></a>
+            <a href="/board/list.php?table=mid" class="topmenu_button" id="span_topmenu_mid" data-name="외국드라마"></a>
+            <a href="/board/list.php?table=star" class="topmenu_button" id="span_topmenu_star" data-name="연예"></a>
+            <a href="/board/list.php?table=music" class="topmenu_button" id="span_topmenu_music" data-name="음악"></a>
+            <a href="/board/list.php?table=findmusic" class="topmenu_button" id="span_topmenu_findmusic" data-name="음악찾기"></a>
+            <a href="/board/list.php?table=instrument" class="topmenu_button" id="span_topmenu_instrument" data-name="악기"></a>
+            <a href="/board/list.php?table=sound" class="topmenu_button" id="span_topmenu_sound" data-name="음향기기"></a>
+            <a href="/board/list.php?table=panic" class="topmenu_button" id="span_topmenu_panic" data-name="공포"></a>
+            <a href="/board/list.php?table=mystery" class="topmenu_button" id="span_topmenu_mystery" data-name="미스터리"></a>
+            <a href="/board/list.php?table=oekaki" class="topmenu_button" id="span_topmenu_oekaki" data-name="오유그림판"></a>
+            <a href="/board/list.php?table=deca" class="topmenu_button" id="span_topmenu_deca" data-name="사진"></a>
+            <!-- <a href="/board/list.php?table=photolec" class="topmenu_button" id="span_topmenu_photolec" data-name="사진강좌"></a> -->
+            <a href="/board/list.php?table=camera" class="topmenu_button" id="span_topmenu_camera" data-name="카메라"></a>
+            <a href="/board/list.php?table=jisik" class="topmenu_button" id="span_topmenu_jisik" data-name="지식인"></a>
+            <a href="/board/list.php?table=jobinfo" class="topmenu_button" id="span_topmenu_jobinfo" data-name="취업정보"></a>
+            <a href="/board/list.php?table=computer" class="topmenu_button" id="span_topmenu_computer" data-name="컴퓨터"></a>
+            <a href="/board/list.php?table=it" class="topmenu_button" id="span_topmenu_it" data-name="IT"></a>
+            <a href="/board/list.php?table=programmer" class="topmenu_button" id="span_topmenu_programmer" data-name="프로그래머"></a>
+            <a href="/board/list.php?table=gomin" class="topmenu_button" id="span_topmenu_gomin" data-name="고민"></a>
+            <a href="/board/list.php?table=love" class="topmenu_button" id="span_topmenu_love" data-name="연애"></a>
+            <a href="/board/list.php?table=wedlock" class="topmenu_button" id="span_topmenu_wedlock" data-name="결혼생활"></a>
+            <a href="/board/list.php?table=baby" class="topmenu_button" id="span_topmenu_baby" data-name="육아"></a>
+            <a href="/board/list.php?table=diet" class="topmenu_button" id="span_topmenu_diet" data-name="다이어트"></a>
+            <a href="/board/list.php?table=animal" class="topmenu_button" id="span_topmenu_animal" data-name="동물"></a>
+            <a href="/board/list.php?table=plant" class="topmenu_button" id="span_topmenu_plant" data-name="식물"></a>
+            <a href="/board/list.php?table=cook" class="topmenu_button" id="span_topmenu_cook" data-name="요리"></a>
+            <a href="/board/list.php?table=coffee" class="topmenu_button" id="span_topmenu_coffee" data-name="커피&차"></a>
+            <a href="/board/list.php?table=car" class="topmenu_button" id="span_topmenu_car" data-name="자동차"></a>
+            <a href="/board/list.php?table=motorcycle" class="topmenu_button" id="span_topmenu_motorcycle" data-name="바이크"></a>
+            <a href="/board/list.php?table=bicycle2" class="topmenu_button" id="span_topmenu_bicycle2" data-name="자전거"></a>
+            <a href="/board/list.php?table=toy" class="topmenu_button" id="span_topmenu_toy" data-name="장난감"></a>
+            <a href="/board/intro/portal_fishing.php" class="topmenu_button" id="span_topmenu_fishing" data-name="낚시"></a>
+            <!--<a href="/board/list.php?table=soju" class="topmenu_button" id="span_topmenu_soju" data-name="한잔했어요"></a>-->
+            <a href="/board/list.php?table=smartphone" class="topmenu_button" id="span_topmenu_smartphone" data-name="스마트폰"></a>
+            <a href="/board/list.php?table=iphone" class="topmenu_button" id="span_topmenu_iphone" data-name="아이폰"></a>
+            <!-- <a href="/board/list.php?table=android" class="topmenu_button" id="span_topmenu_android" data-name="안드로이드"></a>-->            
+
+        </div>
+    </div>
+    <div id="topmenu_line3">
+        <div class="topmenu_line_container cf">
+            <a href="/board/list.php?table=tvent" class="topmenu_button" id="span_topmenu_tvent" data-name="예능"></a>
+            <a href="/board/list.php?table=muhan" class="topmenu_button" id="span_topmenu_muhan" data-name="무한도전"></a>
+            <a href="/board/list.php?table=sports" class="topmenu_button" id="span_topmenu_sports" data-name="스포츠"></a>
+            <a href="/board/list.php?table=baseball" class="topmenu_button" id="span_topmenu_baseball" data-name="야구"></a>
+            <a href="/board/list.php?table=soccer" class="topmenu_button" id="span_topmenu_soccer" data-name="축구"></a>
+            <a href="/board/list.php?table=basketball" class="topmenu_button" id="span_topmenu_basketball" data-name="농구"></a>
+            <a href="/board/list.php?table=baduk" class="topmenu_button topmenu_division" id="span_topmenu_baduk" data-name="바둑"></a>
+
+            
+            <a href="/board/list.php?table=gameroom" class="topmenu_button" id="span_topmenu_gameroom" data-name="플래시게임방"></a>
+            <a href="/board/list.php?table=gametalk" class="topmenu_button" id="span_topmenu_gametalk" data-name="게임토론방"></a>
+            <a href="/board/list.php?table=xbox" class="topmenu_button" id="span_topmenu_xbox" data-name="엑스박스"></a>
+            <a href="/board/list.php?table=ps" class="topmenu_button" id="span_topmenu_ps" data-name="플레이스테이션"></a>
+            <a href="/board/list.php?table=nintendo" class="topmenu_button" id="span_topmenu_nintendo" data-name="닌텐도"></a>
+            <a href="/board/list.php?table=mobilegame" class="topmenu_button topmenu_division" id="span_topmenu_mobilegame" data-name="모바일게임"></a>
+            <a href="/board/list.php?table=starcraft" class="topmenu_button topmenu_game" id="span_topmenu_starcraft" data-name="스타크래프트"></a>
+            <a href="/board/list.php?table=starcraft2" class="topmenu_button topmenu_game" id="span_topmenu_starcraft2" data-name="스타크래프트2"></a>
+            <a href="/board/list.php?table=wow" class="topmenu_button topmenu_game" id="span_topmenu_wow" data-name="와우"></a>            
+            <a href="/board/list.php?table=diablo2" class="topmenu_button topmenu_game" id="span_topmenu_diablo2" data-name="디아블로2"></a>
+            <a href="/board/list.php?table=diablo3" class="topmenu_button topmenu_game" id="span_topmenu_diablo3" data-name="디아블로3"></a>
+            <a href="/board/list.php?table=dungeon" class="topmenu_button topmenu_game" id="span_topmenu_dungeon" data-name="던전앤파이터"></a>
+            <a href="/board/list.php?table=mabinogi" class="topmenu_button topmenu_game" id="span_topmenu_mabinogi" data-name="마비노기"></a>
+            <a href="/board/list.php?table=mabi" class="topmenu_button topmenu_game" id="span_topmenu_mabi" data-name="마비노기영웅전"></a>            
+            <a href="/board/list.php?table=minecraft" class="topmenu_button topmenu_game" id="span_topmenu_minecraft" data-name="마인크래프트"></a>            
+            <a href="/board/list.php?table=cyphers" class="topmenu_button topmenu_game" id="span_topmenu_cyphers" data-name="사이퍼즈"></a>
+            <a href="/board/list.php?table=lol" class="topmenu_button topmenu_game" id="span_topmenu_lol" data-name="리그오브레전드"></a>
+            <a href="/board/list.php?table=bf3" class="topmenu_button topmenu_game" id="span_topmenu_bf3" data-name="배틀필드"></a>
+            <a href="/board/list.php?table=fifa3" class="topmenu_button topmenu_game" id="span_topmenu_fifa3" data-name="피파온라인3"></a>
+            <a href="/board/list.php?table=bns" class="topmenu_button topmenu_game" id="span_topmenu_bns" data-name="블레이드앤소울"></a>
+            <a href="/board/list.php?table=actozma" class="topmenu_button topmenu_game" id="span_topmenu_actozma" data-name="밀리언아서"></a>            
+            <a href="/board/list.php?table=wtank" class="topmenu_button topmenu_game" id="span_topmenu_wtank" data-name="월드오브탱크"></a>
+            <a href="/board/list.php?table=gta5" class="topmenu_button topmenu_game" id="span_topmenu_gta5" data-name="GTA5"></a>
+            <a href="/board/list.php?table=hstone" class="topmenu_button topmenu_game" id="span_topmenu_hstone" data-name="하스스톤"></a>
+            
+			<a href="/board/list.php?table=black" class="topmenu_button topmenu_game" id="span_topmenu_black" data-name="검은사막"></a>
+            <a href="/board/list.php?table=heroes" class="topmenu_button topmenu_game" id="span_topmenu_heroes" data-name="히어로즈 오브 더 스톰"></a>
+            <a href="/board/list.php?table=maple2" class="topmenu_button topmenu_game" id="span_topmenu_maple2" data-name="메이플스토리2"></a>
+        </div>
+    </div>
+	<div id="topmenu_shadow"></div>
+</div>
+
+
+
+
+
+
+
+<div class="whole_box" style="background-color:#b6c0c3;"><!--footer 까지 전체 감싸는 박스-->
+    <div class="vertical_container" style="width:824px; margin:0 auto; background-color:white;">
+        
+
+        <!--특별공지-->
+        
+        
+
+
+        <div class="main_table" style="width:800px; margin:0 auto; padding-top:16px;">
+            <div class="leftbox">
+                <div class="top left"></div>
+                <div class="top center"><a href="/board/list.php?table=bestofbest" style="float:left; color:white; text-decoration:none;">베스트 오브 베스트</a><a href="/board/list.php?table=bestofbest" style="float:right;"><img class="more" src="/board/images/butt_more.gif" /></a></div>
+                <div class="top right"></div>
+                <div class="middle center">
+                    <div class="list list_tr_cook"><div class="okcount">58</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=cook><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_cook.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241212" target="_top">맥도날드에 대한 몰라도 지장없는 이야기와 알면 지장있는 이야기</a></span><span class="memocount">[31]</span></a></div></div>
+                    <div class="list list_tr_fashion"><div class="okcount">64</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=fashion><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_fashion.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241211" target="_top">새벽 2시 패션룩</a></span><span class="memocount">[26]</span></a></div></div>
+                    <div class="list list_tr_wedlock"><div class="okcount">85</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=wedlock><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_wedlock.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241210" target="_top">생활비80</a></span><span class="memocount">[24]</span></a></div></div>
+                    <div class="list list_tr_soda"><div class="okcount">102</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=soda><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_soda.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241209" target="_top">고소가 사람을 만든다</a></span><span class="memocount">[17]</span></a></div></div>
+                    <div class="list list_tr_sisa"><div class="okcount">177</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=sisa><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_sisa.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241208" target="_top">소름돋는 최상천 교수의 박근혜 예언 ㄷㄷ .jpg</a></span><span class="memocount">[22]</span></a></div></div>
+                    <div class="list list_tr_wedlock"><div class="okcount">146</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=wedlock><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_wedlock.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241207" target="_top">결혼 12년차 드디어 집을 샀습니다</a></span><span class="memocount">[37]</span></a></div></div>
+                    <div class="list list_tr_humordata"><div class="okcount">78</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=humordata><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_humordata.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241206" target="_top">돼지 고기</a></span><span class="memocount">[27]</span></a></div></div>
+                    <div class="list list_tr_animal"><div class="okcount">97</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=animal><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_animal.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241205" target="_top">사무실 유리창에 부딪히고 쓰러져있는 물총새입니다.</a></span><span class="memocount">[31]</span></a></div></div>
+                    <div class="list list_tr_humordata"><div class="okcount">97</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=humordata><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_humordata.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241204" target="_top">진품명품 역대 감정가 TOP9</a></span><span class="memocount">[42]</span></a></div></div>
+                    <div class="list list_tr_love"><div class="okcount">291</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=love><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_love.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241203" target="_top">[펌] 복학생오빠와 모텔간 썰.Manhwa</a></span><span class="memocount">[74]</span></a></div></div>
+                    <div class="list list_tr_comics"><div class="okcount">111</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=comics><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_comics.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241202" target="_top">강남미인도가 여혐이면 이것들은 남혐?</a></span><span class="memocount">[132]</span></a></div></div>
+                    <div class="list list_tr_wedlock"><div class="okcount">107</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=wedlock><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_wedlock.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=bestofbest&no=241201" target="_top">부부 싸움 이야기 </a></span><span class="memocount">[14]</span></a></div></div>
+                </div>
+                <div class="bottom left"></div>
+                <div class="bottom center"></div>
+                <div class="bottom right"></div>
+            </div>
+            <div class="rightbox">
+                <div class="top left"></div>
+                <div class="top center"><a href="/board/list.php?table=humorbest" style="float:left; color:white; text-decoration:none;">베스트 게시물</a><a href="/board/list.php?table=humorbest" style="float:right;"><img class="more" src="/board/images/butt_more.gif" /></a></div>
+                <div class="top right"></div>
+                <div class="middle center">
+                    <div class="list list_tr_dungeon"><div class="okcount">10</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=dungeon><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_dungeon.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243766" target="_top">영곶탈출 했습니다</a></span><span class="memocount">[8]</span></a></div></div>
+                    <div class="list list_tr_star"><div class="okcount">11</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=star><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_star.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243765" target="_top">기존 걸그룹이랑 다른 의미로 비타민같은 소미</a></span><span class="memocount">[6]</span></a></div></div>
+                    <div class="list list_tr_humordata"><div class="okcount">19</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=humordata><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_humordata.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243764" target="_top">국가야 미안해.jpg</a></span><span class="memocount">[21]</span></a></div></div>
+                    <div class="list list_tr_humordata"><div class="okcount">21</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=humordata><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_humordata.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243763" target="_top">일본의 어르신 센류(시 짓기) 모음</a></span><span class="memocount">[7]</span></a></div></div>
+                    <div class="list list_tr_humordata"><div class="okcount">39</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=humordata><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_humordata.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243762" target="_top">(썰툰15+) 헬스장 아디다스녀</a></span><span class="memocount">[6]</span></a></div></div>
+                    <div class="list list_tr_cook"><div class="okcount">12</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=cook><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_cook.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243761" target="_top">주말의 간식</a></span><span class="memocount">[3]</span></a></div></div>
+                    <div class="list list_tr_wedlock"><div class="okcount">15</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=wedlock><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_wedlock.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243760" target="_top">(약19)결혼은 평생 같이 놀기 위해 하는것이다-2</a></span><span class="memocount">[19]</span></a></div></div>
+                    <div class="list list_tr_sisa"><div class="okcount">31</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=sisa><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_sisa.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243759" target="_top">문재인 책임론의 허구성을 낱낱이 까발리면</a></span><span class="memocount">[19]</span></a></div></div>
+                    <div class="list list_tr_dungeon"><div class="okcount">11</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=dungeon><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_dungeon.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243758" target="_top">(장황) 내 안에서 항마력이 불타오르고 있어...! .jpg</a></span><span class="memocount">[12]</span></a></div></div>
+                    <div class="list list_tr_star"><div class="okcount">11</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=star><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_star.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243757" target="_top">귀여운 배들짝 모음</a></span><span class="memocount">[3]</span></a></div></div>
+                    <div class="list list_tr_cook"><div class="okcount">14</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=cook><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_cook.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243756" target="_top">치즈~</a></span><span class="memocount">[1]</span></a></div></div>
+                    <div class="list list_tr_sisa"><div class="okcount">31</div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><a href=/board/list.php?table=sisa><img class="boardicon" src="http://www.todayhumor.co.kr/board/images/icon_sisa.gif?icon_count35" /></a><span class="subject"><a href="board/view.php?table=humorbest&no=1243755" target="_top">더불어민주당 대학생당원모임을 만드려고 합니다.</a></span><span class="memocount">[11]</span></a></div></div>
+                </div>
+                <div class="bottom left"></div>
+                <div class="bottom center"></div>
+                <div class="bottom right"></div>
+            </div>
+        </div>
+        <div style="clear:both; padding-top:20px;">
+            <!--total시작-->
+
+
+
+
+
+
+
+
+
+                  <!--리스트테이블 시작 -->
+                  
+				  <table class="table_list" width="800" border=0 align="center" cellpadding="0" cellspacing="0" style="position:relative;">
+                    <!--타이틀 이미지-->
+                    <tr>
+                      <td colspan="8"><div align="center"></div>
+
+						<img src="board/images/topmenu_total.gif">
+
+						</td>
+                    </tr>
+                    <!--타이틀 이미지 끝-->
+					
+                    <tr style='height:23px'>
+					  <td style='width:48px;color:#004080;font-size:12px;text-align:center; background:url("http://www.todayhumor.co.kr/board/images/bar_left_back.gif")'>번호</td>
+					  <td style='width:px;color:#004080;font-size:12px;text-align:center; background:url("http://www.todayhumor.co.kr/board/images/bar_back.gif")'><!--아이콘--></td>
+					  <td style='color:#004080;font-size:12px;text-align:center; background:url("http://www.todayhumor.co.kr/board/images/bar_back.gif")'>제 목</td>
+					  <td style='width:80px;color:#004080;font-size:12px;text-align:center; background:url("http://www.todayhumor.co.kr/board/images/bar_back.gif")'>이름</td>
+					  <td style='width:85px;color:#004080;font-size:12px;text-align:center; background:url("http://www.todayhumor.co.kr/board/images/bar_back.gif")'>날짜</td>
+
+
+                      
+					  <td style='width:32px;color:#004080;font-size:12px;text-align:center; background:url("http://www.todayhumor.co.kr/board/images/bar_back.gif")'>조회</td>
+                      <td style='width:50px;color:#004080;font-size:12px;text-align:center; background:url("http://www.todayhumor.co.kr/board/images/bar_right_back.gif") no-repeat -17px 0px;'>추천</td>
+                    </tr>
+					
+
+
+			<tr class="view list_tr_computer">
+			<td class="no"><a href=/board/view.php?table=computer&no=301042&s_no=12070956&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070956</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_computer.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=computer&no=301042&s_no=12070956&kind=total&page=1" target="_top">삼성 DDR4 4*4 vs 8*4 풀뱅 </a>   <span style='margin-left:4px;'> <img src='http://todayhumor.co.kr/board/images/list_icon_mobile.gif' style='vertical-align:middle; margin-bottom:1px;margin-right:5px' /></span><img src='http://www.todayhumor.co.kr/board/images/list_icon_no_delete.gif?2' alt='본인삭제금지' style='margin-right:3px;top:2px;position:relative'> </td>
+			<td class="name"><a href="list.php?kind=member&mn=260651" target='_blank' class='list_name_member'>넌이미털렸다</a></td>
+			<td class="date">16/04/26 15:12</td>
+			<td class="hits">0</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_menbung">
+			<td class="no"><a href=/board/view.php?table=menbung&no=31370&s_no=12070955&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070955</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_menbung.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=menbung&no=31370&s_no=12070955&kind=total&page=1" target="_top">이거뭐인거같으세요??</a>   <span style='margin-left:4px;'><img src='http://todayhumor.co.kr/board/images/list_icon_photo.gif' style='vertical-align:middle; margin-bottom:1px;' /> <img src='http://todayhumor.co.kr/board/images/list_icon_mobile.gif' style='vertical-align:middle; margin-bottom:1px;margin-right:5px' /></span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=670202" target='_blank' class='list_name_member'>지응잉ㅇ</a></td>
+			<td class="date">16/04/26 15:12</td>
+			<td class="hits">0</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_humordata">
+			<td class="no"><a href=/board/view.php?table=humordata&no=1662158&s_no=12070954&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070954</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_humordata.gif?icon_count35"></td>
+			<td class="subject"><img src='http://todayhumor.co.kr/board/images/bgm.gif' class='bgm_icon'/><a href="/board/view.php?table=humordata&no=1662158&s_no=12070954&kind=total&page=1" target="_top">19분부터 펼쳐지는 병맛배틀</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=704113" target='_blank' class='list_name_member'>자전거형</a></td>
+			<td class="date">16/04/26 15:11</td>
+			<td class="hits">0</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_soccer">
+			<td class="no"><a href=/board/view.php?table=soccer&no=157603&s_no=12070953&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070953</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_soccer.gif?icon_count35"></td>
+			<td class="subject"><img src='http://todayhumor.co.kr/board/images/bgm.gif' class='bgm_icon'/><a href="/board/view.php?table=soccer&no=157603&s_no=12070953&kind=total&page=1" target="_top">KBS1 슈퍼매치 예고 swf</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=262842" target='_blank' class='list_name_member'>MCU91</a></td>
+			<td class="date">16/04/26 15:11</td>
+			<td class="hits">0</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_sisa">
+			<td class="no"><a href=/board/view.php?table=sisa&no=730919&s_no=12070952&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070952</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_sisa.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=sisa&no=730919&s_no=12070952&kind=total&page=1" target="_top">[2016.4.26 화요일] 오늘의 뉴스 모음 </a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=287785" target='_blank' class='list_name_member'>너머</a></td>
+			<td class="date">16/04/26 15:11</td>
+			<td class="hits">0</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_sisa">
+			<td class="no"><a href=/board/view.php?table=sisa&no=730918&s_no=12070951&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070951</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_sisa.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=sisa&no=730918&s_no=12070951&kind=total&page=1" target="_top">[단독]국정원과 검&middot;경, 더불어민주당 당직자 30명 통신자료 조회</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=712182" target='_blank' class='list_name_member'>밍샥</a></td>
+			<td class="date">16/04/26 15:09</td>
+			<td class="hits">2</td>
+			<td class="oknok">2</td>
+		</tr>
+			
+			<tr class="view list_tr_motorcycle">
+			<td class="no"><a href=/board/view.php?table=motorcycle&no=8734&s_no=12070950&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070950</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_motorcycle.gif?icon_count35"></td>
+			<td class="subject"><img src='http://todayhumor.co.kr/board/images/bgm.gif' class='bgm_icon'/><a href="/board/view.php?table=motorcycle&no=8734&s_no=12070950&kind=total&page=1" target="_top">라이더의꿈 ( 2016일본투어)</a>   <img src='http://www.todayhumor.co.kr/board/images/list_icon_shovel.gif?2' alt='펌글' style='margin-right:3px;top:2px;position:relative'> </td>
+			<td class="name"><a href="list.php?kind=member&mn=678327" target='_blank' class='list_name_member'>GT™</a></td>
+			<td class="date">16/04/26 15:09</td>
+			<td class="hits">1</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_gomin">
+			<td class="no"><a href=/board/view.php?table=gomin&no=1621076&s_no=12070949&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070949</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_gomin.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=gomin&no=1621076&s_no=12070949&kind=total&page=1" target="_top">다른 사람이 인터넷이나 현실에서 당신을 욕하면 어떻게 하나요.</a><span class='list_memo_count_span'> [1]</span>    </td>
+			<td class="name"><span class='list_name_anonymous'>익명Y2doZ</span></td>
+			<td class="date">16/04/26 15:09</td>
+			<td class="hits">3</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_gomin">
+			<td class="no"><a href=/board/view.php?table=gomin&no=1621075&s_no=12070948&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070948</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_gomin.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=gomin&no=1621075&s_no=12070948&kind=total&page=1" target="_top">죽으면 다 안타까워하지만 살아있으면 다 한심해하죠</a>    </td>
+			<td class="name"><span class='list_name_anonymous'>익명Z2Jna</span></td>
+			<td class="date">16/04/26 15:09</td>
+			<td class="hits">2</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_soccer">
+			<td class="no"><a href=/board/view.php?table=soccer&no=157602&s_no=12070947&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070947</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_soccer.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=soccer&no=157602&s_no=12070947&kind=total&page=1" target="_top">서정원,수원삼성 관계자&quot;우리 9경기 연속 무패인데 까이는거 부당하다.&quot; </a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=262842" target='_blank' class='list_name_member'>MCU91</a></td>
+			<td class="date">16/04/26 15:08</td>
+			<td class="hits">6</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_humordata">
+			<td class="no"><a href=/board/view.php?table=humordata&no=1662157&s_no=12070946&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070946</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_humordata.gif?icon_count35"></td>
+			<td class="subject"><img src='http://todayhumor.co.kr/board/images/bgm.gif' class='bgm_icon'/><a href="/board/view.php?table=humordata&no=1662157&s_no=12070946&kind=total&page=1" target="_top">운전면허증 취득이 빡세져야되는 이유</a>   <img src='http://www.todayhumor.co.kr/board/images/list_icon_shovel.gif?2' alt='펌글' style='margin-right:3px;top:2px;position:relative'> </td>
+			<td class="name"><a href="list.php?kind=member&mn=118746" target='_blank' class='list_name_member'>아이폰6</a></td>
+			<td class="date">16/04/26 15:08</td>
+			<td class="hits">16</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_travel">
+			<td class="no"><a href=/board/view.php?table=travel&no=18163&s_no=12070945&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070945</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_travel.gif?icon_count35"></td>
+			<td class="subject"><img src='http://todayhumor.co.kr/board/images/bgm.gif' class='bgm_icon'/><a href="/board/view.php?table=travel&no=18163&s_no=12070945&kind=total&page=1" target="_top">오사카 성에서 펼쳐지는 묘기 대행진</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=704113" target='_blank' class='list_name_member'>자전거형</a></td>
+			<td class="date">16/04/26 15:07</td>
+			<td class="hits">7</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_beauty">
+			<td class="no"><a href=/board/view.php?table=beauty&no=65873&s_no=12070944&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070944</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_beauty.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=beauty&no=65873&s_no=12070944&kind=total&page=1" target="_top">스펀봑스 왔저여</a>   <span style='margin-left:4px;'><img src='http://todayhumor.co.kr/board/images/list_icon_photo.gif' style='vertical-align:middle; margin-bottom:1px;' /> </span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=568461" target='_blank' class='list_name_member'>우규민</a></td>
+			<td class="date">16/04/26 15:07</td>
+			<td class="hits">13</td>
+			<td class="oknok">1</td>
+		</tr>
+			
+			<tr class="view list_tr_freeboard">
+			<td class="no"><a href=/board/view.php?table=freeboard&no=1309144&s_no=12070943&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070943</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_freeboard.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=freeboard&no=1309144&s_no=12070943&kind=total&page=1" target="_top">자게이들 모여랑~ </a><span class='list_memo_count_span'> [12]</span>   <span style='margin-left:4px;'><img src='http://todayhumor.co.kr/board/images/list_icon_photo.gif' style='vertical-align:middle; margin-bottom:1px;' /> <img src='http://todayhumor.co.kr/board/images/list_icon_mobile.gif' style='vertical-align:middle; margin-bottom:1px;margin-right:5px' /></span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=699128" target='_blank' class='list_name_member'>이요르꼬리</a></td>
+			<td class="date">16/04/26 15:07</td>
+			<td class="hits">9</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_mobilegame">
+			<td class="no"><a href=/board/view.php?table=mobilegame&no=37424&s_no=12070942&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070942</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_mobilegame.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=mobilegame&no=37424&s_no=12070942&kind=total&page=1" target="_top">데레스테) 화난다요...</a><span class='list_memo_count_span'> [7]</span>   <span style='margin-left:4px;'><img src='http://todayhumor.co.kr/board/images/list_icon_photo.gif' style='vertical-align:middle; margin-bottom:1px;' /> <img src='http://todayhumor.co.kr/board/images/list_icon_mobile.gif' style='vertical-align:middle; margin-bottom:1px;margin-right:5px' /></span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=314496" target='_blank' class='list_name_member'>마키니코진리</a></td>
+			<td class="date">16/04/26 15:07</td>
+			<td class="hits">4</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_cook">
+			<td class="no"><a href=/board/view.php?table=cook&no=179101&s_no=12070941&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070941</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_cook.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=cook&no=179101&s_no=12070941&kind=total&page=1" target="_top">천년 전에 삶아 먹은 수육</a>   <span style='margin-left:4px;'><img src='http://todayhumor.co.kr/board/images/list_icon_photo.gif' style='vertical-align:middle; margin-bottom:1px;' /> </span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=715320" target='_blank' class='list_name_member'>CheapLifer</a></td>
+			<td class="date">16/04/26 15:07</td>
+			<td class="hits">27</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_travel">
+			<td class="no"><a href=/board/view.php?table=travel&no=18162&s_no=12070940&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070940</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_travel.gif?icon_count35"></td>
+			<td class="subject"><img src='http://todayhumor.co.kr/board/images/bgm.gif' class='bgm_icon'/><a href="/board/view.php?table=travel&no=18162&s_no=12070940&kind=total&page=1" target="_top">오사카 도톤보리 풍경</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=704113" target='_blank' class='list_name_member'>자전거형</a></td>
+			<td class="date">16/04/26 15:06</td>
+			<td class="hits">11</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_computer">
+			<td class="no"><a href=/board/view.php?table=computer&no=301041&s_no=12070939&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070939</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_computer.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=computer&no=301041&s_no=12070939&kind=total&page=1" target="_top">이번 여수버스정류장해킹이가능했던이유..</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=120199" target='_blank' class='list_name_member'>고딩임</a></td>
+			<td class="date">16/04/26 15:06</td>
+			<td class="hits">28</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_diet">
+			<td class="no"><a href=/board/view.php?table=diet&no=92552&s_no=12070938&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070938</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_diet.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=diet&no=92552&s_no=12070938&kind=total&page=1" target="_top">어깡의 셩일기 160426</a><span class='list_memo_count_span'> [2]</span>   <span style='margin-left:4px;'><img src='http://todayhumor.co.kr/board/images/list_icon_photo.gif' style='vertical-align:middle; margin-bottom:1px;' /> <img src='http://todayhumor.co.kr/board/images/list_icon_mobile.gif' style='vertical-align:middle; margin-bottom:1px;margin-right:5px' /></span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=414842" target='_blank' class='list_name_member'>아가리카노</a></td>
+			<td class="date">16/04/26 15:06</td>
+			<td class="hits">13</td>
+			<td class="oknok">3</td>
+		</tr>
+			
+			<tr class="view list_tr_sisa">
+			<td class="no"><a href=/board/view.php?table=sisa&no=730917&s_no=12070937&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070937</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_sisa.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=sisa&no=730917&s_no=12070937&kind=total&page=1" target="_top">국민의당의 새누리와의 연대혹은 합당은 전혀 비현실적이지 않음 ㅇㅇ</a><span class='list_memo_count_span'> [2]</span>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=27378" target='_blank' class='list_name_member'>고타마</a></td>
+			<td class="date">16/04/26 15:05</td>
+			<td class="hits">31</td>
+			<td class="oknok">2</td>
+		</tr>
+			
+			<tr class="view list_tr_smartphone">
+			<td class="no"><a href=/board/view.php?table=smartphone&no=44544&s_no=12070936&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070936</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_smartphone.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=smartphone&no=44544&s_no=12070936&kind=total&page=1" target="_top">알뜰폰 399무제한을 사용하는 가장 저렴한 방법을 알고싶어요.</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=536444" target='_blank' class='list_name_member'>레몬은아이셔</a></td>
+			<td class="date">16/04/26 15:05</td>
+			<td class="hits">12</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_tvent">
+			<td class="no"><a href=/board/view.php?table=tvent&no=18127&s_no=12070935&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070935</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_tvent.gif?icon_count35"></td>
+			<td class="subject"><img src='http://todayhumor.co.kr/board/images/bgm.gif' class='bgm_icon'/><a href="/board/view.php?table=tvent&no=18127&s_no=12070935&kind=total&page=1" target="_top">1박 2일 정준영♡김종민</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=641758" target='_blank' class='list_name_member'>따귀맛우유</a></td>
+			<td class="date">16/04/26 15:05</td>
+			<td class="hits">14</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_hstone">
+			<td class="no"><a href=/board/view.php?table=hstone&no=38391&s_no=12070934&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070934</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_hstone.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=hstone&no=38391&s_no=12070934&kind=total&page=1" target="_top">정말 위니흑마의 필드는 아름다워요..</a><span class='list_memo_count_span'> [1]</span>   <span style='margin-left:4px;'><img src='http://todayhumor.co.kr/board/images/list_icon_photo.gif' style='vertical-align:middle; margin-bottom:1px;' /> <img src='http://todayhumor.co.kr/board/images/list_icon_mobile.gif' style='vertical-align:middle; margin-bottom:1px;margin-right:5px' /></span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=180165" target='_blank' class='list_name_member'>신기루?!</a></td>
+			<td class="date">16/04/26 15:04</td>
+			<td class="hits">17</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_dungeon">
+			<td class="no"><a href=/board/view.php?table=dungeon&no=610792&s_no=12070933&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070933</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_dungeon.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=dungeon&no=610792&s_no=12070933&kind=total&page=1" target="_top">저도 영곶해방공약</a>   <span style='margin-left:4px;'> <img src='http://todayhumor.co.kr/board/images/list_icon_mobile.gif' style='vertical-align:middle; margin-bottom:1px;margin-right:5px' /></span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=364242" target='_blank' class='list_name_member'>우동♥</a></td>
+			<td class="date">16/04/26 15:04</td>
+			<td class="hits">19</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_freeboard">
+			<td class="no"><a href=/board/view.php?table=freeboard&no=1309143&s_no=12070932&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070932</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_freeboard.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=freeboard&no=1309143&s_no=12070932&kind=total&page=1" target="_top">뻘</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=699128" target='_blank' class='list_name_member'>이요르꼬리</a></td>
+			<td class="date">16/04/26 15:04</td>
+			<td class="hits">7</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_plant">
+			<td class="no"><a href=/board/view.php?table=plant&no=10934&s_no=12070931&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070931</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_plant.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=plant&no=10934&s_no=12070931&kind=total&page=1" target="_top">집에서 하는 꽃놀이~</a><span class='list_memo_count_span'> [1]</span>   <span style='margin-left:4px;'><img src='http://todayhumor.co.kr/board/images/list_icon_photo.gif' style='vertical-align:middle; margin-bottom:1px;' /> </span><img src='http://www.todayhumor.co.kr/board/images/list_icon_pencil.gif?2' alt='창작글' style='margin-right:3px;top:2px;position:relative'><img src='http://www.todayhumor.co.kr/board/images/list_icon_no_shovel.gif?2' alt='외부펌금지' style='margin-right:3px;top:2px;position:relative'> </td>
+			<td class="name"><a href="list.php?kind=member&mn=603963" target='_blank' class='list_name_member'>낮달바라기</a></td>
+			<td class="date">16/04/26 15:04</td>
+			<td class="hits">15</td>
+			<td class="oknok">1</td>
+		</tr>
+			
+			<tr class="view list_tr_freeboard">
+			<td class="no"><a href=/board/view.php?table=freeboard&no=1309142&s_no=12070930&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070930</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_freeboard.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=freeboard&no=1309142&s_no=12070930&kind=total&page=1" target="_top">글</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=699128" target='_blank' class='list_name_member'>이요르꼬리</a></td>
+			<td class="date">16/04/26 15:04</td>
+			<td class="hits">5</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_jobinfo">
+			<td class="no"><a href=/board/view.php?table=jobinfo&no=660&s_no=12070929&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070929</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_jobinfo.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=jobinfo&no=660&s_no=12070929&kind=total&page=1" target="_top">면접 안갔어요 ㅋㅋㅋㅋ..</a>   <span style='margin-left:4px;'> <img src='http://todayhumor.co.kr/board/images/list_icon_mobile.gif' style='vertical-align:middle; margin-bottom:1px;margin-right:5px' /></span> </td>
+			<td class="name"><a href="list.php?kind=member&mn=148493" target='_blank' class='list_name_member'>BillieJoe</a></td>
+			<td class="date">16/04/26 15:04</td>
+			<td class="hits">10</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_freeboard">
+			<td class="no"><a href=/board/view.php?table=freeboard&no=1309141&s_no=12070928&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070928</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_freeboard.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=freeboard&no=1309141&s_no=12070928&kind=total&page=1" target="_top">이</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=699128" target='_blank' class='list_name_member'>이요르꼬리</a></td>
+			<td class="date">16/04/26 15:03</td>
+			<td class="hits">3</td>
+			<td class="oknok">0</td>
+		</tr>
+			
+			<tr class="view list_tr_freeboard">
+			<td class="no"><a href=/board/view.php?table=freeboard&no=1309140&s_no=12070927&no_tag=1&kind=total&page=1 target='_top' style='color:#444;font-size:10px;font-family:Tahoma'>12070927</a></td>
+			<td class="icon"><img src="http://www.todayhumor.co.kr/board/images/icon_freeboard.gif?icon_count35"></td>
+			<td class="subject"><a href="/board/view.php?table=freeboard&no=1309140&s_no=12070927&kind=total&page=1" target="_top">나</a>    </td>
+			<td class="name"><a href="list.php?kind=member&mn=699128" target='_blank' class='list_name_member'>이요르꼬리</a></td>
+			<td class="date">16/04/26 15:03</td>
+			<td class="hits">3</td>
+			<td class="oknok">0</td>
+		</tr>
+			                    <tr>
+                      <td height="30" colspan="8" align="center"> <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                          <tr>
+                            <td width="20%" valign="bottom">
+                            </td>
+
+                            <td height="30" align="center" valign="bottom">
+
+                            </td>
+                            <td width="20%" align="right">
+
+                            </td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                    <tr>
+                      <td height="40" colspan="8" align="center">
+<b><font size=3 color=red>[1] </font></b><a href="board/list.php?kind=total&table=total&page=2" target="_top"><font size=3 color=#5151FD>[2] </a><a href="board/list.php?kind=total&table=total&page=3" target="_top"><font size=3 color=#5151FD>[3] </a><a href="board/list.php?kind=total&table=total&page=4" target="_top"><font size=3 color=#5151FD>[4] </a><a href="board/list.php?kind=total&table=total&page=5" target="_top"><font size=3 color=#5151FD>[5] </a><a href="board/list.php?kind=total&table=total&page=6" target="_top"><font size=3 color=#5151FD>[6] </a><a href="board/list.php?kind=total&table=total&page=7" target="_top"><font size=3 color=#5151FD>[7] </a><a href="board/list.php?kind=total&table=total&page=8" target="_top"><font size=3 color=#5151FD>[8] </a><a href="board/list.php?kind=total&table=total&page=9" target="_top"><font size=3 color=#5151FD>[9] </a><a href="board/list.php?kind=total&table=total&page=10" target="_top"><font size=3 color=#5151FD>[10] </a><a href="board/list.php?kind=total&table=total&page=11" target="_top">[다음10개▶]</a>                      </td>
+                    </tr>
+
+
+
+					<!--검색 tr 시작-->
+
+                    <tr>
+						<form action="board/list.php" method="get" name="search" id="search" target="_top">
+                      <td height="20" colspan="8" valign="top">
+                          <div align="center">
+							<input type="hidden" name="kind" value="search">
+							<input type="hidden" name="table" value="total">
+                            <input type="hidden" name="search_table_name" value="total">
+                            <select name="keyfield">
+                              <option value="subject" selected>제목</option>
+                               <option value="name" >글쓴이</option>
+                            </select>
+                            <input type="text" name="keyword" value="">
+                            <input type="submit" name="Submit" value="검색" onclick="return search_check();">
+                          </div>
+                        	</td>
+							</form>
+                    </tr>
+					<tr><td height=15></td></tr>
+                    <!--검색 tr 끝 -->
+
+
+<!--
+
+						  <tr>
+						    <td colspan="8" ><hr  size=1 color=0089BC noshade></td>
+						  </tr>
+-->
+
+                  </table>
+                  <!--리스트테이블끝 -->
+<!--total 끝-->
+
+
+        </div>
+ 
+    </div>
+   
+
+<style type="text/css">
+#bottom_menu_text a{
+	color:white;
+	padding:0 10px;
+	border-left:1px solid white;
+}
+</style>
+<div class="footerDiv" style="padding:10px 0 5px 0; background:#2C5161;margin-top:8px;padding:10px 0 20px">
+	<div id="bottom_menu_text" style="font-size:12px; text-align:center;">
+		<div>
+		<a style="border:0;" href='http://thimg.todayhumor.co.kr/upfile/201604/14607084561df2d6b59c6549ad970e6163bb41925b__mn36__w1000__h495__f90240__Ym201604.jpg'>단축키</a> 
+		<a  href="/board/to_admin/write.php" target="_top">운영진에게 바란다(삭제요청/제안)</a>
+		<!--<a href="/board/list.php?table=singo" target="_top">신고게시판</a>-->
+		<a href="/board/list.php?table=ou" target="_top">운영게</a>
+		<a href="/board/list.php?table=askboard" target="_top">게시판신청</a>
+		<a href="/board/list.php?table=databox" target="_top">자료창고</a>
+		<a href="/board/hold/list.php" target="_top">보류</a>
+		<!--<a href='http://m.todayhumor.co.kr/images/toplogo_m3.gif'>오유로고</a>-->
+		<a href="/member/privacy.php" target="_top">개인정보취급방침</a>
+		<a href="/member/youth_protect.php" target="_top">청소년보호정책</a>
+	</div>
+</div>
+
+
+<!--구글 방문자통계-->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-1318628-1";
+urchinTracker();
+</script>
+<!--구글 방문자통계-->
+
+
+    
+</div>
+<script src="/board/js/jquery1.11.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="/board/js/jquery.form.js?3"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://www.todayhumor.co.kr/board/js/ZeroClipboard.js"> </script>
+<script type="text/javascript" src="http://www.todayhumor.co.kr/board/js/imagesloaded.pkgd.min.js?2"></script>
+<script type="text/javascript" src="/board/js/jquery.toastmessage.js?t4"></script>
+<script type="text/javascript" src="/board/js/top_table_inc.js?t11"></script>
+<script type="text/javascript" src="/board/js/default.js?341"></script>
+<script type="text/javascript" src="/board/js/jquery.autocomplete.js?t3"></script>
+<script type="text/javascript" src="/board/js/js.cookie.js"></script>
+<script type="text/javascript" src="/board/js/json2.js"></script><!--JSON support--><SCRIPT SRC="/board/js/tt3.js?21"></SCRIPT>
+
+</body>
+</html>
+
+
+
+

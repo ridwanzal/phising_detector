@@ -1,0 +1,665 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="description" content="動画にコメントできる寄生型動画サイト">
+<meta name="Keywords" content="ひまわり動画,コメント" lang="ja">
+<meta name="robots" content="index,follow">
+<title>ひまわり動画</title>
+<link rel="stylesheet" type="text/css" href="http://static.fc2.com/share/css/common.css" />
+<link rel="stylesheet" type="text/css" href="http://static.fc2.com/share/fc2parts/css/share.css" />
+<link rel="stylesheet" href="http://static.fc2.com/himado/css/style_new.css?150623160" type="text/css">
+<script type="text/javascript" src="http://static.fc2.com/share/fc2parts/js/jquery.js"></script>
+<script type="text/javascript" src="http://static.fc2.com/share/fc2parts/js/common_design.js"></script>
+
+<link rel="shortcut icon" href="/favicon.ico" >
+
+
+
+
+</head>
+
+<body id="body_home">
+	
+<div id="group_link">
+	<ul>
+		<li><a href="http://fc2.com/" title="FC2サービス一覧へ">FC2トップ</a></li>
+		<li><a href="http://video.fc2.com/" title="動画共有のFC2動画へ">FC2動画</a></li>
+		<li><a href="http://say-move.org/" title="コメント付き動画のFC2 SayMove!へ">SayMove!</a></li>
+		<li class="current">ひまわり動画</li>
+		<li><a href="http://live.fc2.com/?afid=52791709" title="ライブ配信（生放送）のFC2ライブへ">FC2ライブ</a></li>
+		<li><a href="http://contents.fc2.com/" title="ダウンロード販売のFC2コンテンツマーケットへ">FC2コンテンツマーケット</a></li>
+	</ul>
+</div>
+
+<div class="contents" id="content" style="width:1206px;" play_width="1206">
+	<div id="header">
+		<table style="border:0px;margin:0px;padding:0px;width:992px;font-size:90%;">
+			<tr>
+				<td width="350">
+					<div style="display:inline">
+						<h1 id="sv_logo"><a href="/">
+						<img src="/image/logo.png" alt="ひまわり動画" style="border:0px;margin:0px;" >
+						</a></h1>
+					</div>
+				</td>
+				<td>
+				</td>
+				<td align="right">
+											<script src='/?mode=jshead&mode2=' charset='utf-8'></script>
+									</td>
+			</tr>
+		</table>
+		<div class="headmenu">
+			<a href='/?mode=add' class="pagelink"><span class="headmenus headmenusleft" style="border-left:1px solid #67ADDC;">動画登録</span></a>
+			<a href='/?mode=upload' class="pagelink"><span class="headmenus">アップロード</span></a>
+			<a href='/?mode=commentgroup' class="pagelink"><span class="headmenus">コメント</span></a>
+			<a href='/?mode=rank' class="pagelink"><span class="headmenus">ランキング</span></a>
+			<a href='/?mode=taglist' class="pagelink"><span class="headmenus">タグ一覧</span></a>
+
+			<a href='http://help.fc2.com/himawari/' class="pagelink" target="_blank"><span class="headmenus">ヘルプ</span></a>
+			<a href='/?mode=contact' class="pagelink"><span class="headmenus headmenusright">お問い合わせ</span></a>
+
+					</div><!--headmenu//-->
+		<div style="clear:both;"></div>
+	</div>
+
+
+	<iframe src='http://assys01.fc2.com/1040' style='width:728px;height:90px;border:none;' scrolling='no'></iframe>
+<!-- FC2管理用 -->
+<img src="http://media.fc2.com/counter_img.php?id=827" width="1" height="1">
+<!-- FC2管理用 -->
+
+
+
+<script type="text/javascript">
+        var user_cookie = new Array();
+        if (document.cookie) {
+                var cookies = document.cookie.split("; ");
+                for (var i = 0; i < cookies.length; i++) {
+                        var str = cookies[i].split("=");
+                        user_cookie[str[0]] = unescape(str[1]);
+                }
+        }
+        if(user_cookie["custom"]){
+                var customs = user_cookie["custom"].split("&");
+                for (var i = 0; i < customs.length; i++) {
+                        var str = customs[i].split("=");
+                        user_cookie[str[0]] = unescape(str[1]);
+                }
+        }
+
+        user_cookie['thumb'] = user_cookie['thumb'] || "small";
+        user_cookie['movieinfo'] = user_cookie['movieinfo'] || "normal";
+        user_cookie['moviecomment'] = user_cookie['moviecomment'] || "full";
+        user_cookie['quicksearch'] = user_cookie['quicksearch'] || "off";
+        user_cookie['searchhistory'] = user_cookie['searchhistory'] || "on";
+        user_cookie['playhistory'] = user_cookie['playhistory'] || "on";
+
+        function escapeHtmlAll(html) {
+                return html.replace(/"/g, '&#034;')
+                        .replace(/'/g, '&#039;')
+                        .replace(/</g, '&#060;')
+                        .replace(/>/g, '&#062;')
+                        .replace(/&/g, '&#038;');
+        }
+
+        function searchhistory(){
+                document.write("<div class=head3>検索履歴</div><ol>");
+                if(localStorage["ary_searchhistory"]){
+                        var searchs = localStorage["ary_searchhistory"].split("\t");
+                        for (var i = 0; i < searchs.length; i++) {
+                                if(searchs[i] != ""){
+                                        document.write("<li class=searchhistory><a href='../?keyword="+escapeHtmlAll(searchs[i])+"'>"+escapehtmlchar(searchs[i])+"</a>");
+                                }
+                        }
+                }
+                document.write("</ol>");
+        }
+        function replaceAll(expression, org, dest){
+                return expression.split(org).join(dest);
+        }
+
+        function playhistory(name){
+                document.write("<div class=head3>視聴履歴</div><ol>");
+                if(localStorage[name]){
+                        var replaceLocalStorageName = replaceAll(localStorage[name],'&amp;', '＆');
+                        var searchs = replaceLocalStorageName.split("&");
+                        for (var i = 0; i < searchs.length; i++) {
+                                var str = searchs[i].split("=");
+                                if(str[0] != ""){
+                                        document.write("<li class=searchhistory><a href='http://himado.in/"+str[0]+"'>"+escapehtmlchar(str[1])+"</a>");
+                                }
+                        }
+                }
+                document.write("</ol>");
+        }
+        function deleteCookie(name) {
+                cName = name + "=";
+                dTime = new Date();
+                dTime.setYear(dTime.getYear() - 1);
+                document.cookie = cName + ";expires=" + dTime.toGMTString();
+        }
+        function escapehtmlchar(word) {
+                word = word.replace(/&amp;/g,"%26");
+                return $('<div>').text(word).html();
+        }
+        deleteCookie('ary_playhistory');
+        deleteCookie('ary_searchhistory');
+</script>
+
+
+<div class="sortnavi" style="width:992px;">
+	
+	<div class="sortnavi_short" style="margin-top:2px;"><a href="./?sort=movie_id&mode=search" class="pagelink" rel="nofollow"><span class="pager">新着</span></a><a href="./?sort=today_view_cnt&mode=search" class="pagelink" rel="nofollow"><span class="pager">再生数(本日)</span></a><a href="./?sort=total_view_cnt&mode=search" class="pagelink" rel="nofollow"><span class="pager">再生数(全期間)</span></a><a href="./?sort=comment_cnt&mode=search" class="pagelink" rel="nofollow"><span class="pager">コメント数</span></a><a href="./?sort=mylist_cnt&mode=search" class="pagelink" rel="nofollow"><span class="pager">Myリスト数</span></a><a href="./?sort=comment_date&mode=search" class="pagelink" rel="nofollow"><span class="pager">新着コメント</span></a></div><div class="sortnavi_other" style="margin-top:5px;"><a href="./?sort=today_view_cnt&mode=search" class="pagelink" rel="nofollow"><span class="categories">総合</span></a><a href="./?sort=today_view_cnt&cat=%E3%82%A2%E3%83%8B%E3%83%A1&mode=search" class="pagelink" rel="nofollow"><span class="categories">アニメ</span></a><a href="./?sort=today_view_cnt&cat=%E3%82%B2%E3%83%BC%E3%83%A0&mode=search" class="pagelink" rel="nofollow"><span class="categories">ゲーム</span></a><a href="./?sort=today_view_cnt&cat=%E9%9F%B3%E6%A5%BD&mode=search" class="pagelink" rel="nofollow"><span class="categories">音楽</span></a><a href="./?sort=today_view_cnt&cat=%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84&mode=search" class="pagelink" rel="nofollow"><span class="categories">スポーツ</span></a><a href="./?sort=today_view_cnt&cat=%E3%83%89%E3%83%A9%E3%83%9E&mode=search" class="pagelink" rel="nofollow"><span class="categories">ドラマ</span></a><a href="./?sort=today_view_cnt&cat=%E7%89%B9%E6%92%AE&mode=search" class="pagelink" rel="nofollow"><span class="categories">特撮</span></a><a href="./?sort=today_view_cnt&cat=%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%A1&mode=search" class="pagelink" rel="nofollow"><span class="categories">エンタメ</span></a><a href="./?sort=today_view_cnt&cat=%E3%83%A9%E3%82%B8%E3%82%AA&mode=search" class="pagelink" rel="nofollow"><span class="categories">ラジオ</span></a><a href="./?sort=today_view_cnt&cat=%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F&mode=search" class="pagelink" rel="nofollow"><span class="categories">やってみた</span></a></div>
+</div>
+<div style="clear:both;"></div>
+
+<script type="text/javascript">
+$(function() {
+	var defaultHeight = 460;	// コメント2行なら460pxくらい。
+	var movieMainContentsHeight = $('.movieMainContents').innerHeight();
+	var marginTop = Math.ceil((defaultHeight - movieMainContentsHeight) / 2) + "px";
+	$('.movieMainContents').css("margin-top", marginTop);
+});
+</script>
+
+<div id="leftbox" style="width:792px;">
+	<div id="topLayout">
+		<div style="text-align:center;font-size:120%;margin-top:5px;">
+			<form action="./" method="get" style="display:inline;">
+				<input type="hidden" name="sort"    value="">
+				<input type="hidden" name="sortby"  value="">
+				<input type="hidden" name="page"    value="0">
+				<input type="hidden" name="cat"     value="">
+				<input type="hidden" name="click"   value="1">
+				<input type="text"   name="keyword" value="" size="65" class="searchbox">
+				<input type="submit" value="検索">&nbsp;<span><a href="./?isSearch=1">詳細検索</a></span>
+			</form>
+			
+			<div class="mostsearch">
+									<a href="./?keyword=%E3%81%B0%E3%81%8F%E3%81%8A%E3%82%93">ばくおん</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%83%93%E3%83%83%E3%82%B0%E3%82%AA%E3%83%BC%E3%83%80%E3%83%BC">ビッグオーダー</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%83%8F%E3%83%B3%E3%83%89%E3%83%AC%E3%83%83%E3%83%89">ハンドレッド</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%81%8F%E3%81%BE%E3%81%BF%E3%81%93">くまみこ</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E4%B8%89%E8%80%85%E4%B8%89%E8%91%89">三者三葉</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=Re%3A%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B%E7%95%B0%E4%B8%96%E7%95%8C%E7%94%9F%E6%B4%BB">Re:ゼロから始める異世界生活</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=Re%3A%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E5%A7%8B%E3%82%81%E3%82%8B%E4%BC%91%E6%86%A9%E6%99%82%E9%96%93">Re:ゼロから始める休憩時間</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%82%A2%E3%83%8B%E3%83%A1">アニメ</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=BD">BD</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E6%9A%97%E9%BB%92%E5%9B%9E%E5%B8%B0">暗黒回帰</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%83%8B%E3%83%B3%E3%82%B8%E3%83%A3%E3%82%B9%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC">ニンジャスレイヤー</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%82%AB%E3%83%90%E3%83%8D%E3%83%AA">カバネリ</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%83%9E%E3%82%AF%E3%83%AD%E3%82%B9">マクロス</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%82%B8%E3%83%A7%E3%82%B8%E3%83%A7">ジョジョ</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%82%AD%E3%82%BA%E3%83%8A%E3%82%A4%E3%83%BC%E3%83%90%E3%83%BC">キズナイーバー</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%82%AF%E3%83%AD%E3%83%A0%E3%82%AF%E3%83%AD">クロムクロ</a>&nbsp;&nbsp;&nbsp;
+									<a href="./?keyword=%E3%81%B5%E3%82%89%E3%81%84%E3%82%93%E3%81%90%E3%81%86%E3%81%83%E3%81%A3%E3%81%A1">ふらいんぐうぃっち</a>&nbsp;&nbsp;&nbsp;
+								<a href="./?mode=topsearch">&gt;&gt;more</a>
+			</div>
+		</div>
+
+		<div class="thumb_col" style="width:792px;overflow:auto;overflow-y:visible;overflow-x:visible;">
+			<h2 class="home_head">30分の再生数 TOP9</h2>
+			
+							<div class="movieMainBox floatLeft">
+					<div class="movieMainSubBox">
+						<div class="movieMainContents">
+							<div class="movieMain_imageMask">
+								<div class="movieMain_imageBox">
+									<a href="./324431" rel="nofollow"><img src="http://imgur.com/download/fMAVI72" width="320" border="0" class="alignMiddle" alt="#04 ねこちゃんさんHD追加「ボディーガード」" name="thumbnail"></a>
+								</div>
+							</div>
+							<div>
+								<a href="./324431" rel="nofollow">
+									ハンドレッド<br />
+									#04 ねこちゃんさんHD追加「ボディーガード」
+								</a>
+							</div>
+							<div class="home_info">
+								4/26 02:50 再生:42,998 コメント:1,466 Myリスト:10
+							</div>
+							<div class="home_ucome">
+								忠告思い出すのおせーよｗ 尻あたってますやん 全員しってた 一緒にお風呂は負けフラグって伯父さんが言 けつ くまみこ ただの鼻歌やんｗ だせぇｗ..
+							</div>
+						</div>
+					</div>
+				</div>
+									
+														
+											<div class="movieBox floatLeft">
+							<div class="movie_imageMask">
+								<div class="movie_imageBox">
+									<a rel="nofollow" href="./324415"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt="第4話 「おんせん!!」" src="http://i65.tinypic.com/1zd3bs1.gif"></a>
+								</div>
+							</div>
+							<div class="home_title">
+								<a rel="nofollow" href="./324415">
+									ばくおん！！<br />
+									第4話 「おんせん!!」
+								</a>
+							</div>
+							<div class="home_info">
+								4/26 00:45 再:58,410 コメ:4,239
+							</div>
+							<div class="home_ucome">なんだこれ おいおい まーた大洗かよ ねーよ え メット先輩は生きてたら５０～..</div>
+						</div>
+																				
+											<div class="movieBox floatLeft">
+							<div class="movie_imageMask">
+								<div class="movie_imageBox">
+									<a rel="nofollow" href="./324432"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt="第4話 「エクスペクト・ジャーニー」" src="http://pbs.twimg.com/media/Cg5w4EmUUAAmVVP.jpg"></a>
+								</div>
+							</div>
+							<div class="home_title">
+								<a rel="nofollow" href="./324432">
+									聖戦ケルベロス-竜刻のファタリ<br />
+									第4話 「エクスペクト・ジャーニ
+								</a>
+							</div>
+							<div class="home_info">
+								4/26 03:03 再:17,867 コメ:244
+							</div>
+							<div class="home_ucome">そのクロス、法王がきてなかったか 十年修行してこれ チェーンメール？ べちゃ..</div>
+						</div>
+																				
+											<div class="movieBox floatLeft">
+							<div class="movie_imageMask">
+								<div class="movie_imageBox">
+									<a rel="nofollow" href="./324314"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt="第4話 キズナにHDねこちゃさん200追加「ロズワール邸の団欒」" src="http://i65.tinypic.com/30bz9n5.gif"></a>
+								</div>
+							</div>
+							<div class="home_title">
+								<a rel="nofollow" href="./324314">
+									Re:ゼロから始める異世界生活<br />
+									第4話 キズナにHDねこちゃさん20
+								</a>
+							</div>
+							<div class="home_info">
+								4/25 01:51 再:256,232 コメ:6,970
+							</div>
+							<div class="home_ucome">これで切る人いそう 笑いとは感性の刺激と温和 しょせんおっさんが考えたキャ..</div>
+						</div>
+																				
+											<div class="movieBox floatLeft">
+							<div class="movie_imageMask">
+								<div class="movie_imageBox">
+									<a rel="nofollow" href="./324423"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt="第03話 「ギリギリドローイング」" src="http://img.vc/images/2016/04/25/19c8af28cd.jpg"></a>
+								</div>
+							</div>
+							<div class="home_title">
+								<a rel="nofollow" href="./324423">
+									ワガママハイスペック<br />
+									第03話 「ギリギリドローイング
+								</a>
+							</div>
+							<div class="home_info">
+								4/26 01:24 再:19,450 コメ:128
+							</div>
+							<div class="home_ucome">3分でもきつい 主人公出ない･･･ インカのめざめだろ インカ これってエロゲだ..</div>
+						</div>
+													<div class="clearfix2"></div>
+																				
+											<div class="movieBox floatLeft">
+							<div class="movie_imageMask">
+								<div class="movie_imageBox">
+									<a rel="nofollow" href="./324443"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt=" 路上で倒れ緊急搬送　あややモノマネで人気" src="http://imgur.com/download/T1m8eHV"></a>
+								</div>
+							</div>
+							<div class="home_title">
+								<a rel="nofollow" href="./324443">
+									前田健さん急死…４４歳<br />
+									 路上で倒れ緊急搬送　あややモ
+								</a>
+							</div>
+							<div class="home_info">
+								4/26 08:34 再:2,058 コメ:3
+							</div>
+							<div class="home_ucome">食べることが好き。不整脈を気にしてた。・ ｗｗｗｗｗｗｗ こっちよりプリキ..</div>
+						</div>
+																				
+											<div class="movieBox floatLeft">
+							<div class="movie_imageMask">
+								<div class="movie_imageBox">
+									<a rel="nofollow" href="./324429"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt=" ｢もうだめｗｗｗイクイクｗｗｗ｣" src="http://blog-imgs-30.fc2.com/9/7/4/9742/gotousaori1009201.jpg"></a>
+								</div>
+							</div>
+							<div class="home_title">
+								<a rel="nofollow" href="./324429">
+									後藤沙緒里<br />
+									 ｢もうだめｗｗｗイクイクｗｗｗ
+								</a>
+							</div>
+							<div class="home_info">
+								4/26 02:13 再:11,878 コメ:35
+							</div>
+							<div class="home_ucome">男子中学生とオッサンが混ざってる 石上静香奇跡の一枚ですわー お起立やめー..</div>
+						</div>
+																				
+											<div class="movieBox floatLeft">
+							<div class="movie_imageMask">
+								<div class="movie_imageBox">
+									<a rel="nofollow" href="./324422"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt="#03 HD追加「後輩と ひょろりと猫の 影法師」" src="http://imgur.com/download/DJfuhCI"></a>
+								</div>
+							</div>
+							<div class="home_title">
+								<a rel="nofollow" href="./324422">
+									うさかめ<br />
+									#03 HD追加「後輩と ひょろりと
+								</a>
+							</div>
+							<div class="home_info">
+								4/26 01:24 再:17,891 コメ:83
+							</div>
+							<div class="home_ucome">つまらないてーきゅう 3分アニメにしたり顔で論評してんじゃねー つまんねと言..</div>
+						</div>
+																				
+											<div class="movieBox floatLeft">
+							<div class="movie_imageMask">
+								<div class="movie_imageBox">
+									<a rel="nofollow" href="./324380"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt="第04話 ねーちんさん高画質「トライアングル」" src="http://img.vc/images/2016/04/25/d920eb50.jpg"></a>
+								</div>
+							</div>
+							<div class="home_title">
+								<a rel="nofollow" href="./324380">
+									12歳。～ちっちゃなムネのトキメ<br />
+									第04話 ねーちんさん高画質「ト
+								</a>
+							</div>
+							<div class="home_info">
+								4/25 20:20 再:18,457 コメ:1,354
+							</div>
+							<div class="home_ucome">なっつwwww 人間強度が下がるからな クールきっとクール～♪ チェキｗｗｗｗ ブ..</div>
+						</div>
+													<div class="clearfix2"></div>
+																		
+			<h2 class="home_head">新着動画</h2>
+			
+												<div class="movieBox floatLeft">
+						<div class="movie_imageMask">
+							<div class="movie_imageBox">
+								<a rel="nofollow" href="./324446"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt=" 七尾百合子 流れる読書スペース" src="http://img.amiami.jp/images/product/main/153/FIGURE-012823.jpg"></a>
+							</div>
+						</div>
+						<div class="home_title">
+							<a rel="nofollow" href="./324446">
+								アイドルマスター ミリオンライ<br />
+								 七尾百合子 流れる読書スペース
+							</a>
+						</div>
+						<div class="home_info">
+							4/26 10:27 再:16 コメ:0 ML:0
+						</div>
+					</div>
+									<div class="movieBox floatLeft">
+						<div class="movie_imageMask">
+							<div class="movie_imageBox">
+								<a rel="nofollow" href="./324445"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt=" 4月度着任艦娘紹介動画" src="https://i.ytimg.com/vi/gwHFHrE66nA/hqdefault.jpg?custom=true&amp;w=196&amp;h=110&amp;stc=true&amp;jpg444=true&amp;jpgq=90&amp;sp=68&amp;sigh=R9ZZRgLYI11jARfpsG1ecoJao6U"></a>
+							</div>
+						</div>
+						<div class="home_title">
+							<a rel="nofollow" href="./324445">
+								艦これアーケード<br />
+								 4月度着任艦娘紹介動画
+							</a>
+						</div>
+						<div class="home_info">
+							4/26 10:03 再:301 コメ:1 ML:0
+						</div>
+					</div>
+									<div class="movieBox floatLeft">
+						<div class="movie_imageMask">
+							<div class="movie_imageBox">
+								<a rel="nofollow" href="./324443"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt=" 路上で倒れ緊急搬送　あややモノマネで人気" src="http://imgur.com/download/T1m8eHV"></a>
+							</div>
+						</div>
+						<div class="home_title">
+							<a rel="nofollow" href="./324443">
+								前田健さん急死…４４歳<br />
+								 路上で倒れ緊急搬送　あややモ
+							</a>
+						</div>
+						<div class="home_info">
+							4/26 08:34 再:2,648 コメ:5 ML:0
+						</div>
+					</div>
+									<div class="movieBox floatLeft">
+						<div class="movie_imageMask">
+							<div class="movie_imageBox">
+								<a rel="nofollow" href="./324442"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt=" 「オレオレ」の肉声(16/04/25)" src="https://i.ytimg.com/vi/aqclv3-W4bU/mqdefault.jpg"></a>
+							</div>
+						</div>
+						<div class="home_title">
+							<a rel="nofollow" href="./324442">
+								これが“騙しのテクニック”！<br />
+								 「オレオレ」の肉声(16/04/25)
+							</a>
+						</div>
+						<div class="home_info">
+							4/26 07:02 再:707 コメ:10 ML:0
+						</div>
+					</div>
+									<div class="movieBox floatLeft">
+						<div class="movie_imageMask">
+							<div class="movie_imageBox">
+								<a rel="nofollow" href="./324441"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt=" 自民党勝利　共産党とSEALDsが絡むと負ける法則" src="https://i.ytimg.com/vi/uQ2Gq2wzU6Q/hqdefault.jpg"></a>
+							</div>
+						</div>
+						<div class="home_title">
+							<a rel="nofollow" href="./324441">
+								【ブサヨ発狂】<br />
+								 自民党勝利　共産党とSEALDsが
+							</a>
+						</div>
+						<div class="home_info">
+							4/26 07:00 再:1,548 コメ:369 ML:0
+						</div>
+					</div>
+									<div class="movieBox floatLeft">
+						<div class="movie_imageMask">
+							<div class="movie_imageBox">
+								<a rel="nofollow" href="./324440"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt="12 " src="http://ku-sen.jp/common/img/ogp-img.jpg"></a>
+							</div>
+						</div>
+						<div class="home_title">
+							<a rel="nofollow" href="./324440">
+								空戦魔導士候補生の教官<br />
+								12 
+							</a>
+						</div>
+						<div class="home_info">
+							4/26 06:05 再:3,648 コメ:1 ML:1
+						</div>
+					</div>
+									<div class="movieBox floatLeft">
+						<div class="movie_imageMask">
+							<div class="movie_imageBox">
+								<a rel="nofollow" href="./324437"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt=" 古今亭志ん朝" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRnmDoKTYA5sT-JdB5JWkghhatexNwyAl800yRt7sNKhZmydllM"></a>
+							</div>
+						</div>
+						<div class="home_title">
+							<a rel="nofollow" href="./324437">
+								【落語】 お化け長屋<br />
+								 古今亭志ん朝
+							</a>
+						</div>
+						<div class="home_info">
+							4/26 05:16 再:236 コメ:1 ML:1
+						</div>
+					</div>
+									<div class="movieBox floatLeft">
+						<div class="movie_imageMask">
+							<div class="movie_imageBox">
+								<a rel="nofollow" href="./324436"><img width="188" border="0" name="thumbnail" class="alignMiddle" alt="第24話 " src="http://t.imgbox.com/KfQBuclZ.jpg"></a>
+							</div>
+						</div>
+						<div class="home_title">
+							<a rel="nofollow" href="./324436">
+								氷と炎の・・・ぽいアレ<br />
+								第24話 
+							</a>
+						</div>
+						<div class="home_info">
+							4/26 05:11 再:1,017 コメ:163 ML:1
+						</div>
+					</div>
+							
+			<div class="clearfix"></div>
+
+			<table width="792"></table>
+
+			<table class="rowdata" border="1" width="792" style="width:792px;">
+			<tr>
+				<td class="ecsitecomment">total:1834245308</td>
+				<td class="ecsitecomment">today:324193</td>
+				<td class="ecsitecomment">yesterday:835050</td>
+			</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="skycraper" style="margin-top:5px;width:192px;">
+	<script type="text/javascript">
+		if(user_cookie['searchhistory'] == "on"){
+			searchhistory();
+		}
+		if(user_cookie['playhistory'] == "on"){
+			playhistory('ary_playhistory');
+		}
+	</script>
+	<br />
+</div>
+
+
+<div style="clear:both;"></div>
+
+<script type="text/javascript">
+	if(user_cookie['thumb'] == "none"){
+		var thumbnails = document.getElementsByName('thumbnail');
+		for(var i=thumbnails.length-1;i>=0;i--){
+			thumbnails[i].parentNode.removeChild(thumbnails[i]);
+		}
+	}
+</script>
+
+	<div style="text-align:center;">
+		<iframe src='http://assys01.fc2.com/1038' style='width:728px;height:90px;border:none;' scrolling='no'></iframe>
+<!-- FC2管理用 -->
+<img src="http://media.fc2.com/counter_img.php?id=826" width="1" height="1">
+<!-- FC2管理用 -->
+
+	</div>
+
+<div id="fc2count">
+	<!-- FC2カウンター ここから -->
+	<script language="javascript" type="text/javascript" src="http://counter1.fc2.com/counter.php?id=89044601"></script>
+	<noscript><img src="http://counter1.fc2.com/counter_img.php?id=89044601" /></noscript>
+	<!-- FC2カウンター ここまで -->
+	<a href="/?mode=status" class="foot">稼働状況</a>
+</div><!-- /fc2count -->
+
+
+	
+			<!-- サイドウォール広告 -->
+		<div class="ad_sideWall01_left" id="ad_leftSideWall" style="z-index: -2;"><!-- FC2管理用 -->
+			<!---->
+			<!-- FC2管理用 -->
+<img src="http://media.fc2.com/counter_img.php?id=1713" width="1" height="1">
+<!-- FC2管理用 left-->
+
+		</div>
+		<div class="ad_sideWall01_right" id="ad_rightSideWall" style="z-index: -2;"><!-- FC2管理用 -->
+			<!---->
+			<!-- FC2管理用 -->
+<img src="http://media.fc2.com/counter_img.php?id=1713" width="1" height="1">
+<!-- FC2管理用 right-->
+
+		</div><!-- /サイドウォール広告 -->
+	
+
+</div><!-- /content -->
+
+
+
+
+
+<!-- ja版共通フッタここから -->
+<!-- [FC2 Analyzer] http://analyzer.fc2.com/ -->
+<!-- Tag for http://himado.in -->
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-39236841-1', 'auto');
+        ga('send', 'pageview');
+
+		ga('create', 'UA-66894105-4', 'auto', {
+			'name': 'newTracker',
+			'require': 'linkid',
+			'sampleRate': 2
+		});
+		ga('newTracker.send', 'pageview');
+</script>
+
+<!-- Piwik -->
+<script type="text/javascript">
+	var _paq = _paq || [];
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u="//piwik.g.fc2.com/piwik/";
+		_paq.push(['setTrackerUrl', u+'piwik.php']);
+		_paq.push(['setSiteId', 5]);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+	})();
+</script>
+
+<noscript><p><img src="//piwik.g.fc2.com/piwik/piwik.php?idsite=5" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+<ol style="text-align:left;list-style-type:none;margin:3px;font-size:10pt;display:inline;"></ol>
+
+<!-- [FC2 Analyzer] -->
+<!-- ja版共通フッタここから -->
+<div id="sh_fc2footer_fix">
+	<div id="sh_fc2footer_menu">
+		<div id="sh_fc2tooter_tab">
+			<div><span class="sh_footer_rnd5"></span><span class="sh_footer_rnd4"></span><span class="sh_footer_rnd3"></span><span class="sh_footer_rnd2"></span><span class="sh_footer_rnd1"></span></div>
+			<ul>
+				<li class="sh_request"><a href="http://request.fc2.com/search_wish.php?&ct1=83" title="FC2リクエストへ">リクエスト</a></li>
+				<li class="sh_kiyaku"><a href="http://help.fc2.com/himawari/tos/ja#service_himawari" title="サービス利用規約へ">利用規約</a></li>
+				<li class="sh_shogai"><a href="http://fc2support.blog85.fc2.com/">障害情報</a></li>
+				<li class="sh_pagetop"><a href="javascript:scroller(0);" title="このページの先頭へ">ページトップへ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="sh_fc2footer">
+		<div id="sh_fc2footermenu">
+			<ul>
+				<li><a href="http://fc2.com/" title="FC2ホームへ"><img src="http://static.fc2.com/share/fc2parts/image/fc2logo.png" alt="FC2ホームへ" class="fc2top" /></a></li>
+				<li>
+					<form action="http://help.fc2.com/search/qa" method="get" target="_blank">
+						<img src="http://static.fc2.com/share/fc2parts/image/sh_help_icon.gif" width="20" height="20" alt="" /><a href="http://help.fc2.com/himawari/" target="_blank">FC2ヘルプ</a>
+						<input type="text" name="q" class="help_form_tetarea" /><input type="hidden" name="service_id" value="1" /><input type="submit" value="ヘルプ検索" />
+					</form>
+				</li>
+				<li><a href="http://help.fc2.com/inquiry">お問い合わせ</a></li>
+				<li class="information"><a href="http://fc2.com/company.html" rel="nofollow">会社概要</a></li>
+				<li><a href="http://fc2.com/privacy.html" rel="nofollow">プライバシーポリシー</a></li>
+				<li><a href="http://help.fc2.com/copyrights/tos/ja" rel="nofollow">著作権ガイドライン</a></li>
+				<li><a href="http://fc2.com/ja/sales.html" rel="nofollow">広告掲載</a></li>
+			</ul>
+			<p class="copyright">Copyright(c)1999 FC2, Inc. All Rights Reserved.</p>
+		</div><!-- /sh_fc2footermenu -->
+	</div><!-- /sh_fc2footer -->
+</div><!-- /sh_fc2footer_fix -->
+<!-- /ja版共通フッタ -->
+</body>
+</html>
+

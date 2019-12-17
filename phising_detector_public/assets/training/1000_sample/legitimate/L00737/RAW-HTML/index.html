@@ -1,0 +1,2911 @@
+
+
+<!DOCTYPE html>
+<!--
+====================================================================
+Desarrollado en Concepción, Chile
+====================================================================
+▒█▀▀█ ░▀░ █▀▀█ ▒█▀▀█ ░▀░ █▀▀█ ▒█▀▀█ █░░█ ░▀░ █░░ █▀▀
+▒█▀▀▄ ▀█▀ █░░█ ▒█▀▀▄ ▀█▀ █░░█ ▒█░░░ █▀▀█ ▀█▀ █░░ █▀▀
+▒█▄▄█ ▀▀▀ ▀▀▀▀ ▒█▄▄█ ▀▀▀ ▀▀▀▀ ▒█▄▄█ ▀░░▀ ▀▀▀ ▀▀▀ ▀▀▀
+====================================================================
+2015
+====================================================================
+-->
+<html class="no-js" lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link type="text/plain" rel="author" href="http://www.biobiochile.cl/assets/bbclnew/humans.txt" />
+	<link rel="stylesheet" href="http://www.biobiochile.cl/assets/bbclnew/css/foundation.css" />
+	<link rel="stylesheet" href="http://www.biobiochile.cl/assets/bbclnew/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://www.biobiochile.cl/assets/bbclnew/css/style.css?v=1.1.2">
+	<link rel="stylesheet" type="text/css" href="http://www.biobiochile.cl/assets/bbclnew/css/more.css?v=1.2.0">
+	<script src="http://www.biobiochile.cl/assets/bbclnew/js/vendor/modernizr.js"></script>
+	<script src="http://www.biobiochile.cl/assets/bbclnew/js/vendor/jquery.js"></script>
+	<script src="http://www.biobiochile.cl/assets/bbclnew/js/vendor/native.history.js"></script>
+	<script src="http://www.biobiochile.cl/assets/bbclnew/js/vendor/jquery.cookie.js"></script>
+	<meta http-equiv="refresh" content="420; url=http://www.biobiochile.cl">
+	<meta property="fb:app_id" content="448496728510945" />
+	<meta property="og:title" content="BioBioChile - La Red de Prensa Más Grande de Chile" />
+	<meta property="og:type" content="website" />
+	<meta property="og:author" content="BioBioChile" />
+	<meta property="og:url" content="http://www.biobiochile.cl"/>
+	<meta property="og:site_name" content="BioBioChile"/>
+	<meta property="og:image" content="http://www.biobiochile.cl/assets/img/defecto/img_fb.jpg" />
+
+	<style>
+	.subMenu {
+	    display: none !important;
+	    position: absolute;
+	    top: 35px;
+	    left: 0;
+	    z-index: 1000;
+	}
+	.adSuperior200x200 > div {
+		position: absolute;
+		top: 5px;
+	}
+	.adsLateral{
+	  margin-top: 40px;
+	}
+
+	/*#video_streaming{
+		position: absolute;
+		z-index: 9999;
+		margin-left: 650px;
+		margin-top: 10px;
+	}
+
+	.clickEx{
+		width: 1000px;
+		height: 200px;
+		position: absolute;
+		z-index: 9997;
+	}*/
+
+	#video_streaming{
+		position: absolute;
+		z-index: 9998;
+		margin-left: 682px;
+    	margin-top: 10px;
+
+	}
+
+	#fondoLoteria{
+		position: absolute;
+		z-index: 9996;
+	}
+
+	#contador{
+		z-index: 10000;
+		margin-left: 682px;
+    	margin-top: 10px;
+    	position: absolute;
+
+	}
+	#streamingLoteria{
+		display: none;
+		height:200px;
+	}
+
+	#linkLoteria, #linkStreaming{
+		display:none;
+		z-index: 9999;
+	}
+
+	.clickEx{
+		width: 1000px;
+		height: 200px;
+		position: absolute;
+		z-index: 9997;
+	}
+	/*
+	.super-titular .super-box .titular .titular-img a .texto h1 {
+		margin-top: 70px;
+	}*/
+	</style>
+	<script>var show_lan_banner = true;</script>
+	<!-- [HEADER CONTENT] -->
+	    <script>
+    var loadregions = false,
+    	KoalaZonas = {'norte':false,'valparaiso': false,'biobio': false,'araucania': false,'rios': false,'lagos': false,'regiones':false,callback:function(){
+		for(var zona in KoalaZonas) {
+			if(KoalaZonas[zona] === true){
+				try{console.log("[ZONA]: "+zona);}catch(e){}
+				var zona_id = 'n_bio-bio';
+
+				if($.cookie('region_user') == 'barrita_norte'){
+					zona_id = 'n_norte';
+				} else if($.cookie('region_user') == 'barrita_valparaiso'){
+					zona_id = 'n_valparaiso';
+				} else if($.cookie('region_user') == 'barrita_biobio'){
+					zona_id = 'n_bio-bio';
+				} else if($.cookie('region_user') == 'barrita_araucania'){
+					zona_id = 'n_araucania';
+				} else if($.cookie('region_user') == 'barrita_rios'){
+					zona_id = 'n_rios';
+				} else if($.cookie('region_user') == 'barrita_lagos'){
+					zona_id = 'n_lagos';
+				} else if($.cookie('region_user') == 'barrita_todas'){
+					zona_id = 'n_todas';
+				}
+
+				try{console.log("[ZONA ID]: "+zona_id);}catch(e){}
+				var item = $("#"+zona_id);
+				if(item.size()>0){
+					item.trigger("click");
+				} else{
+					loadregions = true;
+				}
+			}
+		}
+	}};
+	</script>
+
+	<!-- [Comscore] -->
+	<script>
+		var _comscore = _comscore || [];
+		_comscore.push({
+			c1 : "2",
+			c2 : "11254169"
+		});
+		(function() {
+			var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+			s.async = true;
+			s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+			el.parentNode.insertBefore(s, el);
+		})();
+	</script>
+	<!-- [/Comscore] -->
+
+	<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"cFNEk1ao6C52uG", domain:"biobiochile.cl",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=cFNEk1ao6C52uG" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+
+	<script>
+	function detectmob(){if(navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)){return true;}else{return false;}}
+	$(function(){if( detectmob() ) { $('#verMovil').css('visibility', 'visible'); $('#verMovil').css('height', '40px'); }});
+	</script>
+	<script>
+		var ads_sup_expanded = false,
+			ads_sup_timer = false;
+		jQuery(function(){
+			jQuery(".ad-1000x75").mouseenter(function() {
+			    ads_sup_timer = setTimeout(function(){
+			    	if(!ads_sup_expanded) {
+			    		try{dclk_show();}catch(e){}
+			    	}
+			    	ads_sup_expanded = true;
+				},500);
+	  		});
+	  		jQuery(".ad-1000x75").mouseleave(function() {
+			    ads_sup_expanded = false;
+			    clearTimeout(ads_sup_timer);
+			    ads_sup_timer = false;
+			    try{dclk_hide();}catch(e){}
+	  		});
+		});
+
+		var DFPExpandHack = {
+			init: function(iframe){
+				this.getIFrame(iframe).attr('allowtransparency','true');
+			},
+			update: function(iframe, json){
+				if(json['css']){
+					this.getIFrame(iframe).css(json.css);
+				}
+				if(json['animate'] != 'undefined'){
+					this.getIFrame(iframe).animate(
+						json.animate.css,
+						json.animate.time,
+						json.animate.callback
+					);
+				}
+			},
+			getIFrame: function(iframe) {
+				return jQuery("iframe[name='"+iframe.name+"']");
+			}
+		};
+	</script>
+	<script type="application/ld+json">
+	{
+	  "@context" : "http://schema.org",
+	  "@type" : "WebSite", 
+	  "name" : "BioBioChile",
+	  "alternateName" : "BBCL",
+	  "description" : "La Red de Prensa Más Grande de Chile",
+	  "url" : "http://www.biobiochile.cl/",
+	  "potentialAction" : {
+	    "@type" : "SearchAction",
+	    "target" : "http://busca.biobiochile.cl/?s={search_term}",
+	    "query-input" : "required name=search_term"
+	  },
+	  "inLanguage": "es-ES",
+	  "publisher": {
+	  	"@type": "Organization",
+		"name": "BioBioChile",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "http://www.biobiochile.cl/assets/img/newBbcl.png",
+			"width": 296,
+			"height": 54
+		},
+        "sameAs": [
+		    "https://www.facebook.com/RadioBioBio",
+		    "https://twitter.com/biobio",
+		    "https://www.instagram.com/biobiochile"
+		]
+	  }               
+	}
+	</script>
+
+	<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'></script>
+	<script type="text/javascript">
+	GS_googleAddAdSenseService("ca-pub-8190798523630002");
+	GS_googleEnableAllServices();
+	</script>
+	<script type="text/javascript">
+	GA_googleAddSlot("ca-pub-8190798523630002", "1000x75_home_superior_pat");
+	GA_googleAddSlot("ca-pub-8190798523630002", "750x500_Interstitial_Home");
+	GA_googleFetchAds();
+	</script>
+
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-10041906-56']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-10041906-1']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-10041906-69']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	<script>
+	function videoPlayerVolume() {
+		_gaq.push(['_trackEvent', 'Comportamiento', 'biobiotv', 'volumen_bbtv']);
+	}
+	</script>
+
+	<!-- [/HEADER CONTENT] -->
+	<!-- [DFP SCRIPTS] -->
+		<style>
+	.lateral .simple iframe[name*="google_ads_iframe_"] {
+		border: 1px solid #e3e3e3 !important;
+		width: 248px !important;
+		height: 248px !important;
+	}
+	div.expansible {
+		position: relative;
+		height: 350px !important;
+	}
+	div.expansible div[id*="div-gpt-ad-"] {
+		width: 730px !important;
+		height: 350px !important;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	div.expansible div[id*="div-gpt-ad-"] > iframe {
+		height: 350px !important;
+		width: 730px !important;
+	}
+	</style>
+
+	<script type="text/javascript">
+		/*
+			DFP Resize
+			Autor: Esteban Fuentealba
+		*/
+		var resizeBanner = function(json, iframe) {
+
+			var jsonOpts = jQuery.parseJSON(json);
+			var iframeDFP = $("iframe[name='"+iframe.name+"']");
+			var divDFP = $(iframeDFP).parents("div[id*='div-gpt-ad-']");
+			if(jsonOpts.mode == 'expand'){
+				divDFP.parents("div.ad-250x250").removeClass('simple').addClass("expansible");
+				$("#publicidad").css("right", "15px");
+
+			} else if(jsonOpts.mode == 'collapse') {
+				divDFP.parents("div.ad-250x250").removeClass('simple').removeClass("expansible");
+			}
+		};
+
+
+		var googletag = googletag || {};
+		googletag.cmd = googletag.cmd || [];
+		(function() {
+		var gads = document.createElement('script');
+		gads.async = true;
+		gads.type = 'text/javascript';
+		var useSSL = 'https:' == document.location.protocol;
+		gads.src = (useSSL ? 'https:' : 'http:') +
+		'//www.googletagservices.com/tag/js/gpt.js';
+		var node = document.getElementsByTagName('script')[0];
+		node.parentNode.insertBefore(gads, node);
+		})();
+
+		googletag.cmd.push(function() {
+			
+			googletag.defineSlot('/1098385/236x72_lolla', [236, 72], 'div-gpt-ad-1458142936047-0')
+			.setCollapseEmptyDiv(true)
+			.addService(googletag.pubads());
+			
+			googletag.defineSlot('/1098385/236x72_marcador_home', [236, 72], 'div-gpt-ad-1434034160734-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());
+			googletag.defineSlot('/1098385/1x1_home_web', [1, 1], 'div-gpt-ad-1421075435613-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());
+
+			googletag.defineSlot('/1098385/200x600_home_lateral_pat', [200, 600], 'div-gpt-ad-1418421049041-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/streaming_coacola', [250, 250], 'div-gpt-ad-1434742687544-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());
+
+			googletag.defineSlot('/1098385/200x200_home_esquina_pat', [200, 200], 'div-gpt-ad-1418421000390-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+
+			googletag.defineSlot('/1098385/250x100_lolla', [250, 100], 'div-gpt-ad-1425994348790-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_4', [250, 250], 'div-gpt-ad-1371769619297-15')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_5', [250, 250], 'div-gpt-ad-1371769619297-16')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+
+			googletag.defineSlot('/1098385/355x75_home_3', [355, 75], 'div-gpt-ad-1371769619297-20')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/355x75_home_4', [355, 75], 'div-gpt-ad-1371769619297-21')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_8', [250, 250], 'div-gpt-ad-1371769619297-14')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_9', [250, 250], 'div-gpt-ad-1387403580206-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/728x90_home_esc_10', [728, 90], 'div-gpt-ad-1371769619297-25')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_11', [250, 250], 'div-gpt-ad-1371769619297-11')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_12', [250, 250], 'div-gpt-ad-1371769619297-12')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_13', [250, 250], 'div-gpt-ad-1375127205993-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_14', [250, 250], 'div-gpt-ad-1371769619297-17')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/728x90_home_esc_15', [728, 90], 'div-gpt-ad-1407856433355-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_16', [250, 250], 'div-gpt-ad-1407856101527-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_17', [250, 250], 'div-gpt-ad-1407856030304-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/336x460_home_esc_18', [336, 460], 'div-gpt-ad-1406580398785-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x250_home_esc_19', [250, 250], 'div-gpt-ad-1407855936345-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/728x90_home_esc_20', [728, 90], 'div-gpt-ad-1407856639491-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/1000x200_home_esc_21', [1000, 200], 'div-gpt-ad-1407858140207-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+
+			googletag.defineSlot('/1098385/300x250_Home_Arrobapagina_6_2.0', [300, 250], 'div-gpt-ad-1371769619297-22')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+			googletag.defineSlot('/1098385/300x250_Home_Arrobapagina_8_2.0', [300, 250], 'div-gpt-ad-1371769619297-23')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+
+			googletag.defineSlot('/1098385/728x90_Home_Caja_breaknews_9_2.0', [728, 90], 'div-gpt-ad-1371769619297-24')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x100_psu', [250, 100], 'div-gpt-ad-1417213698209-0')
+				.addService(googletag.pubads())
+				.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/130x30_Home_barra_especial_1', [130, 30], 'div-gpt-ad-1388159208239-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x100_Home_caja_especial_2', [250, 100], 'div-gpt-ad-1388508744176-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/130x30_cambiodemando_caja', [130, 30], 'div-gpt-ad-1394542090689-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);
+
+
+
+			googletag.defineSlot('/1098385/250x200_cajabbtv_home', [250, 200], 'div-gpt-ad-1396268050176-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x200_cajabbtv_home_2', [250, 200], 'div-gpt-ad-1396444033664-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/Geolocalizacion_1.0', [250, 90], 'div-gpt-ad-1396382818258-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);
+
+
+			googletag.defineSlot('/1098385/336x460_home_esc_12', [336, 460], 'div-gpt-ad-1405093467719-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);
+
+			/*googletag.defineSlot('/1098385/1000x75_home_titular_pat', [1000, 75], 'div-gpt-ad-1418420870208-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);*/
+			googletag.defineSlot('/1098385/1000x75_home_titular_pat', [1000, 75], 'div-gpt-ad-1418420870208-0')
+			.addService(googletag.pubads())
+			.setCollapseEmptyDiv(true);
+
+			googletag.defineSlot('/1098385/250x100_teatroamil', [250, 100], 'div-gpt-ad-1418674033320-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());
+
+			googletag.defineSlot('/1098385/130x30_dakar_barra', [130, 30], 'div-gpt-ad-1419024416240-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());
+
+			googletag.defineSlot('/1098385/250x500_home_1', [250, 500], 'div-gpt-ad-1428669529599-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());
+
+
+			googletag.defineSlot('/1098385/728x90_21mayo', [728, 90], 'div-gpt-ad-1432155003759-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());
+
+			/*googletag.defineSlot('/1098385/250x100_home_esc_ca', [250, 100], 'div-gpt-ad-1434137023556-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());*/
+
+			 googletag.defineSlot('/1098385/250x100_home_ca', [250, 100], 'div-gpt-ad-1434139612975-0')
+			 .setCollapseEmptyDiv(true)
+			 .addService(googletag.pubads());
+
+
+    		/*googletag.defineSlot('/1098385/250x100_home_esc_ca', [250, 100], 'div-gpt-ad-1433941913483-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());*/
+
+				googletag.defineSlot('/1098385/Geolocalizacion_PtoMontt', [1, 1], 'div-gpt-ad-1443715011296-0')
+					.setCollapseEmptyDiv(true)
+					.addService(googletag.pubads());
+
+			/*
+			googletag.defineSlot('/92947493/200x600_BIOBIORADIO_ALL', [200, 600], 'div-gpt-ad-1417644200488-0')
+				.setCollapseEmptyDiv(true)
+				.addService(googletag.pubads());
+			*/
+			googletag.defineSlot('/1098385/250x250_columnistas_home', [250, 250], 'div-gpt-ad-1456834865950-0')
+			.setCollapseEmptyDiv(true)
+			.addService(googletag.pubads());
+
+
+
+			//googletag.pubads().enableSingleRequest();
+			googletag.pubads().enableAsyncRendering();
+			googletag.enableServices();
+			});
+	</script>
+	<!--<script src="https://www.gstatic.com/swiffy/v7.1/runtime.js"></script>-->
+
+	<!-- [/DFP SCRIPTS] -->
+	<script type='text/javascript' src='http://partner.googleadservices.com/gampad/google_service.js'></script>
+	<!-- banner sorteo loteria -->
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-46693201-37', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+	<script type="text/javascript">
+	GS_googleAddAdSenseService("ca-pub-8190798523630002");
+	GS_googleEnableAllServices();
+	</script>
+	<script type="text/javascript">
+	GA_googleAddSlot("ca-pub-8190798523630002", "1000x75_home_superior_pat");
+	GA_googleAddSlot("ca-pub-8190798523630002", "750x500_Interstitial_Home");
+	GA_googleAddSlot("ca-pub-8190798523630002", "728x90_full_expandible");
+	GA_googleAddSlot("ca-pub-8190798523630002", "728x90_home_scroll");
+	GA_googleAddSlot("ca-pub-8190798523630002", "250x250_home_expandible");
+	GA_googleFetchAds();
+	</script>
+
+	<!-- Banner Viña-->
+	<script type='text/javascript'>
+	  var googletag = googletag || {};
+	  googletag.cmd = googletag.cmd || [];
+	  (function() {
+		var gads = document.createElement('script');
+		gads.async = true;
+		gads.type = 'text/javascript';
+		var useSSL = 'https:' == document.location.protocol;
+		gads.src = (useSSL ? 'https:' : 'http:') +
+		  '//www.googletagservices.com/tag/js/gpt.js';
+		var node = document.getElementsByTagName('script')[0];
+		node.parentNode.insertBefore(gads, node);
+	  })();
+	</script>
+	<script type='text/javascript'>
+	  googletag.cmd.push(function() {
+		googletag.defineSlot('/1098385/236x72_caja_especiales', [236, 72], 'div-gpt-ad-1456143607948-0').addService(googletag.pubads());
+		googletag.pubads().enableSingleRequest();
+		googletag.enableServices();
+	  });
+	</script>
+	<!-- Banner Viña-->
+
+
+
+
+
+	<title>BioBioChile - La Red de Prensa Más Grande de Chile</title>
+</head>
+<body>
+<div id="boton_irMovil" style="display:none;background-color:#F9F7F7;text-align:center;">
+	<label style="font-size:20px;color:#008cba;text-decoration:none;font-weight:bold;">
+		Versión Móvil
+	</label>
+</div>
+<script>
+	$(document).ready(function(){
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		 	$("#boton_irMovil").css("display", "block");
+		 	$("#boton_irMovil label").click(function() {
+		 		//$.cookie("movil_modo", "movil");
+		 		document.cookie="movil_modo=movil;domain=.biobiochile.cl";
+		 		window.location="http://m.biobiochile.cl";
+			});
+		}
+	});
+</script>
+<div class="marco">
+	<div class="row">
+		<div class="en_edi"><a class="en_logo" href="http://www.biobiochile.cl/en"></a></div>
+		<div id="marquee">
+			<span class="resLeft"></span>
+			<span class="resRight"></span>
+			<marquee scrolldelay="120">
+				<div style="display:inline-block;margin-left:30px;"><h1><a style="color:#fff;" href="http://www.biobiochile.cl/2016/04/25/3-detenidos-por-robo-de-taxi-y-asalto-a-vendedora-de-servicentro-en-la-florida.shtml"><span>21:52</span> | 3 detenidos por robo de taxi y asalto a vendedora de servicentro en La Florida</a></h1></div><div style="display:inline-block;margin-left:30px;"><h1><span style="margin-right: 5px">Dolar:</span> <i class="fa fa-arrow-up" style="color: lightgreen;"></i> $666,80</a></h1></div><div style="display:inline-block;margin-left:30px;"><h1><a style="color:#fff;" href="http://www.biobiochile.cl/2016/04/25/ministro-del-mop-llegara-a-valdivia-para-entregar-detalles-sobre-la-reparacion-del-cau-cau.shtml"><span>21:50</span> | Ministro Undurraga entregará este martes detalles sobre la reparación del puente Cau Cau</a></h1></div><div style="display:inline-block;margin-left:30px;"><h1><span style="margin-right: 5px">Euro:</span> <i class="fa fa-arrow-up" style="color: lightgreen;"></i> $748,20</a></h1></div><div style="display:inline-block;margin-left:30px;"><h1><a style="color:#fff;" href="http://www.biobiochile.cl/2016/04/25/cruz-roja-inicia-campana-en-concepcion-para-ir-en-ayuda-de-damnificados-en-ecuador.shtml"><span>21:28</span> | Cruz Roja inicia campaña en Concepción para ir en ayuda de damnificados en Ecuador</a></h1></div><div style="display:inline-block;margin-left:30px;"><h1><span style="margin-right: 5px">UF:</span> <i class="fa fa-arrow-up" style="color: lightgreen;"></i> $25.889,57</a></h1></div><div style="display:inline-block;margin-left:30px;"><h1><a style="color:#fff;" href="http://www.biobiochile.cl/2016/04/25/san-luis-se-juega-la-permanencia-ante-una-uc-que-quiere-volver-a-la-cima-del-clausura.shtml"><span>21:15</span> | San Luis se juega la permanencia ante una UC que quiere volver a la cima del Clausura</a></h1></div><div style="display:inline-block;margin-left:30px;"><h1><span style="margin-right: 5px">UTM:</span> <i class="fa fa-arrow-up" style="color: lightgreen;"></i> $45.316,00</a></h1></div>
+			</marquee>
+		</div>
+		<div class="radio">
+			<h6><i class="fa fa-volume-up"></i><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=santiago">Escúchanos en Vivo</a><i class="fa fa-caret-down"></i></h6>
+			<ul class="lista">
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=santiago">Santiago</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=valparaiso">Valparaíso</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=concepcion">Concepción</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=los angeles">Los Ángeles</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=temuco">Temuco</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=valdivia">Valdivia</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=osorno">Osorno</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=puerto montt">Puerto Montt</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- barra superior -->
+<div style="display:none"><div id="boton_irMovil" style="display:none;background-color:#F9F7F7;text-align:center;">
+	<label style="font-size:20px;color:#008cba;text-decoration:none;font-weight:bold;">
+		Versión Móvil
+	</label>
+</div>
+<script>
+	$(document).ready(function(){
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		 	$("#boton_irMovil").css("display", "block");
+		 	$("#boton_irMovil label").click(function() {
+		 		//$.cookie("movil_modo", "movil");
+		 		document.cookie="movil_modo=movil;domain=.biobiochile.cl";
+		 		window.location="http://m.biobiochile.cl";
+			});
+		}
+	});
+	function setPortadaLocal(local) {
+		document.cookie="plocal=" + local + ";domain=.biobiochile.cl";
+		var a = document.createElement('a');
+    a.href = "http://www.biobiochile.cl/?t=" + Math.random();
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+	}
+</script>
+<div class="marco">
+	<div class="row">
+		<div class="en_edi"><a class="en_logo" href="http://www.biobiochile.cl/en"></a></div>
+		<div id="marquee">
+			<div>
+				<div style="color:#F70A0A;margin-top:5px;margin-left:5px;text-transform:uppercase;font-weight:bold;float: left;">Es Noticia:</div>
+				
+			</div>
+		</div>
+		<div class="radio">
+			<h6><i class="fa fa-volume-up"></i><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=santiago">Escúchanos en Vivo</a><i class="fa fa-caret-down"></i></h6>
+			<ul class="lista">
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=santiago">Santiago</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=valparaiso">Valparaíso</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=concepcion">Concepción</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=los angeles">Los Ángeles</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=temuco">Temuco</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=valdivia">Valdivia</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=osorno">Osorno</a></li>
+				<li><a href="#" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=puerto montt">Puerto Montt</a></li>
+			</ul>
+		</div>
+	</div>
+</div></div>
+<script>
+	GA_googleFillSlot("750x500_Interstitial_Home");
+	try{
+		function getSearchParameters() {
+		      var prmstr = window.location.search.substr(1);
+		      return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+		}
+
+		function transformToAssocArray( prmstr ) {
+		    var params = {};
+		    var prmarr = prmstr.split("&");
+		    for ( var i = 0; i < prmarr.length; i++) {
+		        var tmparr = prmarr[i].split("=");
+		        params[tmparr[0]] = tmparr[1];
+		    }
+		    return params;
+		}
+		var params = getSearchParameters();
+		if(params['ref'] == 'radiobiobio'){
+			document.getElementsByTagName('body')[0].className+=' rbbbox'
+		}
+	}catch(e){}
+	jQuery(function(){
+		try{
+			var params = getSearchParameters();
+			if(params['ref'] !== 'radiobiobio'){
+				jQuery("#rbb-info-box-ref").appendTo(jQuery("#rbb-box-footer")).css({"display": "inline-block"});
+			}
+		} catch(e){}
+	});
+</script>
+
+
+<div id="contentAdSuperior" class="head_content adSuperior">
+	<div class="row head">
+		<div class="headLeft">
+			<div class="ad-1000x75 fLeft">
+				<script type="text/javascript">GA_googleFillSlot("1000x75_home_superior_pat");</script>
+			</div>
+			<!--<div class="adSuperior200x200 show-for-large-up" id="adSuperiorDos">
+				<div id="div-gpt-ad-1418421000390-0" style="width:200px;height:200px;">
+					<script type='text/javascript'>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-1418421000390-0'); });
+					</script>
+				</div>
+			</div>-->
+		</div>
+	</div>
+</div>
+
+<div class="head_content bbclHeadLogo">
+	<div class="row head">
+		<div id="headBBCL" class="headLeft">
+			<a class="logo" href="http://www.biobiochile.cl"></a>
+			<div class="social">
+				<h6>Síguenos: </h6>
+				<a href="https://www.facebook.com/RadioBioBio" target="_blank" class="fa fa-facebook"></a>
+				<a href="https://twitter.com/biobio" target="_blank" class="fa fa-twitter"></a>
+				<a href="http://instagram.com/biobiochile" target="_blank" class="fa fa-instagram"></a>
+				<a href="https://telegram.me/bbclbot" target="_blank" class="fa fa-paper-plane" style="background-color: #179cde;"></a>
+			</div>
+			<div class="large-3 columns busca">
+				<form action="http://busca.biobiochile.cl/" method="GET">
+	  				<div class="row collapse postfix-round">
+	    				<div class="small-9 columns">
+	      					<input type="search" name="s" placeholder="Buscar...">
+	    				</div>
+	    				<div class="small-3 columns">
+	      					<button type="submit" class="fa fa-search"></button>
+	    				</div>
+	  				</div>
+				</form>
+			</div>
+			<div class="menu">
+				<ul class="elMenu">
+					<li><a class="inicio" href="http://www.biobiochile.cl">Inicio</a></li>
+					<li><a class="nacional" href="http://www.biobiochile.cl/portada/nacional/index.html">Nacional</a></li>
+					<li><a class="internacional" href="http://www.biobiochile.cl/portada/internacional/index.html">Internacional</a></li>
+					<li><a class="economia" href="http://www.biobiochile.cl/portada/empresa/index.html">Economía</a></li>
+					<li class="tabSubMenu">
+						<a class="deporte" href="http://www.biobiochile.cl/deportes">Deportes</a>
+						<!--<ul class="subMenuSuperior futbol">
+							<li>
+								<a class="deporte" href="http://www.biobiochile.cl/portada/futbol/index.html">Fútbol</a>
+							</li>
+						</ul>-->
+					</li>
+					<li><a class="sociedad" href="http://www.biobiochile.cl/portada/sociedad/index.html">Sociedad</a></li>
+					<li><a class="tecnologia" href="http://www.biobiochile.cl/portada/tecnologia/index.html">Tecnología</a></li>
+					<li><a class="cultura" href="http://www.biobiochile.cl/portada/cultura/index.html">Cultura</a></li>
+					<li><a class="espectaculos" href="http://www.biobiochile.cl/portada/espectaculos/index.html">Tv/Espectáculos</a></li>
+					<li><a class="hombre" href="http://www.biobiochile.cl/portada/hombre/index.html">Hombre</a></li>
+					<li><a class="mujer" href="http://www.biobiochile.cl/portada/mujer/index.html">Mujer</a></li>
+					<li class="tabSubMenu">
+						<a class="opinion" href="http://www.biobiochile.cl/portada/opinion/index.html">Opinión</a>
+						<ul class="subMenuSuperior opinion">
+							<li>
+								<a class="opinion" href="http://www.biobiochile.cl/portada/blogs/index.html">Blogs</a>
+							</li>
+						</ul>
+					</li>
+					<li><a class="bbtv" href="http://tv.biobiochile.cl">BBTV</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="adSuperior200x200 show-for-large-up" id="adSuperiorDos" style="display:none;">
+			<div id="div-gpt-ad-1418421000390-0" style="width:200px;height:200px;">
+				<script type='text/javascript'>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1418421000390-0'); });
+				</script>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- header -->
+
+<div class="head_content adInferior">
+	<div class="row head">
+		<div class="headLeft">
+			<!--loteria-->
+			<div id="streamingLoteria">
+				<a href="http://media.digitalproserver.com/v2/live/loteria" onclick="ga('send', 'event', 'enlace', 'clic', 'enlace-post');" class="clickEx" id="linkStreaming" target="_blank"></a>
+
+				<a href="https://www.loteria.cl/loterianet" onclick="ga('send', 'event', 'enlace', 'clic', 'enlace-post');" class="clickEx" id="linkLoteria" target="_blank"></a>
+
+				<iframe src="http://concursos.biobiochile.cl/Barra_loteria/barra.html" width="1000" height="200" scrolling="no" id="fondoLoteria" frameborder="0"></iframe>
+
+				<iframe  src="http://media.digitalproserver.com/v2/live/loteria" width="310" height="180" scrolling="no" id="video_streaming" frameborder="0"></iframe>
+
+				<iframe src="http://concursos.biobiochile.cl//cuenta_atras/count_down.html" width="310" height="180" scrolling="no" frameborder="0" id="contador"></iframe>
+			</div>
+
+			<div id='div-gpt-ad-1418420870208-0' style='width:1000px; height:75px;margin-top: 5px;'>
+				<script type='text/javascript'>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1418420870208-0'); });</script>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+	<div class="super_content">
+		<div class="row container">
+			<div class="small-12 columns">
+				<div class="subMenuCiudades">
+					<ul>
+						<li class="titulo"><a href="">Noticias de: </a></li>
+						<li><a href="http://www.biobiochile.cl/portada/nacional/categorias/index.html?s=1&n=144997">Zona Norte</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=489&e=nav">Valparaíso/Viña</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=182&e=nav">Santiago</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?e=nacional&slug=ohiggins-maule&n=145003&s=145003&r=20150414">O'Higgins/Maule</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=92&e=nav">Concepción/Talcahuano</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=143&e=nav">Los Ángeles</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=90&e=nav">Temuco</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=130&e=nav">Valdivia</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=872&e=nav">Osorno</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=1329&e=nav">Puerto Montt</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?e=nacional&slug=aysen-magallanes&n=145008&s=145008&r=20150414">Aysén/Magallanes</a></li>
+					</ul>
+				</div>
+				<!-- [RADIOBIOBIO] -->
+				<div id="recipeAdSuperior"></div>
+					<style> 
+	.eso {
+	    -webkit-animation: myfirst 0.5s infinite alternate; /* Chrome, Safari, Opera */
+	    animation: myfirst 0.5s  infinite alternate;
+	}
+
+	/* Chrome, Safari, Opera */
+	@-webkit-keyframes myfirst {
+	    from {color: white;}
+	    to {color: #010711;}
+	}
+
+	/* Standard syntax */
+	@keyframes myfirst {
+	    from {color: white;}
+	    to {color: #010711;}
+	}
+	</style>
+	<script type="text/javascript">
+	/*jQuery(function(){
+		jQuery(".programas > ul").cycle({
+			fx:     'fade', 
+	    	speed:  'fast',
+	    	timeout: 10000,
+	        pager: "#rbb-paginador ul",
+	        pagerEvent: "click",
+	        pauseOnPagerHover: true,
+	        fastOnEvent: true,
+	        pause: 1,
+	    	pagerAnchorBuilder: function (e, t) {
+	            return '<li><a href="#"></a></li>'
+	        }
+		});
+	});*/
+	function rbbSelectPrograma(programa){
+
+		document.getElementById(programa).style.display='block'; 
+		document.getElementById('detail-rbbbox-wrapper').style.display='block'; 
+
+	}
+	</script>
+	<style>
+	
+	
+	.detail-rbbbox-wrapper{
+		z-index:7002;
+		position:fixed;
+		width:100%;
+		height:100%;
+		background-image:url('http://ads.lax.biobiochile.cl/claro/itt/img/bg.png');
+		float: left;
+		left: 0;
+		top: 0;
+		display: none;
+	}
+	.detail-rbbbox-wrapper-container{
+		cursor:pointer;
+		position:relative;
+		width:500px;
+		height:450px;
+		margin:0 auto;
+		background-color: #FFF;
+		-webkit-box-shadow: 1px 1px 15px 0px rgba(50, 50, 50, 0.75);
+		-moz-box-shadow:    1px 1px 15px 0px rgba(50, 50, 50, 0.75);
+		box-shadow:         1px 1px 15px 0px rgba(50, 50, 50, 0.75);
+	}
+	.detail-rbbbox-modal{
+		width:100px;
+		height:50px;
+		position:absolute;
+		right:0;
+		top:0;
+		cursor:pointer;
+		z-index:9000;
+		background-image: url(http://www.biobiochile.cl/assets/img/fancybox_sprite.png);
+		position: absolute;
+		top: 6px;
+		right: 15px;
+		width: 36px;
+		height: 36px;
+		cursor: pointer;
+		z-index: 8040;
+	}
+	.detail-rbbbox-container{
+		margin-top:40px;
+		width:500px;
+		height:450px;
+	}
+
+	.detail-rbbbox-container article {
+		
+		width: 100%;
+
+	}
+	.detail-rbbbox-container article header {
+		width: 100%;
+		background-color: #164893;
+	}
+	.detail-rbbbox-container article h3 {
+		color: #FFF;
+		font-size: 20px;
+		font-weight: 700;
+		padding: 15px;
+	}
+	.detail-rbbbox-container  section{
+		padding: 35px 20px;
+		float: left;
+		line-height: 25px;
+		color: gray;
+		font-family: 'Lato',sans-serif;
+		font-weight: lighter;
+	}
+	.rbbbox-programa{
+		display: none;
+	}
+	.programa-item {
+		width: 250px;
+		height: 217px;
+	}
+	#rbb-info-box-ref{
+		margin-top: 10px;
+	}
+	.rbbbox #rbb-info-box-ref {
+		display: inline-block;
+	}
+	.rbbbox #rbb-info-box-ref{
+		display: inline-block !important;
+	}
+	.rbbbox header.head{
+		display: none;
+	}
+	#rbb-box-footer {}
+	</style>
+	<div id="detail-rbbbox-wrapper" class="detail-rbbbox-wrapper">
+		<div class="detail-rbbbox-wrapper-container">
+			<a id="btnRBBClose" title="Cerrar" class="detail-rbbbox-modal" href="javascript:;"></a>
+			<div class="detail-rbbbox-container">
+				<article id="rrbbox-sec-deportes" class="rbbbox-programa">
+					<header>
+						<h3>BIO BIO DEPORTES</h3>
+					</header>
+					<section>
+						Un equipo de excelencia y connotada trayectoria suman información, debate, entrevistas y cobertura total en Bio Bio Deportes. Comentaristas: Francisco Sagredo, Marco Sotomayor, Pablo Flamm, Alvaro Lara, Roberto Vallejos, Benjamin Benzaquen, Eugenio  "Keno" Salinas y Eugenio Figueroa. Relatores: Sebastián Luchsinger, Juan Ramón Cid y Diego Osorio, más un experimentado grupo de profesionales de todas las disciplinas deportivas. De lunes a viernes, en dos horarios: de 14 a 15 horas y de 20 a 21 horas. Sábado y domingo transmisiones en directo desde las canchas del país o de cualquier recinto deportivo. 
+					</section>
+				</article>
+				<article id="rrbbox-sec-expreso" class="rbbbox-programa">
+					<header>
+						<h3>EXPRESO BIO BIO</h3>
+					</header>
+					<section>
+						En la voz de Álvaro Escobar y Rayen Araya, la mañana de Bio Bio es noticia, entrevistas, contingencia, música y toda la información de un recorrido de cuatro horas alrededor de Chile y el mundo. De 9 a 13 horas, los temas son desarrollados bajo una mirada más cercana y cómplice, dirigida a una audiencia dinámica, de un país que se mueve a esas horas. Un programa transversal, con tema y entrevistados de interés general y protagonistas de la agenda noticiosa de cada día. Es la cordial invitación de “Expreso Bio Bio”.
+					</section>
+				</article>
+				<article id="rrbbox-sec-podriaserpeor" class="rbbbox-programa">
+					<header>
+						<h3>PODRIA SER PEOR</h3>
+					</header>
+					<section>
+						Cada tarde un sincero encuentro con la irreverente y asertiva mirada de Julio César Rodríguez en “Podría ser peor”. La pregunta oportuna, el diálogo franco, la opinión informada y los despachos en terreno. De lunes a viernes, desde las 15 a las 18 horas, una mirada aguda a la contingencia chilena.  
+					</section>
+				</article>
+				<article id="rrbbox-sec-hoyenlaradio" class="rbbbox-programa">
+					<header>
+						<h3>HOY EN LA RADIO</h3>
+					</header>
+					<section>
+						La noticia en perspectiva, la entrevista que marcó agenda y los personajes que marcan pauta son parte del resumen noticioso de “Hoy en la radio”. De 21 a 24 horas, un completo encuentro con la principal información del día, además de datos, consejos, panoramas y temas en desarrollo. Conduce: Ángeles Araya         
+					</section>
+				</article>
+				<article id="rrbbox-sec-unasemanaenlaradio" class="rbbbox-programa">
+					<header>
+						<h3>UNA SEMANA EN LA RADIO</h3>
+					</header>
+					<section>
+						El resumen noticioso semanal de Bio Bio con las mejores entrevistas realizadas durante la semana y también con invitados en directo desde los estudios de la radio y en el lugar de la noticia. Sábado y domingo, de 9 a 13 horas, lo más escuchado, lo más comentado y la síntesis informativa de siete días en “Una semana en la radio”. Conduce: Rafael Venegas.
+					</section>
+				</article>
+				<article id="rrbbox-sec-trasnoche" class="rbbbox-programa">
+					<header>
+						<h3>TRASNOCHE</h3>
+					</header>
+					<section>
+						Después de un completo resumen noticioso del día, a partir de las 00.30 horas y hasta las seis de la mañana transcurren las mejores horas del día para compartir noticias, entrevistas, datos, consejos, panoramas ,espectáculos y muchos temas de interés. De lunes a viernes, de Arica a Punta Arenas, con Rodolfo Hahn y sus invitados en el “El Trasnoche de la radio”. 
+					</section>
+				</article>
+				<article id="rrbbox-sec-radiograma" class="rbbbox-programa">
+					<header>
+						<h3>RADIOGRAMA</h3>
+					</header>
+					<section>
+						La red informativa más grande de Chile nos permite estar en cada noticia con un permanente respeto por la verdad, la diversidad de opiniones y la voz de todos y cada uno de los chilenos en política, espectáculos, deportes, economía, tendencias y el siempre oportuno comentario sin más compromiso que la libertad de expresión. Con Tomás Mosciatti y Nibaldo Mosciatti , Rayén Araya y Katherine Cubillos, todos los días en tres horarios: desde las 6 a las 9 horas, de 13 a 14 horas y de 18 a 20 horas, con informadores cada una hora o cuando esté la noticia. 
+					</section>
+				</article>
+			</div>
+		</div>
+	</div>
+	<div id="rbb-info-box-ref" class="content-left" style="display: none;">
+		<!-- Caja Radio Bio Bio -->
+			<div class="bar-plazas fuente" style="margin-bottom: 2px; display: none;">
+				<div class="titulo-plaza">Visita tu plaza <span></span></div>
+				<ul>
+					<li><a href="http://plazas.biobiochile.cl/plaza/santiago/muro">Santiago</a></li>
+					<li><a href="http://plazas.biobiochile.cl/plaza/valparaiso/muro">Valparaíso</a></li>
+					<li><a href="http://plazas.biobiochile.cl/plaza/concepcion/muro">Concepción</a></li>
+					<li><a href="http://plazas.biobiochile.cl/plaza/temuco/muro">Temuco</a></li>
+					<li><a href="http://plazas.biobiochile.cl/">Publica Gratis</a></li>
+				</ul>
+			</div>
+			<div class="box-rbb" style="border-top: 4px solid #164893; padding-top: 10px; margin-bottom: 15px;">
+				<header>
+					<a href="http://www.radiobiobio.cl/" class="logo"></a>
+					<div class="rbb-menu-superior nosotros">
+						<ul>
+							<li><a href="http://www.biobiochile.cl/direcciones.shtml">Direcciones</a></li>
+							<li class="separator">|</li>
+							<li><a href="http://www.biobiochile.cl/escribenos.shtml">Escribenos</a></li>
+						</ul>
+					</div>
+				</header>
+				<section class="frecuencias">
+					<div class="carrusel">
+						<marquee behavior="scroll" direction="left" scrollamount="4">
+						<span>Arica 92.7</span>
+						<span>Iquique 96.9</span>
+						<span>Calama 100.7</span>
+						<span>Antofagasta 93.5</span>
+						<span>Caldera 96.9</span>
+						<span>Copiapó 97.3</span>
+						<span>Vallenar 89.7</span>
+						<span>La Serena / Coquimbo 90.5</span>
+						<span>Ovalle 101.1</span>
+						<span>Los Andes 103.5</span>
+						<span>Valparaíso 94.5</span>
+						<span>Viña del Mar 94.5</span>
+						<span>Casablanca 93.5</span>
+						<span>Curacaví 95.1</span>
+						<span>Melipilla 89.9</span>
+						<span>Santiago 99.7</span>
+						<span>San Antonio 106.1</span>
+						<span>Rancagua 99.9</span>
+						<span>Vichuquén 100.3</span>
+						<span>Curicó 98.5</span>
+						<span>Constitución 106.1</span>
+						<span>Talca 96.9</span>
+						<span>Longaví 97.3</span>
+						<span>Chillán 105.3</span>
+						<span>Concepción (620 AM)  98.1</span>
+						<span>Talcahuano (620 AM)  98.1</span>
+						<span>Lebu 103.5</span>
+						<span>Cañete 97.7</span>
+						<span>Los Ángeles 96.7</span>
+						<span>Angol 99.7</span>
+						<span>Lonquimay 101.5</span>
+						<span>Temuco 88.1</span>
+						<span>Pucón 103.7</span>
+						<span>Villarrica 88.5</span>
+						<span>Valdivia 88.9</span>
+						<span>Los Lagos 91.5</span>
+						<span>Osorno 106.5</span>
+						<span>Puerto Varas 88.9</span>
+						<span>Puerto Montt 94.9</span>
+						<span>Ancud 99.3</span>
+						<span>Castro 89.3</span>
+						<span>Coyhaique 90.3</span>
+						<span>Punta Arenas 105.1</span>
+						<span>Juan Fernández 88.5</span>
+						</marquee>
+					</div>
+					<a href="http://www.biobiochile.cl/est/frecuencias.pdf" target="_blank" style="color: rgb(45, 44, 44) !important;">
+						<i class="fa fa-print" ><span>Imprimir Lista de Frecuencias</span></i>
+					</a>					
+				</section>
+				<section class="contenido">
+					<div class="envivo">
+						<div class="escucha">
+							Escucha Radio Bio Bio en Linea
+							<div class="radiocontainer">
+								<a href="#">
+									<span class="fa-stack fa-lg">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="fa fa-volume-up fa-stack-1x fa-inverse eso"></i>
+									</span>
+									¿cual es tu ciudad?
+								</a>
+								<div class="optionradio">
+									<a href="javascript:void(0)" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=santiago">santiago</a>
+								</div>
+							   	<div class="optionradio">
+							   		<a href="javascript:void(0)" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=valparaiso">valparaíso</a>
+							   	</div>
+							   	<div class="optionradio">
+							   		<a href="javascript:void(0)" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=concepcion">concepción</a>
+							   	</div>
+							   	<div class="optionradio">
+							   		<a href="javascript:void(0)" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=los angeles">los ángeles</a>
+							   	</div>
+								<div class="optionradio">
+									<a href="javascript:void(0)" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=temuco">temuco</a>
+								</div>
+							   	<div class="optionradio">
+							   		<a href="javascript:void(0)" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=valdivia">valdivia</a>
+							   	</div>
+							   	<div class="optionradio">
+							   		<a href="javascript:void(0)" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=osorno">osorno</a>
+							   	</div>
+							   	<div class="optionradio">
+							   		<a href="javascript:void(0)" class="itemradio" data-url="http://vivo.radiobiobio.cl/player/?radio=puerto montt">puerto montt</a>
+							   	</div>
+						   	</div>
+						</div>
+					</div>
+					<div class="programas">
+						<ul data-options="animation:slide; bullets:true;" data-orbit class="programa-item">
+							<li>
+								<a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-deportes');">
+									<img src="http://www.biobiochile.cl/assets/img/deportes.png">
+								</a>
+								<div class="rbbinfo">
+									<!--<h4>Horario</h4>-->
+									<h2><a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-deportes');">BIO BIO DEPORTES</a></h2>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-expreso');">
+									<img src="http://www.biobiochile.cl/assets/img/expreso.png?v=1.0.0">
+								</a>
+								<div class="rbbinfo">
+									<!--<h4>Horario</h4>-->
+									<h2><a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-expreso');">EXPRESO BIO BIO</a></h2>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-podriaserpeor');">
+									<img src="http://www.biobiochile.cl/assets/img/podriaserpeor.png">
+								</a>
+								<div class="rbbinfo">
+									<!--<h4>Horario</h4>-->
+									<h2><a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-podriaserpeor');">PODRíA SER PEOR</a></h2>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-hoyenlaradio');">
+									<img src="http://www.biobiochile.cl/assets/img/HELR.png">
+								</a>
+								<div class="rbbinfo">
+									<!--<h4>Horario</h4>-->
+									<h2><a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-hoyenlaradio');">HOY EN LA RADIO</a></h2>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-unasemanaenlaradio');">
+									<img src="http://www.biobiochile.cl/assets/img/unasemanaenlaradio.jpg">
+								</a>
+								<div class="rbbinfo">
+									<!--<h4>Horario</h4>-->
+									<h2><a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-unasemanaenlaradio');">UNA SEMANA EN LA RADIO</a></h2>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-trasnoche');">
+									<img src="http://www.biobiochile.cl/assets/img/trasnoche.png">
+								</a>
+								<div class="rbbinfo">
+									<!--<h4>Horario</h4>-->
+									<h2><a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-trasnoche');">TRASNOCHE</a></h2>
+								</div>
+							</li>
+							<li>
+								<a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-radiograma');">
+									<img src="http://www.biobiochile.cl/assets/img/radiograma.png">
+								</a>
+								<div class="rbbinfo">
+									<!--<h4>Horario</h4>-->
+									<h2><a href="javascript:void(0)" onclick="rbbSelectPrograma('rrbbox-sec-radiograma');">RADIOGRAMA</a></h2>
+								</div>
+							</li>
+						</ul>
+						<div id="rbb-paginador">
+							<ul></ul>
+						</div>
+					</div>
+				</section>
+			</div>
+	</div>
+<script>
+(function(){
+	function removeRBBElement(id) {
+		var element = document.getElementById(id);
+		element.style.display='none';
+		document.getElementById('rrbbox-sec-deportes').style.display='none';
+		document.getElementById('rrbbox-sec-expreso').style.display='none';
+		document.getElementById('rrbbox-sec-podriaserpeor').style.display='none';
+		document.getElementById('rrbbox-sec-hoyenlaradio').style.display='none';
+		document.getElementById('rrbbox-sec-unasemanaenlaradio').style.display='none';
+		document.getElementById('rrbbox-sec-trasnoche').style.display='none';
+		document.getElementById('rrbbox-sec-radiograma').style.display='none';
+	};
+	var btnRBBClose = document.getElementById('btnRBBClose'),
+		fnRBBClose = function() {
+			removeRBBElement("detail-rbbbox-wrapper");
+			return false;
+		};
+	if (window.addEventListener) {
+		btnRBBClose.addEventListener('click', fnRBBClose ,false);
+	} else if (window.attachEvent) {
+		btnRBBClose.attachEvent( "onclick", fnRBBClose );
+	} else {
+		btnRBBClose['onclose'] = fnRBBClose;
+	}
+})();
+</script>
+				<div class="menu menuRadio">
+					<ul class="elMenu">
+						<li><a class="inicio" href="http://www.biobiochile.cl">Inicio</a></li>
+						<li><a class="nacional" href="http://www.biobiochile.cl/portada/nacional/index.html">Nacional</a></li>
+						<li><a class="internacional" href="http://www.biobiochile.cl/portada/internacional/index.html">Internacional</a></li>
+						<li><a class="economia" href="http://www.biobiochile.cl/portada/empresa/index.html">Economía</a></li>
+						<li class="tabSubMenu">
+							<a class="deporte" href="http://www.biobiochile.cl/portada/deporte/index.html">Deporte</a>
+							<ul class="subMenuSuperior futbol">
+								<li>
+									<a class="deporte" href="http://www.biobiochile.cl/portada/futbol/index.html">Fútbol</a>
+								</li>
+							</ul>
+						</li>
+						<li><a class="sociedad" href="http://www.biobiochile.cl/portada/sociedad/index.html">Sociedad</a></li>
+						<li><a class="tecnologia" href="http://www.biobiochile.cl/portada/tecnologia/index.html">Tecnología</a></li>
+						<li><a class="cultura" href="http://www.biobiochile.cl/portada/cultura/index.html">Cultura</a></li>
+						<li><a class="espectaculos" href="http://www.biobiochile.cl/portada/espectaculos/index.html">Tv/Espectáculos</a></li>
+						<li><a class="hombre" href="http://www.biobiochile.cl/portada/hombre/index.html">Hombre</a></li>
+						<li><a class="mujer" href="http://www.biobiochile.cl/portada/mujer/index.html">Mujer</a></li>
+						<li class="tabSubMenu">
+							<a class="opinion" href="http://www.biobiochile.cl/portada/opinion/index.html">Opinión</a>
+							<ul class="subMenuSuperior opinion">
+								<li>
+									<a class="opinion" href="http://www.biobiochile.cl/portada/blogs/index.html">Blogs</a>
+								</li>
+							</ul>
+						</li>
+						<li><a class="bbtv" href="http://tv.biobiochile.cl">BBTV</a></li>
+					</ul>
+				</div>
+				<div class="subMenuCiudades paraRadio">
+					<ul>
+						<li class="titulo"><a href="">Noticias de: </a></li>
+						<li><a href="http://www.biobiochile.cl/portada/nacional/categorias/index.html?s=1&n=144997">Zona Norte</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=489&e=nav">Valparaíso/Viña</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=182&e=nav">Santiago</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?e=nacional&slug=ohiggins-maule&n=145003&s=145003&r=20150414">O'Higgins/Maule</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=92&e=nav">Concepción/Talcahuano</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=143&e=nav">Los Ángeles</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=90&e=nav">Temuco</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=130&e=nav">Valdivia</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=872&e=nav">Osorno</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?s=1329&e=nav">Puerto Montt</a></li>
+						<li><a href="http://busca.biobiochile.cl/categorias/?e=nacional&slug=aysen-magallanes&n=145008&s=145008&r=20150414">Aisén/Magallanes</a></li>
+					</ul>
+				</div>
+				<!-- [/RADIOBIOBIO] -->
+			</div><!-- sub menú -->
+
+			<div class="small-12 columns" style="">
+				<div>
+					<a href="http://www.biobiochile.cl/50a%C3%B1os/index.html">
+						<img style="width:100%;float:left;margin-top:10px" src="http://www.biobiochile.cl/assets/img/1040x50-escritorio.png" alt="">
+					</a>
+				</div>
+			</div>
+
+
+
+			<div class="medium-9 columns i">
+				<!-- Aquí van las barras -->						
+				
+<!-- en vivo -->
+
+<div class="box granTitular azul">
+	<a href="http://www.biobiochile.cl/2016/04/25/servel-define-opcion-de-primarias-para-la-nueva-mayoria-tras-inscripcion-fuera-de-plazo.shtml">
+		<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710749-servel-nueva-mayoria-730x350.jpg"></div>
+		<h1>Servel define esta tarde opción de primarias en la Nueva Mayoría tras fallida inscripción</h1>
+	</a>
+</div>
+
+
+				<script>function map_initialize() {try{console.log("no activo");}catch(e){}}</script><!-- [/TRAFICO] -->
+
+<div class="box noticiasDestacadas">
+		<div class="small-6 columns notaDest">
+			<a href="http://www.biobiochile.cl/2016/04/25/3-detenidos-por-robo-de-taxi-y-asalto-a-vendedora-de-servicentro-en-la-florida.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710937-carabineros-detencion-355x160.jpg"><span class="time"><i class="fa fa-clock-o"></i>  21:52</span></div>
+				<h1>3 detenidos por robo de taxi y asalto a vendedora de servicentro en La Florida</h1>
+			</a>
+		</div>
+		<div class="small-6 columns notaDest">
+			<a href="http://www.biobiochile.cl/2016/04/25/corte-de-apelaciones-revisa-legalidad-de-acuerdo-que-zanjo-el-caso-tsunami.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710911-caso-tsunami-apelacion-corte-355x160.jpg"><span class="time"><i class="fa fa-clock-o"></i>  21:07</span></div>
+				<h1>Corte de Apelaciones revisa legalidad de acuerdo que zanjó el Caso Tsunami</h1>
+			</a>
+		</div>
+	<div class="small-6 columns" style="height:75px;">
+		<div id='div-gpt-ad-1371769619297-20' style='width:355px; height:75px;'>
+			<script type='text/javascript'>
+			googletag.cmd.push(function() { googletag.display('div-gpt-ad-1371769619297-20'); });
+			</script>
+		</div>
+	</div>
+	<div class="small-6 columns" style="height:75px;">
+		<div id='div-gpt-ad-1371769619297-21' style='width:355px; height:75px;'>
+			<script type='text/javascript'>
+			googletag.cmd.push(function() { googletag.display('div-gpt-ad-1371769619297-21'); });
+			</script>
+		</div>
+	</div>
+	
+		<div class="small-6 columns notaDest">
+			<a href="http://www.biobiochile.cl/2016/04/25/cascadas-de-sqm-hermano-de-julio-ponce-lerou-presento-renuncia-a-directorios.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710895-cascadas-sqm-ponce-lerou-355x160.jpg"><span class="time"><i class="fa fa-clock-o"></i>  20:38</span></div>
+				<h1>Cascadas de SQM: hermano de Julio Ponce Lerou presentó renuncia a directorios</h1>
+			</a>
+		</div>
+		<div class="small-6 columns notaDest">
+			<a href="http://www.biobiochile.cl/2016/04/25/juventudes-ps-protestan-contra-irresponsabilidad-de-dirigentes-por-fallidas-primarias.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710836-protesta-servel-355x160.jpg"><span class="time"><i class="fa fa-clock-o"></i>  19:42</span></div>
+				<h1>Juventudes PS protestan contra &#8220;irresponsabilidad&#8221; de dirigentes por fallidas primarias</h1>
+			</a>
+		</div>
+
+		<div class="small-6 columns notaDest">
+			<a href="http://www.biobiochile.cl/2016/04/25/cristian-labbe-la-udi-quiere-renunciar-a-momentos-de-su-historia-que-no-pueden-negarse.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710544-cristian-labb-355x160.jpg"><span class="time"><i class="fa fa-clock-o"></i>  18:20</span></div>
+				<h1>Cristián Labbé: la UDI quiere renunciar a momentos de su historia que no pueden negarse</h1>
+			</a>
+		</div>
+		<div class="small-6 columns notaDest">
+			<a href="http://www.biobiochile.cl/2016/04/25/gobierno-ataca-falencias-tecnicas-de-chile-vamos-en-el-tc-por-reforma-laboral.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710611-reforma-laboral-355x160.jpg"><span class="time"><i class="fa fa-clock-o"></i>  18:06</span></div>
+				<h1>Gobierno ataca &#8220;falencias técnicas&#8221; de Chile Vamos en el TC por Reforma Laboral</h1>
+			</a>
+		</div>
+</div>
+				
+
+
+				<div class="ad-728x90 large-12 columns">
+					<!-- 728x90 -->
+					<div id='div-gpt-ad-1371769619297-25' style='width:728px; height:90px;'>
+						<script type='text/javascript'>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-1371769619297-25'); });
+						</script>
+					</div>
+				</div>
+				<div>
+					<a href="http://busca.biobiochile.cl/calbuco/">
+						<img style="width:100%;float:left;margin-bottom:10px" src="/assets/img/Barrita-Esc-calbuco_730x50@2x.png" alt="">
+					</a>
+				</div>
+<div class="box nacional">
+	<header><a href="http://www.biobiochile.cl/portada/nacional/index.html"><h5>Nacional</h5></a></header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/nacional/index.html">+ Nacional</a></span>
+	<div class="small-6 columns box-l">
+		<a href="http://www.biobiochile.cl/2016/04/25/muerte-de-leon-smith-abre-el-debate-por-donacion-de-organos-y-si-nos-toca-a-nosotros.shtml">
+			<div class="lazy pic" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710548-file_20151216130714-730x3501-340x170.jpg"></div>
+			<h1>Muerte de León Smith abre el debate sobre donación de órganos: ¿y si nos toca a nosotros?</h1>
+		</a>
+	</div>
+	<div class="small-6 columns box-r">
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/gobierno-justifica-baja-convocatoria-en-proceso-constituyente-pese-a-criticas.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710174-marcelo-diaz-por-proceso-constituyente-e1461607523609-135x90.jpg"></div>
+				<h1>Díaz justifica baja convocatoria en proceso constituyente: Refleja la &#8220;no interferencia&#8221;</h1>
+			</a>
+		</div>
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/desempleo-en-santiago-sufre-una-fuerte-alza-y-alcanza-su-nivel-mas-alto-en-6-anos.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709794-hacienda-135x90.jpg"></div>
+				<h1>Gobierno sorprendido por alza de desempleo en Santiago: llegó a mayor nivel en 6 años</h1>
+			</a>
+		</div>
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/gaspar-rivas-acuso-a-luksic-de-realizar-portonazos-de-cuello-y-corbata.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709624-a_uno_511422_0687f-e1461593101578-135x90.jpg"></div>
+				<h1>Gaspar Rivas insiste contra Luksic y lo acusa de &#8220;portonazos de cuello y corbata&#8221;</h1>
+			</a>
+		</div>
+	</div>
+	<div class="small-12 columns box-b">
+		<span class="ultimo">Último</span>
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/corte-de-apelaciones-revisa-legalidad-de-acuerdo-que-zanjo-el-caso-tsunami.shtml">
+					<h1><span class="time">21:07 | </span>Corte de Apelaciones revisa legalidad de acuerdo que zanjó el Caso Tsunami</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/cascadas-de-sqm-hermano-de-julio-ponce-lerou-presento-renuncia-a-directorios.shtml">
+					<h1><span class="time">20:38 | </span>Cascadas de SQM: hermano de Julio Ponce Lerou presentó renuncia a directorios</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/juventudes-ps-protestan-contra-irresponsabilidad-de-dirigentes-por-fallidas-primarias.shtml">
+					<h1><span class="time">19:42 | </span>Juventudes PS protestan contra &#8220;irresponsabilidad&#8221; de dirigentes por fallidas primarias</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/fundacion-pablo-neruda-se-desmarca-de-participar-en-homenaje-oficial-al-poeta.shtml">
+					<h1><span class="time">19:18 | </span>Fundación Pablo Neruda se desmarca de participar en homenaje oficial al poeta</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box nacional -->
+				
+
+				<!-- [TODO PUBLICIDAD] -->
+				<div class="ad-728x90 large-12 columns">
+                    <div id='div-gpt-ad-1407856433355-0' style='width:728px;height:90px;margin-bottom:10px;'>
+						<script type='text/javascript'>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-1407856433355-0'); });
+						</script>
+					</div>
+        </div>
+				<!-- [/TODO PUBLICIDAD] -->
+
+<div id="cajaRegional" class="box regional">
+	<ul class="tabs" data-tab="">
+		<li data-region="norte" id="n_norte" class="tab-title"><a href="#norte">Norte</a></li>
+		<li data-region="valparaiso" id="n_valparaiso" class="tab-title"><a href="#valparaiso">Valparaíso</a></li>
+		<li data-region="santiago" id="n_santiago" class="tab-title"><a href="#santiago">Metropolitana</a></li>
+		<li data-region="maule" id="n_maule" class="tab-title"><a href="#maule">O’Higgins / Maule</a></li>
+		<li data-region="biobio" id="n_bio-bio" class="tab-title active"><a href="#biobio">Bío Bío</a></li>
+		<li data-region="araucania" id="n_araucania" class="tab-title"><a href="#araucania">La Araucanía</a></li>
+		<li data-region="rios" id="n_rios" class="tab-title"><a href="#rios">Los Ríos</a></li>
+		<li data-region="lagos" id="n_lagos" class="tab-title"><a href="#lagos">Los Lagos</a></li>
+		<li data-region="aysen" id="n_aysen" class="tab-title"><a href="#aysen">Aysén y Magallanes</a></li>
+		<li style="display:none" data-region="todas" id="n_todas" class="tab-title"><a href="#todas">Todas Las Regiones</a></li>
+	</ul>
+	<div class="contentRegional">
+		<span class="mas"><a id="cajaMas" href="http://www.biobiochile.cl/portada/nacional/categorias?s=122">Ver todas las noticias de la región</a></span>
+		<div id="cajaRegionalDestacado" class="large-6 columns box-l">
+			<a href="http://www.biobiochile.cl/2016/04/25/accidentes-en-ruta-a-cabrero-atemorizan-a-vecinos-30-choques-y-19-muertos-en-5-meses.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710854-accidentes-ruta-cabrero-valles-del-bio-bio-350x160.jpg"></div>
+				<h1>Accidentes en ruta a Cabrero atemorizan a vecinos: 30 choques y 19 muertos en 5 meses</h1>
+				<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 20:11</span>
+				<h6>Los accidentes fatales en la Ruta 146, que une a Concepción con Cabrero, ya se han convertido en un escenario habitual para los...</h6>
+			</a>
+		</div>
+		<div class="large-6 columns box-r">
+			<ul id="cajaRegionalNotas" class="postChico">
+				<li>
+					<a href="http://www.biobiochile.cl/2016/04/25/cruz-roja-inicia-campana-en-concepcion-para-ir-en-ayuda-de-damnificados-en-ecuador.shtml">
+						<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710930-terremoto-ecuador-730x3501-105x65.jpg"></div>
+						<h1><span class="time">21:28 | </span>Cruz Roja inicia campaña en Concepción para ir en ayuda de damnificados en Ecuador</h1>
+					</a>
+				</li>
+				<li>
+					<a href="http://www.biobiochile.cl/2016/04/25/plan-de-eficiencia-energetica-beneficiara-a-117-familias-de-la-provincia-de-bio-bio.shtml">
+						<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710896-david-cortes-serey-730x350-105x65.jpg"></div>
+						<h1><span class="time">20:33 | </span>Plan de Eficiencia Energética beneficiará a 117 familias de la provincia de Bío Bío</h1>
+					</a>
+				</li>
+				<li>
+					<a href="http://www.biobiochile.cl/2016/04/25/carabineros-busca-aumentar-dotacion-en-los-angeles-subcomisaria-y-tenencia-son-prioridad.shtml">
+						<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710752-carretera-crf-105x65.jpg"></div>
+						<h1><span class="time">18:58 | </span>Carabineros busca aumentar dotación en Los Ángeles: Subcomisaria y Tenencia son prioridad</h1>
+					</a>
+				</li>
+				<li>
+					<a href="http://www.biobiochile.cl/2016/04/25/exfuncionarios-del-sename-en-el-bio-bio-desnudan-la-crisis-del-organismo.shtml">
+						<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710730-crisis-sename-exfuncionarios-bio-bio-105x65.jpg"></div>
+						<h1><span class="time">18:57 | </span>Exfuncionarios del Sename en el Bío Bío desnudan la crisis del organismo</h1>
+					</a>
+				</li>
+				<li>
+					<a href="http://www.biobiochile.cl/2016/04/25/yumbel-detienen-a-hombre-acusado-de-intentar-asesinar-a-su-expareja-con-bate-de-baseball.shtml">
+						<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710632-thumbnail_dsc_64251-105x65.jpg"></div>
+						<h1><span class="time">18:06 | </span>Yumbel: Detienen a hombre acusado de intentar asesinar a su expareja con bate de baseball</h1>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- box regional -->
+
+<div class="box deporte">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/deporte/index.html"><h5>Deporte</h5></a>
+		<div class="v-mas">
+			<a href="http://busca.biobiochile.cl/deportes/futbol/">Fútbol</a>
+			<a href="http://busca.biobiochile.cl/deportes/basquetbol/">Básquetbol</a>
+			<a href="http://busca.biobiochile.cl/deportes/tenis/">Tenis</a>
+			<a href="http://busca.biobiochile.cl/deportes/rugby/">Rugby</a>
+			<a href="http://busca.biobiochile.cl/deportes/adlp/">ADLP</a>
+			<a href="http://busca.biobiochile.cl/deportes/motor/">Motor</a>
+			<a href="http://busca.biobiochile.cl/deportes/running/">Running</a>
+			<a href="http://busca.biobiochile.cl/deportes/polideportivo/">Polideportivo</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/deporte/index.html">+ Deporte</a></span>
+	
+	<div class="small-12 columns box-u">
+		<a href="http://www.biobiochile.cl/2016/04/25/san-luis-se-juega-la-permanencia-ante-una-uc-que-quiere-volver-a-la-cima-del-clausura.shtml">
+			<div class="small-6 columns">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710589-sl_uc-350x200.jpg" ></div>
+			</div>
+			<div class="small-6 columns">
+				<h1>San Luis se juega la permanencia ante una UC que quiere volver a la cima del Clausura</h1>
+				<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 21:15</span>
+				<h6>Un duelo clave. Así se puede definir el partido que disputarán este martes San Luis de Quillota y Universidad Católica, por la...</h6>
+			</div>
+		</a>
+	</div>
+	<div class="small-6 columns box-l">
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/pellegrini-y-el-city-quieren-dar-el-primer-golpe-en-semis-de-champions-ante-real-madrid.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710550-city-equipo-e1461614854905-135x90.jpg"></div>
+				<h1><span class="time">21:00 | </span>Pellegrini y el City quieren dar el primer golpe en semis de Champions ante Real Madrid</h1>
+			</a>
+		</div>
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/gonzalo-lama-se-transformo-en-nuevo-numero-uno-de-chile-tras-actualizacion-del-ranking-atp.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709887-lama3-e1461599500150-135x90.jpg"></div>
+				<h1><span class="time">12:54 | </span>Gonzalo Lama se transformó en nuevo número uno de Chile tras actualización del ranking ATP</h1>
+			</a>
+		</div>
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/pellegrini-a-pocas-semanas-de-dejar-el-city-no-tengo-ningun-resentimiento-hacia-pep.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709591-a_uno_633272-e1461592331312-135x90.jpg"></div>
+				<h1><span class="time">10:53 | </span>Pellegrini a pocas semanas de dejar el City: &#8220;No tengo ningún resentimiento hacia Pep&#8221;</h1>
+			</a>
+		</div>
+	</div>
+	<div class="small-6 columns box-r">
+		<div class="arribaPelota">
+			<header>
+				<a style="float:left" href="http://busca.biobiochile.cl/deportes/adlp/"><h6>arriba de la pelota</h6></a>
+				<a style="float:right;margin-right:10px" href="http://busca.biobiochile.cl/deportes/adlp/"><h6>+ADLP</h6></a>
+			</header>
+			<div class="post">
+				<a href="http://www.biobiochile.cl/2016/04/25/el-barca-destaca-trabajo-de-bravo-con-video-que-muestra-su-puesta-a-punto-para-ser-titular.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710600-000_9p3h7-e1461617771296-105x65.jpg"></div>
+					<h1><span class="time">18:02 | </span>Medio español destaca entrenamiento de Claudio Bravo en el Barcelona</h1>
+				</a>
+			</div>
+			<div class="post">
+				<a href="http://www.biobiochile.cl/2016/04/25/top-five-de-chilenos-en-el-extranjero-vidal-valdivia-y-rabello-destacan-tras-anotar.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710292-vidal7-e1461613250501-105x65.jpg"></div>
+					<h1><span class="time">16:41 | </span>&#8216;Top Five&#8217; de chilenos en el extranjero: Vidal, Valdivia y Rabello destacan tras anotar</h1>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="small-12 columns box-b">
+		<span class="ultimo">Último</span>
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/celta-derrota-al-granada-y-se-consolida-en-zona-de-europa-league.shtml">
+					<h1><span class="time">19:50 | </span>Celta derrota al Granada y se consolida en zona de Europa League</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/no-maten-al-conce-jugador-de-naval-mostro-polera-en-en-apoyo-al-leon-de-collao.shtml">
+					<h1><span class="time">19:31 | </span>&#8220;No maten al Conce&#8221;: Jugador de Naval mostró polera en en apoyo al &#8216;León de Collao&#8217;</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/tottenham-se-desinfla-ante-el-west-bromwich-y-sirve-en-bandeja-la-premier-al-leicester.shtml">
+					<h1><span class="time">19:09 | </span>Tottenham se &#8216;desinfla&#8217; ante el West Bromwich y sirve en bandeja la Premier al Leicester </h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/anfp-explica-los-criterios-para-la-clasificacion-a-copa-sudamericana-2016.shtml">
+					<h1><span class="time">18:47 | </span>ANFP explica los criterios para la clasificación a Copa Sudamericana 2016</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box deporte -->
+
+				<div id="realtime" class="box tendencias">
+					<header><a href=""><h5>Tendencias Ahora</h5></a></header>
+					<ul id="realtime-list" class="small-block-grid-4"></ul>
+				</div><!-- box tendencias -->
+<div class="box internacional">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/internacional/index.html">
+			<h5>Internacional</h5>
+		</a>
+		<div class="v-mas">
+			<a href="http://www.biobiochile.cl/portada/internacional/categorias/index.html?s=1029&n=145045">A. Latina</a>
+			<a href="http://www.biobiochile.cl/portada/internacional/categorias?s=244&n=145046">EE.UU.</a>
+			<a href="http://www.biobiochile.cl/portada/internacional/categorias?s=571&n=145050">Europa</a>
+			<a href="http://www.biobiochile.cl/portada/internacional/categorias/?slug=asia&n=145051&s=823">Asia</a>
+			<a href="http://www.biobiochile.cl/portada/internacional/categorias/?slug=m-oriente&n=145052&s=2929">Medio Oriente</a>
+			<a href="http://www.biobiochile.cl/portada/internacional/categorias/?slug=mundo&n=145053&s=37">Mundo</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/internacional/index.html">+ Internacional</a></span>
+	<div class="small-12 columns box-u">
+		<a href="http://www.biobiochile.cl/2016/04/25/vargas-llosa-en-chile-victoria-de-keiko-fujimori-reivindicaria-la-dictadura-de-su-padre.shtml">
+			<div class="small-6 columns">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710578-mario-vargas-llosa1-e1461615838144-350x200.jpg" ></div>
+			</div>
+			<div class="small-6 columns">
+				<h1>Vargas Llosa en Chile: victoria de Keiko Fujimori reivindicaría la dictadura de su padre</h1>
+				<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 17:28</span>
+				<h6>El escritor peruano y ganador del Premio Nobel de Literatura, Mario Vargas Llosa, se reunió con la presidenta de Chile, Michelle...</h6>
+			</div>
+		</a>
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/condenan-a-entre-3-y-12-anos-de-prision-a-11-personas-acusadas-de-homosexualidad-en-egipto.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710638-egipto-e1461617542414-105x76.jpg"></div>
+					<h1><span class="time">17:52 | </span>Condenan a entre 3 y 12 años de prisión a 11 personas acusadas de homosexualidad en Egipto</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/tribunal-supremo-venezolano-cierra-posibilidad-de-reducir-el-mandato-de-nicolas-maduro.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710602-nicolas-maduro2-e1461616737843-105x76.jpg"></div>
+					<h1><span class="time">17:39 | </span>Tribunal Supremo de Venezuela rechaza la posibilidad de reducir el mandato de Maduro</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/consternacion-en-mexico-por-violento-asesinato-de-un-periodista-en-la-via-publica.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710452-periodista-e1461612792216-105x76.jpg"></div>
+					<h1><span class="time">16:33 | </span>Consternación en México por violento asesinato de un periodista en la vía pública</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/trump-denuncia-colusion-por-alianza-entre-sus-rivales-de-las-primaria-republicanas.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710382-donald-trump-estados-unidos-e1461611640245-105x76.jpg"></div>
+					<h1><span class="time">16:15 | </span>Trump denuncia colusión por alianza entre sus rivales de las primarias republicanas</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box internacional -->
+
+<div class="box entrevistas">
+	<header><a href="http://www.biobiochile.cl/portada/editorial/categorias?s=1726"><h5>Entrevistas</h5></a></header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/editorial/categorias?s=1726">+ Entrevistas</a></span>
+	<div class="small-6 columns box-l">
+		<a href="http://www.biobiochile.cl/2016/04/25/fundacion-pablo-neruda-se-desmarca-de-participar-en-homenaje-oficial-al-poeta.shtml">
+			<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710744-homenaje-pablo-neruda-350x200.jpg" ></div>
+			<h1>Fundación Pablo Neruda se desmarca de participar en homenaje oficial al poeta</h1>
+			<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 19:18</span>
+			<h6>Este lunes en la sede del ex Congreso Nacional se realiza la Ceremonia de Homenaje Oficial en conmemoración al...</h6>
+		</a>
+	</div>
+	<div class="small-6 columns box-r">
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/cristian-labbe-la-udi-quiere-renunciar-a-momentos-de-su-historia-que-no-pueden-negarse.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710544-cristian-labb-105x76.jpg"></div>
+					<h1><span class="time">18:20 | </span>Cristián Labbé: la UDI quiere renunciar a momentos de su historia que no pueden negarse</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/de-nuevo-la-sociedad-el-nuevo-libro-del-sociologo-carlos-ruiz.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710386-13072025_10208560926276476_1580409018_o-105x76.jpg"></div>
+					<h1><span class="time">16:39 | </span>&#8220;De nuevo la Sociedad&#8221;: el nuevo libro del sociólogo Carlos Ruiz</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/alvaro-lopez-y-proyecto-tras-los-bunkers-es-musica-con-un-armado-estetico-diferente.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709854-lpez-105x76.jpg"></div>
+					<h1><span class="time">13:00 | </span>Álvaro López y proyecto tras Los Bunkers: es música con un armado estético diferente</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/corporacion-del-trasplante-la-muerte-de-leon-es-una-leccion-sobre-la-donacion-de-organos.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709785-len-e1461596909473-105x76.jpg"></div>
+					<h1><span class="time">12:08 | </span>Corporación del Trasplante: la muerte de León es una lección sobre la donación de órganos</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box entrevistas -->
+<div class="box economia">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/empresa/index.html">
+			<h5>Economía y Empresa</h5>
+		</a>
+		<div class="v-mas">
+			<a href="http://www.biobiochile.cl/portada/empresa/categorias/?slug=economia&n=38&s=38">Economía</a>
+			<a href="http://www.biobiochile.cl/portada/empresa/categorias/?slug=retail-group-economia-finanza&n=145057&s=3412&r=20150318">Comercio</a>
+			<a href="http://www.biobiochile.cl/portada/empresa/categorias/?slug=mineria&n=145056&s=2299&r=20150318">Minería</a>
+			<a href="http://www.biobiochile.cl/portada/empresa/categorias/?slug=consumidores&n=145060&s=145060&r=20150318">Consumidores</a>
+			<a href="http://www.biobiochile.cl/portada/empresa/categorias/?slug=bolsa-banca&n=145059&s=145059&r=20150318">Bolsa y Banca</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/empresa/index.html">+ Economía y Empresa</a></span>
+	<span class="indicadores_caja" style="display:none;position:absolute;bottom:0;left:0;"><span style="margin-right: 5px">Dolar:</span> <i class="fa fa-arrow-up" style="color: lightgreen;"></i> $666,80</a><span style="margin-right: 5px">Euro:</span> <i class="fa fa-arrow-up" style="color: lightgreen;"></i> $748,20</a><span style="margin-right: 5px">UF:</span> <i class="fa fa-arrow-up" style="color: lightgreen;"></i> $25.889,57</a><span style="margin-right: 5px">UTM:</span> <i class="fa fa-arrow-up" style="color: lightgreen;"></i> $45.316,00</a></span>
+	<div class="small-6 columns box-l">
+		<a href="http://www.biobiochile.cl/2016/04/25/ocde-advierte-que-nuestro-pais-necesita-mejorar-politica-regulatoria-economica.shtml">
+			<div class="lazy pic" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710272-bachelet-recibe-a-secretario-de-la-ocde-340x170.jpg"></div>
+			<h1>OCDE advierte que Chile necesita mejorar su política regulatoria económica</h1>
+		</a>
+	</div>
+	<div class="small-6 columns box-r">
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/crisis-por-marea-roja-deja-31-mil-afectados-piden-se-decrete-zona-de-catastrofe.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710016-a_uno_117243-730x350-135x90.jpg"></div>
+				<h1>Crisis por marea roja deja 31 mil afectados: piden se decrete zona de catástrofe</h1>
+			</a>
+		</div>
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/desempleo-en-santiago-sufre-una-fuerte-alza-y-alcanza-su-nivel-mas-alto-en-6-anos.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709794-hacienda-135x90.jpg"></div>
+				<h1>Gobierno sorprendido por alza de desempleo en Santiago: llegó a mayor nivel en 6 años</h1>
+			</a>
+		</div>
+		<div class="post">
+			<a href="http://www.biobiochile.cl/2016/04/25/sernac-demanda-a-sca-y-empresa-afirma-que-colusion-del-papel-no-afecto-a-consumidores.shtml">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709519-papelillo-135x90.jpg"></div>
+				<h1>Sernac demanda a SCA y empresa afirma que colusión del papel no afectó a consumidores</h1>
+			</a>
+		</div>
+	</div>
+	<div class="small-12 columns box-b">
+		<span class="ultimo">Último</span>
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/cascadas-de-sqm-hermano-de-julio-ponce-lerou-presento-renuncia-a-directorios.shtml">
+					<h1><span class="time">20:38 | </span>Cascadas de SQM: hermano de Julio Ponce Lerou presentó renuncia a directorios</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/instituto-libertad-pronostica-que-desempleo-podria-superar-el-10-en-el-gran-santiago.shtml">
+					<h1><span class="time">19:43 | </span>Instituto Libertad pronostica que desempleo podría superar el 10% en el Gran Santiago</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/singularityu-aterriza-en-chile-para-examinar-como-las-tecnologias-cambiaran-las-industrias.shtml">
+					<h1><span class="time">15:56 | </span>SingularityU aterriza en Chile para examinar cómo las tecnologías cambiarán las industrias</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/ministros-y-alza-del-desempleo-en-santiago-adoptaremos-las-medidas-necesarias.shtml">
+					<h1><span class="time">15:52 | </span>Ministros y alza del desempleo en Santiago: adoptaremos las medidas necesarias</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box economia -->
+<div class="box inicio columnistas">
+	<header><a href="http://tv.biobiochile.cl/busca/?s=149268&n=149268"><h5>Los Columnistas</h5></a></header>
+	<ul class="small-block-grid-4">
+	  	<li>
+	  		<a href="http://www.biobiochile.cl/2016/04/22/sin-primarias-ni-conviccion-democratica.shtml">
+	  			<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/2016/04/daza1.jpg"></div>
+	  			<h1 class="columnistaTitle">Mauricio Daza</h1>
+	  			<h1>Sin primarias ni convicción democrática</h1>
+	  		</a>
+	  	</li>
+	  	<li>
+	  		<a href="http://www.biobiochile.cl/2016/04/22/aguas-y-fraudes-andinos-s-a.shtml">
+	  			<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/2016/04/balcells2.jpg"></div>
+	  			<h1 class="columnistaTitle">Fernando Balcells</h1>
+	  			<h1>Aguas y Fraudes Andinos S.A.</h1>
+	  		</a>
+	  	</li>
+	  	<li>
+	  		<a href="http://www.biobiochile.cl/2016/04/21/lagos-y-su-misericordia.shtml">
+	  			<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/2016/04/rojas1.jpg"></div>
+	  			<h1 class="columnistaTitle">Gonzalo Rojas</h1>
+	  			<h1>Lagos y su misericordia</h1>
+	  		</a>
+	  	</li>
+	  	<li>
+	  		<a href="http://www.biobiochile.cl/2016/04/20/cojonudo.shtml">
+	  			<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/2016/04/riesco2.jpg"></div>
+	  			<h1 class="columnistaTitle">Manuel Riesco</h1>
+	  			<h1>Cojonudo</h1>
+	  		</a>
+	  	</li>
+	</ul>
+</div>
+<!-- box columnistas -->
+<div class="box tecnologia">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/tecnologia/index.html">
+			<h5>Tecnología</h5>
+		</a>
+		<div class="v-mas">
+			<a href="http://www.biobiochile.cl/portada/tecnologia/categorias/?slug=ciencia&n=145070&s=246&r=20150316">Ciencia</a>
+			<a href="http://www.biobiochile.cl/portada/tecnologia/categorias/?slug=computacion-e-internet&n=145071&s=262&r=20150316">Computación e Internet</a>
+			<a href="http://www.biobiochile.cl/portada/tecnologia/categorias/?slug=moviles&n=145072&s=145072&r=20150316">Móviles</a>
+			<a href="http://www.biobiochile.cl/portada/tecnologia/categorias/?slug=videojuegos&n=145073&s=276&r=20150316">Video Juegos</a>
+			<a href="http://www.biobiochile.cl/portada/tecnologia/categorias/?slug=universo&n=145074&s=145074&r=20150316">Universo</a>
+			<a href="http://www.biobiochile.cl/portada/tecnologia/categorias/?slug=adelantos&n=145075&s=145075&r=20150316">Adelantos</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/tecnologia/index.html">+ Tecnología</a></span>
+	<div class="small-12 columns box-u">
+		<a href="http://www.biobiochile.cl/2016/04/25/stephen-hawking-plantea-teoria-similar-a-mostrada-en-interstellar-sobre-agujeros-negros.shtml">
+			<div class="small-6 columns">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710583-interstellar-has-the-most-realistic-black-hole-ever-interstellar-has-the-most-realistic-black-hole-ever-1-copy-350x200.jpg" ></div>
+			</div>
+			<div class="small-6 columns">
+				<h1>Stephen Hawking plantea teoría similar a mostrada en Interstellar sobre agujeros negros</h1>
+				<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 17:37</span>
+				<h6>Los agujeros negros son para muchos una celda sin salida, sin embargo el reconocido astrofísico Stephen Hawking no está de...</h6>
+			</div>
+		</a>
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/la-evolucion-de-la-pelvis-femenina-facilita-el-parto.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710465-2638198011_6a188acfb8_o-105x76.jpg"></div>
+					<h1><span class="time">16:44 | </span>La evolución de la pelvis femenina a lo largo de los años facilita el parto</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/las-claves-para-entender-la-enfermedad-celiaca.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709972-celiacos-105x76.jpg"></div>
+					<h1><span class="time">13:09 | </span>Las claves para entender la enfermedad celíaca </h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/abre-el-primer-dron-cafe-del-mundo-en-holanda.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709461-e34a01e0dfd9bdef8df9db5c1c8e9f9a70143bc9-105x76.jpg"></div>
+					<h1><span class="time">08:40 | </span>Abre el primer &#8220;Dron Café&#8221; del mundo en Holanda</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/24/4-juegos-clasicos-con-sorprendentes-secuelas-espirituales.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2704056-reqw-105x76.jpg"></div>
+					<h1><span class="time">16:53 | </span>4 Juegos clásicos con sorprendentes &#8220;secuelas espirituales&#8221;</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box tecnología -->
+<div class="box cultura">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/cultura/index.html">
+			<h5>Cultura</h5>
+		</a>
+		<div class="v-mas">
+			<a href="http://www.biobiochile.cl/portada/cultura/categorias/?slug=musica-noticias&n=78260&s=587">Música</a>
+			<a href="http://www.biobiochile.cl/portada/cultura/categorias/?slug=teatro&n=145087&s=2187">Teatro</a>
+			<a href="http://www.biobiochile.cl/portada/cultura/categorias/?slug=cine&n=145094&s=623">Cine</a>
+			<a href="http://www.biobiochile.cl/portada/cultura/categorias/?slug=letras&n=145088&s=145088">Libros</a>
+			<a href="http://www.biobiochile.cl/portada/cultura/categorias/?slug=patrimonio-group-cultura&n=145091&s=5014">Patrimonio</a>
+			<a href="http://www.biobiochile.cl/portada/cultura/categorias/?slug=artes-visuales&n=145086&s=4743">Artes Visuales</a>
+			<a href="http://www.biobiochile.cl/portada/cultura/categorias/?slug=blogs-culturales&n=145092&s=145092">Blogs Culturales</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/cultura/index.html">+ Cultura</a></span>
+	<div class="small-6 columns box-l">
+		<a href="http://www.biobiochile.cl/2016/04/25/prince-habria-trabajado-154-horas-seguidas-sin-dormir-antes-de-morir.shtml">
+			<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710126-captura-de-pantalla-de-2016-04-25-153755-350x200.jpg" ></div>
+			<h1>Prince habría trabajado 154 horas seguidas sin dormir antes de morir</h1>
+			<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 15:41</span>
+			<h6>Cuando han pasado cuatro días desde el...</h6>
+		</a>
+	</div>
+	<div class="small-6 columns box-r">
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/ceibo-celebra-ochenta-anos-de-vida-y-sesenta-de-creacion-literaria-del-autor-poli-delano.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710824-magoeditores-cl_-105x76.jpg"></div>
+					<h1><span class="time">19:38 | </span>Ceibo celebra ochenta años de vida y sesenta de creación literaria del autor Poli Délano</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/cantores-y-puetas-ayadores-y-poetas-populares-se-presentaran-gratis-en-providencia.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710089-arnoldo-madariaga-encinamunicipalidad-de-providencia-105x76.jpg"></div>
+					<h1><span class="time">15:47 | </span>“Cantores y puetas”: Payadores y poetas populares se presentarán gratis en Providencia</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/quilapayun-mas-alla-de-la-cancion-documental-se-estrena-el-5-de-mayo.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709696-quilapayun-mas-alla-105x76.jpg"></div>
+					<h1><span class="time">14:07 | </span>&#8220;Quilapayún, más allá de la canción&#8221;: documental se estrena el 5 de mayo</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/jodorowsky-regresa-al-festival-de-cannes-con-retrato-de-la-bohemia-santiaguina-de-los-50.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709831-alejandro-jodorowsky-y-su-hijo-brontis-en-cannes--foto-de-rene-naranjo-105x76.jpg"></div>
+					<h1><span class="time">14:02 | </span>Jodorowsky regresa al Festival de Cannes con retrato de la bohemia santiaguina de los 50</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box cultura -->
+<div class="box espectaculos">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/espectaculos/index.html">
+			<h5>Espectáculos</h5>
+		</a>
+		<div class="v-mas">
+			<a href="http://www.biobiochile.cl/portada/espectaculos/categorias/?slug=television&n=145093&s=6452">Televisión</a>
+			<a href="http://www.biobiochile.cl/portada/espectaculos/categorias/?slug=celebridades&n=145096&s=145096">Celebridades</a>
+			<a href="http://www.biobiochile.cl/portada/espectaculos/categorias/?slug=series&n=145095&s=1678">Series</a>
+			<a href="http://www.biobiochile.cl/portada/espectaculos/categorias/?slug=entretencion&n=145097&s=145097">Entretención</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/espectaculos/index.html">+ Espectáculos</a></span>
+	<div class="small-12 columns box-u">
+		<a href="http://www.biobiochile.cl/2016/04/25/la-foto-de-scarlett-johansson-que-indigno-a-varios-fans-del-manga.shtml">
+			<div class="small-6 columns">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710754-000_dv2010553-350x200.jpg" ></div>
+			</div>
+			<div class="small-6 columns">
+				<h1>La foto de Scarlett Johansson que indignó a varios fans del manga</h1>
+				<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 19:12</span>
+				<h6>Tras más de un año de espera, finalmente hace algunos días se pudo tener el primer vistazo de la apariencia de Scarlett Johansson...</h6>
+			</div>
+		</a>
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/velorio-de-jefferson-se-realizara-este-martes-y-sera-publico.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710712-captura-de-pantalla-de-2016-04-25-183256-105x76.jpg"></div>
+					<h1><span class="time">18:36 | </span>Velorio de Jefferson se realizará este martes y será público</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/alfredo-castro-se-integra-a-narcos-exitosa-serie-basada-en-la-vida-de-pablo-escobar.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710622-a_uno_569654-105x76.jpg"></div>
+					<h1><span class="time">18:06 | </span>Alfredo Castro se integra a &#8220;Narcos&#8221;, la exitosa serie basada en la vida de Pablo Escobar</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/sabado-de-reportajes-consolida-a-sus-programas-dentro-de-los-mas-vistos.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710483-file_20150721122231-e1461613232930-105x76.jpg"></div>
+					<h1><span class="time">16:41 | </span>“Sábado de reportajes” consolida a sus programas dentro de los más vistos</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/maria-gracia-omegna-conto-quien-sera-su-nueva-pareja-televisiva-en-la-nocturna-de-mega.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710458-137554-1461527570-730x350-105x76.jpg"></div>
+					<h1><span class="time">16:29 | </span>María Gracia Omegna contó quién será su nueva pareja televisiva en la nocturna de Mega</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box espectáculos -->
+<div class="box sociedad">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/sociedad/index.html">
+			<h5>Sociedad</h5>
+		</a>
+		<div class="v-mas">
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=curiosidades-group-sociedad&n=145076&s=59">Curiosidades</a>
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=salud&n=145080&s=145080">Salud</a>
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=psicologia&n=145078&s=145078">Psicología</a>
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=trabajo&n=145079&s=145079">Trabajo</a>
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=animales&n=145077&s=2">Animales</a>
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=medio-ambiente&n=145081&s=794">Medio Ambiente</a>
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=misterios-group-sociedad&n=145082&s=145082">Misterios</a>
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=videos&n=145083&s=145083">Videos</a>
+			<a href="http://www.biobiochile.cl/portada/sociedad/categorias/?slug=vida&n=145084&s=145084">Vida</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/sociedad/index.html">+ Sociedad</a></span>
+	<div class="small-6 columns box-l">
+		<a href="http://www.biobiochile.cl/2016/04/25/pon-a-prueba-tu-capacidad-de-logica-con-el-acertijo-de-los-ojos-verdes.shtml">
+			<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710305-fotonoticia_20150622192440-15061351439_9999-350x200.jpg" ></div>
+			<h1>Pon a prueba tu capacidad de lógica con el acertijo de los ojos verdes</h1>
+			<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 16:10</span>
+			<h6>Si eres adicto a los desafíos, no puedes dejar pasar éste. Te adelantamos que parece muy difícil, pero en realidad es más sencillo si echas a...</h6>
+		</a>
+	</div>
+	<div class="small-6 columns box-r">
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/nuevo-estudio-asegura-que-la-musica-ayuda-a-los-bebes-para-que-aprendan-a-hablar.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710847-14048500899_9bf9748617_k-105x76.jpg"></div>
+					<h1><span class="time">19:40 | </span>Nuevo estudio asegura que la música ayuda a los bebés para que aprendan a hablar </h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/sergio-freire-se-suma-a-la-polemica-entre-taxistas-y-uber-con-ironico-video.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710643-sergio-105x76.jpg"></div>
+					<h1><span class="time">18:02 | </span>Sergio Freire se suma a la polémica entre taxistas y Uber con satírico video</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/la-emocion-de-un-nino-con-autismo-al-ver-a-coldplay-en-vivo.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710296-cold-105x76.jpg"></div>
+					<h1><span class="time">15:56 | </span>La emoción de un niño con autismo al ver en vivo a Coldplay </h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/fotografo-retrata-a-ninos-y-jovenes-transgeneros-de-la-manera-en-que-quieren-ser-vistos.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710046-314-105x76.jpg"></div>
+					<h1><span class="time">14:14 | </span>Fotógrafo retrata a niños y jóvenes transgéneros de la manera en que quieren ser vistos</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box sociedad -->
+<div class="box mujer">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/mujer/index.html">
+			<h5>Mujer</h5>
+		</a>
+		<div class="v-mas">
+			<a href="http://www.biobiochile.cl/portada/mujer/categorias/?slug=pareja&n=145098&s=145098">Pareja</a>
+			<a href="http://www.biobiochile.cl/portada/mujer/categorias/?slug=familia&n=145099&s=7351">Familia</a>
+			<a href="http://www.biobiochile.cl/portada/mujer/categorias/?slug=belleza&n=145100&s=19778">Belleza</a>
+			<a href="http://www.biobiochile.cl/portada/mujer/categorias/?slug=moda-group-mujer&n=145101&s=5003">Moda</a>
+			<a href="http://www.biobiochile.cl/portada/mujer/categorias/?slug=vida-sana&n=145102&s=2258">Vida Sana</a>
+			<a href="http://www.biobiochile.cl/portada/mujer/categorias/?slug=en-femenino&n=145104&s=145104">En femenino</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/mujer/index.html">+ Mujer</a></span>
+	<div class="small-12 columns box-u">
+		<a href="http://www.biobiochile.cl/2016/04/25/dermatologa-explica-el-modo-correcto-de-usar-las-toallitas-desmaquillantes.shtml">
+			<div class="small-6 columns">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709572-face-wipe-e1461589645324-350x200.jpg" ></div>
+			</div>
+			<div class="small-6 columns">
+				<h1>Dermatóloga explica el modo correcto de usar las toallitas desmaquillantes  </h1>
+				<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 10:08</span>
+				<h6>Retirar el maquillaje después de un largo día de trabajo, puede ser una de las cosas más molestas que debe hacer una mujer, sin embargo,...</h6>
+			</div>
+		</a>
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/la-evolucion-de-la-pelvis-femenina-facilita-el-parto.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710465-2638198011_6a188acfb8_o-105x76.jpg"></div>
+					<h1><span class="time">16:44 | </span>La evolución de la pelvis femenina a lo largo de los años facilita el parto</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/acrobata-del-circo-du-solei-realiza-complicadas-piruetas-con-su-pequena-hija.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710277-acro-105x76.jpg"></div>
+					<h1><span class="time">16:16 | </span>Acróbata del Circo Du Solei realiza complicadas piruetas con su pequeña hija</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/8-cosas-que-esta-bien-esperar-de-tu-pareja.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709817-8585515090_377577e7e9_k-e1461601448210-105x76.jpg"></div>
+					<h1><span class="time">13:26 | </span> 8 cosas que está bien esperar de tu pareja</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/25/miomas-uterinos-siempre-es-necesario-extirparlos.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709574-2363801183_59ea2c9f23_b-105x76.jpg"></div>
+					<h1><span class="time">09:47 | </span>Miomas uterinos: ¿siempre es necesario extirparlos?</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box mujer -->
+<div class="box hombre">
+	<header>
+		<a href="http://www.biobiochile.cl/portada/hombre/index.html">
+			<h5>Hombre</h5>
+		</a>
+		<div class="v-mas">
+			<a href="http://www.biobiochile.cl/portada/hombre/categorias/?slug=autos-hombre&n=145775&s=145775">Autos</a>
+			<a href="http://www.biobiochile.cl/portada/hombre/categorias/?slug=conquista-hombre&n=145776&s=145776">Conquista</a>
+			<a href="http://www.biobiochile.cl/portada/hombre/categorias/?slug=estilo-hombre&n=145777&s=145777">Estilo</a>
+			<a href="http://www.biobiochile.cl/portada/hombre/categorias/?slug=buena-vida-hombre&n=145778&s=145778">Buena Vida</a>
+			<a href="http://www.biobiochile.cl/portada/hombre/categorias/?slug=en-forma-hombre&n=145779&s=145779">En forma</a>
+			<a href="http://www.biobiochile.cl/portada/hombre/categorias/?slug=en-masculino-hombre&n=145780&s=145780">En masculino</a>
+		</div>
+	</header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/hombre/index.html">+ Hombre</a></span>
+	<div class="small-6 columns box-l">
+		<a href="http://www.biobiochile.cl/2016/04/25/miles-de-personas-llegan-a-la-primera-jornada-del-salon-del-automovil-de-pekin-2016.shtml">
+			<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710079-000_9y4o9-350x200.jpg" ></div>
+			<h1>Miles de personas llegan a la primera jornada del Salón del Automóvil de Pekín 2016</h1>
+			<span class="datetime"><i class="fa fa-clock-o"></i> Lunes 25 Abril | 13:56</span>
+			<h6>El Salón del Automóvil de Pekín, escaparate del mayor mercado mundial del sector, abrió sus puertas este lunes, en un contexto...</h6>
+		</a>
+	</div>
+	<div class="small-6 columns box-r">
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/24/los-motivos-por-los-que-ellos-miran-a-otras-mujeres-estando-en-una-relacion.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2704673-los-fantasmas-de-mis-ex-novias-033-e1461250932499-105x76.jpg"></div>
+					<h1><span class="time">14:03 | </span>Los motivos por los que ellos miran a otras mujeres estando en una relación </h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/24/crossdressing-los-hombres-que-se-visten-de-mujer-sin-ser-transexuales-ni-homosexuales.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2704750-touch-eclat-for-men-105x76.jpg"></div>
+					<h1><span class="time">12:22 | </span>Crossdressing: los hombres que se visten de mujer sin ser transexuales ni homosexuales</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/22/la-roca-confirma-en-instagram-que-pamela-anderson-se-une-al-elenco-de-baywatch.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2707140-2fcbc3e400000578-3384261-coveted_role_the_2_year_old_has_been_honoured_with_the_chance_to-a-75_14519377653422-105x76.jpg"></div>
+					<h1><span class="time">17:06 | </span>La Roca confirma en Instagram que Pamela Anderson se une al elenco de Baywatch </h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/22/experimento-hombre-usa-fajas-por-una-semana-para-saber-que-sienten-las-mujeres.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2706674-captura-de-pantalla-de-2016-04-22-131000-105x76.jpg"></div>
+					<h1><span class="time">13:19 | </span>Experimento: hombre usa fajas por una semana para saber qué sienten las mujeres</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box hombre -->
+<div class="box breaktime">
+	<header><a href="http://breaktime.biobiochile.cl"><span class="logo"></span></a></header>
+	<ul class="small-block-grid-4">
+	  	<li>
+	  		<a href="http://www.biobiochile.cl/2015/11/10/cuanto-demoras.shtml">
+	  			<div class="pic lazy th" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2468116-12208130_448922368628501_117389264_n-150x150.jpg"></div>
+	  			<h1>¿Cuánto demoras?</h1>
+	  		</a>
+	  	</li>
+	  	<li>
+	  		<a href="http://www.biobiochile.cl/2015/11/09/man-hard.shtml">
+	  			<div class="pic lazy th" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2466217-12226769_10206699371177001_1060861241_n-150x150.jpg"></div>
+	  			<h1>Man-Hard</h1>
+	  		</a>
+	  	</li>
+	  	<li>
+	  		<a href="http://www.biobiochile.cl/2015/11/09/hay-cosas-que-nunca-cambian.shtml">
+	  			<div class="pic lazy th" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2466207-12231572_10206699371257003_1150017125_n-150x150.jpg"></div>
+	  			<h1>Hay cosas que nunca cambian&#8230;</h1>
+	  		</a>
+	  	</li>
+	  	<li>
+	  		<a href="http://www.biobiochile.cl/2015/11/09/el-reggaeton-del-confort.shtml">
+	  			<div class="pic lazy th" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2466202-captura-de-pantalla-de-2015-11-09-091207-150x150.jpg"></div>
+	  			<h1>El reggaetón del confort</h1>
+	  		</a>
+	  	</li>
+	</ul>
+</div>
+<!-- box breaktime -->
+				<!-- [TODO PUBLICIDAD] -->
+				<div class="ad-728x90 large-12 columns">
+                    <div id='div-gpt-ad-1407856639491-0' style='width:728px;height:90px;margin-bottom:10px;'>
+						<script type='text/javascript'>
+						googletag.cmd.push(function() { googletag.display('div-gpt-ad-1407856639491-0'); });
+						</script>
+					</div>
+                </div>
+				<!-- [/TODO PUBLICIDAD] -->
+<div class="box opinion">
+	<header><a href="http://www.biobiochile.cl/portada/opinion/categorias?s=33538"><h5>Tu Voz</h5></a></header>
+	<span class="mas"><a href="http://www.biobiochile.cl/portada/opinion/categorias?s=33538">+ Tu Voz</a></span>
+	<div class="small-12 columns box-u">
+		<a href="http://www.biobiochile.cl/2016/04/23/tvn-y-el-fin-de-la-verguenza.shtml">
+			<div class="small-6 columns">
+				<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2708580-mauricio_esteban-350x200.jpg" ></div>
+			</div>
+			<div class="small-6 columns">
+				<h1>TVN y el fin de la vergüenza</h1>
+				<span class="datetime"><i class="fa fa-clock-o"></i> Sábado 23 Abril | 22:35</span>
+				<h6>Señores BioBioChile:
+
+El día 19 de abril por la mañana, el programa matinal de TVN ...</h6>
+			</div>
+		</a>
+		<ul class="postChico">
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/22/trabajos-a-honorarios-en-el-estado-no-es-ningun-honor-este-contrato.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2707550-trabajadores-honorarios-estado-105x76.jpg"></div>
+					<h1><span class="time">21:03 | </span>Trabajos a honorarios en el Estado: &#8220;No es ningún honor este contrato&#8221;</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/22/aylwin-siempre-defendio-con-pasion-nuestro-sistema-democratico.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2706778-patricio-aylwin-es-dado-de-alta-e1450551767675-730x350-105x76.jpg"></div>
+					<h1><span class="time">13:03 | </span>Aylwin siempre defendió con pasión nuestro sistema democratico</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/04/20/vecino-denuncia-peligrosa-falla-que-afecta-a-departamento-nuevo-en-santiago-centro.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2703156-jardines-vicua-mackena-cocina-e1461179001976-105x76.jpg"></div>
+					<h1><span class="time">15:48 | </span>Vecino denuncia peligrosa falla que afecta a departamento nuevo en Santiago centro</h1>
+				</a>
+			</li>
+			<li>
+				<a href="http://www.biobiochile.cl/2016/03/31/disculpe-me-violaron.shtml">
+					<div class="pic lazy" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2674004-alone-1431667-1920x1800-e1459438136120-105x76.jpg"></div>
+					<h1><span class="time">12:33 | </span>Disculpe, me violaron</h1>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- box tu voz -->
+			</div>
+			<div class="medium-3 columns d">
+				<!-- /1098385/250x250_columnistas_home -->
+				<div id='div-gpt-ad-1456834865950-0' style='height:250px; width:250px;'>
+					<script type='text/javascript'>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1456834865950-0'); });
+					</script>
+				</div>
+<div id="caja_lateral_columnistas" style="height:auto;max-height:350px;overflow:hidden;">
+	<div id="header_lateral_columnistas">
+		<i class="fa fa-microphone"></i>
+		<div>Los Columnistas</div>
+	</div>
+	<ul class="example-orbit" data-orbit>	
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/865.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Mauricio Daza</div>
+				<a href="http://www.biobiochile.cl/2016/04/22/sin-primarias-ni-conviccion-democratica.shtml">Sin primarias ni convicción democrática</a>
+				<a href="http://www.biobiochile.cl/2016/04/22/sin-primarias-ni-conviccion-democratica.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Abogado Penalista, Mag. en Derecho Penal." style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Abogado Penalista, Mag. en Derecho Penal.</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/811.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Fernando Balcells</div>
+				<a href="http://www.biobiochile.cl/2016/04/22/aguas-y-fraudes-andinos-s-a.shtml">Aguas y Fraudes Andinos S.A.</a>
+				<a href="http://www.biobiochile.cl/2016/04/22/aguas-y-fraudes-andinos-s-a.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Director Ejecutivo Fundación Chile Ciudadano" style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Director Ejecutivo Fundación Chile Ciudadano</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/857.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Gonzalo Rojas</div>
+				<a href="http://www.biobiochile.cl/2016/04/21/lagos-y-su-misericordia.shtml">Lagos y su misericordia</a>
+				<a href="http://www.biobiochile.cl/2016/04/21/lagos-y-su-misericordia.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Doctor en Derecho y Licenciado en Historia" style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Doctor en Derecho y Licenciado en Historia</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/874.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Manuel Riesco</div>
+				<a href="http://www.biobiochile.cl/2016/04/20/cojonudo.shtml">Cojonudo</a>
+				<a href="http://www.biobiochile.cl/2016/04/20/cojonudo.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Vicepresidente CENDA." style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Vicepresidente CENDA.</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/953.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Jaime Mañalich</div>
+				<a href="http://www.biobiochile.cl/2016/04/19/el-mapocho-no-tiene-la-culpa.shtml">El Mapocho no tiene la culpa</a>
+				<a href="http://www.biobiochile.cl/2016/04/19/el-mapocho-no-tiene-la-culpa.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Ex Ministro de Salud" style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Ex Ministro de Salud</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/856.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Hermógenes Pérez de Arce</div>
+				<a href="http://www.biobiochile.cl/2016/04/19/todos-tienen-la-culpa.shtml">Todos tienen la culpa</a>
+				<a href="http://www.biobiochile.cl/2016/04/19/todos-tienen-la-culpa.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Abogado, Periodista" style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Abogado, Periodista</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/881.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Samantha Morán</div>
+				<a href="http://www.biobiochile.cl/2016/04/18/acoso-sexual-callejero.shtml">Acoso sexual callejero</a>
+				<a href="http://www.biobiochile.cl/2016/04/18/acoso-sexual-callejero.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Abogada de Familia e Infancia." style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Abogada de Familia e Infancia.</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/966.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Lucas Palacios</div>
+				<a href="http://www.biobiochile.cl/2016/04/18/nueva-constitucion-rumbo-incierto-2.shtml">Nueva Constitución: rumbo incierto</a>
+				<a href="http://www.biobiochile.cl/2016/04/18/nueva-constitucion-rumbo-incierto-2.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Académico Facultad de Gobierno UDD" style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Académico Facultad de Gobierno UDD</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/811.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Fernando Balcells</div>
+				<a href="http://www.biobiochile.cl/2016/04/15/lo-que-jackson-no-puede-hacer-y-la-nina-muerta-del-sename.shtml">Lo que Jackson no puede hacer…y la niña muerta del Sename</a>
+				<a href="http://www.biobiochile.cl/2016/04/15/lo-que-jackson-no-puede-hacer-y-la-nina-muerta-del-sename.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Director Ejecutivo Fundación Chile Ciudadano" style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Director Ejecutivo Fundación Chile Ciudadano</div>
+		</li>
+		<li class="active" style="background:url(http://www.biobiochile.cl/assets/img/columnistas/857.jpg);
+			background-size: 250px 220px;height:auto;background-repeat: no-repeat;" >
+
+			<div style="float:left;width:100%;height:200px;">
+				<div class="nombre_columnista">Gonzalo Rojas</div>
+				<a href="http://www.biobiochile.cl/2016/04/14/que-verguenza-nacional.shtml">Qué vergüenza nacional</a>
+				<a href="http://www.biobiochile.cl/2016/04/14/que-verguenza-nacional.shtml" style="width: 250px;margin: 0;position: absolute;height: 220px;top: 0;left: 0;"></a>
+			</div>
+
+			<div class="Doctor en Derecho y Licenciado en Historia" style="position: absolute;bottom: 0;min-height:30px; width:249px; float:left;background-color:#E0E0E0;padding:5px;font-size:11px;text-align:center;">Doctor en Derecho y Licenciado en Historia</div>
+		</li>
+	</ul>
+</div>
+
+
+
+
+<div class="bbclFutbol">
+	<header><a href="http://www.biobiochile.cl/portada/deporte/index.html"><h3><span class="bbcl">bbcl</span> | fútbol</h3></a></header>
+	<a href="http://www.biobiochile.cl/2016/04/25/san-luis-se-juega-la-permanencia-ante-una-uc-que-quiere-volver-a-la-cima-del-clausura.shtml">
+		<div class="pic destacadoFutbol" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2710589-sl_uc-230x120.jpg);" ></div>
+		<h1>San Luis se juega la permanencia ante una UC que quiere volver a la cima del Clausura</h1>
+	</a>
+	<a href="http://www.biobiochile.cl/2016/04/25/pellegrini-y-el-city-quieren-dar-el-primer-golpe-en-semis-de-champions-ante-real-madrid.shtml">
+		<h1 class="medio">Pellegrini y el City quieren dar el primer golpe en semis de Champions ante Real Madrid</h1>
+	</a>
+	<a href="http://www.biobiochile.cl/2016/04/25/celta-derrota-al-granada-y-se-consolida-en-zona-de-europa-league.shtml">
+		<h1 class="medio">Celta derrota al Granada y se consolida en zona de Europa League</h1>
+	</a>
+	<!-- /1098385/250x100_home_ca -->
+		<div id='div-gpt-ad-1434139612975-0' style='height:100px; width:250px;'>
+			<script type='text/javascript'>
+				googletag.cmd.push(function() { googletag.display('div-gpt-ad-1434139612975-0'); });
+			</script>
+		</div>
+	<footer><a href="http://www.biobiochile.cl/portada/deporte/index.html">+ Fútbol</a></footer>
+</div>
+				<div class="ad-250x250 fLeft" style="z-index: 9999;">
+    <!-- 250x250_Home_7_2.0 -->
+	<div id='div-gpt-ad-1371769619297-15' style='width:250px; height:250px;'>
+	<script type='text/javascript'>
+	googletag.cmd.push(function() { googletag.display('div-gpt-ad-1371769619297-15'); });
+	</script>
+	</div>
+</div>
+<div class="ad-250x250 fLeft" style="z-index: 9999;">
+    <!-- 250x250_Home_8_2.0 -->
+	<div id='div-gpt-ad-1371769619297-16' style='width:250px; height:250px;'>
+	<script type='text/javascript'>
+	googletag.cmd.push(function() { googletag.display('div-gpt-ad-1371769619297-16'); });
+	</script>
+	</div>
+</div>
+				<!-- marcadores -->
+<div class="bbclTV">
+	<header><a href="http://tv.biobiochile.cl" class="bbcltvLogo"></a></header>
+	<ul data-orbit>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/semana-definitoria-en-el-campeonato-nacional.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710718-uc4-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Semana definitoria en el campeonato nacional</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/de-nuevo-la-sociedad-el-nuevo-libro-del-sociologo-carlos-ruiz.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710386-13072025_10208560926276476_1580409018_o-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>&#8220;De nuevo la Sociedad&#8221;: el nuevo libro del sociólogo Carlos Ruiz</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/manzano-dice-que-ser-campeon-con-a-uc-es-un-sueno-pero-no-necesitan-juramentarse.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710014-a_uno_526495-e1461605605497-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Manzano dice que ser campeón con la UC es un sueño pero no necesitan juramentarse</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/mosa-revela-prestamo-a-byn-y-respalda-a-sierra-yo-creo-que-el-coto-no-va-a-renunciar.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709988-anibal-mosa-revela-prestamo-a-byn-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Mosa revela préstamo a ByN y respalda a Sierra: &#8220;Yo creo que el &#8216;Coto&#8217; no va a renunciar&#8221;</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/las-claves-para-entender-la-enfermedad-celiaca.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709972-celiacos-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Las claves para entender la enfermedad celíaca </h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/alvaro-lopez-y-proyecto-tras-los-bunkers-es-musica-con-un-armado-estetico-diferente.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709854-lpez-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Álvaro López y proyecto tras Los Bunkers: es música con un armado estético diferente</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/alegria-y-mesura-la-reaccion-del-plantel-de-universidad-catolica-luego-del-clasico.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709799-uc2-e1461597429920-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Alegría y mesura: la reacción del plantel de Universidad Católica luego del clásico</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/sebastian-beccacece-reconocio-que-la-uc-fue-un-justo-ganador-del-clasico.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709552-becca1-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Sebastián Beccacece reconoció que la UC fue un justo ganador del &#8216;clásico&#8217;</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/juan-castillo-patria-es-una-palabra-muy-ambigua-soy-atacameno.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709560-castillo1-250x200.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Juan Castillo: “Patria es una palabra muy ambigua, soy atacameño”</h1></div>
+		    </a>
+		</li>
+	</ul>
+</div>
+<!-- bbcl tv -->
+				<div style="width:250px; height: 200px; display:none;">
+					<a target="_blank" href="http://www.biobiochile.cl/iotydemocracia"><img src="http://www.biobiochile.cl/assets/img/IOT_2.jpg" /></a>
+				</div>
+				<div class="ad-250x250 fLeft">
+	<!-- 250x250_Home_15_2.0 -->
+	<div id='div-gpt-ad-1371769619297-14' style='width:250px; height:250px;'>
+		<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1371769619297-14'); });
+		</script>
+	</div>
+</div>
+<div class="ad-250x250 fLeft">
+	<div id='div-gpt-ad-1387403580206-0' style='width:250px; height:250px;'>
+	<script type='text/javascript'>
+	googletag.cmd.push(function() { googletag.display('div-gpt-ad-1387403580206-0'); });
+	</script>
+	</div>
+</div>
+
+				<div class="fotoCiudadana">
+	<header>
+		<span class="iconoCaja"><i class="fa fa-camera"></i></span>
+		<a href="http://busca.biobiochile.cl/categorias/?s=3164&e=opinion"><h6>Foto Ciudadana</h6></a>
+	</header>
+	<ul data-orbit>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/21/acusan-negligencia-machista-en-la-medalla-de-la-maraton-de-santiago-2016.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2692324-maraton-santiago-copia.-b-250x210.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Acusan &#8220;negligencia machista&#8221; en la medalla de la Maratón de Santiago 2016</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/18/abriguemos-conce-buscan-recolectar-frazadas-para-campana-solidaria-en-concepcion.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2699343-a_uno_186617-250x210.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>&#8220;Abriguemos Conce&#8221;: buscan recolectar frazadas para campaña solidaria en Concepción</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/15/buscan-a-hombre-de-78-anos-perdido-en-isla-de-maipo-sufre-de-alzheimer.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2696502-la-foto-1-250x210.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Buscan a hombre de 78 años perdido en Isla de Maipo: sufre de alzheimer</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/14/vecino-denuncia-peligro-cercano-a-juegos-infantiles-en-una-plaza-de-concepcion.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2693795-tapa-panel-electrico-sin-proteccion-en-plaza1-250x210.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Vecino denuncia peligro cercano a juegos infantiles en una plaza de Concepción</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/13/fiel-hasta-el-final-perro-cuido-cuerpo-de-su-dueno-atropellado-en-concepcion.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2692461-perrito-de-joven-atropellado-concepcin1-250x210.jpg" alt="slide 1" />
+			    <div class="orbit-caption"><h1>Fiel hasta el final: perro cuidó cuerpo de su dueño atropellado en Concepción</h1></div>
+		    </a>
+		</li>
+	</ul>
+	<footer>
+		<a href="http://www.biobiochile.cl/envianos-tu-foto-ciudadana.shtml">
+			<h6>Envíanos tu foto</h6>
+			<span class="iconoCaja"><i class="fa fa-arrow-right"></i></span>
+		</a>
+	</footer>
+</div><!-- foto ciudadana -->
+				<div class="comentariosBioBio">
+	<header>
+		<span class="iconoCaja"></span>
+		<a href="http://tv.biobiochile.cl/busca/?s=69352&n=145548"><h6>Comentarios Bío Bío</h6></a>
+	</header>
+	<ul>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/22/tomas-mosciatti-patricio-aylwin-la-muerte-de-un-chile-que-se-fue-para-siempre.shtml">
+				<div class="lazy pic bbcltv" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2707617-tmo2-75x75.jpg);width:70px;" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2707617-tmo2-75x75.jpg"></div>
+				<h1>Tomás Mosciatti: &#8220;Patricio Aylwin: La muerte de un Chile que se fue para siempre&#8221;</h1>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/19/mauricio-barrientos-gendarmes-presos-en-libertad.shtml">
+				<div class="lazy pic bbcltv" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2701189-barrientos2-75x75.jpg);width:70px;" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2701189-barrientos2-75x75.jpg"></div>
+				<h1>Mauricio Barrientos: &#8220;Gendarmes: presos en libertad&#8221;</h1>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/15/tomas-mosciatti-da-lo-mismo-la-discusion-constitucional.shtml">
+				<div class="lazy pic bbcltv" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2696890-tomas-15-abril-75x75.jpg);width:70px;" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2696890-tomas-15-abril-75x75.jpg"></div>
+				<h1>Tomás Mosciatti: &#8220;Da lo mismo la discusión constitucional&#8221;</h1>
+			</a>
+		</li>
+	</ul>
+</div><!-- comentarios biobio -->
+				<div class="ad-250x250 fLeft">
+	<!-- 250x250_Home_11 -->
+	<div id='div-gpt-ad-1371769619297-11' style='width:250px; height:250px;'>
+		<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1371769619297-11'); });
+		</script>
+	</div>
+</div>
+
+				<div class="masLeido">
+    <ul class="tabs" data-tab>
+        <li class="tab-title active"><span class="separadorTab"></span><a data-mas="masNacional" href="#masNacional">+ Nacional</a></li>
+        <li class="tab-title"><span class="separadorTab"></span><a data-mas="masDeporte" href="#masDeporte">+ Deporte</a></li>
+        <li class="tab-title"><a data-mas="masleido" href="#masleido">+ Leído</a></li>
+    </ul>
+    <div class="tabs-content">
+        <div class="content active" id="masContent">
+            <ul>
+            </ul>
+            <footer id="foot">
+            </footer>
+        </div>
+    </div>
+</div><!-- mas leido -->
+				<div class="ad-250x250 fLeft">
+	<!-- 250x250_Home_15_2.0 -->
+	<div id='div-gpt-ad-1375127205993-0' style='width:250px; height:250px;'>
+		<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1375127205993-0'); });
+		</script>
+	</div>
+</div>
+<div class="ad-250x250 fLeft">
+	<div id='div-gpt-ad-1371769619297-17' style='width:250px; height:250px;'>
+	<script type='text/javascript'>
+	googletag.cmd.push(function() { googletag.display('div-gpt-ad-1371769619297-17'); });
+	</script>
+	</div>
+</div>
+
+				<iframe width="250" height="380" frameborder="0" scrolling="no" src="http://widgets.biobiochile.cl/widget-newsletter/form.html"></iframe>
+
+				<!--
+				<div class="rss">
+					<header>
+						<span class="iconoCaja"><i class="fa fa-paper-plane"></i></span>
+						<a href="http://feedburner.google.com/fb/a/mailverify?uri=radiobiobio"><h6>Suscríbete</h6></a>
+					</header>
+					<div class="row">
+						<div class="large-12 columns">
+							<div class="large-12 columns">
+								<label>Puedes recibir las últimas informaciones de BioBioChile a través de RSS o de email.</label>
+								<div class="row collapse">
+									<form name="rssForm" action="http://feedburner.google.com/fb/a/mailverify?uri=radiobiobio" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=radiobiobio', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+										<div style="padding: 0;" class="small-8 columns">
+											<input type="text" placeholder="Email...">
+										</div>
+										<div style="padding: 0;" class="small-4 columns">
+											<a onclick="rssForm.submit();" class="button postfix">Suscríbete</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				-->
+
+				<div class="videoCiudadano">
+	<header>
+		<span class="iconoCaja"><i class="fa fa-video-camera"></i></span>
+		<a href="http://busca.biobiochile.cl/categorias/?e=sociedad&slug=videos&n=145083&s=145083"><h6>Videos</h6></a>
+	</header>
+	<ul data-orbit>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/sergio-freire-se-suma-a-la-polemica-entre-taxistas-y-uber-con-ironico-video.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710643-sergio-250x210.jpg" alt="Sergio Freire se suma a la polémica entre taxistas y Uber con satírico video" />
+			    <div class="orbit-caption"><h1>Sergio Freire se suma a la polémica entre taxistas y Uber con satírico video</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/pon-a-prueba-tu-capacidad-de-logica-con-el-acertijo-de-los-ojos-verdes.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710305-fotonoticia_20150622192440-15061351439_9999-250x210.jpg" alt="Pon a prueba tu capacidad de lógica con el acertijo de los ojos verdes" />
+			    <div class="orbit-caption"><h1>Pon a prueba tu capacidad de lógica con el acertijo de los ojos verdes</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/la-emocion-de-un-nino-con-autismo-al-ver-a-coldplay-en-vivo.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710296-cold-250x210.jpg" alt="La emoción de un niño con autismo al ver en vivo a Coldplay " />
+			    <div class="orbit-caption"><h1>La emoción de un niño con autismo al ver en vivo a Coldplay </h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/24/video-muestra-momento-exacto-del-derrumbe-de-ciclovia-que-dejo-2-muertos-en-rio-de-janeiro.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2708681-ciclovia_derrumbada-250x210.jpg" alt="Video muestra momento exacto del derrumbe de ciclovía que dejó 2 muertos en Río de Janeiro" />
+			    <div class="orbit-caption"><h1>Video muestra momento exacto del derrumbe de ciclovía que dejó 2 muertos en Río de Janeiro</h1></div>
+		    </a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/23/camaras-de-seguridad-delataron-a-padres-tras-abandonar-a-su-hijo-de-2-anos-en-un-mall.shtml">
+			    <img src="http://media.biobiochile.cl/wp-content/uploads/portada/home/2708544-abandono_brasil-250x210.jpg" alt="Cámaras de seguridad delataron a padres tras abandonar a su hijo de 2 años en un Mall" />
+			    <div class="orbit-caption"><h1>Cámaras de seguridad delataron a padres tras abandonar a su hijo de 2 años en un Mall</h1></div>
+		    </a>
+		</li>
+	</ul>
+</div><!-- Video -->
+				<div class="BioBioBlogs">
+	<header>
+		<span class="iconoCaja"></span>
+		<a href="http://www.biobiochile.cl/portada/blogs/index.html"><h6>Bío Bío Blogs</h6></a>
+	</header>
+	<ul>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/la-condena-a-muerte-fue-una-teatral-muestra-de-desprecio-hacia-las-criticas-occidentales.shtml">
+				<div class="pic bbcltv lazy" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2710049-000_9u3n6-100x100.jpg);" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710049-000_9u3n6-100x100.jpg" ></div>
+				<h1>&#8220;La condena a muerte fue una teatral muestra de desprecio hacia las críticas occidentales&#8221;</h1>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/marvel-comienza-a-madurar-en-capitan-america-civil-war-y-eso-a-tu-hijo-podria-aburrirle.shtml">
+				<div class="pic bbcltv lazy" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2710028-captain-america-civil-war-funnier-winter-soldier-100x100.jpg);" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2710028-captain-america-civil-war-funnier-winter-soldier-100x100.jpg" ></div>
+				<h1>Marvel comienza a madurar en Capitán América: Civil War (y eso a tu hijo podría aburrirle)</h1>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/25/un-pequeno-leon-que-murio-por-el-egoismo-y-la-supersticion-de-los-chilenos.shtml">
+				<div class="pic bbcltv lazy" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2709576-leon_smith1-100x100.jpg);" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2709576-leon_smith1-100x100.jpg" ></div>
+				<h1>Un pequeño León que murió por el egoísmo y la superstición de los chilenos</h1>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/20/como-se-digitaliza-una-imagen.shtml">
+				<div class="pic bbcltv lazy" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2700995-04-100x100.jpg);" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2700995-04-100x100.jpg" ></div>
+				<h1>¿Cómo se digitaliza una imagen?</h1>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.biobiochile.cl/2016/04/19/hoy-es-un-dia-funebre-para-el-gran-y-rico-brasil.shtml">
+				<div class="pic bbcltv lazy" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/portada/home/2700777-brasil-730x350-100x100.jpg);" data-original="http://media.biobiochile.cl/wp-content/uploads/portada/home/2700777-brasil-730x350-100x100.jpg" ></div>
+				<h1>Hoy es un día fúnebre para el gran y rico Brasil</h1>
+			</a>
+		</li>
+	</ul>
+	<footer>
+		<a href="http://www.biobiochile.cl/portada/blogs/index.html">
+			<h6>+ Blogs</h6>
+			<span class="iconoCaja"><i class="fa fa-arrow-down"></i></span>
+		</a>
+	</footer>
+</div><!-- biobio blogs -->
+
+
+				<div class="ad-250x250 fLeft">
+	<!-- 250x250_Home_16 -->
+	<div id='div-gpt-ad-1407856101527-0' style='width:250px; height:250px;'>
+		<script type='text/javascript'>
+		googletag.cmd.push(function() { googletag.display('div-gpt-ad-1407856101527-0'); });
+		</script>
+	</div>
+</div>
+<div class="ad-250x250 fLeft">
+	<!-- 250x250_Home_17 -->
+	<div id='div-gpt-ad-1407856030304-0' style='width:250px; height:250px;'>
+	<script type='text/javascript'>
+	googletag.cmd.push(function() { googletag.display('div-gpt-ad-1407856030304-0'); });
+	</script>
+	</div>
+</div>
+<div class="ad-250x250 fLeft">
+	<!-- 250x250_Home_19 -->
+	<div id='div-gpt-ad-1407855936345-0' style='width:250px; height:250px;'>
+	<script type='text/javascript'>
+	googletag.cmd.push(function() { googletag.display('div-gpt-ad-1407855936345-0'); });
+	</script>
+	</div>
+</div>
+
+			</div>
+			<div class="small-12 columns">
+				<div class="box masLeidoInf">
+					<header><a href=""><h5>Más Leído</h5></a></header>
+					<ul id="masLeidoFoot" class="small-block-grid-5"></ul>
+				</div><!-- box breaktime -->
+				<!-- [TODO PUBLICIDAD] -->
+				<!-- 1000x200_home_esc_21 -->
+				<div id='div-gpt-ad-1407858140207-0' style='width:1000px; height:200px; float: left;margin-top:15px;'>
+					<script type='text/javascript'>
+					googletag.cmd.push(function() { googletag.display('div-gpt-ad-1407858140207-0'); });
+					</script>
+				</div>
+				<!-- [/TODO PUBLICIDAD] -->
+				<div id="rbb-box-footer"></div>
+			</div>
+			<div id="scroll_footer" style="margin-left:1%;">
+				<script type="text/javascript">GA_googleFillSlot("728x90_home_scroll");</script>
+			</div>
+		</div>
+		<div class="adsLateral hide-for-small hide-for-medium">
+			<div class="sticky">
+				<div class="elBanner" data-topbar role="navigation" data-options="sticky_on: large">
+					<div id='div-gpt-ad-1418421049041-0' style='width:200px;height:600px;margin-top:15px;'>
+						<script type='text/javascript'>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1418421049041-0'); });</script>
+					</div>
+				</div>
+			</div>
+			<script>
+			window.onscroll = function (e) {
+				if ( document.body.scrollTop >= 9700 ) {
+					$(".sticky").css("top", "-140px");
+				} else {
+					$(".sticky").css("top", "35px");
+				}
+			}
+			</script>
+		</div>
+	</div>
+	<script type="text/javascript">GA_googleFillSlot("728x90_full_expandible");</script>
+		<script type="text/javascript">
+	
+
+	setTimeout(function(){var a=document.createElement("script");
+	var b=document.getElementsByTagName("script")[0];
+	a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0040/2949.js?"+Math.floor(new Date().getTime()/3600000);
+	a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+	</script>
+<footer id="footer" class="bbclFooter small-12 columns">
+	<div class="row">
+		<h6>BIOBIOCHILE.CL</h6>
+		<ul class="small-block-grid-7">
+		  	<li><a href="http://www.biobiochile.cl">Inicio</a></li>
+		  	<li><a href="http://www.biobiochile.cl/portada/nacional/index.html">Nacional</a></li>
+		  	<li><a href="http://www.biobiochile.cl/portada/internacional/index.html">Internacional</a></li>
+		  	<li><a href="http://www.biobiochile.cl/portada/empresa/index.html">Economía</a></li>
+			<li><a href="http://www.biobiochile.cl/portada/deporte/index.html">Deporte</a></li>
+			<li><a href="http://www.biobiochile.cl/portada/sociedad/index.html">Sociedad</a></li>
+			<li><a href="http://www.biobiochile.cl/portada/tecnologia/index.html">Tecnología</a></li>
+			<li><a href="http://www.biobiochile.cl/portada/cultura/index.html">Cultura</a></li>
+			<li><a href="http://www.biobiochile.cl/portada/espectaculos/index.html">Tv/Espectáculos</a></li>
+			<li><a href="http://www.biobiochile.cl/portada/hombre/index.html">Hombre</a></li>
+			<li><a href="http://www.biobiochile.cl/portada/mujer/index.html">Mujer</a></li>
+			<li><a href="http://www.biobiochile.cl/portada/opinion/index.html">Opinión</a></li>
+			<li><a href="http://tv.biobiochile.cl">BioBioChile.TV</a></li>
+		</ul>
+	</div>
+	<div class="fInfo small-12 columns">
+		<div class="row">
+			<div class="small-6 columns">
+				<h6>BioBioChile 2009-2016 | Concepción, Chile | Contenidos bajo Creative Commons (CC-BY-NC) salvo <br> donde indique lo contrario | Basado en sistema WordPress</h6>
+			</div>
+			<div class="small-6 columns">
+				<a href="http://www.biobiochile.cl" class="bbclLogoFoot"></a>
+			</div>
+		</div>
+	</div>
+</footer>
+<!--footer-->
+
+	<script type="text/javascript" src="http://www.biobiochile.cl/assets/js/jquery.lazyload.min.js?v=0.0.1"></script>
+	<script type="text/javascript" src="http://www.biobiochile.cl/assets/js/mustache.js"></script>
+	<script src="http://www.biobiochile.cl/assets/bbclnew/js/foundation.min.js"></script>
+	<script src="http://www.biobiochile.cl/assets/bbclnew/js/foundation/foundation.topbar.js"></script>
+	<script type="text/javascript" src="http://www.biobiochile.cl/assets/js/realtime.min.js?v=1.0.0"></script>
+	<script src="http://www.biobiochile.cl/assets/js/jquery.mixitup.min.js"></script>
+	<script src="http://www.biobiochile.cl/assets/bbclnew/js/init.js"></script>
+
+<script>
+	$(function() {
+		try{ $(document).foundation({
+			orbit: {
+			 	slide_number_text: 'de',
+			 	bullets: false,
+			 	timer_speed: 5000
+			 }
+		}); }catch(e){ }
+	});
+</script>
+<script>
+//Streaming Loteria Extazys.js
+	var fecha = new Date();
+	var dia = fecha.getDay();
+	var hora = fecha.getHours();
+	var minutos = fecha.getMinutes();
+	var horaConMinutos = hora +  minutos;
+	console.log(fecha.getHours());
+	console.log(dia);
+
+	if(hora >= 20 && dia == 0 ||  hora >= 20 && dia == 3){
+		$('#streamingLoteria').show();
+		console.log("Streaming Show");
+
+		if(hora > 20){
+			$('#linkStreaming').hide();
+			$('#linkLoteria').show();
+			//$('#video_streaming').show();
+			$('#contador').show();
+		}
+		 if(hora >= 22 && minutos >= 15){
+			console.log("Comienza Streaming");
+			$('#linkStreaming').show();
+			$('#linkLoteria').hide();
+			$('#video_streaming').show();
+			$('#contador').hide();
+		}
+		 if(hora >= 23 && minutos >=35){
+			$('#streamingLoteria').hide();
+		}
+	}
+</script><script id="realtime-list-item-template" type="text/template">
+	<li class="mix" data-id="{{I}}" data-visits="{{V}}" >
+		<a href="http://www.biobiochile.cl{{L}}">
+			<div class="pic lazy" style="background-image:url(http://media.biobiochile.cl/wp-content/uploads/{{F}})">
+				<span class="visitas">
+					<div class="value">{{V}}</div>
+					<div class="txt">viendo</div>
+				</span>
+			</div>
+			<h1>{{T}}</h1>
+		</a>
+	</li>
+</script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9 lt-ie10"> <![endif]-->
+<!--[if IE 9]>    <html class="lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class=""> <!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html" />
+	<meta charset="utf-8">
+	<title>aa.com</title>
+	<script type="text/javascript" src="/dtagent61_jnpr23_8387.js" data-dtconfig="rid=RID_493802221|rpid=-1870447966|doNotDetect=clk|msl=16000|tp=500,50,0|MSL=16000|reportUrl=dynaTraceMonitor|domain=aa.com"></script><link rel="shortcut icon" href="/content/images/chrome/rebrand/favicon.png" type="image/x-icon">
+    <link href="/content/common/css/core.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="/apps/common/js/jquery/1.8/jquery-1.8.3.min.js"></script>
+    <!--[if lt IE 9]>
+	<script src="/apps/common/js/html5shiv.js"></script>
+	<style type="text/css">
+		@font-face {
+		  font-family: "AmericanSansLight-ie";
+		  src: url(/content/fonts/american/american-light-webfont.eot);
+		  font-weight: normal;
+		  font-style: normal;
+		}
+	</style>
+	<![endif]-->
+
+	<script language="JavaScript">
+	//AS#27325 - Begin
+	function submitLocale(locale) {
+		document.internationalSplashForm.selectedCountry.value=locale;
+		document.internationalSplashForm.submit();
+	}
+
+	function submitLocale(locale, href) {
+		var langCountry = locale.split('_');
+		document.internationalSplashForm.selectedCountry.value=langCountry[1];
+		document.internationalSplashForm.selectedLanguage.value=langCountry[0];
+		document.internationalSplashForm.anchorLocation.value=getParameter(href, "anchorLocation");
+		document.internationalSplashForm.url.value=unescape(getParameter(href, "url"));
+		document.internationalSplashForm._locale.value=getParameter(href, "_locale");
+		try{
+			//If this JSP is used for more than one FORM, when we try to get this value, we could get an exception because this hidden attribute is not present in everyone FORM
+			document.internationalSplashForm.georedirect_param.value=getParameter(href, "georedirect");
+		}catch(e){}
+		document.internationalSplashForm.submit();
+	}
+
+
+
+	function getParameter(href, parameterName) {
+		// RE rules - can it be made less cryptic, well thats the ultimate challenge :)
+		var regExp = "[\\?&]"+parameterName+"=([^&#]*)";
+	  	var re = new RegExp(regExp);
+		var results = re.exec(href);
+		if (results != null) {
+			return results[1];
+	    } else {
+	    	return "";
+	    }
+	}
+
+	function setCountry(country, language) {
+		document.internationalSplashForm.selectedCountry.value=country;
+		document.internationalSplashForm.selectedLanguage.value=language;
+	}
+	//AS#27325 - End
+	</script>
+	<script src="/intlSplash/js/isplash.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+	//build a country list for redering into a select list
+
+country = '\
+AI:Anguilla, BWI|\
+AG:Antigua|\
+AR:Argentina|\
+AW:Aruba|\
+AU:Australia|\
+BS:Bahamas|\
+BB:Barbados|\
+BE:Belgium|\
+BZ:Belize|\
+BM:Bermuda|\
+BO:Bolivia|\
+BQ:Bonaire|\
+BR:Brazil|\
+VG:British Virgin Islands|\
+CA:Canada|\
+KY:Cayman Islands|\
+CL:Chile|\
+CN:China|\
+CO:Colombia|\
+CR:Costa Rica|\
+CW:Curacao|\
+DK:Denmark|\
+DM:Dominica|\
+DO:Dominican Republic|\
+EC:Ecuador|\
+SV:El Salvador|\
+FI:Finland|\
+FR:France|\
+DE:Germany|\
+GT:Guatemala|\
+GR:Greece|\
+GD:Grenada|\
+GP:Guadeloupe|\
+HT:Haiti|\
+HN:Honduras|\
+HK:Hong Kong|\
+IN:India|\
+IE:Ireland|\
+IL:Israel|\
+IT:Italy|\
+JP:Japan|\
+JM:Jamaica|\
+KR:Korea|\
+MQ:Martinique|\
+MX:Mexico|\
+NL:Netherlands|\
+NZ:New Zealand|\
+NI:Nicaragua|\
+NO:Norway|\
+PA:Panama|\
+PY:Paraguay|\
+PE:Peru|\
+PT:Portugal|\
+PR:Puerto Rico|\
+RU:Russia|\
+SX:St. Maarten|\
+ES:Spain|\
+KN:St. Kitts & Nevis|\
+LC:St. Lucia|\
+VC:St. Vincent & Grenadines|\
+SE:Sweden|\
+CH:Switzerland|\
+TT:Trinidad & Tobago|\
+TC:Turks & Caicos|\
+GB:United Kingdom|\
+US:United States|\
+UY:Uruguay|\
+VE:Venezuela\
+';
+	//end of country list
+
+	//build a list of languages by country
+
+language = '\
+HK:zh,Traditional Chinese;en,English|\
+HN:es,Spanish|\
+EC:es,Spanish|\
+HT:en,English|\
+VG:en,English|\
+VE:es,Spanish|\
+DM:en,English|\
+VC:en,English|\
+DO:es,Spanish|\
+DE:de,German;en,English|\
+UY:es,Spanish|\
+DK:en,English|\
+IE:en,English|\
+US:en,English;es,Spanish|\
+AR:es,Spanish|\
+MX:es,Spanish|\
+IL:en,English|\
+AW:en,English|\
+IN:en,English|\
+AU:en,English|\
+IT:it,Italian;en,English|\
+MQ:fr,French;en,English|\
+PT:pt,Portuguese;en,English|\
+NI:es,Spanish|\
+AG:en,English|\
+ES:es,Spanish;en,English|\
+PR:es,Spanish;en,English|\
+NL:nl,Dutch;en,English|\
+AI:en,English|\
+TT:en,English|\
+PY:es,Spanish|\
+JP:jp,Japanese;en,English|\
+GD:en,English|\
+NZ:en,English|\
+BS:en,English|\
+BR:pt,Portuguese|\
+JM:en,English|\
+GB:en,English|\
+CA:en,English;fr,French|\
+BZ:en,English|\
+NO:en,English|\
+SV:es,Spanish|\
+FR:fr,French;en,English|\
+BB:en,English|\
+SX:en,English|\
+BE:en,English;nl,Dutch;fr,French|\
+BO:es,Spanish|\
+BQ:en,English|\
+TC:en,English|\
+FI:fi,Finnish;en,English|\
+BM:en,English|\
+SE:en,English|\
+CW:en,English|\
+KR:ko,Korean;en,English|\
+KN:en,English|\
+KY:en,English|\
+LC:en,English|\
+GT:es,Spanish|\
+CH:de,German;fr,French;en,English|\
+RU:ru,Russian;en,English|\
+GR:en,English|\
+GP:fr,French;en,English|\
+PE:es,Spanish|\
+CR:es,Spanish|\
+CO:es,Spanish|\
+PA:es,Spanish|\
+CN:zh,Simplified Chinese;en,English|\
+CL:es,Spanish\
+';
+	//end of languages
+
+	var inputCountryCode = "US";
+
+	window.onload = function() {
+		populateCountry('selectCountry');
+		document.getElementById('localeSubmit').disabled=false;
+		// document.getElementById('localeSubmit').className='aaBtnStdHot';
+		initLanguages();
+		if (inputCountryCode && inputCountryCode.length > 0) {
+			selectCountry(inputCountryCode, document.getElementById('selectCountry'), document.getElementById('selectLanguage'));
+		}
+		var checkboxes = document.getElementsByName("localePreferenceSaved");
+		if (checkboxes && checkboxes.length > 0) {
+			checkboxes[0].checked = true;
+		}
+		setCountry(document.getElementById('selectCountry').value, document.getElementById('selectLanguage').value);
+
+
+	}
+
+	</script>
+</head>
+
+<body>
+	<div class="container shadow12-up">
+		<header class="row">
+			<div class="span4 site-banner">
+				<img class="site-logo" src="/content/images/chrome/rebrand/aa-logo.png" alt="American Airlines logo">
+			</div>
+			<div class="span8">
+				<div class="oneworld-logo">
+					<img style="vertical-align: middle" alt="oneworld" src="/content/images/chrome/rebrand/oneworld.png">
+				</div>
+			</div>
+		</header>
+    </div><!-- END .container .shadow12-up -->
+    <div class="container">
+		<div class="banner">
+	    	<h1>Welcome to aa.com.</h1>
+	    	<ul class="list-inline epsilon">
+				<li><a href="/homePage.do?locale=en_US" onclick="submitLocale('en_US', this.href); return false;">Visit aa.com U.S. Site</a></li>
+				<li><a href="http://www.americanairlines.jp?anchorLocation=WorldWide_Sites&url=http%3A%2F%2Fwww.americanairlines.jp&_locale=en_US&locale=ja_JP" onclick="submitLocale('ja_JP', this.href); return false;">&#26085;&#26412;&#35486;&#12469;&#12452;&#12488;aa.com Japan&#12504;</a></li>
+				<li><a href="/intl/cn/index.jsp?anchorLocation=WorldWide_Sites&url=http%3A%2F%2Fwww.aa.com%2Faa%2Fintl%2Fcn%2Findex.jsp&_locale=en_US&locale=zh_CN" onclick="submitLocale('zh_CN', this.href); return false;">&#27983;&#35272; aa.com &#20013;&#22269;</a></li>
+				<li><a href="http://www.americanairlines.com.ru?anchorLocation=International_Splash&url=http%3A%2F%2Fwww.americanairlines.com.ru&_locale=en_US&locale=ru_RU" onclick="submitLocale('ru_RU', this.href); return false;">&#1055;&#1086;&#1089;&#1077;&#1090;&#1080;&#1090;&#1100;&nbsp;&#1089;&#1072;&#1081;&#1090;&nbsp;aa.com&nbsp;&#1074;&nbsp;&#1056;&#1086;&#1089;&#1089;&#1080;&#1080;</a></li>
+				<li><a href="http://www.american-airlines.co.kr?anchorLocation=International_Splash&url=http%3A%2F%2Fwww.american-airlines.co.kr&_locale=en_US&locale=ko_KR" onclick="submitLocale('ko_KR', this.href); return false;">aa.com&nbsp;&#54620;&#44397;&#50612;&nbsp;&#49324;&#51060;&#53944;</a></li>
+		    </ul>
+		    <ul class="list-inline epsilon" style="margin-top: 6px;">
+				<li><a href="http://www.aa.com?anchorLocation=International_Splash&url=http%3A%2F%2Fwww.aa.com%2Fpubcontent%2Fzh_HK%2Findex.jsp&locale=zh_HK" onclick="submitLocale('zh_HK', this.href); return false;">&#35531;&#19978;aa.com&#39321;&#28207;&#32178;&#31449;</a></li>
+		    </ul>
+	    </div>
+	    <div class="row">
+	    	<div class="span5">
+				<form name="internationalSplashForm" method="post" action="/international/internationalSplashSubmit.do" onsubmit="trackAllFormValues(internationalSplashForm);" style="margin: 27px 0">
+					<input type="hidden" name="selectedCountry" value="">
+					<input type="hidden" name="selectedLanguage" value="">
+
+						<input type="hidden" name="anchorLocation" value=""/>
+						<input type="hidden" name="url" value=""/>
+						<input type="hidden" name="_locale" value=""/>
+						<input type="hidden" name="georedirect_param" value=""/>
+
+
+
+						<label for="selectCountry">
+							Select your country of residence | Seleccione su pa&#237s de residencia
+							<select class="aaSmText" name="selectCountry" id="selectCountry" size="1" onchange="populateLanguage(this, document.getElementById('selectLanguage')); setCountry(this.value, document.getElementById('selectLanguage').value);">
+								<option value="US"> - Select country - </option>
+							</select>
+						</label>
+						<label for="selectLanguage">
+							Select your preferred language | Seleccione su idioma de preferencia
+							<select class="aaSmText" name="selectLanguage" id="selectLanguage" size="1" onchange="setCountry(document.getElementById('selectCountry').value,this.value);">
+								<option value="en"> - Select language - </option>
+							</select>
+						</label>
+						<label for="localePreferenceSaved" data-behavior="prettify">
+							<input type="checkbox" name="localePreferenceSaved" value="on" id="localePreferenceSaved"> Remember this selection? | &#191;Recordar estas opciones?
+						</label>
+						<input type="submit" name="localeSubmit" value="Select" disabled="disabled" id="localeSubmit" class="aaBtnStdDisabled btn">
+
+				</form>
+
+	    	</div><!-- END .span5 -->
+	    </div><!-- END .row -->
+		<div class="row">
+			<div class="span12 shadow12-down">
+				<img src="/content/images/chrome/rebrand/newamerican_plane_splash.jpg" alt="A plane with the new American livery" style="margin-top: 18px; margin-left: -36px"/>
+			</div>
+		</div>
+	</div><!-- END .container -->
+		<div style="background: url(/content/images/chrome/rebrand/cloud/AA-Cloud-Hash-Pattern_1_V9.jpg) 50% top repeat-x; width: 100%; height: 300px;">
+			&nbsp;
+		</div>
+
+	<footer style="margin-top: 0">
+		<div class="container shadow12-down">
+			<div class="row">
+				<div class="span12">
+					<h3>International Sites</h3>
+					<p>
+
+					<a href="/homePage.do?locale=en_AI">Anguilla, BWI</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_AG">Antigua</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=es_AR&pref=false">Argentina</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_AW">Aruba</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.com.au" onclick="submitLocale('en_AU', this.href); return false;" locale="${userLocale}">Australia</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_BS">Bahamas</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_BB">Barbados</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.be" onclick="submitLocale('en_BE', this.href); return false;" locale="${userLocale}">Belgium</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_BZ">Belize</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_BM">Bermuda</a>&nbsp; | &nbsp;
+          			<a href="/homePage.do?locale=es_BO&pref=false">Bolivia</a>&nbsp; | &nbsp;
+                    <a href="/homePage.do?locale=en_BQ">Bonaire</a>&nbsp; | &nbsp;<br/>
+					<a href="http://www.aa.com.br" onclick="submitLocale('pt_BR', this.href); return false;" locale="${userLocale}">Brazil</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_VG">British Virgin Islands</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_CA">Canada</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_KY">Cayman Islands</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.cl" onclick="submitLocale('es_CL', this.href); return false;" locale="${userLocale}">Chile</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.cn" onclick="submitLocale('zh_CN', this.href); return false;" locale="${userLocale}">China</a>&nbsp; | &nbsp;
+                    <a href="/homePage.do?locale=es_CO&pref=false">Colombia</a>&nbsp; |  &nbsp;
+					<a href="http://www.americanairlines.co.cr" onclick="submitLocale('es_CR', this.href); return false;" locale="${userLocale}">Costa Rica</a>&nbsp; | &nbsp;
+                    <a href="/homePage.do?locale=en_CW">Curacao</a>&nbsp; | &nbsp;
+                    <a href="http://www.aa.com/intl/portal/index.jsp" onclick="submitLocale('en_DK', this.href); return false;" locale="${userLocale}">Denmark</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_DM">Dominica</a>&nbsp; | &nbsp; <br/>
+					<a href="http://www.aa.com.do" onclick="submitLocale('es_DO', this.href); return false;" locale="${userLocale}">Dominican Republic</a>&nbsp; |
+                    <a href="/homePage.do?locale=es_EC&pref=false">Ecuador</a>&nbsp; |
+                    <a href="/homePage.do?locale=es_SV&pref=false">El Salvador</a>&nbsp; | &nbsp;
+                    <a href="http://www.americanairlines.fi/intl/fi/index.jsp" onclick="submitLocale('fi_FI', this.href); return false;" locale="${userLocale}">Finland</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.fr" onclick="submitLocale('fr_FR', this.href); return false;" locale="${userLocale}">France</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.de" onclick="submitLocale('de_DE', this.href); return false;" locale="${userLocale}">Germany</a>&nbsp; | &nbsp;
+          			<a href="/homePage.do?locale=es_GT&pref=false">Guatemala</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_GD">Grenada</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.fr" onclick="submitLocale('fr_FR', this.href); return false;" locale="${userLocale}">Guadeloupe</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_HT">Haiti</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=es_HN&pref=false">Honduras</a>&nbsp; | &nbsp; <br/>
+					<a href="http://www.aa.com/intl/portal/index.jsp" onclick="submitLocale('en_HK', this.href); return false;" locale="${userLocale}">Hong Kong</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.in" onclick="submitLocale('en_IN', this.href); return false;" locale="${userLocale}">India</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.ie" onclick="submitLocale('en_IE', this.href); return false;" locale="${userLocale}">Ireland</a>&nbsp; | &nbsp;
+					<a href="http://www.aa.com/intl/portal/index.jsp" onclick="submitLocale('en_IL', this.href); return false;" locale="${userLocale}">Israel</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.it" onclick="submitLocale('it_IT', this.href); return false;" locale="${userLocale}">Italy</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.jp" onclick="submitLocale('ja_JP', this.href); return false;" locale="${userLocale}">Japan</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_JM">Jamaica</a>&nbsp; | &nbsp;
+					<a href="http://www.american-airlines.co.kr/intl/kr/index.jsp" onclick="submitLocale('ko_KR', this.href); return false;" locale="${userLocale}">Korea</a>&nbsp; | &nbsp;
+					<a href="http://www.americanairlines.fr" onclick="submitLocale('fr_FR', this.href); return false;" locale="${userLocale}">Martinique</a>&nbsp; | &nbsp;
+          			<a href="/homePage.do?locale=es_MX&pref=false">Mexico</a>&nbsp; | &nbsp;
+					<a href="http://www.american-airlines.nl/intl/nl/index.jsp" onclick="submitLocale('nl_NL', this.href); return false;" locale="${userLocale}">Netherlands</a>&nbsp; | &nbsp;
+					<a href="http://www.aa.com/intl/portal/index.jsp" onclick="submitLocale('en_NZ', this.href); return false;" locale="${userLocale}">New Zealand</a>&nbsp; | &nbsp; <br/>
+          			<a href="/homePage.do?locale=es_NI&pref=false">Nicaragua</a>&nbsp; | &nbsp;
+          			<a href="http://www.aa.com/intl/portal/index.jsp" onclick="submitLocale('en_NO', this.href); return false;" locale="${userLocale}">Norway</a>&nbsp; | &nbsp;
+          			<a href="/homePage.do?locale=es_PA&pref=false">Panama</a>&nbsp; |
+          			<a href="/homePage.do?locale=es_PY&pref=false">Paraguay</a>&nbsp; |
+					<a href="http://www.aa.com.pe" onclick="submitLocale('es_PE', this.href); return false;" locale="${userLocale}">Peru</a>&nbsp; | &nbsp;
+          			<a href="/homePage.do?locale=es_PR&pref=false">Puerto Rico</a>&nbsp; | &nbsp;
+                    <a href="http://www.americanairlines.com.ru" onclick="submitLocale('ru_RU', this.href); return false;"	locale="${userLocale}">Russia</a>&nbsp; | &nbsp;
+                    <a href="/homePage.do?locale=en_SX">St. Maarten</a>&nbsp; | &nbsp;
+                    <a href="http://www.americanairlines.es" onclick="submitLocale('es_ES', this.href); return false;" locale="${userLocale}">Spain</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_KN">St. Kitts & Nevis</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_LC">St. Lucia</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_VC">St. Vincent & Grenadines</a>&nbsp; | &nbsp; <br/>
+					<a href="http://www.aa.com/intl/portal/index.jsp" onclick="submitLocale('en_SE', this.href); return false;" locale="${userLocale}">Sweden</a>&nbsp; | &nbsp;
+                    <a href="http://www.americanairlines.ch" onclick="submitLocale('de_CH', this.href); return false;" locale="${userLocale}">Switzerland</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_TT">Trinidad & Tobago</a>&nbsp; | &nbsp;
+					<a href="/homePage.do?locale=en_TC">Turks & Caicos</a>&nbsp; | &nbsp; <BR/>
+                    <a href="http://www.americanairlines.co.uk" onclick="submitLocale('en_GB', this.href); return false;" locale="${userLocale}">United Kingdom</a>&nbsp; | &nbsp;
+                    <a href="/homePage.do?locale=en_US">United States</a>&nbsp; | &nbsp;
+                  	<a href="/homePage.do?locale=es_UY&pref=false">Uruguay</a>&nbsp; | &nbsp;
+					<a href="http://www.aa.com.ve" onclick="submitLocale('es_VE', this.href); return false;" locale="${userLocale}">Venezuela</a>
+					</p>
+				</div><!-- END .span12 -->
+			</div><!-- END .row -->
+
+		</div><!-- END .container -->
+	</footer>
+	<script type="text/javascript" src="/apps/common/js/jquery/aacom/plugins/aaPillboxRadio.js"></script>
+
+<!--  Include the Reference Page Tag script -->
+<!--//BEGIN REFERENCE PAGE TAG SCRIPT-->
+
+
+
+
+        <script type="text/javascript">
+            var v = {};
+            v["v_locale"] = 'en_US';
+			
+			    
+			
+        </script>
+
+<script type="text/javascript" src="/apps/common/js/wa.js"></script>
+
+<noscript>
+    <div class="hidden-accessible">
+        <img src="/content/images/common/wa.gif?Log=1&amp;v_jd=1" alt="" width="1" height="1" aria-hidden="true"/>
+    </div>
+</noscript>
+
+
+<!--Exposes WebAnalytics data from WADataExposureEngine in order to be reported to Tealium-->
+<script type="text/javascript">
+    var utag_data = {
+        
+    };
+</script>
+
+<!--Tealium's utag.js call configured according to the environment -->
+<script type="text/javascript">
+    (function(a,b,c,d){
+        a='//tags.tiqcdn.com/utag/aa/main/prod/utag.js';
+        b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+        a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+</script>
+
+
+<!-- END REFERENCE PAGE TAG-->
+
+</body>
+
+
+</html>

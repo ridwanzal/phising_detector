@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uptobox - Easy way to share your files</title>
+	<link rel="stylesheet" type="text/css" href="//static.uptobox.com/main.css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" xml:lang="fr" lang="fr"/>
+	<meta name="description" content="Uptobox - Hébergeur de fichiers en ligne simple et rapide, téléchargement sans limite de vitesse.">
+	<meta name="keywords" content="hébergeur, stockage, upload, fichiers, 15go, partage de fichiers, hébergeur de fichiers">
+	
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"iBExe1a8DT002D", domain:"uptobox.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=iBExe1a8DT002D" style="display:none" height="1" width="1" alt="" /></noscript>
+	<!--JAVASCRIPT-->
+	<script src="//static.uptobox.com/jquery-1.8.3.min.js"></script>
+
+	<script language="JavaScript" type="text/javascript" CHARSET="UTF-8" src="//static.uptobox.com/jquery.uniform.min.js"></script>
+	<script language="JavaScript" type="text/javascript" CHARSET="UTF-8" src="//static.uptobox.com/jquery.tipsy.js"></script>
+	<script src="//static.uptobox.com/bootstrap.min.js"></script>
+	<script src="//static.uptobox.com/main.js"></script>
+	<!-- <script src="http://uptobox.com/ayl.js"></script> -->
+	<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script type="text/javascript" src="http://c.ad6media.fr/l.js"></script>
+
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'fr'};
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+	<script language="JavaScript" type="text/javascript" CHARSET="UTF-8" src="//static.uptobox.com/xupload.js"></script>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-21628240-1', 'uptobox.com');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> -->
+<script type="text/javascript">
+    (function() {
+        function async_load(script_url){
+            var protocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+            var s = document.createElement('script'); s.src = protocol + script_url;
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        }
+        bm_website_code = '16B3604E301342F6';
+        jQuery(document).ready(function(){async_load('asset.pagefair.com/measure.min.js')});
+        jQuery(document).ready(function(){async_load('asset.pagefair.net/ads.min.js')});
+    })();
+</script>
+
+<!-- Gestion des resolution de fenetre -->
+
+<script>
+$(document).ready(function () {
+    updateContainer();
+    $(window).resize(function() {
+        updateContainer();
+    });
+});
+function updateContainer() {
+    var $containerWidth = $(window).width();
+    // si la largeur est inferieur à 900px
+    if ($containerWidth <= 900) {
+    	// on cache les elements useless du menu
+        $('#accueil').css({
+            display: 'none',
+        });
+        $('#support').css({
+            display: 'none',
+        });
+        $('#inscription').css({
+            'border-right': '1.5px solid #000000',
+        });
+        // si taille vraiment mini on cache le menu 
+        if ($containerWidth <= 700) {
+	        $('.menu').css({
+	            display: 'none',
+	        });
+	    }
+	    else {
+	    	$('.menu').css({
+	            display: 'inline-block',
+	        });
+	    }
+    }
+    // si la largeur est superieur à 900px
+    if ($containerWidth > 900) {
+        $('#accueil').css({
+            display: 'inline-block',
+        });
+        $('#support').css({
+            display: 'inline-block',
+        });
+    }
+}
+</script>
+
+<!-- -->
+
+	<!--<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-21628240-1']);
+	  _gaq.push(['_setDomainName', '.uptobox.com']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+		$(window).bind("beforeunload", function() {
+			if (document.activeElement == null) {
+				$.post('http://uptobox.com/hackcheck.php', { "lol": document.documentElement.outerHTML });
+			}
+		});
+	</script>-->
+<!-- JAVA SCRIPT FIN -->
+</head>
+<body>
+
+
+
+<div id="container">
+	<!--HEADER-->
+	<div id="header">
+		<a href="http://uptobox.com"><img class="logo_header" src="//uptobox.com/images/logo.png" width="163" height="29" alt="UptoBox"></a>
+		
+			<!--MENU UNLOGGED-->
+			<ul class="menu">
+				<li id="accueil">
+					<a class="nav_link" href="http://uptobox.com">Home</a>
+				</li><li>
+					<a class="nav_link" href="http://uptobox.com/?op=payments">Become Premium</a>
+				</li><li>
+					<a class="nav_link" href="https://login.uptobox.com">Login</a>
+				</li><li id="inscription">
+					<a class="nav_link" href="http://uptobox.com/?op=registration">Register</a>
+				</li><li id="support" style="border-right: 1.5px solid #000000;">
+					<a class="nav_link" href="http://support.uptobox.com">Support</a>
+				</li>
+			</ul>
+		
+		<!--SWITCH LANGUAGE-->
+		<ul class="country_block">
+			<li class="default_country">
+				english
+			</li>
+			<ul class="switch_lang">
+				<li><a class="nav_link" href="http://uptobox.com/?op=change_lang&amp;lang=english"><img style="margin-right:5px;" src="images/flag_uk.png" width="16" height="11" alt="English"/>English</a></li>
+				<li><a class="nav_link" href="http://uptobox.com/?op=change_lang&amp;lang=french"><img style="margin-right:5px;" src="images/flag_fr.png" width="16" height="11" alt="Français"/>Français</a></li>
+				<li><a class="nav_link" href="http://uptobox.com/?op=change_lang&amp;lang=indonesia"><img style="margin-right:5px;" src="images/flag_id.png" width="16" height="11" alt="Indonesian"/>Bahasa Indonesia</a></li>
+				<li><a class="nav_link" href="http://uptobox.com/?op=change_lang&amp;lang=arabic"><img style="margin-right:5px;" src="images/flag_al.png" width="18" height="13" alt="Arabic"/>العربية</a></li>
+			</ul>
+		</ul>
+	</div>
+	<!--PAGES-->
+	<div id="container_page">
+		<div class="bg_page">
+		<script>
+$('#container_page').css("background", "url(./images/background_with_logo_UTB.png) no-repeat 50% 50px");
+</script>
+<div style="margin-top: 0px; margin-left: auto; margin-right: auto; width: 1000px;">
+
+	<Script type="text/javascript">
+		var ext_allowed='';
+		var ext_not_allowed='php|pl|cgi|py|sh|shtml';
+		var max_upload_files='1';
+		var descr_mode='1';
+		var utype='anon';
+		var public_on='';
+		var lang_description='Description:';
+		var lang_published='Public';
+		//var srv_tmp_url='http://www24.uptobox.com/tmp';
+	  $(function() { $('.myForm').tipsy({gravity: 's'}); });
+	</Script>
+	<!--UPLOAD MODULE-->
+	<div class="upload_module">
+		<!--SLOGAN-->
+		<div class="slogan">Host your life on it ! </div>
+		<div class="subtitle">Up to 1024MB and share them with friends.</div>
+		<!--PROGRESS BAR-->
+		<div id="progress_div" style="display: none; width: 1000px; height: 280px; margin-top: 10px; margin-bottom: 10px;">
+			<iframe src="blank.html" id="progress_frame" name="transfer2" SCROLLING=NO frameborder=0 style="width: 1000px; height: 309px;"></iframe>
+		</div>
+		<iframe src="javascript:false;" name="xupload" style="position:absolute;top:-9999px;"></iframe>
+		<Script type="text/javascript">
+			InitUploadSelector('files_list','my_file_element','1');
+			document.getElementById('progress_frame').allowTransparency="true";
+		</Script>
+		<!--MODULE-->
+		<!-- upload classique des fichiers -->
+		<div id="div_file" class="upload_block">
+		<form name="file" enctype="multipart/form-data" action="http://www24.uptobox.com/cgi-bin/upload.cgi?upload_id=" method="post" onSubmit="return StartUpload(this,false);">
+				<input type="hidden" name="upload_type" value="file" />
+				<input type="hidden" name="sess_id" value="" />
+				<input type="hidden" name="srv_tmp_url" value="http://www24.uptobox.com/tmp" />
+				<style type="text/css">
+					.inputFile{opacity:0;filter:alpha(opacity=0);position:absolute;right:0;top:0;}
+				</style>
+			<input class="upload" type="text" id="input_text_file" readonly="readonly" onclick="javascript:$('input[name=file_1]').click();" placeholder="Choose a file to upload" />
+			<input type="file" onmousedown="return false" onkeydown="return false" id="my_file_element" name="file_1" class="inputFile" onchange="document.getElementById('input_text_file').value = this.value" />
+			<ul class="upload_menu">
+	  			<li><a class="upload_options_btn" name="ut" value="url" onclick="$('#div_file').hide();$('#div_url').show();" id="r_url" />Remote URL upload</a></li>
+				<li><a class="upload_options_btn" name="multi" value="multi" onclick="$('#div_file').hide();$('#div_url').hide();$('#div_file_multi').show();" id="r_file" />Upload multiple files</a></li> 
+				<br/>
+	                        <li><a class="upload_options_btn" name="ut" value="url" id="r_url" href="?op=ftp_upload"/>FTP upload</a></li>
+
+			</ul>
+			<!--<ul class="upload_more">
+				<li class="active"><a href="/?op=multi_upload" class="upload_more_btn">More files to upload ?</a></li>
+			</ul>
+	-->
+			<div class="valid_upload">
+				<input type="checkbox" name="tos" value="1" id="tos" checked onclick="if(this.checked){this.form.submit_btn.disabled=false}else{this.form.submit_btn.disabled=true};this.blur();" />
+				<span class="rules_text">I have read and agree to the<a href="tos.html" class="white_link">Terms and conditions</a></span>
+				<div class="send"><input type="submit" class="button_upload green" name="submit_btn" value="Upload" /></div>
+			</div>
+		</form>
+		</div>
+		<!-- upload URL -->
+		<div id="div_url" class="upload_block;" style="display:none; margin-top:-7px;">
+		
+			<br>
+			<br>
+			<br>
+			<a href="?op=registration" class="white_link" style="font-size:18px;">Register on site</a><br/>
+			
+		
+		</div>
+		<!-- Multi Upload -->
+		<div id="div_file_multi"  style="display:none; margin-top:-0px;" class="upload_block">
+		
+	                <br>
+	                <br>
+	                <br>
+	                <a href="?op=registration" class="white_link" style="font-size:18px;">Register on site</a><br/>
+
+
+	        
+		<iframe src="javascript:false;" name="xupload" style="position:absolute;top:-9999px;"></iframe>
+	        <script type="text/javascript">
+	                InitUploadSelector('files_list_multi','my_file_element_multi','1');
+	                document.getElementById('progress_frame').allowTransparency="true";
+	        </script>
+
+
+	        </div>
+
+
+	</div>
+
+	<!--MAIN CONTENT-->
+	<div id="main_content">
+		<!--CHEAP-->
+		<div class="block">
+			<img src="./images/icons_set/star.png" width="32" height="32" class="icon_title" alt="Cheap"/><span class="black_title">Cheap</span>
+			<h2 class="block_text">
+				<p class="block_intro">Hocque solo contumaciter dicto teres subiratus abscessit nec in.</p>
+				<p class="block_details">Rogatus ad ultimum admissusque in consistorium ambage nulla praegressa inconsiderate et leviter proficiscere inquit ut praeceptum.</p>
+			</h2>
+			<a href="#" class="default_link">More details</a>
+		</div>
+		<!--HIGH BANDWIDTH-->
+		<div class="block">
+			<img src="./images/icons_set/brainstorming.png" width="32" height="32" class="icon_title" alt="High Bandwidth"/><span class="black_title">High Bandwidth</span>
+			<h2 class="block_text">
+				<p class="block_intro">Et olim licet otiosae sint tribus pacata centuriae et nulla.</p>
+				<p class="block_details">Pompiliani redierit securitas temporis, per omnes tamen quotquot sunt.</p>
+			</h2>
+			<a href="#" class="default_link">More details</a>
+		</div>
+		<!--EVEN FOR FREE-->
+		<div class="block">
+			<img src="./images/icons_set/star.png" width="32" height="32" class="icon_title" alt="Even for free"/><span class="black_title">Even for free</span>
+			<h2 class="block_text">
+				<p class="block_intro">Quod opera consulta cogitabat astute deinde cibo abunde.</p>
+				<p class="block_details">verum navata est opera diligens hocque dilato Eusebius praepositus cubiculi missus est Cabillona turbulentos seditionum concitores.</p>
+			</h2>
+			<a href="#" class="default_link">More details</a>
+		</div>
+	</div>
+	<script type="text/javascript" src="http://uptobox.com/swfobject.js"></script>
+	<script type="text/javascript" src="http://uptobox.com/jquery.uploadify.v2.1.0.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#uploadify").uploadify({
+			'uploader'       : 'http://uptobox.com/uploadify.swf',
+			'script'         : 'http://www24.uptobox.com/cgi-bin/up_flash.cgi',
+			'cancelImg'      : 'http://uptobox.com/images/cancel.png',
+			'buttonImg'      : 'http://uptobox.com/images/browse-files.png',
+			'width'          : 130,
+			'queueID'        : 'fileQueue',
+			'auto'           : false,
+	        'multi'          : true,
+	        'wmode'          : 'transparent',
+	        'scriptData'     : {"sess_id" : ""},
+	        'fileExt'        : '',
+	        'fileDesc'       : 'Allowed files: ',
+	        'queueSizeLimit' : 1,
+	        'sizeLimit'      : 1073741824,
+	        'onSelectOnce'   : function(){$('#fileQueue').show();$('#mfstart').show();},
+	        'onOpen'         : function(){$('#mfstart').hide();},
+	        'onAllComplete'  : function(){$('#fileQueue').hide();$('#mfstart').hide();},
+	        'onComplete'     : function(event, queueID, fileObj, response, data)
+	{
+	    aa = response.split(':');
+	    var code=aa[0];
+	    var real=aa[1];
+	    var dx=aa[2];
+	    var fname=aa[3];
+	    var ftype=aa[4];
+	    link_url='http://uptobox.com/'+code+'/'+fname+'.html';
+	    forum_code='[URL='+link_url+']'+fname+'[/URL]';
+	    html_code='<a href="'+link_url+'" target="_blank">'+fname+'<\/a>';
+	    var img_code='';
+	    if(ftype=='image')
+	    {
+	        img_url='http://www24.uptobox.com/i/'+dx+'/'+real+'_t.jpg';
+	        img_code='<b>Preview:<\/b><img src="'+img_url+'">';
+	        forum_code='[URL='+link_url+'][IMG]'+img_url+'[/IMG][/URL]';
+	        html_code='<a href="'+link_url+'" target="_blank"><img src="'+img_url+'" border=0><\/a>';
+	    }
+
+		$('.top-content').show();
+		$('.middle-content').show();
+		$('.bottom-content').show();
+	    $('#tblres').show();
+
+	    $('#codes0').show();
+	    $$('codes0t').value+=link_url+'\n';
+	    
+	    $('#codes1').show();
+	    $$('codes1t').value+=forum_code+'\n';
+	    
+	    $('#codes2').show();
+	    $$('codes2t').value+=html_code+'\n';
+
+	    if(real && fname)
+	    {
+	      txt='<div class="result_slot filesFUploaded" style="margin-top: 10px;">'+
+	          '<div class="download" style="float: right; margin-top: 70px; margin-right: 70px;" onclick="window.location.href=\''+link_url+'\'"><\/div>'+
+	          img_code+
+			  '<div style="float: left; font-size: 12px; color: #5B77DC; margin-top: 30px;">'+
+	          '<b>Direct Link:<\/b><br /><input type="text" onFocus="copy(this);" style="width: 500px; border: 1px solid #5B77DC;" value="'+link_url+'">'+
+	          '<br /><b>Forum code:<\/b><br /><input type="text" onFocus="copy(this);" style="width: 500px; border: 1px solid #5B77DC;" value="'+forum_code+'">'+
+	          '<br /><b>HTML code:<\/b><br /><input type="text" onFocus="copy(this);" style="width: 500px; border: 1px solid #5B77DC;" value=\''+html_code+'\'>'+
+			  '</div><div class="cb"></div>';
+	    }
+	    else
+	    {
+	      txt='<div class="result_slot" style="margin-top:7px;">'+ 
+	          '<b class="err">'+response+'<\/b>';
+	    }
+	    $('#filesUploaded').append(txt);
+	}
+
+	    });
+	});
+	</script>
+</div>
+
+		</div>
+	</div>
+
+</div>
+<!--FOOTER-->
+<div id="footer">
+	<div class="footer_content">
+		<div class="footer_leftcol">
+			<!--LOGO-->
+			<!-- <img src="http://uptobox.com/images/logo.png" width="167" height="39" alt="UptoBox"> -->
+			<!--INFOS-->
+			<!-- <p class="footer_infos">. <a href="#" class="blue_link">Read more</a></p> -->
+			<!--MENU-->
+			<ul class="footer_menu">
+				<li><a class="nav_link_footer" href="http://uptobox.com">Home</a></li>
+				<li><a class="nav_link_footer" href="faq.html">Q&A</a></li>
+				<!--<li><a class="nav_link_footer" href="#">About us</a></li>-->
+				<li><a class="nav_link_footer" href="tos.html">ToS</a></li>
+				<li><a class="nav_link_footer" href="http://uptobox.com/?op=advertising">Advertisers</a></li>
+				<li><a class="nav_link_footer" href="http://uptobox.com/?op=reseller_program">Resellers</a></li>
+				<li><a class="nav_link_footer" href="mailto:uptobox.abuse@gmail.com">Abuse</a></li>
+				<li><a class="nav_link_footer" href="http://support.uptobox.com">Support</a></li>
+				<li><a class="nav_link_footer" href="http://uptobox.com/pages/about_us.html">About us</a></li>
+
+			</ul>
+		</div>
+		<div class="footer_rightcol">
+			<!--TWITTER FEED-->
+			<a href="https://www.facebook.com/Uptobox" rel="nofollow" target="_blank">
+				<img src="//uptobox.com/images/facebook_icon.png" width="121px" height="25px" alt="Facebook"/>
+			</a>
+			<a href="https://twitter.com/Uptobox_com" rel="nofollow" target="_blank">
+				<img src="//uptobox.com/images/twitter_icon.png" width="45px" height="25px" alt="Twitter"/>
+			</a>
+		</div>
+	</div>
+</div>
+<div id="copyright">
+	<div class="copyright_content">
+		<div class="copyright_text" style="font-size:12px;">© 2011 - 2016 <a href="#" class="blue_link">Uptobox.com</a> - All rights reserved</div>
+		<div class="socials">
+<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FUptobox&amp;send=false&amp;layout=button_count&amp;width=0&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=tahoma&amp;height=21&amp;appId=94277056922" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:117px; height:21px;" allowTransparency="true"></iframe>
+		</div>
+		<div class="copyright_text" style="font-size:11px; margin-top:2px; float:right;"><!--<span style="font-size:11px;">Design by <a href="http://www.ookamistudio.com/" class="blue_link" style="font-size:11px;" target="blank">OokamiStudio.com</a></span>--></div>
+	</div>
+</div>
+<div id='biscuitNomNomNom'>
+</div>
+<div id='biscuitMiamMiamMiam'>
+</div>
+<script>
+	function getCookie(name) {
+		var re = new RegExp(name + "=([^;]+)");
+	    var value = re.exec(document.cookie);
+	    return (value != null) ? unescape(value[1]) : null;
+	 }
+
+	var cookie = getCookie("xfss");
+	var lang = getCookie("lang");
+
+   if (cookie != null) {
+   	$('#biscuitNomNomNom').html('<iframe width="0" height="0" src="https://uptostream.com/biscuit.html?xfss=' + cookie + '&lang=' + lang + '" frameborder="0" ></iframe>');
+   	$('#biscuitMiamMiamMiam').html('<iframe width="0" height="0" src="https://payments.cometodress.com/biscuit.html?xfss=' + cookie + '&lang=' + lang + '" frameborder="0" ></iframe>');
+   }
+</script>
+
+
+
+
+<!-- Piwik
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//stats.uptobox.com/matrix/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 6]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//stats.uptobox.com/matrix/piwik.php?idsite=6" style="border:0;" alt="" /></p></noscript>
+ End Piwik Code -->
+
+
+
+<!-- Widget START -->
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' type='text/javascript'></script>
+<style>
+#fanback {
+display:none;
+background:rgba(0,0,0,0.8);
+width:100%;
+height:100%;
+position:fixed;
+top:0;
+left:0;
+z-index:99999;
+}
+#fan-exit {
+width:100%;
+height:100%;
+}
+#UTBdiv {
+background:white;
+width:420px;
+height:270px;
+position:absolute;
+top:58%;
+left:63%;
+margin:-220px 0 0 -375px;
+-webkit-box-shadow: inset 0 0 50px 0 #939393;
+-moz-box-shadow: inset 0 0 50px 0 #939393;
+box-shadow: inset 0 0 50px 0 #939393;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+margin: -220px 0 0 -375px;
+}
+#TheUTBWidgets {
+float:right;
+cursor:pointer;
+background:url(https://3.bp.blogspot.com/-NRmqfyLwBHY/T4nwHOrPSzI/AAAAAAAAAdQ/8b9O7O1q3c8/s1600/TheBlogWidgets.png) repeat;
+height:15px;
+padding:20px;
+position:relative;
+padding-right:40px;
+margin-top:-20px;
+margin-right:-22px;
+}
+.remove-borda {
+height:1px;
+width:366px;
+margin:0 auto;
+background:#F3F3F3;
+margin-top:16px;
+position:relative;
+margin-left:20px;
+}
+#linkit,#linkit a.visited,#linkit a,#linkit a:hover {
+color:#80808B;
+font-size:10px;
+margin: 0 auto 5px auto;
+float:center;
+}
+</style>
+ 
+ 
+<script type='text/javascript'>
+//<![CDATA[
+jQuery.cookie = function (key, value, options) {
+ 
+// key and at least value given, set cookie...
+if (arguments.length > 1 && String(value) !== "[object Object]") {
+options = jQuery.extend({}, options);
+ 
+if (value === null || value === undefined) {
+options.expires = -1;
+}
+ 
+if (typeof options.expires === 'number') {
+var days = options.expires, t = options.expires = new Date();
+t.setDate(t.getDate() + days);
+}
+ 
+value = String(value);
+ 
+return (document.cookie = [
+encodeURIComponent(key), '=',
+options.raw ? value : encodeURIComponent(value),
+options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+options.path ? '; path=' + options.path : '',
+options.domain ? '; domain=' + options.domain : '',
+options.secure ? '; secure' : ''
+].join(''));
+}
+ 
+// key and possibly options given, get cookie...
+options = value || {};
+var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
+return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+};
+//]]>
+</script>
+<script type='text/javascript'>
+jQuery(document).ready(function($){
+if($.cookie('popup_user_login') != 'yes'){
+$('#fanback').delay(2000).fadeIn('medium');
+$('#TheUTBWidgets, #fan-exit').click(function(){
+$('#fanback').stop().fadeOut('medium');
+});
+}
+$.cookie('popup_user_login', 'yes', { path: '/', expires: 15 });
+});
+</script>
+ 
+<div id='fanback'>
+<div id='fan-exit'>
+</div>
+<div id='UTBdiv'>
+<div id='TheUTBWidgets'>
+</div>
+<div class='remove-borda'>
+</div>
+<iframe allowtransparency='true' frameborder='0' scrolling='no' src='//www.facebook.com/plugins/likebox.php?
+ 
+href=http://www.facebook.com/Uptobox&width=402&height=255&colorscheme=light&show_faces=true&show_border=false&stream=false&header=false'
+ 
+style='border: none; overflow: hidden; margin-top: -19px; width: 402px; height: 230px;'></div>
+</div>
+<!-- Widget END -->
+
+</body>
+</html>

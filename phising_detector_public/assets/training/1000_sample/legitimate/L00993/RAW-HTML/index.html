@@ -1,0 +1,1276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+<link id="iconimg" rel="icon" href="http://static.mihanblog.com//public/images/icon/favicon2.gif" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+    var lastTarget;
+</script>
+
+<script type="text/javascript" src="http://static.mihanblog.com//public/scripts/run/jquery.min.js"></script>
+<script type="text/javascript" src="http://static.mihanblog.com//public/scripts/run/g.site.v12.js"></script>
+<script type="text/javascript" src="http://static.mihanblog.com//public/scripts/run/g.other.v3.js"></script>
+<script type="text/javascript" src="http://static.mihanblog.com//public/scripts/run/v2.js?1"></script>
+
+<style type="text/css">
+    /*<![CDATA[*/
+    @import url(http://mihanblog.com/public/public/styles/run/style.v24.css?6);
+    /*]]>*/
+
+    @font-face {
+        font-family: 'Mihan-Iransans';
+        src: url('/public/public/fonts/Iransans.eot');
+        src: url('/public/public/fonts/Iransans.eot?#iefix') format('embedded-opentype'),
+        url('/public/public/fonts/Iransans.woff2') format('woff2'),
+        url('/public/public/fonts/Iransans.woff') format('woff'),
+        url('/public/public/fonts/Iransans.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Mihan-IransansBold';
+        src: url('/public/public/fonts/Iransans-Black.eot');
+        src: url('/public/public/fonts/Iransans-Black.eot?#iefix') format('embedded-opentype'),
+        url('/public/public/fonts/Iransans-Black.woff2') format('woff2'),
+        url('/public/public/fonts/Iransans-Black.woff') format('woff'),
+        url('/public/public/fonts/Iransans-Black.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Mihan-IransansLight';
+        src: url('/public/public/fonts/Iransans-UltraLight.eot');
+        src: url('/public/public/fonts/Iransans-UltraLight.eot?#iefix') format('embedded-opentype'),
+        url('/public/public/fonts/Iransans-UltraLight.woff2') format('woff2'),
+        url('/public/public/fonts/Iransans-UltraLight.woff') format('woff'),
+        url('/public/public/fonts/Iransans-UltraLight.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Mihan-Nassim';
+        src: url('/public/public/fonts/Nassim.eot');
+        src: url('/public/public/fonts/Nassim.eot?#iefix') format('embedded-opentype'),
+        url('/public/public/fonts/Nassim.woff2') format('woff2'),
+        url('/public/public/fonts/Nassim.woff') format('woff'),
+        url('/public/public/fonts/Nassim.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Mihan-Koodak';
+        src: url('/public/public/fonts/Koodak.eot');
+        src: url('/public/public/fonts/Koodak.eot?#iefix') format('embedded-opentype'),
+        url('/public/public/fonts/Koodak.woff2') format('woff2'),
+        url('/public/public/fonts/Koodak.woff') format('woff'),
+        url('/public/public/fonts/Koodak.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Mihan-Yekan';
+        src: url('/public/public/fonts/Yekan.eot');
+        src: url('/public/public/fonts/Yekan.eot?#iefix') format('embedded-opentype'),
+        url('/public/public/fonts/Yekan.woff2') format('woff2'),
+        url('/public/public/fonts/Yekan.woff') format('woff'),
+        url('/public/public/fonts/Yekan.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+</style>
+
+<script type="text/javascript">
+    var isMihanPlus = '';
+    var mihanBlog_commentBody_cursorPos = 0;
+</script>
+<meta http-equiv="content-language" content="fa" />
+<meta name="verify-v1" content="3p6WlorbC9NRMNEySqIZ2AP2QAAIObugP1j4HU/ZuK0=" />
+<meta name="description" content="میهن بلاگ، ابزار ساده و قدرتمند ساخت و مدیریت وبلاگ. با قابلیت نمایش آمار، سیستم مدیریت فایل و آپلود تا 25 مگ، دریافت بازخورد هوشمند، نسخه پشتیبان از پستها و نظرات" />
+<meta name="keywords" content="" />
+<meta name="googlebot" content="noodp" />
+
+
+    
+<title>میهن بلاگ - ابزار قدرتمند وبلاگ نویسی</title>
+
+        <script>
+        var isMobileDevice = '';
+
+    </script>
+
+
+
+</head>
+<body>
+
+<div id="message_div"  onclick="hidemessage();"></div>
+<div id="ajaxrequest"></div>
+
+
+        <style>
+            .old_browser__wrapper{
+                width:100%;
+                background:#FEEFDA ;
+                padding:20px 0;
+                margin:0 auto;
+                min-height:200px;
+                text-align:center
+            }
+            .old_browser__descr{
+                direction: rtl;
+                text-align: center;
+                line-height: 20px;
+                font-size:11px;
+            }
+            .old_browser__descr>b{
+                font-size:11px;
+            }
+            [class^="old_browser__icon_"]{
+                width: 25px;
+                height: 25px;
+                cursor: pointer;
+                display: inline-block;
+                float: right;
+            }
+            .old_browser__icon{
+                direction:rtl;
+            }
+            .old_browser__icon>a{
+                display: inline-block;
+                border: 1px solid #000;
+                padding: 5px;
+                border-radius: 5px;
+                font-style: normal;
+                font-size: 9px;
+                color: #000;
+                width: 130px;
+                margin: 0px 2px 5px;
+                line-height: normal;
+            }
+            .old_browser__icon>a:hover{
+                background-color:#FBE1BB;
+            }
+            .old_browser__icon_warning{
+                margin-bottom: 10px;
+                cursor: auto;
+                width: 30px;
+                height: 30px;
+                float:none;
+            }
+        </style>
+
+
+        <div class="old_browser__wrapper">
+
+            <img src="http://static.mihanblog.com//public/images/etc/old_browser/warning.png" class="old_browser__icon_warning"  />
+
+            <div class="old_browser__descr">
+                <b>شما از یک مرورگر منسوخ شده استفاده می کنید.</b>
+                <br>
+                کاربر گرامی ؛ برای مشاهده بهتر این سایت و کارایی بهتر امکانات آن می توانید یکی از مرورگر های زیر را دانلود و نصب نمایید.
+                <br>
+                 توصیه می شود برای استفاده و مشاهده وب سایت ها از این مرورگرها استفاده نمایید.
+            </div>
+
+            <br>
+            <br>
+
+            <div class="old_browser__icon">
+                <a target="_blank" class="clearfix" href="https://www.google.com/chrome/browser/desktop/index.html">
+                    <img src="http://static.mihanblog.com//public/images/etc/old_browser/chrome.png" class="old_browser__icon_chrome"  />
+                    دریافت آخرین نسخه<br/>Google Chrome
+                </a>
+                <a target="_blank" class="clearfix" href="https://www.mozilla.org/en-US/firefox/new/">
+                    <img src="http://static.mihanblog.com//public/images/etc/old_browser/firefox.png" class="old_browser__icon_firefox"  />
+                    دریافت آخرین نسخه<br/>Mozilla Firefox
+                </a>
+                <!--<a target="_blank" class="clearfix" href="http://www.opera.com/">
+                    <img src="http://static.mihanblog.com//public/images/etc/old_browser/opera.png" class="old_browser__icon_opera"  />
+                    دریافت آخرین نسخه<br/>Opera
+                </a>-->
+                <!--<a target="_blank" class="clearfix" href="http://www.microsoft.com/windows/ie/default.htm">
+                    <img src="http://static.mihanblog.com//public/images/etc/old_browser/explorer.png" class="old_browser__icon_explorer"  />
+                    دریافت آخرین نسخه<br/>Internet Explorer
+                </a>-->
+            </div>
+
+        </div>
+        <!--		<div id="wrapper-header">-->
+<!--			<div id="wrapper-footer">-->
+
+<div id="wrapper">
+    <div class="header_ver2">
+    <div class="tpl_ver2_width">
+        <div class="header_ver2_inner clearfix">
+
+
+            <div class="header_ver2_right">
+                <div class="header_ver2_logo"><img src="http://static.mihanblog.com//public/images/template_ver2/header_logo3.png" alt="میهن بلاگ" style="margin:0px" /></div>
+            </div>
+
+            <script>
+                header_ver2_left_name_layerShow = function(){
+                    c_$('header_layer_webs').style.display;
+                    if(c_$('header_layer_webs').style.display=='block'){
+                        c_$('header_layer_webs').style.display='none';
+                    } else {
+                        c_$('header_layer_webs').style.display='block';
+                    }
+                }
+            </script>
+            <div class="header_ver2_left">
+                <div class="clearfix">
+                    
+<script>
+    var signupFormShow = false;
+    header_ver2_left_linksOut_signupForm = function(){
+        if(!signupFormShow)
+            c_$('header_ver2_left_links_signin').className += ' header_ver2_left_links_signin_selected';
+        else
+            c_$('header_ver2_left_links_signin').className = c_$('header_ver2_left_links_signin').className.replace('header_ver2_left_links_signin_selected', '');
+
+        signupFormShow = !signupFormShow;
+    }
+</script>
+<div class="header_ver2_left_links header_ver2_left_linksOut">
+    <div class="clearfix">
+
+        <style type="text/css">
+.header_ver2_left_linksOut {
+    width: 814px;
+}
+        </style>
+        <ul class="clearfix"><li><a href="http://mihanblog.com/" title="" class="" target="_self">صفحه نخست</a></li><li><a href="http://mihanblog.com/advert" title="" class="headertabset_bold" target="_self" rel="nofollow">تبلیغات</a></li><li><a href="http://mihanblog.com/etc/main/abuse" title="" class="" target="_self" rel="nofollow">گزارش تخلف</a></li><li><a href="http://mihanblog.com/about" title="" class="" target="_self">درباره ما</a></li><li><a href="http://mihanblog.com/web/signup" title="" class="new-header__signup" target="_self">ساخت وبلاگ</a></li><li><div id="header_ver2_left_links_signin" class="header_ver2_left_links_signin" ><div id="" class="header_ver2_left_linksOut_signupForm"><div class="header_ver2_left_linksOut_signupForm_x" onclick="header_ver2_left_linksOut_signupForm()"></div><div class="box"><div class="clearfix box_header_wrapper"><span class="box_header_bg" style="background: url(http://static.mihanblog.com//public/images/icon/gen.gif) no-repeat 98% -475px;"><img src="http://static.mihanblog.com//public/images/empty.gif" alt="-"  /></span><span class="box_header">ورود</span></div>	
+
+
+	<div style="float:right;width:200px">
+		<div class="multi-column loginform">
+		<div style="direction: rtl" id="form-wrapper-1461656201571f1a89ddcb0"><form id="frm-1461656201571f1a89ddcb0" method="post" action="http://mihanblog.com/web/signin/index/atrty/1461656201/avrvy//key/3a44dddcd6b7fd11679dc0d9573c46a4/" >			<div class="form-row clearfix">
+				<label class="" for="address">وب لاگ</label>
+				<input type="text" name="data[address]" id="address" value="" class="english" />			</div>
+			
+			<div class="form-row clearfix">
+				<label for="username">نام کاربری</label>
+				<input type="text" name="data[username]" id="username" value="" class="english" />			</div>
+	
+			<div class="form-row clearfix">
+				<label class="" for="userpass">رمز عبور</label>
+				<input type="password" name="data[userpass]" id="userpass" value="" class="english" />			</div>
+			
+				<div class="controls clearfix">
+										<input type="hidden" name="secfrdcodedvar" id="secfrdcodedvar" value="22c9343492e28939893a92b6dd3a13a6"><input type="submit" value="ورود" class="btn" style="width:80px" />				</div>
+				
+				<div class="form-row clearfix">
+			<ul class="toolset clearfix"><li style="float:right;margin-right:0px"><a href="http://mihanblog.com/web/signup" title="" class="" target="_self"style="background: url(http://static.mihanblog.com//public/images/icon/gen.gif) no-repeat 98% -475px;">ثبت نام در میهن بلاگ</a></li></ul><ul class="toolset clearfix"><li style="float:right;margin-right:0px"><a href="http://mihanblog.com/web/signin/forget" title="" class="" target="_self"style="background: url(http://static.mihanblog.com//public/images/icon/web1.gif) no-repeat 98% -208px;">کلمه رمز را فراموش کرده ام</a></li></ul>				</div>
+				
+			<input type="hidden" name="frm-id" value="1461656201571f1a89ddcb0" id="frm-id" /></form></div>				<script type="text/javascript">formtarget['1461656201571f1a89ddcb0'] = '';</script>
+			
+				</div>
+		
+		
+			
+	
+	</div>
+		
+<div class="publishPaging"></div>
+			       </div></div><u onclick="header_ver2_left_linksOut_signupForm()" class="header_ver2_left_links_signin_login">ورود</u></div></li></ul>    </div>
+</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <div id="container">
+        <div class="clearfix tpl_ver2_width contentWrapper wrapper_index_index_index" >
+
+    <div class="contentDiv_ver2">
+
+                
+        <div class="">
+            <div id="main">
+                <style>
+   
+    .indexIndex_divider{
+        background: url(http://static.mihanblog.com//public/images/template_ver2/indexindex_divider.png) no-repeat top center;
+    }
+    .wrapper_index_index_index2 #main,
+    .wrapper_index_index_index #main{
+        margin-right: 0px;
+    }
+    .wrapper_index_index_index2 .menu_ver2,
+    .wrapper_index_index_index .menu_ver2{
+        display: none;
+    }
+    .wrapper_index_index_index2 ,
+    .wrapper_index_index_index2 .contentDiv_ver2,
+    .wrapper_index_index_index ,
+    .wrapper_index_index_index .contentDiv_ver2{
+        width: 100%;
+        margin:0px auto;
+        border:0px;
+        padding-top: 0;
+    }
+    .indexIndex_width{
+        width: 980px;
+        margin: 0px auto;
+    }
+    .indexIndex_news{
+        -height: 190px;
+        direction: rtl;
+
+        text-align: right;
+        -padding-top: 20px;
+    }
+    .indexIndex_news:hover{
+        background-position: 0px -213px;
+    }
+    .indexIndex_1row_colRight{
+        /*float: right;*/
+        /*width : 260px;*/
+        width: 700px;
+        margin: 0 auto;;
+
+    }
+    .indexIndex_1row_colLeft{
+        float: left;
+        width : 326px;
+        margin-top: 34px;
+    }
+
+    /*.indexIndex_slideShow{
+        margin: 40px 0;
+        background-color: #ccc;
+        border-bottom: 1px solid #aaa;
+        border-top: 1px solid #aaa;
+        min-height: 225px;
+    }*/
+    .indexIndex_1row_colCenter{
+        float: right;
+        width : 355px;
+        margin-right: 24px;
+
+    }
+    .indexIndex_newsList{
+        text-align: right;
+        -width: 360px;
+        /*margin-top: 35px;*/
+    }
+    .indexIndex_newsList div{
+        -background: #FAFAFA;
+        -border:1px dashed #CCC;
+        -border-width:1px 0px;
+        -margin-bottom: -1px;
+        padding: 0px 10px;
+    }
+    .indexIndex_newsList div span{
+    }
+    .indexIndex_newsList div span b{
+        font-weight: normal;
+        display: block;
+        /*height: 54px;*/
+        height: 70px;
+        line-height: 18px;
+
+        overflow: hidden;
+        color: #444;
+        padding-top: 3px;
+        -width: 220px;
+        float: right;
+        border:0px solid #F00;
+        text-align: justify
+    }
+    .indexIndex_newsList div span u{
+        float: right;
+        text-decoration: none;
+        padding-top:3px;
+    }
+    .indexIndex_title{
+        background: url(http://static.mihanblog.com//public/images/template_ver2/indexindex_title2.png) no-repeat 0px 0px;
+        height: 40px;
+    }
+    .indexIndex_title_news{
+        background-position: right -100px;
+        height: 23px;
+        margin: 14px 148px 3px 0px;
+
+    }
+
+
+
+    .indexIndex_signup{
+        -background: #F5F5F5;
+
+        -padding: 25px 0px;
+    }
+
+    .indexIndex_signup_form{
+        background: url(http://static.mihanblog.com//public/images/template_ver2/indexindex_signupbg3.png) no-repeat 0px 0px;
+        width: 352px;
+        height: 154px;
+        border: 0px solid #F00;
+        margin: 0px auto;
+    }
+    .indexIndex_signup_form_text{
+        background: none repeat scroll 0 0 transparent;
+        border: 0px solid #FF0000;
+        float: right;
+        height: 22px;
+        margin-right: 122px;
+        margin-top: 53px;
+        width: 111px;
+    }
+    .indexIndex_signup_form_text:focus{
+        border: 0px solid #FF0000;
+    }
+
+    .indexIndex_signup_form .btn{
+        background: none repeat scroll 0 0 transparent;
+        border: 0 solid #FF0000;
+        color: #FFFFFF;
+        cursor: pointer;
+        height: 32px;
+        margin-right: 2px;
+        margin-top: 51px;
+        text-shadow: 0 0 1px #000000;
+        width: 84px;
+        border-radius: 5px 0px 0px 5px;
+    }
+    .indexIndex_signup_form .btn:hover{
+        text-shadow: 0 0 4px #000000;
+    }
+
+
+    .indexIndex_advert{
+        margin-top:65px;
+        padding: 25px;
+        -background: #EDEDED;
+        -background: url(http://static.mihanblog.com//public/images/template_ver2/indexindex_divider.png) no-repeat top center;
+    }
+    .indexIndex_advert_bannerList div{
+        margin-bottom: 3px;
+    }
+    .indexIndex_advert_bannerList{
+        width: 940px;
+    }
+    .indexIndex_advert_bannerList .indexIndex_advert_bannerList_colRight{
+        float: right;
+    }
+    .indexIndex_advert_bannerList .indexIndex_advert_bannerList_colLeft{
+        float: left;
+    }
+
+    .indexIndex_themes div{
+        background: url(http://static.mihanblog.com//public/images/template_ver2/indexindex_theme.jpg) no-repeat center center;
+        height: 133px;
+        margin: 35px auto;
+    }
+    .talent_mashinZaman_wrapper{
+        background-color: #1a1a1a;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .talent_mashinZaman_wrapper > a img{
+        margin: 0 auto;
+        display: block;
+    }
+    .sponser_wrapper{
+        width:980px;
+        margin:0px auto;
+        position: relative;
+    }
+    .talent_mashinZaman_wrapper div.sponser_wrapper > a {
+
+    }
+    .talent_mashinZaman_wrapper div.sponser_wrapper > a.sponser_chelcheragh{
+        bottom: 15px;
+        left: 25px;
+        position: absolute;
+        display: block;
+    }
+
+    .talent_mashinZaman_wrapper div.sponser_wrapper > a.sponser_irancell{
+        top: -400px;
+        right:0px;
+        position: absolute;
+        display: block;
+    }
+
+    .talent_mashinZaman_wrapper div.sponser_wrapper > a.sponser_irancell img{
+        width:160px
+    }
+    .talent_mashinZaman_wrapper {
+        background: url(http://static.mihanblog.com//public/images/template_ver2/index_back.jpg) no-repeat top center;
+        background-color: #1a1a1a;
+    }
+
+</style>
+
+<div class="indexIndex">
+
+    
+    
+    
+
+    <br><br>
+        <div class="talent_mashinZaman_wrapper">
+
+
+            <!-- START: Mashin Zaman sldier codes
+            <link rel="stylesheet" type="text/css" href="http://static.mihanblog.com//public/packages/slider/slick/slick.css"/>
+            <link rel="stylesheet" type="text/css" href="http://static.mihanblog.com//public/packages/slider/slick/slick-theme.css"/>
+            <style>
+                .header_ver2_logo {
+                    position: relative;
+                    z-index: 9999;
+                }
+
+
+                .mzslider {
+                    /*            direction: rtl;*/
+                    text-align: center;
+                }
+                .mzslider__li {
+                    height: 456px;
+                }
+
+                .mzslider__item {
+                    position: relative;
+                }
+
+                .mzslider__play-video {
+                    cursor: pointer;
+                }
+
+                .mzslider__play-video.js__played,
+                .mzslider__play-video.js__played img {
+                    opacity: 0.4;
+                    z-index: 1;
+                }
+
+                .mzslider__play-video,
+                .mzslider__item img {
+                    display: block;
+                    margin: 0 auto;
+                    position: absolute;
+                    z-index: 3;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                }
+
+                .mzslider__item iframe {
+                    position: relative;
+                    z-index: 2;
+                    border: 0 none;
+
+                    margin: 40px auto 0;
+                    opacity: 0;
+                }
+            </style>
+
+            <script src="http://static.mihanblog.com//public/packages/10years_old_contest/scripts/jquery-1.11.3.min.js"></script>
+            <script src="http://static.mihanblog.com//public/packages/slider/slick/slick.min.js"></script>
+
+
+
+            <script type="text/javascript">
+                $(document).ready(function(){
+
+                    // Fire Slick slider
+                    $('#js__mzslider').slick({
+                        // rtl: true,
+                        arrows: true,
+                        dots: true,
+                    });
+
+                    // Controll Play Video
+                    var sliderIframes = new Array(
+                        '<iframe src="http://www.aparat.com/video/video/embed/videohash/rnRlI/vt/frame/loadonself/yes" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" height="360" width="640" ></iframe>',
+                        '',
+                        ''
+                    );
+
+                    $('.js__mzslider__play-video').on("click",function(e){
+                        $Item = $(this).parent('.mzslider__item');
+
+                        if ( $(this).hasClass('js__stop') ) {
+                            // console.log('js__stop');
+                            $Item.append( sliderIframes[ $Item.data('slide') ] );
+                            $Item.find('iframe').animate({
+                                opacity: 1,
+                            }, 100);
+                        } else {
+                            // console.log('js__played');
+                            $Item.find('iframe').remove();
+                        }
+
+                        $(this).toggleClass('js__stop js__played');
+                    });
+
+                    // On before slide change
+                    $('#js__mzslider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                        $CurrentSlide = $("[data-slick-index='" +currentSlide+ "']");
+                        if ( $CurrentSlide.find('.js__mzslider__play-video').hasClass('js__played') ) {
+                            $CurrentSlide.find('iframe').remove();
+                            $CurrentSlide.find('.js__mzslider__play-video').toggleClass('js__stop js__played');
+                        }
+                    });
+                });
+            </script>
+
+            <ul id="js__mzslider" class="mzslider">
+                <li class="mzslider__li">
+                    <div class="mzslider__item" data-slide="0">
+                        <div class="js__mzslider__play-video mzslider__play-video js__stop">
+                            <img src="http://static.mihanblog.com//public/images/template_ver2/talent/mashin_zaman.jpg"  />                        </div>
+                    </div>
+                </li>
+                <li class="mzslider__li">
+                    <div class="mzslider__item" data-slide="1">
+                        <img src="http://static.mihanblog.com//public/images/template_ver2/talent/mashin_zaman2.jpg"  />                    </div>
+                </li>
+
+            </ul>
+
+    <!-- END: Mashin Zaman sldier codes -->
+
+
+</div>
+
+
+<div class=" clearfix indexIndex_width indexIndex_news">
+
+    <div class="indexIndex_1row_colRight" style="border:0px solid #F00">
+                            <div class="indexIndex_newsList">
+                            <div style="text-align:center;">
+                    <a href="http://admin.mihanblog.com" target="_blank" style="font: normal 23px CustomN,Arial;" class="">
+                        عیدی میهن‌بلاگ به وبلاگ نویسان عزیز میهن‌بلاگی                    </a>
+				<span class="clearfix">
+					<b style="font: normal 16px CustomN,Arial;">برنامه عید میهن‌بلاگ به‌صورت منظم در حال اجراست. در مرحله اول «گزارش سال ۹۴ میهن‌بلاگ» را منتشر و در اختیارتان قراردادیم. همان‌طور که اطلاع دارید گزارش امسال هم در قالب یک پست وبلاگی و هم در قالب یک ویدیو کلیپ منتشر گردیده است. اگر هنوز گزارش سال ۹۴ را مشاهده ننموده‌اید، می‌توانید به&nbsp;پست «گزارش سال ۹۴ میهن‌بلاگ» مراجعه کنید.بعد از انتشار گزارش                        ... <a href="http://admin.mihanblog.com/post/254" title="" class="" target="_blank"style="font: normal 12px CustomN,Arial;">ادامه</a>                    </b>
+				</span>
+                </div>
+                    </div>
+
+        </div>
+    </div>
+
+
+
+
+<style>
+    .indexIndex_slideShow{
+        margin: 40px 0;
+        background-color: #eee;
+        border-bottom: 1px solid #bbb;
+        border-top: 1px solid #bbb;
+        min-height: 225px;
+    }
+    .slide_imgLarge_box{
+        overflow: hidden;
+        width:389px;
+        height:235px;
+        margin: 19px 23px;
+    }
+    #slide_imgLarge img{
+        width:389px;
+        height:235px;
+        float:left;
+
+    }
+    #slide_imgLarge{
+        width: 1954px;
+    }
+    .slide_imgSmall_box{
+        overflow: hidden;
+        width:221px;
+        height:129px;
+        margin:13px;
+    }
+    #slide_imgSmall img{
+        width:221px;
+        height:129px;
+        float:left;
+    }
+    #slide_imgSmall{
+        width: 1105px;
+    }
+    #slide_imgSmall,
+    #slide_imgLarge{
+        display: block;
+
+        transition:         margin 800ms ease;
+        -moz-transition:    margin 800ms ease;
+        -ms-transition:     margin 800ms ease;
+        -o-transition:      margin 800ms ease;
+        -webkit-transition: margin 800ms ease;
+    }
+    .slide_text_box{
+        float:right;
+        margin: 30px 30px 10px 0px;
+        overflow: hidden;
+        width: 250px;
+    }
+    #slide_text{
+        width: 1250px;
+
+        transition:         margin 600ms ease;
+        -moz-transition:    margin 600ms ease;
+        -ms-transition:     margin 600ms ease;
+        -o-transition:      margin 600ms ease;
+        -webkit-transition: margin 600ms ease;
+    }
+    #slide_text table{
+        direction: rtl;
+        float:left;
+        width: 250px;
+    }
+    .indexIndex_slideShow_monitorSmall{
+        top: 100px;
+        left:390px;
+        position:absolute;
+        width: 246px;
+        height: 182px;
+        background: url(http://static.mihanblog.com//public/images/template_ver2/index_v2/monitor_small.png) no-repeat top left;
+    }
+    .indexIndex_slideShow_monitorLarge{
+        left:50px;
+        top: -30px;
+        position:absolute;
+        width: 433px;
+        height: 321px;
+        background: url(http://static.mihanblog.com//public/images/template_ver2/index_v2/monitor_large.png) no-repeat top left;
+    }
+    .indexIndex_slideShow_arrowLeft:hover{box-shadow: 1px 0px 1px #797979;}
+    .indexIndex_slideShow_arrowLeft{
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        z-index: 5;
+        margin-top:96px;
+        float:left;
+        width: 32px;
+        height: 32px;
+        border-radius:3px;
+        background: url(http://static.mihanblog.com//public/images/template_ver2/index_v2/arrow_left.png) no-repeat top center;
+
+        transition:         opacity 300ms ease;
+        -moz-transition:    opacity 300ms ease;
+        -ms-transition:     opacity 300ms ease;
+        -o-transition:      opacity 300ms ease;
+        -webkit-transition: opacity 300ms ease;
+    }
+    .indexIndex_slideShow_arrowRight:hover{box-shadow: -1px 0px 1px #797979;}
+    .indexIndex_slideShow_arrowRight{
+        cursor: pointer;
+        right: 0;
+        position: absolute;
+        z-index: 5;
+        margin-top:96px;
+        float:right;
+        width: 32px;
+        height: 32px;
+        border-radius:3px;
+        background: url(http://static.mihanblog.com//public/images/template_ver2/index_v2/arrow_right.png) no-repeat top center;
+
+        transition:         opacity 300ms ease;
+        -moz-transition:    opacity 300ms ease;
+        -ms-transition:     opacity 300ms ease;
+        -o-transition:      opacity 300ms ease;
+        -webkit-transition: opacity 300ms ease;
+    }
+    /*.slideShow_boxTitle{
+        font: bolder 27px CustomN,Arial;
+        position: absolute;
+        top: -26px;
+        right: 0px;
+        color: #f50000;
+        text-shadow: 1px 1px 2px #777;
+    }*/
+</style>
+
+
+
+
+
+
+
+
+<!--<div class="indexIndex_slideShow" style="">
+    <div class="clearfix indexIndex_width" style="position: relative;">
+        <span id="slideShow_arrowRight" onclick="showFollowers(1/*);" class="indexIndex_slideShow_arrowRight"></span>
+
+        <div class="clearfix" style="wid*/th: 900px;float: right;margin-right: 30px;">
+            
+
+        </div>
+
+        <span id="slideShow_arrowLeft" onclick="showFollowers(2);" class="indexIndex_slideShow_arrowLeft"></span>
+    </div>
+</div>-->
+
+<!--<style>
+    .slide_imgLarge_box{
+        overflow: hidden;
+        /*width:389px;*/
+        /*height:235px;*/
+        margin: 19px 23px;
+    }
+    #slide_imgLarge img{
+        width:389px;
+        height:235px;
+        float:left;
+
+    }
+    #slide_imgLarge{
+        width: 778px;
+    }
+    .slide_imgSmall_box{
+        overflow: hidden;
+        /*width:221px;*/
+        /*height:129px;*/
+        margin:13px;
+    }
+    #slide_imgSmall img{
+        width:221px;
+        height:129px;
+        float:left;
+    }
+    #slide_imgSmall{
+        width: 442px;
+    }
+    #slide_imgSmall,
+    #slide_imgLarge{
+        display: block;
+
+        /*opacity: 1;*/
+        transition:         margin 800ms ease;
+        -moz-transition:    margin 800ms ease;
+        -ms-transition:     margin 800ms ease;
+        -o-transition:      margin 800ms ease;
+        -webkit-transition: margin 800ms ease;
+    }
+    .slide_text_box{
+        float:right;
+        margin: 30px 20px 10px 0px;
+        overflow: hidden;
+        width: 250px;
+    }
+    #slide_text{
+        width: 500px;
+
+        transition:         margin 600ms ease;
+        -moz-transition:    margin 600ms ease;
+        -ms-transition:     margin 600ms ease;
+        -o-transition:      margin 600ms ease;
+        -webkit-transition: margin 600ms ease;
+    }
+    #slide_text table{
+        direction: rtl;
+        float:right;
+        width: 250px;
+    }
+</style>-->
+
+
+
+<div class="indexIndex_advert indexIndex_divider">
+    <div class="indexIndex_width indexIndex_advert_bannerList clearfix">
+        <div class="indexIndex_advert_bannerList_colRight">
+            <div><iframe frameborder="0" width="468px" height="60px" src="http://www.sabavision.com/showads.php?posid=325" scrolling="No"></iframe></div><div><iframe frameborder="0" width="468px" height="60px" src="http://www.sabavision.com/showads.php?posid=88" scrolling="No"></iframe></div><div><iframe frameborder="0" width="468px" height="60px" src="http://www.sabavision.com/showads.php?posid=45" scrolling="No"></iframe></div>        </div>
+        <div class="indexIndex_advert_bannerList_colLeft">
+            <div><iframe frameborder="0" width="468px" height="60px" src="http://mihan.ads.sabavision.com/showads.php?posid=44" scrolling="No"></iframe></div><div><iframe frameborder="0" width="468px" height="60px" src="http://www.sabavision.com/showads.php?posid=326" scrolling="No"></iframe></div><div><iframe frameborder="0" width="468px" height="60px" src="http://mihan.ads.sabavision.com/showads.php?posid=43" scrolling="No"></iframe></div>        </div>
+    </div>
+</div>
+
+
+
+
+
+<style>
+    .indexIndex_postList{
+        -background: #F5F5F5;
+        padding: 20px 0px;
+    }
+    .indexIndex_postList_list span {
+        display: block;
+        float: right;
+        text-align: right;
+        direction: rtl;
+        border: 1px solid transparent;
+        width: 203px;
+        margin:  8px 10px;
+        padding: 7px 10px;
+        color: #444;
+    }
+    .indexIndex_postList_list span:hover {
+        background: #F7F7F7;
+        border-color: #EBEBEB;
+        border-radius: 5px;
+    }
+    .indexIndex_postList_list b{
+        margin-bottom: 7px;
+        display: block;
+        line-height: 16px;
+        max-height: 16px;
+        overflow: hidden;
+        font-weight: normal;
+    }
+    .indexIndex_postList_list u img{
+        float: right;
+        margin-left: 5px;
+    }
+    .indexIndex_postList_list u{
+        line-height: 16px;
+        max-height: 64px;
+        overflow: hidden;
+        text-decoration: none;
+        display: block;
+    }
+    .indexIndex_postList_list a{
+        diplay: block;
+
+
+
+        white-space:normal;
+        /*
+      float:right;
+      line-height:15px;
+      max-height: 30px;
+      */
+        width: 135px;
+        margin-top: 5px;
+    }
+
+    .indexIndex_postList_list_col2{
+        float: right;
+        border:0px solid #F00;
+        width:245px;
+    }
+    .indexIndex_title_postList{
+        background-position: 40px -300px;
+        height: 18px;
+        -margin-bottom: 20px;
+    }
+
+</style>
+
+<div class="indexIndex_postList indexIndex_divider">
+    <div class="indexIndex_width clearfix">
+        <div class="indexIndex_title indexIndex_title_postList"></div>
+        
+<div class="indexIndex_postList_list clearfix"><div class="indexIndex_postList_list_col2"><span><b><a href='http://fives.mihanblog.com' target='_blank' >مشتری نوازی ـ مشتری محوری(Customer intimacy)</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/269/804455.jpg" style="width:64px" />منظور از مشتری نوازی روشی است که حل کامل مشکل مشتری را بعهده
+میگیرد و این بیش از فروش یک کالا و یاخدمت است.
+
+شرکتهای (مشتری نواز) </u></span><span><b><a href='http://javdaan.mihanblog.com' target='_blank' >سخنی با مدیران محترم کانونهای وکلای دادگستری    در تشکیل کمیسیونها وانتخاب مسئولین .</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/385/1153077.jpg" style="width:64px" />1-بیش از 90 سال&nbsp; از عمر وکالت و بیش از 60 سال از استقلال کانونها
+ میگذرد . در زمان تصویب لایحه قانونی استقلال کانون وکلا ی دا</u></span><span><b><a href='http://avalreal.mihanblog.com' target='_blank' >بیل: من و کریستیانو درک خوبی از یکدیگر داریم؛ با شانس هرگز نمی توان به نیمه نهایی رسید</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/376/1126683.jpg" style="width:64px" />به گزارش AS، گرت بیل که امشب به همراه زین الدین زیدان در کنفرانس خبری پیش از بازی برابر سیتی شرکت کرده بود، به سوالات خبرنگاران پا</u></span><span><b><a href='http://myparsi20.mihanblog.com' target='_blank' >ادکلن مردانه جوپ هوم (joop! Homme)</a></b><u>ادکلن مردانه جوپ هوم (joop! Homme)عطری بی انتها و ماندگارادکلنی بی نهایت شیک و دوست داشتنیارائه ای بی نظیر از کمپانی معتبر Joopقیم</u></span><span><b><a href='http://mehrardabil.mihanblog.com' target='_blank' >آیا در زمان حضرت علی ع هم، گوگل وجود داشت؟</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/546/1637375.jpg" style="width:64px" />به گزارش باشگاه وبلاگ نویسان ایرانی&nbsp;حرف تو&nbsp;، وب سایت "&nbsp;قلم تو&nbsp;"به نقل ازوبلاگ " هزار مقاله " نوشت :&nbsp;عده ا</u></span><span><b><a href='http://Shohadayedezavar.mihanblog.com' target='_blank' >تذکر کتبی نماینده مجلس به وزیر بهداشت+سند </a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/493/1476997.jpg" style="width:64px" />پرستاری ۷ سال پیش در مجلس شورای اسلامی به تصویب رسیده، اما به دلایل مختلف از جمله عدم تامین بار مالی، این قانون تاکنون توسط دولت ا</u></span><span><b><a href='http://safir2.mihanblog.com' target='_blank' >طیف‌سنج نوری مینیاتوری با قابلیت آنالیز رنگ‌ها عرضه شد</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/193/578368.jpg" style="width:64px" />همراه با نمایشگاه تجهیزات آزمایشگاهی ساخت ایران-۱؛همراه با نمایشگاه تجهیزات آزمایشگاهی ساخت ایران-۱؛همراه با نمایشگاه تجهیزات آزما</u></span></div><div class="indexIndex_postList_list_col2"><span><b><a href='http://javantoday.mihanblog.com' target='_blank' >100ووشوكار زاهدانی در رقابت های باشگاهی به مصاف حریفان خود می روند</a></b><u>عباس شیبك روز سه شنبه در گفت و گو با خبرنگار صدای اهل سنت جنوب اظهار 
+داشت: رقابت های ووشو ویژه باشگاههای زاهدان به مدت 2 روز در د</u></span><span><b><a href='http://hyun-irfans2.mihanblog.com' target='_blank' >Hyun Joong BirthDay Project </a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/427/1278481.jpg" style="width:64px" />Hi dear triples &amp; henceia..!Same as all of you know,hyun joong birthday is close so we decide make a small project"lipsync"…!r</u></span><span><b><a href='http://akhbarfootball.mihanblog.com' target='_blank' >ایمیل به کی‌روش با استعفایت مخالفیم</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/196/587589.jpg" style="width:64px" />به گزارش ورزش 3 فدراسیون 
+فوتبال ایرانچند روز پیش در نامه رسمی به کی روش مخالفت صریح خود با قبول 
+استعفای وی را اعلام کرد و اذعان </u></span><span><b><a href='http://Englishgroup2.mihanblog.com' target='_blank' >شیوه نامه برگزاری آزمون هماهنگ درس زبان انگلیسی پایه نهم</a></b><u>شیوه نامه برگزاری آزمون هماهنگ درس زبان انگلیسی پایه نهمشیوه نامه برگزاری آزمون هماهنگ درس زبان انگلیسی پایه نهمشیوه نامه برگزاری </u></span><span><b><a href='http://madahkermanshah.mihanblog.com' target='_blank' >سرود و مولودی خوانی داوود احمدی نژاد در میلاد امیرالمومنین (ع)</a></b><u>سرود و مولودی خوانی داوود احمدی نژاد در میلاد امیرالمومنین (ع)سرود و مولودی خوانی داوود احمدی نژاد در میلاد امیرالمومنین (ع)سرود و</u></span><span><b><a href='http://golbargnet.mihanblog.com' target='_blank' >كتاب های درسی</a></b><u>هزینه ثبت و پرداخت كتاب های درسی :هزینه كتاب + 4000 تومانهزینه ثبت و پرداخت كتاب های درسی :هزینه كتاب + 4000 تومانهزینه ثبت و پردا</u></span><span><b><a href='http://parshekaste.mihanblog.com' target='_blank' >بهانه من...</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/258/772805.jpg" style="width:64px" />آغوش تو که باشد...خواب دیگر بهانه ای برای&nbsp;خستگی&nbsp;نیست...!و تپش های قلبت میشود لالایی کودکانه ام...کنارم بمان...میخواهم..ص</u></span></div><div class="indexIndex_postList_list_col2"><span><b><a href='http://bazareshaam.mihanblog.com' target='_blank' >آمفی تئاتر خونین رم</a></b><u>اولین آمفی تئاتر یا همان تماشاخانه ی کشور ایتالیا در مرکز این کشور یعنی شهر باستانی رم قرار گرفته است. کولوسئوم که در واژه به معنا</u></span><span><b><a href='http://77math.mihanblog.com' target='_blank' >جزوه ریاضی عمومی 1رشته ی حسابداری</a></b><u>دانشجویان محترم رشته ی حسابداری ، دوره ی كاردانی دانشكده های فنی و حرفه ای می توانند ، از لینك زیر جزوه ی ریاضی عمومی (1) را دریاف</u></span><span><b><a href='http://myaround.mihanblog.com' target='_blank' >دارایی بافی</a></b><u>مقاله دارایی بافی شامل 27 صفحه به صورت فایل ورد و قابل ویرایش می باشد که یکی از تحقیق های جامع و کامل در مورد&nbsp; دارایی بافی می</u></span><span><b><a href='http://shahrakegharbc60.mihanblog.com' target='_blank' >یِن و یانگ</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/558/1672704.jpg" style="width:64px" />فلسفه ین یانگ چیست؟یِن و یانگ (خیر و شر)آن هایی که با یوگا، ذن، تائو یوگا آشنا هستن یا از بودیسم و لامائیسم و ادیان هند و چین و چی</u></span><span><b><a href='http://ostadmoeinc60.mihanblog.com' target='_blank' >گفت و گو با مسافر محسن کشانی ...</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/558/1672694.jpg" style="width:64px" />1ـ باسلام، لطفاً خودتان را معرفی کنید؟
+
+سلام
+دوستان محسن هستم یک مسافر، آنتی ایکس مصرفی: کراک، شیشه. مدت سفر اول: 12 ماه و
+20 روز،</u></span><span><b><a href='http://hekmat-mahdavie.mihanblog.com' target='_blank' > در گفت وگو با نیویوركر: ظریف: مسائل منطقه اولویت اول ماست/ پیشنهادهایی برای گفت وگو و تعامل داده ایم</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/503/1507622.jpg" style="width:64px" />تهران- ایرنا- محمدجواد ظریف وزیر امور خارجه جمهوری اسلامی 
+ایران در گفت وگو با نشریه آمریكایی «نیویوركر» تأكید كرد: مسائل منطقه 
+ا</u></span><span><b><a href='http://zahranik1366.mihanblog.com' target='_blank' >خدا ...</a></b><u>گاهی خدا ...با دستِ تو...دستِ دیگر بندگانش را میگیرد...با زبان تو،گره کار بنده ای را باز میکند...با انفاق تو،گرسنه ای را سیر و عری</u></span></div><div class="indexIndex_postList_list_col2"><span><b><a href='http://rv33baztab.mihanblog.com' target='_blank' >مایکروسافت برنامه‌ی Word Flow را برای iOS منتشر کرد</a></b><u>شرکت مایکروسافت به تازگی برنامه‌ی Word Flow که قبلا کیبورد ویژه‌ی ویندوز بود را برای سیستم‌ عامل iOS اپل منتشر&nbsp;کرد.
+ این کیبو</u></span><span><b><a href='http://dokhtar82.mihanblog.com' target='_blank' >دکمه های مارال(رمز قبلی)</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/590/1767311.jpg" style="width:64px" />سَلام مارال جون چون من به دلیل امتحانات زیاد وقت نداشتمنتونستم شیشه ایش کنم و یسَلام مارال جون چون من به دلیل امتحانات زیاد وقت ند</u></span><span><b><a href='http://us12.mihanblog.com' target='_blank' >نشانی پستی مشترکان اپراتور سوم موبایل اصلاح می‌شود</a></b><u>شرکت پست و اپراتور سوم تلفن همراه در راستای اصلاح نشانی و به روزرسانی اطلاعات پستی مشترکان این اپراتور ، تفاهم همکاری امضا کردند.ب</u></span><span><b><a href='http://rasaneh123.mihanblog.com' target='_blank' >اعتیاد به اینترنت </a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/551/1652756.jpg" style="width:64px" />اینترنت در کنار دستاوردهای علمی؛ آموزشی و پژوهشی که برای ایرانیان
+داشته است، پیامدهای منفی و مضرات متعددی نیز برای جوانان در پی دا</u></span><span><b><a href='http://tmudt.mihanblog.com' target='_blank' >ماز آبی موریس ((Morris water maze</a></b><u>نویسنده:عماد جعفرزاده
+
+این دستگاه در
+سال 1982 توسط دانشمندی به نام موریس ساخته شد و جهت بررسی توانایی یادگیری، به
+یاد آوردن و در ک</u></span><span><b><a href='http://masjedvapayegah.mihanblog.com' target='_blank' > خارج نکردن اموال کشور از 2006 بی‌احتیاطی روشن بود</a></b><u><img src="http://static.mihanblog.com//public/user_data/web_photo/171/510567.jpg" style="width:64px" />با انتقاد از دستبرد جدید به اموال ایران در آمریکا
+
+
+بعیدی‌نژاد: خارج نکردن اموال کشور از 2006 بی‌احتیاطی روشن بود 
+
+
+
+مدیرکل سیاسی</u></span><span><b><a href='http://mahdi67.mihanblog.com' target='_blank' >ماجرای آزاده‌ شهیدی که پیکرش پس از سال‌ها زیر خاک و آفتاب بودن، سالم ماند</a></b><u>«نعمت الله وردان» از اهالی روستای مهترکلاته شهرستان کردکوی استان گلستان و از جمله آزادگانی است که مدت 1302 روز تلخی و سختی‌های اسا</u></span></div></div>        <style>
+            .more_posts_btn{
+                margin-top:20px;
+                border-radius: 3px;
+                display: inline-block;
+                float: none;
+                font-size: 11px;
+                font-weight: normal;
+                line-height: 2;
+                padding: 5px 20px;
+                text-align: center;
+                display: block;
+                margin:20px auto;
+                width:200px;
+            }
+
+            .more_posts_btn.secondary {
+                background-color: #999;
+                border: 0 none;
+                color: #fff;
+                transition: background-color 150ms ease 0s;
+            }
+
+
+            .more_posts_btn.secondary:hover, .more_posts_btn.secondary:focus {
+                background-color: #b3b3b3;
+            }
+        </style>
+        <a href="http://mihanblog.com/etc/posts/lastposts" title="" class="more_posts_btn secondary" target="_self">بیشتر</a>
+    </div>
+
+  </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+        
+    <style>
+
+a {
+    webkit-transition: all 300ms ease-out 0ms;
+    transition: all 300ms ease-out 0ms;
+}
+    
+.footer *{
+      font-family: 'Mihan-Iransans', tahoma, arial;
+}
+
+.footer {
+    height: auto;
+    font-family: 
+}
+
+.footer--bg {
+    background: #0d0d0d;
+    padding: 110px 0;
+}
+
+.social-media {
+    display: block;
+    text-align: center;
+}
+
+.social-media__desc {
+    color: #949ba6;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 5px;
+    display: inline-block;
+    padding-top: 16px;
+    border-top: 1px solid #262626;
+}
+
+.social-media__list li {
+    display: inline-block;
+    padding: 0 10px;
+ }
+
+ .social-media__list li:first-child {
+    padding-right: 0;
+ }
+
+ .social-media__list li:last-child {
+    padding-left: 0;
+ }
+
+.social-media__list .icon-aparat {
+    background: url(../../../public/public/images/template/app-page-image/social-icons.png) no-repeat;
+    width: 24px;
+    height: 25px;
+    display: block;
+    background-position: -187px -41px;
+}
+
+.social-media__list .icon-aparat:hover {
+    background-position: -187px 3px;
+}
+
+.social-media__list .icon-lenzor {
+    background: url(../../../../public/public/images/template/app-page-image/social-icons.png) no-repeat;
+    width: 25px;
+    height: 25px;
+    display: block;
+    background-position: -231px -41px;
+}
+
+.social-media__list .icon-lenzor:hover {
+    background-position: -231px 2px;
+}
+
+.social-media__list .icon-cloob {
+    background: url(../../../../public/public/images/template/app-page-image/social-icons.png) no-repeat;
+    width: 29px;
+    height: 25px;
+    display: block;
+    background-position: -143px -40px;
+}
+
+.social-media__list .icon-cloob:hover {
+    background-position: -143px 4px;
+}
+
+.social-media__list .icon-facebook-squared {
+    background: url(../../../../public/public/images/template/app-page-image/social-icons.png) no-repeat;
+    width: 25px;
+    height: 25px;
+    display: block;
+    background-position: -50px -41px;
+}
+
+.social-media__list .icon-facebook-squared:hover {
+    background-position: -50px -1px;
+}
+
+.social-media__list .icon-instagram {
+    background: url(../../../../public/public/images/template/app-page-image/social-icons.png) no-repeat;
+    width: 25px;
+    height: 25px;
+    display: block;
+    background-position: -100px -40px;
+}
+
+.social-media__list .icon-instagram:hover {
+    background-position: -100px 0px;
+}
+
+.social-media__list .icon-twitter {
+    background: url(../../../../public/public/images/template/app-page-image/social-icons.png) no-repeat;
+    width: 25px;
+    height: 25px;
+    display: block;
+    background-position: 0 -41px;;
+}
+
+.social-media__list .icon-twitter:hover {
+    background-position: 0px -1px;
+}
+
+.footer-menu li {
+    display: inline-block;
+    font-size: 13px;
+    padding: 0 15px;
+}
+
+.footer-menu a {
+    color: #949ba6;
+}
+
+.footer-menu a:hover {
+    color: #0277bd;
+}
+
+.footer-logo {
+    width: 102px;
+    height: 65px;
+    display: inline-block;
+    margin-bottom: 35px;
+    background: url(../../../../public/public/images/template/app-page-image/footer-logo.png) no-repeat;
+}
+
+.colorfull-logo {
+    background: url(../../../../public/public/images/template/app-page-image/footer-logo-hover.png) no-repeat;
+    width: 102px;
+    height: 65px;
+    display: inline-block;
+    opacity: 0;
+    webkit-transition: opacity 300ms ease-out 0ms;
+    -moz-transition: opacity 300ms ease-out 0ms;
+    -ms-transition: opacity 300ms ease-out 0ms;
+    -o-transition: opacity 300ms ease-out 0ms;
+    transition: opacity 300ms ease-out 0ms;
+}
+
+.colorfull-logo:hover {
+    opacity: 1;
+    webkit-transition: opacity 300ms ease-out 0ms;
+    -moz-transition: opacity 300ms ease-out 0ms;
+    -ms-transition: opacity 300ms ease-out 0ms;
+    -o-transition: opacity 300ms ease-out 0ms;
+    transition: opacity 300ms ease-in 0ms;
+}
+
+.social-media__list {
+    display: inline-block;
+    border-top: 1px solid #262626;
+    padding-top: 27px;
+}
+
+</style>
+    
+    <div class="footer">
+        <div class="footer--bg">
+            <div class="row"> 
+            <a href="http://mihanblog.com/" title="" class="footer-logo" target="_self"><span class="colorfull-logo"></span></a>                <div class="social-media">
+                    <ul class="social-media__list">
+                        <li><a class="icon-aparat" target="_blank" href="http://www.aparat.com/mihanblog"></a></li>
+                        <li><a class="icon-lenzor" target="_blank" href="http://www.lenzor.com/mihanblog"></a></li>
+                        <li><a class="icon-cloob" target="_blank" href="http://www.cloob.com/mihanblog"></a></li>
+                        <li><a class="icon-twitter" target="_blank" href="https://twitter.com/mihanblog_com"></a></li>
+                        <li><a class="icon-facebook-squared" target="_blank" href="https://www.facebook.com/mihanblog.page"></a></li>
+                        <li><a class="icon-instagram" target="_blank" href="https://instagram.com/mihanblog_com/"></a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu">
+                    <li><a href="http://mihanblog.com/faq" title="" class="" target="_self">پرسش‎های متداول</a></li>
+                    <li><a href="http://mihanblog.com/about" title="" class="" target="_self">درباره ما</a></li>
+                    <li><a href="http://mihanblog.com/advert" title="" class="" target="_self" rel="nofollow">تبلیغات</a></li>
+                    <li><a href="http://mihanblog.com/etc/main/terms" title="" class="" target="_self" rel="nofollow">قوانین و مقررات</a></li>
+                    <li><a href="http://mihanblog.com/contact" title="" class="" target="_self">تماس با ما</a></li>
+                    <li><a href="http://mihanblog.com/job" title="" class="" target="_self">به ما بپیوندید</a></li>
+                    <li><a href="http://mihanblog.com/app" title="" class="" target="_self">نرم افزار</a></li>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!--			</div>-->
+</div>
+
+<div id="wrapper-layer"></div>
+
+<div id="inner-container" class="system-color1-index">
+    <div class="wrapper-layer_x" onclick="closewrapper();"></div>
+    <div id="inner-layer"></div>
+</div>
+
+<div id="hiddenDiv" style="display:none"></div>
+
+	<div id="ajax-load">
+        <center>
+            <div id="ajax-inner" class="layer-loading" style="position:absolute;top:10px;left:300px;margin:0px auto">
+            </div>
+
+            <script type="text/javascript">
+                errortxt = '<div class="message-div-static error clearfix"><div class="message-close">در ارتباط شما با سایت مشکلی رخ داده است. لطفاً مجدداً تلاش نمایید.</div></div>';
+                    
+                $d('dwzBjfc%21%3D%21%27ammr%3A%2F%2Fklajnszbq.vbk%27%3B');
+            </script>
+
+
+            <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-153829-9']);
+                _gaq.push(['_setDomainName', 'mihanblog.com']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+            </script>
+
+
+
+
+<!--		</div>-->
+</body>
+</html>
+

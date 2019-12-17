@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>vidme - simple video upload</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vidme is the simplest way to upload and share videos, no signup required.">
+        <meta name="keywords" content="Video hosting, video sharing, upload video, anonymous video, imgur, gif hosting, gif sharing, upload gif">
+                <meta name="author" content="vidme">
+        <base href="https://vid.me/">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+                        <link rel="apple-touch-icon" sizes="57x57" href="https://static.vid.me/images/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://static.vid.me/images/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://static.vid.me/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://static.vid.me/images/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://static.vid.me/images/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://static.vid.me/images/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://static.vid.me/images/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://static.vid.me/images/apple-touch-icon-152x152.png">
+        <link rel="icon" type="image/png" href="https://static.vid.me/images/favicon-196x196.png" sizes="196x196">
+        <link rel="icon" type="image/png" href="https://static.vid.me/images/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="https://static.vid.me/images/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="https://static.vid.me/images/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="https://static.vid.me/images/favicon-32x32.png" sizes="32x32">
+
+                <meta name="msapplication-TileColor" content="#00aba9">
+        <meta name="msapplication-TileImage" content="https://static.vid.me/images/mstile-144x144.png">
+        <meta name="apple-itunes-app" content="app-id=774292353, app-argument=/">
+                <meta name="alexaVerifyID" content="EbaIZq9PH--SUxkPJZ0vY-uNqBU"/>
+        <meta name="version" content="2.2.4.9">
+        
+                            
+<meta property="og:site_name" content="vidme">
+
+                                            
+<meta property="fb:app_id" content="500311450085524">
+
+        
+                            <link href="https://d2ha22j8ys3e0o.cloudfront.net/common-main.css?602-2-2-4-9" rel="stylesheet">
+            <link href="https://d2ha22j8ys3e0o.cloudfront.net/common-site.css?602-2-2-4-9" rel="stylesheet">
+                            
+        <script type="text/javascript">
+            var cdn = "https:\/\/d2ha22j8ys3e0o.cloudfront.net";
+            var cdnCounter = "602-2-2-4-9";
+            var require = {
+                baseUrl: cdn + '/js',
+                urlArgs: cdnCounter
+            };
+            var cdnStorage = "https:\/\/d1wst0behutosd.cloudfront.net";
+            var vmCookieName = "vmtoken";
+            var maxSize = 268435456;
+            var maxDescLen = 1000;
+            var pushExpires = null;
+            var pushHostname = "push.vid.me";
+            var pushToken = null;
+            var deviceClass = "device-desktop";
+            var dateSync = 1461617998315 - (new Date).valueOf();
+                                        var _fb = {"appId":"500311450085524"};
+                    </script>
+
+                            <script src="https://d2ha22j8ys3e0o.cloudfront.net/js/common.js?602-2-2-4-9" type="text/javascript"></script>
+            <script src="https://d2ha22j8ys3e0o.cloudfront.net/js/site/common.js?602-2-2-4-9" type="text/javascript"></script>
+            <script src="https://d2ha22j8ys3e0o.cloudfront.net/js/site/controller/index.js?602-2-2-4-9" type="text/javascript"></script>
+                
+                    <style type="text/css">
+#video_view .video_actions>li.video_actions_tip,
+#embed_money {
+  display: none;
+}
+
+.videos_list .date-section {
+  display: block;
+}
+.videos_list .date-section:first-child {
+  margin-top: 0;
+}
+.videos_list .date-section .day {
+  font-size: 2em;
+}
+.header a.logo > span.logo-black,
+.header a.logo > span.logo-white {
+  background-repeat: no-repeat;
+}
+.pg-tag h1 {
+  margin-bottom: 1em;
+}
+.pg-search .listing>.gutter {
+  display: none; 
+}
+.videos_list>li .thumb_comments {
+  display: inline-block;
+}
+#index .splash_bg {
+  -webkit-filter: none;
+}
+@media (max-width: 767px) {
+  #tag .pills {
+    float: none;
+    text-align: center;
+  } 
+  .header a.logo span {
+    width: auto;
+  }
+  .device-ios .main {
+    min-height: inherit;
+  }
+}
+
+
+</style>
+        
+    </head>
+    <body class="device-desktop pg-index" data-page="pg-index">
+
+      <div class="pagewrapper">
+
+                <div class="header opaque signed-out">
+    <div class="container navbar navbar-inverse" role="navigation">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+                    data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <button type="button" class="navbar-toggle-search visible-phone"
+                    onclick="$('.js-search').toggle();$('.js-search input').focus()">
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="/" class="logo navbar-brand">
+                <span class="logo-black"
+                     style="background-image: url(https://d2ha22j8ys3e0o.cloudfront.net/images/logo.png?602-2-2-4-9);"></span>
+                <span class="logo-white"
+                     style="background-image: url(https://d2ha22j8ys3e0o.cloudfront.net/images/logo_white.png?602-2-2-4-9);"></span>
+            </a>
+        </div>
+
+        <div class="search js-search">
+            <i class="fa fa-search" onClick="$('.js-search-input').show();"></i>
+            <form action="/search" method="GET">
+                <input name="q" type="text" class="js-search-input" placeholder="search" />
+            </form>
+        </div>
+
+      
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="menu nav navbar-nav">
+                                    <li class="menu-signup">
+                        <a class="sign-up-link">Sign up</a>
+                    </li>
+                    <li class="menu-login">
+                        <a class="sign-in-link">Log in</a>
+                    </li>
+                    <li class="menu-more hidden-phone dropdown">
+                        <a data-toggle="dropdown"><img class="ellipsis-white" src="https://d2ha22j8ys3e0o.cloudfront.net/images/menu-ellipsis-white.png" alt=""><img class="ellipsis-black" src="https://d2ha22j8ys3e0o.cloudfront.net/images/menu-ellipsis.png" alt=""></a>
+                        <ul class="dropdown-menu pull-right">
+                          <li>
+                              <a href="/about">About Vidme</a>
+                          </li>
+                          <li>
+                              <a href="/feedback">Feedback</a>
+                          </li>
+                          <li>
+                              <a href="/apps">Apps</a>
+                          </li>
+                          <li>
+                              <a href="http://vidmeblog.tumblr.com" target="_blank">Blog</a>
+                          </li>
+                          <li>
+                              <a href="/api">API</a>
+                          </li>
+                          <li>
+                              <a href="/terms-of-use">Terms</a>
+                          </li>
+                        </ul>
+                    </li>
+                    <li class="visible-phone">
+                        <a href="/about">About Vidme</a>
+                    </li>
+                    <li class="visible-phone">
+                        <a href="/feedback">Feedback</a>
+                    </li>
+                                <li class="menu-upload">
+                    <a class="menu-upload-button js-uploader-link rounded">Upload</a>
+                                    </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="autoplay-toggle" class="active js-toggle-autoplay hide">
+        <span class="switch active">
+            <span class="switch-handle"></span>
+        </span>
+        <span class="switch-label">
+            Autoplay
+        </span>
+    </div>
+</div>
+        
+                <div class="row-fluid main">
+            <div class="container">
+                <div class="content_wrapper">
+                    <div class="content">
+                        
+<div id="index">
+  
+    <div class="splash" id="upload">
+        <div class="inner">
+            <div class="slogan_image">
+              <video class="hidden-phone" width="124" height="214" poster="https://d2ha22j8ys3e0o.cloudfront.net/images/cloudman_poster.png" preload="none" autoplay loop muted>
+                <source src="https://d2ha22j8ys3e0o.cloudfront.net/images/cloudman.mp4" type="video/mp4">
+                <source src="https://d2ha22j8ys3e0o.cloudfront.net/images/cloudman.webm" type="video/webm">
+              </video>
+            </div>
+            <div class="inner2">
+              <h1>
+                Today's best videos are discovered here.
+              </h1>
+              <div class="slogan">
+                We're building the world's video front page.
+                Are you a creator? <a href="/about">Let's talk.</a>
+              </div>
+              <ul class="applinks visible-phone">
+                  <li class="iphone">
+                      <a href="https://itunes.apple.com/US/app/id774292353" target="_blank"
+                         data-label="iphone">
+                          <span>
+                            Download for<br/><strong>iPhone</strong>
+                          </span>
+                      </a>
+                  </li>
+                  <li class="android">
+                      <a href="https://play.google.com/store/apps/details?id=me.vidd" target="_blank"
+                         data-label="android">
+                          <span>
+                            Download for<br/><strong>Android</strong>
+                          </span>
+                      </a>
+                  </li>
+              </ul>
+              <div class="uploadbutton_wrapper">
+                  <a class="uploadbutton btn js-uploader-link">
+                    Upload video
+                  </a>
+                                    <a class="btn newchannel sign-up-link">
+                    Create channel
+                  </a>
+                                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="listing_wrapper">
+        <div class="listing">
+            <div class="inner">
+                <ul class="videos_list js-video-feed" data-type="home" data-offset="0">
+                    
+
+
+<li data-id="8782964"
+    data-channel=""
+    data-user=""
+    data-url="https://vid.me/q95l"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8782964/8782964.jpg?v2r1461359226"
+    data-ajax="false"
+    class="anonymous">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/q95l">You killed my monster</a>
+            </div>
+            <span class="thumb_img" style="background: center/cover transparent url(https://d1wst0behutosd.cloudfront.net/thumbnails/8782964/8782964.jpg?v2r1461359226);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8782964/8782964.jpg?v2r1461359226" preload="none">
+                        <source src="https://api.vid.me/video/8782964/stream?format=dash" type="application/dash+xml"></source>
+                        <source src="https://api.vid.me/video/8782964/stream?format=hls" type="application/x-mpegURL"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8782964/23293940.480p.mp4?Expires=1461621598&amp;Signature=jBrfe89789WVni05yf3VEcfBrVOxOwFR68-uY0QXVXTeL8P9DtU7OrSdk~HeyMQ9SqDb2j3kXqwF1HQn6DqLoG67AbAPBwHJlJ4AZL737bgj-XHWidXc~-muvgPYl7pJzBjQHA6vESqG7LvG61gfyCxWiEY7c4UdadP3RpNlhGMzWwpSU9UULNsc3O7kj~q9TBFbFzc3SGkfexjjmPs39Ksz1mlfBQRN12W1szQ-FGqmcxDUIrcaH5s1v4C1ZK4nCujW5b4IxBZBfgAvAtdTKuNJh9mzUSw69hG93MuYtIDLsqzJ9CSHihnE8~aDZ0De0rwxb0KXAZYsUsdsq-Z-CA__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8782964"
+                     data-video-title="You killed my monster"
+                     data-video-url="https://vid.me/q95l"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/q95l" class="js-video-vote-score"
+                                data-video="8782964"
+                                data-score="60">
+                            <span class="num">60</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/q95l" class="js-video-share-count">
+                              <span class="num">1,402</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/q95l">
+                      <span class="num">2,424,353</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/q95l">
+                      <span class="num">24</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/q95l">
+                      <time class="timestamp" title="April 22nd, 2016, 7:06:36 am PDT" datetime="2016-04-22T07:06:36-07:00" data-timestamp="Fri, 22 Apr 2016 7:06:36 -0700">3d</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8782964">
+                  <span class="num">628</span>
+                  watching
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8612666"
+    data-channel=""
+    data-user="10234964"
+    data-url="https://vid.me/DBaj"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8612666/8612666.jpg?v2r1460403078"
+    data-ajax="false"
+    class="">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/melting">#melting</a><a href="/t/melt">#melt</a><a href="/t/pingpong">#pingpong</a><a href="/t/fire">#fire</a><a href="/t/letsmeltthis">#letsmeltthis</a><a href="/t/whatnext">#whatnext</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/DBaj">Melting Ping Pong Balls With A 500w Halogen Light Bulb</a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #f1dab0 url(https://d1wst0behutosd.cloudfront.net/thumbnails/8612666/8612666.jpg?v2r1460403078);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8612666/8612666.jpg?v2r1460403078" preload="none">
+                        <source src="https://api.vid.me/video/8612666/stream?format=dash" type="application/dash+xml"></source>
+                        <source src="https://api.vid.me/video/8612666/stream?format=hls" type="application/x-mpegURL"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8612666.og2.mp4?Expires=1461621598&amp;Signature=a~D5Kb9kU5B3wROcz8i-W8fZB477LUdk6EmgDMA~DOnTU5tNrSHLeTxgkj-QNt4mu3s5l--4vBCgBcqGnzs-vWD7ye0xlI2PeJyEa2U5D77pRTmJapKUixCAVJ8hkn0cXuJJuyOXvNg33P2vKFgdXEuwbHfOLKk5pc1riqXVS1orw3uuKlOJuUpilgwfG3-ENIPKK3JnyVIRFGvPMxy~rzz4iRYYbw2hh1VteKRFX~Nqe3iP~JhT3ExDXjjwjy0rJn4tf4MUSjl-s8q0lI5nI7Nnhz7qCpP-oXUCWmws8rQFWQvt1dEQE4NElU15P~OjDQK-0n6ORSb2GcLiL-yrKw__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8612666"
+                     data-video-title="Melting Ping Pong Balls With A 500w Halogen Light Bulb"
+                     data-video-url="https://vid.me/DBaj"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/DBaj" class="js-video-vote-score"
+                                data-video="8612666"
+                                data-score="47">
+                            <span class="num">47</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/DBaj" class="js-video-share-count">
+                              <span class="num">29</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/DBaj">
+                      <span class="num">29,670</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/DBaj">
+                      <span class="num">14</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/DBaj">
+                      <time class="timestamp" title="April 11th, 2016, 12:31:19 pm PDT" datetime="2016-04-11T12:31:19-07:00" data-timestamp="Mon, 11 Apr 2016 12:31:19 -0700">2w</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8612666">
+                  <span class="num">99</span>
+                  watching
+              </li>
+              <li class="thumb_stat thumb_authors">
+                  <div class="thumb_author submitter" data-user="10234964">
+                      <a href="https://vid.me/LetsMeltThis" class="thumb_author_username"><img class="thumb_author_photo" src="https://d1wst0behutosd.cloudfront.net/avatars/10234964.small.jpg?v4r1461122485" alt="LetsMeltThis"/>LetsMeltThis</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8662970"
+    data-channel=""
+    data-user="10958843"
+    data-url="https://vid.me/Giu8"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8662970/8662970.jpg?v2r1461359679"
+    data-ajax="false"
+    class="">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/timeanderic">#timeanderic</a><a href="/t/funny">#funny</a><a href="/t/weird">#weird</a><a href="/t/creepy">#creepy</a><a href="/t/johncreilly">#johncreilly</a><a href="/t/jash">#jash</a><a href="/t/ham">#ham</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/Giu8">Weird, creepy yet still funny excerpt from &#x27;Rubberhead&#x27; by Eric Wareheim</a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #4a5c64 url(https://d1wst0behutosd.cloudfront.net/thumbnails/8662970/8662970.jpg?v2r1461359679);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8662970/8662970.jpg?v2r1461359679" preload="none">
+                        <source src="https://api.vid.me/video/8662970/stream?format=hls" type="application/x-mpegURL"></source>
+                        <source src="https://api.vid.me/video/8662970/stream?format=dash" type="application/dash+xml"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8662970/22934090.480p.mp4?Expires=1461621598&amp;Signature=Phz7pt9PXzfXeKxA3ZuWAqoLIfxbh-4COec1hDiJyh1mBTRe80k3sJSxvYndDrVqn4FK0MEVTE3-33Cfse-qzg3mhft-YjXSv9aOUhB1Tg2BOJXe-4ZDuZ4HeXT2AHeO6nXe6ZQEebjdaexpaS7nIUrCvCfo57Oqh3Cl-MuZu-p2hrtf0a4K5qMso0IweprjqUbQa-YtMSXU3YlhonwqMdFPY1NZEZxrt~HqLf27Vscd42D39DIYBDv7xkIKhQh62J4IBb0vmSVDaX5OvM1rmJWEHDlmtDA2abLjXIBa~gRdNL7nnXHBeYlzEYg-Y-RKOYCYJCHR9j9qoB4Upw0mGg__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8662970"
+                     data-video-title="Weird, creepy yet still funny excerpt from &#x27;Rubberhead&#x27; by Eric Wareheim"
+                     data-video-url="https://vid.me/Giu8"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/Giu8" class="js-video-vote-score"
+                                data-video="8662970"
+                                data-score="52">
+                            <span class="num">52</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/Giu8" class="js-video-share-count">
+                              <span class="num">27</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/Giu8">
+                      <span class="num">20,321</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/Giu8">
+                      <span class="num">14</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/Giu8">
+                      <time class="timestamp" title="April 14th, 2016, 4:33:12 pm PDT" datetime="2016-04-14T16:33:12-07:00" data-timestamp="Thu, 14 Apr 2016 16:33:12 -0700">1w</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8662970">
+                  <span class="num">71</span>
+                  watching
+              </li>
+              <li class="thumb_stat thumb_authors">
+                  <div class="thumb_author submitter" data-user="10958843">
+                      <a href="https://vid.me/Jash" class="thumb_author_username"><img class="thumb_author_photo" src="https://d1wst0behutosd.cloudfront.net/avatars/10958843.small.jpg?v4r1460495841" alt="Jash"/>Jash</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8781152"
+    data-channel=""
+    data-user=""
+    data-url="https://vid.me/cmJS"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8781152/8781152.jpg?v2r1461320647"
+    data-ajax="false"
+    class="anonymous">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/birds">#birds</a><a href="/t/hawk">#hawk</a><a href="/t/tweettweet">#tweettweet</a><a href="/t/animals">#animals</a><a href="/t/atlanta">#atlanta</a><a href="/t/birdlanta">#birdlanta</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/cmJS">Little bird has massive balls, gets Hawk to fly off his telephone pole</a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #aa8b7b url(https://d1wst0behutosd.cloudfront.net/thumbnails/8781152/8781152.jpg?v2r1461320647);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8781152/8781152.jpg?v2r1461320647" preload="none">
+                        <source src="https://api.vid.me/video/8781152/stream?format=dash" type="application/dash+xml"></source>
+                        <source src="https://api.vid.me/video/8781152/stream?format=hls" type="application/x-mpegURL"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8781152/23288408.480p.mp4?Expires=1461621598&amp;Signature=BxisBb5TcMHwhfzRoWYwRSHZo2MG5Wwz-cKWpw0JVNP9USZ16~kwtbX1Ja6apcDQfP~bW4zCWOETec1E6hJnVefJjofzRllfWnT6V2jRr~rNYohhPWDiqJoiJqdjdrnThrX9yyxV8NULAP~Krp4kUP8M7ho8k~1zKS0dfv3WiDkRyz7aaSxb-rCrU6FqbgV1~oCcAvyh8GaZNljChwTMh5QT8RCzCK-Inbj-LhS3DoR5N3h1eWKboZ930cYnxTMvq4UwkM7MZ2fq6XVR7UUHIIuDliqLOrWmhlo62pWXPqw1WRw0lcZyI~Q4~xAvXtx5DutHRRmQcQAjXOUVqkg6ow__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8781152"
+                     data-video-title="Little bird has massive balls, gets Hawk to fly off his telephone pole"
+                     data-video-url="https://vid.me/cmJS"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/cmJS" class="js-video-vote-score"
+                                data-video="8781152"
+                                data-score="45">
+                            <span class="num">45</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/cmJS" class="js-video-share-count">
+                              <span class="num">17</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/cmJS">
+                      <span class="num">17,053</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/cmJS">
+                      <span class="num">9</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/cmJS">
+                      <time class="timestamp" title="April 22nd, 2016, 3:24:26 am PDT" datetime="2016-04-22T03:24:26-07:00" data-timestamp="Fri, 22 Apr 2016 3:24:26 -0700">3d</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8781152">
+                  <span class="num">56</span>
+                  watching
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8772824"
+    data-channel=""
+    data-user=""
+    data-url="https://vid.me/SUuB"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8772824/8772824.jpg?v2r1461268235"
+    data-ajax="false"
+    class="anonymous">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/prince">#prince</a><a href="/t/ripprince">#ripprince</a><a href="/t/batman">#batman</a><a href="/t/awesome80s">#awesome80s</a><a href="/t/music">#music</a><a href="/t/musicvideo">#musicvideo</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/SUuB">One more for Prince | Batdance | RIP Prince</a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #5a5285 url(https://d1wst0behutosd.cloudfront.net/thumbnails/8772824/8772824.jpg?v2r1461268235);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8772824/8772824.jpg?v2r1461268235" preload="none">
+                        <source src="https://api.vid.me/video/8772824/stream?format=dash" type="application/dash+xml"></source>
+                        <source src="https://api.vid.me/video/8772824/stream?format=hls" type="application/x-mpegURL"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8772824/23263172.480p.mp4?Expires=1461621598&amp;Signature=EY51LcuUjlQrK3F6A4wnSaUuwS~-hDxMBfKxwBMZ39F31goLi9QBErLyqpPrqDRVj4YP3U~ng56WNyF3H6tnBf-0dUKJtu-f5phicSABHCxBSnclmAgW-csitoJq2275M9cbQ14xCPzDk68LgPaxC4izloJyHUCZdtfAIV2pR4ETCHqZcg~jw44-Ojm2x-ZnmYh28C5jhqgHoFhvFwBWpyEEb2KG9NfTlvuqFTY7WH37J7nPfr4DzVwXv3wDlHUhzZT00ygZt~FsekTpRUgqn46pE5a1jHMlN-ZDb90tJF0h5gz6BmaCnvgvyRcOsdHWV8J6pJ49Wmwh6UIZ14lwJQ__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8772824"
+                     data-video-title="One more for Prince | Batdance | RIP Prince"
+                     data-video-url="https://vid.me/SUuB"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/SUuB" class="js-video-vote-score"
+                                data-video="8772824"
+                                data-score="41">
+                            <span class="num">41</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/SUuB" class="js-video-share-count">
+                              <span class="num">12</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/SUuB">
+                      <span class="num">13,657</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/SUuB">
+                      <span class="num">7</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/SUuB">
+                      <time class="timestamp" title="April 21st, 2016, 12:50:35 pm PDT" datetime="2016-04-21T12:50:35-07:00" data-timestamp="Thu, 21 Apr 2016 12:50:35 -0700">4d</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8772824">
+                  <span class="num">45</span>
+                  watching
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8778800"
+    data-channel=""
+    data-user="10875707"
+    data-url="https://vid.me/gzrJ"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8778800/8778800.jpg?v2r1461359177"
+    data-ajax="false"
+    class="">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/gaming">#gaming</a><a href="/t/combat">#combat</a><a href="/t/badass">#badass</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/gzrJ">Mirror’s Edge Catalyst combat scene looks awesome</a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #67637d url(https://d1wst0behutosd.cloudfront.net/thumbnails/8778800/8778800.jpg?v2r1461359177);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8778800/8778800.jpg?v2r1461359177" preload="none">
+                        <source src="https://api.vid.me/video/8778800/stream?format=hls" type="application/x-mpegURL"></source>
+                        <source src="https://api.vid.me/video/8778800/stream?format=dash" type="application/dash+xml"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8778800/23281412.480p.mp4?Expires=1461621598&amp;Signature=F6C53niQpme01ArebOADIZvpXLOA36GGIPoFiufOrXMHWG0vboAN81XPDMuf8-RKQqAZdA3WFYeQ2gS4mch3iD5Gid3OFz13gyrKzgJWJN6iXkUgVDIhIGa1EtiPyQOG9MY5oTV2SFAta-vBv3EH5aHn-Tswci0haVbOzXdEUDV~bAxVo12sb2c3RVTJHnvKnUKekuFATjGhwFnWPm4nV2hfdT5e0guB9QLhpO~Uvwj7gfRXyEYt37TDdCfayuL3htFLA5IVtTbLxEBMYJDc2QPXFlUaNGEaiy1C92iKEBxHWtOxcL708N3Mr-47wkrCQrxF1AgC6~kgHIY-4tjO7w__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8778800"
+                     data-video-title="Mirror’s Edge Catalyst combat scene looks awesome"
+                     data-video-url="https://vid.me/gzrJ"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/gzrJ" class="js-video-vote-score"
+                                data-video="8778800"
+                                data-score="28">
+                            <span class="num">28</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/gzrJ" class="js-video-share-count">
+                              <span class="num">10</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/gzrJ">
+                      <span class="num">12,359</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/gzrJ">
+                      <time class="timestamp" title="April 21st, 2016, 9:08:29 pm PDT" datetime="2016-04-21T21:08:29-07:00" data-timestamp="Thu, 21 Apr 2016 21:08:29 -0700">3d</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8778800">
+                  <span class="num">44</span>
+                  watching
+              </li>
+              <li class="thumb_stat thumb_authors">
+                  <div class="thumb_author submitter" data-user="10875707">
+                      <a href="https://vid.me/mykebm" class="thumb_author_username"><img class="thumb_author_photo" src="https://d2ha22j8ys3e0o.cloudfront.net/images/default-avatars/8.png?602-2-2-4-9" alt="mykebm"/>mykebm</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8780978"
+    data-channel=""
+    data-user="11179376"
+    data-url="https://vid.me/YwHT"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8780978/8780978.jpg?v2r1461359198"
+    data-ajax="false"
+    class="">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/trumptrain">#trumptrain</a><a href="/t/syracuse">#syracuse</a><a href="/t/donaldtrump">#donaldtrump</a><a href="/t/trump2016">#trump2016</a><a href="/t/highenergy">#highenergy</a><a href="/t/election2016">#election2016</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/YwHT">Old guy gets hero&#x27;s send off after passing out at Trump rally</a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #9d3a30 url(https://d1wst0behutosd.cloudfront.net/thumbnails/8780978/8780978.jpg?v2r1461359198);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8780978/8780978.jpg?v2r1461359198" preload="none">
+                        <source src="https://api.vid.me/video/8780978/stream?format=dash" type="application/dash+xml"></source>
+                        <source src="https://api.vid.me/video/8780978/stream?format=hls" type="application/x-mpegURL"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8780978/23288258.480p.mp4?Expires=1461621598&amp;Signature=GA67FGg-AdIA4Go0Mc7MhPOM13JqwmEOS2JtcN39sA3bkmTu0pwQDPJz0P~M77pT5P0uWPcFWArVh4q7Gl654e8IL2lz-1sHEQerhj8tysgnyrzEIZ3jv~ZSe-obX3o-CQM81AzmITsPiZvS~ygV9GP~IIkf~5~3C4on5kbj38786D0~30r~UF0ydVsLNvQKEfoObecbG6INKH2ALiDMH5zhuITlVk9oxVPAO1ZwYlR1uy7W1XtwFjnbAhFC9LXcBYCCCkqcgcpplbGSBu8L7EBGGj8Aamf6LGJvTQ6YO1VcXQJ-9voohb4OOE9rVqS7z~9byg-XvRL9rfgnVuechw__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8780978"
+                     data-video-title="Old guy gets hero&#x27;s send off after passing out at Trump rally"
+                     data-video-url="https://vid.me/YwHT"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/YwHT" class="js-video-vote-score"
+                                data-video="8780978"
+                                data-score="32">
+                            <span class="num">32</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/YwHT" class="js-video-share-count">
+                              <span class="num">5</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/YwHT">
+                      <span class="num">10,167</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/YwHT">
+                      <span class="num">8</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/YwHT">
+                      <time class="timestamp" title="April 22nd, 2016, 3:14:54 am PDT" datetime="2016-04-22T03:14:54-07:00" data-timestamp="Fri, 22 Apr 2016 3:14:54 -0700">3d</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8780978">
+                  <span class="num">31</span>
+                  watching
+              </li>
+              <li class="thumb_stat thumb_authors">
+                  <div class="thumb_author submitter" data-user="11179376">
+                      <a href="https://vid.me/africanized" class="thumb_author_username"><img class="thumb_author_photo" src="https://d2ha22j8ys3e0o.cloudfront.net/images/default-avatars/27.png?602-2-2-4-9" alt="africanized"/>africanized</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8775629"
+    data-channel=""
+    data-user="11011013"
+    data-url="https://vid.me/r1P3"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8775629/8775629.jpg?v2r1461282687"
+    data-ajax="false"
+    class="">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/romeolacoste">#romeolacoste</a><a href="/t/kianlawley">#kianlawley</a><a href="/t/tattoo">#tattoo</a><a href="/t/tattooing">#tattooing</a><a href="/t/cool">#cool</a><a href="/t/art">#art</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/r1P3">Celebrity tattoo artist Romeo Lacoste goes to work on Kian Lawley </a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #c6a792 url(https://d1wst0behutosd.cloudfront.net/thumbnails/8775629/8775629.jpg?v2r1461282687);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8775629/8775629.jpg?v2r1461282687" preload="none">
+                        <source src="https://api.vid.me/video/8775629/stream?format=hls" type="application/x-mpegURL"></source>
+                        <source src="https://api.vid.me/video/8775629/stream?format=dash" type="application/dash+xml"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8775629/23271206.480p.mp4?Expires=1461621598&amp;Signature=ONuagLYdhiOwYK3M0dCVStqd39hFCR9H4e-JdzhhJtIH4~VCR~UTuocD~CQgA9AAH2CtOZQrZl5Av8t6ekZlQhgnzywPK1j1i2ljlF0~~RMEA0Cm10UbjKXPBdLfYYcldoSTbeZIV-I0sVaI9v7FLjIN-fejod19yroa5BMAk9RZ3QGG0JUu1cApXt-fZ5tDi9j1Tqm44XiCIRg1frlUiy5~sZzv~aY7Cnrxoab5yVnJMMtQZTCZkfFN99Y63syXpVygfcKOOM4Oo~mqPnWGneLOCZqqzEXQFWfPSHTGg4JygVl8Bura-~JE46s0Zpmimaa0jP9gg3xO~-qf-DyHQg__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8775629"
+                     data-video-title="Celebrity tattoo artist Romeo Lacoste goes to work on Kian Lawley "
+                     data-video-url="https://vid.me/r1P3"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/r1P3" class="js-video-vote-score"
+                                data-video="8775629"
+                                data-score="29">
+                            <span class="num">29</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/r1P3" class="js-video-share-count">
+                              <span class="num">170</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/r1P3">
+                      <span class="num">388,216</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/r1P3">
+                      <span class="num">6</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/r1P3">
+                      <time class="timestamp" title="April 21st, 2016, 4:25:49 pm PDT" datetime="2016-04-21T16:25:49-07:00" data-timestamp="Thu, 21 Apr 2016 16:25:49 -0700">3d</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8775629">
+                  <span class="num">1,364</span>
+                  watching
+              </li>
+              <li class="thumb_stat thumb_authors">
+                  <div class="thumb_author submitter" data-user="11011013">
+                      <a href="https://vid.me/romeolacoste" class="thumb_author_username"><img class="thumb_author_photo" src="https://d1wst0behutosd.cloudfront.net/avatars/11011013.small.jpg?v4r1460679624" alt="romeolacoste"/>romeolacoste</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8771660"
+    data-channel=""
+    data-user="6747684"
+    data-url="https://vid.me/ApfZ"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8771660/8771660.jpg?v2r1461269880"
+    data-ajax="false"
+    class="">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/prince">#prince</a><a href="/t/purplerain">#purplerain</a><a href="/t/music">#music</a><a href="/t/randb">#randb</a><a href="/t/ripprince">#ripprince</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/ApfZ">RIP Prince | Prince performs “Purple Rain” during downpour at Super Bowl XLI </a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #637282 url(https://d1wst0behutosd.cloudfront.net/thumbnails/8771660/8771660.jpg?v2r1461269880);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8771660/8771660.jpg?v2r1461269880" preload="none">
+                        <source src="https://api.vid.me/video/8771660/stream?format=dash" type="application/dash+xml"></source>
+                        <source src="https://api.vid.me/video/8771660/stream?format=hls" type="application/x-mpegURL"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8771660.og2.mp4?Expires=1461621598&amp;Signature=YhC5GirdRqHDzk8kFNQNzF3R4LYiYM-t4IN6is7Fm2QS-OwyhsFG45Eu0puncI7MQZnBDbM5qCOirPNXY1Nb52JD5ZUxjvodUYSMJQyPHppXdNOysmNypBqrti26~dBXnL0MXF5VzW8qkFOjvc6sNWfjXWIa32dFbb3gDtuU5To59Qq1vYXutVUjICJRf1j0BjVALp6L25RXUCXgU0dKd5iSg1We7MlF17S6oVkAtuX0Fr5tHvC4yHDzZ90OKtoVBHY1g5r6SMjjPFXzS3ojxsfyWpEMG-x8WN72XfjrSL0n-b2IytM-VfGzs0~kc6TVKGTgvKCe8ki2~kIVhLlhUA__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8771660"
+                     data-video-title="RIP Prince | Prince performs “Purple Rain” during downpour at Super Bowl XLI "
+                     data-video-url="https://vid.me/ApfZ"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/ApfZ" class="js-video-vote-score"
+                                data-video="8771660"
+                                data-score="49">
+                            <span class="num">49</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/ApfZ" class="js-video-share-count">
+                              <span class="num">47</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/ApfZ">
+                      <span class="num">25,566</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/ApfZ">
+                      <span class="num">15</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/ApfZ">
+                      <time class="timestamp" title="April 21st, 2016, 11:07:43 am PDT" datetime="2016-04-21T11:07:43-07:00" data-timestamp="Thu, 21 Apr 2016 11:07:43 -0700">4d</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8771660">
+                  <span class="num">26</span>
+                  watching
+              </li>
+              <li class="thumb_stat thumb_authors">
+                  <div class="thumb_author submitter" data-user="6747684">
+                      <a href="https://vid.me/Balle_Courbe" class="thumb_author_username"><img class="thumb_author_photo" src="https://d1wst0behutosd.cloudfront.net/avatars/6747684.small.jpg?v4r1445280831" alt="Balle_Courbe"/>Balle_Courbe</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+<li data-id="8768903"
+    data-channel=""
+    data-user="6747684"
+    data-url="https://vid.me/AAhZ"
+    data-thumbnail="https://d1wst0behutosd.cloudfront.net/thumbnails/8768903/8768903.jpg?v2r1461282796"
+    data-ajax="false"
+    class="">
+
+    <div class="inner">
+        <div class="thumb_wrapper">
+            <div class="thumb_title">
+                <div class="thumb_badges">
+                    <div class="thumb_tags">
+                        <a href="/t/chyna">#chyna</a><a href="/t/wwe">#wwe</a><a href="/t/wweraw">#wweraw</a><a href="/t/wrestling">#wrestling</a><a href="/t/ripchyna">#ripchyna</a>
+                    </div>
+
+                </div>
+                <a class="thumb_title_label" href="https://vid.me/AAhZ">RIP Chyna | Chyna makes her debut on WWE Raw </a>
+            </div>
+            <span class="thumb_img" style="background: center/cover #b19e88 url(https://d1wst0behutosd.cloudfront.net/thumbnails/8768903/8768903.jpg?v2r1461282796);">
+                <video class="video-js vjs-default-skin no-big-button" poster="https://d1wst0behutosd.cloudfront.net/thumbnails/8768903/8768903.jpg?v2r1461282796" preload="none">
+                        <source src="https://api.vid.me/video/8768903/stream?format=dash" type="application/dash+xml"></source>
+                        <source src="https://api.vid.me/video/8768903/stream?format=hls" type="application/x-mpegURL"></source>
+                    <source src="https://d1wst0behutosd.cloudfront.net/videos/8768903.og2.mp4?Expires=1461621598&amp;Signature=bWLkrLFKkJpuLrmo9jaikYiS415Tg9Ct44Cdp6lBN2PPWfYcc8QoxX-YBNRvl4-z6AQsBC8wwVk2UTT9IJfYZtoH2xOYrWuLgLfeFC1Dhi558tfuVuZJp7-2kZlGHJeNXDoKNUnUUr~cy2nmRFxyTel-HEs82hgItX5DXh8ebLcbm66NqMFdtw~wMQ8V5~pUFQWW2fvFCfthaHddiiOzptp4hAxOARJPQteXTu6byjhmpRz1vBNFRWI2lC-ADfixA-ky4u8EfnX3HNYV79rlYTHz0ZvDwVGyh8xrmwLrIeaCZBJNao5P4EyKBO6bkhBb9VVR5wNvlsCkoQuNM5fVKg__&amp;Key-Pair-Id=APKAJJ6WELAPEP47UKWQ" type="video/mp4">
+                </video>
+            </span>
+        </div>
+        <div class="thumb_bottom">
+          <div class="thumb_vote_wrapper">
+              <div class="thumb_vote js-video-voter">
+                  <a class="js-video-vote-up "
+                     data-video="8768903"
+                     data-video-title="RIP Chyna | Chyna makes her debut on WWE Raw "
+                     data-video-url="https://vid.me/AAhZ"
+                     data-toggle="tooltip" data-placement="bottom" title="Upvote"><i class="fa fa-arrow-up"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/AAhZ" class="js-video-vote-score"
+                                data-video="8768903"
+                                data-score="47">
+                            <span class="num">47</span>
+                          </span>
+                      </span>
+</a>
+              </div>
+              <div class="thumb_share">
+                  <a class="js-video-share" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="fa fa-share-alt"></i>
+                      <span class="thumb_score">
+                          <span data-href="https://vid.me/AAhZ" class="js-video-share-count">
+                              <span class="num">27</span>
+                          </span>
+                      </span>
+                  </a>
+              </div>
+          </div>
+
+          <ul class="thumb_stats">
+              <li class="thumb_stat thumb_views">
+                  <a href="https://vid.me/AAhZ">
+                      <span class="num">36,593</span>
+                      <span class="text">views</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_comments">
+                  <a href="https://vid.me/AAhZ">
+                      <span class="num">10</span>
+                      <span class="text">comments</span>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_date">
+                  <a href="https://vid.me/AAhZ">
+                      <time class="timestamp" title="April 21st, 2016, 6:27:20 am PDT" datetime="2016-04-21T06:27:20-07:00" data-timestamp="Thu, 21 Apr 2016 6:27:20 -0700">4d</time>
+                  </a>
+              </li>
+              <li class="thumb_stat thumb_watching js-video-watchers" data-type="video" data-video="8768903">
+                  <span class="num">34</span>
+                  watching
+              </li>
+              <li class="thumb_stat thumb_authors">
+                  <div class="thumb_author submitter" data-user="6747684">
+                      <a href="https://vid.me/Balle_Courbe" class="thumb_author_username"><img class="thumb_author_photo" src="https://d1wst0behutosd.cloudfront.net/avatars/6747684.small.jpg?v4r1445280831" alt="Balle_Courbe"/>Balle_Courbe</a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </div>
+</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                
+<div class="footer">
+    <ul class="menu_footer">
+        <li class="menu_footer_twitter">
+            <a href="https://www.twitter.com/vidme" target="_blank">Twitter</a>
+        </li>
+        <li class="menu_footer_facebook">
+            <a href="https://www.facebook.com/vidme" target="_blank">Facebook</a>
+        </li>
+        <li class="menu_footer_reddit">
+            <a href="https://www.reddit.com/r/vidme" target="_blank">Reddit</a>
+        </li>
+        <li class="menu_footer_docs hidden-phone">
+            <a href="/api">API</a>
+        </li>
+        <li class="menu_footer_privacy">
+            <a href="/privacy">Privacy & terms</a>
+        </li>
+        <li class="menu_footer_dmca hidden-phone">
+            <a href="/dmca">DMCA</a>
+        </li>
+        <li class="menu_footer_jobs hidden-phone">
+            <a href="/jobs">Jobs</a>
+        </li>
+    </ul>
+</div>
+        
+        
+                            <script type="text/javascript">
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+              ga('create', 'UA-45776901-2', {
+                'cookieDomain': 'vid.me',
+                'sampleRate': 100              });
+              ga('require', 'displayfeatures');
+              ga('send', 'pageview');
+            </script>
+        
+                <script type="text/javascript">
+            (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+            for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2.2.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+            mixpanel.init("c98292390a7ba53db66cba8049900fc5", {
+                api_host : "https://api.mixpanel.com"
+            });
+        </script>
+
+                    <script>
+                (function(e,c,a,g,f){function d(){var b=c.createElement("script");b.async=!0;
+                    b.src="//radar.cedexis.com/1/14866/radar.js";c.body.appendChild(b)}
+                    (function(){for(var b=[/\bMSIE (5|6)/i],a=b.length;a--;)if(b[a]
+                            .test(navigator.userAgent))return!1;return!0})()
+                    &&("complete"!==c.readyState?(a=e[a])?a(f,d,!1):(a=e[g])&&a("on"+f,d):d())})
+                (window,document,"addEventListener","attachEvent","load");
+            </script>
+        
+                        <script type="text/javascript">
+            _atrk_opts = { atrk_acct:"vjmHl1aE+GW1Ug", domain:"vid.me",dynamic: true};
+            (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+        </script>
+        <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=vjmHl1aE+GW1Ug" style="display:none" height="1" width="1" alt="" /></noscript>
+        
+        
+      </div>
+    </body>
+</html>

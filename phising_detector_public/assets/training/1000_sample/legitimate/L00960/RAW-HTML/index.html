@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="ltr">
+<head>
+		  			<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+		<meta name="description" content="Truecaller is transforming today’s phonebook to make it more intelligent and useful.​">
+		<meta name="inmobi-site-verification" content="1bed864abfbc5b2b838ca0bfd6a4331">
+		<meta name="inmobi-site-verification" content="b39d1eac959358f0a6d55934550d67e1">
+		<meta name="apple-itunes-app" content="app-id=448142450">
+		<meta name="twitter:card" content="app">
+		<meta name="twitter:app:id:iphone" content="448142450">
+		<meta name="twitter:app:id:ipad" content="448142450">
+		<meta name="twitter:app:id:googleplay" content="com.truecaller">
+		<link href="https://plus.google.com/+truecaller" rel="publisher">
+		<meta property="wb:webmaster" content="8db1573092a2ba30" />
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+					<title>Phone Number Search | Truecaller</title>
+	<script>window.Truecaller = {};</script>	<link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/dist/css/main-stylus-7a80262b33.css">
+	<script src="/js/modernizr.custom.16777.js"></script>
+<script>
+	Modernizr.addTest('flexboxtweener', Modernizr.testAllProps('flexAlign', 'end', true));
+</script>	<!--[if lt IE 9]>
+	<script src="/js/IE9.js"></script>
+	<script src="/js/respond.js"></script>
+	<![endif]-->
+		<script>
+	var gaLoaded = false;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga(function(){gaLoaded=true;})
+	ga('create', 'UA-3261967-7', 'auto');
+	ga('send', 'pageview');
+	var redirect = function(el) { 
+		var url = el.dataset.url || el.dataset.href || el.href || null;
+		if(url) window.location.href = url; };
+	var track = function(el, type) {
+		if(gaLoaded) {
+			if(type === 'p') { ga('send', 'pageview', { 'page': el.dataset.tp, 'title': el.dataset.tt, 'hitCallback': function(){ redirect(el);	} }); }
+			if(type === 'e') { ga('send', 'event', { 'eventCategory': el.dataset.tc, 'eventAction': el.dataset.ta, 'eventLabel': el.dataset.tl || null, 'eventValue': el.dataset.tv || null, 'hitCallback': function() { redirect(el); } }); }
+		} else { redirect(el); } };
+</script></head>
+<body class="site">
+
+	<div class="modal-mask"></div>	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>	<div class="preloader">
+	<div class="preloader__container">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>	
+</div>	<header 
+		id="navArea" 
+		>
+		
+		<nav class="topNav">
+
+	<a class="topNav__logo" data-href="https://www.truecaller.com">
+					<img src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/truecaller-logo-white-on-blue-318x64.png" width="122px" height="24px">
+			</a>
+
+	<a href="https://www.truecaller.com/services/truecaller" class="topNav__link">Apps</a>
+	
+	<a class="topNav__link" data-href="https://www.truecaller.com/support">Support</a>
+	
+			<a class="topNav__link" data-href="https://www.truecaller.com/careers">We're hiring</a>
+		
+	<div class="topNav__separator"></div>
+
+</nav>					</header>
+
+	<script>
+	function toggleLogIn() { document.body.classList.toggle('login-open'); return false; }
+	function toggleES(el) { 
+		if(! el.checked ) {
+			document.querySelector('.LogInGoogle').href = document.querySelector('.LogInGoogle').href.replace('es=1', 'es=0');
+			document.querySelector('.LogInMicrosoft').href = document.querySelector('.LogInMicrosoft').href.replace('es=1', 'es=0');
+		}
+		if( el.checked ) {
+			document.querySelector('.LogInGoogle').href = document.querySelector('.LogInGoogle').href.replace('es=0', 'es=1');
+			document.querySelector('.LogInMicrosoft').href = document.querySelector('.LogInMicrosoft').href.replace('es=0', 'es=1');
+		}
+	}
+</script>
+ 
+<style>
+	.login-open { overflow: hidden;	} 
+	.LogInFade {
+		position: fixed;
+		background: rgba(0,0,0,0.5);
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 3000;
+		overflow: hidden;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	.login-open .LogInFade {
+		visibility: visible;
+		opacity: 1;
+		cursor: pointer;
+		transition: opacity 0.3s ease;
+	}
+	.LogInWrapper {
+		position: fixed;
+		top: 40px;
+		left: 50%;
+		width: 100%;
+		max-width: 480px;
+		-webkit-transform: translateX(-50%) translateY(-100%);
+		        transform: translateX(-50%) translateY(-100%);
+		padding: 10px;
+		z-index: 4000;
+		visibility: hidden;
+		opacity: 0;
+		transition: all 0.3s ease;
+	}
+	.login-open .LogInWrapper {
+		-webkit-transform: translateX(-50%) translateY(0);
+		        transform: translateX(-50%) translateY(0);
+		visibility: visible;
+		opacity: 1;
+		transition: all 0.3s ease;
+	}
+	.LogIn {
+		background: white;
+		border-radius: 2px;
+		box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+	}
+	.LogIn-simple {
+		position: relative;
+		padding: 40px;
+		text-align: center;
+	}
+	.LogInTitle {
+		margin-bottom: 20px;
+		font-size: 20px;
+		font-weight: 400;
+		color: black;
+	}
+	.LogInClose {
+		font-family: sans-serif;
+		font-size: 24px;
+		text-align: right;
+		line-height: 24px;
+		height: 24px;
+		width: 24px;
+		font-weight: bold;
+		color: white;
+		cursor: pointer;
+		top: 16px;
+		right: 16px;
+		position: absolute;
+	}
+	.LogIn-simple .LogInClose { color: black; }
+	.LogInDescription { margin-bottom: 20px; }
+	.LogInProviders { margin-bottom: 20px; }
+	.LogInProviders > a {
+		display: inline-block;
+		text-align: center;
+		height: 36px;
+		padding: 0 16px;
+		line-height: 36px;
+		font-size: 10px;
+		min-width: 240px;
+		text-transform: uppercase;
+		color: #fff;
+		border-radius: 2px;
+		letter-spacing: 0;
+		margin-bottom: 2px;
+	}
+	.LogInProviders > a:hover { color: white; }
+	.LogInProviders > a > img { vertical-align: middle; margin-right: 6px; }
+	.LogInProviders > div {
+		margin-bottom: 10px;
+		font-size: 10px;
+	}
+	.LogInGoogle { background: #db4437; position: relative; }
+	.LogInMicrosoft { background: #0cb3ee; }
+	.LogInFooter > a, .LogInNotification a {
+		display: inline-block;
+		text-align: center;
+		height: 36px;
+		padding: 8px 16px;
+		line-height: 1;
+		font-size: 10px;
+		min-width: 64px;
+		text-transform: uppercase;
+		color: #fff;
+		border-radius: 2px;
+		letter-spacing: 0;
+		margin-right: 8px;
+		margin-bottom: 8px;
+	}
+	.LogInHeader {
+		height: 174px;
+		background-color: #127FFF;
+		padding: 16px;
+		position: relative;
+	}
+	.LogInHeader:before {
+		content: "";
+		background-image: url("https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/header-photo-20160329.jpg");
+		background-size: cover;
+		background-position: center bottom 0;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: .2;
+	}
+	.LogInHeader h3 {
+		color: #fff;
+		position: absolute;
+		left: 16px;
+		bottom: 16px;
+	}
+	.LogInBody { padding: 16px;	}
+	.LogInFooter > a > span {
+		color: rgba(255,255,255,.8);
+		font-size: 8px;
+	}
+	.LogInFooter a img {
+		vertical-align: middle;
+		margin-right: 10px;
+		width: auto;
+		height: 18px;
+	}
+	.LogInFooter {
+		border-top: 1px solid rgba(0,0,0,.1);
+		padding: 16px;
+	}
+	.LogInLegal {
+		display: block;
+		margin-bottom: 16px;
+	}
+	.LogIn-simple .LogInLegal { margin-bottom: 0; }
+	.LogInEnhancedSearch { margin-bottom: 10px;	}
+	.LogInES {
+		position: relative;
+		overflow: visible;
+		display: inline-block;
+		cursor: pointer;
+	}
+	.LogIn input[type="checkbox"] { display: none; }
+	.LogInESCheck {
+		width: 18px;
+		height: 18px;
+		border: 1px solid #33c951;
+		border-radius: 2px;
+		display: inline-block;
+		line-height: 18px;
+		vertical-align: middle;
+		margin-right: 4px;
+		display: inline-block;
+	}
+	#esCheck:checked + .LogInESCheck {
+		width: 18px;
+		height: 18px;
+		background: #33c951 url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgMSAxIgogICBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWluWU1pbiBtZWV0Ij4KICA8cGF0aAogICAgIGQ9Ik0gMC4wNDAzODA1OSwwLjYyNjc3NjcgMC4xNDY0NDY2MSwwLjUyMDcxMDY4IDAuNDI5Mjg5MzIsMC44MDM1NTMzOSAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IE0gMC4yMTcxNTcyOSwwLjgwMzU1MzM5IDAuODUzNTUzMzksMC4xNjcxNTcyOSAwLjk1OTYxOTQxLDAuMjczMjIzMyAwLjMyMzIyMzMsMC45MDk2MTk0MSB6IgogICAgIGlkPSJyZWN0Mzc4MCIKICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTpub25lIiAvPgo8L3N2Zz4K");
+	}
+	.LogInESText {
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 18px;
+		text-transform: uppercase;
+		font-size: 10px;
+	}
+	.LogInESToolTip {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		line-height: 14px;
+		vertical-align: middle;
+		background: rgba(0,0,0,.2);
+		color: white;
+		font-size: 10px;
+		text-align: center;
+		cursor: pointer;
+		position: relative;
+		top: 6px;
+		border-radius: 50%;
+	}
+	.LogInESToolTipText {
+		display: none;
+		font-size: 10px;
+	}
+	#esToolTip:checked + .LogInESToolTipText { display: block; }
+	.LogInNotificationWrapper {
+		position: fixed;
+		top: 0;
+		right: 0;
+		padding: 10px;
+		z-index: 5000;
+		visibility: hidden;
+		opacity: 0;
+		-webkit-transform: translateY(-100%);
+		        transform: translateY(-100%);
+		transition: all 0.3s ease;
+	}
+	.LogInNotification {
+		background: #33c951;
+		color: white;
+		width: 100%;
+		max-width: 480px;
+		padding: 16px;
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+		border-radius: 2px;
+	}
+	.LogInError .LogInNotification {
+		background: red;
+	}
+	.LogInUnauthorized .LogInNotification {
+		background: #0091ea;
+	} 
+	.LogInNotification h3 {
+		margin-bottom: 8px;
+		color: white;
+	}
+	.LogInNotification a span { text-transform: lowercase;	}
+	.login-error .LogInNotificationWrapper.LogInError,
+	.login-success .LogInNotificationWrapper.LogInSuccess,
+	.login-unauthorized .LogInNotificationWrapper.LogInUnauthorized {
+		visibility: visible;
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+		transition: all 0.3s ease;
+	}
+</style>
+<div class="LogInNotificationWrapper LogInSuccess">
+	<div class="LogInNotification">Welcome! You have successfully signed in.</div>
+</div>
+<div class="LogInNotificationWrapper LogInError">
+	<div class="LogInNotification LoginNotificationError">Something went wrong! Please try again later or contact support if the problem persists.</div>
+</div>
+<div class="LogInNotificationWrapper LogInUnauthorized">
+	<div class="LogInNotification LogInNotificationInfo">You were signed out and need to sign in again.</div>
+</div>
+<div class="LogInFade" onclick="toggleLogIn()"></div>
+<div class="LogInWrapper">
+	<div class="LogIn LogIn-simple">
+		<div class="LogInClose" onclick="toggleLogIn(); return false;">&#10005;</div>
+		<div class="LogInTitle">Welcome</div>
+		<div class="LogInDescription">
+							Sign in to enjoy our free number search!					</div>
+		<div class="LogInProviders">
+			<a class="LogInButton LogInGoogle" href="/auth/google?es=1">
+				<img width="18px" height="18px" src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/social/google.png">
+				Sign in with Google			</a>
+			<div>Gmail, Google+</div>
+			<a class="LogInButton LogInMicrosoft" href="/auth/microsoft?es=1">
+				<img width="18px" height="18px" src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/social/windows-live.png">
+				Sign in with Microsoft account	
+			</a>
+			<div>Hotmail, Outlook.com, Windows</div>
+		</div>
+
+		<div class="LogInEnhancedSearch">
+			<label class="LogInES" for="esCheck">
+				<input type="checkbox" id="esCheck" checked="checked" onchange="toggleES(this)">
+				<div class="LogInESCheck"></div>
+				<div class="LogInESText">Enhance Your Results</div>
+			</label>
+			<label for="esToolTip" class="LogInESToolTip">?</label>
+			<input type="checkbox" id="esToolTip">
+			<div class="LogInESToolTipText">Sharing is caring, and in the Truecaller community we care about accurate results. By sharing your contacts with Truecaller, you will receive more accurate results and help improve the experience for millions of users around the world.</div>	
+		</div>
+		
+		<div class="LogInLegal">
+			<small>
+				By Signing In, I accept the Truecaller <a onclick="window.open('/terms-of-service', 'Terms of Service | Truecaller', 'width=600, height=800, scrollbars=yes'); return false;">Terms of Service</a> &amp; <a onclick="window.open('/privacy-policy', 'Privacy Policy | Truecaller', 'width=600, height=800, scrollbars=yes'); return false;">Privacy Policy</a>.	
+			</small>
+		</div>
+			</div>
+</div>
+
+
+	<nav>
+			</nav>
+	
+	<main>
+		<section class="page page--home page--home--blue">
+	<div class="homeHeader">
+		<h1 class="tagLine">Search Over 2 Billion Phone Numbers</h1>
+		<style>
+	::-webkit-input-placeholder { font-style: normal !important; }
+	:-moz-placeholder { font-style: normal !important; }
+	::-moz-placeholder { font-style: normal !important; }
+	:-ms-input-placeholder { font-style: normal !important; }
+</style>
+<div class="searchBar">
+	<form action="https://www.truecaller.com/search" method="POST" autocomplete="off" name="search_form">
+		<div class="searchBar__inner">
+			<div class="searchBar__country">
+				<div 
+					class="select" 
+					dir="ltr" 
+					data-country-selector 
+					data-selected-country="MY">
+					<span>...</span>
+					<select><option>...</option></select>
+				</div>	
+			</div>
+			<div class="searchBar__divider"></div>
+			<div class="searchBar__number">
+				<input 
+					name="phone_number" 
+					data-validate="required|phone_number|min:4|max:20" 
+					type="tel" 
+					placeholder="Search for a phone number..." 
+					value="" 
+					autofocus>
+			</div>
+			<button class="searchBar__submit" type="submit" disabled>
+				<img width="18px" src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/search/blue-search-icon.png">
+			</button>
+		</div>
+	</form>	
+</div>
+	</div>
+			
+		<div class="topSpammer">
+			<div class="topSpammer__text">
+				<img class="topSpammer__icon" src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/home/top-spammer-icon.png" width="18px"> Top reported spam in your area right now:			</div>
+			<div class="topSpammer__number">
+				<a dir="ltr" onclick="track(this, 'p'); return false;" data-tp="/pageview/top-spammer" data-tt="Top Spammer" 
+					data-url="/my/+60320544678">
+					03-2054 4678				</a>
+			</div>
+		</div>
+		
+	
+
+	<div class="appPromo">
+	<div class="appPromo__img">
+		<img src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/apps/truecaller/tc-device-328x400-20160324.jpg" style="max-width:328px; width:100%;">
+	</div>
+	<div>
+		<h3 class="appPromo__title">Get Truecaller on your phone</h3>
+		<ul>
+			<li>Search & Identify any phone number</li>
+			<li>Block unwanted calls or hidden numbers</li>
+			<li>Make calls and see when your friends are available</li>
+		</ul>
+		<div class="appPromo__stores">
+			<a 	href="https://play.google.com/store/apps/details?id=com.truecaller"
+				onclick="track(this, 'p'); return false;"
+				 
+					data-tp="/dl/home-page/truecaller/android" 
+					data-tt="download | home page | truecaller | android">
+								<img class="imgPlaceholder" style="max-width:127px; width:100%;" src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/apps/google-play-badge.png">
+			</a>
+			
+			<a 	href="http://itunes.apple.com/app/truecaller-enhances-your-phonebook/id448142450"
+				onclick="track(this, 'p'); return false;" 
+				 
+					data-tp="/dl/home-page/truecaller/iphone" 
+					data-tt="download | home page | truecaller | iphone">
+								<img class="imgPlaceholder" style="max-width:128px; width:100%;" src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/apps/app-store-badge.png">
+			</a>
+			
+			<a 	href="https://www.microsoft.com/store/apps/9wzdncrfj3ml"
+				onclick="track(this, 'p'); return false;" 
+				 
+					data-tp="/dl/home-page/truecaller/windowsphone" 
+					data-tt="download | home page | truecaller | windowsphone">
+								<img class="imgPlaceholder" style="max-width:118px; width:100%;" src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/apps/windows-store-badge.png">
+			</a>
+		</div>
+
+		<div class="align-center showOnMobile">
+			<a 	href="/tc"
+				class="button button--large button--success"
+				onclick="track(this, 'p'); return false;" 
+				 
+					data-tp="/dl/home-page/truecaller/mobile" 
+					data-tt="download | home page | truecaller | mobile">
+								Get Truecaller			</a>
+					</div>
+
+		<p style="margin-top: 2em;">
+			<small class="hideOnMobile">
+				Also available on				&nbsp;<a href="https://www.truecaller.com/download">Series 40, Blackberry, Blackberry 10, Tizen</a>
+			</small>
+		</p>
+		
+		<p style="clear: both; display: inline-block; overflow: auto; max-width: 400px; text-align: left;">
+			<a style="float:left; margin-right: 20px;" onclick="track(this, 'p'); return false;" data-tp="/dl/download-page/truecaller/android_truecaller" data-tt="download | download page | truecaller | android_truecaller" href="/applications/truecaller-7.14.390.8466.35bc70a-truecaller-release.apk">
+				<img width="64px" height="64px" src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/apps/truecaller/truecaller-7-app-icon-201603091000.png">
+			</a>
+			<a onclick="track(this, 'p'); return false;" data-tp="/dl/download-page/truecaller/android_truecaller" data-tt="download | download page | truecaller | android_truecaller" href="/applications/truecaller-7.14.390.8466.35bc70a-truecaller-release.apk">
+			Download the latest version of Truecaller for Android</a> from our website to get a sneak-peek at great new features.</p>
+		
+	</div>
+</div>	
+	<hr>
+
+	
+	<style>
+	.DiscoverTruemessenger { position: relative; max-width: 480px; margin: 0 auto; padding: 10px; text-align: left;	}
+	.DiscoverTruemessenger > div { padding-left: 130px; }
+	.DiscoverTruemessenger > img { position: absolute; top: 10px; left: 10px; width: 110px; height: auto; }
+	.DiscoverTruemessenger h3 { font-size: 24px; font-weight: 300; margin-bottom: 0; }
+	.DiscoverTruemessenger a { margin-top: 10px; }
+	@media screen and (max-width: 480px) {
+	.DiscoverTruemessenger { text-align: center; }
+	.DiscoverTruemessenger > img { position: relative; top: 0; left: 0; width: 120px; height: auto; margin-bottom: 20px;}
+	.DiscoverTruemessenger > div { padding-left: 0; }}
+</style>
+<div class="DiscoverTruemessenger">
+	<img src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/img/press/app-icons/truemessenger.png">
+	<div>
+		<h3>Discover Truemessenger</h3>
+		<p>
+			Protection against spam SMS <br>
+			<a href="https://www.truecaller.com/services/truemessenger" class="button button--large button--success">Get Truemessenger</a>
+		</p>
+	</div>
+</div>	
+</section>
+
+	</main>
+
+			<nav class="footerNav">
+	<div>
+					<a class="footerNav__link" href="https://www.truecaller.com/download">Download</a>
+			<a class="footerNav__link" data-href="https://www.truecaller.com/about">About</a>
+			<a class="footerNav__link" data-href="https://www.truecaller.com/press">Press</a>
+			<a class="footerNav__link" data-href="https://www.truecaller.com/careers">Careers</a>
+			<a class="footerNav__link" href="https://www.truecaller.com/blog">Blog</a>
+			<a class="footerNav__link" href="https://www.truecaller.com/tech-blog">Tech Blog</a>
+			<a class="footerNav__link" data-href="https://www.truecaller.com/contact">Contact us</a>
+			<a class="footerNav__link" data-href="https://www.truecaller.com/ambassadors">Ambassadors</a>
+			<a class="footerNav__link" data-href="https://business.truecaller.com">Truecaller Business</a>
+			
+	</div>
+	<div>
+		<a class="footerNav__link footerNav__link--external" data-href="http://facebook.com/truecaller">Facebook</a>
+		<a class="footerNav__link footerNav__link--external" data-href="https://plus.google.com/+truecaller" rel="publisher">Google+</a>
+		<a class="footerNav__link footerNav__link--external" data-href="http://twitter.com/truecaller">Twitter</a>
+		<a class="footerNav__link footerNav__link--external" data-href="http://instagram.com/truecaller">Instagram</a>
+		<a class="footerNav__link footerNav__link--external" data-href="http://www.linkedin.com/company/true-software-scandinavia-ab">LinkedIn</a>
+							<a class="footerNav__link footerNav__link--language" href="#logIn" onclick="toggleLogIn(); return false;">Sign In</a>
+				<a class="footerNav__link footerNav__link--language" data-modal-load="language" data-modal-url="https://www.truecaller.com/modals/language?ref=/">
+			English		</a>
+	</div>
+</nav>
+
+<div class="footerCopyright">
+	<p dir="ltr">
+		Copyright © 2009-2016 True Software Scandinavia AB. All rights reserved. Truecaller™ is a registred trademark.
+		<br>
+		Responsible publisher: Alan Mamedi appointed by True Software Scandinavia AB. Database name: Truecaller.com
+		<br>
+					<a href="https://www.truecaller.com/sitemap">Sitemap</a> | 
+			<a href="https://www.truecaller.com/languages">Languages</a> | 
+			<a href="https://www.truecaller.com/spam-numbers">Spam Numbers</a> |
+				<a onclick="window.open('/terms-of-service', 'Terms of Service | Truecaller', 'width=600, height=800, scrollbars=yes'); return false;">Terms of service</a> | 
+		<a onclick="window.open('/privacy-policy', 'Privacy Policy | Truecaller', 'width=600, height=800, scrollbars=yes'); return false;">Privacy Policy</a>
+	</p>
+</div>	
+	<script src="https://truecaller-website-public.s3-eu-west-1.amazonaws.com/dist/js/main-4fbb8b5439.js"></script>
+		<script>
+	
+	$(document).on('NoConnectionEvent', function(){ Modal.open("no-connection", "https://www.truecaller.com/modals/no-connection"); });
+	
+			if( Truecaller && Truecaller.sign_in === 'init') Modal.open("sign-in-and-enhanced-search", "https://www.truecaller.com/modals/sign-in-and-enhanced-search");
+		
+	
+	if( Truecaller && Truecaller.sign_in_match === 'init') Modal.open("sign-in-and-enhanced-search-match", "https://www.truecaller.com/modals/sign-in-and-enhanced-search-match");
+	if( Truecaller && Truecaller.no_connection === 'init' ) Modal.open("no-connection", "https://www.truecaller.com/modals/no-connection");
+	if( Truecaller && Truecaller.match_found === 'init' ) Modal.open("match-found", "https://www.truecaller.com/modals/match-found");
+	if( Truecaller && Truecaller.enhanced_search === 'init' ) Modal.open("enhanced-search", "https://www.truecaller.com/modals/enhanced-search");
+	if( Truecaller && Truecaller.limit_exceeded === 'init') Modal.open("limit-exceeded", "https://www.truecaller.com/modals/limit-exceeded");
+	if( Truecaller && Truecaller.unsubscribe_newsletter === 'init') Modal.open("unsubscribe-newsletter", "https://www.truecaller.com/modals/unsubscribe-newsletter");
+	if( Truecaller && Truecaller.android_install === 'init') Modal.open("android-apk", "https://www.truecaller.com/modals/android-apk");
+	if( Truecaller && Truecaller.too_many_requests === 'init') Modal.open("too-many-requests", "https://www.truecaller.com/modals/too-many-requests");
+</script>
+	
+			</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+	<meta name="description" content="Test your Internet connection bandwidth to locations around the world with this interactive broadband speed test from Ookla" >
+	<meta name="keywords" lang="en" content="ookla, speed, test, speedtest, speed test, bandwidth speed test, internet speed test, broadband speed test, speakeasy, flash, cnet, internet, network, connection, broadband, bandwidth, latency, ping, throughput, download, upload, connection, dsl, adsl, cable, t1, voip, isp, asp, internet, ip, ip address, tcp, ds3" >
+	<meta name="ROBOTS" content="NOYDIR">
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<title>Speedtest.net by Ookla - The Global Broadband Speed Test</title>
+	<link rel="apple-touch-icon" href="http://c.speedtest.net/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon-precomposed" href="http://c.speedtest.net/images/apple-touch-icon.png">
+	<link rel="stylesheet" type="text/css" href="http://c.speedtest.net/css/reset.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="http://c.speedtest.net/css/tipTip.css" media="screen" />
+
+	<link rel="stylesheet" type="text/css" href="http://c.speedtest.net/css/layout-home.css?v=20160308c" media="screen" />
+	<link rel="stylesheet" type="text/css" href="http://c.speedtest.net/css/global.css?v=20160219" media="screen" />
+
+	<!--[if lte IE 6]>
+		<link rel="stylesheet" type="text/css" href="css/ie6.css?v=2012-11-23" media="screen" />
+		<![endif]-->
+	<link rel="canonical" href="http://www.speedtest.net/" />
+	
+	<script type="text/javascript" src="//ookla-d.openx.net/w/1.0/jstag?nc=4585-speedtest.net"></script>
+
+
+	<script type="text/javascript" src="http://c.speedtest.net/javascript/speedtest-main.js?v=20160317"></script>
+
+	<meta property="og:title" content="Speedtest.net by Ookla - The Global Broadband Speed Test" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Speedtest.net" />
+	<meta property="og:url" content="http://www.speedtest.net/" />
+	<meta property="og:image" content="http://c.speedtest.net/images/share-logo.png" />
+	<meta name="twitter:card" content="app">
+	<meta name="twitter:site" content="@ookla">
+	<meta name="twitter:description" content="Test your mobile network speed, wherever you may be.
+	Download the free Ookla Speedtest app for iOS, Amazon, Android or Windows Phone.">
+	<meta name="twitter:app:id:iphone" content="300704847">
+	<meta name="twitter:app:id:ipad" content="300704847">
+	<meta name="twitter:app:id:googleplay" content="org.zwanoo.android.speedtest">
+
+	<script type="text/javascript">!function(){!function e(t,n,o){function r(a,u){if(!n[a]){if(!t[a]){var c="function"==typeof require&&require;if(!u&&c)return c(a,!0);if(i)return i(a,!0);var s=new Error("Cannot find module '"+a+"'");throw s.code="MODULE_NOT_FOUND",s}var f=n[a]={exports:{}};t[a][0].call(f.exports,function(e){var n=t[a][1][e];return r(n?n:e)},f,f.exports,e,t,n,o)}return n[a].exports}for(var i="function"==typeof require&&require,a=0;a<o.length;a++)r(o[a]);return r}({1:[function(e,t,n){"use strict";var o=e(30);if(o()){var r=e(19);r.mockApi(["checkState","pageChange"])}else{var i=e(11);i.init(i.specs.BASE);var a=e(16),u=e(17),c=e(15)["default"];a(function(e){return[new u(e),new c(e)]})}},{}],2:[function(e,t,n){"use strict";t.exports={version:"1.7.0",env:"prod",name:"sentinel"}},{}],3:[function(e,t,n){"use strict";t.exports={cookie_prefix:"bknx_"}},{}],4:[function(e,t,n){"use strict";t.exports={beacon:["w","w","w",".","f","a","l","l","i","n","g","f","a","l","c","o","n",".","c","o","m"],media_proxy:"",content_control_beacon:["w","w","w",".","c","o","m","r","a","d","e","p","o","n","y",".","c","o","m"]}},{}],5:[function(e,t,n){var n=t.exports=function(e){e||(e={}),"string"==typeof e&&(e={cookie:e}),void 0===e.cookie&&(e.cookie="");var t={};return t.get=function(t){for(var n=e.cookie.split(/;\s*/),o=0;o<n.length;o++){var r=n[o].split("="),i=unescape(r[0]);if(i===t)return unescape(r[1])}},t.set=function(t,n,o){o||(o={});var r=escape(t)+"="+escape(n);return o.expires&&(r+="; expires="+o.expires),o.path&&(r+="; path="+escape(o.path)),e.cookie=r,r},t};if("undefined"!=typeof document){var o=n(document);n.get=o.get,n.set=o.set}},{}],6:[function(e,t,n){"use strict";function o(){return f+a.generateFixedLengthRandomString(2+10*Math.random())}var r=e(10)["default"],i=e(9),a=e(33),u=e(32)["default"],c=i.tests.SCRIPT,s=i.testTypes.NETWORK,f=["/","/","w","w","w.","b","u","d","g","e","te","db","au","er.","co","m","/"].join("");t.exports=function(e,t){var n=t||o(),i=document.createElement("script");i.type="text/javascript",i.async=!0,i.src=n;var a=u(function(t,o){e(new r(t,c,n,o)),i.parentElement.removeChild(i)});i.onload=a.bind(null,!1),i.onerror=a.bind(null,!0,s),document.body.appendChild(i),setTimeout(a.bind(null,!1),100)}},{}],7:[function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{"default":e}}function r(e){try{var t=document.createElement("canvas");t.width=e.width,t.height=e.height;var n=t.getContext("2d");n.drawImage(e,0,0);var o=t.toDataURL("image/png");return 92===o.replace(/^data:image\/(png|jpg);base64,/,"").length}catch(r){return 18===r.code?!1:!1}}function i(e,t){function n(e){a.src===h?c(!0,_):!e&&r(a)?c(!0,l):c(!1)}var o=arguments.length<=2||void 0===arguments[2]?100:arguments[2],i=document.createElement("div");i.style.position="absolute",i.style.left="-9999px",i.style.right="-9999px",i.style.width="1px",i.style.height="1px";var a=void 0;a=window.Image?new Image:document.createElement("img"),a.setAttribute("height","1"),a.setAttribute("width","1"),a.src=t,i.appendChild(a);var c=(0,u["default"])(function(n,o){document.body.removeChild(i),e(new s["default"](n,d,t,o))});a.addEventListener("load",n.bind(null,!1),!0),window.setTimeout(function(){window.setTimeout(n.bind(null,!0),o)}),a.addEventListener("error",function(){c(!0,p)},!0),a.src=t,document.body.appendChild(i)}Object.defineProperty(n,"__esModule",{value:!0}),n["default"]=i;var a=e(32),u=o(a),c=e(10),s=o(c),f=e(9),d=f.tests.IMAGE,l=f.testTypes.CANVAS,p=f.testTypes.NETWORK,_=f.testTypes.SRC,h="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="},{}],8:[function(e,t,n){"use strict";function o(){var e=document.createElement("div");return e.className="plainAd",e}var r=e(10)["default"],i=e(9),a=i.tests.ELEMENT,u=i.testTypes.DOM;t.exports=function(e,t){function n(t,n){e(new r(t,a,c.className,n)),document.body.removeChild(c),document.body.removeChild(s)}var i=arguments.length<=2||void 0===arguments[2]?100:arguments[2],c=t||o();c.style.position="absolute",c.style.top="-2000px",c.style.left="-2000px",c.style.height="30px";var s=c.cloneNode(!1);s.className="",s.id="",document.body.appendChild(c),document.body.appendChild(s),setTimeout(function(){0===c.clientHeight&&s.clientHeight>0?n(!0,u):n(!1)},i)}},{}],9:[function(e,t,n){"use strict";t.exports={tests:{ELEMENT:"e",IMAGE:"i",SCRIPT:"s"},testTypes:{CANVAS:"c",DOM:"d",NETWORK:"n",SRC:"s"}}},{}],10:[function(e,t,n){"use strict";function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}();Object.defineProperty(n,"__esModule",{value:!0});var i=(e(9),function(){function e(){var t=arguments.length<=0||void 0===arguments[0]?!1:arguments[0],n=arguments[1],r=arguments[2],i=arguments[3];o(this,e),this._blocked=t,t&&i&&(this._reason=n+"::"+i+"::"+r)}return r(e,[{key:"isBlocked",value:function(){return this._blocked}},{key:"getReason",value:function(){return this._reason?this._reason:null}}]),e}());n["default"]=i},{}],11:[function(e,t,n){"use strict";function o(e){return e&&"undefined"!=typeof Symbol&&e.constructor===Symbol?"symbol":typeof e}function r(e){return e&&"undefined"!=typeof Symbol&&e.constructor===Symbol?"symbol":"undefined"==typeof e?"undefined":o(e)}function i(e){return e.reduce(function(e,t){for(var n in t)e[n]=t[n];return e},{})}function a(e){Object.keys(f).forEach(function(t){if(!e.hasOwnProperty(t))throw new Error("invalid option: '"+t+"' valid keys are: '"+JSON.stringify(Object.keys(e))+"'");if(e[t].type!==r(f[t]))throw new Error("invalid value: '"+JSON.stringify(f[t])+"' for option: '"+t+"' expected: '"+e[t].type+"'");if(e[t].validation&&!e[t].validation(f[t])){var n=e[t].validationMessage||"";throw new Error("invalid value: '"+JSON.stringify(f[t])+"' for option: '"+t+"' "+n)}}),Object.keys(e).forEach(function(t){if(e[t].required&&!f.hasOwnProperty(t))throw new Error("required option: '"+t+"' not specified in config")})}function u(e){if(f.hasOwnProperty(e))return f[e];var t=d[e].fallback?d[e].fallback():null;return null!=t?t:d[e]["default"]}function c(e){var t={};return e.forEach(function(e){t[e]=f[e]}),JSON.stringify(t)}function s(e){f=JSON.parse(e);for(var t=arguments.length,n=Array(t>1?t-1:0),o=1;t>o;o++)n[o-1]=arguments[o];d=i(n)}var f,d,l=e(4),p="boolean",_="string",h="number",v="object",g="function",m={has_been_read:{type:p,"default":!1},account_id:{type:h,fallback:function(){return u("client_id")}},client_id:{type:_,fallback:function(){if(window.sp_cid)return window.sp_cid;var e=document.currentScript||document.querySelectorAll("SCRIPT[data-client-id], SCRIPT[client-id]")[0];if("undefined"!=typeof e){var t="";e.hasAttribute("data-client-id")&&(t="data-");var n=e.getAttribute(t+"client-id");if(("undefined"==typeof n?"undefined":r(n))===_&&""!==n.trim())return n}}},publisher_base:{type:_,"default":"$$PUBLISHER_BASE$$"},beacon_endpoint:{type:_,fallback:function(){return l.beacon.join("")}},content_control_beacon_endpoint:{type:_,fallback:function(){return l.content_control_beacon.join("")}},custom_beacon_entries:{type:v,validation:function(e){return Array.isArray(e)&&e.length<=3&&e.every(function(e){return"string"==typeof e})?!0:!1},validationMessage:"expected an array of at most 3 string values",fallback:function(){return window._sp_kv}},content_control_callback:{type:g,fallback:function(){return window._sp_lock},"default":function(){}},gpt_auto_load:{type:p,fallback:function(){return window._sp_.dfp?window._sp_.dfp.gpt_auto_load:void 0},"default":!0},dfp_targeting_key:{type:_,fallback:function(){return window._sp_.dfp&&window._sp_.dfp.gpt_targeting_key?window._sp_.dfp.gpt_targeting_key:window._sp_dfp_target},"default":"sp.block"},enable_rid:{type:p,"default":!1},converge_recovery_domain:{type:p,fallback:function(){var e=document.domain||"";return e.indexOf(["s","p","ee","d","t","e","st",".n","et"].join(""))>-1?!0:void 0},"default":!1},rid_asset_base:{type:_,"default":["//rid-assets",".","sourcepoint",".com/v1.2"].join("")}},y={smart_lib_url:{type:_,fallback:function(){return window._sp_.smart_url},required:!0},smart_auto_load:{type:p,"default":!1},smart_targeting_key:{type:_,"default":"sp_block"}},b={client_id:m.client_id,publisher_base:m.publisher_base,account_id:m.account_id};t.exports.init=function(){window._sp_=window._sp_||{},window._sp_.config=window._sp_.config||{},window._sp_.config.has_been_read=!0,f=window._sp_.config;for(var e=arguments.length,t=Array(e),n=0;e>n;n++)t[n]=arguments[n];d=i(t),a(d)},t.exports.get=u,t.exports.serialize=c,t.exports.initFromSerialized=s,t.exports.specs={BASE:m,SMART:y,INTERNAL_API_IFRAME:b}},{}],12:[function(e,t,n){"use strict";t.exports={bugsnagKey:"00eac706c084cf17802b8cba591a1128",detection:{elementDetection:{waitInterval:100,maxRetries:1}},beacon:{shiftKey:3}}},{}],13:[function(e,t,n){"use strict";var o=e(3),r={FIRST_ACCESS:"fa",SESSION_START:"ss",OPT_OUT:"oo"},i={FIRST_ACCESS_EXPIRY:63072e3,SESSION_START_EXPIRY:7200,OPT_OUT_EXPIRY:63072e3};for(var a in r)i[a]=o.cookie_prefix+r[a];t.exports=i},{}],14:[function(e,t,n){"use strict";var o=e(33);t.exports=function(){for(var e=["/","/","a","d",".","d","o","u","b","l","e","c","l","i","c","k",".","n","e","t","/","d","d","m","/","a","d","[randomstring]","/",";","o","r","d","=","[timestamp]","?"].join(""),t="",n=0;n<1+4*Math.random();n++)t+="/"+o.generateFixedLengthRandomString(2+10*Math.random());return e.replace("[timestamp]",(new Date).getTime().toString()).replace("[randomstring]",t)}},{}],15:[function(e,t,n){"use strict";function o(e){return e&&"undefined"!=typeof Symbol&&e.constructor===Symbol?"symbol":typeof e}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!==("undefined"==typeof t?"undefined":o(t))&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+("undefined"==typeof t?"undefined":o(t)));e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}var u=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}();Object.defineProperty(n,"__esModule",{value:!0});var c=e(18),s=e(8),f=e(26),d=e(24),l=e(23),p=e(34),_=function(e){function t(){r(this,t);var e=i(this,Object.getPrototypeOf(t).call(this,d.BEACON));return p.populateBeacon(e),e}return a(t,e),u(t,[{key:"onCheckState",value:function(e,t){var n=this;if(this.set(l.SENTINEL_FLAG,1),this.set(l.ADBLOCK_DETECTED,e?1:0),t&&this.set(l.REASON_CODE,t),e){var o=document.createElement("div");o.className="abp_ob_exist",s(function(e){n.set(l.EXCEPTION_RULES,e.isBlocked()?1:0),n.send()},o)}else this.set(l.EXCEPTION_RULES,0),this.send()}}]),t}(f),h=function(e){function t(e){r(this,t);var n=i(this,Object.getPrototypeOf(t).call(this,e)),o=new _;return e(o.onCheckState.bind(o)),n.on("pagechange",function(){var t=new _;e(t.onCheckState.bind(t))}),n}return a(t,e),t}(c);n["default"]=h},{}],16:[function(e,t,n){"use strict";function o(e){d=e.isBlocked();var t=e.getReason();t&&(l=t);for(var n=0;n<f.length;n++)try{f[n](d,l)}catch(o){}f=[]}function r(e){var t;(t=u()&&self!==top?i:c([i,a],function(e){return e.isBlocked()}))(e)}var i=e(21)["default"],a=e(20)["default"],u=e(29),c=e(32).some,s=[],f=[],d=null,l=null;t.exports=function(e,t){t=t||r;var n;"function"==typeof window.checkState?n=window.checkState:(t(o),n=function(e){null===d?f.push(e):e(d,l)},window._sp_=window._sp_||{},window._sp_.checkState=function(e){n(function(t){e(t)})}),s=e(n)},window._sp_=window._sp_||{},window._sp_.pageChange=function(){for(var e=0;e<s.length;e++)s[e].emit("pagechange")}},{}],17:[function(e,t,n){"use strict";function o(e){e(function(e){a(e?"sp.blocking":"sp.not_blocking")})}function r(e){i.call(this,e),this.on("pagechange",function(){o(e)}),o(e)}var i=e(18),a=e(31)["default"];r.prototype=i.prototype,r.prototype.constructor=r,t.exports=r},{}],18:[function(e,t,n){"use strict";function o(e){this._eventMap={}}o.prototype.on=function(e,t){"undefined"==typeof this._eventMap[e]&&(this._eventMap[e]=[]),this._eventMap[e].push(t)},o.prototype.emit=function(e){var t=this._eventMap[e];if("undefined"!=typeof t)for(var n=0;n<t.length;n++)t[n].call(this)},t.exports=o},{}],19:[function(e,t,n){"use strict";function o(e){var t=document.createElement("script");t.type="text/javascript",t.src=e;var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)}var r=["/","/","w","w","w",".","g","o","o","g","l","e","t","a","g","s","e","r","v","i","c","e","s",".","c","o","m/","t","a","g/j","s","/","g","p","t",".j","s"].join("");window._sp_=window._sp_||{};var i={checkState:function(e){e(!1)},isAdBlocking:function(e){e(!1)},getSafeUri:function(e){return e},pageChange:function(){},setupSmartBeacons:function(){}};t.exports.loadGPTIfAuto=function(){window._sp_.config&&window._sp_.config.gpt_auto_load===!1||window._sp_.dfp&&window._sp_.dfp.gpt_auto_load===!1||o(r)},t.exports.loadSmartIfAuto=function(){window._sp_.config&&window._sp_.config.smart_auto_load&&o(window._sp_.smart_url)},t.exports.mockApi=function(e){for(var t=0;t<e.length;t++)window._sp_[e[t]]=i[e[t]]}},{}],20:[function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(n,"__esModule",{value:!0}),n["default"]=function(e,t){var n=(0,i.partial)(a,e,null,t);"loading"===document.readyState?window.document.addEventListener("DOMContentLoaded",function(){return n()}):n()};var r=e(10),i=(o(r),e(32)),a=e(8)},{}],21:[function(e,t,n){"use strict";function o(e){return e&&e.__esModule?e:{"default":e}}function r(e,t){var n=function(){var n=(0,c.some)([(0,c.partial)(u["default"],null,f(),t),s],function(e){return e.isBlocked()});n(e)};"loading"===document.readyState?window.document.addEventListener("DOMContentLoaded",n):n()}Object.defineProperty(n,"__esModule",{value:!0}),n["default"]=r;var i=e(10),a=(o(i),e(7)),u=o(a),c=e(32),s=e(6),f=e(14)},{}],22:[function(e,t,n){"use strict";var o=function(){var e,t=navigator.userAgent,n=t.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i)||[];return/trident/i.test(n[1])?(e=/\brv[ :]+(\d+)/g.exec(t)||[],["IE",e[1]||""]):"Chrome"===n[1]&&(e=t.match(/\bOPR\/(\d+)/),null!=e)?["Opera",e[1]]:(n=n[2]?[n[1],n[2]]:[navigator.appName,navigator.appVersion,"-?"],null!=(e=t.match(/version\/(\d+)/i))&&n.splice(1,1,e[1]),n)},r={is_firefox:!1,is_ie:!1,is_chrome:!1,is_opera:!1,is_safari:!1,browser_version:0},i=0,a=o(),u=a[0],i=i=a[1];"MSIE"==u&&(u="IE"),r.browser_version=parseInt(i,10);var c=function(){switch(u){case"Opera":r.is_opera=!0;break;case"Chrome":r.is_chrome=!0;break;case"Firefox":r.is_firefox=!0;break;case"IE":r.is_ie=!0;break;case"Safari":r.is_safari=!0}};c(),t.exports=r},{}],23:[function(e,t,n){"use strict";t.exports={USER_ID:"uid",SCRIPT_VERSION:"v",ACCOUNT_ID:"cid",PAGE_URL:"u",CORRELATION_ID:"bid",REASON_CODE:"rc",SENTINEL_FLAG:"sntl",ADBLOCK_DETECTED:"abl",FIRST_ACCESS:"fa",SESSION_START:"ss",PRIVACY_LIST_BLOCKED:"pl",UNSUPPORTED_OPERATING_SYSTEM:"unsupos",UNSUPPORTED_NEW_BROWSER:"unsupnb",UNSUPPORTED_USER_AGENT:"unsupua",RECOVERY_FLAG:"rcv",WHITELISTED_SESSION:"wnsk",INJECTION_STATE:"st",INJECTION_DOMAINS:"noq.id",INJECTION_CLASSES:"noq.ic",INJECTION_IDS:"noq.ii",DEBUG_1:"d0",DEBUG_2:"d1",DEBUG_3:"d2",CUSTOMER_1:"c0",CUSTOMER_2:"c1",CUSTOMER_3:"c2",EXCEPTION_RULES:"er",cct:{LOCK:"l",CONTROL_TYPE:"ct"}}},{}],24:[function(e,t,n){"use strict";t.exports={BEACON:"bcn",IMPRESSION:"imp",CLICK:"clk",CONTEXT_CLICK:"ctx",CONTENT_CONTROL:"cct"}},{}],25:[function(e,t,n){"use strict";function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var r=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}();Object.defineProperty(n,"__esModule",{value:!0});var i=e(12).beacon,a=e(11),u=e(24),c=e(23),s=e(2).version,f=new(e(35))(i.shiftKey),d=n.BEACON_CORRELATION_ID=Math.floor(1e9*Math.random()),l=function(){function e(){var t=arguments.length<=0||void 0===arguments[0]?u.BEACON:arguments[0],n=arguments.length<=1||void 0===arguments[1]?a.get("beacon_endpoint"):arguments[1],r=arguments.length<=2||void 0===arguments[2]?!0:arguments[2];o(this,e),this._beaconType=t,this._data={},this._endpoint=n,this._sent=!1,this._shouldCipher=r}return r(e,[{key:"set",value:function(e,t){this._data[e]=String(t)}},{key:"unset",value:function(e){delete this._data[e]}},{key:"send",value:function(){var e=arguments.length<=0||void 0===arguments[0]?function(){}:arguments[0];return this._sent===!0?void e(new Error("Beacon already sent")):(this._sent=!0,this.set("cb",(new Date).getTime()),this.populateBeaconFields(),void this._sendBeacon(e))}},{key:"populateBeaconFields",value:function(){this.set(c.SCRIPT_VERSION,s),this.set(c.CORRELATION_ID,d),this.set(c.ACCOUNT_ID,a.get("account_id"))}},{key:"_sendBeacon",value:function(e){var t="//"+this._getEndpoint()+"/"+this._beaconType+"?"+this._encodeData(),n=new Image;n.addEventListener("load",function(){return e()}),n.addEventListener("error",function(t){return e(t)}),n.src=t}},{key:"_getEndpoint",value:function(){return this.processEndpoint(this._endpoint)}},{key:"processEndpoint",value:function(e){return e}},{key:"_encodeData",value:function(){var e=this,t=Object.keys(this._data).map(function(t){var n=encodeURIComponent(e._shouldCipher?f.encode(t):t),o=encodeURIComponent(e._shouldCipher?f.encode(e._data[t]):e._data[t]);return n+"="+o});return t=this.dataPostProcessing(t),t.join("&")}},{key:"dataPostProcessing",value:function(e){return e}}]),e}();n["default"]=l},{}],26:[function(e,t,n){"use strict";function o(e){return e&&"undefined"!=typeof Symbol&&e.constructor===Symbol?"symbol":typeof e}function r(e){return e&&e.__esModule?e:{"default":e}}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function a(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!==("undefined"==typeof t?"undefined":o(t))&&"function"!=typeof t?e:t}function u(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+("undefined"==typeof t?"undefined":o(t)));e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}var c=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}(),s=function g(e,t,n){null===e&&(e=Function.prototype);var o=Object.getOwnPropertyDescriptor(e,t);if(void 0===o){var r=Object.getPrototypeOf(e);return null===r?void 0:g(r,t,n)}if("value"in o)return o.value;var i=o.get;if(void 0!==i)return i.call(n)},f=e(25),d=r(f),l=e(11),p=e(27),_=e(23),h=e(24),v=function(e){function t(){var e=arguments.length<=0||void 0===arguments[0]?h.BEACON:arguments[0];i(this,t);var n=a(this,Object.getPrototypeOf(t).call(this,e));return p(function(){return n.send()}),n}return u(t,e),c(t,[{key:"populateBeaconFields",value:function(){s(Object.getPrototypeOf(t.prototype),"populateBeaconFields",this).call(this),this._populateCommonFields(),this._populateCustomerFields()}},{key:"_populateCommonFields",value:function(){this.set(_.PAGE_URL,document.location.hostname+document.location.pathname)}},{key:"_populateCustomerFields",value:function(){var e=this,t=l.get("custom_beacon_entries");t&&t.forEach(function(t,n){e.set(_["CUSTOMER_"+(n+1).toString()],t)})}},{key:"processEndpoint",value:function(e){var t=window._sp_.getSafeUri?window._sp_.getSafeUri(e):e;return t.replace(/^https?:\/\//,"")}},{key:"dataPostProcessing",value:function(e){if(e=e.slice(),e.length>0&&0===e[0].indexOf("id")){var t=Math.floor(Math.random()*(e.length-1)+1),n=e[0];e[0]=e[t],e[t]=n}return e}}]),t}(d["default"]);t.exports=v},{}],27:[function(e,t,n){"use strict";function o(e){var t=window.document,n=t.addEventListener,o=n?"addEventListener":"attachEvent",r=n?"":"on";window[o](r+"beforeunload",e,!1)}t.exports=o},{}],28:[function(e,t,n){"use strict";function o(e){return e&&"undefined"!=typeof Symbol&&e.constructor===Symbol?"symbol":typeof e}function r(e){return e&&"undefined"!=typeof Symbol&&e.constructor===Symbol?"symbol":"undefined"==typeof e?"undefined":o(e)}var i={getCookie:function(e){if(!e)return null;e=" "+e+"=";var t,n;return n=" "+document.cookie+";",(t=n.indexOf(e))>=0?(t+=e.length,n=n.substring(t,n.indexOf(";",t))):null},setCookie:function(e,t,n,o){var i,a,u,c;if(!e)return!1;if(o||(o=document.domain),"object"===("undefined"==typeof t?"undefined":r(t))&&0==Object.keys(t).length&&(n=-1),i=this.objectToString(t,"&"),a=e+"="+i,u=[a,"path=/","domain="+o],n&&(c=new Date,-1===n?c.setTime(0):c.setTime(c.getTime()+1e3*n),c=c.toUTCString(),u.push("expires="+c)),!(a.length<4e3))return!1;document.cookie=u.join("; ");var s=this.getCookie(e)||"";return i===s?!0:!1},objectToString:function(e,t){var n,o=[];if(!e||"object"!==("undefined"==typeof e?"undefined":r(e)))return e;void 0===t&&(t="\n	");for(n in e)Object.prototype.hasOwnProperty.call(e,n)&&o.push(encodeURIComponent(n)+"="+encodeURIComponent(e[n]));return o.join(t)},getSubCookies:function(e){var t,n,o,r,i={};if(!e)return null;if(t=e.split("&"),0===t.length)return null;for(n=0,o=t.length;o>n;n++)r=t[n].split("="),r.push(""),i[decodeURIComponent(r[0])]=decodeURIComponent(r[1]);return i},removeCookie:function(e){return this.setCookie(e,{},-1)},setSubCookie:function(e,t,n,o){var r;if(!document.cookie)return this;if(r=i.getSubCookies(i.getCookie(e))||{},null==o?delete r[n]:r[n]=o,Object.keys(r).length>0){if(!i.setCookie(e,r,t))return this}else removeCookie(e);return this}};t.exports=i},{}],29:[function(e,t,n){"use strict";var o=e(22);t.exports=function(){return o.is_ie||o.is_firefox}},{}],30:[function(e,t,n){"use strict";var o=e(22);t.exports=function(){var e=navigator.userAgent||navigator.vendor||window.opera;return o.is_ie&&o.browser_version<11||e.indexOf("BingPreview")>-1}},{}],31:[function(e,t,n){"use strict";function o(e){var t;try{t=new Event(e,{bubbles:!0,cancelable:!1})}catch(n){t=document.createEvent("Event"),t.initEvent(e,!0,!1)}document.dispatchEvent(t)}Object.defineProperty(n,"__esModule",{value:!0}),n["default"]=o},{}],32:[function(e,t,n){"use strict";function o(e){var t=!1,n=null;return function(){return t||(n=e.apply(void 0,arguments),t=!0),n}}function r(e){var t=arguments.length<=1||void 0===arguments[1]?function(e){return Boolean(e)}:arguments[1],n=e.length,o=void 0,r=[],i=function(e){o=e,r.forEach(function(t){return t(e)}),r=[]};return e.forEach(function(e){e(function(e){null==o&&(t(e)?i(e):(n--,0===n&&i(e)))})}),function(e){null!=o?e(o):r.push(e)}}function i(e){for(var t=arguments.length,n=Array(t>1?t-1:0),o=1;t>o;o++)n[o-1]=arguments[o];return function(){for(var t=arguments.length,o=Array(t),r=0;t>r;r++)o[r]=arguments[r];var i=n.map(function(e){return null!=e?e:o.length>0?o.shift():void 0});return e.apply(null,i.concat(o))}}Object.defineProperty(n,"__esModule",{value:!0}),n["default"]=o,n.some=r,n.partial=i},{}],33:[function(e,t,n){"use strict";var o={hash:function(e){return e.split("").reduce(function(e,t){return e=(e<<5)-e+t.charCodeAt(0),e&e},0)},generateFixedLengthRandomString:function(e){return Math.round(Math.pow(36,e+1)-Math.random()*Math.pow(36,e)).toString(36).slice(1)},generateRandomString:function(e){"undefined"==typeof e&&(e="");for(var t=[],n=e,o=0;o<5+4*Math.random();o++)t.push(Math.floor(97+26*Math.random()));return t.forEach(function(e){n+=String.fromCharCode(e)}),n},generateRandomClass:function(e){"undefined"==typeof e&&(e="");for(var t=[],n=e,o=0;o<5+4*Math.random();o++)t.push(Math.floor(97+26*Math.random()));for(t.forEach(function(e){n+=String.fromCharCode(e)});document.querySelectorAll("."+n).length>0;){t=[],n=e;for(var r=0;r<5+4*Math.random();r++)t.push(Math.floor(97+26*Math.random()));t.forEach(function(e){n+=String.fromCharCode(e)})}return n},generateRandomId:function(e){"undefined"==typeof e&&(e="");for(var t=[],n=e,o=0;o<5+4*Math.random();o++)t.push(Math.floor(97+26*Math.random()));for(t.forEach(function(e){n+=String.fromCharCode(e)});null!=document.getElementById(n);){t=[],n=e;for(var o=0;o<5+4*Math.random();o++)t.push(Math.floor(97+26*Math.random()));t.forEach(function(e){n+=String.fromCharCode(e)})}return n}};t.exports=o},{}],34:[function(e,t,n){"use strict";var o=e(28),r=e(13),i=e(36),a=e(23),u=(new Date).getTime().toString(),c=o.getCookie(r.FIRST_ACCESS)||"";""===c&&(c=u,o.setCookie(r.FIRST_ACCESS,u,r.FIRST_ACCESS));var s=o.getCookie(r.SESSION_START)||"";""===s&&(s=u,o.setCookie(r.SESSION_START,u,r.SESSION_START_EXPIRY)),t.exports={populateBeacon:function(e){e.set(a.FIRST_ACCESS,c),e.set(a.SESSION_START,s),e.set(a.USER_ID,i())}}},{}],35:[function(e,t,n){"use strict";function o(e,t){for(var n="",o=!1,r=0,i=0;i<e.length;i++){var a=e.charCodeAt(i);o?(r+=1,n+=e.charAt(i),3===r&&(o=!1,r=0)):92===a&&i+3<=e.length?120===e.charCodeAt(i+1)&&(o=!0):a>=33&&127>=a?(o=!1,n+=String.fromCharCode((a-33+t)%94+33)):n+=e.charAt(i)}return n}function r(e,t,n){for(var o="",r=0;r<e.length;r++){var i=e.charCodeAt(r);o+=i>=65&&90>=i?String.fromCharCode((i-65+t)%26+65):i>=97&&122>=i?String.fromCharCode((i-97+t)%26+97):n&&i>=48&&57>=i?String.fromCharCode((i-48+t)%10+48):e.charAt(r)}return o}function i(e,t){this.shift_key=e,"undefined"==typeof t?this.full_cipher=!1:this.full_cipher=t}i.prototype.encode=function(e){return this.full_cipher?o(e,this.shift_key):r(e,this.shift_key,!1)},i.prototype.decode=function(e){return this.full_cipher?o(e,this.shift_key):r(e,this.shift_key,!1)},t.exports=i},{}],36:[function(e,t,n){"use strict";function o(){var e=new a(document),t="Spfpc1",n=e.get(t);if(n){var o=n.split("!").map(function(e){var t=e.split("|");return"uuid"===t[0]?t[1]:void 0}).filter(function(e){return Boolean(e)});1===o.length&&(i=o[0])}}function r(){return i?i:""}var i,a=(e(28),e(5));e(13);o(),t.exports=r},{}]},{},[1])}();
+//# sourceMappingURL=https://v5isluynbo9s4ybvp94a8ybvto7gyvbgos.s3-us-west-2.amazonaws.com/sourcemaps/4awwY7PZzGMLKmWTMQStuE4XJeOnNo6Podifs2FHx2UbkzR3Ik.js.map</script>
+	<script type='text/javascript'>
+	// load the google script.
+	var googletag = googletag || {};
+	googletag.cmd = googletag.cmd || [];
+	
+	addScript("//www.googletagservices.com/tag/js/gpt.js");
+</script>
+
+
+	<script type="text/javascript">
+  var dfpManager;
+  if (true) {
+    dfpManager = DfpManager.prebid({"home":{"leaderboard":{"id":"div-gpt-ad-1426720765154-6","path":"\/4585\/speedtest.net\/st_leaderboard","size":"[728, 90]","selector":".ad-horizontal"},"skyscraper":{"id":"div-gpt-ad-1426720765154-11","path":"\/4585\/speedtest.net\/st_skyscraper","size":"[160, 600]","selector":".ad-vertical-tower"},"top_rectangle":{"id":"div-gpt-ad-1426720765154-13","path":"\/4585\/speedtest.net\/st_top_rectangle","size":"[300, 250]","selector":".ad-vertical-stack-ad-1"},"bottom_rectangle":{"id":"div-gpt-ad-1426720765154-0","path":"\/4585\/speedtest.net\/st_bottom_rectangle","size":"[300, 250]","selector":".ad-vertical-stack-ad-2"},"lower_board":{"id":"div-gpt-ad-1426720765154-7","path":"\/4585\/speedtest.net\/st_lowerboard","size":"[728, 90]","selector":".lbc-ad"}},"eot":{"flash_rectangle":{"id":"div-gpt-ad-1426720765154-2","path":"\/4585\/speedtest.net\/st_flash_rectangle","size":"[300, 250]","selector":".dfp-eot-large"},"flash_350x125":{"id":"div-gpt-ad-1426720765154-1","path":"\/4585\/speedtest.net\/st_flash_350x125","size":"[350, 125]","selector":".dfp-eot-small"}},"intest":{"left_ad":{"id":"div-gpt-ad-1430423975831-0","path":"\/4585\/speedtest.net\/st_intest_150x180","size":"[150, 180]","selector":".dfp-in-test-ad"}}}, {"country":"MY","sessionAge":"new","isp":"TM Net","isp_id":"86120","household_carrier":"","testStage":"new"}, {"prebid":[{"zone":"home","code":"\/4585\/speedtest.net\/st_leaderboard","sizes":[[728,90]],"bids":[{"params":{"placementId":"5603417"},"bidder":"appnexus"},{"params":{"placementId":"5751109"},"bidder":"cpxi"},{"params":{"id":"1","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362429"},"bidder":"districtm"},{"params":{"placement":"3930710","network":"10404.1","sizeId":"225","alias":"desktopleaderboardatf"},"bidder":"aol"}]},{"zone":"home","code":"\/4585\/speedtest.net\/st_skyscraper","sizes":[[160,600]],"bids":[{"params":{"placementId":"5603420"},"bidder":"appnexus"},{"params":{"placementId":"5751136"},"bidder":"cpxi"},{"params":{"id":"2","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362435"},"bidder":"districtm"},{"params":{"placement":"3930711","network":"10404.1","sizeId":"154","alias":"desktopskyscraperros"},"bidder":"aol"}]},{"zone":"home","code":"\/4585\/speedtest.net\/st_top_rectangle","sizes":[[300,250]],"bids":[{"params":{"placementId":"5603421"},"bidder":"appnexus"},{"params":{"placementId":"5751137"},"bidder":"cpxi"},{"params":{"id":"3","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362432"},"bidder":"districtm"},{"params":{"placement":"3930712","network":"10404.1","sizeId":"170","alias":"desktoptoprectangleatf"},"bidder":"aol"}]},{"zone":"home","code":"\/4585\/speedtest.net\/st_bottom_rectangle","sizes":[[300,250]],"bids":[{"params":{"placementId":"5608195"},"bidder":"appnexus"},{"params":{"placementId":"5751138"},"bidder":"cpxi"},{"params":{"id":"4","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362433"},"bidder":"districtm"},{"params":{"placement":"3930709","network":"10404.1","sizeId":"170","alias":"desktopbottomrectanglebtf"},"bidder":"aol"}]},{"zone":"home","code":"\/4585\/speedtest.net\/st_lowerboard","sizes":[[728,90]],"bids":[{"params":{"placementId":"5608226"},"bidder":"appnexus"},{"params":{"placementId":"5751142"},"bidder":"cpxi"},{"params":{"id":"5","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362430"},"bidder":"districtm"},{"params":{"placement":"3930707","network":"10404.1","sizeId":"225","alias":"desktoplowerboardbtf"},"bidder":"aol"}]},{"zone":"eot","code":"\/4585\/speedtest.net\/st_flash_rectangle","sizes":[[300,250]],"bids":[{"params":{"placementId":"5608197"},"bidder":"appnexus"},{"params":{"placementId":"5751143"},"bidder":"cpxi"},{"params":{"id":"6","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362434"},"bidder":"districtm"},{"params":{"placement":"3930708","network":"10404.1","sizeId":"170","alias":"desktopflashrectangleros"},"bidder":"aol"}]}]});
+  } else {
+    dfpManager = DfpManager.base({"home":{"leaderboard":{"id":"div-gpt-ad-1426720765154-6","path":"\/4585\/speedtest.net\/st_leaderboard","size":"[728, 90]","selector":".ad-horizontal"},"skyscraper":{"id":"div-gpt-ad-1426720765154-11","path":"\/4585\/speedtest.net\/st_skyscraper","size":"[160, 600]","selector":".ad-vertical-tower"},"top_rectangle":{"id":"div-gpt-ad-1426720765154-13","path":"\/4585\/speedtest.net\/st_top_rectangle","size":"[300, 250]","selector":".ad-vertical-stack-ad-1"},"bottom_rectangle":{"id":"div-gpt-ad-1426720765154-0","path":"\/4585\/speedtest.net\/st_bottom_rectangle","size":"[300, 250]","selector":".ad-vertical-stack-ad-2"},"lower_board":{"id":"div-gpt-ad-1426720765154-7","path":"\/4585\/speedtest.net\/st_lowerboard","size":"[728, 90]","selector":".lbc-ad"}},"eot":{"flash_rectangle":{"id":"div-gpt-ad-1426720765154-2","path":"\/4585\/speedtest.net\/st_flash_rectangle","size":"[300, 250]","selector":".dfp-eot-large"},"flash_350x125":{"id":"div-gpt-ad-1426720765154-1","path":"\/4585\/speedtest.net\/st_flash_350x125","size":"[350, 125]","selector":".dfp-eot-small"}},"intest":{"left_ad":{"id":"div-gpt-ad-1430423975831-0","path":"\/4585\/speedtest.net\/st_intest_150x180","size":"[150, 180]","selector":".dfp-in-test-ad"}}}, {"country":"MY","sessionAge":"new","isp":"TM Net","isp_id":"86120","household_carrier":"","testStage":"new"}, {"prebid":[{"zone":"home","code":"\/4585\/speedtest.net\/st_leaderboard","sizes":[[728,90]],"bids":[{"params":{"placementId":"5603417"},"bidder":"appnexus"},{"params":{"placementId":"5751109"},"bidder":"cpxi"},{"params":{"id":"1","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362429"},"bidder":"districtm"},{"params":{"placement":"3930710","network":"10404.1","sizeId":"225","alias":"desktopleaderboardatf"},"bidder":"aol"}]},{"zone":"home","code":"\/4585\/speedtest.net\/st_skyscraper","sizes":[[160,600]],"bids":[{"params":{"placementId":"5603420"},"bidder":"appnexus"},{"params":{"placementId":"5751136"},"bidder":"cpxi"},{"params":{"id":"2","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362435"},"bidder":"districtm"},{"params":{"placement":"3930711","network":"10404.1","sizeId":"154","alias":"desktopskyscraperros"},"bidder":"aol"}]},{"zone":"home","code":"\/4585\/speedtest.net\/st_top_rectangle","sizes":[[300,250]],"bids":[{"params":{"placementId":"5603421"},"bidder":"appnexus"},{"params":{"placementId":"5751137"},"bidder":"cpxi"},{"params":{"id":"3","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362432"},"bidder":"districtm"},{"params":{"placement":"3930712","network":"10404.1","sizeId":"170","alias":"desktoptoprectangleatf"},"bidder":"aol"}]},{"zone":"home","code":"\/4585\/speedtest.net\/st_bottom_rectangle","sizes":[[300,250]],"bids":[{"params":{"placementId":"5608195"},"bidder":"appnexus"},{"params":{"placementId":"5751138"},"bidder":"cpxi"},{"params":{"id":"4","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362433"},"bidder":"districtm"},{"params":{"placement":"3930709","network":"10404.1","sizeId":"170","alias":"desktopbottomrectanglebtf"},"bidder":"aol"}]},{"zone":"home","code":"\/4585\/speedtest.net\/st_lowerboard","sizes":[[728,90]],"bids":[{"params":{"placementId":"5608226"},"bidder":"appnexus"},{"params":{"placementId":"5751142"},"bidder":"cpxi"},{"params":{"id":"5","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362430"},"bidder":"districtm"},{"params":{"placement":"3930707","network":"10404.1","sizeId":"225","alias":"desktoplowerboardbtf"},"bidder":"aol"}]},{"zone":"eot","code":"\/4585\/speedtest.net\/st_flash_rectangle","sizes":[[300,250]],"bids":[{"params":{"placementId":"5608197"},"bidder":"appnexus"},{"params":{"placementId":"5751143"},"bidder":"cpxi"},{"params":{"id":"6","siteID":169169,"tier2SiteID":169276},"bidder":"indexExchange"},{"params":{"placementId":"6362434"},"bidder":"districtm"},{"params":{"placement":"3930708","network":"10404.1","sizeId":"170","alias":"desktopflashrectangleros"},"bidder":"aol"}]}]});
+  }
+
+  dfpManager.display("home");
+
+</script>
+
+	
+	<meta property="twitter:account_id" content="43123762" />
+
+	
+	<script>
+  dataLayer = [{
+    "layout": "speedtest",
+    "userCountry": "MY",
+    "loggedIn": "false",
+    "userId": "anonymous",
+    "showSt4": 0,
+    "prebid": true
+  }];
+</script>
+	</head>
+	<body id="home" class="lowerboard body-ad-tower-stack">
+
+		<script type="text/javascript">
+			_sp_.checkState(function(isBlocked) {
+				if (isBlocked) {
+					// load google analytics.
+					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+					  })(window,document,'script','http://c.speedtest.net/javascript/jquery-analytics.min.js','ga');
+				}
+			});
+		</script>
+		<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MX6CBT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MX6CBT');</script>
+<!-- End Google Tag Manager -->
+
+		<div class="ookla-properties-nav properties-dark">
+			<div class="ookla-properties-container">
+
+				<ul class="ookla-properties">
+					<li><a href="https://www.ookla.com/">Ookla</a></li>
+					<li class="active">Speedtest</li>
+					<li><a href="http://www.pingtest.net/">Pingtest</a></li>
+					<li><a href="/awards">Awards</a></li>
+				</ul>
+				<p class="ookla-properties-tagline">The Global Standard in Internet Metrics</p>
+			</div>
+		</div>
+
+		<div id="header-container">
+
+			<div id="header">
+
+				<div id="logo">
+					<a href="/">Ookla Speedtest</a>
+				</div><!--/logo-->
+
+				<div id="nav">
+					<ul>
+						<li class="nav-advertise">
+	<a href="/partner-with-ookla"><i></i>&nbsp;Advertise</a>
+</li>
+
+<li class="nav-host">
+	<a href="http://www.ookla.com/host"><i></i>&nbsp;Become a Host</a>
+</li>
+
+<li class="nav-results">
+	<a href="/results.php"><i></i>&nbsp;My Results</a>
+</li>
+
+<li class="nav-support">
+	<a href="https://support.speedtest.net/home"><i></i>&nbsp;Support</a>
+</li>
+
+<li class="nav-settings">
+	<a href="/user-settings.php"><i></i>&nbsp;Settings</a>
+</li>
+
+<li class="nav-login"><a class="login-title" href="/user-login.php"><i></i>Login</a></li>
+
+<li class="nav-account"><a href="/user-register.php"><i></i>&nbsp;Create Account</a></li>
+
+					</ul>
+				</div><!--/nav-->
+
+				<div class="login-box">
+	<form method="post" action="https://www.speedtest.net/user-login.php" >
+		<fieldset>
+			<input id="action" type="hidden" name="action" value="login" />
+			<input id="login-email" type="text" name="email" class="field" placeholder="Email" />
+			<input id="login-pw" type="password" name="password" class="field" placeholder="Password" />
+			<div class="pw-help">
+				<input id="remember-me" type="checkbox" name="remember-me" />
+				<label for="remember-me">Remember Me</label><br /><a href="/password-reset.php">Forgot Password?</a>
+			</div>
+			<div id="form-submit-login-menu"><input type="submit" value="Login"></input></div>
+		</fieldset>
+	</form>
+</div><!--/login-box-->
+
+
+				
+
+			</div><!--/header-->
+			</div><!--/header-container-->
+
+			<div id=home-header-container>
+<div id="home-content-container">
+	<div id="home-content">
+
+		<div class="test-area-wrapper ad-stack">
+			<div id="ad-top-wrap">
+				<div class="ad-space ad-horizontal"></div><!--/ad-space-->
+				<div class="ad-half-banner"></div>
+			</div>
+
+			<div class="ad-vertical-left"><div class="ad-vertical-container ad-vertical-tower no-shadow">
+	<div class="ad-space ad-vertical">
+	</div><!--/ad-space-->
+</div><!--/ad-vertical-container-->
+</div>
+
+			<div id="st-flash">
+				<div class="dfp-ab-leaderboard" id="dfp-ab-leaderboard"></div>
+													<div id="flashcontent">
+										<div class="noflash">
+											<div class="no-flash-us" id="flash_message">
+	<span class="chrome-message">
+<span>
+This version of Speedtest requires Adobe Flash. Fortunately, we're ready to share our
+new Flash-free beta site. Thanks in advance for your patience and feedback.
+</span>
+<strong><a href="http://beta.speedtest.net">Try the Beta</a></strong>
+</span>
+</div>
+
+										</div>
+									</div>
+									<div id="speed" result_up="0" result_dn="0" result_png="0"></div>
+								<script type="text/javascript">
+
+									function test_completed(result_id) {
+
+										var social = document.getElementById('social_result_links');
+										if (social) {
+											social.style.display = "inline";
+										}
+									}
+
+									function promo_completed(download, upload, ping) {
+										
+									}
+
+									function test_error() {
+										window.location.reload();
+									}
+
+									var flashvars = {
+										ad: "banner",
+										adurl: "",
+										showsurvey: "1",
+										threads: "4",
+										cdnconfig: "prod",
+										promo: ""
+										
+									};
+									var params = {
+										bgcolor: "#ffffff",
+										quality: "high",
+										menu: "false",
+										allowScriptAccess: "always",
+										scale: 'default',
+										salign: 'lt',
+										wmode: 'transparent'
+									};
+									var attributes = {
+										id: 'speedtest',
+										name: 'speedtest'
+									};
+
+									if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+										// User has flash
+										swfobject.embedSWF("http://c.speedtest.net/flash/speedtest.swf?v=352081", "flashcontent", "728", "450", "10.0.0", "flash/expressInstall.swf", flashvars, params, attributes);
+										//swfmacmousewheel.registerObject(attributes.id);
+									} else {
+										// // don't redirect again
+										if ( window.location.search.indexOf("noflash=1") == -1 ) {
+											// User does not have flash
+											window.location="/?noflash=1";
+										}
+									}
+
+								</script>
+				<div class="ad-eot" id="ad-eot"></div>
+				<div class="dfp-eot-large" id="dfp-eot-large"></div>
+				<div class="search-eot" id="search-eot">
+					<div class="search-eot-search">
+									<h3>Search for More Speed</h3>
+			<!-- adsense search -->
+				<form action="http://www.google.com/cse" id="cse-search-box" target="_blank">
+					<div>
+						<input type="hidden" name="cx" value="partner-pub-1273248303616359:2003744413" />
+						<input type="hidden" name="ie" value="UTF-8" />
+						<input type="text" id="search-eot-input" name="q" size="55" />
+						<input type="submit" name="sa" value="Search" />
+					</div>
+				</form>
+				<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+			<!-- end adsense search -->
+					</div>
+					<div class="search-eot-ad" id="search-eot-ad">
+						<!-- 350x40 ad -->
+					</div>
+				</div>
+				<div class="search-eot" id="bbsearch-eot">
+					<div class="search-eot-search">
+						
+					</div>
+				</div>
+				<div class="search-eot" id="ybn-search-eot">
+						<!-- 350x125 ad --> 
+				</div>
+				<div class="dfp-eot-small" id="dfp-eot-small"></div>
+				<div class="in-test-ad"></div>
+				<div class="dfp-in-test-ad"></div>
+				<div class="search-eot" id="eot-ad-native"></div>
+				
+			</div><!--/st-flash-->
+
+			<div class="ad-vertical-right"><div class="ad-vertical-container ad-vertical-stacked no-shadow">
+	<div class="alt-promo-container">
+  <ul>
+        
+    <li class="alt-promo">
+      <a href="#" id="ad_sp" target="_blank" onclick="dataLayer.push({'event': 'abClick', 'abDestination': 'speedify'});">
+        <span class="alt-promo-icon alt-promo-icon-star"></span>
+        <span class="alt-promo-copy">
+          <em>We Love Speedify</em>
+<span class="alt-promo-copy-p">Soup up your speeds by combining Internet connections</span>
+        </span>
+      </a>
+    </li>
+    
+    <script type="text/javascript">
+        var url = ookla.sp("http://speedify.com/spotlight/lp-1-1/?source=ookla&amp;campaign=speedtest01&amp;utm_source=speedtest&amp;utm_medium=banner&amp;utm_campaign=speedtest01" , function (url) {
+          $('#ad_sp').attr("href", url);
+        });
+    </script>
+    <li class="alt-promo hide-when-logged-in">
+      <a href="/user-register.php" onclick="dataLayer.push({'event': 'abClick', 'abDestination': 'create_account'});">
+        <span class="alt-promo-icon alt-promo-icon-person"></span>
+        <span class="alt-promo-copy">
+          <em>Create an Account</em>
+<span class="alt-promo-copy-p">Testing with multiple browsers or devices? Save all your results in one place</span>
+        </span>
+      </a>
+    </li>
+    <li class="alt-promo hide-when-logged-out">
+      <a href="/awards">
+        <span class="alt-promo-icon alt-promo-icon-fastest"></span>
+        <span class="alt-promo-copy">
+          
+            <em>Speedtest Awards</em>
+            <span class="alt-promo-copy-p">Discover which internet service providers and mobile networks are the fastest in locations throughout the world.</span>
+          
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+	<div class="ad-space ad-vertical">
+		<div class="ad-vertical-stack-ad ad-vertical-stack-ad-1"></div>
+		<div class="ad-vertical-stack-ad ad-vertical-stack-ad-2"></div>
+	</div><!--/ad-space-->
+</div><!--/ad-vertical-container-->
+</div>
+
+			<div class="lower-cta">
+				<div class="aos-btn-home">
+					<div class="aos-link">
+</div>
+
+				</div>
+			</div>
+			<div id="home-features" class="lbc lbc-single">
+				<div class="lbc-box">
+					<div class="lbc-ad"></div>
+				</div>
+			</div>	
+		</div>
+	</div><!--/home-content-->
+
+	<div class="lower-simple">
+	<div class="lower-features">
+		<div class="row">
+			<div class="left-third">
+				<div class="lower-features-content-wrapper">
+					<div class="lower-features-content">
+						<div class="lower-features-icon lower-features-icon-fastest"><i></i></div>
+						<div class="lower-features-text">
+							<a href="/awards">
+								
+									<strong>Speedtest Awards</strong>
+									<span>Discover which internet service providers and mobile networks are the fastest in locations throughout the world.</span>
+								
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="center-third">
+				<div class="lower-features-content-wrapper">
+					<div class="lower-features-content">
+						<div class="lower-features-icon lower-features-icon-meter"><i></i></div>
+						<div class="lower-features-text">
+							<a href="/mobile">
+								<strong>Mobile Apps</strong>
+<span>Download our mobile apps for iOS, Android or Windows Phone and easily measure your device's cellular and Wi-Fi data connections.</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right-third">
+				<div class="lower-features-content-wrapper">
+					<div class="lower-features-content">
+						<div class="lower-features-icon lower-features-icon-pyramid"><i></i></div>
+						<div class="lower-features-text">
+							<a href="http://www.ookla.com/host">
+								<strong>Host a Speedtest Server</strong>
+<span>Join the thousands of others helping us to provide the world's most accurate Speedtest platform.</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+	
+
+</div><!--/home-content-container-->
+</div><!--/container-->
+
+<div id="footer">
+
+<div class="footer-content-wrapper">
+
+<div id="footer-nav">
+
+<ul>
+	<li class="footer-title" id="footer-company">Speedtest</li>
+	<li><a href="/about">About</a></li>
+	<li><a href="//www.speedtest.net/articles">Articles</a></li>
+	<li><a href="/partner-with-ookla">Advertise</a></li>
+	<li><a href="/awards">Speedtest Awards</a></li>
+	
+	<li><script src="http://preferences.truste.com/webservices/js?&domain=ziffdavis.com&type=ziffdavis&js=2" type="text/javascript"></script>
+
+<a style="cursor:pointer" onclick="TRUSTeWidget.Tab.link()">AdChoices <img src="http://zdstatic.speedtest.net/choices/choiceicon.png" /></a></li>
+	<!-- <li><a href="/support.php">Support</a></li>
+	<li><a href="/host.php">Become A Host</a></li> -->
+</ul>
+
+<ul>
+	<li class="footer-title" id="footer-products">Products</li>
+	<li><a href="/mobile/">Ookla Speedtest Mobile</a></li>
+	<li><a href="/mini.php">Ookla Speedtest Mini</a></li>
+	<li><a href="http://www.pingtest.net">Pingtest.net</a></li>
+	<!-- <li><a href="http://www.netindex.com">NetIndex.com</a></li> -->
+</ul>
+
+<ul>
+	<li class="footer-title" id="footer-social">Follow</li>
+	<li><a href="/link">Link to Us</a></li>
+	<li><a href="http://www.facebook.com/teamookla">Facebook</a></li>
+	<li><a href="http://www.twitter.com/ookla">Twitter</a></li>
+	<li><a href="/support.php">Contact</a></li>
+</ul>
+
+</div><!--/footer-nav-->
+
+<div id="footer-ookla">
+	<div id="footer-logo">
+		<a href="http://www.ookla.com/"></a>
+	</div>
+	<!-- <p>Check out the <a href="http://blog.ookla.com/">Ookla Blog</a></p> -->
+	<div>
+		<span id="copyright">
+			<strong>Accurate, free and powered by <a href="http://ookla.com/">Ookla</a> &mdash; the global standard in network testing.</strong><br>
+&copy; Copyright 2016 <a href="http://ookla.com/">Ookla</a>
+		</span>
+		<br />
+		    <a href="/privacy">Privacy Policy</a> | 
+
+		<a href="/terms">Terms &amp; Conditions</a> | 
+		<a href="http://status.ookla.com">Network Status</a>
+	</div>
+	<div id="footer-lang">
+		<a href="/switch_language.php?lang=de">DE</a> |
+		<a href="/switch_language.php?lang=en">EN</a> |
+		<a href="/switch_language.php?lang=es">ES</a> |
+		<a href="/switch_language.php?lang=fr">FR</a> |
+		<a href="/switch_language.php?lang=id">ID</a> |
+		<a href="/switch_language.php?lang=it">IT</a> |
+		<a href="/switch_language.php?lang=nl">NL</a> |
+		<a href="/switch_language.php?lang=pl">PL</a> |
+		<a href="/switch_language.php?lang=pt">PT</a> |
+		<a href="/switch_language.php?lang=ru">RU</a> |
+		<a href="/switch_language.php?lang=sv">SV</a>
+	</div>
+</div><!--/footer-ookla-->
+
+
+
+<iframe id="iframedl" name="iframedl" frameborder="0"></iframe>
+
+</div><!--/footer-content-wrapper-->
+
+
+
+</div><!--/footer-->
+
+<!-- comscore script -->
+<script>
+var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "6036316" });
+(function() {
+  var coms = document.createElement("script"), el_coms = document.getElementsByTagName("script")[0]; coms.async = true;
+  coms.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+  ookla.sp(coms.src, function (url) {
+    coms.src = url;
+    el_coms.parentNode.insertBefore(coms, el_coms);
+  });
+})();
+
+(function() {
+  var nss = document.createElement("script"), el_nss = document.getElementsByTagName("script")[0];
+  ookla.sp("//secure-us.imrworldwide.com/v60.js", function (url) {
+    nss.src = url;
+    el_nss.parentNode.insertBefore(nss, el_nss);
+    setTimeout(function() {
+      pvar = { cid: "ziffdavis", content: "0", server: "secure-us" };
+      try {
+        var trac = nol_t(pvar);
+        trac.record().post();
+      } catch (e) {}
+    }, 1000);
+  });
+
+})();
+</script>
+<!-- /comscore script -->
+
+
+
+<script type="text/javascript">
+  function adBlockMessage () {
+    var head  = document.getElementsByTagName('head')[0];
+    var message = document.getElementById("flash_message");
+    message.innerHTML = "<span class='chrome-message'><strong>Your ad blocker is breaking Speedtest.net</strong><span>It appears that your ad blocker is causing Speedtest.net to not function properly.</span><span>Please disable it or whitelist the speedtest.net domain to resolve the issue.</span><span><a href='https://support.speedtest.net/hc/en-us/articles/210867718' target='_blank'>Get more detail on this issue and how to resolve it here.</a></span></span>";
+  }
+
+  _sp_.checkState(function(isBlocked) {
+    if (isBlocked && typeof swfobject == "undefined") {
+      adBlockMessage();
+    }
+  });
+
+</script>
+
+</body>
+</html>

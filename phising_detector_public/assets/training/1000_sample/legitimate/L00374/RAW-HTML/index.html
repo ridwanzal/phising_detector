@@ -1,0 +1,1596 @@
+<!doctype html>
+<!--[if lte IE 7]> <html lang="en" class="en no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="en no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="en no-js ie9"> <![endif]-->
+<!--[if !(IE)]><!--> <html lang="en" class="en no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Free Online YouTube Downloader: Download YouTube Videos, Facebook and many others!</title>
+  <meta name="description" content="Free Online service to Download YouTube videos at one click! The best YouTube Downloader supporting fast and easy vimeo, Facebook and Dailymotion video Download and much more!">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--[if lte IE 8]><script src="/js/libs/es5-shim.min.js"></script><![endif]-->
+  <script src="/js/libs/modernizr-2.8.3.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.11.2.min.js"><\/script>')</script>
+  <script src="/js/scripts_1.15.js?v=1"></script>
+
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="image_src" href="/img/icon_100.png">
+
+  <link rel="stylesheet" href="/css/styles.css?v=53">
+
+  <!--[if lte IE 9]>
+  <link rel="stylesheet" href="/css/ie_1.1.css?v=2">
+  <![endif]-->
+
+  <meta name="verify-v1" content="ub1H7kYJnwqYG8F1I+HOcbvOZ1ZorzzYgei/UVDCJkY=">
+  <meta name="yandex-verification" content="50aeecc20b39dade">
+
+  <script>
+    _sf = {
+      lang: 'en',
+      cookieDomain: '.savefrom.net'
+    };
+
+    (function(){
+      _sf.uaParser = new UAParser();
+      _sf.ua = _sf.uaParser.getUA();
+      _sf.browser = _sf.uaParser.getBrowser() || {};
+      _sf.device = _sf.uaParser.getDevice() || {};
+      _sf.os = _sf.uaParser.getOS() || {};
+
+      if(!_sf.device.type && _sf.os.name)
+      {
+        if(['Android', 'Bada', 'BlackBerry', 'Firefox OS', 'iOS', 'MeeGo', 'Sailfish', 'Series40', 'Symbian', 'Tizen', 'WebOS', 'Windows Phone'].indexOf(_sf.os.name) > -1)
+        {
+          _sf.device.type = 'mobile';
+        }
+      }
+
+      if(_sf.device.type)
+      {
+        if(_sf.device.type == 'tablet')
+        {
+          _sf.mobile = true;
+          $('html').addClass('tablet');
+        }
+        else if(_sf.device.type == 'mobile' || _sf.device.type == 'wearable')
+        {
+          _sf.mobile = true;
+          $('html').addClass('mobile');
+        }
+      }
+    })();
+
+    $(function(){
+      $('input[placeholder], textarea[placeholder]').placeholder();
+
+      setTooltipHandler('.tooltip[title]');
+      setTooltipHandler('.tooltip-err[title]', {className: 'err'});
+
+      // menu
+      $('nav li').on('mouseenter', function(){
+        if($(this).children('ul').is('ul'))
+        {
+          $(this).addClass('hover').on('mouseleave', function(){
+            $(this).removeClass('hover');
+          });
+        }
+      });
+
+      $('body').on('click', 'header .menu-btn', function(){
+        $('#nav_top').toggleClass('active');
+      });
+
+      $('body').on('click', '.spoiler-title', function(){
+        var $this = $(this).toggleClass('open');
+        var $box = $this.parent().children('.spoiler-box');
+
+        if($this.hasClass('open'))
+          $box.slideDown();
+        else
+          $box.slideUp();
+
+        return false;
+      });
+
+      var thumbnail_rel = [];
+      $('a.thumbnail').each(function(){
+        var rel = $(this).attr('rel');
+        if(rel && !thumbnail_rel[rel])
+        {
+          thumbnail_rel[rel] = 1;
+          $("a[rel='" + rel + "']").fancybox();
+        }
+      });
+
+      $('body').on('click', 'img.thumbnail', function(){
+        this.src = this.src.replace(/(\w\w)\.([a-z]{3,4})(?:\?|$)/i, function(s, p1, p2){
+          if(p1 == '_t')
+            return '.' + p2;
+
+          return p1 + '_t.' + p2;
+        });
+      });
+    });
+
+
+    function setTooltipHandler(selector, options)
+    {
+      var opts = {
+        fade: true,
+        opacity: 1,
+        delayIn: 300,
+        delayOut: 500,
+        hoverHold: true,
+        html: true,
+        gravity: 's',
+        offset: 5,
+        live: true,
+        title: function(){
+          if (window.ga && $(this).hasClass('ga_track_events')) {
+            var data = $(this).data('tooltip-ga-event');
+            if (data) {
+              data = data.replace(/;+$/, '');
+              data = data.split(';');
+              if(data.length < 2)
+                return;
+
+              data.unshift('send', 'event');
+              ga.apply(null, data);
+            }
+          }
+
+          return $(this).attr('original-title');
+        }
+      };
+
+      if(options)
+        opts = $.extend({}, opts, options);
+
+      $(selector).tipsy(opts);
+    }
+
+    function jAlert(message, sticky, theme, position)
+    {
+      $.jGrowl.defaults.closer = false;
+      $.jGrowl.defaults.closeTemplate	= '&times;';
+
+      var options = {
+        sticky: sticky ? true : false,
+        life: 5000
+      };
+
+      if(theme)
+        options['theme'] = theme;
+
+      if(position)
+        options.position = position;
+
+      $.jGrowl(message, options);
+    }
+
+    function jAlertErr(message, sticky, position)
+    {
+      if(sticky === undefined)
+        sticky = true;
+
+      jAlert(message, sticky, 'err', position);
+    }
+
+    function showMessage(message, onCloseClick, onBtnClick)
+    {
+      if(!message)
+        return;
+
+      $('.top-message-bar').remove();
+
+      var $panel = $('<div class="top-message-bar"/>').hide();
+      $panel.append('<div class="content-box">' +
+        '<div class="message-box">' + message + '</div>' +
+        '<div class="close-btn"></div>' +
+        '</div>'
+      );
+
+      $panel.prependTo('body').slideDown();
+
+      $panel.on('click', '.close-btn', function(){
+        if(onCloseClick) {
+          onCloseClick();
+        }
+        $panel.fadeOut(function(){
+          $panel.remove();
+        });
+      });
+
+      if(onBtnClick) {
+        $panel.on('click', '.button', onBtnClick);
+      }
+    }
+  </script>
+
+  <!-- Bing pixel -->
+<script>
+  (function() {
+    var sf = window._sf;
+
+    if (sf && sf.os && sf.os.name === 'Mac OS') {
+      (function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5105693"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");
+    }
+  })();
+</script>
+<!-- End Bing pixel -->
+<!-- Facebook Pixel Code -->
+<script>
+  (function() {
+    var sf = window._sf;
+
+    if (sf && sf.os && sf.os.name === 'Mac OS') {
+
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '978059908934144');
+      fbq('track', "PageView");
+    }
+  })();
+</script>
+<!-- End Facebook Pixel Code -->
+  <link rel="canonical" href="http://en.savefrom.net/">
+  <script src="/js/savefrom_5.7.min.js?v=1"></script>
+  <script>
+    if(top!=self && (!document.referrer || document.referrer.search(/^(https:\/\/www\.google\.com\/analytics\/web\/|https?:\/\/metrika.yandex.ru\/)/i) !== 0))
+      top.location=location;
+
+    sf.setLanguage({"lang":"en","wait":"Please wait","result":"Result","download":"Download","startDownload":"Start download","copy":"Copy","playerPlay":"Play","playerStop":"Stop","link":"Link","title":"Title","file":"File","size":"Size","hosting":"Hosting","information":"Information","source":"Source","duration":"Duration","more":"More","multiMore":"Find more links","linkNotFound":"The download link not found.","pluralSeconds":["second","seconds"],"pluralParts":["part","parts"],"findMediaLinks":"Find links to media files","fileInfoTitle":"Display file information","copyLinkSuccess":"The download link is copied to the clipboard.","copyLinkFail":"Unable to copy the link to the clipboard.","copyLinksSuccess":"The download links are copied to the clipboard.","copyLinksFail":"Unable to copy the links to the clipboard.","flashPlayerRequired":"Perhaps you do not have <a href=\"http:\/\/get.adobe.com\/flashplayer\/\" target=\"_blank\">Adobe Flash Player<\/a> installed.","dQueueError":"Unable to start downloading the file","dQueueContinue":"Continue downloading the remaining files?","dQueueYes":"Continue","dQueueNo":"Stop","tblHdrDownload":"Download links","tblHdrInformation":"Information","tblHdrFile":"File","tblHdrSize":"Size","error1":"Error: URL not specified.","error2":"Error: invalid URL specified.","error3":"Error: code not specified.","error4":"Please specify what to search.","error5":"Please specify where to search.","error20":"Error: %s element not found.","player_err1":"To view this video, you need to get the download links.","request_err1":"Failed to make the request. Please try again.","request_err2":"Failed to make the request.","notEnoughPoints1":"Not enough points to download this file","notEnoughPoints2":"You do not have enough points to download selected files","allSites":"all popular websites","helper_lite":"Helper","installHelper":"Install SaveFrom.net helper","helperFull":"SaveFrom.net helper","installUvd":"Install Ummy Video Downloader","recommendProduct":{"helper":"We recommend you to install <a href=\"{href}\">SaveFrom.net helper extension<\/a> to download from <b>{service}<\/b> in 1 click.","uvd":"We recommend you to install <a href=\"{href}\">Ummy Video Downloader<\/a> to download from <b>{service}<\/b> in 1 click."}});
+    sf.linksListToken = "#__savefrom.net_links__";
+    sf.jsonToken = "#json#";
+    _sf.query = sf.parseQuery() || {};
+    _sf.hash = sf.parseQuery(location.hash) || {};
+    _sf.app = _sf.query.app || _sf.hash.app || '';
+    if (_sf.app != 'sf-android') {
+      _sf.app = '';
+    }
+
+
+    // Extension interaction
+    var extensionVersion={getLast:function(a,b){var e={chromelite:"chrome",ff:"firefox","ff-sf":"firefox"},h={chrome:{url:"chrome/updates-3.xml",dataType:"xml",fn:function(a,b,c){return c.responseXML&&(a=c.responseXML.querySelector("updatecheck"))?a.getAttribute("version"):null}},firefox:{url:"firefox/update.json",dataType:"json",fn:function(a,b,c){return a&&a.version?a.version:null}},opera:{url:"opera/update.json",dataType:"json",fn:function(a,b,c){return a&&a.version?a.version:null}},safari:{url:"safari/update.plist",
+dataType:"xml",fn:function(a,b,c){return c.responseText&&(a=c.responseText.search(/\<key\>\s*CFBundleShortVersionString\s*\<\/key>/i),0<a&&(c=c.responseText.substr(a).match(/\<string\>\s*([\d\.]+)/i))&&c[1])?c[1]:null}}},d=a.toLowerCase();e[a]&&(d=e[a]);if(h[d]){var g=h[d];$.get("/files/extensions/"+g.url,{rnd:(new Date).getTime()+Math.random()},function(f,e,c){f=g.fn(f,e,c);c=c.getResponseHeader("Last-Modified");b(f,a,d,c)},g.dataType)}else b(null,a,d)},stringToArray:function(a){a=a.match(/^(\d+)(?:\.(\d+))?/);
+if(!a)return null;var b=[parseInt(a[1])];2<a.length&&b.push(parseInt(a[2]));return b},compare:function(a,b){a=this.stringToArray(a);b=this.stringToArray(b);return null===a?null===b?0:-1:null===b?1:a[0]!=b[0]?a[0]<b[0]?-1:1:1==a.length?1==b.length?0:-1:1==b.length?1:a[1]!=b[1]?a[1]<b[1]?-1:1:0}};
+
+    $(document).on('extension-query', function(event){
+      try
+      {
+        var node = event.target;
+        if (!node || node.nodeType != Node.TEXT_NODE)
+          return;
+
+        var json = $.parseJSON(node.nodeValue);
+        node.parentNode.removeChild(node);
+
+        switch(json.msg)
+        {
+          case 'setBrowserExtension':
+            setBrowserExtension(json.params);
+            break;
+
+          case 'replaceAjaxResult':
+            var btn = document.getElementById(json.btn);
+            sf.result.replaceAjaxResult(json.data, true, true, btn);
+            break;
+
+          case 'showVideoResult':
+            sf.finishRequest(true);
+            sf.videoResult.show(json.video);
+            break;
+        }
+      }
+      catch(err){}
+    }, false);
+
+
+    function setBrowserExtension(params)
+    {
+      if(!params || !params.id || !params.version)
+        return;
+
+      sf.extension.id = params.id;
+      sf.extension.version = params.version;
+
+      var msgCookieName = 'browser_ext_update_msg',
+          cookieName = 'browser_ext',
+          cookieValue = params.id + ' ' + params.version;
+
+      if(!params.enable || params.enable == '0')
+        cookieValue += ' - disabled';
+
+      window.setTimeout(function(){
+        if(window.ga)
+          window.ga('set', 'dimension2', cookieValue);
+      }, 1000);
+
+      if(!sf.cookie.get(cookieName))
+      {
+        sf.cookie.set(cookieName, cookieValue, 1, '.savefrom.net');
+      }
+
+      function setCookie() {
+        sf.cookie.set(msgCookieName, '1', 1, '.savefrom.net');
+      }
+
+      if(sf.extension.version && !sf.cookie.get(msgCookieName))
+      {
+        extensionVersion.getLast(params.id, function (version, browser, browserName, date) {
+          if(!version)
+            return;
+
+          if(extensionVersion.compare(version, sf.extension.version) > 0)
+          {
+            if(date)
+            {
+              date = new Date(date);
+              if(date && date.getFullYear() > 2012)
+              {
+                var now = new Date();
+                if(now.getTime() - date.getTime() < 86400000)
+                  return;
+              }
+            }
+
+            var updateUrl = '/user.php?utm_source=savefrom&utm_medium=topline&utm_campaign=update_extension';
+            var updateBtn = '<a href="' + updateUrl + '" class="button" target="_blank">Update</a>';
+            var msg = "Your version of &quot;SaveFrom.net helper&quot; browser extension is outdated and it could work improperly {button}";
+            msg = msg.replace(/\{version\}/i, sf.extension.version);
+            msg = msg.replace(/\{button\}/i, ' &nbsp; ' + updateBtn);
+            msg = '<img src="/img/extension/icon_24.png" alt=""> &nbsp; ' + msg;
+
+            setTimeout(function(){
+              if(window.ga)
+                ga('send', 'event', 'topline', 'show', 'update_extension');
+
+              showMessage(msg, setCookie);
+            }, 2000);
+          }
+        });
+      }
+    }
+    // / Extension interaction
+
+    $(function(){
+      (function(name, lang, domain){
+        if(name && lang && domain)
+        {
+          var l = sf.cookie.get(name);
+          if(!l || l != lang)
+            sf.cookie.set(name, lang, 3650, domain);
+        }
+      })("lang", "en", ".savefrom.net");
+
+      sf.clipboard.init();
+
+      $('body').on('click', '.more-links a', function(event){
+        sf.result.showHiddenLinks(this);
+        return false;
+      });
+
+      $('body').on('click', 'input.file-name', function(){
+        if(this.value && this.select)
+          this.select();
+      });
+
+      $('body').
+        on('click', '.zcopy', function(){
+          jAlertErr(sf.lng.copyLinkFail + ' ' + sf.lng.flashPlayerRequired);
+          return false;
+        }).
+        on('mouseenter', '.zcopy', function(){
+          var $this = $(this);
+          if($this.hasClass('active'))
+            return;
+
+          $this.addClass('active');
+
+          ZeroClipboard.setMoviePath('/embed/zeroclipboard10.swf');
+          var clip = new ZeroClipboard.Client();
+          clip.setHandCursor(true);
+          clip.setText($this.data('copy').toString());
+          clip.glue(this);
+          clip.addEventListener('onComplete', function(client, text){
+            jAlert(sf.lng.copyLinkSuccess);
+            if(window.gaHandler && $this.hasClass('ga_track_events'))
+            {
+              window.gaHandler.trackNode($this);
+            }
+          });
+          clip.addEventListener('onMouseOut', function(client){
+            $this.removeClass('active');
+            clip.destroy();
+          });
+        });
+
+
+      var urlRotator = {
+        urls: [
+          'http://youtube.com/watch?v=u7deClndzQw',
+          'http://vimeo.com/22439234'
+        ],
+
+        index: 0,
+        delay: 5000,
+        timeout: 0,
+
+        init: function()
+        {
+          //urlRotator.index = urlRotator.urls.length - 1;
+          $('#sf_form .box').append('<div id="url_rotator_box">example: <span id="url_rotator">' + urlRotator.urls[urlRotator.index] + '</span></div>');
+          this.timeout = setTimeout(this.next, this.delay);
+          $('#sf_form').submit(function(){urlRotator.remove(); return true;});
+        },
+
+        next: function()
+        {
+          urlRotator.index++;
+          if(urlRotator.index >= urlRotator.urls.length)
+            urlRotator.index = 0;
+
+          $('#url_rotator').fadeOut('slow', function(){
+            $(this).html(urlRotator.urls[urlRotator.index]);
+            $(this).fadeIn('slow');
+          });
+
+          urlRotator.timeout = setTimeout(urlRotator.next, urlRotator.delay);
+        },
+
+        remove: function()
+        {
+          clearTimeout(urlRotator.timeout);
+          $('#url_rotator_box').remove();
+        }
+      };
+
+      var $sfUrl = $('#sf_url');
+      if(!$sfUrl.val() || $sfUrl.val() == $sfUrl.attr('placeholder'))
+        urlRotator.init();
+    });
+  // -->
+  </script>
+
+<link rel="alternate" hreflang="de" href="http://de.savefrom.net/">
+<link rel="alternate" hreflang="es" href="http://es.savefrom.net/">
+<link rel="alternate" hreflang="fr" href="http://fr.savefrom.net/">
+<link rel="alternate" hreflang="id" href="http://id.savefrom.net/">
+<link rel="alternate" hreflang="it" href="http://it.savefrom.net/">
+<link rel="alternate" hreflang="pt" href="http://pt.savefrom.net/">
+<link rel="alternate" hreflang="ru" href="http://ru.savefrom.net/">
+<link rel="alternate" hreflang="tr" href="http://tr.savefrom.net/">
+<link rel="alternate" hreflang="uk" href="http://uk.savefrom.net/">
+
+</head>
+<body class="rmode">
+<!--Error message for IE 6-->
+<!--[if lt IE 7]>
+<p class=chromeframe>Your browser is <strong>ancient!</strong> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+<![endif]-->
+<!--/Error message for IE 6-->
+<div style="position: absolute; left: -100px; top: -100px;">
+  <!--LiveInternet counter-->
+  <script type="text/javascript"><!--
+    document.write("<img src='http://counter.yadro.ru/hit?r" +
+    escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+    ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+        screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+    ";h" + escape(document.title.substring(0, 80)) + ";" + Math.random() +
+    "' width=1 height=1 alt=''>")//--></script>
+  <!--/LiveInternet-->
+</div>
+
+
+  <!--Header-->
+  <header class="header header_v2">
+    <div class="page-width-inner g-row_inline">
+      <div class="header__left g-col c3">
+        <span class="menu-btn menu-btn_v2"></span>
+        <a name="logo" class="logo" href="">Savefrom.net</a>
+      </div>
+              <div id="nav_top" class="g-col c9">
+          <div class="nav-top-2 right">
+            <a href="/user.php" class="nav-top-2__item">Install</a><a href="/webmaster.php" class="nav-top-2__item">For webmasters</a><a href="/faq.php" class="nav-top-2__item">Help</a>          </div>
+        </div>
+          </div>
+  </header>
+        
+<div id="main" class="main-block main-block_v2">
+  <noscript>
+    <div class="wrapper"><p class="javascript-error">SaveFrom.net uses Javascript to display some content. Please enable Javascript in your browser and reload this page.</p></div>
+  </noscript>
+    <!--content-->
+    <div class="wrapper">
+        <div class="downloader-2">
+          <!--main form-->
+          <form action="/savefrom.php" method="POST" id="sf_form" class="link-form" onsubmit="return sf.checkForm();" target="sf_frame">
+            <div class="l-box"><div class="tarea-wrap"><input type="text" name="sf_url" id="sf_url" value="" autofocus placeholder="Just insert a link" onfocus="if(this.value && this.select){this.select()}"><a href="#" class="clear-btn"></a></div></div><div class="r-box"><button type="submit" name="sf_submit" id="sf_submit" class="submit"></button></div>
+            <div class="services clearfix"></div>
+            <input type="hidden" name="new" value="1">
+            <input type="hidden" name="lang" value="en">
+                      </form>
+          <!--/main form-->
+
+          <iframe name="sf_frame" id="sf_frame" width="100" height="150" style="display: none;"></iframe>
+
+          <div id="sf_indicator_box" style="display: none;"></div>
+
+          <div id="sf_multi_form_box"></div>
+          <div id="sf_multi_result"></div>
+          <!--result-->
+          <div id="sf_result">
+            <script>
+            <!--
+              var url = '';
+
+              if(_sf.query.hi == 1)
+                $('#sf_form').closest('.wrapper').hide();
+
+              if (sf.isPrimitiveBrowser()) {
+                $('.downloader-2').addClass('simple');
+              }
+              else
+              {
+                $('body').
+                  on('click', function(event){
+                    var $e = $('.link-box.expand .drop-down-box'), e = $e[0];
+                    if(e && event.target != e)
+                    {
+                      $('.list', $e).slideUp('fast', function(){
+                        $e.closest('.link-box').removeClass('expand');
+                      });
+                    }
+                  }).
+                  on('keyup', function(event){
+                    var $e = $('.link-box.expand');
+                    if($e[0] && event.which == 27)
+                    {
+                      $('.list', $e).slideUp('fast', function(){
+                        $e.closest('.link-box').removeClass('expand');
+                      });
+                    }
+                  }).
+                  on('click', '.link-box .def-btn-name', function(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    var $this = $(this), $e = $this.closest('.link-box');
+                    if($e.hasClass('expand'))
+                    {
+                      $('.list', $e).slideUp('fast', function(){
+                        $e.removeClass('expand');
+                      });
+                    }
+                    else
+                    {
+                      $('.link-box.expand .list').slideUp('fast', function(){
+                        $(this).closest('.link-box').removeClass('expand');
+                      });
+
+                      $('.list', $e).slideDown('fast', function(){
+                        $e.addClass('expand');
+                      });
+
+                      sf.result.trackElementAction(this, 'list-show', true);
+                    }
+                  }).
+                  on('click', '.link-box .more-links a', function(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    $(this).closest('.link-box').toggleClass('showall');
+                    sf.result.trackElementAction(this, 'more-btn-click', true);
+                  });
+
+                  // Click + Alt simulation for Safari browser
+                  if (!_sf.mobile && _sf.browser.name == 'Safari') {
+                    $('body').on('click', '.result-box .link-download', function(e){
+                      if (e.button || e.ctrlKey || e.altKey || e.shitfKey) {
+                        return;
+                      }
+
+                      if ($(this).attr('data-copy')) {
+                        return;
+                      }
+
+                      var me = null;
+
+                      try {
+                        if (typeof MouseEvent == 'function') {
+                          me = new MouseEvent('click', {
+                            bubbles: e.bubbles,
+                            cancelable: e.cancelable,
+                            view: e.view,
+                            screenX: e.screenX,
+                            screenY: e.screenY,
+                            clientX: e.clientX,
+                            clientY: e.clientY,
+                            altKey: true,
+                            metaKey: e.metaKey,
+                            button: e.button,
+                            relatedTarget: e.relatedTarget
+                          });
+                        }
+                        else {
+                          me = document.createEvent('MouseEvents');
+                          me.initMouseEvent('click', e.bubbles, e.cancelable, window, 0,
+                            e.screenX, e.screenY, e.clientX, e.clientY,
+                            false, true, false, e.metaKey, e.button, e.relatedTarget);
+                        }
+                      }
+                      catch (err) {
+                        console.log(err);
+                        return;
+                      }
+
+                      if (me) {
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.dispatchEvent(me);
+                      }
+                    });
+                  }
+              }
+
+              $('body').
+                on('click', '.link-box a[data-copy]', function(event){
+                  event.preventDefault();
+                  var url = $(this).data('copy');
+                  $.fancybox({
+                    content: $('#tplCopyBox').render({text: url}),
+                    beforeShow: function(){
+                      $('.fancybox-inner .btn').addClass('zcopy');
+                    }
+                  });
+                }).
+                on('click', '.click-box', function(event){
+                  var href = $(this).data('href');
+                  if(href)
+                  {
+                    event.preventDefault();
+                    if (window.gaHandler) {
+                      window.gaHandler.trackNode(this);
+                    }
+                    window.open(href);
+                  }
+                });
+
+              (function(){
+                var $sfUrl = $('#sf_url'),
+                    sfUrlVal = '',
+                    $sfForm = $('#sf_form'),
+                    $clearBtn = $('.tarea-wrap .clear-btn');
+
+                $sfUrl.
+                  on('focus keyup click change input', function(){
+                    var v = $sfUrl.val();
+                    if(v) {
+                      if(v != sfUrlVal)
+                      {
+                        var valid = (v.search(/^\s*(https?)?:?(\/\/)?[^\/\s]+\.[^\/\s]+/i) > -1);
+                        $sfForm.removeClass('result');
+                        if(valid)
+                        {
+                          $sfForm.removeClass('invalid').addClass('ready');
+                        }
+                        else
+                        {
+                          $sfForm.removeClass('ready').addClass('invalid');
+                        }
+                        sfUrlVal = v;
+                      }
+                      $clearBtn.show();
+                    }
+                    else {
+                      sfUrlVal = '';
+                      $sfForm.removeClass('ready invalid');
+                      $clearBtn.fadeOut('fast');
+                    }
+                  });
+
+                $clearBtn.on('click', function(event){
+                  event.preventDefault();
+                  sfUrlVal = '';
+                  $sfUrl.val('');
+                  $sfForm.removeClass('ready invalid');
+                });
+
+                if($(document).width() <= 680) {
+                  $sfUrl.attr('placeholder', "Enter the URL");
+                }
+              })();
+
+              $(function(){
+                function replaceLanguageSelectorLink(a, url)
+                {
+                  var href = a.href;
+                  if(!href)
+                    return;
+
+                  href = href.replace(/^(https?:\/\/[\w\-\.]+\/)https?\:?\/\/?.+/i, '$1');
+                  href = href.replace(/^(https?:\/\/[\w\-\.]+\/)\d+\-.+/i, '$1');
+
+                  url = 'url=' + encodeURIComponent(url);
+
+                  if(href.search(/(\?|#|&)url=[^\s\"&]+/i) == -1)
+                  {
+                    if(href.search(/#$/) != -1)
+                      a.href = href + url;
+                    else if(href.search(/#.+/) != -1)
+                      a.href = href + '&' + url;
+                    else
+                      a.href = href + '#' + url;
+                  }
+                }
+
+                var query = _sf.query;
+                if(!query || !query.url)
+                {
+                  if(location.hash)
+                  {
+                    var hash = location.hash.replace(/(^|#|&)url=(https?:?\/\/?.+)$/i, function(s, p1, p2){
+                      if(!p2)
+                        return s;
+
+                      return p1 + 'url=' + escape(p2);
+                    });
+
+                    query = sf.parseQuery(hash);
+                  }
+                }
+
+                if(query && query.url)
+                {
+                  url = decodeURIComponent(query['url']);
+                  url = url.replace(/^(https?):?\/\/?/i, '$1://');
+
+                  if(url.search(/^https?:\/\//i) == -1)
+                  {
+                    url = 'http://' + url;
+                  }
+                }
+                else
+                {
+                  var t = location.href.match(/^https?:\/\/[\w\-\.]+\/(https?\:?\/\/?[^\s\"]+)/i);
+                  if(t && t.length > 1)
+                  {
+                    url = t[1].replace(/^(https?):?\/\/?/i, '$1://');
+                    var domain = url.match(/^https?:\/\/([^\/+])/i);
+                    if(domain && domain.length > 1)
+                    {
+                      domain = domain[1];
+                      domain = domain.replace(/^[^@]+@/i, '').replace(/:\d+$/, '');
+                      if(domain.indexOf('%') > -1)
+                        url = decodeURIComponent(url);
+                    }
+                  }
+                }
+
+                if(url)
+                {
+                  url = url.replace(/(\?|#|&)_openstat=[^&#]*&/g, '$1');
+                  url = url.replace(/[\?&#]_openstat=[^&#]*($|#)/, '$1');
+                  url = url.replace(/(\?|#|&)(?:utm_[a-z]+=[^&#]*&?)+/ig, '$1').replace(/[\?&]#/, '#').replace(/[\?#&]+$/, '');
+                  $('#sf_url').val(url);
+                  $('.lang :not(.active) a').each(function(){replaceLanguageSelectorLink(this, url);});
+                  setTimeout(function(){sf.autoSubmitForm('sf_submit');}, 1000);
+                }
+              });
+            //-->
+            </script>
+          </div>
+          <!--/result-->
+
+        </div>
+
+        <div id="modal-container" class="modal-container center-popup-cont">
+          <div class="shade"></div>
+          <div class="popup-content">
+            <div class="modal-top">
+              <b>Tip!</b>
+            </div>
+            <div class="modal-text-cont-for-js">
+              SOME TEXT
+            </div>
+            <div class="close-modal close-modal-icon"></div>
+          </div>
+        </div>
+
+        <!-- JS Templates -->
+        <script id="tplYouTubePopupHelper" type="text/x-jsrender">
+        <div class="popup-content-install2">
+          <div class="popup-left-img" style="background-image: url('/img/after-video-download/popup-left-img.png')"></div>
+          <div class="modal-text-cont">
+            <h2><b>Do you want to download video from <b>{{:service}}</b> much faster and easier than it’s ever been?</b></h2>
+            <p>Just <a href="{{:link}}" target="_blank">install {{:product}}</a>  and take advantage of it right away!</p>
+              <div class="btn-dwn-cont">
+                  <a href="{{:link}}" target="_blank"><button type="button" class="btn-dwn close-modal">Install {{:productLite}}</button></a>
+                  <span><span class="browser-icon browser-icon-big" style="background-image:url('/img/browser/{{:browser_lower}}.png')"></span> for {{:browser}}</span>
+              </div>
+          </div>
+        </div>
+        </script>
+
+        <script id="tplOtherServicePopupHelper" type="text/x-jsrender">
+        <div class="modal-text-cont">
+          <h2>Do you want to download video from <b>{{:service}}</b> much faster and easier than it’s ever been?</h2>
+          <p>Just <a href="{{:link}}" target="_blank" >install {{:product}}</a> for <span class="browser-icon" style="background-image:url('/img/browser/{{:browser_lower}}.png')"></span>{{:browser}} and take an advantage of it!</p>
+          <div class="btn-dwn-cont">
+          <a href="{{:link}}" target="_blank"><button type="button" class="btn-dwn close-modal">Install {{:productLite}}</button></a>
+            <div class="btn-dwn-arrow"></div>
+          </div>
+          </div>
+         </script>
+
+
+
+        <script id="tplResultMeta" type="text/x-jsrender">
+          {{for meta}}
+            {{if name}}
+              <div class="row {{:name}}" title="{{:title}}">{{:html}}</div>
+            {{else}}
+              <div class="row">{{:html}}</div>
+            {{/if}}
+          {{/for}}
+        </script>
+        <script id="tplVideoBox" type="text/x-jsrender">
+          <div class="result-box video">
+            <div class="thumb-box thumb-272 {{if !thumb}}empty{{/if}}">
+              <a href="#" class="clip" data-player-id='{{:playerId}}'>
+                {{if thumb}}
+                  <img src="{{:thumb}}" class="thumb">
+                {{/if}}
+                {{if player}}
+                  <span class="play-btn"></span>
+                {{/if}}
+              </a>
+            </div>
+            <div class="info-box">
+              <div class="meta"></div>
+              <div class="link-box">
+                <div class="def-btn-box"></div><div class="drop-down-box">
+                  <div class="def-btn-name"></div>
+                  <div class="list">
+                    <div class="links">
+                      <div class="main"></div>
+                      <div class="hidden"></div>
+                      <div class="more-links"><a href="#">More</a></div>
+                      <div class="actions"></div>
+                    </div>
+                  </div>
+                </div><div class="def-file-info"></div><div class="second-btn-box"></div>
+              </div>
+            </div>
+          </div>
+        </script>
+        <script id="tplAudioBox" type="text/x-jsrender">
+          <div class="result-box audio">
+            <div class="thumb-box thumb-272 {{if !thumb}}empty{{/if}}">
+              <a href="#" class="clip" data-player-id='{{:playerId}}'>
+                {{if thumb}}
+                  <img src="{{:thumb}}" class="thumb">
+                {{/if}}
+                {{if player}}
+                  <span class="play-btn"></span>
+                  <div class="player-box"></div>
+                {{/if}}
+              </a>
+            </div>
+            <div class="info-box">
+              <div class="meta"></div>
+              <div class="link-box">
+                <div class="def-btn-box"></div><div class="drop-down-box">
+                  <div class="def-btn-name"></div>
+                  <div class="list">
+                    <div class="links">
+                      <div class="main"></div>
+                      <div class="hidden"></div>
+                      <div class="more-links"><a href="#">More</a></div>
+                      <div class="actions"></div>
+                    </div>
+                  </div>
+                </div><div class="def-file-info"></div><div class="second-btn-box"></div>
+              </div>
+            </div>
+          </div>
+        </script>
+        <script id="tplFileBox" type="text/x-jsrender">
+          <div class="result-box file">
+            <div class="thumb-box thumb-272 {{:thumb}}"></div>
+            <div class="info-box">
+              <div class="meta"></div>
+              <div class="link-box">
+                <div class="def-btn-box"></div><div class="drop-down-box">
+                  <div class="def-btn-name"></div>
+                  <div class="list">
+                    <div class="links">
+                      <div class="main"></div>
+                      <div class="hidden"></div>
+                      <div class="more-links"><a href="#">More</a></div>
+                      <div class="actions"></div>
+                    </div>
+                  </div>
+                </div><div class="def-file-info"></div><div class="second-btn-box"></div>
+              </div>
+            </div>
+          </div>
+        </script>
+        <script id="tplPromoBox" type="text/x-jsrender">
+          <div class="icon">
+            <a href="{{:href}}" class="ga_track_events" target="_blank" data-ga-event="{{:event_attr}}"></a>
+          </div><div class="text">
+            <div class="text-cnt">
+              <p class="hdr">Download from {{:service}} in one click</p>
+              <p class="button"><a href="{{:href}}" class="ga_track_events" target="_blank" data-ga-event="{{:event_attr}}">
+                {{if install_btn}}{{:install_btn}}{{else}}Install{{/if}}
+              </a></p>
+          </div></div>
+        </script>
+        <script id="tplVDPPromoBox" type="text/x-jsrender">
+          <div class="icon">
+            <a href="{{:href}}" class="ga_track_events" target="_blank" data-ga-event="{{:event_attr}}"></a>
+          </div><div class="text">
+            <div class="text-cnt"><p>
+            Use <a href="{{:href}}" class="ga_track_events" target="_blank" data-ga-event="{{:event_attr}}">Video&nbsp;Downloader&nbsp;Pro</a> to save video and audio from this page          </p></div></div>
+        </script>
+        <script id="tplHelperSimplePromoBox" type="text/x-jsrender">
+          <div class="center">
+            <img src="/img/extension/icon_32.png" alt="">&nbsp;
+            We recommend you to install <a href="{{:href}}" class="ga_track_events bold" target="_blank" data-ga-event="{{:event_attr}}">SaveFrom.net helper extension</a> to download from <b>{{:service}}</b> in&nbsp;1&nbsp;click.          </div>
+        </script>
+
+        <script id="tplHelperSimplePromoBoxFF" type="text/x-jsrender">
+          <div class="center">
+            <img src="/img/extension/icon_32.png" alt="">&nbsp;
+            Install the <a target="_blank" href="{{:href2}}">FireFox mobile</a> browser along with the <a target="_blank" href="{{:href}}" class="ga_track_events bold" target="_blank" data-ga-event="{{:event_attr}}">SaveFrom.net helper extension</a> to download from <b>{{:service}}</b> in one click          </div>
+        </script>
+        <script id="tplUVDSimplePromoBox" type="text/x-jsrender">
+          <div class="center">
+            <img src="/img/uvd/icon_32x24.png" alt="">&nbsp;
+            We recommend you to install <a href="{{:href}}" class="ga_track_events bold" target="_blank" data-ga-event="{{:event_attr}}">Ummy Video Downloader</a> to download from <b>{{:service}}</b> in&nbsp;1&nbsp;click.          </div>
+        </script>
+        <script id="tplMessageBox" type="text/x-jsrender">
+          <div class="result-box simple {{:theme}}">
+            <div class="message">{{:message}}</div>
+          </div>
+        </script>
+        <script id="tplCopyBox" type="text/x-jsrender">
+          <div class="copy-box">
+            <p>Copy and paste the link into your browser address bar or download manager:</p>
+            <div class="input-wrap"><input type="text" value="{{:text}}" onfocus="this.select();"></div>
+            <div class="buttons">
+              <a href="#" class="btn" data-copy="{{:text}}">Copy</a>
+            </div>
+          </div>
+        </script>
+        <!-- /JS Templates -->
+
+      </div><!--/wrapper-->
+<!-- template -->
+<script id="tplInstallNow" type="text/x-jsrender">
+  <div class="wrapper center">
+    <h3 class="install-now__title">{{:title}}</h3>
+    <p class="install-now__text">{{:text}}</p>
+    <a href="{{:href}}" class="install-btn {{if aClass}}{{:aClass}}{{/if}}" target="_blank">Install <img src="{{if iconSrc}}{{:iconSrc}}{{else}}/img/install-btn-green.png{{/if}}" alt=""></a>
+    <span class="install-now__annotation">or <a href="{{:href}}" target="_blank">Learn more</a></span>
+  </div>
+
+</script>
+
+<div class="install-now" id="js-install-now"></div>
+
+<!-- javascript -->
+<script>
+  /**
+   * Experiments class,
+   * contain basic logic for all experiments.
+   * Experiments enable if cookie value more than zero
+   * @param options
+   * @constructor
+   */
+  function Experiment(options) {
+    if (!options) {
+      console && console.error('no Experiment options');
+      return;
+    }
+
+    this.options = options;
+    this.expValue = this._getCookieValue();
+
+    if (!this.expValue) {
+      this.expValue = this._generateExperimentValue();
+      this._setCookie();
+    }
+  }
+
+  Experiment.prototype = {
+
+    /**
+     * Return experiment`s cookie value
+     * @returns {*}
+     */
+    getValue: function () {
+      return this.expValue;
+    },
+
+    /**
+     * Checks whether the passed value
+     * in the value range of the experiment
+     * @param expValue
+     * @returns {boolean}
+     */
+    inRange: function (expValue) {
+      var options = this.options;
+
+      return expValue >= options.min && expValue <= options.max;
+    },
+
+    logs: function () {
+      window.debug && console && console.log('exp value: %s', expValue);
+    },
+
+    /**
+     * Set experiment`s cookie value
+     * @private
+     */
+    _setCookie: function () {
+      var name = this.options.name;
+
+      if (!name && window.debug && window.console) {
+        window.console.error('Experiment can`t set cookie, because options not is set the name');
+      }
+
+      cookie.set(name, this.expValue.toString(), 30, window._sf.cookieDomain);
+    },
+
+    /**
+     * Return experiment`s cookie value
+     * @returns {*}
+     * @private
+     */
+    _getCookieValue: function () {
+      var val = cookie.get(this.options.name);
+
+      if (val === '')
+        return val;
+
+      val = parseInt(val);
+
+      if (isNaN(val))
+        return '';
+
+      return val;
+    },
+
+    /**
+     * Validate experiment`s cookie value
+     * @param expValue
+     * @returns {boolean}
+     * @private
+     */
+    _isNotCookieValue: function (expValue) {
+      return expValue < 0 || expValue === 0;
+    },
+
+    /**
+     * Generate experiment`s value
+     * If random value more than options proporsion
+     * experiments not switch on.
+     * @returns {*}
+     * @private
+     */
+    _generateExperimentValue: function () {
+      var options = this.options,
+        chance = this._getRandom(1, 100);
+
+      // skip experiments
+      if (chance > options.proporsion)
+        return 0;
+
+      // enable experiments
+      return this._getRandom();
+    },
+
+    /**
+     * Get random value between min and max
+     * If arguments min, max not passed,
+     * get value from options
+     * @param min - {Number} minimal value
+     * @param max - {Number} maximum value
+     * @returns {*}
+     * @private
+     */
+    _getRandom: function (min, max) {
+
+      if (!min) {
+        min = this.options.min;
+      }
+
+      if (!max) {
+        max = this.options.max;
+      }
+
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  };
+</script>
+<script type="text/json" id="js-install-now-json"> {"helper":{"title":"Install <span class=\"install-now__title_green\">SaveFrom.net helper<\/span> now","text":"and download from all popular websites in 1 click!","href":"\/user.php?vid=323","aClass":"green","iconSrc":"\/img\/install-btn-green.png"},"uvd":{"title":"Install <span class=\"install-now__title_red\">Ummy Video Downloader<\/span>","text":"to download HD or MP3 from YouTube in 1 click.","href":"http:\/\/videodownloader.ummy.net\/?vid=133&utm_source=savefrom&utm_medium=main_page_block&utm_campaign=ummy","aClass":"red","iconSrc":"\/img\/install-btn-red.png"},"helper_ssyt":{"title":"Install <span class=\"install-now__title_green\">SaveFrom.net helper<\/span> now","text":"and download from all popular websites in 1 click!","href":"\/user.php?vid=350","aClass":"green","iconSrc":"\/img\/install-btn-green.png"},"uvd_ssyt":{"title":"Install <span class=\"install-now__title_red\">Ummy Video Downloader<\/span>","text":"to download HD or MP3 from YouTube in 1 click.","href":"http:\/\/videodownloader.ummy.net\/?vid=132&utm_source=savefrom&utm_medium=main_page_block&utm_campaign=ummy","aClass":"red","iconSrc":"\/img\/install-btn-red.png"},"uvd_cnet":{"title":"Install <span class=\"install-now__title_red\">Ummy Video Downloader<\/span>","text":"to download HD or MP3 from YouTube in 1 click.","href":"http:\/\/ummy.en.softonic.com\/","aClass":"red","iconSrc":"\/img\/install-btn-red.png"}} </script>
+<script>
+    $(function () {
+        sf.carouselBanner.init()
+    });
+</script>    <div class="wrapper">
+            <div id="ox7" class="ox7">
+          <div class="ox7-title">Advertising</div>
+          <div class="ox7-content"></div>
+        </div>
+        <script>
+          var _ox7 = {};
+
+          $(function(){
+            if (location.search && location.search.search(/(\?|&)hb=1/i) > -1) {
+              return;
+            }
+
+            _ox7.attr = {
+              id: 'a2ce86ce',
+              name: 'a2ce86ce',
+              frameborder: 0,
+              scrolling: 'no',
+              width: 0,
+              height: 0,
+              sandbox: 'allow-scripts allow-popups allow-popups-to-escape-sandbox',
+              onload: '_ox7.onLoadFrame(this);'
+            };
+
+            _ox7.params = {
+              target: '_blank',
+              zoneid: 17,
+              cb: ((new Date()).getTime() + Math.round(Math.random() * 1000000)),
+              pagewidth: $('#ox7').width(),
+              page_url: location.href
+            };
+
+            
+            _ox7.resizer = {
+              enablePublicMethods: true,
+              maxHeight: 164,
+              maxWidth: 912,
+              sizeWidth: true,
+              messageCallback: function (data) {
+                _ox7.onMessageFromFrame(data);
+              },
+              resizedCallback: function (data) {
+                if (data && data.width > 0 && data.iframe) {
+                  var $box = $(data.iframe).closest('.ox7');
+                  if ($box[0]) {
+                    $('.ox7-title', $box).css('max-width', data.width + 'px');
+                    setTimeout(function(){
+                      $box.addClass('loaded');
+                    }, 1000);
+                  }
+                }
+              }
+            };
+
+            if (document.cookie && document.cookie.indexOf('browser_ext=') > -1) {
+              _ox7.params.helper_installed = 1;
+            }
+
+            if (_sf) {
+              if (_sf.device && _sf.device.type) {
+                _ox7.params.device_type = _sf.device.type.toLowerCase();
+              }
+
+              if (_sf.os && _sf.os.name) {
+                _ox7.params.os_name = _sf.os.name.toLowerCase();
+              }
+            }
+
+            if (_sf && _sf.mobile) {
+              _ox7.attr.id = 'a1184835';
+              _ox7.attr.name = 'a1184835';
+              _ox7.attr.width = 0;
+              _ox7.attr.height = 0;
+              _ox7.params.zoneid = 17;
+              _ox7.resizer.maxHeight = Infinity;
+              _ox7.resizer.maxWidth = Infinity;
+              _ox7 = {};
+              return;
+            }
+
+            _ox7.onLoadFrame = function (frame) {
+              $(frame).iFrameResize(_ox7.resizer);
+            };
+
+            _ox7.appendScript = function (src, attr) {
+              var s = document.createElement('script');
+              if (src.indexOf('//') === 0) {
+                src = location.protocol + src;
+              }
+              s.src = src;
+
+              if (attr && typeof(attr) == 'object') {
+                for (var i in attr) {
+                  s.setAttribute(i, attr[i]);
+                }
+              }
+
+              document.body.appendChild(s);
+            };
+
+            _ox7.onMessageFromFrame = function (data) {
+              if (!data || !data.message) {
+                return;
+              }
+            };
+
+            $('body').append($('<script>').attr('src', '/js/libs/iframeresizer.min.js'));
+            _ox7.attr.src = 'http://78.138.126.253/www/a9g/1afr.php?' + jQuery.param(_ox7.params);
+
+            $('#ox7 .ox7-content').append(
+              $('<iframe></iframe>').attr(_ox7.attr)
+            );
+          });
+        </script>
+
+        <script>
+          function ox7BannerShow (selector, empty, id, name) {
+            var $box = $(selector);
+            if (_ox7 && _ox7.attr && _ox7.attr.src) {
+              if (empty) {
+                if (_ox7.embedBanner) {
+                  return;
+                }
+
+                $box.empty();
+              }
+
+              if (!id) {
+                id = selector + '-iframe-' + $box.find('iframe').length;
+              }
+
+              if (!name) {
+                name = id;
+              }
+
+              var attr = $.extend({}, _ox7.attr, {id: id, name: name});
+
+              $(selector).append(
+                $('<iframe></iframe>').attr(attr)
+              );
+            }
+          };
+        </script>
+
+    <div class="site-info-tabs">
+      <!-- responsive tabs -->
+      <ul class="r-tabs">
+        <li class="r-tabs__title green active" rel="tab1">Supported resources</li>
+        <li class="r-tabs__title green" rel="tab2">How to use?</li>
+        <li class="r-tabs__title green" rel="tab3">Our last news on Facebook</li>
+      </ul>
+      <div class="r-tabs-box">
+        <!-- tab 1 -->
+        <div class="r-tab-head green active" rel="tab1">Supported resources</div>
+        <div id="tab1" class="r-tab-content active">
+          <p>Note: click on a web resource name to see the details of downloading and saving files from it.</p><ul class="supported-services_v2 supported-services"><li class="fir2 fir3"><span class="favicon icon-sendspace_com">sendspace.com</span></li></ul><ul class="supported-services_v2 supported-services"><li class="fir2 fir3"><a href="http://en.savefrom.net/1-how-to-download-youtube-video/" class="favicon icon-youtube_com">youtube.com</a></li><li class=""><span class="favicon icon-metacafe_com">metacafe.com</span></li><li class="fir2"><span class="favicon icon-break_com">break.com</span></li><li class="fir3"><a href="http://en.savefrom.net/10-how-to-download-dailymotion-video.html" class="favicon icon-dailymotion_com">dailymotion.com</a></li><li class="fir2"><a href="http://en.savefrom.net/11-how-to-download-vimeo-video.html" class="favicon icon-vimeo_com">vimeo.com</a></li><li class=""><span class="favicon icon-sevenload_com">sevenload.com</span></li><li class="fir2 fir3"><span class="favicon icon-mail_ru">mail.ru</span></li><li class=""><span class="favicon icon-smotri_com">smotri.com</span></li><li class="fir2"><span class="favicon icon-yandex_ru">yandex.ru</span></li><li class="fir3"><span class="favicon icon-rambler_ru">rambler.ru</span></li><li class="fir2"><span class="favicon icon-tvigle_ru">tvigle.ru</span></li><li class=""><span class="favicon icon-intv_ru">intv.ru</span></li></ul><ul class="supported-services_v2 supported-services"><li class="fir2 fir3"><a href="http://en.savefrom.net/9-how-to-download-facebook-video.html" class="favicon icon-facebook_com">facebook.com</a></li><li class=""><span class="favicon icon-livejournal_com">livejournal.com</span></li><li class="fir2"><a href="http://en.savefrom.net/7-how-to-download-vk-music-videos-photos.html" class="favicon icon-vk_com">vk.com</a></li><li class="fir3"><a href="http://en.savefrom.net/8-how-to-download-odnoklassniki-music-videos.html" class="favicon icon-odnoklassniki_ru tooltip" title="Requires SaveFrom.net helper extension">odnoklassniki.ru</a></li><li class="fir2"><a href="http://en.savefrom.net/12-how-to-download-soundcloud-audio.html" class="favicon icon-soundcloud_com">soundcloud.com</a></li><li class=""><span class="favicon icon-liveinternet_ru">liveinternet.ru</span></li><li class="fir2 fir3"><span class="favicon icon-guitar-tube_com">guitar-tube.com</span></li><li class=""><span class="favicon icon-gametrailers_com">gametrailers.com</span></li><li class="fir2"><span class="favicon icon-twitch_tv">twitch.tv</span></li><li class="fir3"><span class="favicon icon-zaycev_net">zaycev.net</span></li><li class="fir2"><span class="favicon icon-1tv_ru">1tv.ru</span></li><li class=""><span class="favicon icon-rutv_ru">rutv.ru</span></li><li class="fir2 fir3"><span class="favicon icon-ntv_ru">ntv.ru</span></li><li class=""><span class="favicon icon-vesti_ru">vesti.ru</span></li><li class="fir2"><span class="favicon icon-mreporter_ru">mreporter.ru</span></li><li class="fir3"><span class="favicon icon-karusel-tv_ru">karusel-tv.ru</span></li><li class="fir2"><span class="favicon icon-autoplustv_ru">autoplustv.ru</span></li><li class=""><span class="favicon icon-russia_ru">russia.ru</span></li><li class="fir2 fir3"><span class="favicon icon-amik_ru">amik.ru</span></li><li class=""><span class="favicon icon-a1tv_ru">a1tv.ru</span></li></ul>        </div>
+        <!-- tab 2-->
+        <div class="r-tab-head green" rel="tab2">How to use?</div>
+        <div id="tab2" class="r-tab-content how-to-use">
+          <ul>
+  <li><strong>1st way</strong><br>Enter the URL-address in the input field at
+    the top of the page and press <strong>Enter</strong> or click on the
+    "Download" button to the right of the input field.</li>
+
+  <li><strong>2nd way</strong><br>Add "savefrom.net/" or "sfrom.net/" before the URL<br>
+    <noindex><em>example: <a href="http://sfrom.net/http://youtube.com/watch?v=u7deClndzQw" rel="nofollow" target="_top">sfrom.net/http://youtube.com/watch?v=u7deClndzQw</a></em></noindex><br>
+    and press <strong>Enter</strong>.</li>
+
+  <li><strong>3rd way</strong><br>Use short domain names:
+    <strong>ss</strong>youtube.com, <strong>s</strong>rapidshare.com.</li>
+
+  <li><strong>4th way</strong><br>Use our <a href="/user.php"
+    target="_top">browser addon</a> to download in 1 click.</li>
+</ul>
+        </div>
+        <!-- tab 3-->
+        <div class="r-tab-head green" rel="tab3">Our last news on Facebook</div>
+        <div id="tab3" class="r-tab-content">
+          <div id="social_group_widget"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $('.site-info-tabs').rTabs().on('rTabsSet', function(event, tabId){
+        var $this = $(this);
+        if(tabId == 'tab3') {
+          var $box = $('#social_group_widget');
+          if(!$box.hasClass('init')) {
+            $this.off('rTabsSet');
+            $box.addClass('init').append(
+              $('<script>').attr('src', '/js/social_group_widget.js?v=2')
+            );
+          }
+        }
+      });
+    </script>
+    <!--partners-->
+<section class="partners partners_v1 clearfix">
+  <div class="fleft">
+    <h2 class="color-title">Partners</h2>
+    <ul class="big-text">
+
+    
+      <li class="no-mobile no-tablet">
+        <img src="/img/ummy_icon_16.png" alt="">&nbsp;
+          <a data-partner="uvd" href="http://videodownloader.ummy.net/?vid=115&utm_source=savefrom&utm_medium=partners&utm_campaign=ummy" target="_blank">Free YouTube Downloader</a>
+      </li>
+      <li><img src="/img/ummyradio/icon_16.png" alt="">&nbsp;<a href="http://radionline.fm/?utm_source=savefrom&utm_medium=partners&utm_campaign=radio" target="_blank">The Best Online Radio Player</a></li>
+      <li><img src="/img/uvc_16.png" alt="">&nbsp<a href="http://converter.ummy.net/?vid=515&utm_source=savefrom&utm_medium=partners&utm_campaign=converter" target="_blank">Free Video Converter</a></li>
+      <li><img src="/img/vdp_16.png" alt="">&nbsp<a href="http://videodownloaderpro.net/?utm_source=savefrom&utm_medium=partners&utm_campaign=vdp" target="_blank">Video Downloader Pro</a></li>
+
+    
+    </ul>
+  </div>
+</section>
+<!--/partners-->
+
+<script>
+  $(function(){
+    // меняем ссылку на скачивание ummy для mac пользователей
+    var sf = window._sf,
+        isMac = sf.os && sf.os.name === 'Mac OS';
+
+    if (isMac) {
+      var link = 'http://videodownloader.ummy.net',
+          lang = sf.lang;
+
+      if (lang === 'ru') {
+        link += '/ru';
+      }
+
+      $('[data-partner="uvd"]').each(function(idx, el) {
+        var $el = $(el);
+
+        $el.attr('href', $el.attr('href').replace(link, link + '/mac.html'));
+
+        if (lang !== 'ru') {
+          $el.text('HD YouTube Downloader');
+        }
+      });
+    }
+  });
+
+</script>
+
+    
+    </div>
+    <!--/content-->
+<div class="info-msg msg1" id="js-info-msg1" style="display:none;">
+<h3>Attention!</h3>
+<p>You have SaveFrom.net Helper installed on your computer,<br>
+  and you can <span class="color-txt">download videos</span> directly from YouTube</p>
+<div class="screenshot">
+  <div class="img"><img src="/img/extension/info_new_yt/screenshot_en.png" alt="screenshot"></div>
+  <div class="text">Just click<br>
+    <span class="color-txt">the "Download" button</span><br>
+    under the video</div>
+  <div class="arrow"></div>
+</div>
+<div class="right"><a href="#" class="action">Thanks! Now I know</a></div>
+</div>
+<script>
+  $(function(){
+    if (!window.url || !(_sf.query.hti == 1 || _sf.hash.hti == 1)){
+      return;
+    }
+
+    if (url.search(/^https?:\/\/([a-z]+\.)?youtube\.com\/(#!?\/)?watch\?.*v=/i) == -1) {
+      return;
+    }
+
+    var cn = 'hti', cv = cookie.get(cn), max = 5,
+        ec = 'popaptest1';
+
+    if(cv === '0')
+      return;
+
+    if (!cv) {
+      cv = max;
+    }
+    else {
+      cv = parseInt(cv);
+      if (cv <= 0 || isNaN(cv)) {
+        setCookie(0);
+        return;
+      }
+      else if (cv > max) {
+        cv = max;
+      }
+    }
+
+    $('#js-info-msg1 a.action').on('click', function(event){
+      event.preventDefault();
+      setCookie(0);
+      $.fancybox.close();
+      ga('send', 'event', ec, 'click', 'button');
+    });
+
+    setTimeout(function(){
+      $.fancybox({
+        href: "#js-info-msg1",
+        type: 'inline',
+        beforeShow: function() {
+          setCookie(cv - 1);
+
+          if (window.ga) {
+            ga('send', 'event', ec, 'show');
+          }
+        }
+      });
+    }, 2000);
+
+    function setCookie (val) {
+      cookie.set(cn, val.toString(), 90, _sf.cookieDomain);
+    }
+  });
+</script>
+      <!-- verify-admitad: "ef27e00c36" -->
+</div> <!--/main-->
+
+
+  <!--Footer-->
+  <footer class="footer_v2">
+    <div class="wrapper clearfix">
+      <p class="copyright">© 2008-2016, SaveFrom.net</p>
+      <div class="lang-box" tabindex="2"><div>
+          <ul class="lang">
+            
+<script>
+$(function(){function d(){b.removeClass(e);$("body").off(f)}function i(){b.addClass(e);c=$("li.active",b);$("body").off(f).on("click"+f,function(){d()}).on("keydown"+f,function(a){switch(a.which){case 27:d();break;case 13:case 32:$(".active",b).removeClass("active");c.addClass("active").removeClass(g);d();if(a=$("li.active a",b).attr("href"))location.href=a;break;case 38:h(c.prev("li"));break;case 40:h(c.next("li"));break;case 36:h($("li",b).first());break;case 35:h($("li",b).last());break;default:return!0}return!1})}
+function h(a){a[0]&&!a.hasClass(g)&&(c.removeClass(g),a.addClass(g),c=a)}var b=$(".lang-box"),e="active",g="current",f=".langbox",c;b.on("click",function(a){if("A"!=a.target.tagName)return b.hasClass(e)?d():i(),!1}).on("keydown",function(a){if(b.hasClass(e))return!0;switch(a.which){case 13:case 32:i();break;default:return!0}return!1})});
+</script>
+<li class="active"><span class="lang-en">English</span></li><li><a href="http://ru.savefrom.net/" class="lang-ru">Русский</a></li><li><a href="http://de.savefrom.net/" class="lang-de">Deutsch</a></li><li><a href="http://es.savefrom.net/" class="lang-es">Español</a></li><li><a href="http://fr.savefrom.net/" class="lang-fr">‪Français</a></li><li><a href="http://id.savefrom.net/" class="lang-id">Bahasa Indonesia‬</a></li><li><a href="http://it.savefrom.net/" class="lang-it">‪Italiano‬</a></li><li><a href="http://pt.savefrom.net/" class="lang-br">Português (Brasil)</a></li><li><a href="http://tr.savefrom.net/" class="lang-tr">Türkçe‬</a></li><li><a href="http://uk.savefrom.net/" class="lang-uk">Українська‬</a></li>          </ul>
+          <i></i></div></div>
+      <div class="clearfix"></div>
+      <ul class="f-nav f-nav_v2">
+        <li><a href="" class="active">Main page</a></li><li><a href="/faq.php">FAQ</a></li><li><a href="/user.php">Install</a></li><li><a href="/webmaster.php">For webmasters</a></li><li><a href="/contact.php">Feedback</a></li><li><a href="/advertising.php">Advertising</a></li><li><a href="/terms.html">Terms of Service</a></li><li><a href="/EULA.html">EULA</a></li><li><a href="/privacy-policy.html">PP</a></li>      </ul>
+    </div>
+  </footer>
+
+
+<script>
+  $('.spoiler-box:not(.open)').hide();
+</script>
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      (function(){
+        window.gaHandler = {
+          trackers: {},
+
+          stringToArray: function(str, delimiter)
+          {
+            delimiter = delimiter || ';';
+            var re = new RegExp(delimiter + '+$');
+            str = str.replace(re, '');
+            return str.split(delimiter);
+          },
+
+          track: function(data)
+          {
+            if(typeof(data) == 'string')
+              data = this.stringToArray(data);
+
+            if($.isArray(data) && data.length >= 2)
+            {
+              var tName = this.getTrackerName(data[0]);
+              if(tName && !this.trackers[tName])
+              {
+                data[0] = data[0].substr(tName.length + 2);
+              }
+
+              ga.apply(null, data);
+            }
+          },
+
+          trackNode: function(node, attr)
+          {
+            attr = attr || 'data-ga-event';
+            var data = $(node).attr(attr);
+            if(data)
+              this.track(data);
+          },
+
+          getTrackerName: function(command)
+          {
+            var i = command ? command.indexOf('.') : -1;
+            if(i <= 0)
+              return;
+
+            return command.substr(0, i);
+          }
+        };
+
+        $('body').on('click sendstats', 'a.ga_track_events', function(event){
+          gaHandler.trackNode(this);
+        });
+     })();
+
+      
+            if (_sf.app) {
+        ga('create', 'UA-7055055-17', 'savefrom.net');
+      }
+      else {
+        ga('create', 'UA-7055055-1', 'savefrom.net', {'sampleRate': 10});
+      }
+
+      ga('create', 'UA-7055055-7', 'savefrom.net', {'name': 't2'});
+      window.gaHandler.trackers['t2'] = 'test';
+      
+      ga('require', 'displayfeatures');
+
+      if(window.gaqTrackPageview)
+        ga('send', 'pageview', gaqTrackPageview);
+      else
+        ga('send', 'pageview');
+    </script>
+<div class="share42init" data-url="http://en.savefrom.net/" data-title="Free Online YouTube Downloader: Download YouTube Videos, Facebook and many others!" data-description="Free Online service to Download YouTube videos at one click! The best YouTube Downloader supporting fast and easy vimeo, Facebook and Dailymotion video Download and much more!" data-path="/img/socials/share42/en/" data-image="http://savefrom.net/img/icon_100.png"></div><script src="/js/libs/share42_en_2.js"></script>    <script>
+    $(function(){
+      if($(window).width() >= 1056)
+      {
+        setTimeout(function(){
+          $('#share42').fadeIn();
+        }, 2000);
+      }
+    });
+    </script>
+</body>
+</html>
+
+
+<script>
+(function() {
+  if (!_sf.app || typeof sfApp === 'undefined') {
+    return;
+  }
+
+  $('#sf_form').append($('<input type="hidden" name="app"/>').val(_sf.app));
+  $('body').addClass('sfApp').on('click', '.link.link-download', function(e){
+    var url = $(this).attr('href');
+    if(!url || url.search(/^https?:\/\//i) == -1)
+      url = this.getAttribute('data-copy');
+
+    var fileName = this.getAttribute('download') || '';
+    if (sfApp.download(url, fileName)) {
+      e.preventDefault();
+    }
+  });
+
+  $(function(){
+    var firstrunKey = _sf.app + '-firstrun';
+    if (!localStorage.getItem(firstrunKey)) {
+      localStorage.setItem(firstrunKey, '1');
+      if (window.gaHandler) {
+        window.gaHandler.track('send;event;firstrun;' + _sf.app + ';' + sfApp.version());
+      }
+    }
+  });
+})();
+</script>

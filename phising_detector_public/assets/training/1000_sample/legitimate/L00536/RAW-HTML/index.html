@@ -1,0 +1,529 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-ie no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="y5Z8qRi7j5PabjkUe/9Lyxob0tJ3p1Qk1GBXBvaC/Bc=" name="csrf-token" />
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"eb4c3ec7e1","applicationID":"1714974","transactionName":"IF8LQUFXXg0ARh0NXg5VSlxdXFcZ","queueTime":0,"applicationTime":25,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(e,t){return function(){o(e,[(new Date).getTime()].concat(a(arguments)),null,t)}}var o=e("handle"),i=e(2),a=e(3);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var u=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(u,function(e,t){newrelic[t]=r(f+t,"api")}),i(c,function(e,t){newrelic[t]=r(f+t)}),t.exports=newrelic,newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),o("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(0>o?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?u(e,a,i):i()}function n(n,r,o){e&&e(n,r,o);for(var i=t(o),a=l(n),u=a.length,c=0;u>c;c++)a[c].apply(i,r);var s=f[g[n]];return s&&s.push([m,n,r,i]),i}function p(e,t){w[e]=l(e).concat(t)}function l(e){return w[e]||[]}function d(e){return s[e]=s[e]||o(n)}function v(e,t){c(e,function(e,n){t=t||"feature",g[n]=t,t in f||(f[t]=[])})}var w={},g={},m={on:p,emit:n,get:d,listeners:l,context:t,buffer:v};return m}function i(){return new r}var a="nr@context",u=e("gos"),c=e(2),f={},s={},p=t.exports=o();p.backlog=f},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!w++){var e=v.info=NREUM.info,t=s.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&t){c(l,function(t,n){e[t]||(e[t]=n)});var n="https"===p.split(":")[0]||e.sslForHttp;v.proto=n?"https://":"http://",u("mark",["onload",a()],null,"api");var r=s.createElement("script");r.src=v.proto+e.agent,t.parentNode.insertBefore(r,t)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=window,s=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},e(1);var p=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},d=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),v=t.exports={offset:a(),origin:p,features:{},xhrWrappable:d};s.addEventListener?(s.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(s.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),u("mark",["firstbyte",a()],null,"api");var w=0},{}]},{},["loader"]);</script>
+
+  <title>WeTransfer</title>
+  <meta property="og:description" content="WeTransfer is a free service to send big or small files from A to B">
+  <meta property="og:title" content="WeTransfer">
+  <meta property="og:image" content="https://www.wetransfer.com/wt-facebook.png">
+  <meta property="og:type" content="website" />
+  <meta property="fb:app_id" content="265125293564341" />
+  <meta name="description" content="WeTransfer is a free service to send big or small files from A to B">
+  <meta name="author" content="WeTransfer">
+  <meta name="pinterest" content="nopin" />
+
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+  <link rel="image_src" href="/wt-facebook.png">
+  <meta name="application-name" content="WeTransfer"/> 
+  <meta name="msapplication-TileColor" content="#ffffff"/> 
+  <meta name="msapplication-TileImage" content="/wt-windows8.png"/>
+	
+  <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media="all" -->
+  <link href="https://assets.wetransfer.net/assets/application-da6679e88c0a50f52f2318432f98be06.css" media="screen" rel="stylesheet" type="text/css" />
+  <style>
+  
+</style>
+
+
+  <!-- More ideas for your <head> here: h5bp.com/docs/#head-Tips -->
+  
+  <!--[if lt IE 8]>
+    <script src="https://assets.wetransfer.net/assets/json2-b68324b38c37f6dba06cec4c218f990d.js" type="text/javascript"></script>
+  <![endif]-->
+  
+
+  <!-- All JavaScript at the bottom, except for Modernizr and Respond.
+       Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries
+       For optimal performance, use a custom Modernizr build: www.modernizr.com/download/ -->
+  <script src="https://assets.wetransfer.net/assets/modernizr-1a1ebb8b2948f065e691523cefbde5a3.js" type="text/javascript"></script>
+</head>
+
+<body class="no_user" data-channel-limit-to-default-recipient="null" data-container="#panel" data-current-user="false" data-facebook="null" data-limit="false" data-plus="false" data-twitter="null" data-wrapper="#bottom">
+  
+  <script type="text/javascript">
+  window.I18n = window.I18n || {};
+
+  I18n.dictionary = {"number":{"format":{"separator":".","delimiter":",","precision":3,"significant":false,"strip_insignificant_zeros":false},"currency":{"format":{"format":"%u%n","unit":"$","separator":".","delimiter":",","precision":2,"significant":false,"strip_insignificant_zeros":false}},"percentage":{"format":{"delimiter":""}},"precision":{"format":{"delimiter":""}},"human":{"format":{"delimiter":"","precision":3,"significant":true,"strip_insignificant_zeros":true},"storage_units":{"format":"%n %u","units":{"byte":{"one":"Byte","other":"Bytes"},"kb":"KB","mb":"MB","gb":"GB","tb":"TB"}},"decimal_units":{"format":"%n %u","units":{"unit":"","thousand":"Thousand","million":"Million","billion":"Billion","trillion":"Trillion","quadrillion":"Quadrillion"}}}},"time":{"days":{"monday":"Monday","tuesday":"Tuesday","wednesday":"Wednesday","thursday":"Thursday","friday":"Friday","saturday":"Saturday","sunday":"Sunday"},"months":{"january":"January","february":"February","march":"March","april":"April","may":"May","june":"June","july":"July","august":"August","september":"September","october":"October","november":"November","december":"December"},"remaining":{"minutes":{"zero":"Under a minute remaining","one":"About 1 minute remaining","other":"About %{count} minutes remaining"},"hours":{"one":"About an hour remaining","other":"About %{count} hours remaining"}}},"download":{"shortcut":"Press %{command} to see the<br />download progress","shortcuts":{"control_j":"Ctrl-J","control_alt_l":"Ctrl-Alt-L","cmd_shift_j":"&#8984;-Shift-J","cmd_j":"&#8984;-J","cmd_alt_l":"&#8984;-Alt-L"}},"upload":{"title":"Send up to %{size}","progress":{"busy":"Transferring..."},"buttons":{"add":"Add files","transfer":"Transfer","forward":"Forward"},"forward":{"done":"Forward complete"},"friend_email":{"title":"Friend's email","more":"Add more friends"},"your_email":{"title":"Your email"},"message":{"title":"Message"},"done":{"title":"Transfer complete","link":"Copy your download link:","copied":{"title":"Copied!","text":"The download link has been copied."}},"more_html":"Add more files<span>(%{size} left)</span>","too_many_recipients":"Seems like you've entered too many email addresses. Remember: there's room for up to %{count} people at a time.","completed":"%{size} of %{total} completed","addresses":{"one":"%{count} address","other":"%{count} addresses","remove":"Do you want to remove %{address} from your previous recipients?"},"ads":{"plus":{"title":"Get more out<br />of WeTransfer<br />with Plus","text":"<ul><li>Supersized uploads</li><li>Personalised transfers with your own backgrounds</li><li>Password protected transfers</li><li>Long term storage</li></ul><p><a target='_blank' href='/plus?trk=inapp'>Find out more</a></p>"},"plus2":{"title":"Impress<br />with your<br />own custom download page","text":"<p>Use your own backgrounds and custom WeTransfer URL (yourname.wetransfer.com)<br />to impress your recipients.</p><p><a target='_blank' href='/plus?trk=inapp'>Find out more</a></p>"},"plus3":{"title":"Manage<br />your transfers smarter","text":"<p>This transfer is deleted after a week, but with WeTransfer Plus you can store indefinitely, resend and delete instantly, without having to upload again.</p><p><a target='_blank' href='/plus?trk=inapp'>Find out more</a></p>"},"plus4":{"title":"Get extra protection<br />for your files","text":"<p>With WeTransfer Plus, you can protect your important and confidential files with a password.</p><p>That way they will never fall into the wrong hands.</p><p><a target='_blank' href='/plus?trk=inapp'>Find out more</a></p>"},"facebook":{"title":"Join the<br />WeTransfer<br />community<br />on Facebook","text":"<p>Get the latest news, win prizes, discover new artists, read interviews and much more.</p><p><a target='_blank' href='https://www.facebook.com/wetransfer'>Find out more</a></p>"},"flipflops":{"title":"Free flipflops by WeTransfer","text":"<p style='text-align:center;'><img src='/assets/flipflops.jpg'></p><p>As a thank you from us, we've teamed up with Suavesoles to get you this fantastic pair of flipflops for free!<br /><a target='_blank' href='http://suavesoles.com/we-transfer/?ref=wt-app'>Order now</a></p>"}},"errors":{"only_email":"Sorry, only email is supported when resending a transfer.","connect_twitter":"Your Twitter account is not yet connected to WeTransfer.","connect_facebook":"Your Facebook account is not yet connected to WeTransfer.","transferproblems":{"title":"Transfer problem","text":"Hate to break it to you, but something went wrong with the transfer."},"limitreached":{"title":"Storage Limit","text":"You reached your 100 GB limit. Delete some old transfers to send new files"},"blocked":{"title":"Transfer problem","text":"Computer says no. Sorry, but you have been blocked from WeTransfer."},"upload_error":{"title":"Transfer problem","text":"Hate to break it to you, but something went wrong with the transfer."},"unavailable":{"title":"Transfer error","text":"Sorry, this transfer has already been deleted so it cannot be forwarded."},"startswithdot":{"title":"Oops","text":"One (or more) of your files has a name that starts with a full stop. That's not going to work. Please rename the file(s), and try adding them again."},"startswithspace":{"title":"Oops","text":"One (or more) of your files has a name that starts with a space. That's not going to work. Please rename the file(s), and try adding them again."},"containsreturn":{"title":"Oops","text":"One (or more) of your files has a name that contains a return. We don't know quite how you've done that, but it's not going to work. Please rename the file(s), and try adding them again."},"alreadyinlist":{"title":"Yikes","text":"Turns out one of your files had the same name as another file that you've already selected. Change it up a little!"},"transfertoobig":{"title":"Uh-oh","text":"Ever so sorry, but we can't transfer more than %{upload_limit}GB at a time."},"filetoobig":{"title":"Uh-oh","text":"Ever so sorry, but we can't transfer more than %{upload_limit}GB at a time."},"zerobytes":{"title":"Whoops","text":"One (or more) of your files is empty or could not be read."},"ioerror":{"title":"Fail","text":"One (or more) of your files could not be read or is larger than %{upload_limit}GB. That's not going to fly."},"filenametoolong":{"title":"Yikes","text":"One (or more) of your files has a filename that is longer than 250 characters. We can't accept filenames longer than this, so please rename it."},"nofolders":{"title":"Uh-oh","text":"Sorry, uploading folders doesn't work yet. Try zipping it first."},"nofiles":{"title":"Oops","text":"You haven't actually added any files yet."},"norecipients":{"title":"Doh!","text":"Looks like you forgot to enter any email addresses to send to."},"toomanyrecipients":{"title":"Yikes","text":"Too many recipients."},"bigmessage":{"title":"Oops","text":"Your message is longer than a novel. Please make it shorter."},"nosender":{"title":"Seriously?","text":"You forgot to enter your own email address. How could you?"},"senderemailinvalidformat":{"title":"Uh-oh","text":"Your email address appears to be incorrect. Mind your spelling!"},"probablynotcopied":{"title":"Oops","text":"It looks like you haven't copied the link."},"recipientemailinvalidformat":{"title":"Oops","text":"You entered one of your friend's email addresses incorrectly."},"requiresdefaultrecipient":{"title":"Uh-oh","text":"Sorry! You can only send more than 2GB to the Plus Channel owner. Refresh the page to start again."},"containsbackslash":{"title":"Yikes","text":"One (or more) of your files has a filename that contains a backslash. We can't accept this, so please rename the files so they don't contain the backslash."}},"tips":{"maxfilesize_tip":{"title":"Tip","text":"You can send up to 2GB per transfer. And what's even better: you can transfer as often as you like."},"maxfilesize_oldbrowser_tip":{"title":"Important","text":"Your Plus account can send up to 20 GB per transfer, but your browser is preventing this. <a href='/questions/33'>Click here for more information</a>"},"recipients_tip":{"title":"Tip","text":"You can enter up to %{email_limit} email addresses to send to. If you just want a download link, click on the share button below."},"default_recipient":{"title":"Tip","text":"To send over 2GB, make sure you upload your files to the Plus Channel owner only. Refreshing the page will pre-fill their address for you."},"sender_tip":{"title":"Tip","text":"Pop your own email address in here so we can contact you when the files have been downloaded."},"expire_tip":{"title":"Tip","text":"You can now change the expiry date of your Plus transfers."},"message_tip":{"title":"Tip","text":"Want to send your friends a message along with the files? Here's your chance - but you don\u2019t have to."},"share_tip":{"title":"Tip","text":"Change the way you share your files. Send them by email or grab a download link.","text_plus":"Change the way you share your files. Send them by email, Twitter, Facebook, or grab a download link."},"download":{"title":"","chrome":"Downloading works differently from before. We are now downloading all files through the browser, so you will no longer see the progress in WeTransfer, and you may not be asked where to store the file. The download progress should be visible at the bottom of your browser window, and your file will be stored by default in your Downloads folder. <a href='/questions/24' target='_blank'>Find out how to change this behaviour here</a>.","firefox":"Downloading works differently from before. We are now downloading all files through the browser, so you will no longer see the progress in WeTransfer, and you may not be asked where to store the file. The progress should be visible in your browser's Download window, and your file will be stored by default in your Downloads folder. <a href='/questions/24' target='_blank'>Find out more</a>.","safari":"Downloading works differently from before. We are now downloading all files through the browser, so you will no longer see the progress in WeTransfer, and you may not be asked where to store the file. The progress should be visible in the top right corner of your browser window, and your file will be stored by default in your Downloads folder. <a href='/questions/24' target='_blank'>Find out more</a>.","old_explorer":"Downloading works differently from before. We are now downloading all files through the browser, so you will no longer see the progress in WeTransfer, and you may not be asked where to store the file. You may also see a security alert at the top of the browser window. <a href='/questions/24' target='_blank'>Find out more</a>.","explorer":"Downloading works differently from before. We are now downloading all files through the browser, so you will no longer see the progress in WeTransfer, and you may not be asked where to store the file. The progress should be visible at the bottom of your browser window (you may need to click on Save first), and your file will be stored by default in your Downloads folder. <a href='/questions/24' target='_blank'>Find out more</a>.","settings":"You can change your default download location in your browser settings."}}},"warnings":{"unsaved_changed":"You have made changes to your Channel. Are you sure you want to leave this page without saving?","forwarding":"Forwarding this transfer will clear the form, are you sure?","is_busy":"Sorry, we can't do this right now"},"mobile_app":{"remember_choice":"Don't show this message again","uploader":{"description":"Our site is not optimised for mobile right now. But we do have a shiny mobile app.","app_name":"WeTransfer","download":"Download the App","continue":"Continue to WeTransfer.com"},"downloader":{"title":"Your files are ready for download!","description_ios":"We've bundled your files in a zip file. You will need an app to extract and view the files. We think \"<a href=\"https://itunes.apple.com/us/app/winzip/id500637987?mt=8\">Winzip</a>\" is a pretty good app for that.","description_android":"We've bundled your files in a zip file. You will need an app to extract and view the files. We think \"<a href=\"https://play.google.com/store/apps/details?id=com.estrongs.android.pop&hl=en\">ES File Explorer</a>\" is a pretty good app for that.","continue":"Understood"}}}
+
+  I18n.t = function(key, interp) {
+    if(!key){
+      if (console) console.debug("Empty translation key");
+      return "";
+    }
+
+    var res = this.dictionary;
+
+    if (res) {
+      var value = res[key]
+      if (value) {
+        res = value;
+      } else {
+        var keys = key.split(".");
+        $(keys).each(function(_, value) { 
+          if(res) {
+            res = res[value]; 
+          }
+        });
+      }
+    }
+    
+    if(!res){
+      if (console) console.debug("No translation found for key: " + key);
+      return keys.pop();
+    }
+
+    if (interp && typeof interp.count != 'undefined') {
+      res = this.pluralize(res, interp.count);
+    }
+
+    return interp ? res.replace(/%{(\w+)}/g, function(m, i){ return interp[i]; }) : res;
+  };
+
+  I18n.megabytes = function(size_in_bytes) {
+    return this.number(size_in_bytes / 1048576, { precision: 1, delimiter: "" }) + ' ' +
+      this.t("number.human.storage_units.units.mb");
+  }
+
+  I18n.gigabytes = function(size_in_bytes) {
+    return this.number(size_in_bytes / 1073741824, { precision: 1, delimiter: "" }) + ' ' +
+      this.t("number.human.storage_units.units.gb");
+  }
+
+  I18n.size = function(number, options) {
+    if (typeof number !== 'number') return '';
+
+    options = options || {}
+    options.precision = "precision" in options ? options.precision : precision;
+    options.format = options.format || "%n %u";
+    options.delimiter = options.delimiter || "";
+
+    var kb = 1024, size = number, iterations = 0, unit, precision;
+
+    if (size < 0) size = 0;
+
+    while (size >= kb && iterations < 4) {
+      size = size / kb;
+      iterations += 1;
+    }
+
+    if (iterations === 0) {
+      unit = this.t("number.human.storage_units.units.byte", {count: size});
+      options.precision = 0;
+    } else {
+      unit = this.t("number.human.storage_units.units." + [null, "kb", "mb", "gb", "tb"][iterations]);
+      if (size - Math.floor(size) === 0) options.precision = 0;
+    }
+
+    number = this.number(size, options);
+    number = options.format.replace("%u", unit).replace("%n", number);
+
+    return number;
+  };
+
+  I18n.number = function(number, options) {
+    format = this.t("number.format") || {};
+    options = options || {};
+    options.precision = "precision" in options ? options.precision : 1;
+    options.separator = options.separator || format.separator || ".";
+    options.delimiter = "delimiter" in options ? options.delimiter : (format.delimiter || "");
+
+    var negative = number < 0,
+      string = Math.abs(number).toFixed(options.precision).toString(),
+      parts = string.split("."),
+      precision,
+      buffer = [],
+      formattedNumber;
+
+    number = parts[0];
+    precision = parts[1];
+
+    while (number.length > 0) {
+      buffer.unshift(number.substr(Math.max(0, number.length - 3), 3));
+      number = number.substr(0, number.length -3);
+    }
+
+    formattedNumber = buffer.join(options.delimiter);
+
+    if (options.precision > 0) formattedNumber += options.separator + parts[1];
+    if (negative) formattedNumber = "-" + formattedNumber;
+
+    return formattedNumber;
+  };
+
+  I18n.pluralization = function(n) {
+    if (n == 0) {
+      return ["zero", "none", "other"];
+    } else if ( n == 1) {
+      return ["one"];
+    } else {
+      return ["other"];
+    }
+    return n == 0 ? ["zero", "none", "other"] : (n == 1 ? ["one"] : ["other"]);
+  };
+
+  I18n.pluralize = function(t, n) {
+    var pl = this.pluralization(n);
+    if (typeof(t) != "string") {
+      for (var i = 0; i < pl.length; i++) {
+        if (t[pl[i]]) {
+          return t[pl[i]];
+        } 
+      }
+    }
+    return t;
+  };
+</script>
+
+  
+  <div id='old_browser_notification'>
+<p>You are using an outdated browser that WeTransfer no longer supports.</p>
+<p>Things may not work properly, or even at all.</p>
+<p>Please update your browser now. We recommend <a href="http://www.google.com/chrome">Google Chrome.</a></p>
+</div>
+
+  <div id='help_overlay'>
+<img alt="Help-email-en" class="email" src="https://assets.wetransfer.net/assets/v3/help-email-en-a09a1b7eef4ede22935b7bf0f313fe64.png" />
+<img alt="Help-link-en" class="link" src="https://assets.wetransfer.net/assets/v3/help-link-en-65b389df571aa197168096cf312c0ac4.png" />
+</div>
+<div data-app-ios='https://itunes.apple.com/us/app/wetransfer/id765359021?ls=1&amp;mt=8' id='uploader'>
+<div id='installflash'>
+<span>Your browser needs Flash to send files.</span>
+<p><a href="http://www.adobe.com/go/getflashplayer">Download Flash.</a></p>
+<p>You can also use a modern browser, like IE 10, Chrome or Firefox.</p>
+</div>
+<form action='' autocomplete='off' enctype='multipart/form-data' method='post'>
+<div id='fields'>
+<div id='files'>
+<h2></h2>
+<ul id='selected_files'>
+<li class='add'>
+<a class='add-button activated' href='#' id='add-file'></a>
+<input id='uploader_field' name='file' type='file'>
+<div id='flash_placeholder'></div>
+</li>
+</ul>
+</div>
+<hr class='divider' id='file_hr'>
+<div id='recipients'>
+<ul id='selected_recipients'>
+<li class='field'>
+<input id='to' name='to' style='display:none' type='text'>
+</li>
+<li class='add'>
+<a class='add-button' href='#' id='add-recipient'></a>
+</li>
+</ul>
+</div>
+<hr class='divider' id='recipient_hr'>
+<div id='sender'>
+<div id='selected_sender' style='display:none'></div>
+<input id='from' name='from' style='display:none' type='text'>
+<a class='add-button' href='#' id='add-sender'></a>
+</div>
+<hr class='divider' id='sender_hr'>
+<div id='write_message'>
+<textarea id='message' name='message'></textarea>
+</div>
+<div id='clarification'>
+<div id='character-counter'>
+<span id='remaining-count'></span>
+characters
+</div>
+<p class='dl'>
+We will give you a download link once your transfer is complete.
+<br />The file(s) will be kept for 7 days.
+</p>
+<p class='tw'>After your transfer, your message and a link will be tweeted<br />from your Twitter account</p>
+<p class='fb'>After your transfer, your message and a link will be posted<br />to your Facebook wall</p>
+</div>
+</div>
+<div id='recipient_search_results'>
+<div class='inner-results'></div>
+</div>
+<div id='sender_search_results'></div>
+<div id='footer'>
+<div id='select_tt'>
+<div class='inner'></div>
+<div class='inner-hover'></div>
+</div>
+<div class='disabled' id='transfer_type_menu' style='display: none'>
+<ul id='transfer_types'>
+<li class='mail active'>Email</li>
+<li class='inactive twitter'>Connect</li>
+<li class='facebook inactive'>t('upload.sharing.facebook')</li>
+<li class='direct_link'>Link</li>
+</ul>
+</div>
+<a href='#' id='transfer'>Transfer</a>
+<div id='help'>
+<div class='inner'></div>
+<div class='inner-hover'></div>
+</div>
+</div>
+<input id='parent' name='parent' type='hidden' value='0'>
+<input id='ttype' name='ttype' type='hidden' value='1'>
+<input id='expire_in' type='hidden' value=''>
+<div id='tandcs'>
+<h3>Terms and Conditions</h3>
+<div class='accept'>
+To continue, you must agree to the <a href="/legal" target="_blank">WeTransfer Terms of Service and Privacy Policy</a>.
+
+</div>
+<h3>Cookies</h3>
+<div class='accept'>
+WeTransfer uses cookies for functional and analytical purposes. Please read our <a href="/legal/WeTransfer_Privacy_Policy_20160317" target="_blank">Cookie Policy</a> for more information.
+</div>
+<div class='enabled' id='accepting'>I agree</div>
+</div>
+<div id='ad'>
+<h3></h3>
+<div id='inbetween_content'></div>
+<a href="#" id="skip_ad">Skip</a>
+</div>
+<div id='progress'>
+<div id='upload_progress'>
+<div id='progress_bg'></div>
+</div>
+<h3 class='busy'>Transferring...</h3>
+<div class='busy' id='progressinformation'>&nbsp;</div>
+<div class='busy' id='time_left'>&nbsp;</div>
+<h3 class='frozen'>Please wait</h3>
+<div class='frozen'>Preparing to upload (this can take a few minutes)</div>
+<div id='cancel'>Cancel</div>
+<div id='cancel_confirmation_header'>
+<h3 class='cancel_header'>Cancel transfer?</h3>
+</div>
+<div id='cancel_confirmation'>
+<input id='cancel_yes' type='button' value='Yes'>
+<input id='cancel_no' type='button' value='No'>
+</div>
+</div>
+<div id='done'>
+<img alt="Downloader-tick" id="done_progress" src="https://assets.wetransfer.net/assets/v3/downloader-tick-7945685408b8cc49567438a90794c0ad.png" />
+<h3>Transfer complete</h3>
+<div id='complete'>You did it! Expect a confirmation email in your inbox shortly.</div>
+<p id='direct_link'></p>
+<div id='copy' style='display:none'>Copy link</div>
+<div id='ok'>Okay</div>
+</div>
+<div id='fatal_error'>
+<img alt="Downloader-exclamation" id="alert" src="https://assets.wetransfer.net/assets/v3/downloader-exclamation-b165899aea71a6b207711f7c7bd9f0f9.png" />
+<h3>
+Storage Limit
+</h3>
+<div id='error_content'>
+You reached your 100 GB limit. Delete some old transfers to send new files
+</div>
+<a href="#" id="close_error">Okay</a>
+<a href="/user/transfers" class="panel" id="clean">Clean up</a>
+</div>
+
+</form>
+</div>
+<div id='move-to-uploader'></div>
+<div class='disabled menu' id='label'>
+<a href="/we" class="panel" data-container="#custom-layout" id="account-type">Menu</a>
+</div>
+<div class='disabled' id='pluslabel'>
+<a href="/we?trk=plus-panel" class="panel" data-container="#custom-layout">+</a>
+</div>
+
+<div id='error_panel' style='display: none'>
+<img alt="" height="116" src="https://assets.wetransfer.net/assets/v3/minipanel-exclamation-4c40782340734c8c59f2373b80878c98.png" width="116" />
+<h3>Oops..</h3>
+</div>
+<div id='info_panel' style='display: none'>
+<img alt="" height="116" src="https://assets.wetransfer.net/assets/v3/minipanel-info-5b11188338a077169ddc9d9e42337a68.png" width="116" />
+<h3>&amp;nbsp;</h3>
+</div>
+<div id='tip_panel' style='display: none'>
+<img alt="" height="116" src="https://assets.wetransfer.net/assets/v3/minipanel-info-5b11188338a077169ddc9d9e42337a68.png" width="116" />
+<h3>&amp;nbsp;</h3>
+</div>
+
+<script id="template-upload" type="text/html">
+{% for (var i=0; i<o.files.length; i++) { %}
+  <li class="template-upload file" data-filename="{%= o.files[i].unencoded_name %}" title="{%= o.files[i].encoded_name %}">
+    <p class="name">{%= o.files[i].encoded_name %}</span>
+    <p class="remove-file"{% if (o.files[i].uid) { %} data-uid="{%=o.files[i].uid %}" {% } %}><a href="#">x</a></span>    
+  </li>
+{% } %}
+</script>
+
+<script id="template-forward" type="text/html">
+{% for (var i=0; i<o.files.length; i++) { %}
+  <li class="template-forward file" data-filename="{%= o.files[i].unencoded_name %}" title="{%= o.files[i].encoded_name %}">
+    <p class="name">{%= o.files[i].encoded_name %}</span>
+  </li>
+{% } %}
+</script>
+
+
+
+  <div class='' id='panel' style='display:none'>
+<div id='close'></div>
+<div id='custom-layout'>
+</div>
+<div id='base-layout' style='display:block'>
+<div class='' id='panel-header'>
+</div>
+<div id='bottom'>
+
+</div>
+</div>
+<div id='panel-spinner' style='display:none'>
+<img alt="" height="164" src="https://assets.wetransfer.net/assets/v3/ajax-loader-ca17df082c1e361ec1988ab22604d426.gif" width="164" />
+</div>
+<div id='partial-panel-spinner' style='display:none'>
+<img alt="" height="164" src="https://assets.wetransfer.net/assets/v3/ajax-loader-ca17df082c1e361ec1988ab22604d426.gif" width="164" />
+</div>
+<div id='panel-error' style='display: none'>
+<img alt="" height="168" src="https://assets.wetransfer.net/assets/v3/downloader-exclamation-b165899aea71a6b207711f7c7bd9f0f9.png" width="168" />
+<h3>Oh noes</h3>
+<p>Something has gone wrong.</p>
+<p>
+Please try again
+</p>
+</div>
+</div>
+
+  
+  
+
+  <div id='dropzone-highlight-container'>
+<div class='dropzone-bg'></div>
+<div class='dropzone-message'>Drop it like it's hot</div>
+</div>
+
+  <div data-continent-code='AS' data-country-code='MY' id='openx' style='display:none'></div>
+<div id='openx_scripts' style='display:none'></div>
+<div id='openx_swf'></div>
+<div id='openx_html'></div>
+<div id='bg'>
+<img class='wp' id='wp1'>
+<img class='wp' id='wp2'>
+</div>
+
+  <script>
+  var channel_wallpapers = []
+      channel_ads = []
+      channel_wallpaper_link = null,
+      channel_wallpaper_title = null;
+</script>
+
+  <script src="https://assets.wetransfer.net/assets/application-0a0603d2efe4a6c9494ed3f1e615bc27.js" type="text/javascript"></script>
+
+  <!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11792855-4']);
+  _gaq.push(['_setDomainName', "www.wetransfer.com"]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- Google Analytics -->
+  <!-- start Mixpanel -->
+<script type="text/javascript">
+(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("d758cb628bb90acc276ccb7ef78ac5ce");
+</script>
+<!-- end Mixpanel -->
+  <!--[if lt IE 9]>
+<script>
+  $('#upload_progress').append("<div id=\"progressCanvas\"><div id=\"flashSpinner\"></div></div>");
+  swfobject.embedSWF("https://assets.wetransfer.net/assets/spinner-bbafcb15dd548d1abce5be124d7617ae.swf", "flashSpinner", "164", "164", "10.1.0", false, {}, {wmode: "transparent",allowScriptAccess: "always"}, {id: "flashSpinnerSwf"});
+</script>
+<![endif]-->
+
+
+  <script src="https://assets.wetransfer.net/js/advertising.js" type="text/javascript"></script>
+  <script type="text/javascript">
+;(function($){
+  // NOTE: We inline styles and js for notifications as we want them to continue to work
+  // even when asset loading is broken.
+  var notifications = $('<div class="notifications"></div>').css({
+    position: 'absolute',
+    zIndex: 100000,
+    textShadow: '0 0 2px rgba(0, 0, 0, .1)',
+    textAlign: 'left',
+    fontSize: '14px',
+    fontFamily: '"MuseoSansRounded-500","MuseoSansCyrillic-500",sans-serif',
+    lineHeight: '44px',
+    right: 0,
+    left: 0,
+    top: 0
+  });
+
+  var bars = [];
+
+  
+  
+  for (var i = 0; i < bars.length; i++) {
+    var bar = $('<div class="' + bars[i].type + '">').css({
+      color: bars[i].color,
+      background: bars[i].background,
+      position: 'relative',
+      padding: '0 16px',
+      boxShadow: '0 2px 2px 0 rgba(0,0,0,0.25)'
+    });
+
+    if (bars[i].text && bars[i].text.length > 0) {
+      bar.html('<img alt="info" height="22" src="https://assets.wetransfer.net/assets/notification-icon-info-gray-b4332d0334161740703afc8e3687d187.png" style="padding-right: 4px; padding-bottom: 2px" width="22" />' + bars[i].text);
+    }
+
+    if (bars[i].url && bars[i].url.length > 0) {
+      var url = bars[i].url;
+      bar.css({cursor: 'pointer'}).on('click', function(e){
+        window.open(url);
+        remove(e);
+      });
+    }
+
+    var close = $('<a href="#"><img alt="close" height="10" src="https://assets.wetransfer.net/assets/notification-close-button-gray-5818da1fac7f9e4f6e087880c6dcdc8b.png" width="10" /></a>').css({
+      float: 'right'
+    });
+    function remove(e) {
+      var target = $(this).parent();
+      target.fadeOut(600, function(){
+        target.remove();
+      });
+      e.preventDefault();
+      return false;
+    }
+    close.on('click', remove);
+
+    bar.append(close);
+    notifications.append(bar);
+  }
+  
+  $('body').append(notifications);
+})(jQuery);
+</script>
+
+</body>
+</html>

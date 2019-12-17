@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>adbooth Media Group</title>
+    <meta charset="utf-8" />
+	<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=yes" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name='adbooth' content='bdf294d52db326aa282c771ad76b52373eae69da' />
+    <meta name="MSSmartTagsPreventParsing" content="true" />
+    <meta name="keywords" content="adbooth, cpa, market, network, cpm, banners, access, net, media, popups, popunder, url shortener, interstitial, group, tracking, link, webmasters, publisher, advertiser" />
+    
+    <meta name="description" content="Adbooth Media Group. Bringing efficiency to online advertising." />
+    <meta http-equiv="author" content="adbooth Media Group" />
+    <meta http-equiv="owner" content="adbooth Media Group" />
+    <meta http-equiv="copyright" content="adbooth Media Group" />
+    
+    <meta name="robots" content="index,follow" />
+    <meta http-equiv="rating" content="general" />
+    <meta http-equiv="googlebot" content="index, follow" />
+    <meta http-equiv="revisit-after" content="2 weeks" />
+    
+	<link rel="shortcut icon" href="http://www.adbooth.com/img/favicon.ico" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://www.adbooth.com/js/jquery.scrollTo.min.js"></script>
+    
+    <!--main-->
+    <link href="http://www.adbooth.com/css/style.css" rel="stylesheet"/>
+    <script src="http://www.adbooth.com/js/functions.js"></script>
+    
+    <!--menu-->    
+    <link href="http://www.adbooth.com/css/menu.css" rel="stylesheet"/>
+	<script src="http://www.adbooth.com/js/menu.js"></script>
+    
+    <!--slidepanel-->
+    <link href="http://www.adbooth.com/css/jquery.slidepanel.css" rel="stylesheet"/>
+	<script src="http://www.adbooth.com/js/jquery.slidepanel.js"></script>
+    <script src="http://www.adbooth.com/js/jquery.bpopup.min.js"></script>
+
+
+   	
+</head>
+
+
+<body>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var bPopup = null;
+            function sendEmail(content, successCallback, failureCallback) {
+                $.post('../ajax/work-with-us-sender.php', {message: content, userEmail: $('#inquiry-email').val(), userName: $('#inquiry-name').val()}, successCallback).fail(failureCallback);
+            }
+
+            $('#send-message-button').click(function() {
+                sendEmail($('#message-content').val(), 
+                    function() {
+                        if (bPopup) {
+                            bPopup.close();
+                        }
+                    },
+                    function(err) {
+                        alert('There has been a problem sending the email. Please try again.');
+                    });
+                return false;
+            });    
+
+            $('#form-button').click(function () {
+                bPopup = $('#my-form').bPopup({
+                    // modalClose: false,
+                    // opacity: 0.6,
+                    positionStyle: 'fixed' //'fixed' or 'absolute'
+                });
+            });
+        });    
+    </script>
+
+<!-- NAV BAR -->
+<div id="header">
+	<div class="top-menu">
+   
+		<div class="menu-main pull-left">
+			<div class="menu-mobile mobile-only">
+                
+                <ul class="menu-mobile-content">
+                    <li class="menu-mobile-icon"><a><img src="http://www.adbooth.com/img/icon-menu.png"></a></li>
+                    <li>
+                        <div class="menu-mobile-wrapper" minslide="60px" maxslide="210px" speedslide="100" style="position: relative; left: -1000px; width: 60px;"><!-- variables handled by js -->
+                          <div class="menu-mobile-scroller">
+                                <ul class="menu-mobile-options" >
+                                    <li><a href="#c0"><img src="http://www.adbooth.com/img/icon-home.png">Home</a></li>
+                                    <li><a href="#c2"><img src="http://www.adbooth.com/img/icon-ecpmnetwork.png">eCPM Network</a></li>
+                                    <li><a href="#c4"><img src="http://www.adbooth.com/img/icon-help.png">Help</a></li>
+                                    <li><a href="#c5"><img src="http://www.adbooth.com/img/icon-locations.png">Locations</a></li>
+                                    <li><a href="#c6"><img src="http://www.adbooth.com/img/icon-contact.png">Contact</a></li>
+                                    <li><a href="login-page.php" data-slidepanel="panel" ><img src="http://www.adbooth.com/img/icon-login.png">Log In</a></li>
+                                 </ul>
+                           </div><!-- /scroller -->
+                           <div class="clear"></div>
+                        </div><!-- /wrapper -->
+                    </li>                
+                </ul>
+                
+            </div>
+            <div class="menu-screen screen-only">
+            <ul>
+            	<li><a href="#c0"><img src="http://www.adbooth.com/img/icon-home.png"><br>Home</a></li>
+                <li><a href="#c2"><img src="http://www.adbooth.com/img/icon-ecpmnetwork.png"><br>eCPM Network</a></li>
+                <li><a href="#c4"><img src="http://www.adbooth.com/img/icon-help.png"><br>Help</a></li>
+                <li><a href="#c5"><img src="http://www.adbooth.com/img/icon-locations.png"><br>Locations</a></li>
+                <li><a href="#c6"><img src="http://www.adbooth.com/img/icon-contact.png"><br>Contact</a></li>
+                <li><a href="login-page.php" data-slidepanel="panel"><img src="http://www.adbooth.com/img/icon-login.png"><br>Log In</a></li>
+            </ul>
+            </div>
+        </div>
+        
+        <div class="pull-left text-smaller" style=" margin-left:10px; padding-left:25px; border-left: thin solid #000; height:45px;">
+        Language
+        <div class="lang1" id="lang1"><a href="/en/" target="_self"></a></div>
+<div class="lang2" id="lang2"><a href="/es/" target="_self"></a></div>        <div style="margin-left:-2px; margin-top:5px;"><a class="button-lang button-lang-orange pull-left" href="/en/" target="_self">en</a>&nbsp;&nbsp;<a class="button-lang button-lang-white pull-left" href="/es/" target="_self">es</a></div>
+        </div>
+        
+        
+        <div id="logo-menu" class="logo-menu pull-right">
+        <a href="http://www.adbooth.com/en/"><img src="http://www.adbooth.com/img/logo-main.png"></a>
+        </div>
+        <div id="logo-menu-ecpm" class="logo-menu pull-right" style="display:none;">
+        <a href="http://www.adbooth.com/en/#c2"><img src="http://www.adbooth.com/img/logo-main-ecpm.png"></a>
+        </div>
+        <div id="logo-menu-cpa" class="logo-menu pull-right" style="display:none;">
+        <a href="http://www.adbooth.com/en/#c1"><img src="http://www.adbooth.com/img/logo-main-cpa.png"></a>
+        </div>
+   </div>
+</div>
+<!-- /NAV BAR --> 
+
+<!-- START cookie bar -->
+<div class="cookiebar screen-only">
+		Cookies help us deliver our services. By using our services, you agree to our use of cookies. <a href="http://www.adbooth.com/en/cookies-policy" target="_self">Learn more</a>. <a class="cookieButton button-lang button-lang-orange" href="">OK</a>
+</div>
+<!-- START cookie -->
+
+<script>
+$(function () {
+
+function setCookie(cname,cvalue,exdays)
+{
+	var d = new Date();
+	d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	var expires = "expires="+d.toGMTString();
+	document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname)
+{
+var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) {
+	  var c = ca[i].trim();
+	  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+	}
+	return "";
+}
+
+
+cookieaccepted = getCookie("accept");
+if (cookieaccepted!= "") {
+	$("#legal").css("paddingBottom", "0px");
+	$(".cookiebar").hide();
+} else {
+	$(".cookieButton").click(function() {
+		setCookie("accept", true, 365)
+		$("#legal").css("paddingBottom", "0px");
+		$(".cookiebar").hide();
+	});
+	$("#legal").css("paddingBottom", "30px");
+}
+
+
+});
+</script>
+
+
+<!-- END cookie  --><!-- END cookie bar --><!-- LOGIN BAR -->
+<div id="login-bar">
+	<!--<div class="login-menu">-->
+        
+        <div class="mobile-only">
+        <div id="pos-top" class="login-box pull-right">
+            <a href="../en/login-page.php" data-slidepanel="panel" class="button-login">
+            LOG IN
+            <br />
+            <img src="http://www.adbooth.com/img/p.png" />
+            </a>
+        </div>
+        
+        <div id="pos-non-top" class="login-box-non-top pull-right" style="display:none;">
+            <a href="../en/login-page.php" data-slidepanel="panel" class="button-login">
+            <img src="http://www.adbooth.com/img/p.png" />
+            </a>
+        </div>
+        </div>
+        
+    <!--</div>-->
+</div>
+<!--hide/show login panel -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		  $('[data-slidepanel]').slidepanel({
+			  orientation: 'right',
+			  mode: 'overlay', //available: push, overlay
+			  onopen: function () {
+				//$("html").css("overflowY", "hidden");
+			   },
+			   onclose: function () {
+				  //$("html").css("overflowY", "auto");
+			   }
+		  });
+	  });
+</script>
+<!-- /LOGIN BAR --> 
+
+
+<!-- CONTENT -->
+<div id="content">
+	<!-- HOME -->
+	<div id="c0" class="stripe">
+    	<div class="info">
+            <div class="c0a"><img src="http://www.adbooth.com/img/first-slide.png"></div>
+            <div class="c0b">
+                <span class=" text-bigest">Bringing efficiency to online advertising</span>
+                <br><br>
+                <span class=" text-small">
+                Stay tuned with our news and updates:
+                <!--NEWS: <span class="text-colour-orange">ad</span>booth team plays at Brazil 2014-->
+                </span>
+                <a href="http://www.adbooth.com/en/news" target="_self" class="button text-smallest button-colour-orange" style="margin-left:0px;">
+                <!--news-->
+                read more
+                </a>
+            </div>
+            <div class="clear"></div>
+            <div class="arrow-down"><a href="#c2"><img src="http://www.adbooth.com/img/arrow-down-blue.png"></a></div>
+        </div>
+    </div>
+    <!-- /HOME -->
+    <!-- eCPM NETWORK -->
+    <div id="c2" class="stripe">
+    	<div class="inset-shadow"></div>
+	    <div class="info text-left">
+        	<br>
+            <span class="text-biger text-colour-black">
+                eCPM Network
+            </span>
+            <br>
+            <div class="box-simple pull-left" style="margin-right:30px;"><img src="http://www.adbooth.com/img/bulb-smart-white.png"></div>
+            <div class="box-simple text-left text-small text-colour-black">
+            eCPM Network allows webmasters to charge high revenue for CPM.<br>Simply open an account, copy the code  of the banners, popups, interstitials, or the format you want and start seeing results in your stats. 
+            <!--We accept all kinds of websites, but no erotic.-->
+			</div>
+            <br>
+            <div class="box-normal text-center text-bold bkg-color-blue-dark text-colour-white">
+            OPEN YOUR ACCOUNT IN LESS THAN 1 MINUTE, PLACE ANNOUNCEMENTS AND BEGIN TO COLLECT!
+            <br>
+			EASY, FREE SETUP! FOR ALL SIZES WEBSITES AND CATEGORIES!
+            </div>
+            
+            <div class="box-simple">
+                
+                <div class="c2a text-colour-black text-big">
+                    <div class="feature-title text-colour-blue">PUBLISHERS</div>
+                    <div class="feature-content">
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-6.png" /></span>Get better eCPM guaranteed
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-7.png" /></span>Standard banners and floating avaliable
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-16.png" /></span>Pop-up, pop-under and interstitial ads
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-4.png" /></span>Panel easy to use and automatic billing
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-9.png" /></span>Support for livechat and phone available
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-15.png" /></span>Get paid always on time
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <br>
+                    <div class="text-small">START GENERATING INCOME!</div>
+                    <a href="http://ecpm.adbooth.com/en/publisher/panel/register/" class="button text-small button-colour-blue">SIGN UP TODAY!</a>
+                    <div class="clear"></div>
+                </div>
+                
+                
+                <div class="c2b text-colour-black text-big">
+                    <div class="feature-title text-colour-blue">ADVERTISERS</div>
+                    <div class="feature-content">
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-1.png" /></span>Create your campaigns with our easy-to-use panel
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-2.png" /></span>Automatic optimization to achieve your goals 
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-3.png" /></span>Proprietary technology managing your campaigns
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-4.png" /></span>Dedicated Campaign managers 24/7
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-5.png" /></span>CPM, CPC, CPI, CPA avaliable
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-10.png" /></span>Start from 100$
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <br>
+                    <div class="text-small">WORK WITH US!</div>
+                    <a id="btn-jump" href="#c2" class="button text-small button-colour-blue">START NOW</a>
+                    <div class="clear"></div>
+                    <div id="my-form" style="display:none; position:absolute; z-index:9999; opacity:0; width:400px; height:360px; background-color:#fff;">
+                        <span class="button b-close" style="color:#26abe2; position:absolute; right:0; top:0; line-height:27px; margin:0; border:0; text-align:center; background-color:#000; cursor:pointer;">X</span>
+                        <span style="background-color:#000; color:#26abe2; height:40px; line-height:40px; text-align:center; position:absolute; width:370px; font-size:1.3em;">CONTACT US</span>
+                            <form action="" style="height:280px; margin:1em; margin-top:60px;">
+                                <span style="margin-right:7px;">Name:</span><input id="inquiry-name" style="font-size:16px; padding:10px; margin-bottom:10px; width:262px;" type="text" required name="Nombre"><br>
+                                <span style="margin-right:20px;">E-Mail:</span><input id="inquiry-email" style="font-size:16px; padding:10px; margin-bottom:10px; width:262px;" type="email" required name="email"><br>
+                                <p style="height:10px;"></p>
+                                <span>Message:</span><textarea id="message-content" required rows="4" cols="50" style="width:350px; height:80px; padding-left:10px; padding-top:10px; margin-top:10px; resize: none; margin-bottom:10px;"></textarea>
+                                <input id="send-message-button" style="float:right; background-color:#26abe2; padding:5px 10px 8px 10px; border:2px solid #fff; font-weight400; color:#fff; font-size:1em; cursor:pointer;" type="submit" value="ENVIAR">
+                            </form>
+                    </div>
+                </div>	
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- /eCPM NETWORK -->
+    
+    <div id="c3" class="stripe">
+	    <div class="info text-left text-colour-black">
+            <div class="box-simple">
+            <span class="text-biger">
+                    Discover what can we do for eCPM advertisers and publishers
+                </span>
+                <br>
+                Our proprietary adserver ensures that our webmasters receive ads that will generate better income in each of the following formats.
+                <br><br>
+                </span>
+             </div>   
+             
+            <div class="box-adtypes text-center text-colour-black text-medium">
+                <img src="http://www.adbooth.com/img/ad-types-1.png">
+                <br>
+                Standard Banners
+                <br>
+                <a href="http://www.adbooth.com/en/demo-standard" class="button text-smaller button-colour-blue">Launch Demo</a>
+            </div>
+            
+            <div class="box-adtypes text-center text-colour-black text-medium">
+                <img src="http://www.adbooth.com/img/ad-types-2.png">
+                <br>
+                Floating Banners
+                <br>
+                <a href="http://www.adbooth.com/en/demo-floating" class="button text-smaller button-colour-blue">Launch Demo</a>
+            </div>
+            
+            <div class="box-adtypes text-center text-colour-black text-medium">
+                <img src="http://www.adbooth.com/img/ad-types-3.png">
+                <br>
+                Pop-Up
+                <br>
+                <a href="http://www.adbooth.com/en/demo-pop-up" class="button text-smaller button-colour-blue">Launch Demo</a>
+            </div>
+            
+            <div class="box-adtypes text-center text-colour-black text-medium">
+                <img src="http://www.adbooth.com/img/ad-types-4.png">
+                <br>
+                Pop-Under
+                <br>
+                <a href="http://www.adbooth.com/en/demo-pop-under" class="button text-smaller button-colour-blue">Launch Demo</a>
+            </div>
+            
+            <div class="box-adtypes text-center text-colour-black text-medium">
+                <img src="http://www.adbooth.com/img/ad-types-5.png">
+                <br>
+                Interstitial
+                <br>
+                <a href="http://www.adbooth.com/en/demo-interstitial" class="button text-smaller button-colour-blue">Launch Demo</a>
+            </div>
+            
+            
+            <div class="clear"></div>
+            <div class="arrow-down"><a href="#c4"><img src="http://www.adbooth.com/img/arrow-down-green.png"></a></div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <!-- CPA MARKET -->
+    <div id="c1" class="stripe" style="display:none;">
+    	<div class="inset-shadow"></div>
+	    <div class="info text-left">
+            <br>
+            <span class="text-biger text-colour-black">
+                CPA Market
+            </span>
+            <br>
+            <div class="box-simple pull-left" style="margin-right:30px;"><img src="http://www.adbooth.com/img/bulb-smart-white.png"></div>
+            <div class="box-simple text-left text-small text-colour-black">
+            CPA Market is an adbooth platform for affiliates and email marketers, among others.<br>Hundreds of campaigns available as pay-per-conversion, all previously tested by our team to ensure that only the best are those that generate profits and conversions.
+            </div>
+            <br>
+            <div class="box-normal text-center text-bold bkg-color-green-dark text-colour-white">
+            TO USE CPA MARKET IS NOT NECESSARY TO HAVE A WEBSITE.
+            <br>
+			CPA OFFERS ACCESS TO HUNDREDS OF CHOICES.
+            </div>
+            <div class="box-simple">
+                
+                <div class="c1a text-colour-black text-big">
+                    <div class="feature-title text-colour-green">AFFILIATES</div>
+                    <div class="feature-content">
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-6.png" /></span>Only top CPA and best converting campaigns
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-14.png" /></span>Top worldwide advertisers
+                        </div>
+                        <div class="feature">
+                           <span> <img src="http://www.adbooth.com/img/icon-12.png" /></span>Real time stats and friendly affiliate panel
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-10.png" /></span>Flexible payment terms for trusted affiliates
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-9.png" /></span>Dedicated account mangers with live chat
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-15.png" /></span>Always get paid on time, guaranteed.
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <br>
+                    <div class="text-small">BECOME AN AFFILIATE NOW!</div>
+                    <a id="form-button" href="http://cpamarket.adbooth.com/en/register" class="button text-small button-colour-green">START NOW!</a>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="c1b text-colour-black text-big">
+                    <div class="feature-title text-colour-green">ADVERTISERS</div>
+                    <div class="feature-content">
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-5.png" /></span>
+                            Full management of your campaigns
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-2.png" /></span>
+                            Automatic optimization based on performance
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-11.png" /></span>
+                            Instant access to thousands trusted affiliates
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-4.png" /></span>Dedicated Campaign managers 24/7
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-12.png" /></span>Quality tracking, reporting and traffic control
+                        </div>
+                        <div class="feature">
+                            <span><img src="http://www.adbooth.com/img/icon-13.png" /></span>Quality antifraud filters
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <br>
+                    <div class="text-small">EASY, FREE SETUP!</div>
+                    <a href="http://www.adbooth.com/contact/index.php?l=en" class="button text-small button-colour-green">START TODAY!</a>
+                    <div class="clear"></div>
+                </div>	
+                
+            </div>
+            
+            <div class="clear"></div>
+            <div class="arrow-down"><a href="#c4"><img src="http://www.adbooth.com/img/arrow-down-white.png"></a></div>
+        </div>
+    </div>
+    <!-- /CPA MARKET -->
+    
+    <div id="c4" class="stripe">
+    	<div class="inset-shadow"></div>
+	    <div class="info">
+            <br>
+			<div class="box-simple">
+            	<div id="c4-l" class="pull-left text-center">
+                    <img src="http://www.adbooth.com/img/icon-knowledge.png">
+                </div>
+                <div id="c4-r" class="pull-right text-left">
+                    <div class="text-biger" style="line-height:1;">
+                        Need help? Access our Knowledge Base.<br>
+                        <a href="https://adbooth-support.zendesk.com/hc/en-us" target="_blank" class="button text-small button-colour-orange" style="margin-left:0px;">Help</a>
+                    </div>
+                </div>
+			</div>
+            <div class="clear"></div>
+            <div class="box-simple" style="padding-top:40px; display:none;">
+            	<div id="c4-l" class="pull-left text-center">
+                    <img src="http://www.adbooth.com/img/icon-compare.png">
+                </div>
+                <div id="c4-r" class="pull-right text-left">
+                    <div class="text-biger" style="line-height:1;">
+                        Not sure what panel is right for you? Compare the features!<br>
+                        <a href="http://www.adbooth.com/en/compare" target="_self" class="button text-small button-colour-orange" style="margin-left:0px;">Compare</a>
+                    </div>
+                </div>
+			</div>
+            <div class="clear"></div>
+            <div class="arrow-down"><a href="#c5"><img src="http://www.adbooth.com/img/arrow-down-orange.png"></a></div>
+        </div>
+    </div>
+    
+    
+    <div id="c5" class="stripe">
+    	<div class="inset-shadow"></div>
+	    <div class="info">
+
+            <div class="box-simple">
+                <span class="text-biger">
+                    Need support or to be more informed about our products?
+                </span>
+                <br>
+                Our customers are served by our global network of call centers. Call us from the location who suits you better.
+                <br><br>
+                
+                <div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-es.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        SPAIN
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        Barcelona<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+34) 93 1641713
+        </span>
+    </div>
+</div>
+
+<div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-ag.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        ARGENTINA
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        Mar Del Plata<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+54) 223 4321435
+        </span>
+    </div>
+</div>
+
+<div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-mx.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        MEXICO
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        Mexico City DF<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+52) 55 852623883
+        </span>
+    </div>
+</div>
+
+<div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-gb.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        GREAT BRITAIN
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        London<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+44) 20 70482182
+        </span>
+    </div>
+</div>
+
+<div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-us.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        USA
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        Palo Alto<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+1) 650 6145372
+        </span>
+    </div>
+</div>
+
+<div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-au.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        AUSTRALIA
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        Sydney<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+61) 29 1881682
+        </span>
+    </div>
+</div>
+
+<div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-il.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        ISRAEL
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        Tel Aviv<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+972) 3 3741696
+        </span>
+    </div>
+</div>
+
+<div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-jp.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        JAPAN
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        Tokyo<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+81) 34 5889317
+        </span>
+    </div>
+</div>
+
+<div class="box-flag pull-left">
+    <div class="flag-info pull-left" style="width:80px; margin-top:5px;">
+        <img src="http://www.adbooth.com/img/flag-pt.png">
+    </div>
+    <div class="flag-info text-left text-small text-colour-black" style="width:250px;">
+        PORTUGAL
+        <br>
+        <span class="text-smaller">
+        <img src="http://www.adbooth.com/img/w.png" class="flag-icon" />
+        Lisboa<br>
+        <img src="http://www.adbooth.com/img/t.png" class="flag-icon" />
+        (+35) 130 0500476
+        </span>
+    </div>
+</div>                
+            </div>
+            
+            <div class="clear"></div>
+            <div class="arrow-down"><a href="#c6"><img src="http://www.adbooth.com/img/arrow-down-white.png"></a></div>
+        </div>
+    </div>
+    
+    <div id="c6" class="stripe">
+    	<div class="inset-shadow"></div>
+	    <div class="info">
+        
+			<div class="box-simple">
+            	<span class="text-biger">
+                    Comments, questions or just a hello?
+                </span>
+                <br>
+                Get in contact with our specialized departments.
+                <br><br><br>
+		Send us an e-mail at <a href="mailto:help@adbooth.net">help@adbooth.net</a>
+            </div>
+            
+            <div class="clear"></div>
+            <div class="arrow-down"><a href="#footer"><img src="http://www.adbooth.com/img/arrow-down-gray.png"></a></div>
+            
+        </div>
+    </div>
+    
+<div id="footer" class="stripe">
+    <div class="inset-shadow"></div>
+    <div class="info">
+		
+        <div class="footer-col-l text-left text-small text-colour-white">
+        	More businesses choose <span class="text-colour-orange">ad</span>booth as their favorite network.
+        	<div class="box-simple">
+                <img src="http://www.adbooth.com/img/logo-seriesyonkis.png" style="margin-right:20px;" />
+                <span class="screen-only"><br></span>
+                <img src="http://www.adbooth.com/img/logo-seriespepito.png" style="margin-right:20px;" />
+                <span class="screen-only"><br></span>
+                <img src="http://www.adbooth.com/img/logo-dvxonline.png" />
+            </div>
+        </div>
+        
+        
+        <div class="footer-col-m text-left text-medium text-colour-white">
+        	Connect<br /><br />
+	            <!-- BLOG -->
+                <div class="box-footer pull-left text-small">
+                    <a href="http://www.adbooth.com/en/news" target="_self">
+                        <div class="footer-info pull-left" style="width:50px; margin-top:3px;">
+                            <img src="http://www.adbooth.com/img/icon-blog.png" />
+                        </div>
+                        <div class="footer-info text-left pull-right" style="padding-right:30px;">
+                                <span class="text-colour-orange">ad</span>booth<br>News
+                        </div>
+                    </a>
+                </div>
+                <!-- /BLOG -->
+                <span class="screen-only"><br><br></span>
+                <!-- FACEBOOK -->
+                <div class="box-footer pull-left text-small">
+                    <a href="https://www.facebook.com/AdboothMedia" target="_blank">
+                        <div class="footer-info pull-left" style="width:50px; margin-top:3px;">
+                            <img src="http://www.adbooth.com/img/icon-facebook.png" />
+                        </div>
+                        <div class="footer-info text-left pull-right" style="padding-right:30px;">
+                                <span class="text-colour-orange">ad</span>booth<br>Facebook
+                        </div>
+                    </a>
+                </div>
+                <!-- /FACEBOOK -->
+                <!-- FORO -->
+                <div class="box-footer pull-left text-small">
+                    <a href="http://forobeta.com/adbooth/" target="_blank">
+                        <div class="footer-info pull-left" style="width:50px; margin-top:3px;">
+                            <img src="http://www.adbooth.com/img/icon-forum.png" />
+                        </div>
+                        <div class="footer-info text-left pull-right">
+                                <span class="text-colour-orange">ad</span>booth<br>Forum
+                        </div>
+                    </a>
+                </div>
+                <!-- /FORO -->
+        
+        </div>
+        
+        
+        <div class="footer-col-r text-left text-medium text-colour-white">
+        	Powered by<br /><br />
+            <div class="box-footer">
+            	<a href="http://www.smartadtags.com/" target="_blank">
+                <div class="box-footer pull-left text-small">
+                	<img src="http://www.adbooth.com/img/logo-smartadtags.png" style="margin-right:20px;" />
+                </div>
+                </a>
+                <span class="screen-only"><br><br></span>
+                <a href="http://www.hasoffers.com/" target="_blank">
+                <div class="box-footer pull-left text-small">
+                	<img src="http://www.adbooth.com/img/logo-hasoffer.png" style="margin-right:20px;" />
+                </div>
+                </a>
+                <span class="screen-only"><br><br></span>
+                <a href="http://www.adk2.com/" target="_blank">
+                <div class="box-footer pull-left text-small">
+                	<img src="http://www.adbooth.com/img/logo-adk2.png" />
+                </div>
+                </a>
+            </div>
+        </div>
+        
+        
+        <div class="footer-col-r text-left text-medium text-colour-white">
+        	Payment<br /><br />
+            <div class="box-footer">
+            	<div class="box-footer pull-left text-small">
+                <img src="http://www.adbooth.com/img/logo-paypal.png" style="margin-right:20px;" />
+                </div>
+                <span class="screen-only"><br><br></span>
+                <div class="box-footer pull-left text-small">
+                <img src="http://www.adbooth.com/img/logo-payoneer.png" style="margin-right:20px;" />
+                </div>
+                <span class="screen-only"><br><br></span>
+                <div class="box-footer pull-left text-small">
+                <img src="http://www.adbooth.com/img/logo-wiretransfer.png" />
+                </div>
+            </div>
+        </div>
+        
+
+
+        <div class="clear"></div>
+        <div class="arrow-up"><a href="#c0"><img src="http://www.adbooth.com/img/arrow-up-orange.png"></a></div>
+    </div>
+</div><div id="legal" class="stripe">
+    <div class="info">
+        <div class="box-legal text-legal">
+            <div class="legal-l text-left pull-left">
+                © Copyright adbooth Media Group. All rights reserved.
+            </div>
+            <div class="legal-r text-right pull-right">
+                <a href="http://www.adbooth.com/en/legal-notice">Legal Notice</a>
+                &nbsp;|&nbsp;
+                <a href="http://www.adbooth.com/en/privacy-policy">Privacy Policy</a>
+                &nbsp;|&nbsp;
+                <a href="http://www.adbooth.com/en/cookies-policy">Cookies Policy</a>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div><!-- Start Alexa Certify Javascript -->
+<script type="text/javascript" src="https://d31qbv1cthcecs.cloudfront.net/atrk.js"></script><script type="text/javascript">_atrk_opts = { atrk_acct: "gGpcg1aYS500gW", domain:"adbooth.net"}; atrk ();</script><noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=gGpcg1aYS500gW" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript --><!-- START Google Analytics CODE	-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31577409-1']);
+  _gaq.push(['_setDomainName', 'adbooth.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- END Google Analytics CODE	--><!-- START Adroll CODE	-->
+<script type="text/javascript">
+	adroll_adv_id = "NVINBR2UORHWXLT5MNOIYV";
+	adroll_pix_id = "WNGPASFHHNHCPHSD5BDIUZ";
+	(function () {
+	var oldonload = window.onload;
+	window.onload = function(){
+	   __adroll_loaded=true;
+	   var scr = document.createElement("script");
+	   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+	   scr.setAttribute('async', 'true');
+	   scr.type = "text/javascript";
+	   scr.src = host + "/j/roundtrip.js";
+	   ((document.getElementsByTagName('head') || [null])[0] ||
+		document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+	   if(oldonload){oldonload()}};
+	}());
+</script>
+<!-- END Adroll CODE	-->      
+    
+    
+</div>
+<!-- /CONTENT -->
+
+
+
+
+</body>
+</html>

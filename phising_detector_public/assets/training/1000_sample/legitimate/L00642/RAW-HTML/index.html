@@ -1,0 +1,852 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"24ade29801","applicationID":"4152250","transactionName":"dA5YQkBeD1tcFx0WBFsCWVtXHgpZXQBK","queueTime":0,"applicationTime":235,"ttGuid":"","agentToken":null,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQACVVNADAIFVlNXBw=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Free online calorie counter and diet plan. Lose weight by tracking your caloric intake quickly and easily.  Find nutrition facts for over 2,000,000 foods." />
+<meta name="keywords" content="calorie counter, free diet journal, weight loss program, nutrition facts, online calorie counter, free diet plan, weight loss online, free calorie counter" />
+<meta name="verify-v1" content="jKS1fjb9pK13luol4O+VFWO0OwEYaK4au88j0aRpQTM=" />
+<meta property="og:url" content="https://www.myfitnesspal.com/" />
+<meta property="og:image" content="https://d34yn14tavczy0.cloudfront.net/assets/og_image_1200x630-baa3ef930915ba1638a9179441a02c0c.png" />
+
+
+  <title>Free Calorie Counter, Diet &amp; Exercise Journal | MyFitnessPal.com</title>
+
+  <link rel="image_src" href="https://d34yn14tavczy0.cloudfront.net/assets/logo-523f683f95a37382f23ed59fdb94df08.gif" />
+
+    <script type='text/javascript' src='//c.amazon-adsystem.com/aax2/amzn_ads.js'></script>
+  <script type='text/javascript'>
+    try {
+        amznads.getAds('3257');
+    } catch (e) { /*ignore*/ }
+  </script>
+
+  <script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function() {
+     var gads = document.createElement('script');
+     gads.async = true; gads.type = 'text/javascript';
+     gads.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.googletagservices.com/tag/js/gpt.js';
+     var node = document.getElementsByTagName('script')[0];
+       node.parentNode.insertBefore(gads, node);
+    })();
+  </script>
+
+
+    <script type="text/javascript">
+      googletag.cmd.push(function() {
+        var bindAdTimingEventListeners = function() {
+          googletag.pubads().addEventListener('impressionViewable', function(args) {
+            var slot = args.slot;
+            _trackTiming('impressionViewable', slot);
+          });
+
+          googletag.pubads().addEventListener('slotRenderEnded', function(args) {
+            var slot = args.slot;
+            _trackTiming('slotRenderEnded', slot);
+          });
+        };
+
+        var defineAdSlots = function() {
+
+            googletag.defineSlot('/17729925/UACF_W/MFP/MyHome/Home', [[728,90]], 'ad_welcome_728x90_bottom')
+              .addService(googletag.pubads())
+              .setTargeting('pos', ['bottom'])
+              .setTargeting('description', 'welcome_728x90_bottom');
+        };
+
+        var setUserTargeting = function() {
+        };
+
+        var setMobileSEOTargeting = function() {
+        };
+
+        var _trackTiming = function(eventName, slot) {
+          var now = window.performance.now();
+          var adUnitPath = slot.getAdUnitPath();
+          var descriptions = slot.getTargeting('description');  // comes back as an array
+          var description = descriptions.join('_');
+          var timingVar = eventName + ' - ' + adUnitPath + ' - ' + description;
+          var attrs = {
+            timingCategory: 'Ad Timing',
+            timingVar: timingVar,
+            timingValue: Math.round(now),
+            timingLabel: 'Rails'
+          };
+
+          MFP.Stats.track_gtm({
+            event: 'timingEvent',
+            attrs: attrs
+          });
+        };
+
+        defineAdSlots();
+        setUserTargeting();
+        setMobileSEOTargeting();
+
+        if (window.performance) {
+          bindAdTimingEventListeners();
+        }
+
+          try {
+            amznads.setTargetingForGPTAsync('amznslots');
+          } catch(e) { /*ignore*/ }
+
+        googletag.enableServices();
+
+      });
+    </script>
+
+
+
+
+  <script>
+var MFP = (function (parent) {
+  parent.URL = (function () {
+    var me = {};
+    me.currentLocale = "en";
+    me.baseUrl = "http://www.myfitnesspal.com/";
+    me.httpsBaseUrl = "https://www.myfitnesspal.com/";
+    me.topLevelDomain = "com";
+    me.defaultLocale = "en";
+    me.getUrlPath = function(path) {
+      //if (me.topLevelDomain == me.currentLocale) {
+      if (me.defaultLocale == me.currentLocale) {
+        return (path[0] == '/' ? path.substring(1) : path);
+      } else {
+        return '/' + me.currentLocale + path;
+      }
+    }
+    me.getUrlAbsolute = function(path) {
+      return me.baseUrl + (path[0] == '/' ? path.substring(1) : path);
+    }
+    me.getHttpsUrlAbsolute = function(path) {
+      if (false) {
+        return me.getUrlAbsolute(path);
+      } else {
+        return me.httpsBaseUrl + (path[0] == '/' ? path.substring(1) : path);
+      }
+    }
+    me.valueFromQueryString = function(key) {
+      var queryParams = window.location.search.substring(1).split('&');
+      var re = new RegExp('^' + key  + '=');
+      var result;
+      queryParams.forEach(function(queryString, index) {
+        var match = re.test(queryString);
+        var operatorIndex;
+        if(match){
+          operatorIndex = queryString.search(/=/);
+          if(operatorIndex > -1){
+            result = queryString.substr(operatorIndex + 1, queryString.length - operatorIndex + 1);
+          }
+        }
+      });
+
+      return result;
+    }
+    return me;
+  }());
+  return parent;
+})(MFP || {});
+</script>
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  var variant = 'false' || null;
+  var doTrack = false;
+
+  _gaq.push(['_setAccount', 'UA-94924-2']);
+
+  if(typeof(_vis_opt_GA_track) == "function") { _vis_opt_GA_track(); }
+
+
+  // Make sure this GUID is in the 'on' or 'control' variant
+  if (doTrack && variant !== null && variant !== 'false') {
+    _gaq.push(['_setCustomVar', 5, 'mobile_optimized_page', variant, 2]);
+  }
+
+  _gaq.push(['_setDomainName', 'auto']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+  <link rel="canonical" href="http://www.myfitnesspal.com/">
+
+
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com.br/" 
+    hreflang="pt" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/" 
+    hreflang="en" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.cn/" 
+    hreflang="zh-Hans" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.de/" 
+    hreflang="de" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.es/" 
+    hreflang="es" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.fr/" 
+    hreflang="fr" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com.hk/" 
+    hreflang="zh-Hant" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.it/" 
+    hreflang="it" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.jp/" 
+    hreflang="ja" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.co.kr/" 
+    hreflang="ko" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com.mx/" 
+    hreflang="es" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.nl/" 
+    hreflang="nl" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.se/" 
+    hreflang="sv" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com.tw/" 
+    hreflang="zh-Hant" />
+
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/de/" 
+    hreflang="de-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/es/" 
+    hreflang="es-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/fr/" 
+    hreflang="fr-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/pt/" 
+    hreflang="pt-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/it/" 
+    hreflang="it-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/nb/" 
+    hreflang="nb-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/nl/" 
+    hreflang="nl-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/ru/" 
+    hreflang="ru-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/sv/" 
+    hreflang="sv-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/da/" 
+    hreflang="da-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/ko/" 
+    hreflang="ko-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/ja/" 
+    hreflang="ja-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/zh-CN/" 
+    hreflang="zh-Hans-US" />
+  <link rel="alternate" 
+    href="http://www.myfitnesspal.com/zh-TW/" 
+    hreflang="zh-Hant-US" />
+
+
+  <link href="https://d34yn14tavczy0.cloudfront.net/assets/sass/landing_page-27e42d280d3485a0ded3f124973225ec.css" media="screen" rel="stylesheet" type="text/css" />
+
+  <script type="text/javascript">
+//<![CDATA[
+var AUTH_TOKEN = "ESnHI7ZCgyfi28zlFRCHh1/0BA105w4ym29Pf0wNgmQ=";
+//]]>
+</script>
+
+</head>
+
+<body >
+  <!--[if lte IE 7]><div id="ie"><![endif]-->
+  <!--[if IE 6]><div id="ie6"><![endif]-->
+
+  <!-- Google Tag Manager -->
+<script type="text/javascript">
+  window.dataLayer = window.dataLayer || [];
+</script>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TDCVCS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TDCVCS');</script>
+<!-- End Google Tag Manager -->
+
+
+  
+
+  
+<div id="fb-root"></div>
+<script>
+  var FACEBOOK_LIMITED_PERMISSIONS = "email,user_birthday,user_friends";
+  var FACEBOOK_PERMISSIONS = FACEBOOK_LIMITED_PERMISSIONS.concat(",","publish_actions");
+  var FACEBOOK_API_VERSION = 'v2.2';
+  var facebook_error_string = "Your Facebook account was not authorized.";
+
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '186796388009496', // App ID
+      version    : FACEBOOK_API_VERSION,
+      channelUrl : '//www.myfitnesspal.com/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+
+<div id="header">
+  <div class="header-wrap">
+    <!-- <h1 id="logo"><a href="https://www.myfitnesspal.com/">Calorie Counter</a></h1> -->
+    <h1 id="logo"><a href="http://www.myfitnesspal.com/">Calorie Counter</a></h1>
+
+    <ul id="navTop" class="nav guest">
+      <li>
+        <a href="/food/calorie-chart-nutrition-facts" class="nav_button">Food</a>
+      </li>
+      
+      <li>
+        <a href="/exercise/lookup" class="nav_button">Exercise</a>
+      </li>
+      
+      <li>
+        <a href="/apps" class="nav_button">Apps</a>
+      </li>
+
+      <li>
+        <a href="http://blog.myfitnesspal.com" class="nav_button">Blog</a>
+      </li>
+
+      <li>
+        <a href="/forums" class="nav_button">Community</a>
+      </li>
+
+        <li>
+          <a href="https://www.underarmour.com/?cid=MMF|REF|MFPal|Site|loggedout" class="ua-shop-link nav_button" data-gender="unknown" target="_blank"><img alt="Ua_shop_logo" src="http://d34yn14tavczy0.cloudfront.net/images/ua_shop_logo.png" />Shop</a>
+        </li>
+
+      <li>
+        <a class="fancylink" href="#fancy_login" >Log In</a>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+
+  <div id="i6banner" >
+  <div id="i6bannercontent">
+    
+    <h2>Lose Weight with MyFitnessPal</h2>
+    <p>The fastest, easiest to use calorie counter app.</p>
+    
+    <form accept-charset="UTF-8" action="https://www.myfitnesspal.com/account/create" class="form" id="join" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ESnHI7ZCgyfi28zlFRCHh1/0BA105w4ym29Pf0wNgmQ=" /></div>
+      <input type="hidden" name="fromlanding" value="1" />
+      <a href="#" class="facebook-signup" tabIndex="1">
+        <span class="icon">&nbsp;</span>
+          <span class="text">Sign up with Facebook</span>
+</a>
+      <a href="/account/create" class="email-signup" tabIndex="2">Sign up with Email</a>
+
+</form>    <p>
+      <span>Already have an account? </span>
+      <a class="fancylink" href="#fancy_login" >Log In</a>
+    </p>
+  </div>
+</div>
+
+  <div id="i6content" >
+    <div id="millions">
+
+  <h2>
+      Millions of people have lost weight with MyFitnessPal&#x27;s FREE calorie counter
+  </h2>
+  <h4>
+      Get free access to the world's largest nutrition and calorie database &#8212; over 5 million foods!
+  </h4>
+  
+  <div class="column">
+    <ul id="benefits">
+      <li>Medical studies show that keeping a food journal DOUBLES your weight loss!</li>
+        <li>Quickly add and log recipes from across the web</li>
+      <li>Easy and fast</li>
+        <li>Signup for free, with no strings attached</li>
+    </ul>
+  </div>
+  <div class="column">
+    <h3>Lose weight the healthy way</h3>
+      <p>We believe &mdash; and medical studies prove &mdash; that the best way to lose weight and keep it off is to simply keep track of the foods you eat. Gimmicky machines and fad diets don't work, so we designed a free website and mobile apps that make calorie counting and food tracking easy.
+</p>
+  </div>
+</div>
+
+<div class="testimonial" id="really_works" >
+  <div class="column">
+    <div class="testimonialcontent" >
+      <h2>MyFitnessPal really works!</h2>
+      <p>"MFP has been instrumental to my weight loss. I've tried countless times to lose weight but nothing worked. Anything restrictive and I would just gain the weight right back. But MyFitnessPal really works. MFP makes counting calories SO easy. I log onto my iPhone app every day and I'm proud to say I haven't missed a single day of logging in. The community aspect on this site is amazing and I've made some really great friends throughout this journey. I can't wait to continue losing weight with MFP!"
+</p>
+      <cite>Juliette Willson (julwills)</cite>
+    </div>
+  </div>
+  <div class="column">
+    <h3 class="featured_in">Featured In</h3>
+    <div class='featured_in_logos'>
+    </div>
+  </div>  
+</div>
+    <div class="testimonial" id="easier_than_you_think">
+  <div class="column">
+    <h3>Watch Video</h3>
+    <div class="testimonialimage" id="mfpeasy_image" >
+      <a id="mfpeasy_video_link" href="#mfpeasy_video" ><img alt="Video" height="240" src="https://d34yn14tavczy0.cloudfront.net/assets/index/video.png" width="320" /></a>
+      <div>See how quick and easy it is to add food to your diary.</div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="testimonialcontent" >
+      <h2>It&#x27;s easier than you think</h2>
+      <div class="testimonialquote" >
+        <p>
+  "My trainer recommended MyFitnessPal to me, but I was concerned that is would be too time consuming and difficult to use...But it's easy! After a few days, it's just a couple of clicks and you're done!  If you're serious about fitness or weight loss or eating better, MFP is an excellent way to keep you in check and on track."
+
+</p>
+<cite>
+  Christina C. (chrisec)
+</cite>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display:none;" >
+  <div id="mfpeasy_video"></div>
+</div>
+
+<div class="testimonial" id="fooddb">
+
+  <div class="column">
+    <div class="testimonialimage">
+      <a class="fancylink" href="https://d34yn14tavczy0.cloudfront.net/assets/index/how_much_large-b0a7d6c632133f42cdd3fd760cff9f9c.gif" ><img src="https://d34yn14tavczy0.cloudfront.net/assets/index/how_much_small-35b2fea48c498246efedbf72848cc30c.png" /></a>
+        <div>Browse over 5,000,000 food items, and quickly add them to your diary</div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="testimonialcontent" >
+      <h2>Over 5 million foods in our database</h2>
+
+      <div class="testimonialquote" id="food_db_testimonial">
+        <p>
+  "MyFitnessPal has made a tremendous difference in my life!  I love the vast database of food. The huge food database makes it almost impossible to NOT find a food that you're eating.  The recipe counter makes it so much easier to track the nutrition in homemade meals and the exercise tracker lets me see the amount of calories I've worked off for the day. With MyFitnessPal's help, I've lost 75 lbs and I'm still going!  I feel like a whole new woman!"
+
+</p>
+<cite>
+  Nicole Schroeder (schro151)
+</cite>
+      </div>
+    </div>
+  </div>
+
+</div>
+    <hr />
+
+<div id="devices">  
+  <div class="column">
+    <h2><a href="/">MyFitnessPal Mobile</a></h2>
+    <h1>Track your health from anywhere, anytime.</h1>
+    <p>Our web and mobile apps sync automatically, so your diary is always up to date.</p>
+    <h3>AVAILABLE ON</h3>
+    <div class="deviceouter" >
+      <a href="/iphone" >
+        <div id="iphone" class="device" ></div>
+      </a>
+    </div>
+    <div class="deviceouter" >
+      <a href="/android" >
+        <div id="android" class="device" ></div>
+      </a>
+    </div>
+
+    <div id="windowsouter" class="deviceouter" >
+      <a href="/windows" >
+        <div id="windows" class="device" ></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="column"> 
+    <div id="iphonemac">
+      <img src="https://d34yn14tavczy0.cloudfront.net/assets/index/iphone-278a5de139fcd5dd218178ef55b4c4f9.png" />
+    </div>
+  </div>
+</div>
+
+<hr />
+    <div id="jly" >
+  <h2>
+    Incredible success stories from real people, just like you!
+  </h2>
+  <div class="jly_wrapper">
+    <div class="jlyitem">
+      <a class="jlyimage fancylink" id="jlyimage2" href="https://d34yn14tavczy0.cloudfront.net/assets/index/lightbox2-5f9d5a552cfa4d8c578721196848746a.jpg" >
+        <img src="https://d34yn14tavczy0.cloudfront.net/assets/index/user_2-7f95e642ca8cb026e5c95614d6978c1e.png">
+      </a>
+      <p>
+  "Thanks to MyFitnessPal, I've rolled back 26 years of weight gain and discovered a life I thought was gone forever."
+
+</p>
+<cite>
+  John Kilpatrick (jmkpublic)
+</cite>
+    </div>
+
+    <div class="jlyitem">
+      <a class="jlyimage fancylink" id="jlyimage3" href="https://d34yn14tavczy0.cloudfront.net/assets/index/lightbox3-350d607bafb9ba63f4cc03c38bfcbe76.jpg" >
+        <img src="https://d34yn14tavczy0.cloudfront.net/assets/index/user_3-eef796a230c70b97ba8637526a84d82d.png">
+      </a>
+      <p>
+  "Every pound I lose gives me more confidence, and makes me feel like I can do anything. MFP gave me a life back that I truly believed I had lost."
+
+</p>
+<cite>
+  Christine Hannon (hchristine)
+</cite>
+    </div>
+
+    <div class="jlyitem">
+      <a class="jlyimage fancylink" id="jlyimage4" href="https://d34yn14tavczy0.cloudfront.net/assets/index/lightbox4-db7a8556bd7970a11372b40a71062acf.jpg" >
+        <img src="https://d34yn14tavczy0.cloudfront.net/assets/index/user_4-745439d73bb1fb6e0df63f951bc6cdf2.png">
+      </a>
+      <p>
+  "I can honestly say that finding this website has been the best thing to happen to me in my life..."
+
+</p>
+<cite>
+  Cassie Bailey (superstarcassie)
+</cite>
+    </div>
+  </div>
+
+</div> <!-- / #jly -->
+    <div id="stillnotsure">
+  <div class="column">
+    <h2>Watch one of our members featured on the Today Show!</h2>
+    <p>Tamara, a 31 year old mother of two, weighed 278 pounds at her all time high.  One busy morning, she got off from work early to celebrate her daughter's birthday.  But by the time she got to the party, she was so exhausted that her husband had to handle the party by himself.  It was that day that she decided to do something about her weight. Tamara's friend April asked her to check out MyFitnessPal, and our free app and website helped her lose 141 pounds. Her story is so amazing that she was featured on the Today Show!  Watch the video on the right to hear Tamara's story, then change your life and start using MyFitnessPal today.</p>
+  </div>
+  <div class="column">
+    <div id="video" >
+      <div class="video-js-box">                        
+        <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
+        <video id="tamara_video" class="video-js" width="340" height="193" controls="controls" preload="none" poster="https://d34yn14tavczy0.cloudfront.net/assets/firstframe-1e6069b33be28a71c1515ebd75081fde.jpg">
+          <source src="http://assets-ssl.myfitnesspal.com/videos/tamara/tamara.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+            <!-- Flash Fallback. Use any flash video player here. Make sure to keep the vjs-flash-fallback class. -->
+          <object id="flash_fallback_1" class="vjs-flash-fallback" width="340" height="193" type="application/x-shockwave-flash"
+            data="http://d34yn14tavczy0.cloudfront.net/videos/flowplayer.commercial-3.2.7.swf" >
+            <param name="movie" value="http://d34yn14tavczy0.cloudfront.net/videos/flowplayer.commercial-3.2.7.swf" />
+            <param name="allowfullscreen" value="true" />
+            <param name="wmode" value="opaque" />
+            <param name="flashvars" value='config={"key":["#$a682814c61161502f35", "#$0ffeb8b604390e27874"],"playlist":["https://d34yn14tavczy0.cloudfront.net/assets/firstframe-1e6069b33be28a71c1515ebd75081fde.jpg", {"url": "http://d34yn14tavczy0.cloudfront.net/videos/tamara/tamara.mp4","autoPlay":false,"autoBuffering":false}]}' />
+              <!-- Image Fallback. Typically the same as the poster image. -->
+            <img src="https://d34yn14tavczy0.cloudfront.net/assets/firstframe-1e6069b33be28a71c1515ebd75081fde.jpg" width="340" height="193" alt="Poster Image"
+              title="No video playback capabilities." />
+          </object>
+        </video>
+      </div>
+    </div>
+    <h3>Tamara used to weigh 278 pounds, and lost 141 pounds using MyFitnessPal!</h3>
+  </div>
+</div>
+
+</div>
+
+  <div id="bottomform" >
+	<div class="wrapper">
+		<div class="column left">
+		  	<h3>Go ahead.</h3>
+		  <h3>Make the first step to a healthier self.</h3>
+		  <h4>Sign up for a MyFitnessPal Account</h4>
+		</div>
+		<div class="column right">
+		  <form accept-charset="UTF-8" action="/account/create" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ESnHI7ZCgyfi28zlFRCHh1/0BA105w4ym29Pf0wNgmQ=" /></div>
+			  <input id="fromlanding" name="fromlanding" type="hidden" value="1" />
+			  <input id="user_email" name="user[email]" placeholder="Email Address" size="30" type="text" />
+			  <input id="bottomformsubmit" name="commit" type="submit" value="Sign Up" />
+</form>		</div>
+	</div>
+</div>
+
+<div id="i6content" >    
+	  <div id="searchrow" >
+  <div id="searchforfoods" >
+    <h2>MyFitnessPal Food Search</h2>
+    <h4>Learn more about the food you&#x27;re eating</h4>
+    <form accept-charset="UTF-8" action="/food/search" id="foodsearch" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ESnHI7ZCgyfi28zlFRCHh1/0BA105w4ym29Pf0wNgmQ=" /></div>
+      <input id="search" name="search" type="text" value="Enter a Food or Restaurant" />
+</form>    <span id="search_tags" >i.e.  <a href="/nutrition-facts-calories/mcdonalds">McDonald&#x27;s</a>, 
+      <a href="/tag/show/apple">apple</a>,
+      <a href="/tag/show/eggs">eggs</a>, 
+      <a href="/tag/show/sardines">sardines</a>
+    </span>
+  </div>
+
+  <div id="popular-foods" class="popular-foods">
+    <a href="/nutrition-facts-calories/arbys" title="Arby's nutrition facts">Arby&#x27;s</a>
+    <a href="/nutrition-facts-calories/buffalo-wild-wings" title="Buffalo Wild Wings nutrition facts">Buffalo Wild Wings</a>
+    <a href="/nutrition-facts-calories/burger-king" title="Burger King nutrition facts">Burger King</a>
+    <a href="/nutrition-facts-calories/california-pizza-kitchen" title="California Pizza Kitchen nutrition facts">California Pizza Kitchen</a>
+    <a href="/nutrition-facts-calories/cheesecake-factory" title="Cheesecake Factory nutrition facts">Cheesecake Factory</a>
+    <a href="/nutrition-facts-calories/chipotle" title="Chipotle nutrition facts">Chipotle</a>
+    <a href="/nutrition-facts-calories/cold-stone-creamery" title="Cold Stone Creamery nutrition facts">Cold Stone Creamery</a>
+    <a href="/nutrition-facts-calories/dairy-queen" title="Dairy Queen nutrition facts">Dairy Queen</a>
+    <a href="/nutrition-facts-calories/gatorade" title="Gatorade nutrition facts">Gatorade</a>
+    <a href="/nutrition-facts-calories/ihop" title="IHOP nutrition facts">IHOP</a>
+    <a href="/nutrition-facts-calories/kfc" title="KFC nutrition facts">KFC</a>
+    <a href="/nutrition-facts-calories/olive-garden" title="Olive Garden nutrition facts">Olive Garden</a>
+    <a href="/nutrition-facts-calories/panera-bread" title="Panera Bread nutrition facts">Panera Bread</a>
+    <a href="/nutrition-facts-calories/pepsi" title="Pepsi nutrition facts">Pepsi</a>
+    <a href="/nutrition-facts-calories/pizza-hut" title="Pizza Hut nutrition facts">Pizza Hut</a>
+    <a href="/nutrition-facts-calories/red-lobster" title="Red Lobster nutrition facts">Red Lobster</a>
+    <a href="/nutrition-facts-calories/red-robin" title="Red Robin nutrition facts">Red Robin</a>
+    <a href="/nutrition-facts-calories/ruby-tuesday" title="Ruby Tuesday nutrition facts">Ruby Tuesday</a>
+    <a href="/nutrition-facts-calories/sonic" title="Sonic nutrition facts">Sonic</a>
+    <a href="/nutrition-facts-calories/starbucks" title="Starbucks nutrition facts">Starbucks</a>
+    <a href="/nutrition-facts-calories/subway" title="Subway nutrition facts">Subway</a>
+    <a href="/nutrition-facts-calories/taco-bell" title="Taco Bell nutrition facts">Taco Bell</a>
+    <a href="/nutrition-facts-calories/taco-time" title="Taco Time nutrition facts">Taco Time</a>
+    <a href="/nutrition-facts-calories/wendys" title="Wendy's nutrition facts">Wendy&#x27;s</a>
+    <a href="/nutrition-facts-calories/mcdonalds" title="McDonalds nutrition facts">McDonald&#x27;s</a>
+    <a href="/nutrition-facts-calories/jack-in-the-box" title="Jack In The Box nutrition facts">Jack In The Box</a>
+    <a href="/nutrition-facts-calories/chilis" title="Chili's nutrition facts">Chili&#x27;s</a>
+    <a href="/nutrition-facts-calories/texas-roadhouse" title="Texas Roadhouse nutrition facts">Texas Roadhouse</a>
+    <a href="/nutrition-facts-calories/dunkin-donuts" title="Dunkin Donuts nutrition facts">Dunkin Donuts</a>
+    <a href="/nutrition-facts-calories/papa-johns" title="Papa Johns nutrition facts">Papa Johns</a>
+    <a href="/nutrition-facts-calories/outback-steakhouse" title="Outback Steakhouse nutrition facts">Outback Steakhouse</a>
+    <a href="/nutrition-facts-calories/chick-fil-a" title="Chick Fil A nutrition facts">Chick Fil A</a>
+    <a href="/nutrition-facts-calories/quiznos" title="Quiznos nutrition facts">Quiznos</a>
+    <a href="/nutrition-facts-calories/cheerios" title="Cheerios nutrition facts">Cheerios</a>
+    <a href="/nutrition-facts-calories/coca-cola" title="Coca Cola nutrition facts">Coca Cola</a>
+    <a href="/nutrition-facts-calories/kentucky-fried-chicken" title="Kentucky Fried Chicken nutrition facts">Kentucky Fried Chicken</a>
+    <a href="/nutrition-facts-calories/applebees" title="Applebees nutrition facts">Applebees</a>
+    <a href="/nutrition-facts-calories/chinese-food" title="Chinese Food nutrition facts">Chinese Food</a>
+    <a href="/nutrition-facts-calories/tgi-fridays" title="Tgi Fridays nutrition facts">Tgi Fridays</a>
+    <a href="/tag/show/almonds" title="Calories in Almonds">Almonds</a>
+    <a href="/tag/show/apple" title="Calories in an Apple">apple</a>
+    <a href="/tag/show/avocado" title="Calories in Avocado">Avocado</a>
+    <a href="/tag/show/bagel" title="Calories in Bagel">Bagel</a>
+    <a href="/tag/show/banana" title="Calories in a Banana">Banana</a>
+    <a href="/tag/show/beer" title="Calories in Beer">Beer</a>
+    <a href="/tag/show/cantaloupe" title="Calories in Cantaloupe">Cantaloupe</a>
+    <a href="/tag/show/celery" title="Calories in Celery">Celery</a>
+    <a href="/tag/show/chicken" title="Calories in Chicken">Chicken</a>
+    <a href="/tag/show/coffee" title="Calories in Coffee">Coffee</a>
+    <a href="/tag/show/cucumber" title="Calories in Cucumber">Cucumber</a>
+    <a href="/tag/show/egg" title="Calories in an Egg">Egg</a>
+    <a href="/tag/show/grapes" title="Calories in Grapes">Grapes</a>
+    <a href="/tag/show/liquor" title="Calories in Liquor">Liquor</a>
+    <a href="/tag/show/orange" title="Calories in Orange">Orange</a>
+    <a href="/tag/show/pizza" title="Calories in Pizza">Pizza</a>
+    <a href="/tag/show/popcorn" title="Calories in Popcorn">Popcorn</a>
+    <a href="/tag/show/potato" title="Calories in Potato">Potato</a>
+    <a href="/tag/show/shrimp" title="Calories in Shrimp">Shrimp</a>
+    <a href="/tag/show/strawberry" title="Calories in Strawberry">Strawberry</a>
+    <a href="/tag/show/sushi" title="Calories in Sushi">Sushi</a>
+    <a href="/tag/show/tomatoes" title="Calories in Tomatoes">Tomatoes</a>
+    <a href="/tag/show/vodka" title="Calories in Vodka">Vodka</a>
+    <a href="/tag/show/watermelon" title="Calories in Watermelon">Watermelon</a>
+    <a href="/tag/show/wine" title="Calories in Wine">Wine</a>
+  </div><!-- / .popular-foods -->
+</div>
+
+</div>
+
+  <div class="ad-unit welcome-bottom">
+    <script src="https://d34yn14tavczy0.cloudfront.net/assets/shared/ads-cc5faab1c09a54c705e01f7cf3fd14ed.js" type="text/javascript"></script>
+    
+<div id="ad_welcome_728x90_bottom" data-network="google" class="ad-wrapper" style="width: 728px !important; height: 90px !important;">
+</div>
+
+    <script type="text/javascript">googletag.cmd.push(function() {googletag.display('ad_welcome_728x90_bottom'); });</script>
+
+  </div>
+
+  <section id="footer-wrapper">
+  <div class="uacf-logo-wrapper">
+      <a href="https://www.underarmour.com/en-us/?cid=MMF|REF|MFPal|Site|||" class="uacf-logo"><img alt="Under Armour ConnectedFitness" src="https://d34yn14tavczy0.cloudfront.net/assets/uacf_logo-31653ed4fac2ebb108a3f8bdc363a8a1.png" /></a>
+  </div>
+  <div id="footer">
+    <div id="footerContent">
+        <div id="language_select">
+          <form accept-charset="UTF-8" action="/account/change_language" class="form settings_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ESnHI7ZCgyfi28zlFRCHh1/0BA105w4ym29Pf0wNgmQ=" /></div>
+            <input id="originating_path" name="originating_path" type="hidden" />
+            <select id="preference_language_setting" name="preference[language_setting]"><option value="en" selected="selected">English</option>
+<option value="de">Deutsch</option>
+<option value="es">Español</option>
+<option value="fr">Français</option>
+<option value="pt">Português (Brasil)</option>
+<option value="it">Italiano</option>
+<option value="nb">Norsk</option>
+<option value="nl">Nederlands</option>
+<option value="ru">Pусский</option>
+<option value="sv">Svensk</option>
+<option value="da">Dansk</option>
+<option value="ko">한국어</option>
+<option value="ja">日本語</option>
+<option value="zh-CN">中文(简体)</option>
+<option value="zh-TW">中文(台灣)</option></select>
+</form>
+        </div>
+
+      <ul class="bars">
+  <li>
+    <a href="http://www.myfitnesspal.com/">Calorie Counter</a>
+  </li>
+
+  <li>
+    <a href="http://blog.myfitnesspal.com">Blog</a>
+  </li>
+
+  <li>
+    <a href="https://account.underarmour.com/terms-and-conditions?locale=en_US">Terms</a>
+  </li>
+
+  <li>
+    <a href="https://account.underarmour.com/privacy?locale=en_US">Privacy</a>
+  </li>
+
+  <li>
+    <a href="http://www.myfitnesspal.com/welcome/contact_us">Contact Us</a>
+  </li>
+
+  <li>
+    <a href="http://www.myfitnesspal.com/api">API</a>
+  </li>
+
+  <li>
+    <a href="http://www.myfitnesspal.com/jobs">Jobs</a>
+  </li>
+
+  <li>
+    <a href="http://www.myfitnesspal.com/forums/show/13-website-suggestions-feedback">Feedback</a>
+  </li>
+
+  <li>
+    <a href="http://www.myfitnesspal.com/welcome/guidelines">Community Guidelines</a>
+  </li>
+
+    <li id='teconsent'>
+      <script async="async" type="text/javascript" src="//consent.truste.com/notice?domain=myfitnesspal.com&text=true&c=teconsent&"></script>
+    </li>
+</ul>
+
+
+      <p class="copy">Copyright 2005-2016 MyFitnessPal, Inc.</p>
+
+        <a class="she-knows-it" href="http://www.sheknows.com/channels/health-and-wellness" >SheKnows Health &amp; Beauty</a>
+
+      <div style="display:none;">
+        <!-- Begin comScore Tag --><script>var _comscore = _comscore || [];_comscore.push({ c1: "2", c2: "15476338" });(function() {var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";el.parentNode.insertBefore(s, el);})();</script><noscript><img src="http://b.scorecardresearch.com/p?c1=2&c2=15476338&cv=2.0&cj=1" /></noscript><!-- End comScore Tag -->
+      </div>
+    </div><!-- / #footerContent -->
+  </div><!-- / #footer -->
+
+  <div id="loginform" style="display:none;" >
+  <form accept-charset="UTF-8" action="https://www.myfitnesspal.com/account/login" class="form login" id="fancy_login" method="post" style="margin:0;"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ESnHI7ZCgyfi28zlFRCHh1/0BA105w4ym29Pf0wNgmQ=" /></div>
+  <div class="member-login" >
+    <h2>Member Login</h2>
+    <ul>
+      <li>
+        <a href="#" class="facebook-login-css" id="facebook-login-css">Log in with Facebook</a>
+      </li>
+      <li class="or" >- or -</li>
+      <li>
+        <label>Username:</label>
+        <input name="username" type="text" class="text" tabIndex="5" />
+      </li>
+      <li>
+        <label>Password:</label>
+        <input name="password" type="password" class="text" tabIndex="6" />
+      </li>
+      <li>
+        <input checked="checked" class="checkbox" id="remember_me" name="remember_me" tabIndex="7" type="checkbox" value="1" />
+        <label for="remember_me" >Remember me next time</label>
+      </li>
+      <li class="submit">
+        <input type="submit" value="Log In" tabIndex="8" />
+      </li>
+      <li>
+      <a href="http://www.myfitnesspal.com/account/forgot_password">Forgot password or username?</a>
+      </li>
+      <li>
+        Not a member yet? <a href="http://www.myfitnesspal.com/account/create">Sign up now!</a>
+      </li>
+    </ul>
+  </div>
+</form></div>
+
+</section>
+
+
+  <!--[if lte IE 7]></div><![endif]-->
+  <!--[if IE 6]></div><![endif]-->
+
+
+  <script src="https://d34yn14tavczy0.cloudfront.net/assets/welcome_logged_out_index-1592d6446f310144807769651b2f69fc.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    // Initialize Video player
+    VideoJS.setupAllWhenReady();
+  </script>
+
+  <script type="text/javascript">
+    // Initialize Index page
+    initializeIndex('pounds!');
+    current_locale = "en";
+    facebook_error_string ="Your Facebook account was not authorized.";
+  </script>
+
+
+
+  <!-- Displays a modal for download links to the MFP app when Appsflyer routes to the index page with the challengesView query param -->
+
+  
+
+</body>
+</html>

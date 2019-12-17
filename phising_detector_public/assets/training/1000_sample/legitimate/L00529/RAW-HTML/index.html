@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Tutorials for Clojure, Aurelia, CoffeeScript, CPanel, Laravel, SAP Webi, MS SQL Server, pinterest, Indian Polity, Teradata, Windows10</title>
+<meta name="Description" content="Free tutorials and reference manuals with examples for Clojure, Aurelia, CoffeeScript, CPanel, Laravel, SAP Webi, MS SQL Server, pinterest, Indian Polity, Windows10, Teradata"/>
+<meta name="Keywords" content="Clojure, Aurelia, CoffeeScript, CPanel, Laravel, SAP Webi, MS SQL Server, pinterest, Teradata, Windows10" />
+<style>
+.send18bg { background:#d6d6d6 url(images/send18-bg.jpg)repeat-x!important; width: 100%; margin:0 auto; padding: 20px 0 30px 0;}
+.send18bg .bgimage{ background:url(images/send18bg-widget.png)no-repeat 93% 0%!important; }
+.send18bg h2 {color:#424242!important; text-align:center;}
+.send18bg p{color:#424242!important;padding:10px 0px 15px 0px!important; margin:0 auto; text-align:center!important;}
+@media(min-width:320px){.bgimage{background:none!important;} }
+@media(min-width:568px){.bgimage{background:none!important;} }
+@media(min-width:768px){.bgimage{background:none!important;} }
+.whiteboard { background:#fff; width:100%; margin:0 auto; padding:10px 0 10px 0; border:1px solid #d6d6d6;}
+.whiteboard h2 {font-size:18px; font-weight:bold; color:#424242!important; text-align:left; margin:0px!important; padding:0px!important;}
+.whiteboard p{font-size:14px;color:#424242!important;padding:2px 0px 5px 0px!important; margin:0 auto;  text-align:left!important;}
+.fa-briefcase:before {content:"\f0b1"; font-family:'FontAwesome'; font-style:normal; font-weight:normal; font-size:100%;}
+.fa-icons{font-size:120%; color:#4F4F42; position:relative; top:3px; padding:0px 10px 0px 0px;}
+</style>
+<base href="http://www.tutorialspoint.com/" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="fb:app_id" content="471319149685276" />
+<meta property="og:site_name" content="www.tutorialspoint.com" />
+<meta name="robots" content="index, follow"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="/theme/js/script-min-v4.js"></script>
+<link rel="stylesheet" href="/theme/css/style-min.css">
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+.fa-camera:before{content:"\f03d";font-family:FontAwesome;font-style:normal;font-size:100%}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #316441 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #316441 !important;}
+.submenu-item{ border-bottom: 2px solid #316441 !important; border-top: 2px solid #316441 !important }
+/* index page css starts */
+header nav ul.nav-top li a{ padding: 5px 7px !important;}
+header nav ul.nav-top { margin: 16px 11px -10px; }
+header nav ul.nav-top li.top-icons{ display:block !important; }
+#searchBar { display:none; visibility:none;}
+.navbg { background: #eee none repeat scroll 0 0; border: 0 solid #ccc; margin: 0 0 20px; padding: 5px; }
+.navbg ul { margin: 0; padding: 0; }
+.navbg ul li { float: left; list-style: outside none none; margin: 0; padding: 4px 6px; }
+.navbg .navbg-box { background: #fff none repeat scroll 0 0; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 2px 3px -6px #000; margin: 5px 2px; padding: 0; width: 265px; }
+.img-box img { border-radius: 4px; }
+.navbg .navbg-box h5 { font-size: 12px; font-weight: bold; line-height: 25px; margin: 0; padding: 1px 5px; text-align: left; text-transform: uppercase; }
+.navbg .navbg-box h5 a { color: #434343 !important; text-decoration: none; }
+.navbg .navbg-box h5 a:hover { text-decoration: none; }
+.img-box { margin: 0; padding: 4px; }
+.fa-inr:before { content: "\f156"; font-family: FontAwesome; font-style: normal; font-size: 100%; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; position: relative; top: 2px; font-weight: normal; }
+ul.menu li a  { font-weight:normal; }
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+<body onload="prettyPrint()">
+<div class="wrapLoader">
+   <div class="imgLoader">
+      <img  src="/images/loading-cg.gif" alt="" width="70" height="70" />
+   </div>
+</div>
+<header>
+   <div class="submenu-item sub-main-menu" id="top-sub-menu"></div>
+   <div class="container">			
+      <h1 class="logo">
+      <a href="index.htm" title="tutorialspoint">
+      <img alt="tutorialspoint" src="/green/images/logo.png">
+      </a>
+      </h1>			
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse" id="pull"> <i class="icon icon-bars"></i> </button>
+      <div class="navbar nav-main">
+      <div class="container">
+         <nav class="nav-main mega-menu">
+            <ul class="nav nav-pills nav-main" id="mainMenu">
+               <li class="dropdown no-sub-menu"> <a class="dropdown" href="index.htm"><i class="icon icon-home"></i> Home</a> </li>   
+               <li class="dropdown" id="liTL"><a class="dropdown" href="javascript:void(0);"><span class="tut-lib"> Tutorials Library  <i class="fa-caret-down"></i></span></a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="codingground.htm"><i class="fa-code"></i> Coding Ground </a> </li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="tutor_connect/index.php"><i class="fa-user"> </i> Tutor Connect</a></li>
+               <li class="dropdown no-sub-menu"><a class="dropdown" href="online_dev_tools.htm"><span class="dev-tools-menu">  Tools</span></a></li> 
+            </ul>
+         </nav>
+         <div class="searchform-popup">
+            <input class='header-search-box' type='text' id='search-string' name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}" autocomplete="off"/>
+            <div class="magnifying-glass"><i class="icon-search"></i> Search </div>
+        </div>
+      </div>
+     </div>	
+</header>
+<div style="clear:both;"></div>
+	
+<script>
+   $(document).ready(function() {
+      $('#searchBar').html("");
+   });
+</script>
+<div role="main" class="main">
+<div class="st-banner">
+<div class="container">
+   <div class="row center middle">
+      <div class="col-md-12">
+            <h2 style="top:-10px; color:white; font-size:1.7em; text-shadow:none;"><img src="img/slides/slide-title-border.png" alt="" style="width:37px; height:10px; position:relative; top:-2px;">&nbsp;&nbsp; Enjoy theory and lab at the same time, right here online &nbsp;&nbsp;<img src="img/slides/slide-title-border.png" alt="" style="width:37px; height:10px; position:relative; top:-2px;"></h2>
+
+          <form method="get" class="searchform" name="searchform" action="http://www.google.com/search" target="_blank">
+             <input type="hidden" name="sitesearch" value="www.tutorialspoint.com">
+            <input type="text" class="form-controls search" name="q" placeholder="Search your favorite tutorials..." onfocus="if (this.value == 'Search your favorite tutorials...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search your favorite tutorials...';}">
+            <input value="FORID:11" name="cof" type="hidden">
+            <input type="hidden" name="ie" value="ISO-8859-1">
+            <button class="search-butn" type="submit">Search <i class="icon icon-search"></i></button>
+         </form>
+
+            <div style="margin-top:20px;">
+               <span class="srch-icon"><a href="/ruby-on-rails/index.htm" title="Ruby on Rails Tutorial"><img src="/images/ruby-on-rails.png" alt="Ruby on Rails tutorial"/></a></span>
+               <span class="srch-icon"><a href="/google_maps/index.htm" title="Google Maps Tutorial"><img src="/images/googlemaps.png" alt="Google Maps Tutorial"/></a></span>
+               <span class="srch-icon"><a href="/data_structures_algorithms/index.htm" title="Data Structure & Algorithms Tutorial"><img src="/images/data_structure.png" alt="Data Structure & Algorithms Tutorial"/></a></span>
+               <span class="srch-icon"><a href="/joomla/index.htm" title="Joomla Tutorial"><img src="/images/joomla.png" alt="Joomla Tutorial"/></a></span>
+               <span class="srch-icon"><a href="/drupal/index.htm" title="Drupal Tutorial"><img src="/images/drupal.png" alt="Drupal tutorial"/></a></span>
+               <span class="srch-icon"><a href="/r/index.htm" title="R Programming Tutorial"><img src="/images/r-programming.png" alt="R Programming tutorial"/></a></span>
+               <span class="srch-icon"><a href="/apache_spark/index.htm" title="Spark Tutorial"><img src="/images/spark.png" alt="Spark tutorial"/></a></span>
+               <span class="srch-icon"><a href="/nodejs/index.htm" title="Node.js"><img src="/absoluteclasses/images/helpimages/nodejs.png" alt="Nodejs tutorial"/></a></span>
+            </div>
+            <h6>The largest <em>Tutorials Library</em> on the web</h6>
+      </div>
+   </div>
+</div>
+</div>
+
+<div class="whiteboard">
+   <div class="container">
+      <div class="row">
+         <div class="col-xs-12 col-sm-12 col-md-4">
+            
+              <a href="https://www.tutorialspoint.com/whiteboard.htm" target="_self">
+               <h2><i class="fa-desktop fa-icons"></i> Online Whiteboard Tools </h2>
+               <p>A virtual whiteboard that supports all the functionalities that you would normally perform on a physical whiteboard in a classroom. Draw, erase, edit, insert text, image, shapes – You name it! </p>
+              </a>              
+            
+              <a href="https://www.tutorialspoint.com/whiteboard.htm" target="_self">
+              <h2><i class="fa fa-video-camera fa-icons"></i> Face-to-Face Teaching </h2>
+              <p>Communicate with your audience/students Face-to-Face using high-end audio/video web conferencing technology.</p>
+              </a>
+            
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-4">
+            <a href="https://www.tutorialspoint.com/whiteboard.htm" target="_self">
+              <img src="/images/whiteboard-bg.jpg" title="Web Collaboration Whiteboard" />
+            </a>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-4">
+                        
+              <a href="https://www.tutorialspoint.com/whiteboard.htm" target="_self">
+              <h2><i class="fa-file-photo-o fa-icons"></i> Effective Presentation </h2>
+              <p style="text-align:left!important;">Bring your existing files (ppt, pdf, or images) onto this Whiteboard and make your Presentations lively and less time consuming.</p>
+              </a>
+
+              <a href="https://www.tutorialspoint.com/whiteboard.htm" target="_self">
+              <h2><i class="fa fa-briefcase fa-icons"></i> Awesome Features </h2>
+              <p>Blended with awesome features such as text chats, multi-user web conferencing, and the facilities to share files instantly, mute-unmute, and inviting other participants to join a session. </p>
+              </a>
+            </div>   
+            
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="send18bg">
+   <div class="container bgimage">
+      <div class="row" style="text-align:center;">
+         <a href="https://www.send18.com/" target="_blank" title="Send Large Files Online"><img title="Send18 GB" src="/images/send18_logo.png" style="width:15%;padding:20px 0px 0px 0px;"></a>
+         <h2 style="font-size:32px">A Better way to Share Larger Files</h2>
+         <p>Send18 is an online platform that provides the infrastructure <br/>to send large files (up to 18 gigabytes of data) to <br/>a maximum of 18 recipients simultaneously. </p>
+         <div style="width:100%; text-align:center;"><a href="https://www.send18.com/" target="_blank" title="Send Large Files Online" class="btn btn-default btn-sm btn-job-search"> Start Sending </a></div>
+      </div>
+    </div>
+</div>
+
+<div class="absolutecls" style="background: #001E28 url(/images/pattern-xv.png);">
+   <div class="container">
+      <div class="row">
+         <h2>Coding Ground</h2>
+         <h2><img src="img/slides/slide-title-border.png" alt="" style="width:37px; height:10px; position:relative; top:-2px;">&nbsp;&nbsp; An online Lab for IT Professionals &nbsp;&nbsp;<img src="img/slides/slide-title-border.png" alt="" style="width:37px; height:10px; position:relative; top:-2px;"></h2>
+         <p>With <b>Coding Ground</b> we bring an Online Lab where you can create your programs in more than 80 programming languages, compile, execute and share them over the web, which provides you remarkable learning experience at a cost of just an internet connection!</p>
+         <div style="width:100%; text-align:center;"><a href="codingground.htm" title="Coding Ground" class="btn btn-default btn-sm btn-job-search"> Start Experimenting </a></div>
+      </div>
+    </div>
+</div>
+
+<div id="global">
+<div id="tutorialslibrary">
+<h1 class="thick-heading">|| Tutorials Library ||</h1>
+<h4 class="center" style="font-size:20px; position:relative;">Free Online Tutorials &amp; Courses</h4>
+</div>
+<div class="container">
+<div class="row featured-boxes">
+<div class="col-md-3">
+<div class="featured-box">
+<h4>Java Technologies</h4>
+<ul class="menu" id="java_technologies">
+<li><a target="_top" href="/ant/index.htm" title="Learn Apache ANT">Learn Apache Ant</a></li>
+<li><a target="_top" href="/apache_poi_ppt/index.htm" title="Learn Apache POI (Powerpoint)">Learn Apache POI (Powerpoint)</a></li>
+<li><a target="_top" href="/apache_poi_word/index.htm" title="Learn Apache POI (Word)">Learn Apache POI (Word)</a></li>
+<li><a target="_top" href="/apache_poi/index.htm" title="Learn Apache POI">Learn Apache POI</a></li>
+<li><a target="_top" href="/awt/index.htm" title="Learn AWT">Learn AWT</a></li>
+<li><a target="_top" href="/design_pattern/index.htm" title="Learn Design Patterns in Java">Learn Design Patterns</a></li>
+<li><a target="_top" href="/easymock/index.htm" title="Learn EasyMock">Learn EasyMock</a></li>
+<li><a target="_top" href="/eclipse/index.htm" title="Learn Eclipse">Learn Eclipse</a></li>
+<li><a target="_top" href="/ejb/index.htm" title="Learn EJB">Learn EJB</a></li>
+<li><a target="_top" href="/guava/index.htm" title="Learn Guava">Learn Guava</a></li>
+<li><a target="_top" href="/hibernate/index.htm" title="Learn Hibernate">Learn Hibernate</a></li>
+<li><a target="_top" href="/ibatis/index.htm" title="Learn iBATIS">Learn iBATIS</a></li>
+<li><a target="_top" href="/jackson/index.htm" title="Learn Jackson">Learn Jackson</a></li>
+<li><a target="_top" href="/jasper_reports/index.htm" title="Learn JasperReports">Learn JasperReports</a></li>
+<li><a target="_top" href="/java_xml/index.htm" title="Learn Java XML">Learn Java XML</a></li>
+<li><a target="_top" href="/java/index.htm" title="Learn Java">Learn Java</a></li>
+<li><a target="_top" href="/jbpm5/index.htm" title="Learn Jbpm5">Learn Jbpm5</a></li>
+<li><a target="_top" href="/java/io/index.htm" title="Learn Java.io Package">Java.io Package</a></li>
+<li><a target="_top" href="/java/java_interview_questions.htm" title="Java Interview Questions">Java Interview Questions</a></li>
+<li><a target="_top" href="/java/lang/index.htm" title="Learn Java.lang Package">Java.lang Package</a></li>
+<li><a target="_top" href="/java/math/index.htm" title="Learn Java.math Package">Java.math Package</a></li>
+<li><a target="_top" href="/java/util/index.htm" title="Learn Java.util Package">Java.util Package</a></li>
+<li><a target="_top" href="/java8/index.htm" title="Learn Java-8">Learn Java-8</a></li>
+<li><a target="_top" href="/javaexamples/index.htm" title="Java  Examples">Java Examples</a></li>
+<li><a target="_top" href="/javamail_api/index.htm" title="Learn JavaMail API">Learn JavaMail API</a></li>
+<li><a target="_top" href="/jdb/index.htm" title="Learn JDB">Learn JDB</a></li>
+<li><a target="_top" href="/jdbc/index.htm" title="Learn JDBC">Learn JDBC</a></li>
+<li><a target="_top" href="/jfreechart/index.htm" title="Learn JFreeChart">Learn JFreeChart</a></li>
+<li><a target="_top" href="/jmeter/index.htm" title="Learn jmeter">Learn jMeter</a></li>
+<li><a target="_top" href="/jogl/index.htm" title="Learn JOGL">Learn JOGL</a></li>
+<li><a target="_top" href="/jpa/index.htm" title="Learn JPA">Learn JPA</a></li>
+<li><a target="_top" href="/json/index.htm" title="Learn JSON">Learn JSON</a></li>
+<li><a target="_top" href="/jsp/index.htm" title="Learn JSP">Learn JSP</a></li>
+<li><a target="_top" href="/junit/index.htm" title="Learn JUnit">Learn JUnit</a></li>
+<li><a target="_top" href="/log4j/index.htm" title="Learn log4j">Learn log4j</a></li>
+<li><a target="_top" href="/lucene/index.htm" title="Learn Lucene">Learn Lucene</a></li>
+<li><a target="_top" href="/maven/index.htm" title="Learn Maven">Learn Maven</a></li>
+<li><a target="_top" href="/servlets/index.htm" title="Learn Servlets">Learn Servlets</a></li>
+<li><a target="_top" href="/spring/index.htm" title="Learn Spring">Learn Spring</a></li>
+<li><a target="_top" href="/struts_2/index.htm" title="Learn Struts 2">Learn Struts 2.x</a></li>
+<li><a target="_top" href="/swing/index.htm" title="Learn Swing">Learn Swing</a></li>
+<li><a target="_top" href="/testng/index.htm" title="Learn TestNG">Learn TestNG</a></li>
+<li><a target="_top" href="/tika/index.htm" title="Learn Apache Tika">Learn Apache Tika</a></li>
+<li><a target="_top" href="/xerces/index.htm" title="Learn Apache Xerces">Learn Apache Xerces</a></li>
+<li><a target="_top" href="/xstream/index.htm" title="Learn XStream">Learn XStream</a></li>
+</ul>
+<h4>Digital Marketing</h4>
+<ul class="menu" id="digital_marketing">
+<li><a target="_top" href="/ab_testing/index.htm" title="Learn A/B Testing">Learn A/B Testing</a></li>
+<li><a target="_top" href="/content_marketing/index.htm" title="Content Marketing">Content Marketing</a></li>
+<li><a target="_top" href="/email_marketing/index.htm" title="Learn Email Marketing">Learn Email Marketing</a></li>
+<li><a target="_top" href="/mobile_marketing/index.htm" title="Learn Mobile Marketing">Learn Mobile Marketing</a></li>
+<li><a target="_top" href="/online_marketing/index.htm" title="Learn Online Marketing">Learn Online Marketing</a></li>
+<li><a target="_top" href="/pay_per_click/index.htm" title="Learn Pay Per Click">Learn Pay Per Click</a></li>
+<li><a target="_top" href="/pinterest_marketing/index.htm" title="Learn Pinterest Marketing">Learn Pinterest Marketing</a></li>
+<li><a target="_top" href="/seo/index.htm" title="Learn Search Engine Optimization">Learn SEO Techniques</a></li>
+<li><a target="_top" href="/social_media_marketing/index.htm" title="Learn Social Media Marketing">Learn Social Media Marketing</a></li>
+<li><a target="_top" href="/web_analytics/index.htm" title="Learn Web Analytics">Learn Web Analytics</a></li>
+</ul>
+<h4>Databases</h4>
+<ul class="menu" id="database_tutorials">
+<li><a target="_top" href="/couchdb/index.htm" title="Learn CouchDB">Learn CouchDB</a></li>
+<li><a target="_top" href="/db2/index.htm" title="Learn DB2">Learn DB2</a></li>
+<li><a target="_top" href="/documentdb/index.htm" title="Learn DocumentDB">Learn DocumentDB</a></li>
+<li><a target="_top" href="/documentdb_sql/index.htm" title="Learn DocumentDB SQL">Learn DocumentDB SQL</a></li>
+<li><a target="_top" href="/ims_db/index.htm" title="Learn IMS DB">Learn IMS DB</a></li>
+<li><a target="_top" href="/memcached/index.htm" title="Learn Memcached">Learn Memcached</a></li>
+<li><a target="_top" href="/mongodb/index.htm" title="Learn MongoDB">Learn MongoDB</a></li>
+<li><a target="_top" href="/mysql/index.htm" title="Learn MySQL">Learn MySQL</a></li>
+<li><a target="_top" href="/neo4j/index.htm" title="Learn Neo4J">Learn Neo4J</a></li>
+<li><a target="_top" href="/obiee/index.htm" title="Learn OBIEE">Learn OBIEE</a></li>
+<li><a target="_top" href="/orientdb/index.htm" title="Learn OrientDB">Learn OrientDB</a></li>
+<li><a target="_top" href="/plsql/index.htm" title="Learn PL/SQL">Learn PL/SQL</a></li>
+<li><a target="_top" href="/postgresql/index.htm" title="Learn PostgreSQL">Learn PostgreSQL</a></li>
+<li><a target="_top" href="/redis/index.htm" title="Learn Redis">Learn Redis</a></li>
+<li><a target="_top" href="/sql_certificate/index.htm" title="SQL Certification">SQL Certification</a></li>
+<li><a target="_top" href="/sql/index.htm" title="Learn SQL">Learn SQL</a></li>
+<li><a target="_top" href="/t_sql/index.htm" title="Learn T-SQL">Learn T-SQL</a></li>
+<li><a target="_top" href="/sqlite/index.htm" title="Learn SQLite">Learn SQLite</a></li>
+</ul>
+<h4>Sports</h4>
+<ul class="menu" id="sports_tutorials">
+<li><a target="_top" href="/archery/index.htm" title="Archery">Archery</a></li>
+<li><a target="_top" href="/american_football/index.htm" title="American Football">American Football</a></li>
+<li><a target="_top" href="/badminton/index.htm" title="Badminton">Badminton</a></li>
+<li><a target="_top" href="/basketball/index.htm" title="Basketball">Basketball</a></li>
+<li><a target="_top" href="/baseball/index.htm" title="Baseball">Baseball</a></li>
+<li><a target="_top" href="/billiards/index.htm" title="Billiards">Billiards</a></li>
+<li><a target="_top" href="/downhill_skiing/index.htm" title="Downhill Skiing">Downhill Skiing</a></li>
+<li><a target="_top" href="/boxing/index.htm" title="Boxing">Boxing</a></li>
+<li><a target="_top" href="/carrom/index.htm" title="Carrom">Carrom</a></li>
+<li><a target="_top" href="/cricket/index.htm" title="Cricket">Cricket</a></li>
+<li><a target="_top" href="/cycling/index.htm" title="Cycling">Cycling</a></li>
+<li><a target="_top" href="/darts/index.htm" title="Darts">Darts</a></li>
+<li><a target="_top" href="/handball/index.htm" title="Handball">Handball</a></li>
+<li><a target="_top" href="/high_jump/index.htm" title="High Jump">High Jump</a></li>
+<li><a target="_top" href="/horse_racing/index.htm" title="Horse Racing">Horse Racing</a></li>
+<li><a target="_top" href="/football/index.htm" title="Football">Football</a></li>
+<li><a target="_top" href="/formula_one/index.htm" title="Formula One">Formula One</a></li>
+<li><a target="_top" href="/ice_hockey/index.htm" title="Ice Hockey">Ice Hockey</a></li>
+<li><a target="_top" href="/kabaddi/index.htm" title="Kabaddi">Kabaddi</a></li>
+<li><a target="_top" href="/karate/index.htm" title="Karate">Karate</a></li>
+<li><a target="_top" href="/polo/index.htm" title="Polo">Polo</a></li>
+<li><a target="_top" href="/racewalking/index.htm" title="Race Walking ">Race Walking</a></li>
+<li><a target="_top" href="/table_tennis/index.htm" title="Table Tennis">Table Tennis</a></li>
+<li><a target="_top" href="/tennis/index.htm" title="Tennis">Tennis</a></li>
+<li><a target="_top" href="/volleyball/index.htm" title="Volleyball">Volleyball</a></li>
+</ul>
+<h4>Competitive Exams</h4>
+<ul class="menu" id="exams_tutorials">
+<li><a target="_top" href="/current_affairs_march_2016/index.htm" title="Current Affairs March 2016">Current Affairs</a></li>
+<li><a target="_top" href="/quantitative_aptitude/index.htm" title="Quantitative Aptitude">Quantitative Aptitude</a></li>
+<li><a target="_top" href="/geography/index.htm" title="Geography">Geography</a></li>
+<li><a target="_top" href="/indian_economy/index.htm" title="Indian Economy">Indian Economy</a></li>
+<li><a target="_top" href="/indian_polity/index.htm" title="Indian Polity">Indian Polity</a></li>
+</ul>
+<h4>Video Tutorials</h4>
+<ul class="menu" id="video_tutorials">
+<li><a target="_top" href="/video_tutorials/ms_word_2010/WRD-T">MS Word 2010</a></li>
+<li><a target="_top" href="/video_tutorials/ms_excel_2010/EXL-T">MS Excel 2010</a></li>
+<li><a target="_top" href="/video_tutorials/ms_power_point_2010/PPT-T">MS Power Point 2010</a></li>
+<li><a target="_top" href="/video_tutorials/java_programming/PIJ-T">Java Programming</a></li>
+<li><a target="_top" href="/video_tutorials/programming_using_c/PUC-T">Programming using C</a></li>
+<li><a target="_top" href="/video_tutorials/programming_using_cplusplus/PCP-T">Programming using C++</a></li>
+<li><a target="_top" href="/video_tutorials/data_structures_and_algorithms/DS-T">Data Structures &amp; Algorithms</a></li>
+</ul>
+</div>
+</div>
+<div class="col-md-3">
+<div class="featured-box">
+<h4>Programming</h4>
+<ul class="menu" id="programming">
+<li><a target="_top" href="/apex/index.htm" title="Learn Apex Programming">Learn Apex</a></li>
+<li><a target="_top" href="/assembly_programming/index.htm" title="Learn Assembly Programming">Learn Assembly</a></li>
+<li><a target="_top" href="/awk/index.htm" title="Learn Awk Programming">Learn Awk</a></li>
+<li><a target="_top" href="/c_standard_library/index.htm" title="C Standard Library">C Standard Library</a></li>
+<li><a target="_top" href="/cobol/index.htm" title="Learn COBOL">Learn COBOL</a></li>
+<li><a target="_top" href="/cplusplus/index.htm" title="Learn C++">Learn C++</a></li>
+<li><a target="_top" href="/cprogramming/index.htm" title="Learn C Programming">Learn C</a></li>
+<li><a target="_top" href="/csharp/index.htm" title="Learn C#">Learn C#</a></li>
+<li><a target="_top" href="/clojure/index.htm" title="Learn Clojure">Learn Clojure</a></li>
+<li><a target="_top" href="/data_structures_algorithms/index.htm" title="Learn Data Structure & Algorithms">Data Structure & Algorithms</a></li>
+<li><a target="_top" href="/d_programming/index.htm" title="Learn D Programming">Learn D</a></li>
+<li><a target="_top" href="/euphoria/index.htm" title="Learn Euphoria">Learn Euphoria</a></li>
+<li><a target="_top" href="/fsharp/index.htm" title="Learn F#">Learn F#</a></li>
+<li><a target="_top" href="/fortran/index.htm" title="Learn Fortran">Learn Fortran</a></li>
+<li><a target="_top" href="/go/index.htm" title="Learn Go Programing">Learn Go Programing</a></li>
+<li><a target="_top" href="/groovy/index.htm" title="Learn Groovy Programing">Learn Groovy</a></li>
+<li><a target="_top" href="/java/index.htm" title="Learn Java">Learn Java</a></li>
+<li><a target="_top" href="/java8/index.htm" title="Learn Java-8">Learn Java-8</a></li>
+<li><a target="_top" href="/jcl/index.htm" title="Learn JCL">Learn JCL</a></li>
+<li><a target="_top" href="/lisp/index.htm" title="Learn LISP">Learn LISP</a></li>
+<li><a target="_top" href="/matlab/index.htm" title="Learn MATLAB">Learn MATLAB</a></li>
+<li><a target="_top" href="/nodejs/index.htm" title="Learn Node.js">Learn Node.js</a></li>
+<li><a target="_top" href="/objective_c/index.htm" title="Learn Objective C Programming">Learn Objective C</a></li>
+<li><a target="_top" href="/pascal/index.htm" title="Learn Pascal Programming">Learn Pascal</a></li>
+<li><a target="_top" href="/r/index.htm" title="Learn R Programming">Learn R Programming</a></li>
+<li><a target="_top" href="/swift/index.htm" title="Learn Swift Programming">Learn Swift</a></li>
+<li><a target="_top" href="/scala/index.htm" title="Learn Scala">Learn Scala</a></li>
+<li><a target="_top" href="/vb.net/index.htm" title="Learn vb.net">Learn VB.Net</a></li>
+<li><a target="_top" href="/vba/index.htm" title="Learn VBA">Learn VBA</a></li>
+</ul>
+<h4>Big Data &amp; Analytics</h4>
+<ul class="menu" id="big_data">
+<li><a target="_top" href="/apache_flume/index.htm" title="Learn Apache Flume">Learn Apache Flume</a></li>
+<li><a target="_top" href="/apache_oozie/index.htm" title="Learn Apache Oozie">Learn Apache Oozie</a></li>
+<li><a target="_top" href="/apache_pig/index.htm" title="Learn Apache Pig">Learn Apache Pig</a></li>
+<li><a target="_top" href="/apache_spark/index.htm" title="Learn Apache Spark">Learn Apache Spark</a></li>
+<li><a target="_top" href="/apache_storm/index.htm" title="Learn Apache Storm">Learn Apache Storm</a></li>
+<li><a target="_top" href="/spark_sql/index.htm" title="Learn Spark SQL">Learn Spark SQL</a></li>
+<li><a target="_top" href="/avro/index.htm" title="Learn Avro">Learn Avro</a></li>
+<li><a target="_top" href="/couchdb/index.htm" title="Learn CouchDB">Learn CouchDB</a></li>
+<li><a target="_top" href="/cassandra/index.htm" title="Learn Cassandra">Learn Cassandra</a></li>
+<li><a target="_top" href="/googlecharts/index.htm" title="Learn Google Charts">Learn Google Charts</a></li>
+<li><a target="_top" href="/hadoop/index.htm" title="Learn Hadoop">Learn Hadoop</a></li>
+<li><a target="_top" href="/hcatalog/index.htm" title="Learn HCatalog">Learn HCatalog</a></li>
+<li><a target="_top" href="/hive/index.htm" title="Learn Hive">Learn Hive</a></li>
+<li><a target="_top" href="/highcharts/index.htm" title="Learn Highcharts">Learn Highcharts</a></li>
+<li><a target="_top" href="/hbase/index.htm" title="Learn HBase">Learn HBase</a></li>
+<li><a target="_top" href="/jfreechart/index.htm" title="Learn JFreeChart">Learn JFreeChart</a></li>
+<li><a target="_top" href="/apache_kafka/index.htm" title="Learn Apache Kafka">Learn Apache Kafka</a></li>
+<li><a target="_top" href="/map_reduce/index.htm" title="Learn Map Reduce">Learn Map Reduce</a></li>
+<li><a target="_top" href="/mahout/index.htm" title="Learn Mahout">Learn Mahout</a></li>
+<li><a target="_top" href="/pentaho/index.htm" title="Learn Penthaho">Learn Pentaho</a></li>
+<li><a target="_top" href="/qlikview/index.htm" title="Learn QlikView">Learn QlikView</a></li>
+<li><a target="_top" href="/r/index.htm" title="Learn R Programming">Learn R Programming</a></li>
+<li><a target="_top" href="/sas/index.htm" title="Learn SAS">Learn SAS</a></li>
+<li><a target="_top" href="/sqoop/index.htm" title="Learn Sqoop">Learn Sqoop</a></li>
+<li><a target="_top" href="/statistics/index.htm" title="Learn Statistics">Learn Statistics</a></li>
+<li><a target="_top" href="/teradata/index.htm" title="Learn Teradata">Learn Teradata</a></li>
+<li><a target="_top" href="/tableau/index.htm" title="Learn Tableau">Learn Tableau</a></li>
+<li><a target="_top" href="/zookeeper/index.htm" title="Learn Zookeeper">Learn Zookeeper</a></li>
+</ul>
+<h4>Mainframe Development</h4>
+<ul class="menu" id="mainfarme">
+<li><a target="_top" href="/cics/index.htm" title="Learn CICS">Learn CICS</a></li>
+<li><a target="_top" href="/cobol/index.htm" title="Learn COBOL">Learn COBOL</a></li>
+<li><a target="_top" href="/db2/index.htm" title="Learn DB2">Learn DB2</a></li>
+<li><a target="_top" href="/ims_db/index.htm" title="Learn IMS DB">Learn IMS DB</a></li>
+<li><a target="_top" href="/jcl/index.htm" title="Learn JCL">Learn JCL</a></li>
+<li><a target="_top" href="/vsam/index.htm" title="Learn VSAM">Learn VSAM</a></li>
+</ul>
+<h4>Microsoft Technologies</h4>
+<ul class="menu" id="microsoft_technologies">
+<li><a target="_top" href="/asp.net/index.htm" title="Learn ASP.Net">Learn ASP.Net</a></li>
+<li><a target="_top" href="/batch_script/index.htm" title="Learn Batch Script">Learn Batch Script</a></li>
+<li><a target="_top" href="/csharp/index.htm" title="Learn C#">Learn C#</a></li>
+<li><a target="_top" href="/excel/index.htm" title="Learn Excel">Learn Excel</a></li>
+<li><a target="_top" href="/advanced_excel/index.htm" title="Learn Advanced Excel">Learn Advanced Excel</a></li>
+<li><a target="_top" href="/entity_framework/index.htm" title="Learn Entity Framework">Learn Entity Framework</a></li>
+<li><a target="_top" href="/fsharp/index.htm" title="Learn F#">Learn F#</a></li>
+<li><a target="_top" href="/linq/index.htm" title="Learn LinQ">Learn LinQ</a></li>
+<li><a target="_top" href="/microsoft_azure/index.htm" title="Learn Microsoft Azure">Learn Microsoft Azure</a></li>
+<li><a target="_top" href="/powerpoint/index.htm" title="Learn Powerpoint">Learn Powerpoint</a></li>
+<li><a target="_top" href="/ms_project/index.htm" title="Learn Microsoft Project">Learn Microsoft Project</a></li>
+<li><a target="_top" href="/ms_sql_server/index.htm" title="Learn MS SQl Server">Learn MS SQl Server</a></li>
+<li><a target="_top" href="/mvvm/index.htm" title="Learn MVVM">Learn MVVM</a></li>
+<li><a target="_top" href="/silverlight/index.htm" title="Learn Silverlight">Learn Silverlight</a></li>
+<li><a target="_top" href="/vba/index.htm" title="Learn VBA">Learn VBA</a></li>
+<li><a target="_top" href="/vb.net/index.htm" title="Learn vb.net">Learn VB.Net</a></li>
+<li><a target="_top" href="/wcf/index.htm" title="Learn WCF">Learn WCF</a></li>
+<li><a target="_top" href="/word/index.htm" title="Learn Word">Learn Word</a></li>
+<li><a target="_top" href="/wpf/index.htm" title="Learn WPF">Learn WPF</a></li>
+<li><a target="_top" href="/xaml/index.htm" title="Learn XAML">Learn XAML</a></li>
+<li><a target="_top" href="/windows10_development/index.htm" title="Learn Windows 10 Development">Windows 10 Development</a></li>
+<li><a target="_top" href="/windows10/index.htm" title="Learn Windows 10">Learn Windows 10</a></li>
+</ul>
+<h4>Mobile Development</h4>
+<ul class="menu" id="mobile_development">
+<li class="android"><a target="_top" href="/android/index.htm" title="Learn Android">Learn Android</a></li>
+<li class="android"><a target="_top" href="/cordova/index.htm" title="Learn Cordova">Learn Cordova</a></li>
+<li><a target="_top" href="/ios/index.htm" title="Learn iOS">Learn iOS</a></li>
+<li><a target="_top" href="/jquery_mobile/index.htm" title="jquery Mobile">Learn jQuery Mobile</a></li>
+<li><a target="_top" href="/ionic/index.htm" title="Learn Ionic">Learn Ionic</a></li>
+<li><a target="_top" href="/meteor/index.htm" title="Learn Meteor">Learn Meteor</a></li>
+<li><a target="_top" href="/phonegap/index.htm" title="Learn PhoneGap">Learn PhoneGap</a></li>
+<li><a target="_top" href="/sl4a/index.htm" title="Learn SL4A">Learn SL4A</a></li>
+</ul>
+<h4>Telecom</h4>
+<ul class="menu" id="telecom">
+<li><a target="_top" href="/5g/index.htm" title="Learn 5G">Learn 5G</a></li>
+<li><a target="_top" href="/cdma/index.htm" title="Learn CDMA">Learn CDMA</a></li>
+<li><a target="_top" href="/gprs/index.htm" title="Learn GPRS">Learn GPRS</a></li>
+<li><a target="_top" href="/gsm/index.htm" title="Learn GSM">Learn GSM</a></li>
+<li><a target="_top" href="/i-mode/index.htm" title="Learn i-mode">Learn i-Mode</a></li>
+<li><a target="_top" href="/lte/index.htm" title="Learn LTE">Learn LTE</a></li>
+<li><a target="_top" href="/ngn/index.htm" title="Learn NGN">Learn NGN</a></li>
+<li><a target="_top" href="/session_initiation_protocol/index.htm" title="Learn Session Initiation Protocol">Learn SIP</a></li>
+<li><a target="_top" href="/telecom-billing/index.htm" title="Learn Telecom Billing">Learn Telecom Billing</a></li>
+<li><a target="_top" href="/umts/index.htm" title="Learn UMTS">Learn UMTS</a></li>
+<li><a target="_top" href="/wap/index.htm" title="Learn WAP">Learn WAP</a></li>
+<li><a target="_top" href="/wi-fi/index.htm" title="Learn Wi-Fi">Learn Wi-Fi</a></li>
+<li><a target="_top" href="/wimax/index.htm" title="Learn WiMAX">Learn WiMAX</a></li>
+<li><a target="_top" href="/wml/index.htm" title="Learn WML">Learn WML</a></li>
+</ul>
+</div>
+</div>
+<div class="col-md-3">
+<div class="featured-box">
+<h4>Web Development</h4>
+<ul class="menu" id="web_development">
+<li><a target="_top" href="/ajax/index.htm" title="Learn Ajax">Learn Ajax</a></li>
+<li><a target="_top" href="/angularjs/index.htm" title="Learn AngularJS">Learn AngularJS</a></li>
+<li><a target="_top" href="/angular_material/index.htm" title="Learn Angular Material">Learn Angular Material</a></li>
+<li><a target="_top" href="/asp.net/index.htm" title="Learn ASP.Net">Learn ASP.Net</a></li>
+<li><a target="_top" href="/aurelia/index.htm" title="Learn Aurelia">Learn Aurelia</a></li>
+<li><a target="_top" href="/backbonejs/index.htm" title="Learn BackboneJS">Learn BackboneJS</a></li>
+<li><a target="_top" href="/bootstrap/index.htm" title="bootstrap">Learn Bootstrap</a></li>
+<li><a target="_top" href="/css/index.htm" title="Learn CSS">Learn CSS</a></li>
+<li><a target="_top" href="/codeigniter/index.htm" title="Learn Codeigniter">Learn Codeigniter</a></li>
+<li><a target="_top" href="/coffeescript/index.htm" title="Learn CoffeeScript">Learn CoffeeScript</a></li>
+<li><a target="_top" href="/cpanel/index.htm" title="Learn CPanel">Learn CPanel</a></li>
+<li><a target="_top" href="/drupal/index.htm" title="Learn Drupal">Learn Drupal</a></li>
+<li><a target="_top" href="/django/index.htm" title="Learn Django">Learn Django</a></li>
+<li><a target="_top" href="/emberjs/index.htm" title="Learn EmberJS">Learn EmberJS</a></li>
+<li><a target="_top" href="/extjs/index.htm" title="Learn ExtJS">Learn ExtJS</a></li>
+<li><a target="_top" href="/flask/index.htm" title="Learn Flask">Learn Flask</a></li>
+<li><a target="_top" href="/flex/index.htm" title="Learn Adobe Flex">Learn Adobe Flex</a></li>
+<li><a target="_top" href="/foundation/index.htm" title="Learn Foundation">Learn Foundation</a></li>
+<li><a target="_top" href="/grav/index.htm" title="Learn Grav">Learn Grav</a></li>
+<li><a target="_top" href="/grunt/index.htm" title="Learn Grunt">Learn Grunt</a></li>
+<li><a target="_top" href="/gulp/index.htm" title="Learn Grav">Learn Gulp</a></li>
+<li><a target="_top" href="/gwt/index.htm" title="Learn Google Web Toolkit">Learn GWT</a></li>
+<li><a target="_top" href="/google_maps/index.htm" title="Learn Google Maps">Learn Google Maps</a></li>
+<li><a target="_top" href="/html/index.htm" title="Learn HTML">Learn HTML</a></li>
+<li><a target="_top" href="/html5/index.htm" title="Learn HTML5">Learn HTML5</a></li>
+<li><a target="_top" href="/http/index.htm" title="Learn HTTP">Learn HTTP</a></li>
+<li><a target="_top" href="/highcharts/index.htm" title="Learn Highcharts">Learn Highcharts</a></li>
+<li><a target="_top" href="/javascript/index.htm" title="Learn JavaScript">Learn JavaScript</a></li>
+<li><a target="_top" href="/joomla/index.htm" title="Learn Joomla">Learn Joomla</a></li>
+<li><a target="_top" href="/jquery/index.htm" title="jquery">Learn jQuery</a></li>
+<li><a target="_top" href="/jqueryui/index.htm" title="jqueryUI">Learn jQueryUI</a></li>
+<li><a target="_top" href="/jsf/index.htm" title="Learn JSF">Learn JSF</a></li>
+<li><a target="_top" href="/knockoutjs/index.htm" title="Learn KnockoutJS">Learn KnockoutJS</a></li>
+<li><a target="_top" href="/laravel/index.htm" title="Learn Laravel">Learn Laravel</a></li>
+<li><a target="_top" href="/less/index.htm" title="Learn LESS">Learn LESS</a></li>
+<li><a target="_top" href="/magento/index.htm" title="Learn Magento Framework">Learn Magento Framework</a></li>
+<li><a target="_top" href="/materialdesignlite/index.htm" title="Learn Material Design Lite">Material Design Lite</a></li>
+<li><a target="_top" href="/materialize/index.htm" title="Learn Materialize">Learn Materialize</a></li>
+<li><a target="_top" href="/mvc_framework/index.htm" title="Learn MVC Framework">Learn MVC Framework</a></li>
+<li><a target="_top" href="/prototype/index.htm" title="Learn Prototype Framework">Learn Prototype</a></li>
+<li><a target="_top" href="/purecss/index.htm" title="Learn Pure.CSS">Learn Pure.CSS</a></li>
+<li><a target="_top" href="/reactjs/index.htm" title="Learn ReactJS">Learn ReactJS</a></li>
+<li><a target="_top" href="/ruby-on-rails-2.1/index.htm" title="Learn Ruby on Rails-2.1">Learn Ruby on Rails-2.1</a></li>
+<li><a target="_top" href="/ruby-on-rails/index.htm" title="Learn Ruby on Rails">Learn Ruby on Rails</a></li>
+<li><a target="_top" href="/sass/index.htm" title="Sass Tutorial">Learn SASS</a></li>
+<li><a target="_top" href="/script.aculo.us/index.htm" title="script.aculo.us">Learn script.aculo.us</a></li>
+<li><a target="_top" href="/svg/index.htm" title="Learn SVG">Learn SVG</a></li>
+<li><a target="_top" href="/turbogears/index.htm" title="Learn TurboGears">Learn TurboGears</a></li>
+<li><a target="_top" href="/vbscript/index.htm" title="Learn VBScript">Learn VBScript</a></li>
+<li><a target="_top" href="/web_developers_guide/index.htm" title="Web Developers Guide">Web Developer's Guide</a></li>
+<li><a target="_top" href="/webservices/index.htm" title="Learn Web Services">Learn Web Services</a></li>
+<li><a target="_top" href="/restful/index.htm" title="RESTful Web Services">RESTful Web Services</a></li>
+<li><a target="_top" href="/w3css/index.htm" title="Learn W3CSS">Learn W3CSS</a></li>
+<li><a target="_top" href="/web_icons/index.htm" title="Learn Web Icons">Learn Web Icons</a></li>
+<li><a target="_top" href="/websockets/index.htm" title="Learn Web Sockets">Learn Web Sockets</a></li>
+<li><a target="_top" href="/web2py/index.htm" title="Learn Web2Py">Learn Web2Py</a></li>
+<li><a target="_top" href="/webgl/index.htm" title="Learn WebGL">Learn WebGL</a></li>
+<li><a target="_top" href="/webrtc/index.htm" title="Learn WebRTC">Learn WebRTC</a></li>
+<li><a target="_top" href="/wordpress/index.htm" title="Learn Wordpress">Learn Wordpress</a></li>
+<li><a target="_top" href="/xhtml/index.htm" title="Learn XHTML">Learn XHTML</a></li>
+</ul>
+<h4>Academic</h4>
+<ul class="menu" id="academic_tutorials">
+<li><a target="_top" href="/agile/index.htm" title="Learn Agile Methodology">Learn Agile Methodology</a></li>
+<li><a target="_top" href="/accounting_basics/index.htm" title="Learn Accounting Basics">Learn Accounting Basics</a></li>
+<li><a target="_top" href="/artificial_intelligence/index.htm" title="Learn Artificial Intelligence">Learn Artificial Intelligence</a></li>
+<li><a target="_top" href="/automata_theory/index.htm" title="Learn Automata Theory">Learn Automata Theory</a></li>
+<li><a target="_top" href="/biometrics/index.htm" title="Learn biometrics">Learn Biometrics</a></li>
+<li><a target="_top" href="/cloud_computing/index.htm" title="Learn Cloud Computing">Learn Cloud Computing</a></li>
+<li><a target="_top" href="/compiler_design/index.htm" title="Learn Compiler Design">Learn Compiler Design</a></li>
+<li><a target="_top" href="/computer_fundamentals/index.htm" title="Learn Computer Fundamentals">Learn Computer Fundamentals</a></li>
+<li><a target="_top" href="/computer_graphics/index.htm" title="Learn Computer Graphics">Learn Computer Graphics</a></li>
+<li><a target="_top" href="/computer_logical_organization/index.htm" title="Learn Computer Logical Organization">Computer Logical Organization</a></li>
+<li><a target="_top" href="/computer_programming/index.htm" title="Computer Programming Fundamentals">Computer Programming</a></li>
+<li><a target="_top" href="/cryptography/index.htm" title="Learn Cryptography">Learn Cryptography</a></li>
+<li><a target="_top" href="/data_communication_computer_network/index.htm" title="Data Communication and Computer Network">Computer Networking</a></li>
+<li><a target="_top" href="/data_mining/index.htm" title="Learn Data Mining">Learn Data Mining</a></li>
+<li><a target="_top" href="/data_structures_algorithms/index.htm" title="Learn Data Structure & Algorithms">Data Structure & Algorithms</a></li>
+<li><a target="_top" href="/distributed_dbms/index.htm" title="Learn Distributed DBMS">Learn Distributed DBMS</a></li>
+<li><a target="_top" href="/dwh/index.htm" title="Learn Data Warehouse">Learn Data Warehouse</a></li>
+<li><a target="_top" href="/dbms/index.htm" title="Learn DBMS">Learn DBMS</a></li>
+<li><a target="_top" href="/dip/index.htm" title="Digital Image Processing">Digital Image Processing</a></li>
+<li><a target="_top" href="/digital_signal_processing/index.htm" title="Digital Signal Processing">Digital Signal Processing</a></li>
+<li><a target="_top" href="/discrete_mathematics/index.htm" title="Discrete Mathematics">Discrete Mathematics</a></li>
+<li><a target="_top" href="/embedded_systems/index.htm" title="Learn Embedded Systems">Learn Embedded Systems</a></li>
+<li><a target="_top" href="/e_commerce/index.htm" title="Learn E-Commerce">Learn E-Commerce</a></li>
+<li><a target="_top" href="/estimation_techniques/index.htm" title="Learn Estimation Techniques">Learn Estimation Techniques</a></li>
+<li><a target="_top" href="/graph_theory/index.htm" title="Learn Graph Theory">Learn Graph Theory</a></li>
+<li><a target="_top" href="/http/index.htm" title="Learn HTTP">Learn HTTP</a></li>
+<li><a target="_top" href="/human_computer_interface/index.htm" title="Learn Human Computer Interface">Learn Human Computer Interface</a></li>
+<li><a target="_top" href="/information_security_cyber_law/index.htm" title="Information Security and Cyber Law">Information Security and Cyber Law</a></li>
+<li><a target="_top" href="/internet_technologies/index.htm" title="Internet Technologies">Internet Technologies</a></li>
+<li><a target="_top" href="/ipv4/index.htm" title="Learn IPv4">Learn IPv4</a></li>
+<li><a target="_top" href="/ipv6/index.htm" title="Learn IPv6">Learn IPv6</a></li>
+<li><a target="_top" href="/java_dip/index.htm" title="Digital Image Processing using Java">Image Processing with Java</a></li>
+<li><a target="_top" href="/management_information_system/index.htm" title="Learn Management Information System">Mgmt Information System</a></li>
+<li><a target="_top" href="/mobile_computing/index.htm" title="Learn Mobile Computing">Learn Mobile Computing</a></li>
+<li><a target="_top" href="/object_oriented_analysis_design/index.htm" title="Learn Object Oriented Analysis and Design">Learn OOAD</a></li>
+<li><a target="_top" href="/operating_system/index.htm" title="Learn Operating System">Learn Operating System</a></li>
+<li><a target="_top" href="/network_security/index.htm" title="Learn Network Security">Learn Network Security</a></li>
+<li><a target="_top" href="/parallel_algorithm/index.htm" title="Learn Parallel Algorithm">Learn Parallel Algorithm</a></li>
+<li><a target="_top" href="/power_electronics/index.htm" title="Learn Power Electronics">Learn Power Electronics</a></li>
+<li><a target="_top" href="/sdlc/index.htm" title="Learn SDLC (Software Development Life Cycle)">S/W Development Life Cycle</a></li>
+<li><a target="_top" href="/seo/index.htm" title="Learn Search Engine Optimization">Learn SEO Techniques</a></li>
+<li><a target="_top" href="/statistics/index.htm" title="Learn Statistics">Learn Statistics</a></li>
+<li><a target="_top" href="/signals_and_systems/index.htm" title="Signals and Systems">Signals and Systems</a></li>
+<li><a target="_top" href="/software_architecture_design/index.htm" title="Learn Software Architecture Design">Software Architecture Design</a></li>
+<li><a target="_top" href="/software_engineering/index.htm" title="Software Engineering">Software Engineering</a></li>
+<li><a target="_top" href="/vlsi_design/index.htm" title="Learn VLSI Design">Learn VLSI Design</a></li>
+</ul>
+<h4>Software Quality</h4>
+<ul class="menu" id="software_quality">
+<li><a target="_top" href="/concordion/index.htm" title="Learn Concordion">Learn Concordion</a></li>
+<li><a target="_top" href="/jenkins/index.htm" title="Learn Jenkins">Learn Jenkins</a></li>
+<li><a target="_top" href="/database_testing/index.htm" title="Learn Database Testing">Learn Database Testing</a></li>
+<li><a target="_top" href="/cmmi/index.htm" title="Learn SEI CMMI">Learn SEI CMMI</a></li>
+<li><a target="_top" href="/etl_testing/index.htm" title="Learn ETL Testing">Learn ETL Testing</a></li>
+<li><a target="_top" href="/mockito/index.htm" title="Learn Mockito">Learn Mockito</a></li>
+<li><a target="_top" href="/mobile_testing/index.htm" title="Learn Mobile Testing">Learn Mobile Testing</a></li>
+<li><a target="_top" href="/penetration_testing/index.htm" title="Learn Penetration Testing">Learn Penetration Testing</a></li>
+<li><a target="_top" href="/qc/index.htm" title="Learn QC">Learn QC</a></li>
+<li><a target="_top" href="/qunit/index.htm" title="Learn QUnit">Learn QUnit</a></li>
+<li><a target="_top" href="/qtp/index.htm" title="Learn QTP">Learn QTP</a></li>
+<li><a target="_top" href="/rspec/index.htm" title="Learn RSpec">Learn RSpec</a></li>
+<li><a target="_top" href="/sap_testing/index.htm" title="Learn SAP Testing">Learn SAP Testing</a></li>
+<li><a target="_top" href="/security_testing/index.htm" title="Learn Security Testing">Learn Security Testing</a></li>
+<li><a target="_top" href="/selenium/index.htm" title="Learn Selenium">Learn Selenium</a></li>
+<li><a target="_top" href="/six_sigma/index.htm" title="Learn Six Sigma">Learn Six Sigma</a></li>
+<li><a target="_top" href="/software_testing_dictionary/index.htm" title="Software Testing Dictionary">Software Testing Dictionary</a></li>
+<li><a target="_top" href="/software_testing/index.htm" title="Learn Software Testing">Learn Software Testing</a></li>
+</ul>
+</div>
+</div>
+<div class="col-md-3">
+<div class="featured-box">
+<h4>Scripts</h4>
+<ul class="menu" id="scripts">
+<li><a target="_top" href="/javascript/index.htm" title="Learn JavaScript">Learn JavaScript</a></li>
+<li><a target="_top" href="/jquery/index.htm" title="jquery">Learn jQuery</a></li>
+<li><a target="_top" href="/jqueryui/index.htm" title="jqueryUI">Learn jQueryUI</a></li>
+<li><a target="_top" href="/lua/index.htm" title="Learn Lua">Learn Lua</a></li>
+<li><a target="_top" href="/perl/index.htm" title="Learn Perl">Learn Perl</a></li>
+<li><a target="_top" href="/php/index.htm"  title="Learn PHP">Learn PHP</a></li>
+<li><a target="_top" href="/php7/index.htm"  title="Learn PHP-7">Learn PHP-7</a></li>
+<li><a target="_top" href="/python/index.htm" title="Learn Python">Learn Python</a></li>
+<li><a target="_top" href="/python3/index.htm" title="Learn Python-3">Learn Python-3</a></li>
+<li><a target="_top" href="/pyqt/index.htm" title="Learn PyQt">Learn PyQt</a></li>
+<li><a target="_top" href="/wxpython/index.htm" title="Learn WxPython">Learn WxPython</a></li>
+<li><a target="_top" href="/ruby/index.htm" title="Learn Ruby">Learn Ruby</a></li>
+<li><a target="_top" href="/rspec/index.htm" title="Learn RSpec">Learn RSpec</a></li>
+<li><a target="_top" href="/sed/index.htm" title="Learn Sed">Learn Sed</a></li>
+<li><a target="_top" href="/tcl-tk/index.htm" title="Learn Tcl/Tk">Learn Tcl/Tk</a></li>
+<li><a target="_top" href="/vbscript/index.htm" title="Learn VBScript">Learn VBScript</a></li>
+</ul>
+<h4>Management</h4>
+<ul class="menu" id="management">
+<li><a target="_top" href="/advertisement_and_marketing_communications/index.htm" title="Learn Advertisement and Marketing Communications">Adv. and Mkt Communications</a></li>
+<li><a target="_top" href="/brand_management/index.htm" title="Learn Brand Management">Learn Brand Management</a></li>
+<li><a target="_top" href="/collaborative_management/index.htm" title="Learn Collaborative Management">Learn Collaborative Management</a></li>
+<li><a target="_top" href="/consumer_behavior/index.htm" title="Learn Business Ethics">Learn Consumer Behavior</a></li>
+<li><a target="_top" href="/customer_relationship_management/index.htm" title="Customer Relationship Management">Customer Relationship Management</a></li>
+<li><a target="_top" href="/coaching_and_mentoring/index.htm" title="Coaching and Mentoring">Coaching and Mentoring</a></li>
+<li><a target="_top" href="/entrepreneurship_development/index.htm" title="Learn Entrepreneurship Development">Entrepreneurship Development</a></li>
+<li><a target="_top" href="/earn_value_management/index.htm" title="Learn EVM">Learn EVM</a></li>
+<li><a target="_top" href="/food_production_operations/index.htm" title="Food Production Operations">Food Production Operations</a></li>
+<li><a target="_top" href="/hotel_housekeeping/index.htm" title="Hotel Housekeeping">Hotel Housekeeping</a></li>
+<li><a target="_top" href="/human_resource_management/index.htm" title="Human Resource Management">Human Resource Management</a></li>
+<li><a target="_top" href="/individual_and_group_behavior/index.htm" title="Learn Individual and Group Behavior">Individual and Group Behavior</a></li>
+<li><a target="_top" href="/international_finance/index.htm" title="Learn International Finance Management">International Finance</a></li>
+<li><a target="_top" href="/international_marketing/index.htm" title="Learn International Marketing">International Marketing</a></li>
+<li><a target="_top" href="/international_business_management/index.htm" title="Learn International Business Management">International Business Management</a></li>
+<li><a target="_top" href="/knowledge_management/index.htm" title="Learn Knowledge Management">Learn Knowledge Management</a></li>
+<li><a target="_top" href="/managerial_economics/index.htm" title="Learn Managerial Economics">Learn Managerial Economics</a></li>
+<li><a target="_top" href="/management_concepts/index.htm" title="Project Management Concepts">Management Concepts</a></li>
+<li><a target="_top" href="/professional_ethics/index.htm" title="Professional Ethics">Professional Ethics</a></li>
+<li><a target="_top" href="/personal_branding/index.htm" title="Personal Branding">Personal Branding</a></li>
+<li><a target="_top" href="/organizational_behavior/index.htm" title="Organizational Behavior">Organizational Behavior</a></li>
+<li><a target="_top" href="/pmp-exams/index.htm" title="PMP Examination">PMP Examination</a></li>
+<li><a target="_top" href="/retail_management/index.htm" title="Retail Management">Retail Management</a></li>
+<li><a target="_top" href="/scrum/index.htm" title="Learn Scrum">Learn Scrum</a></li>
+<li><a target="_top" href="/strategic_management/index.htm" title="Strategic Management">Strategic Management</a></li>
+<li><a target="_top" href="/supply_chain_management/index.htm" title="Supply Chain Management">Supply Chain Management</a></li>
+<li><a target="_top" href="/tourism_management/index.htm" title="Learn Tourism Management">Learn Tourism Management</a></li>
+</ul>
+<h4>SAP</h4>
+<ul class="menu" id="sap_tutorials">
+<li><a target="_top" href="/sap_abap/index.htm" title="Learn SAP ABAP">Learn SAP ABAP</a></li>
+<li><a target="_top" href="/sap_bods/index.htm" title="Learn SAP BODS">Learn SAP BODS</a></li>
+<li><a target="_top" href="/sap_bpc/index.htm" title="Learn SAP BPC">Learn SAP BPC</a></li>
+<li><a target="_top" href="/crystal_reports/index.htm" title="Learn Crystal Reports">Learn Crystal Reports</a></li>
+<li><a target="_top" href="/sap_fico/index.htm" title="Learn SAP FICO">Learn SAP FICO</a></li>
+<li><a target="_top" href="/sap_fiori/index.htm" title="Learn SAP Fiori">Learn SAP Fiori</a></li>
+<li><a target="_top" href="/sap/index.htm" title="Learn SAP R/3">Learn SAP R/3</a></li>
+<li><a target="_top" href="/sap_lumira/index.htm" title="Learn SAP Lumira">Learn SAP Lumira</a></li>
+<li><a target="_top" href="/sap_mm/index.htm" title="Learn SAP MM">Learn SAP MM</a></li>
+<li><a target="_top" href="/sap_sd/index.htm" title="Learn SAP SD">Learn SAP SD</a></li>
+<li><a target="_top" href="/sap_hana/index.htm" title="Learn SAP HANA">Learn SAP HANA</a></li>
+<li><a target="_top" href="/sap_testing/index.htm" title="Learn SAP Testing">Learn SAP Testing</a></li>
+<li><a target="_top" href="/sap_webi/index.htm" title="Learn SAP Webi">Learn SAP Webi</a></li>
+</ul>
+<h4>Soft Skills</h4>
+<ul class="menu" id="soft_skill">
+<li><a target="_top" href="/assertiveness/index.htm" title="Learn Assertiveness">Learn Assertiveness</a></li>
+<li><a target="_top" href="/anger_management/index.htm" title="Learn Anger Management">Learn Anger Management</a></li>
+<li><a target="_top" href="/business_writing_skills/index.htm" title="Learn Business Writing Skills">Learn Business Writing Skills</a></li>
+<li><a target="_top" href="/business_acumen/index.htm" title="Learn Business Acumen">Learn Business Acumen</a></li>
+<li><a target="_top" href="/business_dress_code/index.htm" title="Learn Business Dress Code">Learn Business Dress Code</a></li>
+<li><a target="_top" href="/business_etiquette/index.htm" title="Learn Business Etiquette">Learn Business Etiquette</a></li>
+<li><a target="_top" href="/business_ethics/index.htm" title="Learn Business Ethics">Learn Business Ethics</a></li>
+<li><a target="_top" href="/body_language/index.htm" title="Learn Body Language">Learn Body Language</a></li>
+<li><a target="_top" href="/critical_thinking/index.htm" title="Learn Critical Thinking">Learn Critical Thinking</a></li>
+<li><a target="_top" href="/cracking_interviews/index.htm" title="Learn Cracking Interviews">Learn Cracking Interviews</a></li>
+<li><a target="_top" href="/employee_supervision/index.htm" title="Employee Supervision">Employee Supervision</a></li>
+<li><a target="_top" href="/interpersonal_skills/index.htm" title="Learn Interpersonal Skills">Learn Interpersonal Skills</a></li>
+<li><a target="_top" href="/job_search_skills/index.htm" title="Learn Job Search Skills">Learn Job Search Skills</a></li>
+<li><a target="_top" href="/self_confidence/index.htm" title="Learn Self Confidence">Learn Self Confidence</a></li>
+<li><a target="_top" href="/self_esteem/index.htm" title="Learn Self Esteem">Learn Self Esteem</a></li>
+<li><a target="_top" href="/spoken_english_errors/index.htm" title="Spoken English Errors">Spoken English Errors</a></li>
+<li><a target="_top" href="/social_intelligence/index.htm" title="Social Intelligence">Social Intelligence</a></li>
+<li><a target="_top" href="/social_learning/index.htm" title="Learn Social Learning">Learn Social Learning</a></li>
+<li><a target="_top" href="/work_life_balance/index.htm" title="Learn Work Life Balance">Learn Work Life Balance</a></li>
+<li><a target="_top" href="/workplace_diversity/index.htm" title="Learn Workplace Diversity">Learn Workplace Diversity</a></li>
+<li><a target="_top" href="/workplace_politics/index.htm" title="Learn Workplace Politics">Learn Workplace Politics</a></li>
+<li><a target="_top" href="/workplace_civility/index.htm" title="Learn Work Civility">Learn Work Civility</a></li>
+</ul>
+<h4>Selected Reading</h4>
+<ul class="menu" id="selected_reading">
+<li><a target="_top" href="computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="free_web_graphics.htm">Download Free Graphics</a></li>
+<li><a target="_top" href="/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+<h4>Misc</h4>
+<ul class="menu" id="misc">
+<li><a target="_top" href="/drools/index.htm" title="Learn Drools">Learn Drools</a></li>
+<li><a target="_top" href="/dll/index.htm" title="Learn DLL">Learn DLL</a></li>
+<li><a target="_top" href="/git/index.htm" title="Learn Git">Learn Git</a></li>
+<li><a target="_top" href="/gradle/index.htm" title="Learn Gradle">Learn Gradle</a></li>
+<li><a target="_top" href="/gnu_debugger/index.htm" title="Learn GDB Debugger">Learn GDB Debugger</a></li>
+<li><a target="_top" href="/itil/index.htm" title="Learn ITIL">Learn ITIL</a></li>
+<li><a target="_top" href="/makefile/index.htm" title="Learn Makefile">Learn Makefile</a></li>
+<li><a target="_top" href="/parrot/index.htm" title="Learn Parrot">Learn Parrot</a></li>
+<li><a target="_top" href="/kdbplus/index.htm" title="Learn KDB+">Learn KDB+</a></li>
+<li><a target="_top" href="/perl/perl_cgi.htm" title="Learn CGI with PERL">Learn CGI with PERL</a></li>
+<li><a target="_top" href="/radius/index.htm" title="Learn RADIUS">Learn RADIUS</a></li>
+<li><a target="_top" href="/rss/index.htm" title="Learn RSS">Learn RSS</a></li>
+<li><a target="_top" href="/soap/index.htm" title="Learn SOAP">Learn SOAP</a></li>
+<li><a target="_top" href="/svn/index.htm" title="Learn SVN">Learn SVN</a></li>
+<li><a target="_top" href="/uddi/index.htm" title="Learn UDDI">Learn UDDI</a></li>
+<li><a target="_top" href="/uml/index.htm" title="Learn UML">Learn UML</a></li>
+<li><a target="_top" href="/unix_sockets/index.htm" title="Learn Unix Sockets">Learn Unix Sockets</a></li>
+<li><a target="_top" href="/unix/index.htm" title="Learn UNIX">Learn UNIX</a></li>
+</ul>
+<h4>XML Technologies</h4>
+<ul class="menu" id="xml_technologies">
+<li><a target="_top" href="/aiml/index.htm" title="Learn AIML">Learn AIML</a></li>
+<li><a target="_top" href="/dom/index.htm" title="Learn DOM">Learn DOM</a></li>
+<li><a target="_top" href="/dtd/index.htm" title="Learn DTD">Learn DTD</a></li>
+<li><a target="_top" href="/ebxml/index.htm" title="Learn ebXML">Learn ebXML</a></li>
+<li><a target="_top" href="/java_xml/index.htm" title="Learn Java XML">Learn Java XML</a></li>
+<li><a target="_top" href="/wsdl/index.htm" title="Learn WSDL">Learn WSDL</a></li>
+<li><a target="_top" href="/xml-rpc/index.htm" title="Learn XML-RPC">Learn XML-RPC</a></li>
+<li><a target="_top" href="/xml/index.htm" title="Learn XML">Learn XML</a></li>
+<li><a target="_top" href="/xpath/index.htm" title="Learn XPath">Learn XPath</a></li>
+<li><a target="_top" href="/xquery/index.htm" title="Learn XQuery">Learn XQuery</a></li>
+<li><a target="_top" href="/xsd/index.htm" title="Learn XSD">Learn XSD</a></li>
+<li><a target="_top" href="/xslt/index.htm" title="Learn XSLT">Learn XSLT</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<h1 class="thick-heading">Selected Reading</h1>
+<div class="selected-reading-boxes col-md-12">
+<div class="col-md-2">
+<div class="course-box">
+<a href="developers_best_practices/index.htm" title="Developer's Best Practices">
+<img src="images/developers-best-practices-icon.jpg"  class="big-icon" alt="Developer's Best Practices"/>
+</a>
+</div>
+</div>
+<div class="col-md-2">
+<div class="course-box">
+<a href="effective_resume_writing.htm" title="Effective Resume Writing">
+<img src="images/effective-resume-writing-icon.jpg"  class="big-icon" alt="Effective Resume Writing"/>
+</a>
+</div>
+</div>
+<div class="col-md-2">
+<div class="course-box">
+<a href="computer_glossary.htm" title="Computer Glossary">
+<img src="images/computer-glossary-icon.jpg"  class="big-icon" alt="Computer Glossary"/>
+</a>
+</div>
+</div>
+<div class="col-md-2">
+<div class="course-box">
+<a href="computer_whoiswho.htm" title="Who is Who in Computer">
+<img src="images/who-is-who-icon.jpg" class="big-icon" alt="Who is Who in Computer"/>
+</a>
+</div>
+</div>
+<div class="col-md-2">
+<div class="course-box">
+<a href="questions_and_answers.htm" title="Technical Questions and Answers">
+<img src="images/questions_answers.jpg" class="big-icon" style="width:85px; height:89px" alt="Technical Questions and Answers"/>
+</a>
+</div>
+</div>
+<div class="col-md-2">
+<div class="course-box">
+<a href="multi_language_tutorials.htm" title="Multi-Lingual Tutorials">
+<img src="images/multilanguage_tutorials.jpg" class="big-icon" style="width:85px; height:89px" alt="Multi-Lingual Tutorials"/>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="map-section">
+<section class="featured footer map">
+<div class="container">
+<div class="row">
+<h2><strong>What</strong> Experts Say</h2>
+<div class="row">
+
+<div>
+<div class="col-md-4">
+<blockquote class="testimonial">
+<p>This is a truly excellent collection of resources and highly recommended. They are succinct, to the point and well presented. Students will find them accessible, relevant and easily digestible. Keep up the good work!</p>
+</blockquote>
+<div class="testimonial-arrow-down"></div>
+<div class="testimonial-author">
+<div class="img-thumbnail img-thumbnail-small">
+<img src="images/gordon.jpg" alt="Mr Gordon Moore">
+</div>
+<p><strong>Mr. Gordon Moore</strong><span>Tutor - IT, Maths and Statistics, Keele University International Study Centre, UK</span></p>
+</div>
+</div>
+</div>
+
+<div>
+<div class="col-md-4">
+<blockquote class="testimonial">
+<p>It's amazing to have a website like tutorialspoint at zero price and providing the best self learning content. I always recommend my students to refer to tutorialspoint for their assignments.</p>
+</blockquote>
+<div class="testimonial-arrow-down"></div>
+<div class="testimonial-author">
+<div class="img-thumbnail img-thumbnail-small">
+<img src="images/jahangir.jpg" alt="Dr. Jahangir">
+</div>
+<p><strong>Dr. Jahangir Alam</strong><span>Assistant Professor, Aligarh Muslim University, Aligarh UP, India</span></p>
+</div>
+</div>
+</div>
+
+<div>
+<div class="col-md-4">
+<blockquote class="testimonial">
+<p>I began searching for quality instructional material to use in the classroom. The material found on the tutorialspoint website met all of the criteria. I now have quality material to use in my classroom at no cost.</p>
+</blockquote>
+<div class="testimonial-arrow-down"></div>
+<div class="testimonial-author">
+<div class="img-thumbnail img-thumbnail-small">
+<img src="images/velma.jpg" alt="Velma Latson">
+</div>
+<p><strong>Velma Latson</strong><span>Lecturer Computer Technology, Bowie State University, USA</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<br/>
+<br/>
+<br/>
+</div>
+</div>
+<footer class="inner">
+<div class="container">
+<div class="row">
+<div class="footer-ribon">
+<span>Extras</span>
+</div>
+<div class="col-md-2">
+<h4>Mobile First</h4>
+<ul class="list icons list-unstyled">
+<li><a class="iphone" href="https://itunes.apple.com/us/app/tutorials-point/id914891263?ls=1&mt=8" target="_blank" rel="nofollow"><img alt="tutorialspoint iPhone App" src="/images/apple_store.jpg" class="mobile-apps"/></a></li>
+<li><a class="android" href="https://play.google.com/store/apps/details?id=com.tutorialspoint.onlineviewer" target="_blank" rel="nofollow"><img alt="tutorialspoint Android app" src="/images/google_play.jpg" class="mobile-apps"/></a></li>
+<li><a class="microsoft" href="http://www.windowsphone.com/s?appid=91249671-7184-4ad6-8a5f-d11847946b09" target="_blank" rel="nofollow"><img alt="tutorialspoint Windows app" src="/images/windows_store.jpg" class="mobile-apps"/></a></li>
+</ul>
+</div>
+<div class="col-md-2">
+<h4>About us</h4>
+<ul class="list icons list-unstyled">
+<li><i class="icon icon-caret-right"></i> <a href="/about/index.htm">Company</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="/about/about_team.htm">Our Team</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="/about/about_careers.htm">Careers</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="/about/about_privacy.htm">Privacy Policy</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="/about/about_terms_of_use.htm">Terms of use</a></li>
+</ul>
+</div>
+<div class="col-md-2">
+<h4>Extra Links</h4>
+<ul class="list icons list-unstyled">
+<li><i class="icon icon-caret-right"></i> <a href="shorttutorials">Articles</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="online_dev_tools.htm">Dev Tools</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="online_file_conversion.htm">File Conversion</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="netmeeting.php">NetMeeting</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="shared-tutorials.php">Shared Tutorials</a></li>
+<li><i class="icon icon-caret-right"></i> <a href="whiteboard.htm">Whiteboard</a></li>
+</ul>
+</div>
+<div class="col-md-3">
+<div class="contact-details">
+<h4>Contact Us</h4>
+<ul class="contact">
+<li><p><i class="icon icon-map-marker"></i> <strong>Address:</strong> 3rd Floor, Jyoti Celestia, Madhapur, Hyderabad, Telangana 500033</p></li>
+<li><p><i class="icon icon-envelope"></i> <strong>Email:</strong> <a href="about/contact_us.htm">Click Here</a></p></li>
+<li><p><i class="icon icon-dribbble"></i> <strong>Website:</strong> <a href="http://www.tutorialspoint.com">www.tutorialspoint.com</a></p></li>
+</ul>
+</div>
+<div class="social-icons">
+<ul class="social-icons">
+<li class="facebook"><a href="https://www.facebook.com/tutorialspointindia" target="_blank" data-placement="bottom" title="tutorialspoint @ Facebook">Facebook</a></li>
+<li class="googleplus"><a href="https://plus.google.com/u/0/116678774017490391259/posts" target="_blank" data-placement="bottom" title="tutorialspoint @ Google+">Google+</a></li>
+<li class="twitter"><a href="http://www.twitter.com/tutorialspoint" target="_blank" data-placement="bottom"  title="tutorialspoint @ Twitter">Twitter</a></li>
+<li class="linkedin"><a href="http://www.linkedin.com/company/tutorialspoint" target="_blank" data-placement="bottom"  title="tutorialspoint @ Linkedin">Linkedin</a></li>
+<li class="rss"><a href="http://feeds.feedburner.com/SharedTutorials" target="_blank" data-placement="bottom" title="tutorialspoint RSS">RSS</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-1">
+<a href="index.htm" class="logo"> <img alt="Tutorials Point" class="img-responsive" src="/scripts/img/logo-footer.png"> </a>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <nav id="sub-menu">
+      <ul>
+         <li><a href="/about/tutorials_writing.htm">Write for us</a></li>
+         <li><a href="/about/faq.htm">FAQ's</a></li>
+         <li><a href="/about/about_helping.htm">Helping</a></li>
+         <li><a href="/about/contact_us.htm">Contact</a></li>
+      </ul>
+   </nav>
+</div>
+<div class="col-md-3 col-sm-12 col-xs-12">
+<p>&copy; Copyright 2016. All Rights Reserved.</p>
+</div>
+<div class="col-md-4 col-sm-12 col-xs-12">
+   <div class="news-group">
+      <input type="text" class="form-control-foot search" name="textemail" id="textemail" autocomplete="off" placeholder="Enter email for newsletter" onfocus="if (this.value == 'Enter email for newsletter...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter email for newsletter...';}">
+      <span class="input-group-btn"> <button class="btn btn-default btn-footer" id="btnemail" type="submit" onclick="javascript:void(0);">go</button> </span>
+      <div id="newsresponse"></div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script type="text/javascript" src="/theme/js/custom-min.js"></script>
+<script src="http://www.google-analytics.com/urchin.js">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+$('.greyout').click(function(){
+   $('.wrapLoader').show();
+});
+</script>
+</body>
+</html>

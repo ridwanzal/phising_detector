@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Torcache - Torrent Cache</title>
+	<link href="http://torcache.net/bundles/bootstrapper/css/bootstrap.min.css" media="all" type="text/css" rel="stylesheet">
+<link href="http://torcache.net/bundles/bootstrapper/css/nav-fix.css" media="all" type="text/css" rel="stylesheet">
+<link href="http://torcache.net/bundles/bootstrapper/css/bootstrap-responsive.min.css" media="all" type="text/css" rel="stylesheet">
+	<script src="http://torcache.net/bundles/bootstrapper/js/jquery-1.8.0.min.js"></script>
+<script src="http://torcache.net/bundles/bootstrapper/js/bootstrap.min.js"></script>
+		</head>
+<body>
+	<div class="navbar navbar-fixed-top"><div class="navbar-inner">
+		<div class="container-fluid">
+			<a class="brand" href="/">Torcache</a>
+			<div class="nav-collapse">
+				<ul class="nav">
+									<li class="active"><a href="/"><i class="icon-home icon-white"></i> Home</a></li>
+					<li><a href="/api"><i class="icon-wrench icon-white"></i> API</a></li>
+													</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div></div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<h1>  </h1>
+			<h2>Torcache is a free service for caching torrent files online.</h2>
+
+You can not search or list torrent files that are stored here, you can only access them if you already know the info_hash value of the torrent you want to download.
+<br />The way to access torrents is simple, you just use the url http://torcache.net//torrent/<i>INFO_HASH_IN_HEX</i>.torrent (note HEX values A-F must be in uppercase)</p>
+<p><b>Example URL:</b><br /> <a href="/torrent/640FE84C613C17F663551D218689A64E8AEBEABE.torrent">http://torcache.net/torrent/640FE84C613C17F663551D218689A64E8AEBEABE.torrent</a> (Slackware 12.2 DVD ISO)</p>
+<p>The torrent files are saved to disk in gzip format, that means you have to use a browser that understands the gzip transfer encoding.</p>
+
+<div class="leaderboard">
+	<h2>Send .torrent to cache:</h2>
+	<form enctype="multipart/form-data" class="form-horizontal" method="POST" action="http://torcache.net/api/upload" accept-charset="UTF-8">	    <div class="control-group">
+		    <input type="file" name="torrent"></input>
+            <button class="btn btn-primary btn" type="submit">Cache!</button>        </div>
+    </form>	<p>Just choose the torrent file you want to add to the cache and click "Cache!".
+</div>
+
+<h2>Removal</h2>
+<p>We store torrents forever.</p>
+<h2>Legal</h2>
+<ul>
+<li>We <b>DO NOT</b> have or track any information about what type of content the torrents point to.</li>
+<li>We <b>DO NOT</b> have any type of search or listing system.</li>
+<li>We <b>DO NOT</b> run our own trackers. </li>
+<li>The original filename of the torrent is <b>NOT</b> saved.</li>
+<li>We <b>DO NOT</b> log any IP adresses of uploaders.</li>
+<li>You can <b>ONLY</b> download torrents if you <b>ALREADY KNOW</b> the INFO_HASH of the torrent file.</li>
+<li>Torrent files are cached on disk in gzip format making it extremely time consuming to search for any data contained within the torrent files.</li>
+</ul>
+
+<h2>I want automation / an API!</h2>
+<p>Here's a list of our <a href="/api">APIs</a>.</p>
+
+		</div>
+	</div> <!-- /container -->
+<div id="_0be212437f8a504b18b59bf156a0f146"></div>
+<script type="text/javascript">
+var _scq = _scq || [];
+_scq.push(['setHost', 'adx.torcache.net']);
+_scq.push(['setAccount', '_b894d6cb1e370fb9ad89f8d6d99eeb33']);
+_scq.push(['load']);
+_scq.push(['addSlot', '_0be212437f8a504b18b59bf156a0f146']);
+(function(d) {
+    var sc = d.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+    sc.src = d.location.protocol + '//adx.torcache.net/sc.js';
+    var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+})(document);
+</script>
+</body>
+</html>

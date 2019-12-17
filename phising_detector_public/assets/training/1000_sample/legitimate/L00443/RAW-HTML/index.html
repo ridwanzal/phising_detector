@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7]><html class="iem7" lang="en" dir="ltr"><![endif]-->
+<!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"><![endif]-->
+<!--[if (IE 7)&(!IEMobile)]><html class="lt-ie9 lt-ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9 ie8" lang="en" dir="ltr"><![endif]-->
+<!--[if IE 9]><html class="ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#"><!--<![endif]-->
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .bg-gray,
+    .main-banner .banner-shadow,
+    .main-banner-content .banner-shadow {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+<head>
+  <script>
+//The following was taken from MSDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+if (!Array.prototype.indexOf) {
+  Array.prototype.indexOf = function (searchElement, fromIndex) {
+
+    var k;
+
+    // 1. Let O be the result of calling ToObject passing
+    //    the this value as the argument.
+    if (this == null) {
+      throw new TypeError('"this" is null or not defined');
+    }
+
+    var O = Object(this);
+
+    // 2. Let lenValue be the result of calling the Get
+    //    internal method of O with the argument "length".
+    // 3. Let len be ToUint32(lenValue).
+    var len = O.length >>> 0;
+
+    // 4. If len is 0, return -1.
+    if (len === 0) {
+      return -1;
+    }
+
+    // 5. If argument fromIndex was passed let n be
+    //    ToInteger(fromIndex); else let n be 0.
+    var n = +fromIndex || 0;
+
+    if (Math.abs(n) === Infinity) {
+      n = 0;
+    }
+
+    // 6. If n >= len, return -1.
+    if (n >= len) {
+      return -1;
+    }
+
+    // 7. If n >= 0, then Let k be n.
+    // 8. Else, n<0, Let k be len - abs(n).
+    //    If k is less than 0, then let k be 0.
+    k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+
+    // 9. Repeat, while k < len
+    while (k < len) {
+      // a. Let Pk be ToString(k).
+      //   This is implicit for LHS operands of the in operator
+      // b. Let kPresent be the result of calling the
+      //    HasProperty internal method of O with argument Pk.
+      //   This step can be combined with c
+      // c. If kPresent is true, then
+      //    i.  Let elementK be the result of calling the Get
+      //        internal method of O with the argument ToString(k).
+      //   ii.  Let same be the result of applying the
+      //        Strict Equality Comparison Algorithm to
+      //        searchElement and elementK.
+      //  iii.  If same is true, return k.
+      if (k in O && O[k] === searchElement) {
+        return k;
+      }
+      k++;
+    }
+    return -1;
+  };
+}
+</script>  <script>
+  window.box_server_domain_tld = "box.com";
+  window.box_server = "https://app.box.com";
+  window.countryCode = "MY";
+
+  function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return encodeURIComponent(c.substring(nameEQ.length,c.length));
+    }
+    return null;
+  }
+
+  function createCookie(name,value,days,domain,path) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = date.toGMTString();
+    if(!domain) {
+      var domain = document.domain;
+      domain = domain.replace(/^[^.]+\./g, "");
+    }
+    if(!path){
+      var path = "/";
+    }
+    document.cookie = name+"="+value+"; expires="+expires+"; domain="+domain+"; path="+path+";secure";
+  }
+  window.analyticsData = {};
+</script>  <script>
+if(typeof window != 'undefined' && typeof window.location != 'undefined' && typeof window.location.pathname != 'undefined' &&
+(window.location.pathname == '/' || window.location.pathname == '/en_GB/' || window.location.pathname == '/es_ES/' || window.location.pathname == '/fr_FR/' || window.location.pathname == '/it_IT/' || window.location.pathname == '/de_DE/' || window.location.pathname == '/ja_JP/')) {
+  (function(){
+    // redirect user based on subdomain
+    if ( readCookie('box_marketing') && readCookie('box_active_user_subdomain') ) {
+      var subdomain = readCookie('box_active_user_subdomain');
+      var patt = /^[a-zA-Z0-9\.\-\_]+$/;
+      if(subdomain && patt.test(subdomain)){
+        window.location.href = 'https://'+subdomain+'.'+box_server_domain_tld+'/login';
+        document.getElementsByTagName("html")[0].setAttribute("style","visibility:hidden;");
+      }
+    }
+  })();
+}
+</script>  <script>
+  var init_redirect_translation_urls = {"en":"https:\/\/www.box.com\/home\/","en-gb":"https:\/\/www.box.com\/en_GB\/home\/","es":"https:\/\/www.box.com\/es_ES\/home\/","fr":"https:\/\/www.box.com\/fr_FR\/home\/","de":"https:\/\/www.box.com\/de_DE\/home\/","it":"https:\/\/www.box.com\/it_IT\/home\/","ja":"https:\/\/www.box.com\/ja_JP\/home\/"};
+var init_redirect_curr_url_lang = "en";
+var init_redirect_language_mapping = {"en":"","en-gb":"en_GB","es":"es_ES","fr":"fr_FR","de":"de_DE","it":"it_IT","ja":"ja_JP"};
+
+(function(){
+
+  function redirectToLocale(langKey,createCookieBool){
+    var langKeyArray = ['en','en-gb','es','fr','it','de','ja']; //ordered to match up with LocaleArray.
+    var localeArray = ['en_US','en_GB','es_ES', 'fr_FR', 'it_IT', 'de_DE', 'ja_JP'];
+    if(langKeyArray.indexOf(langKey) > -1){
+      var locale = localeArray[langKeyArray.indexOf(langKey)];
+      if(createCookieBool){
+        var cookieDomain = document.domain.match(/box\.com$/) ? "box.com" : false;
+        createCookie('box_locale',locale,61,cookieDomain);
+        createCookie('lang',locale.replace('_','-'),61,cookieDomain);      
+      }
+      //do redirection if we aren't already on correct language:
+      if(typeof init_redirect_translation_urls != 'undefined' && typeof init_redirect_translation_urls[langKey] != 'undefined' && init_redirect_curr_url_lang != langKey){
+        window.location.href = init_redirect_translation_urls[langKey];
+        document.getElementsByTagName("html")[0].setAttribute("style","visibility:hidden;");
+      }
+    }                            
+  }
+
+  //check for box_locale cookie and redirect to locale if necessary.
+  var box_locale_cookie = readCookie('box_locale');
+  if (box_locale_cookie){
+    var language_key = null;
+    for (var language_code in init_redirect_language_mapping) {
+        if (init_redirect_language_mapping[language_code] === box_locale_cookie) {
+            language_key = language_code;
+            break;
+        } else {
+            language_key = 'en';
+        }
+    }
+    redirectToLocale(language_key, false);
+  }
+  else{    
+    //if the user was not hitting a language-url path, set box_locale cookie based on their accept_language headers using ajax request
+    var xmlhttp;
+    if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+    }
+    else{// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function(){
+      if (xmlhttp.readyState==4 && xmlhttp.status==200 && xmlhttp.responseText){
+        var headers = JSON.parse(xmlhttp.responseText);
+        var primaryLang = headers.acceptLanguage.substring(0,5).toLowerCase();
+        var primaryLangStart = primaryLang.substring(0,2);
+        var langStarts = ['en','es','fr','it','de','ja'];
+        var euroCountries = ['GB','FR','IT','DE','ES','AL','AD','AM','AT','AZ','BY','BE','BA','BG','HR','CY','CZ','DK','EE','FI','GE','GR','VA','HU','IS','IE','XK',
+                                     'LV','LI','LT','LU','MK','MT','MD','MC','ME','NL','NO','PL','PT','RO','RU','SM','RS','SK','SI','SE','CH','TR','UA'];  
+        if(primaryLang == 'en-gb' || (primaryLangStart == 'en' && (countryCode && euroCountries.indexOf(countryCode) > -1))){
+          redirectToLocale('en-gb', true);
+        }
+        else if(langStarts.indexOf(primaryLangStart) > -1){
+          redirectToLocale(primaryLangStart, true);
+        }
+      }
+    }
+    xmlhttp.open("GET","/headers.php",true); //true for asynchronous
+    xmlhttp.send();
+  }
+})();
+</script>
+  <!--[if IE]><![endif]-->
+<meta charset="utf-8" />
+<link rel="shortcut icon" href="https://cdn01.boxcdn.net/cdn/farfuture/cdhilKhMf9Ma1h7uSVM34KRJLOHzDHoEHb9sLHg_f-4/mtime:1459311157/sites/all/themes/at-box/favicon.ico?v1" type="image/vnd.microsoft.icon" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//cdn01.boxcdn.net" />
+<meta name="description" content="Box offers secure content management and collaboration for individuals, teams and businesses, enabling secure file sharing and access to your files online." />
+<meta name="globalsign-domain-verification" content="wkrz5xJJd5bhADw6W3WazRXrhUTL4c0MuYp3frvlrt"><meta name="keywords" content="free cloud storage,file share,free file sharing,file sharing sites,secure cloud storage,online document storage,share files online,store documents online,online collaboration,collaboration tools,ftp replacement,sharepoint alternative,Online file storage,mobile data access,asset management,online workspace" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.box.com/" />
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="msvalidate.01" content="F8FE1761F555F2445E3932D23C0B2BB6" />
+  <meta name="google-site-verification" content="TgoDwQl5o9tdzl5LSEerUlEISpEvrun_m6WCRt43pRk" />
+  <meta name="google-site-verification" content="55WHu6Aup-v6dnWt0b3ZHAX4Gz9u-SGdaHovokbnKdc" />
+<!--   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"> -->
+  <title>
+    Box | Secure Content & Online File Sharing for Businesses  </title>
+  
+<!--[if gt IE 8]><!-->
+<link type="text/css" rel="stylesheet" href="https://cdn01.boxcdn.net/sites/default/files/advagg_css/css__IME0j2gmbSDIJNbsyLksKv4keBkfMUWkpe5HtWQ-LVk__cCAGolpwoRJBIR5pCD3gnz5r-dWRNSl_9iJvIKR1EgM__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.css" media="all" />
+<!--<![endif]-->
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://cdn01.boxcdn.net/sites/default/files/advagg_css/css__VMUJPh5R3g01Nellp91Hzz6lwEmcAlGm7uxPZhkbLmY__Iu2RyAe2um_rxXs6Keal3BwYaJ1gLPkpA2sSj1qT8zs__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.css" media="all" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="https://cdn01.boxcdn.net/sites/default/files/advagg_css/css__PyN8SCXiJfYicej4wzSVFxvgMgtDAiTo9SVIL-IvaZc__XPz0_HGnp-B_dWyYl6QoyhwkhKwJ1hUepAF8yWxI2UE__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://cdn01.boxcdn.net/sites/default/files/advagg_css/css__4vcbKTMuIueK2PN1_E-yXGXrKZdMysbsGnI7enqUls8__Y-Xufg5OJuI9XI7R9goyLEbkIBcuHpVwSSNY7XMj5_I__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://cdn01.boxcdn.net/sites/default/files/advagg_css/css__47lYumeniBsq6_K2cVuMNzbdLWlyaQLB5v2tQVcxpwI__evCEBrP7oWlYctEsKaFByy8R167eNTAGL_LSLk-B76A__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.css" media="only screen" />
+
+<!--[if (lt IE 9)&(!IEMobile 7)]>
+<link type="text/css" rel="stylesheet" href="https://cdn01.boxcdn.net/sites/default/files/advagg_css/css__IgNisRtOvuFOR5bGRRHh8-bp9wT9bZ9Fd7FluohzDmA__obcjRAUjCDrsattVQhsoUxuwJ0JIEpp6aAtVEwHgY4g__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.css" media="screen" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="https://cdn01.boxcdn.net/sites/default/files/advagg_css/css__frxX4HdR9lTf4swdliE4-FbqiSHYIdRveAm4HzOGTYg__erMfQkoMk_1_qUxCWwQTNUYP6801rXc85mrnsaDkuNo__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.css" media="all" />
+  <script src='https://assets.adobedtm.com/1faedc806e38f986c51b7dc7c5cb49a40708fdca/satelliteLib-3f6f7433334fd8e721141048ec39aefe3aad2129.js'></script>  <script>(function(){var abTests=[],abConditions={},abExperiences={};abTests[0]={};abTests[0].name='t_31';abTests[0].conditions=[];abTests[0].experiences=[];abTests[0].conditions[0]='t_31_c_11';abConditions.t_31_c_11=function(){var IE_version=(navigator.userAgent.toLowerCase().indexOf('msie')!=-1)?parseInt(navigator.userAgent.toLowerCase().split('msie')[1]):false;return!(IE_version&&IE_version<9)};abTests[0].conditions[1]='t_31_c_31';abConditions.t_31_c_31=function(){return window.location.hostname.indexOf('inside-box.net')>-1};abTests[0].experiences[0]={};abTests[0].experiences[0].name='e_31';abTests[0].experiences[0].fraction=1;abTests[0].experiences[0].script='t_31_e_31';abExperiences.t_31_e_31=function(){document.addEventListener("DOMContentLoaded",function(event){var hostname=window.location.hostname;if(hostname.indexOf('inside-box.net')>-1){if(box_server!=='https://app.box.com')jQuery("a[href^='https://app.box.com']").each(function(){var matches=jQuery(this).attr('href').match(/https:\/\/app.box.com(.*)/);if(matches&&matches[1])jQuery(this).attr('href',box_server+matches[1])});jQuery("a[href^='https://app.']").each(function(){var href=jQuery(this).attr('href'),matches=href.match(/https:\/\/app\..*\/(login|signup)/);if(matches)jQuery(this).attr('href',href.replace('https://app.','https://account.'))})}})};abTests[0].experiences[1]={};abTests[0].experiences[1].name='e_1';abTests[0].experiences[1].fraction=0;abTests[0].experiences[1].script='t_31_e_1';abExperiences.t_31_e_1=function(){};abTests[1]={};abTests[1].name='t_41';abTests[1].conditions=[];abTests[1].experiences=[];abTests[1].conditions[0]='t_41_c_11';abConditions.t_41_c_11=function(){var IE_version=(navigator.userAgent.toLowerCase().indexOf('msie')!=-1)?parseInt(navigator.userAgent.toLowerCase().split('msie')[1]):false;return!(IE_version&&IE_version<9)};abTests[1].conditions[1]='t_41_c_6';abConditions.t_41_c_6=function(){return/\/pricing\//i.test(window.location.pathname)};abTests[1].experiences[0]={};abTests[1].experiences[0].name='e_1';abTests[1].experiences[0].fraction=0;abTests[1].experiences[0].script='t_41_e_1';abExperiences.t_41_e_1=function(){};abTests[1].experiences[1]={};abTests[1].experiences[1].name='e_41';abTests[1].experiences[1].fraction=1;abTests[1].experiences[1].script='t_41_e_41';abExperiences.t_41_e_41=function(){document.addEventListener("DOMContentLoaded",function(event){var hostname=window.location.hostname;if(box_server!=='https://app.box.com')jQuery("a[href^='https://app.box.com']").each(function(){var matches=jQuery(this).attr('href').match(/https:\/\/app.box.com(.*)/);if(matches&&matches[1])jQuery(this).attr('href',box_server+matches[1])});jQuery("a[href^='https://app.']").each(function(){var href=jQuery(this).attr('href'),matches=href.match(/https:\/\/app\..*\/signup/);if(matches)jQuery(this).attr('href',href.replace('https://app.','https://account.'))})})};abTests[2]={};abTests[2].name='t_46';abTests[2].conditions=[];abTests[2].experiences=[];abTests[2].conditions[0]='t_46_c_11';abConditions.t_46_c_11=function(){var IE_version=(navigator.userAgent.toLowerCase().indexOf('msie')!=-1)?parseInt(navigator.userAgent.toLowerCase().split('msie')[1]):false;return!(IE_version&&IE_version<9)};abTests[2].experiences[0]={};abTests[2].experiences[0].name='e_1';abTests[2].experiences[0].fraction=0;abTests[2].experiences[0].script='t_46_e_1';abExperiences.t_46_e_1=function(){};abTests[2].experiences[1]={};abTests[2].experiences[1].name='e_46';abTests[2].experiences[1].fraction=1;abTests[2].experiences[1].script='t_46_e_46';abExperiences.t_46_e_46=function(){document.addEventListener("DOMContentLoaded",function(event){var hostname=window.location.hostname;if(box_server!=='https://app.box.com')jQuery("a[href^='https://app.box.com']").each(function(){var matches=jQuery(this).attr('href').match(/https:\/\/app.box.com(.*)/);if(matches&&matches[1])jQuery(this).attr('href',box_server+matches[1])});jQuery("a[href^='https://app.']").each(function(){var href=jQuery(this).attr('href'),matches=href.match(/https:\/\/app\..*\/login/);if(matches)jQuery(this).attr('href',href.replace('https://app.','https://account.'))})})};var cookiePrefix="abjs_",cookieDomain="",cookieLifetime=30,cookieSecure="; secure",abCookies={getCookie:function(sKey){if(!sKey)return null;abKey=cookiePrefix+sKey;return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*"+encodeURIComponent(abKey).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=\\s*([^;]*).*$)|^.*$"),"$1"))||null},setCookie:function(sKey,sValue){abKey=cookiePrefix+sKey;document.cookie=encodeURIComponent(abKey)+"="+encodeURIComponent(sValue)+"; max-age="+cookieLifetime*24*60*60+cookieDomain+"; path=/"+cookieSecure;return true}},userExperiences=[],filteredTests=[];for(var i=0;i<abTests.length;i++){for(var j=0;j<abTests[i].conditions.length;j++){var funcString=abTests[i].conditions[j];if(typeof abConditions[funcString]!=='function'||!abConditions[funcString]())break};if(j==abTests[i].conditions.length)filteredTests.push(abTests[i])};for(var i=0;i<filteredTests.length;i++)if(abCookies.getCookie(filteredTests[i].name)){for(var j=0;j<filteredTests[i].experiences.length;j++)if(abCookies.getCookie(filteredTests[i].name)==filteredTests[i].experiences[j].name){userExperiences.push(filteredTests[i].experiences[j].script);break}}else{var randomNum=Math.random(),fractionSum=0;for(var j=0;j<filteredTests[i].experiences.length;j++){if(randomNum>=fractionSum&&randomNum<fractionSum+filteredTests[i].experiences[j].fraction){abCookies.setCookie(filteredTests[i].name,filteredTests[i].experiences[j].name);userExperiences.push(filteredTests[i].experiences[j].script);break};fractionSum+=filteredTests[i].experiences[j].fraction}};for(var i=0;i<userExperiences.length;i++){var funcString=userExperiences[i];if(typeof abExperiences[funcString]==='function')abExperiences[funcString]()}})();</script>
+<script src="https://cdn01.boxcdn.net/sites/default/files/advagg_js/js__-kG-Jn8tpkVxqXqaUPo2Un3Jud0cLQV2HTPnnRBWYaw__ahev7ekNJXJl_GeUaaxmItF2EPFRLabiTIEGDP3_VJQ__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.js"></script>
+<script>document.createElement("picture");</script>
+<script src="https://cdn01.boxcdn.net/sites/default/files/advagg_js/js__ggS1gwuD0XOas6C4oi6M0orD_FPLlnr5t_-BnDXpGOc__KqREi5PnHMHcMAPeWyuEjpqgwcCGZ6vAVQXFEnQgIa8__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.js"></script>
+<script>jQuery.extend(Drupal.settings,{"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"at_box","theme_token":"1_eQsCk8ZF_r2BNwSdv-rXU3taiHXQMIDipehs9Kl68","css":{"sites\/all\/themes\/at-box\/css\/styles.css":1,"sites\/all\/themes\/at-box\/css\/global-elements.css":1,"sites\/all\/themes\/at-box\/css\/styles-ie.css":1,"sites\/all\/themes\/at-box\/css\/global-elements-ie.css":1,"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/contrib\/chosen\/css\/chosen-drupal.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/contrib\/fields\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/fields\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/custom\/greenhouse\/css\/greenhouse.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/contrib\/media\/om_maximenu\/css\/om_maximenu.css":1,"sites\/all\/modules\/contrib\/picture\/picture_wysiwyg.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/contrib\/fields\/unlimitedfield_remove\/unlimitedfield_remove.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/modules\/contrib\/fields\/wysiwyg_linebreaks\/wysiwyg_linebreaks.css":1,"public:\/\/ctools\/css\/b6f01e41a68e3cc9c4e1d323389b54da.css":1,"sites\/all\/themes\/at-box\/layouts\/panels\/homepage\/..\/..\/..\/css\/layouts\/panels\/homepage\/homepage.css":1,"sites\/all\/modules\/contrib\/media\/om_maximenu\/skin\/bubble\/bubble.css":1,"sites\/all\/modules\/contrib\/menu_minipanels\/css\/menu_minipanels.css":1,"sites\/all\/themes\/at-box\/layouts\/panels\/header\/..\/..\/..\/css\/layouts\/panels\/header\/header.css":1,"sites\/all\/themes\/at-box\/layouts\/panels\/menu_container\/..\/..\/..\/css\/layouts\/panels\/menu_container\/menu_container.css":1,"sites\/all\/themes\/at-box\/layouts\/panels\/footer\/..\/..\/..\/css\/layouts\/panels\/footer\/footer.css":1,"sites\/all\/modules\/contrib\/lang_dropdown\/lang_dropdown.css":1,"sites\/all\/themes\/adaptivetheme\/at_core\/css\/at.layout.css":1,"sites\/all\/themes\/at-box\/css\/global.base.css":1,"sites\/all\/themes\/at-box\/css\/global.styles.css":1,"sites\/all\/themes\/at-box\/css\/global.buttons.css":1,"sites\/all\/themes\/at-box\/css\/footer.css":1,"sites\/all\/themes\/at-box\/css\/global.banner.css":1,"sites\/all\/themes\/at-box\/css\/menu-language.css":1,"public:\/\/adaptivetheme\/at_box_files\/at_box.responsive.layout.css":1,"public:\/\/adaptivetheme\/at_box_files\/at_box.responsive.styles.css":1,"public:\/\/adaptivetheme\/at_box_files\/at_box.lt-ie9.layout.css":1,"sites\/all\/themes\/at-box\/css\/colorbox.css":1,"sites\/all\/themes\/at-box\/css\/colorbox-video.css":1,"sites\/all\/themes\/at-box\/css\/eu_cookie_compliance.css":1,"sites\/all\/themes\/at-box\/css\/global.fonts.css":1},"js":{"sites\/all\/modules\/contrib\/picture\/picturefill2\/picturefill.min.js":1,"sites\/all\/modules\/contrib\/picture\/picture.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.8\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/chosen\/chosen.jquery.min.js":1,"sites\/all\/modules\/contrib\/media\/om_maximenu\/js\/om_maximenu.js":1,"sites\/all\/modules\/features\/box_15\/js\/box_15.lang_dropdown.js":1,"sites\/all\/modules\/contrib\/chosen\/chosen.js":1,"sites\/all\/themes\/at-box\/scripts\/libs\/modernizr-2.5.3.min.js":1,"sites\/all\/themes\/at-box\/scripts\/jquery.menudropdown.js":1,"sites\/all\/themes\/at-box\/scripts\/sub-nav.js":1,"sites\/all\/themes\/at-box\/scripts\/jquery.bxslider.min.js":1,"sites\/all\/themes\/at-box\/scripts\/jquery.slides.min.js":1,"sites\/all\/themes\/at-box\/scripts\/google-analytic-global.js":1,"sites\/all\/themes\/at-box\/scripts\/ga-header-footer.js":1,"sites\/all\/themes\/at-box\/scripts\/media.match.min.js":1,"sites\/all\/themes\/at-box\/scripts\/enquire.min.js":1,"sites\/all\/themes\/at-box\/scripts\/init.js":1,"sites\/all\/themes\/at-box\/scripts\/components-control.js":1,"sites\/all\/themes\/at-box\/scripts\/page-pricing.js":1,"sites\/all\/themes\/at-box\/scripts\/countrycookie.js":1,"sites\/all\/themes\/at-box\/scripts\/jquery.colorbox.js":1,"sites\/all\/themes\/at-box\/scripts\/libs\/jquery.cookie.js":1,"sites\/all\/themes\/at-box\/scripts\/libs\/youtube.js":1,"sites\/all\/themes\/at-box\/scripts\/video.js":1,"sites\/all\/themes\/at-box\/scripts\/video-play.js":1,"sites\/all\/themes\/at-box\/scripts\/custom.js":1}},"chosen":{"selector":"","minimum_single":0,"minimum_multiple":0,"minimum_width":200,"options":{"disable_search":true,"disable_search_threshold":0,"search_contains":false,"placeholder_text_multiple":"Choose some options","placeholder_text_single":"Choose an option","no_results_text":"No results match","inherit_select_classes":true}},"urlIsAjaxTrusted":{"\/":true,"\/search\/site\/":true},"translation_urls":{"en":"https:\/\/www.box.com\/home\/","en-gb":"https:\/\/www.box.com\/en_GB\/home\/","es":"https:\/\/www.box.com\/es_ES\/home\/","fr":"https:\/\/www.box.com\/fr_FR\/home\/","de":"https:\/\/www.box.com\/de_DE\/home\/","it":"https:\/\/www.box.com\/it_IT\/home\/","ja":"https:\/\/www.box.com\/ja_JP\/home\/"},"home_urls":{"en":"https:\/\/www.box.com\/","en-gb":"https:\/\/www.box.com\/en_GB\/","es":"https:\/\/www.box.com\/es_ES\/","fr":"https:\/\/www.box.com\/fr_FR\/","de":"https:\/\/www.box.com\/de_DE\/","it":"https:\/\/www.box.com\/it_IT\/","ja":"https:\/\/www.box.com\/ja_JP\/"},"curr_language":"en","language_mapping":{"en":"","en-gb":"en_GB","es":"es_ES","fr":"fr_FR","de":"de_DE","it":"it_IT","ja":"ja_JP"}});</script>
+  <!--[if lte IE 9]>
+<script src="https://cdn01.boxcdn.net/cdn/farfuture/VtcUp4HK5oSXrxcFSpZwT8ggPNAmwFAIDm-RF8F7gmg/mtime:1459311157/sites/all/themes/at-box/scripts/libs/css3-mediaqueries.js?o60lo1"></script>
+<script src="https://cdn01.boxcdn.net/cdn/farfuture/-OEyuPKQga6w1NZcTpXC4uf0P-3z3KhndHHUM-TCaTo/mtime:1459311157/sites/all/themes/at-box/scripts/libs/oocss.js?o60lo1"></script>
+<script src="https://cdn01.boxcdn.net/cdn/farfuture/fP0S9wnlCNfeqHEdR5dtimkKvxE42eRVyVHgGMjI_Ts/mtime:1459311157/sites/all/themes/at-box/scripts/resizeIE8.js?o60lo1"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script src="https://cdn01.boxcdn.net/cdn/farfuture/3sptb16VVl2UUx4lBVp4copDjn0tfWPZ9XR4J_OD-0k/mtime:1459311157/sites/all/themes/adaptivetheme/at_core/scripts/html5.js?o60lo1"></script>
+<![endif]-->
+  </head>
+<body class="html front not-logged-in one-sidebar sidebar-first page-home page-front-15 i18n-en page-panels" >
+
+    <!-- Google Tag Manager -->
+  <script>
+    var google_tag_manager_data = [];
+  </script>
+  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-27GS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','google_tag_manager_data','GTM-27GS');</script>
+  
+  <!-- End Google Tag Manager -->
+
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+  <div class="wrapper">
+    <div class="container">	
+            
+<!-- Header -->
+<header class="main">
+  
+      <div class="top-menu panel-panel">
+      <div class="panel-pane pane-block pane-menu-menu-box-15-secondary no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <ul class="menu clearfix"><li class="first leaf menu-depth-1 menu-item-85621"><a href="/resources/">Resources</a></li><li class="leaf menu-depth-1 menu-item-85616"><a href="/business/professional-services-support/">Services &amp; Support</a></li><li class="leaf menu-depth-1 menu-item-85626"><a href="/quote/">Contact Sales</a></li><li class="last leaf phone-icon menu-depth-1 menu-item-85641"><a href="/about-us/contact-us/">1-877-729-4269</a></li></ul>    </div>
+
+    
+    
+  </div>
+</div>
+    </div>
+  
+      <div class="main-menu-container">
+      <div class="logo panel-panel">
+        <div class="panel-pane pane-pane-header no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <a href="/home/" title="Home" rel="home">
+  <img src="https://www.box.com/sites/all/themes/at-box/img/box-logo.svg" alt="Box Logo">
+</a>
+    </div>
+
+    
+    
+  </div>
+</div>
+      </div>
+      <div id="mobile-menu-hamburger" class="mobile-menu-hamburger" style="display: none;">Menu</div>
+      <div class="main-menu panel-panel">
+        <div class="panel-pane pane-block pane-menu-menu-box-15-main no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <ul class="menu clearfix"><li class="first collapsed products-menu-section menu-depth-1 menu-item-85611"><a href="/business/products-and-features/" class="menu-minipanel menu-minipanel-67291 menuparent">Products</a><ul class="menu-minipanel-panel menu-minipanel-products-menu-container">
+  <li class="first odd last">
+    
+<div class="menu-container with-second-column">
+      <div class="menu-container__column--1 menu-container__columns panel-panel">
+      <section class="panel-pane pane-block pane-menu-block-1 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Benefits For</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-1 menu-name-menu-box-15-main parent-mlid-85656 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-85711 menu-depth-3 menu-item-85711"><a href="/business/">Enterprise</a></li><li class="leaf menu-mlid-85701 menu-depth-3 menu-item-85701"><a href="/business/">SMB</a></li><li class="last leaf menu-mlid-85741 menu-depth-3 menu-item-85741"><a href="/personal/">Individual</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+    </div>
+        <div class="menu-container__column--2 menu-container__columns panel-panel">
+      <section class="panel-pane pane-block pane-menu-block-2 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Capabilities</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-2 menu-name-menu-box-15-main parent-mlid-85646 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-85671 menu-depth-3 menu-item-85671"><a href="/business/enterprise-security/">Security</a></li><li class="leaf menu-mlid-85731 menu-depth-3 menu-item-85731"><a href="/business/online-collaboration/">Collaboration</a></li><li class="leaf menu-mlid-85746 menu-depth-3 menu-item-85746"><a href="/business/secure-enterprise-mobility/">Mobility</a></li><li class="leaf menu-mlid-85761 menu-depth-3 menu-item-85761"><a href="/business/platform/">Platform</a></li><li class="last leaf menu-mlid-85756 menu-depth-3 menu-item-85756"><a href="/partners/technology-alliance-partners/">Integrations</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+    </div>
+  </div>
+  </li>
+</ul>
+</li><li class="collapsed solutions-menu-section menu-depth-1 menu-item-85636"><a href="/solutions/" class="menu-minipanel menu-minipanel-67271 menuparent">Solutions</a><ul class="menu-minipanel-panel menu-minipanel-solutions-menu-container">
+  <li class="first odd last">
+    
+<div class="menu-container with-second-column">
+      <div class="menu-container__column--1 menu-container__columns panel-panel">
+      <section class="panel-pane pane-block pane-menu-block-4 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Use cases</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-4 menu-name-menu-box-15-main parent-mlid-85661 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-85676 menu-depth-3 menu-item-85676"><a href="/file-sharing/">Secure File Sharing</a></li><li class="leaf menu-mlid-85716 menu-depth-3 menu-item-85716"><a href="/business/file-synchronization/">File Synchronization</a></li><li class="leaf menu-mlid-85726 menu-depth-3 menu-item-85726"><a href="/business/marketing-asset-management/">Digital Asset Management</a></li><li class="leaf menu-mlid-85721 menu-depth-3 menu-item-85721"><a href="/business/document-management/">Document Management</a></li><li class="leaf menu-mlid-85736 menu-depth-3 menu-item-85736"><a href="/business/ftp-alternative/">FTP Alternative</a></li><li class="last leaf menu-mlid-85681 menu-depth-3 menu-item-85681"><a href="/solutions/" class="underline">See All</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+    </div>
+        <div class="menu-container__column--2 menu-container__columns panel-panel">
+      <section class="panel-pane pane-block pane-menu-block-3 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Industries</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-3 menu-name-menu-box-15-main parent-mlid-85651 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-85696 menu-depth-3 menu-item-85696"><a href="/industries/healthcare-life-sciences/">Healthcare &amp; Life Sciences</a></li><li class="leaf menu-mlid-85686 menu-depth-3 menu-item-85686"><a href="/industries/financial-services-insurance/">Financial Services</a></li><li class="leaf menu-mlid-85691 menu-depth-3 menu-item-85691"><a href="/industries/retail/">Retail</a></li><li class="leaf menu-mlid-85751 menu-depth-3 menu-item-85751"><a href="/industries/media-and-entertainment/">Media &amp; Entertainment</a></li><li class="leaf menu-mlid-85706 menu-depth-3 menu-item-85706"><a href="/industries/construction/">Construction</a></li><li class="last leaf menu-mlid-85666 menu-depth-3 menu-item-85666"><a href="/industries/" class="underline">See All</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+    </div>
+  </div>
+  </li>
+</ul>
+</li><li class="leaf customers-menu-section menu-depth-1 menu-item-85591"><a href="/customers/" class="menu-minipanel menu-minipanel-67311 menuparent">Customers</a><ul class="menu-minipanel-panel menu-minipanel-customers-menu-container">
+  <li class="first odd last">
+      </li>
+</ul>
+</li><li class="leaf menu-depth-1 menu-item-85596"><a href="https://developers.box.com/">Developers</a></li><li class="leaf menu-depth-1 menu-item-85606"><a href="/pricing/">Pricing</a></li><li class="leaf log-in-icon menu-depth-1 menu-item-85601"><a href="https://app.box.com/login/">Log in</a></li><li class="last leaf sign-up-button menu-depth-1 menu-item-85631"><a href="/pricing/">Sign Up</a></li></ul>    </div>
+
+    
+    
+  </div>
+</div>
+      </div>
+    </div>
+  </header>
+<div id="main-dropdown">
+    	<div id="main-dropdown-language"><div class="menu-language mobile-content clearfix"><ul class="first-item"><li class="odd"><a class="language-url" data-languagecode="en" href="/">English (US)</a></li><li class="even"><a class="language-url" data-languagecode="en-gb" href="/en_GB">English (UK)</a></li><li class="odd"><a class="language-url" data-languagecode="en-gb" href="/en_GB">English (Europe)</a></li><li class="even"><a class="language-url" data-languagecode="es" href="/es_ES">Español</a></li><li class="odd"><a class="language-url" data-languagecode="fr" href="/fr_FR">Français</a></li><li class="even"><a class="language-url" data-languagecode="de" href="/de_DE">Deutsch</a></li><li class="odd"><a class="language-url" data-languagecode="it" href="/it_IT">Italiano</a></li><li class="even"><a class="language-url" data-languagecode="ja" href="/ja_JP">日本語 </a></li></ul></div><div class="menu-language tablet-content clearfix"><a href="javascript:void(0);" id="tablet-close-language">close</a><ul class="first-item"><li class="odd"><a class="language-url" data-languagecode="en" href="/">English (US)</a></li><li class="even"><a class="language-url" data-languagecode="en-gb" href="/en_GB">English (UK)</a></li><li class="odd"><a class="language-url" data-languagecode="en-gb" href="/en_GB">English (Europe)</a></li><li class="even"><a class="language-url" data-languagecode="es" href="/es_ES">Español</a></li><li class="odd"><a class="language-url" data-languagecode="fr" href="/fr_FR">Français</a></li><li class="even"><a class="language-url" data-languagecode="de" href="/de_DE">Deutsch</a></li><li class="odd"><a class="language-url" data-languagecode="it" href="/it_IT">Italiano</a></li><li class="even"><a class="language-url" data-languagecode="ja" href="/ja_JP">日本語 </a></li></ul></div></div><ul id="main-dropdown-nav"><li class="first-child"><a href="/business/">Business</a></li><li class="mobile-menu-item"><a href="/solutions/">Solutions</a></li><li class="mobile-menu-item"><a href="/industries/">Industries</a></li><li class="mobile-menu-item"><a href="/customers/">Customers</a></li><li class="mobile-menu-item"><a href="/about-us/">About</a></li><li class="mobile-menu-item"><a href="/personal/">Personal</a></li><li class="mobile-menu-item"><a href="https://app.box.com/login/">Log In</a></li><li class="last-row"><a href="/pricing/">Pricing</a></li><li class="tablet-menu-item"><a href="javascript:void(0);" id="tablet-topmenu-language"><span class="ico-language"><svg enable-background="new 0 0 34.953 36.625" height="36.625px" version="1.1" viewbox="0 0 34.953 36.625" width="34.953px" x="0px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px"><g id="front"><path class="stroke" d="M29.441,6.295c0,0-2.02-1.939-2.531-2.326&#10;&#9;&#9;c-0.512-0.39-3.217-1.72-3.217-1.72C21.774,1.446,19.675,1,17.478,1C8.377,1,1,8.579,1,17.927s7.377,16.924,16.478,16.924&#10;&#9;&#9;c9.098,0,16.475-7.576,16.475-16.924C33.953,13.422,32.236,9.328,29.441,6.295" fill="none" stroke="#231F20" stroke-miterlimit="10" stroke-width="2"></path><path d="M8.987,18.955l0.384-0.354l-0.303-0.469l-0.502-0.276l-0.082,0.02c-0.301,0.089-0.347,0.116-0.216,0.619&#10;&#9;&#9;C8.594,18.462,8.594,18.462,8.987,18.955 M6.609,17.222l0.097,0.026c-0.016-0.129-0.066-0.518-0.433-0.521&#10;&#9;&#9;c-0.222-0.004-0.352-0.017-0.56-0.048C5.778,16.775,5.953,17.031,6.609,17.222 M7.57,17.833l0.167-0.148&#10;&#9;&#9;c-0.062-0.025-0.135-0.102-0.285-0.302C7.168,17.007,7.163,17,6.706,17.248C6.956,17.688,6.956,17.688,7.57,17.833 M2.25,14.187&#10;&#9;&#9;L2.25,14.187l-0.008,0.002L2.25,14.187 M15.914,11.709l0.356-0.4l-0.9-0.161l0.01,0.006C15.383,11.158,15.839,11.523,15.914,11.709&#10;&#9;&#9; M6.37,5.79l0.074-0.05l0.041-0.044L6.52,5.642L6.45,5.707L6.463,5.69l0.049-0.052L6.429,5.705l0.02-0.026L6.386,5.734l-0.077,0.09&#10;&#9;&#9;L6.37,5.79 M23.222,6.732L23.22,6.68c-0.224-0.034-0.413-0.03-0.647,0.014c-0.204,0.043-0.344,0.097-0.486,0.189&#10;&#9;&#9;c0.114,0.078,0.265,0.186,0.38,0.266C23.218,7.025,23.221,6.868,23.222,6.732 M10.837,11.6c-0.558,0.221-0.947,0.819-1.642,0.737&#10;&#9;&#9;c0.095-0.262,0.277-0.491,0.286-0.783l0.395-0.271c-0.138,0.011-0.339-0.031-0.462,0.035c-0.005,0.002-0.289,0.25-0.556,0.508&#10;&#9;&#9;c-0.09,0.087-0.193,0.188-0.475,0.323c0.078-0.406,0.195-0.753,0.931-1.205c-0.184-0.112-0.328-0.288-0.543-0.352&#10;&#9;&#9;c0.457-0.471,0.648-0.505,1.366-0.247c0.163,0.628,0.293,1.027,0.72,1.247L10.837,11.6 M18.967,26.249&#10;&#9;&#9;c0.005-0.089,0.009-0.206,0.012-0.292c-0.023-0.001-2.583-0.097-4.123-1.571c-0.223,0.018-0.558,0.041-1.11,0.469&#10;&#9;&#9;c-0.138-0.097-0.321-0.221-0.457-0.315l0.374-0.395c-0.61-1.207-0.75-1.226-1.216-1.288c-0.888-0.122-0.888-0.122-1.148-0.972&#10;&#9;&#9;l-0.207-0.212c-0.573-0.557-1.288-0.835-2.045-1.129l-0.502,0.051c-0.44-0.265-0.627-0.379-1.021-0.629&#10;&#9;&#9;c-0.588,0.57-0.777,0.444-2-0.378c-0.006-0.103-0.353-0.696-1.014-1.096L4.395,18.21c0.03-0.273,0.065-0.544,0.104-0.814&#10;&#9;&#9;c0.247-0.288,0.289-0.369,0.383-0.714c-0.304-0.027-0.496,0.091-0.855,0.517c-0.151-0.065-0.298-0.133-0.438-0.203&#10;&#9;&#9;c-0.053-0.21-0.215-0.961-0.106-1.736c0.267-0.129,0.267-0.129,0.798-1.123c0.966,0.033,0.966,0.033,1.539,0.425&#10;&#9;&#9;c0.145-0.078,0.334-0.185,0.476-0.264l0.147,0.474c0.187,0.016,0.226,0.019,0.515-0.089c-0.122,0.651,0.053,1.301,0.021,1.949&#10;&#9;&#9;c0.227-0.189,0.529-0.443,0.756-0.634l-0.237-0.52c0.088-0.308,0.143-0.479,0.416-0.97c-0.035,0.132-0.069,0.261-0.101,0.394&#10;&#9;&#9;c0.324-0.224,0.709-0.327,1.038-0.545c0.27-0.002,0.488,0.04,0.709,0.081c0.703-0.851,0.703-0.851,0.914-1.059&#10;&#9;&#9;c1.173-0.518,1.173-0.518,4.214-1.35c-0.285-0.06-0.285-0.06-0.515-0.327c0.111-0.12,0.257-0.278,0.37-0.399&#10;&#9;&#9;c-0.027-0.006-0.027-0.006-1.361,0.243c0.668-0.548,1.293-0.587,2.464-0.546c0.277,0.012,0.277,0.012,1.381-0.923&#10;&#9;&#9;c-0.306,0.019-0.397,0.044-0.813,0.218c0.054-0.25,0.054-0.25,0.171-0.5c-0.074-0.134-0.167-0.311-0.24-0.445&#10;&#9;&#9;c0.074-0.235,0.074-0.235,0.211-0.486c-0.347-0.174-0.643-0.158-1.01-0.076c-0.497-0.841-0.497-0.841-0.761-0.889&#10;&#9;&#9;c-0.006,0.146-0.015,0.338-0.023,0.481c-0.168-0.015-0.335-0.03-0.5-0.046c-0.636,0.731-1.395,1.34-2.038,2.066&#10;&#9;&#9;c-0.334-0.392-0.53-1.583-0.554-1.988c0.199-0.103,0.464-0.238,0.662-0.339l0.508-0.262c1.616-1.018,1.616-1.018,2.207-0.745&#10;&#9;&#9;c0.135-0.125,0.315-0.288,0.453-0.411l-0.112-0.311c-0.324,0.154-0.433,0.183-0.62,0.23c-0.178-0.359-0.057-0.743-0.104-1.113&#10;&#9;&#9;l-0.051-0.021c-0.632,1.179-0.632,1.179-1.322,1.143c-0.015-0.043-0.033-0.104-0.047-0.151c-0.301-0.023-0.332-0.038-0.638-0.157&#10;&#9;&#9;c-0.141,0.063-0.326,0.148-0.465,0.211c0.019-0.044,0.045-0.101,0.064-0.141C11.919,6.32,11.8,6.295,11.71,6.278&#10;&#9;&#9;c-0.013-0.104-0.03-0.242-0.044-0.345c-1.369,0.697-1.381,0.683-1.58,0.452c0.637-0.13,0.702-0.143,1.425-0.496&#10;&#9;&#9;c-0.109-0.029-0.215-0.061-0.318-0.094l0.121-0.307c-0.136-0.046-0.268-0.093-0.393-0.141c-0.351,0.141-0.465,0.148-0.766,0.04&#10;&#9;&#9;c0.093-0.139,0.216-0.324,0.309-0.46C10.274,4.876,10.168,4.847,9.6,4.981c0.037-0.083,0.096-0.189,0.15-0.262&#10;&#9;&#9;c-0.027-0.038-0.06-0.087-0.086-0.125C9.689,4.556,9.726,4.506,9.752,4.47C9.647,4.463,9.506,4.468,9.405,4.485&#10;&#9;&#9;C9.48,4.404,9.578,4.296,9.654,4.213C9.424,4.342,9.424,4.342,8.795,4.644C8.814,4.6,8.841,4.538,8.863,4.493&#10;&#9;&#9;C8.612,4.524,8.612,4.524,8.035,4.847C7.994,4.825,7.941,4.793,7.9,4.771C7.759,4.815,7.759,4.815,6.813,5.524&#10;&#9;&#9;c0.019-0.053,0.044-0.102,0.072-0.153c-0.155,0.135-0.171,0.146-0.367,0.33c0.053-0.03,0.125-0.072,0.179-0.103&#10;&#9;&#9;C6.74,5.617,6.8,5.644,6.845,5.661c0.189-0.122,0.417-0.09,0.622-0.16C7.414,5.583,7.343,5.696,7.29,5.779&#10;&#9;&#9;c0.174-0.137,0.174-0.137,0.434-0.246C7.838,5.522,7.854,5.547,7.87,5.573c-0.048,0.154-0.048,0.154-0.5,0.666&#10;&#9;&#9;c0.118,0.04,0.273,0.099,0.393,0.132c-4.234,3.861-4.234,3.861-4.639,4.453c-0.145,0.821-0.145,0.821-0.395,1.239&#10;&#9;&#9;c-0.151,0.32-0.249,0.567-0.342,0.82c-0.05,0.136-0.098,0.274-0.146,0.413c-0.06,0.296-0.065,0.603-0.163,0.893&#10;&#9;&#9;c0.049,0,0.116,0,0.165,0c-0.001-0.008,0.028-1.027,0.562-1.603c0.102-0.388,0.102-0.388,0.264-0.646&#10;&#9;&#9;c-0.462,1.905-0.462,1.905-0.48,2.17c-0.123,0.5-0.228,0.907-0.316,1.318c0.049,0.46,0.112,1.079,0.192,1.537&#10;&#9;&#9;c2.49,1.57,3.643,4.56,3.654,4.589c-1.706,2.717-0.276,3.51,0.671,4.034c0.061,0.245,0.127,0.486,0.199,0.724&#10;&#9;&#9;c0.386,0.403,1.613,1.511,2.65,1.812c0.37,1.896,1.449,3.352,3.206,4.32c0.098,0.11,0.197,0.212,0.301,0.307&#10;&#9;&#9;c0.624,0.194,1.192,0.543,1.834,0.698c0.028-0.054,0.064-0.126,0.093-0.181c-0.029-0.033-0.059-0.07-0.088-0.105l-0.329-0.162&#10;&#9;&#9;c-0.268-0.397-0.268-0.397-0.207-0.694l-0.433-0.096c0.382-0.099,0.479-0.109,0.856-0.101c-0.05-0.083-0.125-0.188-0.191-0.262&#10;&#9;&#9;c0.348-0.155,0.739-0.204,1.047-0.447c0.08,0.023,0.186,0.054,0.264,0.075l0.276-0.205c0.009-0.731,0.009-0.731-0.117-1.145&#10;&#9;&#9;c1.962-1.193,1.962-1.193,1.651-1.909C18.923,26.993,18.923,26.993,18.967,26.249 M17.277,6.991l0.008-0.079&#10;&#9;&#9;c-0.244,0.085-0.223-0.296-0.21-0.5c-0.215-0.151-0.281-0.255-0.273-0.428c-0.064-0.007-0.167-0.044-0.348-0.123&#10;&#9;&#9;c-0.21-0.091-0.289-0.096-0.359-0.072c-0.04-0.085-0.092-0.196-0.134-0.283c-0.101,0.069-0.176,0.123-0.35,0.256&#10;&#9;&#9;c-0.04-0.02-0.028-0.097,0.047-0.309l-0.019,0.007c-0.315,0.108-0.315,0.108-0.498,0.261c0.014,0.007,0.014,0.007,0.16,0.304&#10;&#9;&#9;c0.271-0.132,0.782,0.049,0.821,0.351c-0.295,0.356-0.448,0.568-0.651,0.912c-0.21-0.007-0.409,0.067-0.613,0.095&#10;&#9;&#9;c0.219,0.02,0.451,0.037,0.684,0.051l0.273,0.516c0.506-1.012,0.832-0.805,1.174-0.453C17.079,7.406,17.241,7.238,17.277,6.991&#10;&#9;&#9; M13.795,5.507l0.092-0.076c-0.319-0.057-0.358-0.159-0.383-0.229c-0.062-0.004-0.136,0.017-0.334,0.098&#10;&#9;&#9;c-0.077-0.068-0.178-0.156-0.253-0.224c-0.001-0.205-0.001-0.205-0.132-0.325l0.002,0.012c-0.018,0.152-0.179,0.23-0.191,0.385&#10;&#9;&#9;c-0.006,0.1,0.044,0.197,0.015,0.298c-0.017,0.06-0.042,0.107-0.069,0.164c-0.017-0.002-0.218,0.033-0.351,0.091&#10;&#9;&#9;C12.39,6.077,13.022,6.135,13.795,5.507 M12.784,4.75L12.784,4.75L12.761,4.73L12.784,4.75 M14.971,5.832l0.006,0.034&#10;&#9;&#9;c0.083-0.197,0.083-0.42,0.06-0.717L15.025,5.17C14.985,5.25,14.914,5.399,14.971,5.832 M14.406,4.872l0.037-0.047&#10;&#9;&#9;c-0.099,0.068-0.213,0.11-0.319,0.165c0.004-0.099-0.039-0.191-0.022-0.292c0.014-0.09,0.037-0.137,0.103-0.22l-0.03-0.004&#10;&#9;&#9;c-0.097-0.014-0.196,0.001-0.292-0.016c-0.058-0.013-0.068-0.043-0.074-0.059c-0.275,0.106-0.382,0.154-0.472,0.21l0.019,0.069&#10;&#9;&#9;c0.481,0.009,0.481,0.009,0.503,0.013c-0.099,0.056-0.23,0.132-0.33,0.189c0.154,0.042,0.212,0.222,0.367,0.261&#10;&#9;&#9;c0.085,0.016,0.172,0.029,0.258,0.044C14.239,5.08,14.32,4.976,14.406,4.872 M15.106,4.782l0.017-0.015&#10;&#9;&#9;c0.003-0.078,0.008-0.182,0.01-0.262l-0.017,0.009c-0.159,0.076-0.26,0.128-0.26,0.128l-0.011,0.022&#10;&#9;&#9;c-0.05,0.103-0.109,0.209-0.176,0.313C14.714,4.984,14.854,5,15.106,4.782 M15.257,4.006c0.062-0.049,0.062-0.049,0.105-0.299&#10;&#9;&#9;L15.326,3.73c-0.572,0.339-0.572,0.339-0.691,0.384c0.282-0.045,0.282-0.045,0.417-0.101c-0.008,0.061-0.008,0.096,0.004,0.139&#10;&#9;&#9;C15.074,4.143,15.111,4.124,15.257,4.006 M18.045,3.938c0.037-0.114-0.098-0.216-0.126-0.212c-0.036,0.009-0.06,0.025-0.109,0.073&#10;&#9;&#9;c-0.109-0.055-0.326-0.005-0.537,0.044c-0.195,0.045-0.297,0.063-0.373,0.063c0.025,0.139,0.065,0.228,0.237,0.476&#10;&#9;&#9;c-0.584,0.461-0.773,0.595-1.167,0.584c0.068,0.011,0.131,0.04,0.305,0.137c0.516-0.166,0.571-0.184,0.705-0.339&#10;&#9;&#9;c0.077,0.006,0.131,0.034,0.231,0.115c0.079-0.106,0.187-0.249,0.265-0.356C17.768,4.508,17.906,4.366,18.045,3.938 M20.942,3.744&#10;&#9;&#9;l0.005-0.026c-0.289,0.248-0.314,0.269-0.456,0.177c-0.071-0.07-0.143-0.141-0.213-0.208c0.105-0.021,0.207-0.041,0.306-0.061&#10;&#9;&#9;L20.24,3.447l-0.022,0.005L20.123,3.48l-0.027,0.011c-0.08,0.027-0.122,0.11-0.202,0.139c-0.067,0.023-0.139-0.046-0.205,0.009&#10;&#9;&#9;c-0.074,0.061-0.07,0.166-0.056,0.302c-0.12-0.016-0.201-0.133-0.331-0.122c-0.163,0.014-0.3,0.001-0.3,0.001&#10;&#9;&#9;c-0.04-0.013-0.158-0.051-0.407-0.17c-0.013,0.114-0.03,0.265-0.042,0.379c-0.056-0.01-0.093-0.017-0.236-0.143&#10;&#9;&#9;c-0.193,0.323-0.362,0.54-0.692,0.886c0.138,0.008,0.427,0.109,0.428,0.109c0.199,0.162,0.366,0.471,0.533,0.666&#10;&#9;&#9;c0.017,0.129,0.006,0.235-0.041,0.438c0.077,0.092,0.178,0.217,0.253,0.313c-0.101,0.242-0.2,0.461-0.295,0.649l-0.049,0.096&#10;&#9;&#9;c-0.024,0.281,0.176,0.501,0.21,0.764c0.243,0.061,0.37,0.348,0.65,0.336c0.216-0.008,0.209-0.178,0.184-0.368&#10;&#9;&#9;c0.338-0.066,1.531-0.747,2.309-1.764c-0.125,0.005-0.488-0.182-0.494-0.277c0.064-0.072,0.125-0.087,0.554-0.072&#10;&#9;&#9;c-0.126-0.181-0.255-0.356-0.385-0.525c0.075-0.007,0.153,0.009,0.338,0.07c-0.032-0.092-0.072-0.215-0.101-0.306&#10;&#9;&#9;C21.137,4.383,20.942,3.749,20.942,3.744"></path><path class="fill" d="M25.576,8.911L25.277,8.28l-0.015,0.006c-0.139,0.058-0.246,0.283-0.319,0.447l0.022,0.043l0.022,0.04&#10;&#9;&#9;l0.024,0.042l0.022,0.042l0.022,0.042l0.023,0.041l0.023,0.041l0.021,0.042l0.023,0.041l0.022,0.042l0.021,0.044l0.022,0.042&#10;&#9;&#9;l0.022,0.042l0.022,0.042l0.021,0.042l0.022,0.042C25.32,9.105,25.396,8.969,25.576,8.911 M26.505,5.997L26.49,5.97l0.005,0.022&#10;&#9;&#9;c0.02,0.1,0.018,0.203,0.041,0.303l0.032,0.031c0.232,0.241,0.27,0.335,0.283,0.364C26.838,6.66,26.729,6.361,26.505,5.997&#10;&#9;&#9; M31.755,9.334l-0.007-0.01l0.02,0.044c-0.204-0.342-0.42-0.675-0.649-1c-0.068-0.082-0.229-0.272-0.271-0.27l0.001,0.019&#10;&#9;&#9;c-0.256-0.335-0.256-0.335-0.646-0.962c0.214,0.252,0.285,0.355,0.33,0.427L30.52,7.559c0.024,0.017,0.025,0.017,0.193,0.238&#10;&#9;&#9;l0.182,0.224C31.158,8.414,31.513,8.933,31.755,9.334 M26.832,9.021l-0.407,0.24c0.077-0.228,0.263-0.386,0.393-0.578L26.832,9.021&#10;&#9;&#9; M25.699,3.368c-0.801-0.453-1.656-0.819-2.556-1.088l0.001,0.001c1.345,0.54,1.345,0.54,1.501,0.643l0.101-0.028&#10;&#9;&#9;c0.283,0.135,0.461,0.224,0.88,0.476c-0.371-0.135-0.737-0.289-1.117-0.407c0.434,0.187,0.434,0.187,0.597,0.305&#10;&#9;&#9;c-0.045,0.016-0.103,0.035-0.148,0.049c0.123,0.055,0.285,0.127,0.408,0.181c0.268,0.265,0.481,0.576,0.745,0.843&#10;&#9;&#9;c0.188,0.2,0.441,0.468,0.616,0.683c-0.249-0.09-0.581-0.213-0.83-0.302l-0.134-0.117c0.138,0.01,0.323,0.026,0.46,0.038&#10;&#9;&#9;l-0.31-0.273l-0.373-0.15c-0.233,0.146-0.263,0.136-0.988-0.123c-0.091,0.084-0.2,0.163-0.33,0.241&#10;&#9;&#9;c0.647,0.752,0.716,0.832,1.048,1.445c-0.092,0.425-0.092,0.425,0.707,1.075c0.039-0.028,0.091-0.066,0.131-0.095&#10;&#9;&#9;c-0.066-0.228-0.066-0.228-0.31-0.549l0.043,0.034l0.076,0.075l0.076,0.073l0.072,0.076l0.072,0.072l0.071,0.073l0.067,0.072&#10;&#9;&#9;l0.069,0.072c0.042,0,0.099,0,0.142,0c0.139-0.389,0.139-0.389-0.778-1.589l0.263,0.019l0.448,0.624&#10;&#9;&#9;c0.105,0.016,0.251,0.016,0.353-0.009c0.126-0.09,0.155-0.117,0.182-0.143C27.75,7.2,27.75,7.2,27.756,7.562&#10;&#9;&#9;c-0.187-0.057-0.187-0.057-0.424-0.175c-0.023,0.089-0.058,0.208-0.087,0.296c-0.181-0.064-0.223-0.08-0.667-0.572&#10;&#9;&#9;c-0.022,0.146-0.022,0.146,0.398,0.654c-0.032,0.083-0.107,0.182-0.176,0.238c0.001,0.155,0.004,0.36,0.005,0.513&#10;&#9;&#9;c-0.552-0.199-0.552-0.199-0.858-0.374c-0.075-0.062-0.093-0.087-0.112-0.114L25.779,7.95L25.724,7.87l-0.056-0.078L25.61,7.718&#10;&#9;&#9;l-0.057-0.079l-0.056-0.077l-0.057-0.076c-0.081,0.051-0.181,0.131-0.248,0.2c0.029,0.119,0.077,0.32,0.781,0.776&#10;&#9;&#9;c0.006,0.18,0.016,0.417,0.02,0.596c0.069,0.066,0.158,0.155,0.224,0.225l-0.03,0.11c0.245,0.029,0.245,0.029,0.961,1.124&#10;&#9;&#9;c-0.109,0.062-0.219,0.124-1.376,0.193c0.204,0.431,0.454,0.838,0.661,1.271l-0.108,0.104l0.022,0.061l0.022,0.061l0.021,0.058&#10;&#9;&#9;l0.021,0.059l0.019,0.056l0.02,0.055l0.02,0.055l0.018,0.053c1.047-0.366,1.089-0.381,1.622-0.615&#10;&#9;&#9;c-0.105-0.246-0.213-0.488-0.329-0.728c0.363-0.332,0.166-0.883,0.479-1.236c0.117-0.045,0.227-0.091,0.334-0.141&#10;&#9;&#9;c0.804,0.823,0.836,0.855,1.274,0.701c0.135,0.206,0.135,0.206,0.309,0.43c-0.134-0.258-0.222-0.428-0.749-1.154&#10;&#9;&#9;c-0.018,0.038-0.042,0.092-0.062,0.131c-0.156-0.046-0.156-0.046-0.401-0.246c0.032-0.039,0.076-0.088,0.107-0.126&#10;&#9;&#9;c0.312,0.044,0.312,0.044,1.892,1.32c0.074-0.525-0.435-0.788-0.55-1.229c0.151-0.217,0.138-0.242,0.072-0.383&#10;&#9;&#9;c-0.23-0.322-0.391-0.684-0.59-1.024c0.087-0.007,0.207-0.007,0.295,0.004c0.003-0.044,0.007-0.104,0.01-0.148&#10;&#9;&#9;c-0.054-0.047-0.124-0.113-0.178-0.161l0.006-0.014l0.008-0.015l0.005-0.015l0.008-0.014l0.007-0.017l0.005-0.016l0.007-0.016&#10;&#9;&#9;l0.008-0.018c0.636,0.396,0.636,0.396,0.993,0.939c-0.196-0.085-0.223-0.116-0.343-0.264c-0.022,0.017-0.036,0.058-0.05,0.1&#10;&#9;&#9;c-0.075,0.466-0.077,0.484-0.048,1.154c0.074,0.112,0.146,0.225,0.216,0.338c0.157,0.18,0.157,0.18,0.535,0.482&#10;&#9;&#9;c-0.024-0.214-0.054-0.501-0.077-0.717c0.038-0.021,0.091-0.048,0.131-0.069c0.098,0.193,0.231,0.457,0.329,0.651&#10;&#9;&#9;c0.416,0.69,0.468,0.779,0.504,1.194l-0.065,0.055c-0.005,0.008-0.005,0.008-0.958,0.398c0.015,0.216,0,0.299-0.111,0.662&#10;&#9;&#9;c-0.48-0.062-1.361-0.998-1.371-1.007c-0.38,0.219-1.173,0.672-2.32,0.986l0.099,0.101c-0.004,0.045-0.007,0.105-0.01,0.152&#10;&#9;&#9;l-0.044,0.01l-0.046,0.011l-0.047,0.012l-0.049,0.013l-0.049,0.012l-0.052,0.013l-0.052,0.014l-0.053,0.011&#10;&#9;&#9;c-0.477,1.228-0.887,2.284-2.215,4.178l0.422,0.354c0.239,1.713,0.239,1.713-0.019,2.276c2.143,1.914,2.143,1.914,2.612,2.052&#10;&#9;&#9;c0.09-0.141,0.209-0.331,0.3-0.474c0.667-0.156,1.28-0.325,1.838-0.507c1.73-0.547,1.796-0.57,1.5,3.114&#10;&#9;&#9;c-0.104,0.364-0.22,0.721-0.347,1.07c-0.875,1.4-1.373,3.008-2.392,4.327c0.238-0.168,0.6-0.424,1.579-1.628&#10;&#9;&#9;c0.949-1.28,1.006-1.358,1.497-2.218c0.75-1.467,0.781-1.526,1.114-2.432c0.509-1.602,0.529-1.665,0.707-2.615&#10;&#9;&#9;c0.236-1.665,0.254-1.801,0.268-2.926c-0.028-0.71-0.088-1.659-0.166-2.368l-0.011-0.056c-0.001-0.017-0.476-1.836-0.782-2.485&#10;&#9;&#9;c0.012-0.039,0.018-0.077,0.026-0.116c0.355,0.548,0.505,1.256,0.603,1.722c-0.152-0.629-0.373-1.465-0.568-2.085&#10;&#9;&#9;c-0.605-1.543-0.628-1.604-1.081-2.447c-0.836-1.406-0.868-1.46-1.463-2.235c-1.015-1.21-1.076-1.283-1.828-1.988&#10;&#9;&#9;C27.81,4.792,27.082,4.167,25.699,3.368" fill="#231F20"></path></g><g id="back"><path class="stroke" d="M29.441,7.069c0,0-2.02-1.939-2.531-2.326&#10;&#9;&#9;c-0.512-0.39-3.217-1.72-3.217-1.72c-1.918-0.804-4.018-1.25-6.215-1.25C8.377,1.774,1,9.353,1,18.701s7.377,16.924,16.478,16.924&#10;&#9;&#9;c9.098,0,16.475-7.576,16.475-16.924C33.953,14.196,32.236,10.102,29.441,7.069" fill="none" stroke="#999999" stroke-miterlimit="10" stroke-width="2"></path><path class="fill" d="M8.987,19.729l0.384-0.355l-0.303-0.469l-0.502-0.277l-0.082,0.02c-0.301,0.089-0.347,0.117-0.216,0.619&#10;&#9;&#9;C8.594,19.236,8.594,19.236,8.987,19.729 M6.609,17.995l0.097,0.026C6.689,17.892,6.64,17.503,6.272,17.5&#10;&#9;&#9;c-0.222-0.004-0.352-0.017-0.56-0.048C5.778,17.549,5.953,17.805,6.609,17.995 M7.57,18.606l0.167-0.148&#10;&#9;&#9;c-0.062-0.025-0.135-0.102-0.285-0.301c-0.284-0.376-0.289-0.384-0.747-0.136C6.956,18.461,6.956,18.461,7.57,18.606 M2.25,14.96&#10;&#9;&#9;L2.25,14.96l-0.008,0.002L2.25,14.96 M15.914,12.483l0.356-0.4l-0.9-0.161l0.01,0.006C15.383,11.932,15.839,12.297,15.914,12.483&#10;&#9;&#9; M6.37,6.563l0.074-0.05l0.041-0.044L6.52,6.416L6.45,6.481l0.013-0.018l0.049-0.052L6.429,6.479l0.02-0.026L6.386,6.508&#10;&#9;&#9;l-0.077,0.09L6.37,6.563 M23.222,7.506L23.22,7.453c-0.224-0.034-0.413-0.029-0.647,0.014c-0.204,0.043-0.344,0.097-0.486,0.19&#10;&#9;&#9;c0.114,0.078,0.265,0.186,0.38,0.266C23.218,7.798,23.221,7.642,23.222,7.506 M10.837,12.374c-0.558,0.221-0.947,0.819-1.642,0.736&#10;&#9;&#9;c0.095-0.261,0.277-0.49,0.286-0.783l0.395-0.271c-0.138,0.011-0.339-0.031-0.462,0.035c-0.005,0.002-0.289,0.25-0.556,0.509&#10;&#9;&#9;c-0.09,0.087-0.193,0.187-0.475,0.322c0.078-0.405,0.195-0.753,0.931-1.205c-0.184-0.112-0.328-0.288-0.543-0.352&#10;&#9;&#9;c0.457-0.471,0.648-0.505,1.366-0.246c0.163,0.628,0.293,1.027,0.72,1.247L10.837,12.374 M18.967,27.023&#10;&#9;&#9;c0.005-0.089,0.009-0.206,0.012-0.292c-0.023-0.002-2.583-0.097-4.123-1.571c-0.223,0.017-0.558,0.041-1.11,0.469&#10;&#9;&#9;c-0.138-0.097-0.321-0.221-0.457-0.315l0.374-0.394c-0.61-1.207-0.75-1.227-1.216-1.289c-0.888-0.122-0.888-0.122-1.148-0.972&#10;&#9;&#9;l-0.207-0.212c-0.573-0.557-1.288-0.835-2.045-1.13L8.544,21.37c-0.44-0.264-0.627-0.379-1.021-0.629&#10;&#9;&#9;c-0.588,0.57-0.777,0.444-2-0.378c-0.006-0.103-0.353-0.697-1.014-1.096l-0.114-0.284c0.03-0.272,0.065-0.544,0.104-0.813&#10;&#9;&#9;c0.247-0.288,0.289-0.369,0.383-0.715c-0.304-0.026-0.496,0.091-0.855,0.517c-0.151-0.065-0.298-0.133-0.438-0.204&#10;&#9;&#9;c-0.053-0.21-0.215-0.961-0.106-1.735c0.267-0.129,0.267-0.129,0.798-1.123c0.966,0.033,0.966,0.033,1.539,0.425&#10;&#9;&#9;c0.145-0.078,0.334-0.185,0.476-0.265l0.147,0.475c0.187,0.016,0.226,0.019,0.515-0.089c-0.122,0.651,0.053,1.301,0.021,1.95&#10;&#9;&#9;c0.227-0.19,0.529-0.444,0.756-0.634l-0.237-0.52c0.088-0.309,0.143-0.48,0.416-0.97c-0.035,0.131-0.069,0.261-0.101,0.394&#10;&#9;&#9;c0.324-0.224,0.709-0.327,1.038-0.545c0.27-0.002,0.488,0.04,0.709,0.081c0.703-0.852,0.703-0.852,0.914-1.059&#10;&#9;&#9;c1.173-0.519,1.173-0.519,4.214-1.35c-0.285-0.061-0.285-0.061-0.515-0.327c0.111-0.12,0.257-0.278,0.37-0.399&#10;&#9;&#9;c-0.027-0.007-0.027-0.007-1.361,0.243c0.668-0.549,1.293-0.587,2.464-0.546c0.277,0.011,0.277,0.011,1.381-0.923&#10;&#9;&#9;c-0.306,0.019-0.397,0.044-0.813,0.218c0.054-0.25,0.054-0.25,0.171-0.5c-0.074-0.135-0.167-0.312-0.24-0.445&#10;&#9;&#9;c0.074-0.235,0.074-0.235,0.211-0.485c-0.347-0.174-0.643-0.158-1.01-0.076c-0.497-0.841-0.497-0.841-0.761-0.889&#10;&#9;&#9;c-0.006,0.146-0.015,0.337-0.023,0.481c-0.168-0.014-0.335-0.029-0.5-0.046c-0.636,0.731-1.395,1.339-2.038,2.065&#10;&#9;&#9;c-0.334-0.392-0.53-1.583-0.554-1.988c0.199-0.103,0.464-0.238,0.662-0.338l0.508-0.262c1.616-1.018,1.616-1.018,2.207-0.745&#10;&#9;&#9;c0.135-0.125,0.315-0.288,0.453-0.411l-0.112-0.312c-0.324,0.154-0.433,0.183-0.62,0.23c-0.178-0.36-0.057-0.743-0.104-1.114&#10;&#9;&#9;l-0.051-0.021c-0.632,1.179-0.632,1.179-1.322,1.142c-0.015-0.043-0.033-0.104-0.047-0.151c-0.301-0.023-0.332-0.039-0.638-0.157&#10;&#9;&#9;c-0.141,0.063-0.326,0.148-0.465,0.211c0.019-0.043,0.045-0.1,0.064-0.141C11.919,7.094,11.8,7.068,11.71,7.052&#10;&#9;&#9;c-0.013-0.104-0.03-0.242-0.044-0.345c-1.369,0.697-1.381,0.683-1.58,0.452c0.637-0.13,0.702-0.143,1.425-0.496&#10;&#9;&#9;c-0.109-0.03-0.215-0.061-0.318-0.094l0.121-0.307c-0.136-0.046-0.268-0.093-0.393-0.14c-0.351,0.141-0.465,0.148-0.766,0.04&#10;&#9;&#9;c0.093-0.139,0.216-0.324,0.309-0.46C10.274,5.65,10.168,5.62,9.6,5.755c0.037-0.083,0.096-0.19,0.15-0.262&#10;&#9;&#9;c-0.027-0.038-0.06-0.088-0.086-0.125C9.689,5.33,9.726,5.28,9.752,5.244C9.647,5.237,9.506,5.242,9.405,5.259&#10;&#9;&#9;c0.076-0.082,0.173-0.19,0.249-0.272C9.424,5.116,9.424,5.116,8.795,5.417c0.02-0.044,0.046-0.105,0.068-0.151&#10;&#9;&#9;C8.612,5.297,8.612,5.297,8.035,5.62C7.994,5.599,7.941,5.567,7.9,5.544C7.759,5.588,7.759,5.588,6.813,6.298&#10;&#9;&#9;c0.019-0.053,0.044-0.101,0.072-0.152C6.729,6.28,6.713,6.291,6.518,6.475c0.053-0.03,0.125-0.072,0.179-0.103&#10;&#9;&#9;C6.74,6.391,6.8,6.417,6.845,6.435c0.189-0.122,0.417-0.09,0.622-0.16C7.414,6.357,7.343,6.469,7.29,6.553&#10;&#9;&#9;c0.174-0.137,0.174-0.137,0.434-0.247c0.114-0.01,0.129,0.015,0.146,0.041c-0.048,0.154-0.048,0.154-0.5,0.666&#10;&#9;&#9;c0.118,0.04,0.273,0.098,0.393,0.132c-4.234,3.861-4.234,3.861-4.639,4.453c-0.145,0.82-0.145,0.82-0.395,1.238&#10;&#9;&#9;c-0.151,0.32-0.249,0.567-0.342,0.821c-0.05,0.136-0.098,0.274-0.146,0.413c-0.06,0.296-0.065,0.603-0.163,0.892&#10;&#9;&#9;c0.049,0,0.116,0,0.165,0c-0.001-0.008,0.028-1.027,0.562-1.603c0.102-0.388,0.102-0.388,0.264-0.646&#10;&#9;&#9;c-0.462,1.905-0.462,1.905-0.48,2.17c-0.123,0.5-0.228,0.908-0.316,1.319c0.049,0.46,0.112,1.079,0.192,1.537&#10;&#9;&#9;c2.49,1.57,3.643,4.56,3.654,4.588c-1.706,2.717-0.276,3.511,0.671,4.034c0.061,0.245,0.127,0.486,0.199,0.724&#10;&#9;&#9;c0.386,0.403,1.613,1.511,2.65,1.812c0.37,1.896,1.449,3.352,3.206,4.32c0.098,0.11,0.197,0.212,0.301,0.307&#10;&#9;&#9;c0.624,0.194,1.192,0.543,1.834,0.697c0.028-0.054,0.064-0.126,0.093-0.181c-0.029-0.033-0.059-0.069-0.088-0.105l-0.329-0.162&#10;&#9;&#9;c-0.268-0.396-0.268-0.396-0.207-0.694l-0.433-0.096c0.382-0.099,0.479-0.109,0.856-0.102c-0.05-0.083-0.125-0.188-0.191-0.262&#10;&#9;&#9;c0.348-0.155,0.739-0.204,1.047-0.447c0.08,0.023,0.186,0.054,0.264,0.076l0.276-0.205c0.009-0.731,0.009-0.731-0.117-1.145&#10;&#9;&#9;c1.962-1.193,1.962-1.193,1.651-1.908C18.923,27.766,18.923,27.766,18.967,27.023 M17.277,7.765l0.008-0.079&#10;&#9;&#9;c-0.244,0.085-0.223-0.296-0.21-0.5c-0.215-0.151-0.281-0.255-0.273-0.428c-0.064-0.007-0.167-0.043-0.348-0.122&#10;&#9;&#9;c-0.21-0.091-0.289-0.096-0.359-0.073c-0.04-0.084-0.092-0.195-0.134-0.282c-0.101,0.069-0.176,0.123-0.35,0.256&#10;&#9;&#9;c-0.04-0.02-0.028-0.097,0.047-0.309l-0.019,0.007c-0.315,0.108-0.315,0.108-0.498,0.261c0.014,0.007,0.014,0.007,0.16,0.304&#10;&#9;&#9;c0.271-0.131,0.782,0.049,0.821,0.351c-0.295,0.356-0.448,0.568-0.651,0.912c-0.21-0.007-0.409,0.067-0.613,0.095&#10;&#9;&#9;c0.219,0.02,0.451,0.037,0.684,0.051l0.273,0.516c0.506-1.012,0.832-0.805,1.174-0.454C17.079,8.179,17.241,8.012,17.277,7.765&#10;&#9;&#9; M13.795,6.281l0.092-0.076c-0.319-0.057-0.358-0.159-0.383-0.23c-0.062-0.004-0.136,0.017-0.334,0.098&#10;&#9;&#9;c-0.077-0.068-0.178-0.156-0.253-0.224c-0.001-0.205-0.001-0.205-0.132-0.325l0.002,0.012c-0.018,0.153-0.179,0.23-0.191,0.386&#10;&#9;&#9;c-0.006,0.1,0.044,0.197,0.015,0.298c-0.017,0.06-0.042,0.107-0.069,0.164c-0.017-0.002-0.218,0.033-0.351,0.091&#10;&#9;&#9;C12.39,6.85,13.022,6.909,13.795,6.281 M12.784,5.524L12.784,5.524l-0.023-0.021L12.784,5.524 M14.971,6.605l0.006,0.033&#10;&#9;&#9;c0.083-0.196,0.083-0.42,0.06-0.717l-0.011,0.022C14.985,6.024,14.914,6.172,14.971,6.605 M14.406,5.646l0.037-0.047&#10;&#9;&#9;c-0.099,0.068-0.213,0.109-0.319,0.165c0.004-0.099-0.039-0.191-0.022-0.292c0.014-0.09,0.037-0.138,0.103-0.22l-0.03-0.004&#10;&#9;&#9;c-0.097-0.014-0.196,0.001-0.292-0.016c-0.058-0.013-0.068-0.043-0.074-0.059c-0.275,0.106-0.382,0.154-0.472,0.21l0.019,0.069&#10;&#9;&#9;c0.481,0.009,0.481,0.009,0.503,0.013c-0.099,0.056-0.23,0.132-0.33,0.189c0.154,0.042,0.212,0.222,0.367,0.261&#10;&#9;&#9;c0.085,0.016,0.172,0.029,0.258,0.043C14.239,5.854,14.32,5.75,14.406,5.646 M15.106,5.555l0.017-0.014&#10;&#9;&#9;c0.003-0.078,0.008-0.182,0.01-0.262l-0.017,0.009c-0.159,0.076-0.26,0.128-0.26,0.128l-0.011,0.022&#10;&#9;&#9;c-0.05,0.103-0.109,0.209-0.176,0.313C14.714,5.758,14.854,5.773,15.106,5.555 M15.257,4.78c0.062-0.049,0.062-0.049,0.105-0.299&#10;&#9;&#9;l-0.036,0.022c-0.572,0.339-0.572,0.339-0.691,0.384c0.282-0.044,0.282-0.044,0.417-0.101c-0.008,0.062-0.008,0.096,0.004,0.139&#10;&#9;&#9;C15.074,4.916,15.111,4.898,15.257,4.78 M18.045,4.712c0.037-0.114-0.098-0.216-0.126-0.211c-0.036,0.009-0.06,0.025-0.109,0.073&#10;&#9;&#9;c-0.109-0.055-0.326-0.005-0.537,0.044c-0.195,0.044-0.297,0.063-0.373,0.063c0.025,0.139,0.065,0.228,0.237,0.476&#10;&#9;&#9;c-0.584,0.461-0.773,0.594-1.167,0.584c0.068,0.01,0.131,0.039,0.305,0.137c0.516-0.166,0.571-0.184,0.705-0.339&#10;&#9;&#9;c0.077,0.007,0.131,0.034,0.231,0.116c0.079-0.106,0.187-0.249,0.265-0.356C17.768,5.282,17.906,5.14,18.045,4.712 M20.942,4.518&#10;&#9;&#9;l0.005-0.027c-0.289,0.248-0.314,0.269-0.456,0.177c-0.071-0.07-0.143-0.141-0.213-0.208c0.105-0.02,0.207-0.041,0.306-0.061&#10;&#9;&#9;L20.24,4.221l-0.022,0.005l-0.095,0.028l-0.027,0.01c-0.08,0.027-0.122,0.11-0.202,0.139c-0.067,0.023-0.139-0.046-0.205,0.009&#10;&#9;&#9;c-0.074,0.062-0.07,0.167-0.056,0.302c-0.12-0.016-0.201-0.133-0.331-0.122c-0.163,0.014-0.3,0.001-0.3,0.001&#10;&#9;&#9;c-0.04-0.013-0.158-0.05-0.407-0.17c-0.013,0.114-0.03,0.265-0.042,0.379c-0.056-0.01-0.093-0.018-0.236-0.143&#10;&#9;&#9;c-0.193,0.323-0.362,0.539-0.692,0.886c0.138,0.008,0.427,0.109,0.428,0.109c0.199,0.162,0.366,0.471,0.533,0.666&#10;&#9;&#9;c0.017,0.129,0.006,0.235-0.041,0.438c0.077,0.092,0.178,0.217,0.253,0.312c-0.101,0.242-0.2,0.462-0.295,0.649l-0.049,0.096&#10;&#9;&#9;c-0.024,0.281,0.176,0.501,0.21,0.764c0.243,0.061,0.37,0.348,0.65,0.336c0.216-0.008,0.209-0.178,0.184-0.368&#10;&#9;&#9;c0.338-0.066,1.531-0.747,2.309-1.763c-0.125,0.005-0.488-0.182-0.494-0.277c0.064-0.073,0.125-0.088,0.554-0.073&#10;&#9;&#9;c-0.126-0.18-0.255-0.355-0.385-0.525c0.075-0.007,0.153,0.009,0.338,0.07c-0.032-0.092-0.072-0.215-0.101-0.306&#10;&#9;&#9;C21.137,5.157,20.942,4.522,20.942,4.518" fill="#999999"></path><path class="fill" d="M25.576,9.685l-0.299-0.632L25.262,9.06c-0.139,0.058-0.246,0.282-0.319,0.447l0.022,0.043l0.022,0.04&#10;&#9;&#9;l0.024,0.042l0.022,0.042l0.022,0.042l0.023,0.041l0.023,0.041l0.021,0.042l0.023,0.041l0.022,0.042l0.021,0.044l0.022,0.042&#10;&#9;&#9;l0.022,0.042l0.022,0.042l0.021,0.042l0.022,0.042C25.32,9.878,25.396,9.743,25.576,9.685 M26.505,6.771L26.49,6.744l0.005,0.023&#10;&#9;&#9;c0.02,0.1,0.018,0.202,0.041,0.303L26.568,7.1c0.232,0.241,0.27,0.335,0.283,0.364C26.838,7.434,26.729,7.134,26.505,6.771&#10;&#9;&#9; M31.755,10.108l-0.007-0.01l0.02,0.044c-0.204-0.342-0.42-0.675-0.649-1c-0.068-0.082-0.229-0.273-0.271-0.271l0.001,0.019&#10;&#9;&#9;c-0.256-0.335-0.256-0.335-0.646-0.962c0.214,0.252,0.285,0.355,0.33,0.427L30.52,8.333c0.024,0.017,0.025,0.017,0.193,0.238&#10;&#9;&#9;l0.182,0.224C31.158,9.187,31.513,9.706,31.755,10.108 M26.832,9.795l-0.407,0.24c0.077-0.228,0.263-0.386,0.393-0.578&#10;&#9;&#9;L26.832,9.795 M25.699,4.142c-0.801-0.453-1.656-0.82-2.556-1.088l0.001,0c1.345,0.54,1.345,0.54,1.501,0.643l0.101-0.028&#10;&#9;&#9;c0.283,0.134,0.461,0.224,0.88,0.475c-0.371-0.134-0.737-0.289-1.117-0.406c0.434,0.187,0.434,0.187,0.597,0.304&#10;&#9;&#9;c-0.045,0.016-0.103,0.035-0.148,0.049c0.123,0.054,0.285,0.127,0.408,0.181c0.268,0.264,0.481,0.576,0.745,0.843&#10;&#9;&#9;c0.188,0.2,0.441,0.468,0.616,0.683c-0.249-0.09-0.581-0.213-0.83-0.301L25.763,5.38c0.138,0.011,0.323,0.026,0.46,0.038&#10;&#9;&#9;l-0.31-0.273l-0.373-0.15c-0.233,0.146-0.263,0.136-0.988-0.122c-0.091,0.083-0.2,0.163-0.33,0.241&#10;&#9;&#9;c0.647,0.753,0.716,0.832,1.048,1.445c-0.092,0.426-0.092,0.426,0.707,1.075c0.039-0.028,0.091-0.065,0.131-0.095&#10;&#9;&#9;c-0.066-0.228-0.066-0.228-0.31-0.549l0.043,0.034l0.076,0.076l0.076,0.072l0.072,0.076l0.072,0.073l0.071,0.073l0.067,0.072&#10;&#9;&#9;l0.069,0.072c0.042,0,0.099,0,0.142,0c0.139-0.389,0.139-0.389-0.778-1.589l0.263,0.019l0.448,0.624&#10;&#9;&#9;c0.105,0.016,0.251,0.016,0.353-0.009c0.126-0.09,0.155-0.117,0.182-0.143c0.795,1.536,0.795,1.536,0.802,1.898&#10;&#9;&#9;c-0.187-0.057-0.187-0.057-0.424-0.175c-0.023,0.089-0.058,0.208-0.087,0.296c-0.181-0.064-0.223-0.08-0.667-0.572&#10;&#9;&#9;c-0.022,0.146-0.022,0.146,0.398,0.654c-0.032,0.083-0.107,0.182-0.176,0.238c0.001,0.155,0.004,0.36,0.005,0.513&#10;&#9;&#9;c-0.552-0.2-0.552-0.2-0.858-0.374c-0.075-0.062-0.093-0.088-0.112-0.114l-0.054-0.078l-0.055-0.081l-0.056-0.078L25.61,8.491&#10;&#9;&#9;l-0.057-0.079l-0.056-0.077L25.441,8.26c-0.081,0.05-0.181,0.131-0.248,0.199c0.029,0.119,0.077,0.32,0.781,0.777&#10;&#9;&#9;c0.006,0.18,0.016,0.417,0.02,0.596c0.069,0.066,0.158,0.155,0.224,0.225l-0.03,0.109c0.245,0.03,0.245,0.03,0.961,1.125&#10;&#9;&#9;c-0.109,0.061-0.219,0.124-1.376,0.192c0.204,0.432,0.454,0.839,0.661,1.271l-0.108,0.104l0.022,0.062l0.022,0.061l0.021,0.058&#10;&#9;&#9;l0.021,0.059l0.019,0.056l0.02,0.055l0.02,0.054l0.018,0.053c1.047-0.366,1.089-0.382,1.622-0.615&#10;&#9;&#9;c-0.105-0.246-0.213-0.488-0.329-0.728c0.363-0.333,0.166-0.883,0.479-1.236c0.117-0.045,0.227-0.091,0.334-0.14&#10;&#9;&#9;c0.804,0.823,0.836,0.855,1.274,0.7c0.135,0.207,0.135,0.207,0.309,0.43c-0.134-0.258-0.222-0.428-0.749-1.154&#10;&#9;&#9;c-0.018,0.038-0.042,0.092-0.062,0.13c-0.156-0.046-0.156-0.046-0.401-0.246c0.032-0.039,0.076-0.088,0.107-0.126&#10;&#9;&#9;c0.312,0.044,0.312,0.044,1.892,1.321c0.074-0.525-0.435-0.788-0.55-1.229c0.151-0.218,0.138-0.243,0.072-0.383&#10;&#9;&#9;c-0.23-0.322-0.391-0.684-0.59-1.023c0.087-0.008,0.207-0.008,0.295,0.004c0.003-0.044,0.007-0.104,0.01-0.148&#10;&#9;&#9;c-0.054-0.048-0.124-0.113-0.178-0.161L30.031,8.7l0.008-0.015l0.005-0.014l0.008-0.015l0.007-0.017l0.005-0.016l0.007-0.016&#10;&#9;&#9;l0.008-0.017c0.636,0.395,0.636,0.395,0.993,0.939c-0.196-0.085-0.223-0.116-0.343-0.264c-0.022,0.018-0.036,0.058-0.05,0.101&#10;&#9;&#9;c-0.075,0.466-0.077,0.483-0.048,1.154c0.074,0.112,0.146,0.224,0.216,0.338c0.157,0.18,0.157,0.18,0.535,0.482&#10;&#9;&#9;c-0.024-0.215-0.054-0.502-0.077-0.717c0.038-0.021,0.091-0.048,0.131-0.069c0.098,0.194,0.231,0.457,0.329,0.651&#10;&#9;&#9;c0.416,0.69,0.468,0.779,0.504,1.194l-0.065,0.055c-0.005,0.008-0.005,0.008-0.958,0.398c0.015,0.216,0,0.299-0.111,0.662&#10;&#9;&#9;c-0.48-0.061-1.361-0.997-1.371-1.006c-0.38,0.218-1.173,0.672-2.32,0.986l0.099,0.101c-0.004,0.045-0.007,0.105-0.01,0.152&#10;&#9;&#9;l-0.044,0.011l-0.046,0.011l-0.047,0.012l-0.049,0.013l-0.049,0.012l-0.052,0.013l-0.052,0.014l-0.053,0.012&#10;&#9;&#9;c-0.477,1.228-0.887,2.284-2.215,4.177l0.422,0.354c0.239,1.712,0.239,1.712-0.019,2.275c2.143,1.914,2.143,1.914,2.612,2.053&#10;&#9;&#9;c0.09-0.142,0.209-0.331,0.3-0.474c0.667-0.155,1.28-0.325,1.838-0.507c1.73-0.547,1.796-0.57,1.5,3.114&#10;&#9;&#9;c-0.104,0.364-0.22,0.721-0.347,1.07c-0.875,1.4-1.373,3.008-2.392,4.327c0.238-0.167,0.6-0.424,1.579-1.628&#10;&#9;&#9;c0.949-1.28,1.006-1.358,1.497-2.219c0.75-1.467,0.781-1.526,1.114-2.432c0.509-1.602,0.529-1.665,0.707-2.615&#10;&#9;&#9;c0.236-1.665,0.254-1.801,0.268-2.926c-0.028-0.71-0.088-1.658-0.166-2.368l-0.011-0.056c-0.001-0.017-0.476-1.836-0.782-2.485&#10;&#9;&#9;c0.012-0.039,0.018-0.076,0.026-0.116c0.355,0.549,0.505,1.256,0.603,1.722c-0.152-0.629-0.373-1.465-0.568-2.085&#10;&#9;&#9;c-0.605-1.543-0.628-1.605-1.081-2.447c-0.836-1.406-0.868-1.459-1.463-2.235c-1.015-1.21-1.076-1.283-1.828-1.988&#10;&#9;&#9;C27.81,5.565,27.082,4.94,25.699,4.142" fill="#999999"></path></g></svg></span></a></li></ul></div>
+<div id="header" class="without-secondary-menu">
+  <div id="top-menu">
+          <div id="logo-block">
+        <a href="/home/" title="Home" rel="home" id="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Isolation_Mode" x="0px" y="0px" width="60px" height="32.598px" viewBox="0 0 60 32.598" enable-background="new 0 0 60 32.598" xml:space="preserve">
+          <g>
+          	<path class="back" d="M30.775 27.119c-3.686 0-6.672-2.984-6.672-6.672c0-3.686 2.986-6.67 6.672-6.67c3.685 0 6.7 3 6.7 6.7 C37.447 24.1 34.5 27.1 30.8 27.1 M11.123 27.119c-3.684 0-6.675-2.984-6.675-6.672c0-3.686 2.991-6.67 6.675-6.67 s6.672 3 6.7 6.67C17.795 24.1 14.8 27.1 11.1 27.1 M30.775 9.325c-4.258 0-7.959 2.395-9.828 5.9 c-1.866-3.516-5.566-5.911-9.824-5.911c-2.503 0-4.813 0.827-6.675 2.224V2.18C4.424 1 3.4 0 2.2 0 C1.01 0 0 1 0 2.18v18.451h0.005c0.096 6.1 5 10.9 11.1 10.941c4.258 0 7.958-2.395 9.824-5.91 c1.869 3.5 5.6 5.9 9.8 5.91c6.142 0 11.122-4.98 11.122-11.125C41.897 14.3 36.9 9.3 30.8 9.3"/>
+          	<path class="back" d="M59.544 28.07l-6.195-7.613l6.195-7.615c0.767-0.982 0.546-2.351-0.51-3.081c-1.059-0.729-2.547-0.542-3.361 0.41v-0.002 l-5.35 6.573l-5.35-6.573v0.002c-0.812-0.952-2.305-1.139-3.358-0.406c-1.057 0.729-1.277 2.095-0.509 3.077h-0.003l6.197 7.6 l-6.197 7.613h0.003c-0.769 0.984-0.548 2.4 0.5 3.082c1.054 0.7 2.5 0.5 3.358-0.408l5.35-6.572l5.35 6.6 c0.814 1 2.3 1.1 3.4 0.408C60.09 30.4 60.3 29.1 59.5 28.1"/>
+          </g>
+          <g>
+          	<path class="front" fill="#FFFFFF" d="M30.775 28.119c-3.686 0-6.672-2.984-6.672-6.672c0-3.686 2.986-6.67 6.672-6.67 c3.685 0 6.7 3 6.7 6.67C37.447 25.1 34.5 28.1 30.8 28.1 M11.123 28.119c-3.684 0-6.675-2.984-6.675-6.672 c0-3.686 2.991-6.67 6.675-6.67s6.672 3 6.7 6.67C17.795 25.1 14.8 28.1 11.1 28.1 M30.775 10.3 c-4.258 0-7.959 2.395-9.828 5.911c-1.866-3.516-5.566-5.911-9.824-5.911c-2.503 0-4.813 0.827-6.675 2.224V3.18 C4.424 2 3.4 1 2.2 1C1.01 1 0 2 0 3.18v18.451h0.005c0.096 6.1 5 10.9 11.1 10.9 c4.258 0 7.958-2.395 9.824-5.91c1.869 3.5 5.6 5.9 9.8 5.91c6.142 0 11.122-4.98 11.122-11.125 C41.897 15.3 36.9 10.3 30.8 10.3"/>
+          	<path class="front" fill="#FFFFFF" d="M59.544 29.07l-6.195-7.613l6.195-7.615c0.767-0.981 0.546-2.351-0.51-3.081 c-1.059-0.729-2.547-0.542-3.361 0.41v-0.002l-5.35 6.573l-5.35-6.573v0.002c-0.812-0.952-2.305-1.139-3.358-0.406 c-1.057 0.729-1.277 2.096-0.509 3.077h-0.003l6.197 7.615l-6.197 7.613h0.003c-0.769 0.984-0.548 2.4 0.5 3.1 c1.054 0.7 2.5 0.5 3.358-0.408l5.35-6.572l5.35 6.572c0.814 1 2.3 1.1 3.4 0.4 C60.09 31.4 60.3 30.1 59.5 29.1"/>
+          </g>
+          </svg>
+        </a>
+      </div>
+        	 
+
+  <div id="om-maximenu-main-menu" class="om-maximenu om-maximenu-bubble om-maximenu-block om-maximenu-row om-maximenu-block-down code-om-u74-1499213014">     
+          <div id="menu-link" class="">
+	<ul id="om-menu-main-menu" class="menu-link-ul">
+								  
+  <li id="om-leaf-om-u74-1499213014-2" class="om-leaf first leaf-business ">
+    <a  class="om-link  link-business hover-dropdown" href="/business/">Business</a>    <div class="hover-wrapper">
+	<span class="lefttop-arrow"></span>
+	<div class="hover-content clearfix">
+		
+<div class="block block-menu block-menu-id-menu-business-capabilities first float-left">
+    <ul class="menu clearfix"><li class="first leaf menu-depth-1 menu-item-4316"><a href="/business/" title="">Capabilities</a></li><li class="leaf menu-depth-1 menu-item-4276"><a href="/file-sharing/" title="">Secure File Sharing</a></li><li class="leaf menu-depth-1 menu-item-4306"><a href="/business/enterprise-security/" title="">Enterprise Security</a></li><li class="leaf menu-depth-1 menu-item-4311"><a href="/business/file-synchronization/" title="">File Synchronization</a></li><li class="leaf menu-depth-1 menu-item-4296"><a href="/business/platform/" title="">Platform</a></li><li class="leaf menu-depth-1 menu-item-4291"><a href="/business/products-and-features/" title="">Products &amp; Features</a></li><li class="leaf menu-depth-1 menu-item-4281"><a href="/business/online-collaboration/" title="">Online Collaboration</a></li><li class="leaf menu-depth-1 menu-item-45316"><a href="/business/governance-and-compliance/" title="">Governance &amp; Compliance</a></li><li class="leaf menu-depth-1 menu-item-4321"><a href="/business/it-admin-controls/" title="">IT &amp; Admin Controls</a></li><li class="last leaf menu-depth-1 menu-item-4286"><a href="/business/professional-services-support/" title="">Professional Services</a></li></ul></div>
+<div class="block block-menu block-menu-id-menu-solutions float-left">
+    <ul class="menu clearfix"><li class="first leaf menu-depth-1 menu-item-5371"><a href="/solutions/" title="">Solutions</a></li><li class="leaf menu-depth-1 menu-item-5376"><a href="/business/ftp-alternative/" title="">FTP Alternative</a></li><li class="leaf menu-depth-1 menu-item-5391"><a href="/business/document-management/" title="">Document Management</a></li><li class="leaf menu-depth-1 menu-item-5776"><a href="/business/executive-boardroom/" title="">Executive Boardroom</a></li><li class="leaf menu-depth-1 menu-item-5386"><a href="/business/project-management/" title="">Project Management</a></li><li class="leaf menu-depth-1 menu-item-5401"><a href="/business/virtual-data-room/" title="">Virtual Data Room</a></li><li class="leaf menu-depth-1 menu-item-5406"><a href="/business/marketing-asset-management/" title="">Marketing Asset Management</a></li><li class="leaf menu-depth-1 menu-item-5396"><a href="/business/sales-portal/" title="">Sales Portal</a></li><li class="leaf menu-depth-1 menu-item-5381"><a href="/business/secure-enterprise-mobility/" title="">Secure Enterprise Mobility</a></li><li class="last leaf menu-depth-1 menu-item-6426"><a href="/business/eco-system-apps/" title="">Ecosystems Apps</a></li></ul></div><div class="block block-block block-block-id-5 last float-right column-two">
+    <div class="block-top"><a class="button-gray first-row btn-gartner" href="/resources/gartner-efss-magic-quadrant/">2015 Gartner Report</a> <a class="button-gray first-row btn-gartner" href="/about-us/contact-us/" id="contact-us-business-nav">Contact Us</a></div><div class="block-bottom"><span>Call Sales</span><h2 class="big-number"><span class="country-default">1.877.729.4269</span><span class="country-specific" data-country="AU">+61 2 8036 3192</span><span class="country-specific" data-country="NZ">0800 000 185</span></h2></div><p> </p></div>	</div>
+</div>
+  </li>
+          
+								  
+  <li id="om-leaf-om-u74-1499213014-3" class="om-leaf leaf-industries ">
+    <a  class="om-link  link-industries hover-dropdown" href="/industries/">Industries</a>    <div class="hover-wrapper">
+	<span class="lefttop-arrow"></span>
+	<div class="hover-content clearfix">
+		
+<div class="block block-menu block-menu-id-menu-main-industry-submenu-01 first float-left">
+    <ul class="menu clearfix"><li class="first leaf menu-depth-1 menu-item-4049"><a href="/industries/advertising/" title="">Advertising</a></li><li class="leaf menu-depth-1 menu-item-7626"><a href="/industries/construction/" title="">Construction</a></li><li class="leaf menu-depth-1 menu-item-4051"><a href="/industries/consumer-packaged-goods/" title="">Consumer Packaged Goods</a></li><li class="leaf menu-depth-1 menu-item-7631"><a href="/industries/education/">Education</a></li><li class="leaf menu-depth-1 menu-item-7636"><a href="/industries/energy/" title="">Energy</a></li><li class="leaf menu-depth-1 menu-item-4054"><a href="/industries/financial-services-insurance/" title="">Financial Services &amp; Insurance </a></li><li class="last leaf menu-depth-1 menu-item-7641"><a href="/industries/government/" title="">Government</a></li></ul></div>
+<div class="block block-menu block-menu-id-menu-main-industry-submenu-02 float-left column-two">
+    <ul class="menu clearfix"><li class="first leaf menu-depth-1 menu-item-7646"><a href="/industries/healthcare-life-sciences/" title="">Healthcare &amp; Life Sciences</a></li><li class="leaf menu-depth-1 menu-item-4063"><a href="/industries/high-tech/" title="">High Tech</a></li><li class="leaf menu-depth-1 menu-item-7651"><a href="/industries/legal/" title="">Legal</a></li><li class="leaf menu-depth-1 menu-item-4065"><a href="/industries/manufacturing/" title="">Manufacturing</a></li><li class="leaf menu-depth-1 menu-item-7656"><a href="/industries/media-and-entertainment/" title="">Media &amp; Entertainment</a></li><li class="leaf menu-depth-1 menu-item-8383"><a href="http://www.box.org" title="">Nonprofits</a></li><li class="leaf menu-depth-1 menu-item-7661"><a href="/industries/retail/" title="">Retail</a></li><li class="last leaf menu-depth-1 menu-item-4068"><a href="/industries/" title="">See All Industries</a></li></ul></div><div class="block block-block block-block-id-6 last float-right column-two">
+    <div class="block-top"><a class="button-gray first-row btn-gartner" href="/customers/">Customers</a><a class="button-gray first-row btn-gartner" href="/about-us/contact-us/" id="contact-us-industries-nav">Contact Us</a></div><div class="block-bottom"><span>Call Sales</span><h2 class="big-number"><span class="country-default">1.877.729.4269</span><span class="country-specific" data-country="AU">+61 2 8036 3192</span><span class="country-specific" data-country="NZ">0800 000 185</span></h2></div><p> </p></div>	</div>
+</div>
+  </li>
+          
+								  
+  <li id="om-leaf-om-u74-1499213014-1" class="om-leaf leaf-personal ">
+    <a  class="om-link  link-personal hover-dropdown" href="/personal/">Personal</a>    <div class="hover-wrapper">
+	<span class="lefttop-arrow"></span>
+	<div class="hover-content clearfix">
+		
+<div class="block block-menu block-menu-id-menu-personal-menu first float-left">
+    <ul><li><a href="/personal/store-files-online/" title="" class="first-caption">Online Storage</a></li>
+<li><a href="/personal/file-sync/" title="">File Sync</a></li>
+<li><a href="/personal/mobile-access/" title="">Mobile Access</a></li>
+<li><a href="/personal/send-big-files-fast/" title="">Send Files Fast</a></li>
+<li><a href="/personal/online-collaboration/" title="">Online Collaboration</a></li>
+</ul></div><div class="block block-block block-block-id-9 last float-right column-two">
+    <div class="block-top"><a class="button-gray first-row btn-gartner" href="/pricing/">Sign Up</a><a class="button-gray first-row btn-gartner" href="/about-us/contact-us/" id="contact-us-personal-nav">Contact Us</a></div><div class="block-bottom"><span>Call Sales</span><h2 class="big-number"><span class="country-default">1.877.729.4269</span><span class="country-specific" data-country="AU">+61 2 8036 3192</span><span class="country-specific" data-country="NZ">0800 000 185</span></h2></div><p> </p></div>	</div>
+</div>
+  </li>
+          
+								  
+  <li id="om-leaf-om-u74-1499213014-4" class="om-leaf last leaf-pricing ">
+    <a  class="om-link  link-pricing hover-dropdown" href="/pricing/">Pricing</a>      </li>
+          
+			</ul>
+</div>      </div><!-- /#om-maximenu-[menu name] -->   
+
+
+<div id="telephone-number">
+  <p><a href="/about-us/contact-us/" id="nav_contact-me"><span class="country-default">1.877.729.4269</span><span class="country-specific" data-country="GB">0808 189 0504</span><span class="country-specific" data-country="AU">+61 2 8036 3192</span><span class="country-specific" data-country="NZ">0800 000 185</span></a></p></div><div id="login-block"><ul class="login"><li class="left"><a href="https://app.box.com/login/">Log In</a></li><li class="right"><a href="/pricing/">Sign Up</a></li></ul><div class="btn-lang menu-dropdown"><span class="menu-dropdown-title ico-language"><span class="globe-default"> </span></span><div class="menu-dropdown-content"><span class="menu-content-arrow"> </span><div class="menu-language clearfix"><ul><li><a class="language-url" data-languagecode="en" href="/">English (US)</a></li><li><a class="language-url" data-languagecode="en-gb" href="/en_GB">English (UK)</a></li><li><a class="language-url" data-languagecode="en-gb" href="/en_GB">English (Europe)</a></li><li><a class="language-url" data-languagecode="es" href="/es_ES">Español</a></li><li><a class="language-url" data-languagecode="fr" href="/fr_FR">Français</a></li><li><a class="language-url" data-languagecode="de" href="/de_DE">Deutsch</a></li><li><a class="language-url" data-languagecode="it" href="/it_IT">Italiano</a></li><li><a class="language-url" data-languagecode="ja" href="/ja_JP">日本語 </a></li></ul></div></div></div><a class="btn-mobile btn-nav-menu" href="javascript:void(0);" id="btn-topmenu"> </a> <a class="btn-mobile ico-language" href="javascript:void(0);" id="btn-topmenu-language"><span class="globe-default"> </span></a></div><p> </p>  </div>
+</div>
+<!-- end Header -->
+
+
+<!-- Tasks -->
+<footer style="display: none">Footer placeholder</footer>
+  
+<div class="panel-display redesigned">
+      <main class="main panel-panel" role="main">
+      <div class="panel-pane pane-fieldable-panels-pane pane-fpid-46 pane-bundle-main-banner no-title block">
+    <div class="fieldable-panels-pane main_banner">
+  <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/yravJ9s-wyMntBIzFCKWWHxSnCWrJ0nnecl-45BKimU/md5:5d49cfb1c20c19a6a4f08baad6ede9c7/sites/default/files/homepage_redesign/homepage-illo-mobile_V2_0.png" width="1948" height="1118" alt="Box and Microsoft" />  <div class="main_banner--wrapper">
+    <h2></h2>
+    <h3>Your files on any device, from anywhere.</h3>
+    <div class="main_banner--cta">
+      <a href="https://www.box.com/pricing/">Try Now</a>              <a href="http://info.box.com/Top-3-reasons-why-IT-loves-Box-and-Office365-ebook?id=70132000001ArCy&amp;od=O365-eBook&amp;nts=downloaded-eBook&amp;crs=responded&amp;ol=http%3A//info.box.com/Top-3-reasons-why-IT-loves-Box-and-Office365-ebook&amp;v=Web&amp;ot=Gated%20Asset&amp;m=Web&amp;utm_campaign=FY17Q1-US-WEB-homepage-eBook&amp;utm_medium=Web&amp;utm_source=&amp;utm_content=ebook">Learn More</a>          </div>
+  </div>
+</div></div>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-41 pane-bundle-customer-logo-strip block">
+    <div class="fieldable-panels-pane customer_logo_strip">
+  <h3>Trusted by over 50,000 businesses worldwide</h3>
+  <div class="item-list"><ul><li class="ge even first">GE</li><li class="nationwide odd">Nationwide</li><li class="gap even">GAP</li><li class="lilly odd">Lilly</li><li class="boston even">Boston Scientific</li><li class="pandora odd last">Pandora</li></ul></div></div>
+</section>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-31 pane-bundle-prose-content-panes block">
+    <div class="fieldable-panels-pane prose_content_panes has-image">
+  <div class="prose-content-panes--wrapper">
+    <h3>Stay Productive,<br /> Wherever You Are</h3>
+    <h4>All your content at your fingertips</h4>
+    <p>Working with coworkers and external teams has never been simpler – securely share files and collaborate with anyone, on any device. Easily create, edit and review documents with others in real-time or on-the-go and keep your projects moving forward.<br /><br />From simplifying how you manage your content to empowering global teams, Box helps you work smarter and faster than ever before.</p>    <a href="https://www.box.com/business/online-collaboration/">Learn More</a>  </div>
+  <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/MS2O7vc82HNq5kCzaCTlS0JQbdOHqkuYGa7D4yyp2xc/md5:9ffc2e2e1063ce0e29b8334df3fc43c9/sites/default/files/homepage_redesign/devices%402x.jpg" width="1016" height="950" alt="" /></div>
+</section>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-91 pane-bundle-security-you-can-trust block">
+    <div class="fieldable-panels-pane security_you_can_trust">
+  <h2>Security You Can Trust</h2>
+  <h3>Box keeps enterprise security and end user productivity in perfect balance</h3>
+  <div class="security_you_can_trust--wrapper">
+    <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/PbE-MBJ1tag1yOLzTqcwEbMOmWZuwTzmEGLiHkYBNng/md5:432f78b4f2f6dc6168f7c3c459a76147/sites/default/files/homepage_redesign/shield%402x-tinypng.png" width="538" height="652" alt="" />    <div class="security-features">
+              <div class="security-feature icon-cloud">
+          <h4>Centralize Control Over Content</h4>
+          <p>Protect your files wherever they go with customer-managed encryption, granular permissions, activity logs, mobile security and more.</p>
+        </div>
+              <div class="security-feature icon-governance">
+          <h4>Simplify Information Governance</h4>
+          <p>Manage the entire lifecycle of your documents and comply with regulatory policies, e-discovery requests and data retention policies with ease.</p>
+        </div>
+              <div class="security-feature icon-globe">
+          <h4>Enable Global Compliance</h4>
+          <p>Collaborate with anyone while meeting business and regulatory requirements such as SOC 1 and SOC 2, ISO 27001, HIPAA, PCI, FINRA 17a-4 and more.</p>
+        </div>
+            <a href="https://www.box.com/business/enterprise-security/">Learn More</a>    </div>
+  </div>
+</div>
+</section>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-36 pane-bundle-prose-content-panes block">
+    <div class="fieldable-panels-pane prose_content_panes no-image">
+  <div class="prose-content-panes--wrapper">
+    <h3>A Platform for the Digital Enterprise</h3>
+    <h4>Box is integrated with the apps you love.</h4>
+    <p>Box offers an ecosystem of applications that help you work better. Edit, annotate, e-sign, and more with built-in integrations with familiar, best-of-breed productivity tools like Office 365, Salesforce, and DocuSign.</p>    <a href="https://www.box.com/partners/technology-alliance-partners/">Explore Integrations</a>  </div>
+  </div>
+</section>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-61 pane-bundle-integration-logos block">
+    <div class="fieldable-panels-pane integration_logos">
+  <div class="item-list"><ul><li class="even first"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/PxTVlyBaYHhqz2_roo3DfiSj_7CdXPGLtMyl42oUeH4/md5:cf1e44832f5124d07c32afaaaada947d/sites/default/files/homepage_redesign/integration/Msft_Office_0.png" width="122" height="25" alt="Office 365" /></span></div></li><li class="odd"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/_VSsfH8tBpyCDslSmKuJlhuqnIi2h4FtqGGiwwp-zB0/md5:b6aa02fbac426274b488672b4dcf2a59/sites/default/files/homepage_redesign/integration/googleapps%20copy%202_0.png" width="129" height="28" alt="Google Apps" /></span></div></li><li class="even"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/QW0G8738RSCmkplERrs_3Ix9e98Oy9H2WYJ4yjaGfgE/md5:03eb849972adb311bd2c6c5796bef941/sites/default/files/homepage_redesign/integration/salesforce_logo_0.png" width="100" height="70" alt="Box integration with Salesforce" /></span></div></li><li class="odd"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/OlgRWYQkvSOZeFB-uKgb3tWISF3kTKGShD4bpPw2Hv8/md5:9f048966d7f1b5bd2758e662c0b9d0ab/sites/default/files/homepage_redesign/integration/partner_logo_IBM_homepage_134x70.png" width="134" height="70" alt="Box integration with IBM" /></span></div></li><li class="even"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/sXsiWpYVQZaJOpXUK4NBLNViwpX6yZ96YKq3352lblU/md5:3cadc208d60327ca96452838d87a91f3/sites/default/files/homepage_redesign/integration/Okta_0.png" width="99" height="27" alt="Box integration with Okta" /></span></div></li><li class="odd"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/3-i_nwsQROfX7r8DbbHyHo05ic_oV84DHFuAkVs3gFg/md5:2736f723148afc1522dec4446fcfe4a4/sites/default/files/homepage_redesign/integration/docuSign-logo-two-color-01_0.png" width="125" height="35" alt="Box integration with DocuSign" /></span></div></li><li class="even"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/5vczSS8_dY4QJFAt2ILUda60WD04dPuKcy5Yr2CJmfs/md5:4adeb29a6adff16373332967fd14ec5e/sites/default/files/homepage_redesign/integration/slack_cmyk_0.png" width="105" height="30" alt="Box integration with Slack" /></span></div></li><li class="odd"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/B1HVBfXJkr6mMnh590Ao2S-vLKcyLJf-EqbljFQ8bhY/md5:3e8c9c6439cafc09093d42d48994f680/sites/default/files/homepage_redesign/integration/MobileIron%20Logo_0.png" width="125" height="28" alt="Box integration with MobileIron" /></span></div></li><li class="even"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/IYf_tF-jlvww0y5v6KpX8mLEn_IXiHVPZtmSu5HaTvM/md5:b75c464f739a7125d1586db743d9eb3c/sites/default/files/homepage_redesign/integration/Symantec_0.png" width="119" height="32" alt="Box integration with Symantec" /></span></div></li><li class="odd last"><div class="integration_logos--wrapper"><span class="integration_logos--ie"><img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/reAfcUJFjnpWNgr-YhKXb8GraQOsCnDPER_KNhOorJc/md5:8470291c90c03a649a5dd962baab9afe/sites/default/files/homepage_redesign/integration/AirWatch%20Logo_0.png" width="96" height="54" alt="Box integration with Airwatch" /></span></div></li></ul></div>  <div class="bottom-title">
+    <em>1400+</em> integrations  </div>
+</div>
+</section>
+<div class="panel-pane pane-fieldable-panels-pane pane-fpid-66 variation-2 pane-bundle-prose-content-panes no-title block">
+    <div class="fieldable-panels-pane prose_content_panes has-image">
+  <div class="prose-content-panes--wrapper">
+    <h3></h3>
+    <h4>Build apps, not infrastructure.</h4>
+    <p>Easily build enterprise-grade custom apps for your teams, customers or partners that seamlessly integrate with your existing systems leveraging our mobile SDKs, APIs and developer tools.</p>    <a href="https://www.box.com/business/platform/">Learn More</a>  </div>
+  <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/rUs0lQJTjgvT76vL4fbVTrsrTklnet5YmT3n40nDHoI/md5:166ad29c525048b61f9270f50a12f387/sites/default/files/homepage_redesign/platform-hero-2.png" width="860" height="700" alt="" /></div>
+</div>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-71 pane-bundle-colorful-testimonials block">
+    <div class="fieldable-panels-pane colorful_testimonials" id="colorful-testimonials">
+  <div class="item-list"><ul><li style="color:#ffffff;background-color:#22A7F0;" class="even first"><div class="colorful_testimonials--wrapper">
+  <div>
+    <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/uw8F16TSwCWumYPGYXAlKdxoCiXQq5vyuKyuQ4-2aPo/md5:2a6a95884741695059e9bf731b661ce2/sites/default/files/GE_logo.png" width="75" height="74" alt="" />    <div class="quote"><p>&quot;In today’s mobile-first, cloud-first world, providing our employees with secure access to content at any time using any device is critical to creating a more productive, connected workforce. Moving to a cloud technology like Box allows us to centralize all of our content and provides more efficiency, speed and simplicity for our employees.&quot;</p>
+</div>
+    <div class="byline"><p>Jamie Miller, Senior Vice President and CIO</p>
+</div>
+  </div>
+</div></li><li style="color:#ffffff;background-color:#72388F;" class="odd"><div class="colorful_testimonials--wrapper">
+  <div>
+    <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/OzI1qUmQ0e0dG3IByAiqusT6fp85CBZjk13jYA_Itaw/md5:fdb45751aec120ed1151118390076032/sites/default/files/Eli%20Lilly.png" width="116" height="63" alt="" />    <div class="quote"><p>“By empowering our global workforce to work more efficiently and collaboratively with tools that truly support the way they want to work, we’re able to create a more connected and productive environment leading to improved customer experiences. Moving to cloud and mobile technologies like Box and the iPad allows us to centralize our content and provide a unified mobility solution for our employees to get work done anytime, anywhere.”</p>
+</div>
+    <div class="byline"><p>Mike Meadows, Vice President and CTO</p>
+</div>
+  </div>
+</div></li><li style="color:#ffffff;background-color:#22A7F0;" class="even last"><div class="colorful_testimonials--wrapper">
+  <div>
+    <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/0lOQgimWYv-7ftHGqccAD3vIFmdV_hy1gCjd29dvMP8/md5:d5d67179831fec56cd1c40cde2fc258d/sites/default/files/Toyota.png" width="207" height="34" alt="" />    <div class="quote"><p>“It’s important to arm employees with technology that drives productivity and innovation across the organization. Moving to technologies, like Box, provides a way to securely share and collaborate using any device and empowers associates to discover new ways to move our business forward.”</p>
+</div>
+    <div class="byline"><p>Zack Hicks, Group Vice President and CIO</p>
+</div>
+  </div>
+</div></li></ul></div></div>
+</section>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-76 pane-bundle-prose-content-panes block">
+    <div class="fieldable-panels-pane prose_content_panes has-image image-left">
+  <div class="prose-content-panes--wrapper">
+    <h3>Gartner Names Box a Leader</h3>
+    <h4>Read this report to discover:</h4>
+    <ul><li>Market overview of Enterprise File Synchronization and Sharing (EFSS)</li>
+  <li>Factors to consider when evaluating EFSS solution vendors</li>
+  <li>Gartner's analysis of 16 EFSS vendors based on current offering, strategy and future vision</li>
+  <li>Review vendor strengths, cautions and Magic Quadrant positioning</li>
+</ul>    <a href="https://www.box.com/resources/gartner-efss-magic-quadrant/">Get the Report</a>  </div>
+  <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/mguMY3s2Ae0R1UNGWnkHD1W8eTYSVyY1pQK0Sp2Pqcg/md5:fa52b81d487340e656278edfef766d0a/sites/default/files/homepage_redesign/Gartner_update%402x%20%281%29.png" width="658" height="874" alt="" /></div>
+</section>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-81 pane-bundle-get-started block">
+    <div class="fieldable-panels-pane get_started">
+  <div class="get_started--wrapper">
+    <h3>Ready to Get Started?</h3>
+    <h4>Sign up for a 14 day risk-free trial of Box.</h4>
+    <a href="https://www.box.com/pricing/">Get Started</a>  </div>
+  <img typeof="foaf:Image" class="image-style-none" src="https://cdn01.boxcdn.net/cdn/farfuture/DY1GvO_MvQ9QWe2hrWZgB7g8AnjLG45JNQ99jGAOFWE/md5:2e535983124663084dc240d23467e8a1/sites/default/files/homepage_redesign/ipad-mini_surface_Box%402x.jpg" width="1438" height="424" alt="" /></div>
+</section>
+<section class="panel-pane pane-fieldable-panels-pane pane-fpid-86 pane-bundle-translatable-metadata block">
+    <!-- /-->
+</section>
+    </main>
+  </div>
+
+<!-- end tasks -->
+
+
+
+<!-- Footer -->
+<div id="footer">
+  <div class="footer-wrapper footer_v1">
+          <div class="footer-mobile">
+        <div class="footer-mb-item">
+          <div class="region region-footer"><div class="region-inner clearfix"><ul><li><a href="/home/" title="Home">Home</a></li>
+		<li><a href="/videos/">Videos</a></li>
+		<li><a href="/events/#webinars">Webinars</a></li>
+		<li><a href="/careers/" title="Careers">Careers</a></li>
+		<li><a href="/business/professional-services-support/">Services</a></li>
+		<li><a href="/partners/" title="Partners">Partners</a></li>
+	</ul><ul><li><a href="/blog/">Blog</a></li>
+		<li><a href="/events/">Events</a></li>
+		<li><a href="/resources/">Resources</a></li>
+		<li><a href="/about-us/leadership/">Leadership</a></li>
+		<li><a href="https://developers.box.com">Developers</a></li>
+		<li><a href="/about-us/contact-us/">Contact Us</a></li>
+	</ul></div></div>        </div>
+      </div>
+        
+          <div id="footer-content" class="footer-content clearfix">
+                  <div id="footer-content-left" class="footer-unit footer-left">
+            	<div class="footer-unit-item unit-full first-child"><ul><li><a class="first-caption">Quick Links</a></li><li><a href="/customers/">Customers</a></li><li><a href="/events/">Events</a></li><li><a href="/partners/">Partners</a></li><li><a href="/box-for-devices/">Product Downloads</a></li><li><a href="/resources/">Resources</a></li><li><a href="/videos/">Videos</a></li><li><a href="/events/#webinars">Webinars</a></li></ul></div><div class="footer-unit-item unit-full"><ul><li><a class="first-caption">Company</a></li><li><a href="/about-us/">Overview</a></li><li><a href="/about-us/press/">Press</a></li><li><a href="http://www.boxinvestorrelations.com">Investor<br />Relations</a></li><li><a href="/about-us/leadership/">Leadership</a></li><li><a href="/blog/">Blog</a></li><li><a href="/about-us/contact-us/">Contact Us</a></li><li><a href="/about-us/ecc/">Executive Visit</a></li></ul></div><div class="footer-unit-item unit-full"><ul><li><a class="first-caption">Developers</a></li><li><a href="https://developers.box.com">Overview</a></li><li><a href="http://developers.box.com/docs-overview/">Documentation</a></li><li><a href="http://developers.box.com/programs/">Programs</a></li></ul></div><div class="footer-unit-item unit-full"><ul><li><a class="first-caption">Careers</a></li><li><a href="/careers/">USA</a></li><li><a href="/careers/europe/">Europe</a></li></ul></div><div class="footer-unit-item last-child"><ul><li><a class="first-caption">Services</a></li><li><a href="/business/professional-services-support/">Overview</a></li><li><a href="https://boxuniversity.litmos.com/online-courses/">Training</a></li><li><a href="http://community.box.com/t5/Help/ct-p/Support">Support</a></li><li><a href="http://community.box.com/t5/Community/ct-p/English">Community</a></li></ul></div><p> </p>          </div>
+                          <div id="footer-content-right" class="footer-unit footer-signup">
+            	<p><strong>Sign Up Now</strong> <a class="btnBlue" href="/pricing/">Get Started</a> <span>or call <span class="country-default">1.877.729.4269</span><span class="country-specific" data-country="AU">+61 2 8036 3192</span><span class="country-specific" data-country="NZ">0800 000 185</span></span></p>          </div>
+              </div>
+              <div id="footer-nav" class="footer-nav clearfix">
+        	<ul class="footer-nav-social clearfix" style="max-width:240px;margin-left:auto;"><li><a class="ico-blog" href="https://blog.box.com/" target="_blank">Blog</a></li>
+  <li><a class="ico-glassdoor" href="http://www.glassdoor.com/Overview/Working-at-Box-EI_IE254092.11,14.htm" target="_blank">Glassdoor</a></li>
+  <li><a class="ico-facebook" href="https://www.facebook.com/box" target="_blank">Facebook</a></li>
+  <li><a class="ico-twitter" href="https://twitter.com/BoxHQ" target="_blank">Twitter</a></li>
+  <li><a class="ico-youtube" href="https://www.youtube.com/box" target="_blank">Youtube</a></li>
+</ul><ul class="footer-nav-ul"><li><a href="/sitemap/">Sitemap</a></li><li><a href="/legal/termsofservice/" target="_blank">Terms of Use</a></li><li><a href="/legal/privacypolicy/" target="_blank">Privacy Policy</a></li><li class="last-child"><span>© 2016 Box</span></li></ul>      </div>
+      </div>
+</div>
+<footer class="main">
+      <div class="footer-top">
+  
+      <div class="footer-main-menu panel-panel">
+      <section class="panel-pane pane-block pane-menu-block-6 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Quick Links</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-6 menu-name-menu-box-15-footer-primary parent-mlid-83751 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-83861 menu-depth-2 menu-item-83861"><a href="/customers/">Customers</a></li><li class="leaf menu-mlid-83811 menu-depth-2 menu-item-83811"><a href="/events/">Events</a></li><li class="leaf menu-mlid-83851 menu-depth-2 menu-item-83851"><a href="/partners/">Partners</a></li><li class="leaf menu-mlid-83856 menu-depth-2 menu-item-83856"><a href="/box-for-devices/">Product Downloads</a></li><li class="leaf menu-mlid-83871 menu-depth-2 menu-item-83871"><a href="/resources/">Resources</a></li><li class="leaf menu-mlid-83906 menu-depth-2 menu-item-83906"><a href="/videos/">Videos</a></li><li class="last leaf menu-mlid-83771 menu-depth-2 menu-item-83771"><a href="/events/">Webinars</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+<section class="panel-pane pane-block pane-menu-block-7 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Company</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-7 menu-name-menu-box-15-footer-primary parent-mlid-83756 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-83881 menu-depth-2 menu-item-83881"><a href="/about-us/">Overview</a></li><li class="leaf menu-mlid-83876 menu-depth-2 menu-item-83876"><a href="/about-us/press/">Press</a></li><li class="leaf menu-mlid-83951 menu-depth-2 menu-item-83951"><a href="http://www.boxinvestorrelations.com/">Investor Relations</a></li><li class="leaf menu-mlid-83961 menu-depth-2 menu-item-83961"><a href="/about-us/leadership/">Leadership</a></li><li class="leaf menu-mlid-83776 menu-depth-2 menu-item-83776"><a href="https://www.box.com/blog/">Blog</a></li><li class="leaf menu-mlid-83936 menu-depth-2 menu-item-83936"><a href="/about-us/contact-us/">Contact Us</a></li><li class="last leaf menu-mlid-83946 menu-depth-2 menu-item-83946"><a href="/about-us/ecc/">Executive Visit</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+<section class="panel-pane pane-block pane-menu-block-8 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Developers</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-8 menu-name-menu-box-15-footer-primary parent-mlid-83761 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-83911 menu-depth-2 menu-item-83911"><a href="https://developers.box.com/">Overview</a></li><li class="leaf menu-mlid-83931 menu-depth-2 menu-item-83931"><a href="https://developers.box.com/docs-overview">Documentation</a></li><li class="last leaf menu-mlid-83916 menu-depth-2 menu-item-83916"><a href="https://developers.box.com/programs/">Programs</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+<section class="panel-pane pane-block pane-menu-block-9 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Careers</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-9 menu-name-menu-box-15-footer-primary parent-mlid-83706 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-83901 menu-depth-2 menu-item-83901"><a href="/careers/">USA</a></li><li class="last leaf menu-mlid-83926 menu-depth-2 menu-item-83926"><a href="/careers/europe/">Europe</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+<section class="panel-pane pane-block pane-menu-block-10 block">
+  <div class="block-inner clearfix">
+    
+              <h2 class="pane-title block-title">Services</h2>
+        
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-10 menu-name-menu-box-15-footer-primary parent-mlid-83746 menu-level-1">
+  <ul class="menu clearfix"><li class="first leaf menu-mlid-83896 menu-depth-2 menu-item-83896"><a href="https://training.box.com">Training</a></li><li class="leaf menu-mlid-83886 menu-depth-2 menu-item-83886"><a href="http://community.box.com/t5/Help/ct-p/Support">Support</a></li><li class="last leaf menu-mlid-83796 menu-depth-2 menu-item-83796"><a href="http://community.box.com/t5/Community/ct-p/English">Community</a></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</section>
+    </div>
+  
+      <div class="sign-up panel-panel">
+      <div class="panel-pane pane-block pane-block-51 no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <a class="button" href="/pricing/">Sign Up</a>    </div>
+
+    
+    
+  </div>
+</div>
+<div class="panel-pane pane-block pane-block-46 no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <p>Have questions? Call:<br />
+	1-877-729-4269</p>    </div>
+
+    
+    
+  </div>
+</div>
+    </div>
+        </div>
+  
+      <div class="mobile-menu-region panel-panel" style="display: none;">
+      <div class="panel-pane pane-menu-tree pane-menu-menu-box-15-mobile-footer no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <div class="menu-block-wrapper menu-block-ctools-menu-menu-box-15-mobile-footer-1 menu-name-menu-menu-box-15-mobile-footer parent-mlid-0 menu-level-1">
+  <ul class="menu clearfix"><li class="first expanded active-trail active menu-mlid-83701 menu-depth-1 menu-item-83701"><a href="/" class="active-trail active">Column 1</a><ul class="menu clearfix"><li class="first leaf active-trail active menu-mlid-83801 menu-depth-2 menu-item-83801"><a href="/home/" class="active-trail active">Home</a></li><li class="leaf menu-mlid-83766 menu-depth-2 menu-item-83766"><a href="/videos/">Videos</a></li><li class="leaf menu-mlid-83866 menu-depth-2 menu-item-83866"><a href="/events/">Webinars</a></li><li class="leaf menu-mlid-83831 menu-depth-2 menu-item-83831"><a href="/careers/">Careers</a></li><li class="leaf menu-mlid-83781 menu-depth-2 menu-item-83781"><a href="/business/professional-services-support/">Services</a></li><li class="last leaf menu-mlid-83806 menu-depth-2 menu-item-83806"><a href="/partners/">Partners</a></li></ul></li><li class="last expanded active menu-mlid-83741 menu-depth-1 menu-item-83741"><a href="/" class="active">Column 2</a><ul class="menu clearfix"><li class="first leaf menu-mlid-83826 menu-depth-2 menu-item-83826"><a href="/blog/">Blog</a></li><li class="leaf menu-mlid-83846 menu-depth-2 menu-item-83846"><a href="/events/">Events</a></li><li class="leaf menu-mlid-83786 menu-depth-2 menu-item-83786"><a href="/resources/">Resources</a></li><li class="leaf menu-mlid-83791 menu-depth-2 menu-item-83791"><a href="/about-us/leadership/">Leadership</a></li><li class="leaf menu-mlid-83891 menu-depth-2 menu-item-83891"><a href="https://developers.box.com">Developers</a></li><li class="last leaf menu-mlid-83941 menu-depth-2 menu-item-83941"><a href="/about-us/contact-us/">Contact Us</a></li></ul></li></ul></div>
+    </div>
+
+    
+    
+  </div>
+</div>
+    </div>
+  
+      <div class="footer-bottom">
+  
+      <div class="footer-bottom-menu panel-panel">
+      <div class="panel-pane pane-custom pane-1 no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <span class="copyright">©2015 Box</span>    </div>
+
+    
+    
+  </div>
+</div>
+<div class="panel-pane pane-block pane-menu-menu-box-15-footer-secondary no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <ul class="menu clearfix"><li class="first leaf menu-depth-1 menu-item-83671"><a href="/sitemap/">Sitemap</a></li><li class="leaf menu-depth-1 menu-item-83676"><a href="/legal/termsofservice/">Terms of Use</a></li><li class="last leaf menu-depth-1 menu-item-83736"><a href="/legal/privacypolicy/">Privacy Policy</a></li></ul>    </div>
+
+    
+    
+  </div>
+</div>
+<div class="panel-pane pane-block pane-lang-dropdown-language-content no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <form class="lang_dropdown_form language_content" id="lang_dropdown_form_language_content" action="/" method="post" accept-charset="UTF-8"><div><div class="form-item form-type-select form-item-lang-dropdown-select">
+ <select style="width:165px" class="lang-dropdown-select-element chosen-enable form-select" id="lang-dropdown-select-language_content" name="lang_dropdown_select"><option value="en" selected="selected">English (US)</option><option value="en-gb">English (UK/Europe)</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="it">Italiano</option><option value="ja">日本語</option></select>
+</div>
+<input type="hidden" name="en" value="/home/" />
+<input type="hidden" name="en-gb" value="/en_GB/home/" />
+<input type="hidden" name="es" value="/es_ES/home/" />
+<input type="hidden" name="fr" value="/fr_FR/home/" />
+<input type="hidden" name="de" value="/de_DE/home/" />
+<input type="hidden" name="it" value="/it_IT/home/" />
+<input type="hidden" name="ja" value="/ja_JP/home/" />
+<noscript><div>
+<input type="submit" id="edit-submit--3" name="op" value="Go" class="form-submit" />
+</div></noscript><input type="hidden" name="form_build_id" value="form-IhZOMh933ahZ-uTzC0DT8nJzLB_HLkwebi_CoBUTbJE" />
+<input type="hidden" name="form_id" value="lang_dropdown_form" />
+</div></form>    </div>
+
+    
+    
+  </div>
+</div>
+    </div>
+  
+      <div class="social-network panel-panel">
+      <div class="panel-pane pane-block pane-menu-menu-box-15-footer-social no-title block">
+  <div class="block-inner clearfix">
+    
+            
+    
+    <div class="block-content">
+      <ul class="menu clearfix"><li class="first leaf menu-depth-1 menu-item-83641"><a href="https://www.youtube.com/box" class="icon-youtube">YouTube</a></li><li class="leaf menu-depth-1 menu-item-83681"><a href="/blog/" class="icon-rss">Blog</a></li><li class="leaf menu-depth-1 menu-item-83661"><a href="https://twitter.com/BoxHQ" class="icon-twitter">Twitter</a></li><li class="last leaf menu-depth-1 menu-item-83666"><a href="https://www.facebook.com/box" class="icon-facebook">Facebook</a></li></ul>    </div>
+
+    
+    
+  </div>
+</div>
+    </div>
+  
+      </div>
+  </footer>
+<!-- end Footer -->
+      <script src="https://cdn01.boxcdn.net/sites/default/files/advagg_js/js__GM3GJPR36rRIz0TRkjC5OQwrioSyN9aoYRivDhCO_AM__JZCpPakXkFLYjJg3kTnhVF9WBCB5h0gPtdX48zoqqIc__VKaCmG-WZoxIUJSrPa-1OdhV6z9xM3Fb7zl7sOxeesw.js" async="async"></script>
+    </div>
+  </div>
+    <link rel="prerender" href="https://app.box.com/login/">
+    <script>
+var SnapABugSecureCookies = 1;
+(function() {
+  if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|Android|IEMobile|Opera Mini)/) &&
+      window.location.pathname.match(/^\/(pricing.*|solutions|business.*|industries.*)\/$/) &&
+      countryCode == 'US') {
+    var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+    se.src = '//storage.googleapis.com/code.snapengage.com/js/c29cac55-22ef-4f8b-abb9-444ee21d7b2c.js';
+    var done = false;
+    se.onload = se.onreadystatechange = function() {
+      if (!done&&(!this.readyState||this.readyState==='loaded'||this.readyState==='complete')) {
+        done = true;
+        /* Place your SnapEngage JS API code below */
+        /* SnapEngage.allowChatSound(true); Example JS API: Enable sounds for Visitors. */
+      }
+    };
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+  }
+})();
+</script>  <script type="text/javascript">_satellite.pageBottom();</script></body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+<head>
+  <script>
+    // Track initial page load time
+    window.SUstartTime = new Date();
+  </script>
+  
+  <script type="text/javascript">
+      // Deployed with bamboo
+      (function(_,e,rr,s){_errs=[s];var c=_.onerror;_.onerror=function(){var a=arguments;_errs.push(a);
+      c&&c.apply(this,a)};var b=function(){var c=e.createElement(rr),b=e.getElementsByTagName(rr)[0];
+      c.src="//beacon.errorception.com/"+s+".js";c.async=!0;b.parentNode.insertBefore(c,b)};
+      _.addEventListener?_.addEventListener("load",b,!1):_.attachEvent("onload",b)})
+      (window,document,"script","530bcc7986a669467a000263");
+  </script>
+  
+  <script type="text/javascript">
+    adroll_adv_id = "IX6UHXJ2HBEUVIX7PDO6BT";
+    adroll_pix_id = "3JWICXTGZFGJHADLCPJJIU";
+    (function () {
+    var oldonload = window.onload;
+    window.onload = function(){
+       __adroll_loaded=true;
+       var scr = document.createElement("script");
+       var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+       scr.setAttribute('async', 'true');
+       scr.type = "text/javascript";
+       scr.src = host + "/j/roundtrip.js";
+       ((document.getElementsByTagName('head') || [null])[0] ||
+      document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+       if(oldonload){oldonload()}};
+    }());
+  </script>
+  <script>
+    //! Copyright (c) 2012 Florian H., https://github.com/js-coder https://github.com/js-coder/cookie.js
+    !function(e,t){var n=function(){return n.get.apply(n,arguments)},r=n.utils={isArray:Array.isArray||function(e){return Object.prototype.toString.call(e)==="[object Array]"},isPlainObject:function(e){return!!e&&Object.prototype.toString.call(e)==="[object Object]"},toArray:function(e){return Array.prototype.slice.call(e)},getKeys:Object.keys||function(e){var t=[],n="";for(n in e)e.hasOwnProperty(n)&&t.push(n);return t},escape:function(e){return String(e).replace(/[,;"\\=\s%]/g,function(e){return encodeURIComponent(e)})},retrieve:function(e,t){return e==null?t:e}};n.defaults={},n.expiresMultiplier=86400,n.set=function(n,i,s){if(r.isPlainObject(n))for(var o in n)n.hasOwnProperty(o)&&this.set(o,n[o],i);else{s=r.isPlainObject(s)?s:{expires:s};var u=s.expires!==t?s.expires:this.defaults.expires||"",a=typeof u;a==="string"&&u!==""?u=new Date(u):a==="number"&&(u=new Date(+(new Date)+1e3*this.expiresMultiplier*u)),u!==""&&"toGMTString"in u&&(u=";expires="+u.toGMTString());var f=s.path||this.defaults.path;f=f?";path="+f:"";var l=s.domain||this.defaults.domain;l=l?";domain="+l:"";var c=s.secure||this.defaults.secure?";secure":"";e.cookie=r.escape(n)+"="+r.escape(i)+u+f+l+c}return this},n.remove=function(e){e=r.isArray(e)?e:r.toArray(arguments);for(var t=0,n=e.length;t<n;t++)this.set(e[t],"",-1);return this},n.empty=function(){return this.remove(r.getKeys(this.all()))},n.get=function(e,n){n=n||t;var i=this.all();if(r.isArray(e)){var s={};for(var o=0,u=e.length;o<u;o++){var a=e[o];s[a]=r.retrieve(i[a],n)}return s}return r.retrieve(i[e],n)},n.all=function(){if(e.cookie==="")return{};var t=e.cookie.split("; "),n={};for(var r=0,i=t.length;r<i;r++){var s=t[r].split("=");n[decodeURIComponent(s[0])]=decodeURIComponent(s[1])}return n},n.enabled=function(){if(navigator.cookieEnabled)return!0;var e=n.set("_","_").get("_")==="_";return n.remove("_"),e},typeof define=="function"&&define.amd?define(function(){return n}):typeof exports!="undefined"?exports.cookie=n:window.cookie=n}(document);
+  </script>
+  <script type="text/javascript">
+    var SUoptimizelyData = {
+      isSpa: true,
+      loggedin: true,
+      suteam: cookie.get('suteam') == "true" || false,
+      userId: cookie.get('userid') || false
+    };
+  </script>
+  <script src="//cdn.optimizely.com/js/651393494.js"></script>
+
+
+  
+  <script type="text/javascript">
+      ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+      p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+      };p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+      n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//dzmxze7hxwn6b.cloudfront.net/2.4.3/sp.js","snowplow"));
+
+      window.snowplow('newTracker', 'co', 'collector-sp.stumbleupon.com', { // Initialise a tracker
+        appId: 'spa', // Application ID. Make sure you use the same value across all the tags you fire on your trial
+        platform: 'web',
+        respectDoNotTrack: true
+      });
+      window.snowplow('enableActivityTracking', 30, 30); // Ping every 30 seconds after 30 seconds
+      window.snowplow('enableLinkClickTracking');
+      window.snowplow('setUserIdFromCookie', 'userid');
+      window.snowplow('trackPageView');
+  </script>
+  
+  <script type="text/javascript">
+    window.logScriptError = function() {};
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="refresh" content="43200">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="apple-touch-icon-precomposed" href="https://nb9-stumbleupon.netdna-ssl.com/qaJ2l2fQzftVTeOGNUns8Q">
+  <link rel="shortcut icon" href="https://nb9-stumbleupon.netdna-ssl.com/-G-ChSR8MQAl3Skvq8oNZg" type="image/vnd.microsoft.icon">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="StumbleUpon">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-title" content="StumbleUpon">
+  <meta name="google-play-app" content="app-id=com.stumbleupon.android.app&hl=en">
+  <meta name="theme-color" content="#eb4924">
+
+  <meta name="twitter:site" content="@stumbleupon">
+
+  <meta property="fb:app_id" content="267470608481">
+  <meta property="og:type" content="stumbleupon:page">
+
+  <title>StumbleUpon</title>
+
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    .spinner-idx {
+      height: 100px;
+      width: 100px;
+      margin: 0px auto;
+      position: relative;
+      top: 40%;
+      opacity: 0;
+      -webkit-animation: rotation .6s infinite linear, showLoading 0.3s linear 1s 1 normal forwards;
+      -moz-animation: rotation .6s infinite linear, showLoading 0.3s linear 1s 1 normal forwards;
+      -ms-animation: rotation .6s infinite linear, showLoading 0.3s linear 1s 1 normal forwards;
+      animation: rotation .6s infinite linear, showLoading 0.3s linear 1s 1 normal forwards;
+      border-left: 6px solid rgba(235,73,36,.15);
+      border-right: 6px solid rgba(235,73,36,.15);
+      border-bottom: 6px solid rgba(235,73,36,.15);
+      border-top: 6px solid rgba(235,73,36,.8);
+      border-radius: 100%;
+    }
+
+    @-webkit-keyframes rotation {
+      from {-webkit-transform: rotate(0deg);}
+      to {-webkit-transform: rotate(359deg);}
+    }
+
+    @-moz-keyframes rotation {
+      from {-moz-transform: rotate(0deg);}
+      to {-moz-transform: rotate(359deg);}
+    }
+
+    @-ms-keyframes rotation {
+      from {-ms-transform: rotate(0deg);}
+      to {-ms-transform: rotate(359deg);}
+    }
+
+    @keyframes rotation {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(359deg);}
+    }
+
+    @keyframes showLoading {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+
+    _gaq.push(
+      ['_setAccount', 'UA-16124905-1'],
+      ['_setDomainName', '.stumbleupon.com'],
+      ['_trackPageview']
+    );
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <script type="text/javascript">
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: '2', c2: '7677660' });
+    (function() {
+        var s = document.createElement('script'), el = document.getElementsByTagName('script')[0]; s.async = true;
+        s.src = (document.location.protocol == 'https:' ? 'https://sb' : 'http://b') + '.scorecardresearch.com/beacon.js';
+        el.parentNode.insertBefore(s, el);
+    })();
+  </script>
+</head>
+<body>
+<div class="spinner-idx"></div>
+<script>
+  window.SUassets = {"master":{"http:":{"css":"//nb9-stumbleupon.netdna-ssl.com/j9APUge_Y--yIdn20HG-5A","app":"//nb9-stumbleupon.netdna-ssl.com/hZIZLVL53HAyfJ0gM1efUQ"},"https:":{"css":"//nb9-stumbleupon.netdna-ssl.com/j9APUge_Y--yIdn20HG-5A","app":"//nb9-stumbleupon.netdna-ssl.com/hZIZLVL53HAyfJ0gM1efUQ"}},"suteam2":{"http:":{"css":"//nb9-stumbleupon.netdna-ssl.com/ounUV9K3ee2UZN6Eu_J8yg","app":"//nb9-stumbleupon.netdna-ssl.com/vMBC3So7ckOS4f8pkKLugQ"},"https:":{"css":"//nb9-stumbleupon.netdna-ssl.com/ounUV9K3ee2UZN6Eu_J8yg","app":"//nb9-stumbleupon.netdna-ssl.com/vMBC3So7ckOS4f8pkKLugQ"}},"test/applause":{"http:":{"css":"//nb9-stumbleupon.netdna-ssl.com/ounUV9K3ee2UZN6Eu_J8yg","app":"//nb9-stumbleupon.netdna-ssl.com/SUgMUU7osWPptFksoNEUQg"},"https:":{"css":"//nb9-stumbleupon.netdna-ssl.com/ounUV9K3ee2UZN6Eu_J8yg","app":"//nb9-stumbleupon.netdna-ssl.com/SUgMUU7osWPptFksoNEUQg"}},"test/email-register-off-plus-google-login":{"http:":{"css":"//nb9-stumbleupon.netdna-ssl.com/4auaE0l01t-e3qbTMjcivw","app":"//nb9-stumbleupon.netdna-ssl.com/O-Mmcf6C0AdpmopiPEo8VA"},"https:":{"css":"//nb9-stumbleupon.netdna-ssl.com/4auaE0l01t-e3qbTMjcivw","app":"//nb9-stumbleupon.netdna-ssl.com/O-Mmcf6C0AdpmopiPEo8VA"}}};
+</script>
+<script>
+  (function() {
+  var appScriptEl, assets, betaBranch, betaBranches, betaIsActive, betaName, branch, branches, defaultBetaBranch, defaultBranch, forceBranchParam, headEl, key, protocol, reason, requestedBranch, requestedBy, styleEl, suteamBranch, value, variant;
+
+  betaIsActive = false;
+
+  betaName = typeof cookie !== "undefined" && cookie !== null ? cookie.get('beta') : void 0;
+
+  defaultBranch = 'master';
+
+  suteamBranch = 'suteam2';
+
+  betaBranch = "beta/" + betaName;
+
+  headEl = document.head || document.querySelector('head');
+
+  appScriptEl = document.createElement('script');
+
+  styleEl = document.createElement('link');
+
+  protocol = window.location.protocol;
+
+  if ((typeof optimizely !== "undefined" && optimizely !== null ? optimizely.activeExperiments.length : void 0) > 0) {
+    variant = optimizely.variationNamesMap[optimizely.activeExperiments].toLowerCase();
+  }
+
+  branches = [];
+
+  for (key in SUassets) {
+    value = SUassets[key];
+    branches.push(key);
+  }
+
+  betaBranches = branches.filter(function(name) {
+    return name.match('beta');
+  });
+
+  defaultBetaBranch = betaBranches != null ? betaBranches[0] : void 0;
+
+  forceBranchParam = 'SUbranch=';
+
+  if (window.top.location.search.match(forceBranchParam)) {
+    requestedBranch = window.top.location.search.split(forceBranchParam).pop();
+    if (typeof cookie !== "undefined" && cookie !== null) {
+      cookie.set('b', requestedBranch, {
+        expires: 7,
+        path: '/'
+      });
+    }
+    requestedBy = 'get param';
+  } else if (typeof cookie !== "undefined" && cookie !== null ? cookie.get('b') : void 0) {
+    requestedBranch = typeof cookie !== "undefined" && cookie !== null ? cookie.get('b') : void 0;
+    requestedBy = 'cookie';
+  } else if ((typeof cookie !== "undefined" && cookie !== null ? cookie.get('suteam') : void 0) === 'true') {
+    requestedBranch = suteamBranch;
+    requestedBy = 'suteam';
+  } else if (betaIsActive && (typeof cookie !== "undefined" && cookie !== null ? cookie.get('beta') : void 0)) {
+    requestedBranch = betaBranch;
+    requestedBy = 'beta opt-in';
+  } else if (variant) {
+    requestedBranch = variant;
+    requestedBy = 'test';
+  }
+
+  if (requestedBranch) {
+    console.debug("requesting branch " + requestedBranch + " because " + requestedBy);
+  }
+
+  if (branches.length === 1) {
+    branch = branches.shift();
+    reason = 'only one';
+  } else if (branches.indexOf(requestedBranch) !== -1) {
+    branch = requestedBranch;
+    reason = 'requested';
+  } else if (betaIsActive && branches.indexOf(defaultBetaBranch) !== -1 && requestedBranch === suteamBranch) {
+    branch = defaultBetaBranch;
+    reason = 'beta auto opt-in for suteam';
+  } else {
+    cookie.remove('b');
+    cookie.remove('beta');
+    branch = defaultBranch;
+    reason = 'default';
+  }
+
+  console.debug("using branch " + branch + " because " + reason);
+
+  assets = SUassets[branch][protocol];
+
+  styleEl.setAttribute('rel', 'stylesheet');
+
+  styleEl.setAttribute('href', assets.css);
+
+  if (!(assets.app.match('origin.stumble.net|static'))) {
+    appScriptEl.setAttribute('crossorigin', 'anonymous');
+  }
+
+  appScriptEl.setAttribute('src', assets.app);
+
+  headEl.appendChild(styleEl);
+
+  headEl.appendChild(appScriptEl);
+
+  appScriptEl.addEventListener('error', function() {
+    throw new Error("Unable to load " + assets.app + " from " + branch);
+  }, false);
+
+}).call(this);
+
+</script>
+</body>
+</html>

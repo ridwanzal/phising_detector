@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+                        <link rel="stylesheet" type="text/css" href="//artifacts.bbcomcdn.com/cms-app/1.4.5/frontend.min.css" />
+            
+    <link href="//www.bodybuilding.com/images/bb-favicon.png?v=2" rel="shortcut icon" />
+    
+    <script type='text/javascript' src='//cdn.dynamicyield.com/api/8766949/api_dynamic.js'></script>
+    <script type='text/javascript' src='//cdn.dynamicyield.com/api/8766949/api_static.js'></script>
+
+    <script>
+    /*<![CDATA[*/
+
+		// THIS SHOULD BE LOADED BEFORE ALL BBCOM CSS because we fork CSS
+		// based on these classes.
+		// We can't use conditional comments b/c our HTML must be valid XML.
+		// Therefore, use this script to add is-ie <version> to <html> for
+		// cases where we need to hack for IE
+		// cc_on bit ripped from http://tanalin.com/en/articles/ie-version-js/
+		(function () {
+			var oldIeVersion,
+					addIsIEClass = function (ver) {
+						var root = document.documentElement;
+						root.className = root.className + ' is-ie' + ver;
+					};
+
+			oldIeVersion = /*@cc_on (function() {switch(@_jscript_version) {case 5.8: return 8; case 9: return 9; case 10:
+			 return 10;}})() || @*/ 0;
+
+			if (oldIeVersion) {
+				addIsIEClass(oldIeVersion);
+			} else if (navigator.userAgent.match(/Trident\/7/)) {
+				addIsIEClass(11);
+			}
+		})();
+
+		// For IE10. console methods are generally polyfilled in bb.js,
+		// so this isn't technically req'd. IE8/9 don't have a console
+		// obj when dev tools are closed, we need to check for window.console
+		// before assigning noop methods.
+		if (window.console) {
+			console.debug = console.debug || function noop() {
+					};
+		}
+
+	/*]]>*/
+	</script>
+
+	<title>Bodybuilding.com - Huge Online Supplement Store &amp; Fitness Community!</title>
+
+            
+	<meta name="template" content="HOME">
+    <meta name="robots" content="INDEX,FOLLOW">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="layout" content="RESPONSIVE">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="dns-prefetch" href="//api.bodybuilding.com">
+	<link rel="dns-prefetch" href="//imagecdn.bodybuilding.com">
+	<link rel="dns-prefetch" href="//artifacts.bbcomcdn.com">
+			<script type="text/javascript" src="//cdn.optimizely.com/js/657361791.js"></script>
+		<meta name="keywords" content="Bodybuilding.com, supplements, fitness, nutrition, workouts, Fitness Plans"/>
+    <meta name="description" content="The largest selection of Bodybuilding Articles, Exercises, Workouts, Supplements & Community to help you reach your fitness goals!"/>
+    <meta property="og:title" content="index"/>
+    <meta name="twitter:title" content="index"/>
+    <meta property="og:url" content="http://www.bodybuilding.com"/>
+    <meta itemprop="name" content="index"/>
+    <meta itemprop="description" content="The largest selection of Bodybuilding Articles, Exercises, Workouts, Supplements & Community to help you reach your fitness goals!"/>
+    <meta property="og:description" content="The largest selection of Bodybuilding Articles, Exercises, Workouts, Supplements & Community to help you reach your fitness goals!"/>
+    <meta name="twitter:description" content="The largest selection of Bodybuilding Articles, Exercises, Workouts, Supplements & Community to help you reach your fitness goals!"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image:type" content="image/jpeg"/>
+    <meta property="og:site_name" content="Bodybuilding.com"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:see_also" content="http://www.bodybuilding.com/fun/whats-new.html" />
+    <meta property="og:referenced" content="https://hire.jobvite.com/CompanyJobs/Careers.aspx?k=JobListing&c=ql99Vfwi&v=1" />
+    <link rel="publisher" href="https://plus.google.com/+bodybuildingcom"/>
+    <meta property="article:publisher" content="https://www.facebook.com/Bodybuildingcom" />
+            <meta property="article:tag" content="Supplements"/>
+            <meta property="article:tag" content="Fitness"/>
+            <meta property="article:tag" content="Workouts"/>
+            <meta property="article:tag" content="Motivation"/>
+            <meta property="article:tag" content="Training"/>
+            <meta property="article:tag" content="Bodybuilding.com"/>
+        <meta name="twitter:site" content="Bodybuildingcom"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:domain" content="bodybuilding.com"/>
+    <meta name="twitter:app:id:iphone" content="687818146">
+    <meta name="twitter:app:id:ipad" content="687818146">
+    <meta name="twitter:app:id:googleplay" content="com.bodybuilding.mobile">
+    <meta property="fb:admins" content="52300022"/>
+    <meta property="fb:admins" content="640006053"/>
+    <meta property="fb:admins" content="1054310542"/>
+    <meta property="fb:admins" content="594497898"/>
+    <meta property="fb:admins" content="696674114"/>
+    <meta property="fb:admins" content="100000129290981"/>
+    <meta property="fb:profile_id" content="55409478056"/>
+    <meta name="application-name" content="Bodybuilding.com"/>
+    <meta name="msapplication-config" content="http://www.bodybuilding.com/browserconfig.xml"/>
+    <meta name="msapplication-starturl" content="http://www.bodybuilding.com/"/>
+    <meta property="og:site_name" content="Bodybuilding.com"/>
+    <meta property="fb:app_id" content="197335844169">
+    <meta property="twitter:card" content="summary">
+
+            
+    <script type="application/ld+json">
+		{
+		   "@context": "http://schema.org",
+		   "@type": "WebSite",
+		   "url": "http://www.bodybuilding.com/",
+		   "potentialAction": {
+			 "@type": "SearchAction",
+			 "target": "http://www.bodybuilding.com/search/#/?q={search_term_string}",
+			 "query-input": "required name=search_term_string"
+		   }
+		}
+	</script>
+
+	<script>var s_account='bbprod';</script>
+    
+    <script type='text/javascript'>
+        var gptadslots=[];
+        var googletag = googletag || {};
+    	googletag.cmd = googletag.cmd || [];
+    	(function(){ var gads = document.createElement('script');
+    		gads.async = true; gads.type = 'text/javascript';
+    		var useSSL = 'https:' == document.location.protocol;
+    		gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+    		var node = document.getElementsByTagName('script')[0];
+    		node.parentNode.insertBefore(gads, node);
+    	})();
+    </script>
+
+      
+  
+      
+              
+        
+          <script type="text/javascript">
+
+    googletag.cmd.push(function() {
+
+        //For 728x90
+        var mapping1 = googletag.sizeMapping().
+        addSize([1024, 500], [[728, 90],[970, 90]]).
+        addSize([768, 400], [728, 90]).
+        addSize([470, 400], [[320, 100],[320, 50]]).
+        addSize([360, 400], [[320, 100],[320, 50]]).
+        addSize([0, 0], [320, 50]).
+        build();
+        
+        //For WSKY2
+        var mapping2 = googletag.sizeMapping().
+        addSize([1024, 500], [160, 600]).
+        addSize([0, 0], []).
+        build();
+        
+        //For 300x250
+        var mapping3 = googletag.sizeMapping().
+        addSize([1024, 500], []).
+        addSize([768, 400], [300, 250]).
+        addSize([470, 400], [300, 250]).
+        addSize([360, 400], [300, 250]).
+        addSize([0, 0], [300, 250]).
+        build();
+
+        gptadslots[1] = googletag.defineSlot('/9217486/BB/Home', [[728,90]],'div-gpt-ad-464722250163987145-1').defineSizeMapping(mapping1).setTargeting('pos',['LB1']).addService(googletag.pubads());
+        gptadslots[2] = googletag.defineSlot('/9217486/BB/Home', [[160,600]],'div-gpt-ad-464722250163987145-2').defineSizeMapping(mapping2).setTargeting('pos',['WSKY1']).addService(googletag.pubads());
+        gptadslots[3] = googletag.defineSlot('/9217486/BB/Home', [[160,600]],'div-gpt-ad-464722250163987145-3').defineSizeMapping(mapping2).setTargeting('pos',['WSKY2']).addService(googletag.pubads());
+        gptadslots[4] = googletag.defineSlot('/9217486/BB/Home', [[728,90]],'div-gpt-ad-464722250163987145-4').defineSizeMapping(mapping1).setTargeting('pos',['LB2']).addService(googletag.pubads());
+        gptadslots[5] = googletag.defineSlot('/9217486/BB/Home', [[300,250]],'div-gpt-ad-464722250163987145-5').defineSizeMapping(mapping3).addService(googletag.pubads());
+        gptadslots[6] = googletag.defineSlot('/9217486/BB/Skin', [[1,1]],'div-gpt-ad-464722250163987145-6').addService(googletag.pubads());
+        gptadslots[7] = googletag.defineSlot('/9217486/BB/DesktopInterstital', [[1,1]],'div-gpt-ad-464722250163987145-7').addService(googletag.pubads());
+        gptadslots[8] = googletag.defineSlot('/9217486/BB/MobileInterstital', [[1,1]],'div-gpt-ad-464722250163987145-8').addService(googletag.pubads());
+        gptadslots[9] = googletag.defineSlot('/9217486/BB/MTOverpass', [[1,1]],'div-gpt-ad-464722250163987145-9').addService(googletag.pubads());
+
+        googletag.pubads().setTargeting('URL',['/']).setTargeting('SEC',['home']);
+        googletag.pubads().enableAsyncRendering();
+        googletag.enableServices();
+
+    });
+
+</script>
+
+      
+      
+  
+  
+</head>
+<body class="Wr__body home-page" lang="en">
+
+    <noscript>
+        <iframe height="0" width="0" style="display:none;visibility:hidden" src="/web/20160322112023if_/https://www.googletagmanager.com/ns.html?id=GTM-MHRD92"></iframe>
+    </noscript>
+    <script>
+        (function(d,a,c,b,f){var e=a.getElementsByTagName(c)[0];a=a.createElement(c);c="dataLayer"!=b?"\x26l\x3d"+b:"";d[b]=d[b]||[];d[b].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});a.async=!0;a.src="/web/20160322112023/https://www.googletagmanager.com/gtm.js?id\x3d"+f+c;e.parentNode.insertBefore(a,e)})(window,document,"script","dataLayer","GTM-MHRD92");
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    
+    <script type='text/javascript'>
+                    $(document).ready(function() {
+                var mobileAdMarkup = "<div class='ad-container ad-container--mobile-only'><div id='div-gpt-ad-464722250163987145-5'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-5'); });<\/script><\/div><\/div>";
+                $('#DPG_Workouts_Main').after(mobileAdMarkup);
+            });
+            </script>
+
+      
+      
+  
+  
+      
+  
+      
+              
+        
+          <bb-violator-bar cache-ttl="900"></bb-violator-bar>    
+      
+      
+  
+        
+  
+      
+              
+        
+          <div class="Wr__header-bar gte-tablet--flex">
+    <div bb-bindable class="Wr__box Wr__header-bar gte-tablet--flex bb-bindable"><div id="top-bar" class="Wr__header-bar__row"><div class="Wr__header-bar__unit" id="header__contact"><span class="gte-desktop">
+    <a class="Wr__header-bar__link" href="//www.bodybuilding.com/store/shopfaq.htm">
+        24/7 Customer Service
+    </a> &bull;
+    <span class="Wr__header__phone">1-866-236-8417</span>
+</span>
+<span class="lte-tablet">
+    <a class="Wr__header-bar__link" href="//www.bodybuilding.com/store/shopfaq.htm">
+        Need Help?
+    </a> &bull;
+    <span class="Wr__header__phone">1-866-236-8417</span>
+</span></div><div class="Wr__header-bar__divider"></div><div class="Wr__header-bar__unit" id="header__promo1"><div class="Icon-email"></div>
+<span class="only-wide-desktop">
+    <a class="Wr__header-bar__link" href="//www.bodybuilding.com/fun/emailSignup-deals.html">
+        Get Discounts & Deals
+    </a>
+</span>
+<span class="lte-desktop">
+    <a class="Wr__header-bar__link" href="//www.bodybuilding.com/fun/emailSignup-deals.html">
+        Get Discounts
+    </a>
+</span></div><div class="Wr__header-bar__divider"></div><div class="Wr__header-bar__unit gte-tablet--flex" id="header__user-voice"><bb-feedback-trigger bb-feedback-modal></bb-feedback-trigger></div><div class="Wr__header-bar__spacer"></div><div class="Wr__header-bar__unit Wr__CTA gte-desktop--flex" id="header__promo2"><div class="Icon-free-gift"></div>
+<span class="only-wide-desktop">
+    <a class="Wr__header-bar__link" href="//www.bodybuilding.com/store/freegift.htm">
+        Free Gift with Orders Over $99
+    </a>
+</span>
+<span class="lte-desktop">
+    <a class="Wr__header-bar__link" href="//www.bodybuilding.com/store/freegift.htm">
+        Free Gift with Orders $99+
+    </a>
+</span></div><div class="Wr__header-bar__spacer"></div><!-- Desktop --><div class="Wr__header-bar__unit" style="max-height: 33px; overflow-y: hidden;" id="header__like-page"><div class="Wr__header-bar__facebook fb-like" data-href="https://www.facebook.com/Bodybuildingcom" data-colorscheme="dark" data-layout="standard" data-action="like" data-show-faces="false" data-share="false" data-width="225"></div></div><div class="bb-clearfix"></div></div></div>
+</div>
+
+      
+      
+  
+        
+  
+      
+              
+        
+          <header class="Wr__header bb-bindable" media-query="min-width: 992px" id=".Wr__body" bb-sticky="" bb-bindable="">
+    <div class="Wr__header__nav">
+        <h1 class="Wr__logo" id="header__logo"><a href="//www.bodybuilding.com"><div class="Icon-bbcom--small Logo-bbcom--small lte-tablet--block"></div><div class="Icon-bbcom Logo-bbcom gte-desktop--block"></div></a></h1>
+        <div class="Wr__header__nav__unit gte-tablet--flex" id="header__site-nav--desktop">
+  <bb-site-nav-desktop ng-hide="device.breakpoint == 'mobile'">
+    <div class="Wr__nav-menu__spacer"></div>
+    <a class="Wr__nav-menu__unit snav-desk__lvl1--trigger snav-desk" ng-mouseenter="nav.controls.open('menuItem1010001')" href="http://www.bodybuilding.com/store/" id="header__site-nav--desktop__menuItem1010001">Store</a>
+    <div class="Wr__nav-menu__spacer"></div>
+    <a class="Wr__nav-menu__unit snav-desk__lvl1--trigger snav-desk" ng-mouseenter="nav.controls.open('menuItem1060045')" href="http://www.bodybuilding.com/fun/training.html" id="header__site-nav--desktop__menuItem1060045">Training</a>
+    <div class="Wr__nav-menu__spacer"></div>
+    <a class="Wr__nav-menu__unit snav-desk__lvl1--trigger snav-desk" ng-mouseenter="nav.controls.open('menuItem1020012')" href="http://www.bodybuilding.com/fun/features.html" id="header__site-nav--desktop__menuItem1020012">Articles &amp; Videos</a>
+    <div class="Wr__nav-menu__spacer"></div>
+    <a class="Wr__nav-menu__unit snav-desk__lvl1--trigger snav-desk" ng-mouseenter="nav.controls.open('menuItem1020000')" href="http://bodyspace.bodybuilding.com" id="header__site-nav--desktop__menuItem1020000">Community</a>
+    <div class="snav-desk__menu" id="header__site-nav--desktop__level2" ng-if="nav.selected.selector">
+      <div class="Wr__box">
+        <div class="snav-desk__lvl1--container" ng-if="nav.selected.selector == 'menuItem1010001'">
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1080021')" href="http://www.bodybuilding.com/store/" id="header__site-nav--desktop__menuItem1080021">Store Home</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060064')" href="http://www.bodybuilding.com/store/top50.htm" id="header__site-nav--desktop__menuItem1060064">Top 50 &amp; Product Lists</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060060')" href="http://www.bodybuilding.com/store/specials.html" id="header__site-nav--desktop__menuItem1060060">Sales &amp; Specials</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060063')" href="http://www.bodybuilding.com/store/type.htm" id="header__site-nav--desktop__menuItem1060063">Categories</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060062')" href="http://www.bodybuilding.com/store/listing.htm" id="header__site-nav--desktop__menuItem1060062">Brands</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060059')" href="http://www.bodybuilding.com/store/infopages.html" id="header__site-nav--desktop__menuItem1060059">Ingredients</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060061')" href="http://www.bodybuilding.com/store/goals.htm" id="header__site-nav--desktop__menuItem1060061">Goals</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060058')" href="http://www.bodybuilding.com/store/find-supplement-plan.html" id="header__site-nav--desktop__menuItem1060058">Find A Supplement Plan</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060057')" href="http://www.bodybuilding.com/store/shopfaq.htm" id="header__site-nav--desktop__menuItem1060057">Help &amp; Order Status</a>
+        </div>
+        <div class="snav-desk__lvl1--container" ng-if="nav.selected.selector == 'menuItem1060045'">
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1080023')" href="http://www.bodybuilding.com/fun/training.html" id="header__site-nav--desktop__menuItem1080023">Training Home</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060065')" href="http://www.bodybuilding.com/fun/find-a-plan.html" id="header__site-nav--desktop__menuItem1060065">Find A Plan</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1160026')" href="http://www.bodybuilding.com/store/acc.htm" id="header__site-nav--desktop__menuItem1160026">Training Accessories</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1260025')" href="http://www.bodybuilding.com/store/b-elite-fuel.html" id="header__site-nav--desktop__menuItem1260025">Training Fuel &amp; Clothing</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1120025')" href="http://www.bodybuilding.com/store/find-supplement-plan.html" id="header__site-nav--desktop__menuItem1120025">Training Supplementation</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060074')" href="http://www.bodybuilding.com/fun/bbmaintrain.htm" id="header__site-nav--desktop__menuItem1060074">Workouts</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060073')" href="http://www.bodybuilding.com/exercises/" id="header__site-nav--desktop__menuItem1060073">Exercises</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060072')" href="http://www.bodybuilding.com/fun/bbmainnut.htm" id="header__site-nav--desktop__menuItem1060072">Nutrition</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060071')" href="http://www.bodybuilding.com/fun/workout/tracking.html" id="header__site-nav--desktop__menuItem1060071">Tools and Trackers</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1140024')" href="http://www.bodybuilding.com/fun/transform-for-life.html" id="header__site-nav--desktop__menuItem1140024">Transform For Life</a>
+        </div>
+        <div class="snav-desk__lvl1--container" ng-if="nav.selected.selector == 'menuItem1020012'">
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060085')" href="http://www.bodybuilding.com/fun/features.html" id="header__site-nav--desktop__menuItem1060085">Articles &amp; Videos Home</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060084')" href="http://www.bodybuilding.com/fun/bbmaintrain.htm" id="header__site-nav--desktop__menuItem1060084">Workouts</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060083')" href="http://www.bodybuilding.com/fun/find-a-plan.html" id="header__site-nav--desktop__menuItem1060083">Find A Plan</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060082')" href="http://www.bodybuilding.com/fun/bbmainnut.htm" id="header__site-nav--desktop__menuItem1060082">Nutrition</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060081')" href="http://www.bodybuilding.com/fun/bbmainsupp.htm" id="header__site-nav--desktop__menuItem1060081">Supplementation</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060080')" href="http://www.bodybuilding.com/fun/bbmainmind.htm" id="header__site-nav--desktop__menuItem1060080">Motivation</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060079')" href="http://www.bodybuilding.com/fun/build-muscle.html" id="header__site-nav--desktop__menuItem1060079">Build Muscle</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060078')" href="http://www.bodybuilding.com/fun/lose-fat.html" id="header__site-nav--desktop__menuItem1060078">Lose Fat</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060077')" href="http://www.bodybuilding.com/fun/women.htm" id="header__site-nav--desktop__menuItem1060077">For Women</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060076')" href="http://www.bodybuilding.com/fun/bbmaincont.htm" id="header__site-nav--desktop__menuItem1060076">Contest Coverage</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060086')" href="http://www.bodybuilding.com/fun/features.html" id="header__site-nav--desktop__menuItem1060086">More Articles &amp; Videos</a>
+        </div>
+        <div class="snav-desk__lvl1--container" ng-if="nav.selected.selector == 'menuItem1020000'">
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060087')" href="http://bodyspace.bodybuilding.com/" id="header__site-nav--desktop__menuItem1060087">Community Home</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060092')" href="http://forum.bodybuilding.com" id="header__site-nav--desktop__menuItem1060092">Forum</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060090')" href="http://bodyspace.bodybuilding.com/photos/" id="header__site-nav--desktop__menuItem1060090">Photo Gallery</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060089')" href="http://bodyspace.bodybuilding.com/fitboard/" id="header__site-nav--desktop__menuItem1060089">FitBoard</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060088')" href="http://reviews.bodybuilding.com" id="header__site-nav--desktop__menuItem1060088">Reviews</a>
+          <a class="snav-desk__lvl2--trigger" ng-mouseenter="subNav.controls.open('menuItem1060091')" href="http://bodyspace.bodybuilding.com/member-search" id="header__site-nav--desktop__menuItem1060091">Member Search</a>
+        </div>
+        <bb-marketing-widgets class="snav-desk__lvl2--container" ng-model="subNav.selected" id="header__site-nav--desktop__level3"></bb-marketing-widgets>
+      </div>
+    </div>
+  </bb-site-nav-desktop>
+</div>
+
+        <div class="Wr__header__nav__spacer"></div>
+        <div class="Wr__header__nav__unit Wr__search" id="header__search" role="search">
+            <bb-search-typeahead>
+                <div class="typeahead-header">
+                    <input class="site-search-box bb-input bb-input--no-border bb-input--stretch Wr__search__input"
+                           type="text" placeholder="Search" autocomplete="off" maxlength="256" size="35">
+                    <button class="typeahead__box-right-icon"
+                            ng-click="searchButtonClick(query)">
+                        <span class="Icon-search">Search</span></button>
+                </div>
+            </bb-search-typeahead>
+        </div>
+
+        <div class="Wr__header__nav__spacer"></div>
+        <div class="Wr__header__nav__unit Wr__user-menus">
+            <div class="Grid-row Wr__header__nav__icons">
+                <div class="Grid-unit only-mobile--flex">
+                    <bb-site-nav-mobile id="header__site-nav--mobile">
+                        <div class="snav-mob__hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </bb-site-nav-mobile>
+                </div>
+                <div class="Grid-unit Wr__user-menus__menu">
+                    <bb-profile-menu id="header__profile-menu">
+                        <span class="ProfileMenu__trigger-img bb-rounded-corner-image ProfileMenu__trigger-img Icon-profile"></span>
+                    </bb-profile-menu>
+                </div>
+                <div class="Grid-spacer only-mobile--flex"></div>
+                <div class="Grid-unit Wr__user-menus__menu">
+                    <bb-notification-menu id="header__notifications">
+                        <span id="header__notifications__menu--logged-out" class="NotifMenu__trigger Icon-alerts bb-btn--plain"></span>
+                    </bb-notification-menu>
+                </div>
+                <div class="Grid-unit Wr__user-menus__menu">
+                    <bb-mini-cart id="header__mini-cart">
+                        <span class="MiniCart__icon Icon-cart"></span>
+                    </bb-mini-cart>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="Wr__header__nav-border"></div>
+    <bb-back-to-top id="back-to-top"></bb-back-to-top>
+</header>
+
+      
+      
+  
+  
+<div id="breadcrumbs" class="Wr__box bb-crumb__container">
+    <span class="bb-crumb__homepage">Welcome To the World&#39;s &#35;1 Online Fitness Website and Supplement Store!</span>
+</div>
+
+               		 <aside id="header__fullspan--top" class="Wr__box Wr__banner">
+    <div class="Article__banner article-header">
+        <bb-slider bb-slider-autoplay="4">
+     	
+		   
+			         				         		
+   		       
+	     
+
+
+
+
+<style>
+    .Slider .dotContentlet:nth-child(1) .dotContentletControls {
+        top: 25px !important;
+    }
+    .Slider .dotContentlet:nth-child(1) .dotContentletControls::before { 
+        content: "Slide: 1";
+        background-color: white;
+        display: inline-block;
+        margin-left: 2px;
+        padding: 1px 4px;
+        min-width: 60px;
+        border-radius: 3px;
+        border: 1px solid #333;
+    }
+    .Slider bb-slide {
+        height: 600px !important;
+    }
+    .dotContentlet #DPG-rotator-slide-1::after{
+        content: "Slide: 1";
+        background-color: white;
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: #000;
+        font-weight: bold;
+        padding: 1px 4px;
+        border-radius: 3px;
+        border: 1px solid #333;
+    }
+    #DPG-rotator-slide-1{
+        background-image: url(//www.bodybuilding.com/images/merchandising/january/Jan2016_Homepage_Rotator_FindAPlan_1920x600.jpg);
+        position: relative;
+    }
+    
+    @media (max-width: 1200px) {
+        #DPG-rotator-slide-1{
+            background-image: url(//www.bodybuilding.com/images/merchandising/january/Jan2016_Homepage_Rotator_FindAPlan_1200x500.jpg);
+        }
+    }
+    
+    @media (max-width: 500px) {
+        #DPG-rotator-slide-1{
+            background-image: url(/images/merchandising/january/Jan2016_Homepage_Rotator_FindAPlan_500x350.jpg);
+        }
+    }
+</style>
+
+    <!-- Slide # 1 -->
+    <bb-slide>
+        <style scoped>
+            
+        </style>
+       <bb-floor style="background-color: "></bb-floor>
+               <bb-overlay>
+           <a href="http://www.bodybuilding.com/fun/find-a-plan.html">
+                <div id="DPG-rotator-slide-1" class="DPG-header DPG-rotator-slides">
+                   <div id="DPG-rotator-slide-1" class="DPG-header"></div>
+                </div>
+            </a>
+       </bb-overlay>
+    </bb-slide>
+            	
+		   
+			         				         		
+   		       
+	     
+
+
+
+
+<style>
+    .Slider .dotContentlet:nth-child(2) .dotContentletControls {
+        top: 50px !important;
+    }
+    .Slider .dotContentlet:nth-child(2) .dotContentletControls::before { 
+        content: "Slide: 2";
+        background-color: white;
+        display: inline-block;
+        margin-left: 2px;
+        padding: 1px 4px;
+        min-width: 60px;
+        border-radius: 3px;
+        border: 1px solid #333;
+    }
+    .Slider bb-slide {
+        height: 600px !important;
+    }
+    .dotContentlet #DPG-rotator-slide-2::after{
+        content: "Slide: 2";
+        background-color: white;
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: #000;
+        font-weight: bold;
+        padding: 1px 4px;
+        border-radius: 3px;
+        border: 1px solid #333;
+    }
+    #DPG-rotator-slide-2{
+        background-image: url(//www.bodybuilding.com/images/2016/april/the-new-science-of-size-and-strength-desktop.jpg);
+        position: relative;
+    }
+    
+    @media (max-width: 1200px) {
+        #DPG-rotator-slide-2{
+            background-image: url(//www.bodybuilding.com/images/2016/april/the-new-science-of-size-and-strength-tablet.jpg);
+        }
+    }
+    
+    @media (max-width: 500px) {
+        #DPG-rotator-slide-2{
+            background-image: url(//www.bodybuilding.com/images/2016/april/the-new-science-of-size-and-strength-mobile.jpg);
+        }
+    }
+</style>
+
+    <!-- Slide # 2 -->
+    <bb-slide>
+        <style scoped>
+            .DPG-header-text{margin:0 auto;position:relative;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);width:95%;max-width:800px}
+
+#DPG-rotator-slide-2 {
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            max-width: 2570px;
+        }
+        </style>
+       <bb-floor style="background-color: "></bb-floor>
+               <bb-overlay>
+           <a href="http://www.bodybuilding.com/fun/the-new-science-of-size-and-strength">
+                <div id="DPG-rotator-slide-2" class="DPG-header DPG-rotator-slides">
+                   <div id="DPG-rotator-slide-2" class="DPG-header">
+		<div class="DPG-header-text">
+			<div class="DPG-header-title">The New Science Of Size And Strength</div>
+			<div class="DPG-sub-header-title"></div>
+			<div class="DPG-header-vendor-logo">Sponsored By<br />
+				<img src="http://www.bodybuilding.com/images/2016/march/muscletech-lab-series-logo-2.png" alt="MuscleTech" style="height: 58px;">
+			</div>
+		</div>
+	</div>
+                </div>
+            </a>
+       </bb-overlay>
+    </bb-slide>
+            	
+		   
+			         				         		
+   		       
+	     
+
+
+
+
+<style>
+    .Slider .dotContentlet:nth-child(3) .dotContentletControls {
+        top: 75px !important;
+    }
+    .Slider .dotContentlet:nth-child(3) .dotContentletControls::before { 
+        content: "Slide: 3";
+        background-color: white;
+        display: inline-block;
+        margin-left: 2px;
+        padding: 1px 4px;
+        min-width: 60px;
+        border-radius: 3px;
+        border: 1px solid #333;
+    }
+    .Slider bb-slide {
+        height: 600px !important;
+    }
+    .dotContentlet #DPG-rotator-slide-3::after{
+        content: "Slide: 3";
+        background-color: white;
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: #000;
+        font-weight: bold;
+        padding: 1px 4px;
+        border-radius: 3px;
+        border: 1px solid #333;
+    }
+    #DPG-rotator-slide-3{
+        background-image: url(//www.bodybuilding.com/images/merchandising/april/2016_TopSuppsNotTaking_1920x1080.jpg);
+        position: relative;
+    }
+    
+    @media (max-width: 1200px) {
+        #DPG-rotator-slide-3{
+            background-image: url(//www.bodybuilding.com/images/merchandising/april/2016_TopSuppsNotTaking_1200x500.jpg);
+        }
+    }
+    
+    @media (max-width: 500px) {
+        #DPG-rotator-slide-3{
+            background-image: url(//www.bodybuilding.com/images/merchandising/april/2016_TopSuppsNotTaking_500x350.jpg);
+        }
+    }
+</style>
+
+    <!-- Slide # 3 -->
+    <bb-slide>
+        <style scoped>
+            
+        </style>
+       <bb-floor style="background-color: "></bb-floor>
+               <bb-overlay>
+           <a href="http://www.bodybuilding.com/store/bbcom-offers.html">
+                <div id="DPG-rotator-slide-3" class="DPG-header DPG-rotator-slides">
+                   <div id="DPG-rotator-slide-3" class="DPG-header"></div>
+                </div>
+            </a>
+       </bb-overlay>
+    </bb-slide>
+                <bb-slider-control-panel>
+       		<bb-slider-control direction="previous"></bb-slider-control>
+   			<bb-slider-control direction="next"></bb-slider-control>
+   		</bb-slider-control-panel>
+
+		</bb-slider>
+    </div>
+</aside> 
+   
+      
+  
+      
+              
+        
+          <div class="Wr__content Wr__box">
+    <div class="ad-container ad-container--horizontal ad-container--top">
+        <div id='div-gpt-ad-464722250163987145-1'>
+            <script type='text/javascript'>
+                googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-1'); });
+            </script>
+        </div>
+    </div>
+    <div class="Wr__content__main" id="content-area">
+          
+  
+      
+              
+        
+          
+
+
+    <aside class="Wr__content__nav bb-bindable Wr__nav-menu" id="left-sidebar" bb-bindable="">
+        <div class="Wr__left-nav">
+    		<ul class="Wr__left-nav__list-block" id="left-sidebar__page-nav">
+            	<li id="left-sidebar__page-nav__root" class="Wr__left-nav__list-block__list-item--selected">
+                	<a class="Wr__left-nav__list-block__list-item__label Wr__left-nav__list-block__anchor-item--selected" href="http://www.bodybuilding.com">Home</a>
+					<div class="Wr__left-nav">
+    					<ul class="Wr__left-nav__list-block" id="left-sidebar__page-nav">
+            				<li id="left-sidebar__page-nav__store" class="Wr__left-nav__list-block__list-item">
+                				<a class="Wr__left-nav__list-block__list-item__label" href="http://www.bodybuilding.com/store/">Store</a>
+            				</li>
+			                <li id="left-sidebar__page-nav__Training_Main" class="Wr__left-nav__list-block__list-item">
+			                    <a class="Wr__left-nav__list-block__list-item__label" href="http://www.bodybuilding.com/fun/training.html">Training</a>
+			                </li>
+			                <li id="left-sidebar__page-nav__articles-training" class="Wr__left-nav__list-block__list-item">
+			                    <a class="Wr__left-nav__list-block__list-item__label" href="http://www.bodybuilding.com/fun/features.html">Articles &amp; Videos</a>
+			                </li>
+			                <li id="left-sidebar__page-nav__bodyspace" class="Wr__left-nav__list-block__list-item">
+			                    <a class="Wr__left-nav__list-block__list-item__label" href="http://bodyspace.bodybuilding.com/">Community</a>
+			                </li>
+    					</ul>
+					</div>
+            	</li>
+    		</ul>
+		</div>
+	</aside>
+
+      
+      
+  
+          <div class="MainCol__container">
+            <main role="main" id="main" class="Wr__content__content Wr__content__content--with-two-col">
+
+      
+      
+  
+  
+               		     	
+		   
+			         				         		
+   		       
+	    
+    
+    
+    
+    <div id="Static_Value_Props" class="Comp__homepage-stats">
+            <h2>The World&rsquo;s Largest Online Fitness Site</h2>
+                <p>The largest selection of bodybuilding articles, exercises, workouts, supplements, &amp; fitness friends!</p>
+            <div class="column-container three-col">
+            <div class="left-col col">
+            <img src="//www.bodybuilding.com/images/hompage_world-map.png" alt="world map icon">
+            <h3>25,000,000+ <span class="bottom-text">Orders Shipped</span></h3>
+        </div>
+            <div class="center-col col">
+            <img src="//www.bodybuilding.com/images/homepage_open-book.png" alt="books icon">
+            <h3>20,000+ <span class="bottom-text">Articles</span></h3>
+        </div>
+            <div class="right-col col">
+            <img src="//www.bodybuilding.com/images/homepage_total-members_copy.png" alt="members icon">
+            <h3>9,500,000+ <span class="bottom-text">Total Members</span></h3>
+        </div>
+        </div>
+    </div>
+            	
+		   
+			         				         		
+   		       
+	    <div id="Static_Social_Sharing" class="Comp__follow-us">
+    <div class="striped-bg">
+        <div class="inner-content">
+            <span class="content-left">Follow Us</span>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Bodybuildingcom" rel="nofollow" target="_blank" title="Facebook"><img src="//www.bodybuilding.com/images/hompage_facebook.png" alt="Facebook icon" class="loading"></a>
+                <a href="https://twitter.com/bodybuildingcom" rel="nofollow" target="_blank" title="Twitter"><img src="//www.bodybuilding.com/images/hompage_twitter.png" alt="Twitter icon" class="loading"></a>
+                <a href="https://plus.google.com/+bodybuildingcom/posts" rel="nofollow" target="_blank" title="Google Plus"><img src="//www.bodybuilding.com/images/hompage_google.png" alt="Google+ icon" class="loading"></a>
+                <a href="https://www.youtube.com/user/bodybuildingcomvideo" rel="nofollow" target="_blank" title="YouTube"><img src="//www.bodybuilding.com/images/hompage_youtube.png" alt="YouTube icon" class="loading"></a>
+                <a href="http://www.pinterest.com/Bodybuildingcom/" rel="nofollow" target="_blank" title="Pinterest"><img src="//www.bodybuilding.com/images/hompage_pinterest.png" alt="Pinterest icon" class="loading"></a>
+                <a href="http://instagram.com/bodybuildingcom/" rel="nofollow" target="_blank" title="Instagram"><img src="//www.bodybuilding.com/images/hompage_instagram.png" alt="Instagram icon" class="loading"></a>
+            </div>
+            <span class="content-right">= 1 Billion Fans</span>
+        </div>
+    </div>
+</div>
+            	
+		   
+			         				         		
+   		       
+	    
+    
+    
+    
+    <section class="Comp__shop-links">
+        <div class="shop-links-container">
+            <div id="DPG_Store_Sections_1" class="links-left">
+                <a href="http://www.bodybuilding.com/store/">Shop Entire Store ></a>
+                <a href="http://www.bodybuilding.com/store/top50.htm">Shop Top 50 ></a>
+                <a href="http://www.bodybuilding.com/store/top50.htm">Shop Sales &amp; Specials ></a>
+            </div>
+            <div id="DPG_Store_Sections_2" class="image-right">
+                <a href="http://www.bodybuilding.com/store/top50.htm"><img src="//www.bodybuilding.com/images/merchandising/march/top50_640x250.jpg" alt="Our 50 Top Sellers"></a>
+            </div>
+        </div>
+    </section>
+            	
+		   
+			         				         		
+   		       
+	    
+
+
+
+
+
+
+
+
+
+<section id="DPG-featured-products">
+	<div class="section-multi-header-stripe">
+	    <div class="header-inner col-xs-4 col-sm-4">
+	        <a href="http://www.bodybuilding.com/store/best-protein-powders.html">Top 10 Best <span class="product-type">Protein</span></a>
+	    </div>
+	    <div class="header-inner col-xs-4 col-sm-4">
+	        <a href="http://www.bodybuilding.com/store/best-fat-burner-supplements.html">Top 10 Best <span class="product-type">Fat Burners</span></a>
+	    </div>
+	    <div class="header-inner col-xs-4 col-sm-4">
+	        <a href="http://www.bodybuilding.com/store/best-post-workout-supplements.html">Top 10 Best <span class="product-type">Post-workouts</span></a>
+	    </div>
+	</div>
+	<div class="featured-products-container" bb-featured-products-directive productids="24349,prod3140010,prod450016" producttypes="Protein,Fat Burners,Post-workouts" producttypeurls="$!{featuredProduct1TypeUrl},$!{featuredProduct2TypeUrl},$!{featuredProduct3TypeUrl}" productViolators="Order & Save 20%,Buy 1 Get 1 FREE,Buy 1 Get 1 - 50% OFF" productViolatorColors="green,green,green"></div>
+</section>
+            	
+		   
+			         				         		
+   		       
+	    
+<h4 class="section-header-stripe">
+    <div class="header-inner">
+        <span class="header-desktop">Build Your Best Self</span>
+
+		        	<span class="header-mobile">Build Your Best Self</span>
+        
+                	<span class="header-link-wrapper"><span class="header-slash">/</span> <a class="header-link" href="http://www.bodybuilding.com/fun/find-a-plan.html">View All</a></span>
+            </div>
+</h4>
+<bb-find-a-plan-frontend gain-driven="true"></bb-find-a-plan-frontend>
+            	
+		   
+			         				         		
+   		       
+	    
+
+
+<section class="Comp__featured-articles">
+
+    <!-- Custom Article Full Width -->
+    <div id="DPG_Workouts_Main" class="custom-article-main">
+        <h4 class="section-header-stripe">
+            <div class="header-inner">
+                Workouts <span class="header-slash">/</span> <a href="http://www.bodybuilding.com/fun/bbmaintrain.htm" class="header-link">View All</a>
+            </div>
+        </h4>
+        <div class="custom-large">
+            <a href="http://www.bodybuilding.com/fun/shortcut-to-strength" class="article-image-container">
+                <div class="blue-flag">
+                    <span class="flag-content workouts"><span class="flag-text"></span></span>
+                </div>
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/march/shortcut-to-strength-facebook-2.jpg" alt="Jim Stoppani’s 6-Week Shortcut To Strength">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/shortcut-to-strength" class="article-title">Jim Stoppani’s 6-Week Shortcut To Strength</a>
+                <div class="article-description">This program is your ticket to increased muscle mass, total-body strength, and overall power!</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 8, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/shortcut-to-strength" class="article-view-more"><span class="view-more-long">Read</span> More &rsaquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Articles 3 Columns -->
+    <div class="custom-small">
+        <div id="DPG_Workouts_Sub_1" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/transform-your-body-in-8-weeks" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/transform-your-body-in-8-weeks-feature.jpg" alt="Transform Your Body In 8 Weeks!">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/transform-your-body-in-8-weeks" class="article-title">Transform Your Body In 8 Weeks!</a>
+                <div class="article-description">Don't slow down now that resolution season is over. Here's the program to sustain your progress.</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 20, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/transform-your-body-in-8-weeks" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+        <div id="DPG_Workouts_Sub_2" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/jim-stoppanis-guide-to-dips" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/jim-stoppanis-guide-to-dips-feature.jpg" alt="Jim Stoppani's Guide To Dips">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/jim-stoppanis-guide-to-dips" class="article-title">Jim Stoppani's Guide To Dips</a>
+                <div class="article-description">Are dips a chest or triceps exercise? The answer is both. Here's your guide to the nuances of each variation.</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 19, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/jim-stoppanis-guide-to-dips" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+        <div id="DPG_Workouts_Sub_3" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/7-movements-you-need-for-full-body-strength" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/7-movement-patterns-you-need-for-full-body-strength-feature.jpg" alt="7 Movements You Need For Full-Body Strength">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/7-movements-you-need-for-full-body-strength" class="article-title">7 Movements You Need For Full-Body Strength</a>
+                <div class="article-description">Eradicate your weaknesses for a body that performs from any angle by mastering the fundamental human movement patterns!</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 19, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/7-movements-you-need-for-full-body-strength" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Articles 4 Columns -->
+    <div class="recommended-seperator">
+        <div class="recommended-seperator-text">Recommended</div>
+    </div>
+    <bb-recommended-articles category="workouts" current-articles="http://www.bodybuilding.com/fun/shortcut-to-strength, http://www.bodybuilding.com/fun/transform-your-body-in-8-weeks, http://www.bodybuilding.com/fun/jim-stoppanis-guide-to-dips, 
+http://www.bodybuilding.com/fun/7-movements-you-need-for-full-body-strength"></bb-recommended-articles>
+
+</section>
+            	
+		   
+			         				         		
+   		       
+	    
+
+
+<section class="Comp__featured-articles">
+
+    <!-- Custom Article Full Width -->
+    <div id="DPG_Nutrition_Main" class="custom-article-main">
+        <h4 class="section-header-stripe">
+            <div class="header-inner">
+                Nutrition <span class="header-slash">/</span> <a href="http://www.bodybuilding.com/fun/bbmainnut.htm" class="header-link">View All</a>
+            </div>
+        </h4>
+        <div class="custom-large">
+            <a href="http://www.bodybuilding.com/fun/jessie-hilgenberg-whats-in-your-fridge" class="article-image-container">
+                <div class="blue-flag">
+                    <span class="flag-content nutrition"><span class="flag-text"></span></span>
+                </div>
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/jessie-hilgenberg-whats-in-your-fridge-facebook.jpg" alt="Jessie Hilgenberg: What's In Your Fridge?">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/jessie-hilgenberg-whats-in-your-fridge" class="article-title">Jessie Hilgenberg: What's In Your Fridge?</a>
+                <div class="article-description">If you think the fridge of an IFBB figure pro changes for the worse after having a baby, you're wrong.</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 25, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/jessie-hilgenberg-whats-in-your-fridge" class="article-view-more"><span class="view-more-long">Read</span> More &rsaquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Articles 3 Columns -->
+    <div class="custom-small">
+        <div id="DPG_Nutrition_Sub_1" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/5-ways-youre-dead-wrong-about-plant-based-proteins" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/4-ways-your-dead-wrong-about-plant-based-proteins-feature.jpg" alt="5 Ways You're Dead Wrong About Plant-Based Proteins">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/5-ways-youre-dead-wrong-about-plant-based-proteins" class="article-title">5 Ways You're Dead Wrong About Plant-Based Proteins</a>
+                <div class="article-description">Protein doesn't have to come from animal sources to be effective. Here are 5 myths about plant-based protein you need to ditch.</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 21, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/5-ways-youre-dead-wrong-about-plant-based-proteins" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+        <div id="DPG_Nutrition_Sub_2" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/how-to-make-the-perfect-healthy-stir-fry" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/how-to-make-the-perfect-healthy-stir-fry-feature.jpg" alt="The Perfect Muscle-Building Stir-Fry!">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/how-to-make-the-perfect-healthy-stir-fry" class="article-title">The Perfect Muscle-Building Stir-Fry!</a>
+                <div class="article-description">Give your gains some serious fuel with this delicious, easy-to-make, diesel take on a staple meal.</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 18, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/how-to-make-the-perfect-healthy-stir-fry" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+        <div id="DPG_Nutrition_Sub_3" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/why-white-rice-is-your-ideal-carb-after-a-hard-workout" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/why-white-rice-is-your-ideal-carb-after-a-hard-workout-feature.jpg" alt="Why White Rice Is Your Ideal Carb After A Hard Workout">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/why-white-rice-is-your-ideal-carb-after-a-hard-workout" class="article-title">Why White Rice Is Your Ideal Carb After A Hard Workout</a>
+                <div class="article-description">No matter what you eat the rest of the day, here's why you should load up on rice at this crucial time!</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 25, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/why-white-rice-is-your-ideal-carb-after-a-hard-workout" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Articles 4 Columns -->
+    <div class="recommended-seperator">
+        <div class="recommended-seperator-text">Recommended</div>
+    </div>
+    <bb-recommended-articles category="nutrition" current-articles="http://www.bodybuilding.com/fun/jessie-hilgenberg-whats-in-your-fridge, http://www.bodybuilding.com/fun/5-ways-youre-dead-wrong-about-plant-based-proteins, http://www.bodybuilding.com/fun/how-to-make-the-perfect-healthy-stir-fry, 
+http://www.bodybuilding.com/fun/why-white-rice-is-your-ideal-carb-after-a-hard-workout"></bb-recommended-articles>
+
+</section>
+            	
+		   
+			         				         		
+   		       
+	    
+
+
+<section class="Comp__featured-articles">
+
+    <!-- Custom Article Full Width -->
+    <div id="DPG_Supplements_Main" class="custom-article-main">
+        <h4 class="section-header-stripe">
+            <div class="header-inner">
+                Supplementation <span class="header-slash">/</span> <a href="http://www.bodybuilding.com/fun/bbmainsupp.htm" class="header-link">View All</a>
+            </div>
+        </h4>
+        <div class="custom-large">
+            <a href="http://www.bodybuilding.com/fun/5-things-you-dont-know-about-beta-alanine" class="article-image-container">
+                <div class="blue-flag">
+                    <span class="flag-content supplementation"><span class="flag-text"></span></span>
+                </div>
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/5-things-you-didnt-know-about-beta-alanine-facebook-box.jpg" alt="5 Things You Don't Know About Beta-Alanine">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/5-things-you-dont-know-about-beta-alanine" class="article-title">5 Things You Don't Know About Beta-Alanine</a>
+                <div class="article-description">Find out everything you never knew about this pre-workout supplement.</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 13, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/5-things-you-dont-know-about-beta-alanine" class="article-view-more"><span class="view-more-long">Read</span> More &rsaquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Articles 3 Columns -->
+    <div class="custom-small">
+        <div id="DPG_Supplements_Sub_1" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/ultimate-guide-to-building-muscle" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/march/your-ultimate-guide-to-building-muscle-feature.jpg" alt="Your Complete Guide To Building Muscle">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/ultimate-guide-to-building-muscle" class="article-title">Your Complete Guide To Building Muscle</a>
+                <div class="article-description">Use these research-backed supplement recommendations along with muscle-building workouts and a full meal plan.</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 4, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/ultimate-guide-to-building-muscle" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+        <div id="DPG_Supplements_Sub_2" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/4-simple-supplements-for-vegetarians" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/4-simple-supplements-for-vegetarians-feature.jpg" alt="4 Simple Supplements For Vegetarians">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/4-simple-supplements-for-vegetarians" class="article-title">4 Simple Supplements For Vegetarians</a>
+                <div class="article-description">Don't wait until you're deficient in an important nutrient. Boost the power of your vegetarian diet with these simple supplements!</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 11, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/4-simple-supplements-for-vegetarians" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+        <div id="DPG_Supplements_Sub_3" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/protein-and-m-and-m-cake-jars" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/protein-and-mm-cake-jars-feature.jpg" alt="Protein-Packed M&M Cake Jars!">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/protein-and-m-and-m-cake-jars" class="article-title">Protein-Packed M&M Cake Jars!</a>
+                <div class="article-description">Cake, candy, and gains combine to make this a delicious dessert you have to try!</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 18, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/protein-and-m-and-m-cake-jars" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Articles 4 Columns -->
+    <div class="recommended-seperator">
+        <div class="recommended-seperator-text">Recommended</div>
+    </div>
+    <bb-recommended-articles category="supplementation" current-articles="http://www.bodybuilding.com/fun/5-things-you-dont-know-about-beta-alanine, http://www.bodybuilding.com/fun/ultimate-guide-to-building-muscle, http://www.bodybuilding.com/fun/4-simple-supplements-for-vegetarians, 
+http://www.bodybuilding.com/fun/protein-and-m-and-m-cake-jars"></bb-recommended-articles>
+
+</section>
+            	
+		   
+			         				         		
+   		       
+	    
+
+
+
+<style>
+#DPG-Category-Rotator cms-6up-rotator {
+margin: 10px 5px;
+}
+cms-6up-rotator {
+display: block
+}
+</style>
+
+<section id="DPG-Category-Rotator">
+    <h4 class="section-header-stripe">
+        <div class="header-inner">
+            Recommended Products <span class="header-slash">/</span> <a href="http://www.bodybuilding.com/store/top50.htm" class="header-link">View All</a>
+        </div>
+    </h4>
+    <cms-6up-rotator ng-cloak>
+        <cms-product-rotator category-id="PROTEIN" ng-cloak></cms-product-rotator>
+    </cms-6up-rotator>
+</section>
+
+            	
+		   
+			         				         		
+   		       
+	    
+
+
+<section class="Comp__featured-articles">
+
+    <!-- Custom Article Full Width -->
+    <div id="DPG_Motivation_Main" class="custom-article-main">
+        <h4 class="section-header-stripe">
+            <div class="header-inner">
+                Motivation <span class="header-slash">/</span> <a href="http://www.bodybuilding.com/fun/bbmainmind.htm" class="header-link">View All</a>
+            </div>
+        </h4>
+        <div class="custom-large">
+            <a href="http://www.bodybuilding.com/fun/its-time-for-bodybuilding-and-crossfit-to-make-peace" class="article-image-container">
+                <div class="blue-flag">
+                    <span class="flag-content motivation"><span class="flag-text"></span></span>
+                </div>
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/its-time-for-bodybuilding-and-crossfit-to-make-peace-facebook.jpg" alt="It's Time For Bodybuilding And CrossFit To Make Peace">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/its-time-for-bodybuilding-and-crossfit-to-make-peace" class="article-title">It's Time For Bodybuilding And CrossFit To Make Peace</a>
+                <div class="article-description">Hating on each other stopped being cute a long time ago. It's time for all of the dominant fitness paradigms to stop infighting and unite against a common enemy!</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 25, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/its-time-for-bodybuilding-and-crossfit-to-make-peace" class="article-view-more"><span class="view-more-long">Read</span> More &rsaquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Articles 3 Columns -->
+    <div class="custom-small">
+        <div id="DPG_Motivation_Sub_1" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/fitstagram-volume-37-10-incredible-transformations" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/fitstagram-volume-37-feature.jpg" alt="10 Incredible Transformations">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/fitstagram-volume-37-10-incredible-transformations" class="article-title">10 Incredible Transformations</a>
+                <div class="article-description">Need a reason to hit the weights hard this week? Use these examples of perseverance and strength to crush your goals.</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 15, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/fitstagram-volume-37-10-incredible-transformations" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+        <div id="DPG_Motivation_Sub_2" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/rising-up-the-story-of-wheelchair-bodybuilder-nick-scott" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/rising-up-the-story-of-wheelchair-bodybuilder-nick-scott-feature.jpg" alt="Rising Up: The Story Of Nick Scott">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/rising-up-the-story-of-wheelchair-bodybuilder-nick-scott" class="article-title">Rising Up: The Story Of Nick Scott</a>
+                <div class="article-description">A car accident left Nick Scott unable to walk, but it didn't derail his competitive ambitions. Check out this inspiring video!</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 11, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/rising-up-the-story-of-wheelchair-bodybuilder-nick-scott" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+        <div id="DPG_Motivation_Sub_3" class="custom-article col-xs-4 col-sm-4">
+            <a href="http://www.bodybuilding.com/fun/ask-the-science-chick-whats-the-best-time-of-day-to-work-out" class="article-image-container">
+                <img class="article-image" src="//www.bodybuilding.com/images/2016/april/atsc-whats-the-best-time-of-day-to-workout-feature.jpg" alt="What's The Best Time Of Day To Work Out?">
+            </a>
+            <figcaption>
+                <a href="http://www.bodybuilding.com/fun/ask-the-science-chick-whats-the-best-time-of-day-to-work-out" class="article-title">What's The Best Time Of Day To Work Out?</a>
+                <div class="article-description">Our science editor weighs in on whether there's an optimal time of day to train for building muscle and strength!</div>
+            </figcaption>
+            <div class="article-info">
+                <div class="article-date">Apr 19, 2016</div>
+                <a href="http://www.bodybuilding.com/fun/ask-the-science-chick-whats-the-best-time-of-day-to-work-out" class="article-view-more"><span class="view-more-long">Read </span> More &rsaquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Articles 4 Columns -->
+    <div class="recommended-seperator">
+        <div class="recommended-seperator-text">Recommended</div>
+    </div>
+    <bb-recommended-articles category="motivation" current-articles="http://www.bodybuilding.com/fun/its-time-for-bodybuilding-and-crossfit-to-make-peace, http://www.bodybuilding.com/fun/fitstagram-volume-37-10-incredible-transformations, http://www.bodybuilding.com/fun/rising-up-the-story-of-wheelchair-bodybuilder-nick-scott, 
+http://www.bodybuilding.com/fun/ask-the-science-chick-whats-the-best-time-of-day-to-work-out"></bb-recommended-articles>
+
+</section>
+            	
+		   
+			         				         		
+   		       
+	    <style scoped>
+    #whats-new { margin-bottom: 35px; padding: 0 10px; }
+#whats-new h2 { font-size: 36px; font-family: ProximaNovaExCnBold, Arial, san-serif; text-align: center; text-transform: uppercase; margin: 0; line-height: 1em; }
+#whats-new a:hover { text-decoration: underline; }
+</style>
+<div id="Static_View_More_Content">
+<div id="whats-new">
+   <h2>
+      <a href="http://www.bodybuilding.com/fun/whats-new.html">See More New Content ›</a>
+   </h2>
+</div>
+</div>            	
+		   
+			         				         		
+   		       
+	    
+<h4 class="section-header-stripe">
+    <div class="header-inner">
+        <span class="header-desktop">Build Muscle and Burn Fat -- With Friends</span>
+
+		        	<span class="header-mobile">Similar Members</span>
+        
+            </div>
+</h4>
+
+
+<bb-recommended-members></bb-recommended-members>
+            	
+		   
+			         				         		
+   		       
+	    
+    
+    
+    
+    <div id="DPG_Fitness_Success_Stories" class="Comp__member-testimonials">
+        <h4 class="section-header-stripe">
+            <div class="header-inner">Fitness Success Stories</div>
+        </h4>
+        <div class="member-container">
+            <div class="member-image-container">
+                <a href="http://bodyspace.bodybuilding.com/RachaelMPG/">
+                    <img src="//www.bodybuilding.com/images/merchandising/february/Rachael_Pecoraro_new_200x200.jpg" alt="RachaelMPG">
+                </a>
+            </div>
+            <div class="testimonial">
+                <div class="member-name">
+                    RachaelMPG <a href="http://bodyspace.bodybuilding.com/RachaelMPG/">View Profile</a>
+                </div>
+                <p>"The articles on the website are packed full of information! When I need to change up a routine, or feel like my lift is getting boring, I can go on the site and find something new to try."</p>
+            </div>
+        </div>
+        <div class="member-container">
+            <div class="member-image-container">
+                <a href="http://bodyspace.bodybuilding.com/specialkr/">
+                    <img src="//www.bodybuilding.com/images/merchandising/february/Kevin_Riley_new_200x200.jpg" alt="specialkr">
+                </a>
+            </div>
+            <div class="testimonial">
+                <div class="member-name">
+                    specialkr <a href="http://bodyspace.bodybuilding.com/specialkr/">View Profile</a>
+                </div>
+                <p>"I use most all of Bodybuilding.com.  The store has the best prices of any I have seen.  I love BodySpace to keep track of my goals, and progression."</p>
+            </div>
+        </div>
+    </div>
+            	
+		   
+			         				         		
+   		       
+	    <section id="DPG_Product_Matrix" class="Comp__product-table">
+    <h4 class="section-header-stripe">
+        <div class="header-inner">
+            Lowest Prices <span class="header-slash">/</span> <a class="header-link" href="http://www.bodybuilding.com/store/">Shop</a>
+        </div>
+    </h4>
+    <div class="product-table-container">
+
+        <div class="col-md-3">
+            <div class="product-table-header-container">
+                <a href="http://www.bodybuilding.com/store/musclegain.htm" class="product-table-header">Muscle Building Supplements</a>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/bpi-sports/best-bcaa.html" class="product-table-item-link">BPI Sports</a>
+<div class="product-table-item">Best BCAA</div>
+                </div>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/nutrex/outlift.html" class="product-table-item-link">Nutrex</a>
+<div class="product-table-item">Outlift</div>
+                </div>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/bsn/synth.html" class="product-table-item-link">BSN</a>
+<div class="product-table-item">Syntha-6</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-table-header-container">
+                <a href="http://www.bodybuilding.com/store/fatloss.htm" class="product-table-header">Top Fat Loss Supplements</a>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/jym/shred-jym.html" class="product-table-item-link">JYM</a>
+<div class="product-table-item">Shred Jym</div>
+                </div>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/nutrex/lipo-6-black-ultra-concentrate.html" class="product-table-item-link">Nutrex</a>
+<div class="product-table-item">Lipo-6 Black Ultra Concentrate</div>
+                </div>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/cellucor/super-hd.html" class="product-table-item-link">Cellucor</a>
+<div class="product-table-item">Super HD</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-table-header-container">
+                <a href="http://www.bodybuilding.com/store/new-products.html" class="product-table-header">Hot New Products</a>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/6-pack-fitness/innovator-mini-6-pack-bag.html" class="product-table-item-link">6 Pack Fitness</a>
+<div class="product-table-item">Innovator Mini 6 Pack Bag</div>
+                </div>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/kaged-muscle/c-hcl-creatine-hcl.html" class="product-table-item-link">Kaged Muscle</a>
+<div class="product-table-item">C-HCL</div>
+                </div>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/cellucor/c4-neuro.html" class="product-table-item-link">Cellucor</a>
+<div class="product-table-item">C4 Neuro</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-table-header-container">
+                <a href="http://www.bodybuilding.com/store/popular-brands.html" class="product-table-header">Top Brands</a>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/opt/opt.htm" class="product-table-item-link">Optimum</a>
+                </div>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/bsn/bio.htm" class="product-table-item-link">BSN</a>
+                </div>
+            </div>
+            <div class="product-table-item-container">
+                <div class="item-vertical-align">
+                    <a href="http://www.bodybuilding.com/store/cellucor/cellucor.htm" class="product-table-item-link">Cellucor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            	
+		   
+			         				         		
+   		       
+	    <div id="newsletter-widget" class="Comp__newsletter">
+    <h4 class="section-header-stripe">
+        <div class="header-inner">Stay Connected</div>
+    </h4>
+    <div class="newsletter-container">
+        <div class="left-col">
+            <h3>Free Bodybuilding.com <span class="big">Newsletter</span></h3>
+    	<p>Receive exciting features, news &amp; special offers!</p>
+        </div>
+        <div class="right-col">
+            <bb-newsletter-form></bb-newsletter-form>
+            <p>You can unsubscribe at any time by clicking "Unsubscribe" in any Newsletter.</p>
+        </div>
+    </div>
+</div>
+         
+   
+      
+  
+      
+              
+        
+                      </main>
+        </div>
+        <aside class="Wr__content__promo bb-bindable" id="right-sidebar" bb-bindable="">
+            <div id="right-sidebar__mini-feed" bb-rsb></div>
+            <div class="ad-container ad-container--rsb">
+                <div id="div-gpt-ad-464722250163987145-3">
+                    <script type='text/javascript'>
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-3'); });
+                    </script>
+                </div>
+            </div>
+            <bb-pzone id="right-sidebar__personalization-zone"></bb-pzone>
+            <div class="ad-container ad-container--rsb">
+                <div id="div-gpt-ad-464722250163987145-2">
+                    <script type='text/javascript'>
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-2'); });
+                    </script>
+                </div>
+            </div>
+            <div class="bb-clearfix"></div>
+        </aside>
+    </div>
+    <div class="ad-container ad-container--horizontal ad-container--bottom">
+        <div id='div-gpt-ad-464722250163987145-4'>
+            <script type='text/javascript'>
+    			googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-4'); });
+    		</script>
+    	</div>
+    </div>
+    
+    </div>
+<div id="div-gpt-ad-464722250163987145-6" class="one-by-one">
+    <script type='text/javascript'>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-6'); });
+    </script>
+</div>
+<div id="div-gpt-ad-464722250163987145-7" class="one-by-one">
+    <script type='text/javascript'>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-7'); });
+    </script>
+</div>
+<div id="div-gpt-ad-464722250163987145-8" class="one-by-one">
+    <script type='text/javascript'>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-8'); });
+    </script>
+</div>
+<div id="div-gpt-ad-464722250163987145-9" class="one-by-one">
+    <script type='text/javascript'>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-464722250163987145-9'); });
+    </script>
+</div>
+      
+      
+  
+  
+      
+  
+      
+              
+        
+          
+<footer class="Wr__footer bb-bindable" bb-bindable id="footer">
+  <div class="Wr__footer__core-value">
+    <span class="Wr__footer__core-value-icon Icon-bbcom-small-b Logo-bbcom-small-b"></span>
+    <span class="Wr__footer__core-value__text gte-tablet--inline-block">Core Value #1: Always be truthful and honest in every aspect of business.</span>
+  </div>
+  <div class="Wr__footer__section1">
+    <div class="Wr__footer__section1__col">
+      <h3 class="Wr__footer__heading Wr__footer__">Need Help?</h3>
+      <ul id="footer__needHelp" class="Wr__footer__list Wr__footer__needHelp">
+        <li selector="emailSupport" id="emailSupport" class="Wr__footer__list__item Wr__confidence-logo--needHelp">
+          <a class="Wr__footer__link" href="mailto:support@bodybuilding.com" target="_self">Email Support</a>
+        </li>
+        <li selector="liveChat" id="liveChat" class="Wr__footer__list__item Wr__confidence-logo--needHelp">
+          <a class="Wr__footer__link" href="https://cschat.bodybuilding.com/chat/chatstart.aspx?domain=www.bodybuilding.com&amp;SID=0" target="_blank">Live Chat</a>
+        </li>
+        <li selector="giftCertificates" id="giftCertificates" class="Wr__footer__list__item Wr__confidence-logo--needHelp">
+          <a class="Wr__footer__link" href="http://www.bodybuilding.com/store/help/gift-certificates.html" target="_self">Gift Certificates</a>
+        </li>
+        <li selector="paymentMethods" id="paymentMethods" class="Wr__footer__list__item Wr__confidence-logo--needHelp">
+          <a class="Wr__footer__link" href="http://www.bodybuilding.com/store/help/payment-methods.html" target="_self">Payment Methods</a>
+        </li>
+      </ul>
+      <div class="Wr__footer__hr only-mobile--block"></div>
+      <h3 class="Wr__footer__heading Wr__footer__">Connect With Us</h3>
+      <ul id="footer__connectWithUs" class="Wr__footer__image-list Wr__footer__connectWithUs">
+        <li layout="connectItem" selector="facebookLink" id="facebookLink" class="Wr__footer__image-list__item Wr__confidence-logo--connectWithUs">
+          <a class="Wr__footer__link" href="https://www.facebook.com/Bodybuildingcom">
+            <div class="Logo-facebook Icon-facebook"></div>
+          </a>
+        </li>
+        <li layout="connectItem" selector="youtubeLink" id="youtubeLink" class="Wr__footer__image-list__item Wr__confidence-logo--connectWithUs">
+          <a class="Wr__footer__link" href="https://www.youtube.com/user/bodybuildingcomvideo">
+            <div class="Logo-youtube Icon-youtube"></div>
+          </a>
+        </li>
+        <li layout="connectItem" selector="twitterLink" id="twitterLink" class="Wr__footer__image-list__item Wr__confidence-logo--connectWithUs">
+          <a class="Wr__footer__link" href="https://twitter.com/bodybuildingcom">
+            <div class="Logo-twitter Icon-twitter"></div>
+          </a>
+        </li>
+        <li layout="connectItem" selector="pinterestLink" id="pinterestLink" class="Wr__footer__image-list__item Wr__confidence-logo--connectWithUs">
+          <a class="Wr__footer__link" href="http://www.pinterest.com/Bodybuildingcom/">
+            <div class="Logo-pinterest Icon-pinterest"></div>
+          </a>
+        </li>
+        <li layout="connectItem" selector="googlePlusLink" id="googlePlusLink" class="Wr__footer__image-list__item Wr__confidence-logo--connectWithUs">
+          <a class="Wr__footer__link" href="https://plus.google.com/+bodybuildingcom/posts">
+            <div class="Logo-google-plus Icon-google-plus"></div>
+          </a>
+        </li>
+      </ul>
+      <div class="Wr__footer__hr only-mobile--block"></div>
+    </div>
+    <div class="Wr__footer__section1__col">
+      <h3 class="Wr__footer__heading Wr__footer__">Orders &amp; Shipping</h3>
+      <ul id="footer__orderShippingList" class="Wr__footer__list Wr__footer__orderShippingList">
+        <li selector="orderHistory" id="orderHistory" class="Wr__footer__list__item Wr__confidence-logo--orderShippingList">
+          <a class="Wr__footer__link" href="https://www.bodybuilding.com/store/account/order-history" target="_self">Order History</a>
+        </li>
+        <li selector="returnsExchanges" id="returnsExchanges" class="Wr__footer__list__item Wr__confidence-logo--orderShippingList">
+          <a class="Wr__footer__link" href="http://www.bodybuilding.com/store/help/returns.html" target="_self">Returns/Exchanges</a>
+        </li>
+        <li selector="usShipping" id="usShipping" class="Wr__footer__list__item Wr__confidence-logo--orderShippingList">
+          <a class="Wr__footer__link" href="http://www.bodybuilding.com/store/help/shipping-usa.html" target="_self">US Shipping</a>
+        </li>
+        <li selector="internationalShipping" id="internationalShipping" class="Wr__footer__list__item Wr__confidence-logo--orderShippingList">
+          <a class="Wr__footer__link" href="http://www.bodybuilding.com/store/help/shipping-international.html" target="_self">International Shipping</a>
+        </li>
+      </ul>
+      <div class="Wr__footer__hr only-mobile--block"></div>
+      <h3 class="Wr__footer__heading Wr__footer__">How Can We Be Better?</h3>
+      <div id="footer__feedback" class="Wr__footer__feedback">
+        <a href="http://www.bodybuilding.com/help/feedback?type=feedback" class="bb-flat-btn bb-btn-feedback">Send Us Feedback</a>
+      </div>
+      <div class="Wr__footer__hr only-mobile--block"></div>
+    </div>
+    <div class="Wr__footer__section1__col gte-wide-desktop--block">
+      <h3 class="Wr__footer__heading Wr__footer__">real people. real results.</h3>
+      <img class="Wr__footer__results__image img-responsive" src="//cms.bbcomcdn.com/footer/Transformation_SpencerRange.jpg">
+      <div id="footer__realPeopleWidget" class="Wr_footer__results__teaser Wr__footer__body-text">Spencer was an active guy until stress and physical complacency got
+the better of him. He committed to change, made a plan, and lost 100
+pounds in one year!
+        <a href="http://www.bodybuilding.com/fun/the-amazing-teacher-who-lost-100-pounds-in-1-year.html">Read more</a>
+      </div>
+      <div class="Wr__footer__hr only-mobile--block"></div>
+    </div>
+    <div class="Wr__footer__section1__col">
+      <h3 class="Wr__footer__heading Wr__footer__">Join Our Newsletter</h3>
+      <div class="Wr__footer__body-text Wr__footer__newsletter-text gte-desktop">Be the first to receive exciting news, features, and special offers from Bodybuilding.com!</div>
+      <div id="footer__newsletter-signup" class="Wr__footer__newsletter-form">
+        <bb-newsletter-form></bb-newsletter-form>
+      </div>
+      <div class="Wr__footer__hr only-mobile--block"></div>
+      <h3 class="Wr__footer__heading Wr__footer__">Shop With Confidence</h3>
+      <ul id="footer__confidenceList" class="Wr__footer__image-list Wr__footer__confidenceList">
+        <li layout="confidenceItem" selector="inc500" id="inc500" class="Wr__footer__image-list__item Wr__confidence-logo--confidenceList Wr__confidence-logo ">
+          <a class="Wr__footer__link" rel="nofollow" href="javascript: void()" target="_self">
+            <div class="Icon-inc500 Logo-inc500 Wr__confidence-logo__logo"></div>
+            <div class="Icon-inc500--small Logo-inc500 Logo-inc500--small Wr__confidence-logo__logo"></div>
+          </a>
+        </li>
+        <li layout="confidenceItem" selector="bbb" id="bbb" class="Wr__footer__image-list__item Wr__confidence-logo--confidenceList Wr__confidence-logo ">
+          <a class="Wr__footer__link" rel="nofollow" href="https://www.bbb.org/online/consumer/cks.aspx?ID=105120114553" target="_blank">
+            <div class="Icon-bbb Logo-bbb Wr__confidence-logo__logo"></div>
+            <div class="Icon-bbb--small Logo-bbb Logo-bbb--small Wr__confidence-logo__logo"></div>
+          </a>
+        </li>
+        <li layout="confidenceItem" selector="mcafee" id="mcafee" class="Wr__footer__image-list__item Wr__confidence-logo--confidenceList Wr__confidence-logo  Wr__confidence-logo--mcafee ">
+          <a class="Wr__footer__link" rel="nofollow" href="https://www.mcafeesecure.com/RatingVerify?ref=www.bodybuilding.com" target="_blank">
+            <img class="Logo-mcafee Icon-mcafee Wr__confidence-logo__logo Icon-mcafee--in-footer Logo-mcafee--in-footer" oncontextmenu="" src="//images.scanalert.com/meter/www.bodybuilding.com/12.gif" alt="McAfee SECURE sites help keep you safe from identity theft, credit card fraud, spyware, spam, viruses and online scams">
+          </a>
+        </li>
+        <li layout="confidenceItem" selector="bizrate" id="bizrate" class="Wr__footer__image-list__item Wr__confidence-logo--confidenceList Wr__confidence-logo ">
+          <a class="Wr__footer__link" rel="nofollow" href="http://www.bizrate.com/ratings_guide/cust_reviews__mid--132888.html" target="_blank">
+            <div class="Icon-bizrate Logo-bizrate Wr__confidence-logo__logo"></div>
+            <div class="Icon-bizrate--small Logo-bizrate Logo-bizrate--small Wr__confidence-logo__logo"></div>
+          </a>
+        </li>
+      </ul>
+      <div class="Wr__footer__hr only-mobile--block"></div>
+    </div>
+  </div>
+  <div class="Wr__footer__vision gte-tablet--block">
+    <div class="Icon-bbcom-blue-b Logo-bbcom Wr__footer__logo"></div>
+    <div class="Wr__footer__vision__heading">We are bodybuilding.com</div>
+    <div class="Wr__footer__vision__para">Your transformation is our passion. We are your personal trainer, your nutritionist,<br>your supplement expert, your lifting partner, your support group. We provide the technology, tools, and<br>products you need to burn fat, build muscle, and become your best self.</div>
+  </div>
+  <div class="Wr__footer-section2">
+    <ul id="footer__site-links" class="Wr__footer-section2__list">
+      <li class="Wr__footer-section2__list__item" selector="footerCareers" id="footerCareers">
+        <a class="Wr__footer-section2__list__link" href="http://www.bodybuilding.com/fun/bbcomcareer.htm">Careers</a>
+      </li>
+      <li class="Wr__footer-section2__list__item" selector="term" id="term">
+        <a class="Wr__footer-section2__list__link" href="http://www.bodybuilding.com/fun/disclaim.htm">Terms of Use</a>
+      </li>
+      <li class="Wr__footer-section2__list__item" selector="about" id="about">
+        <a class="Wr__footer-section2__list__link" href="http://www.bodybuilding.com/fun/bbcomcareer.htm">About Us</a>
+      </li>
+      <li class="Wr__footer-section2__list__item" selector="map" id="map">
+        <a class="Wr__footer-section2__list__link" href="http://www.bodybuilding.com/site-map/">Site Map</a>
+      </li>
+      <li class="Wr__footer-section2__list__item" selector="advertise" id="advertise">
+        <a class="Wr__footer-section2__list__link" href="http://www.bodybuilding.com/store/help/advertise.htm">Advertise With Us</a>
+      </li>
+      <li class="Wr__footer-section2__list__item" selector="affiliates" id="affiliates">
+        <a class="Wr__footer-section2__list__link" href="http://www.bodybuilding.com/store/affiliate.htm">Affiliates</a>
+      </li>
+      <li class="Wr__footer-section2__list__item Wr__footer__layout-switchers" style="display:none">
+        <a class="Wr__footer-section2__list__link Wr__footer__view-mobile-link" style="display:none" id="js-Wr__footer__view-mobile-link" href="#">View Mobile Site</a>
+        <a class="Wr__footer-section2__list__link Wr__footer__view-desktop-link" style="display:none" id="js-Wr__footer__view-desktop-link" href="#">View Desktop Site</a>
+      </li>
+    </ul>
+    <div class="Icon-bbcom-blue-b Logo-bbcom Wr__footer__logo Wr__footer__logo--mobile only-mobile--block"></div>
+    <div class="Wr__footer__copyright Wr__footer__body-text">&copy; 2015 Bodybuilding.com, LLC. All rights reserved. Bodybuilding.com<span style='vertical-align:super;font-size:60%;font-style:italic'>sm</span> and BodySpace&reg; are trademarks of Bodybuilding.com, LLC.</div>
+    <div class="Wr__footer__address Wr__footer__body-text">
+      <address class="bb-address">&copy;&nbsp;
+        <span itemprop="name">Bodybuilding.com</span>,&nbsp;
+        <span itemscope="" itemtype="http://schema.org/PostalAddress" itemprop="address"></span>
+        <span itemprop="streetAddress">5777 N. Meeker Ave.</span>&nbsp;
+        <span itemprop="addressLocality">Boise ID</span>&nbsp;
+        <span itemprop="postalCode">83713</span>&nbsp;
+        <span itemprop="addressCountry">USA</span>&nbsp;-&nbsp;
+        <a class="Wr__footer__phone-link" itemprop="telephone" href="tel:1-866-236-8417">1-866-236-8417</a>
+      </address>
+    </div>
+  </div>
+</footer>
+<bb-login-modal class="bb-bindable" bb-bindable></bb-login-modal>
+<bb-signup-modal class="bb-bindable" bb-bindable></bb-signup-modal>
+<bb-user-stats-modal class="bb-bindable" bb-bindable></bb-user-stats-modal>
+<bb-feedback-dialog class="bb-bindable" bb-bindable></bb-feedback-dialog>
+<bb-add-to-cart-dialog></bb-add-to-cart-dialog>
+
+<noscript><img src="http://n.bodybuilding.com/b/ss/bbprod/1/JS-1.2.4--NS/1437170868338?gn=Homepage" alt="omniture" width="0" height="0"></noscript>
+
+<style>#top-dynamic-promo-banner {overflow: hidden;}#top-promo-bar-fun {display: flex;justify-content: center;}#top-dynamic-promo-banner img {max-width: 100%;}@media(max-width:991px){#top-dynamic-promo-banner {display: none;}}#header__fullspan--top {width: auto !important;}.add2cart strong {    font-family: ProximaNova;    font-weight: bold;}.add2cart__title {    font-size: 18px;font-weight: bold;font-family: ProximaNova;}.add2cart__message {    font-family: ProximaNova;    font-weight: bold;}.ad-container--horizontal > div > div,.ad-container--horizontal > div > iframe {    max-width: 1024px;}.one-by-one {    height: 0;}</style>
+
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="//artifacts.bbcomcdn.com/bb-ui/2.0.24/bb-ui-lowres-icons.css" /><![endif]-->
+<!--[if lte IE 9]><script src='//artifacts.bbcomcdn.com/bb-polyfill/1.0.8/bb-polyfill-ie-body.js' id='bb-polyfill-ie-body-0'></script><![endif]-->
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js' id='require-500'></script>
+
+<script id='require-config-502'>
+(function requireConfig() {
+    var rconfig = {
+        baseUrl: '/',
+        config: {
+            'bb/util/module-info': {
+                env: 'prod',
+                loginUrl: 'https://api.bodybuilding.com/login',
+                facebookLoginUrl: 'https://api.bodybuilding.com/login/facebook',
+                server: {
+                    name: 'null',
+                    version: 'null'
+                },
+                singlePageApp: 'false',
+                topNavUrl: '//api.bodybuilding.com/nav/top',
+                taxonomyKey: 'root',
+                pageVisibility: 'PUBLIC',
+                mobileNavUrl: '//api.bodybuilding.com/nav/mobile/{selector}',
+                pageRole: 'VISITOR',
+                html5Mode: 'true'
+            }
+        },
+        paths: {
+            'moment': ['//cdnjs.cloudflare.com/ajax/libs/moment/2.8.4/moment.min'],
+            'angular': ['//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min']
+        },
+        shim: {
+            'angular': {
+                exports: 'angular'
+            }
+        },
+        waitSeconds: '10'
+    };
+    require.config(rconfig);
+})();
+            require(['//artifacts.bbcomcdn.com/cms-app/1.4.5/frontend.min.js'], function() {
+        'use strict';
+    require(['bb/ui/wrapper-app', 'bb/cms/main-frontend'], function(WrapperApp, CmsApp) {
+        var app;
+        if (typeof CmsApp === "function") {
+            app = new CmsApp(JSON.parse('{"elementSelector":".Wr__body","taxonomyKey":"root"}'));
+        } else {
+            app = new WrapperApp(JSON.parse('{"elementSelector":".Wr__body","taxonomyKey":"root"}'));
+        }
+        app.init();
+    });
+});
+</script>
+
+<script id='omniture-script-2147483647'>
+
+(function omniture() {
+    var submitOnLoad = true;
+    function initVars() {
+        try {
+            var s_omni = window.s_omni || {};
+            s_omni.versionID="?:?";
+s_omni.channel="home";
+s_omni.eVar1="Homepage";
+s_omni.memberStatus="Anonymous";
+s_omni.selector="root";
+s_omni.pageName="Homepage";
+s_omni.events="event3";
+s_omni.events="event3";
+
+            window.s_omni = s_omni;
+        }
+        catch(e) {
+        }
+    }
+
+    function onScodeLoaded() {
+        var s_code;
+        if(submitOnLoad) {
+            s_code = s.t();
+            if (s_code) {
+                document.write(s_code);
+                document.close();
+            }
+        }
+    }
+
+    function onScodeLoadError() {
+        console.error('Error loading scode js. %o', arguments);
+    }
+
+
+    function writeScodeScript() {
+        var scodeScript = document.createElement('script');
+
+        if('async' in scodeScript) {
+            scodeScript.async = true;
+            if(scodeScript.readyState) {
+                scodeScript.onreadystatechange = function onReadyStateChanged(event) {
+                    if(scodeScript.readyState === 'loaded') {
+                        onScodeLoaded();
+                    }
+                };
+            }
+            else {
+                scodeScript.onload = onScodeLoaded;
+                scodeScript.onerror = onScodeLoadError;
+            }
+        }
+        else {
+            scodeScript.defer = true;
+        }
+
+        //src set at very end to avoid triggering the d/l
+        scodeScript.src = '//assets.bodybuilding.com/clientscript/s_code.js';
+
+        document.getElementsByTagName('head')[0].appendChild(scodeScript);
+    }
+
+    writeScodeScript();
+    initVars();
+
+})();
+</script>
+
+<script>
+    var breakpoints = [767,991,1200],
+        currentBreakpoint = 0;
+    
+    function adsDebounce(fn, delay) {
+        var timer = null;
+        return function () {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                fn.apply(context, args);
+            }, delay);
+        };
+    }
+    
+    var refreshAds = function() {
+        googletag.pubads().refresh();
+        googletag.pubads().collapseEmptyDivs();
+        console.log('ads refreshed');
+    }
+    
+    $(window).resize(adsDebounce(function() {
+        var i,
+            len,
+            ww = $(window).width();
+    
+        for (i = 0, len = breakpoints.length; i < len; i++) {
+            var testPoint = breakpoints[i];
+            if (ww < testPoint) {
+                if (testPoint == currentBreakpoint) {
+                    break;
+                }
+                currentBreakpoint = testPoint;
+                refreshAds();
+                break;
+            }
+        }
+    }, 300));
+</script>
+
+
+
+
+</body>
+</html>

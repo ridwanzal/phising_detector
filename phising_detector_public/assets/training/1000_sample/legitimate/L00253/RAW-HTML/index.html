@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
+        <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Exo+2:300,400,400italic,700,700italic&subset=cyrillic,latin,latin-ext">
+        <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Dosis:400&subset=latin">
+        <link href="design/style.css" rel="stylesheet" type="text/css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+        <title>Adsterra</title>
+    </head>
+    <body>
+                <div></div>
+                <div class="content">
+                    <h1>This domain is operated <br/> by <a href="//adsterra.com/" title="Adsterra.com">Adsterra</a> <br/>Premium Ad Network</h1>
+                    <p>
+                        Publishers <a href="//publishers.adsterra.com/?action=signup" title="Signup to monetize your traffic">signup</a> if you want to monetize your traffic.<br />
+                        Advertisers <a href="//partners.adsterra.com/?action=signup" title="Run your ad campaigns">click here</a> to run your ad campaings.
+                    </p>
+                    <p>Other inquries — please feel free to <a href="https://adsterra.com/contact-us/" title="Contact us via the form below">contact us</a></p>
+                    <form action="" method="post"><!--
+                        --><span><!--
+                            --><input name="name" type="text" value="" placeholder="Name" title="Name" /><!--
+                            --><br /><!--
+                            --><input name="email" type="text" value="" placeholder="E-Mail" title="E-Mail" /><!--
+                            --><br /><!--
+                            --><input name="website" type="text" value="" placeholder="Website" title="Website" /><!--
+                        --></span><!--
+                        --><span><!--
+                            --><textarea cols="" name="message" placeholder="Message" title="Message" rows=""></textarea><!--
+                            --><br /><!--
+                            --><input type="submit" value="Submit message" /><!--
+                        --></span><!--
+                    --></form>
+                </div>
+
+        <script type="text/javascript">
+            jQuery(document).ready( function($) {
+
+                $('a[href="#contact-us"]').click( function(e) {
+                    e.preventDefault();
+                    if ($('form').hasClass('v')) {
+                        $('form > p:first-child').remove();
+                        $('form').removeClass('v');
+                    } else $('form').addClass('v');
+                });
+
+                $('form').submit( function(e) {
+                    e.preventDefault();
+                    $('input:submit', 'form').prop('disabled', true);
+                    $('.error').remove();
+
+                    var fields = [ 'name', 'email', 'message' ];
+                    $( 'input[name="name"], input[name="email"], textarea', 'form' ).each( function (){
+                            var name = this[ 'name' ],
+                            value = ( $( this ).val() || '' ).trim();
+                            if ( value !== '' ) {
+                                if (fields[0] == name) {
+                                    delete fields[0];
+                                } else if (fields[1] == name) {
+                                    delete fields[1];
+                                } else if (fields[2] == name) {
+                                    delete fields[2];
+                                }
+                            }
+                    }); 
+                    if ( fields[0] === undefined && fields[1] === undefined && fields[2] === undefined ) {
+                        $.ajax({ 
+                            'url' : '/send-mail.php',
+                            'type' : 'post',
+                            'data' : $('form').serialize(),
+                            'error' : function() { 
+                                $('input:submit', 'form').prop('disabled', false);
+                                $('form').prepend('<p class="error">Message has not been sent. Please repeat.</p>');
+                            },
+                            'success' : function() {
+                                $('input:text, textarea', 'form').val('');
+                                $('form').prepend('<p>Message sent successfully!</p>');
+                                $('input:submit', 'form').prop('disabled', false);
+                            }
+                        });
+                    } else {
+                        var clear_fields = [];
+                        for (var k = 0; k < fields.length; k++) {
+                            if (fields[k] !== undefined) {
+                                clear_fields.push(fields[k]);
+                            }
+                        }
+                        $('form').prepend('<p class="error">Please, fill in your ' + clear_fields.join( ', ' ) + ' properly in order to continue</p>');
+                        $('input:submit', 'form').prop('disabled', false);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
