@@ -1,0 +1,122 @@
+.cbp-qtrotator {
+	position: relative;
+	margin: 10px auto 30px auto;
+	width: 100%;
+}
+
+.cbp-qtrotator .cbp-qtcontent {
+	position: absolute;
+	top: 0;
+	z-index: 0;
+	opacity: 0;
+	width: 100%;
+}
+
+.no-js .cbp-qtrotator .cbp-qtcontent {
+	border-bottom: none;
+}
+
+.cbp-qtrotator .cbp-qtcontent.cbp-qtcurrent,
+.no-js .cbp-qtrotator .cbp-qtcontent {
+	position: relative; 
+	z-index: 100;
+	pointer-events: auto;
+	opacity: 1;
+}
+
+.cbp-qtrotator .cbp-qtcontent:before,
+.cbp-qtrotator .cbp-qtcontent:after {
+	content: " ";
+	display: table;
+}
+
+.cbp-qtrotator .cbp-qtcontent:after {
+	clear: both;
+}
+
+.cbp-qtprogress {
+	position: absolute;
+	background: #4d4d4d;
+	height: 1px;
+	width: 0%;
+	top: 0;
+	z-index: 1000;
+}
+
+.cbp-qtrotator blockquote {
+	margin: 0;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: 10px 10px;
+	border: 1px solid #D5D5D5;
+	padding: 25px;
+	margin-bottom: 20px;
+	line-height: 24px;
+}
+.cbp-qtrotator blockquote:after {
+	content: "";
+	display: block;
+	width: 27px;
+	height: 14px;
+	position: absolute;
+	bottom: 47px;
+}
+
+.cbp-qtrotator blockquote footer {
+	margin-top: 10px;
+}
+.cbp-qtrotator blockquote footer cite {
+	font-style: italic;
+	display: inline;
+}
+.cbp-qtrotator blockquote footer:before {
+	content: '― ';
+}
+.cbp-qtrotator .testimonial-author {
+  text-align: center;
+}
+.cbp-qtrotator .cbp-qtcontent a.avatar-link {
+	position: absolute;
+	bottom: -12px;
+}
+.cbp-qtrotator .cbp-prev,
+.cbp-qtrotator .cbp-next {
+	font-size: 20px;
+	position: absolute;
+	cursor: pointer;
+	bottom: -5px;
+	width: 20px;
+	text-align: center;
+	left: 2px;
+	z-index: 111;
+	-webkit-transition: 0.2s all ease-in-out;
+	-moz-transition: 0.2s all ease-in-out;
+	-ms-transition: 0.2s all ease-in-out;
+	-o-transition: 0.2s all ease-in-out;
+	transition: 0.2s all ease-in-out;
+}
+.cbp-qtrotator .cbp-prev:hover,
+.cbp-qtrotator .cbp-next:hover {
+    color: #fff;
+}
+.cbp-qtrotator .cbp-next {
+	right: 2px;
+	left: auto;
+}
+.cbp-qtrotator .cbp-qtcontent img {
+	float: right;
+	margin-left: 3em;
+}
+
+/* Example for media query */
+@media screen and (max-width: 30.6em) { 
+
+	.cbp-qtrotator {
+		font-size: 70%;
+	}
+
+	.cbp-qtrotator img {
+		width: 80px;
+	}
+
+}

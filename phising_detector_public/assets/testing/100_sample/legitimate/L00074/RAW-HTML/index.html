@@ -1,181 +1,401 @@
-<!DOCTYPE html> 
-<html> 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>天涯社区_华人网上家园</title>
+<!doctype html>
+<!--[if IE 7 ]>		 <html class="no-js ie ie7 lte7 lte8 lte9" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]>		 <html class="no-js ie ie8 lte8 lte9" lang="en-US"> <![endif]-->
+<!--[if IE 9 ]>		 <html class="no-js ie ie9 lte9>" lang="en-US"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head data-live-domain="jquery.com">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta name="keywords" content="天涯,社区,论坛,博客,部落,城市,相册,空间" />
-<meta name="description" content="天涯社区提供论坛、部落、博客、问答、文学、相册、个人空间等服务。拥有天涯杂谈、娱乐八卦、情感天地等人气栏目，以及关天茶舍、煮酒论史等高端人文论坛。这里诞生了很多的热门网络事件与草根明星……" />
-<meta property="qc:admins" content="2725366300611636" />
-<meta name="chinaz-site-verification" content="52e3aabe-fe8e-42c8-bfd9-be99fe1c0e0d" />
-<link href="http://static.tianyaui.com/global/ty/TY.css" type="text/css" rel="stylesheet" />
-<link href="http://static.tianyaui.com/global/member/web/static/css/login_b76d948.css" type="text/css" rel="stylesheet" />
-<!-- [if lt IE 10]>
-<script type="text/javascript" src="http://static.tianyaui.com/global/my/web/static/js/placeholder.js"></script>
-<![endif] -->
-<!--[if IE 6]>
-    <link href="http://static.tianyaui.com/global/member/web/static/css/ieUpdate_0f3a22e.css" type="text/css" rel="stylesheet">
-<![endif]-->
-<script language="JavaScript" type="text/javascript">
-var referrerURL = document.domain;
-if (referrerURL == 'tianya.cn'){
-	window.location.href="http://www.tianya.cn";}
-var tyHost="www.tianya.cn";
-if(tyHost!=window.top.location.host){
-    window.top.location="http://"+tyHost;
+	<title>jQuery</title>
+
+	<meta name="author" content="jQuery Foundation - jquery.org">
+	<meta name="description" content="jQuery: The Write Less, Do More, JavaScript Library">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="shortcut icon" href="//jquery.com/jquery-wp-content/themes/jquery.com/i/favicon.ico">
+
+	<link rel="stylesheet" href="//jquery.com/jquery-wp-content/themes/jquery/css/base.css?v=1">
+	<link rel="stylesheet" href="//jquery.com/jquery-wp-content/themes/jquery.com/style.css">
+
+	<script src="//jquery.com/jquery-wp-content/themes/jquery/js/modernizr.custom.2.8.3.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+
+	<script src="//jquery.com/jquery-wp-content/themes/jquery/js/plugins.js"></script>
+	<script src="//jquery.com/jquery-wp-content/themes/jquery/js/main.js"></script>
+
+	<script src="//use.typekit.net/wde1aof.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/jquery.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56806,55356,56826),0,0),c.toDataURL().length>3e3):("simple"===a?d.fillText(String.fromCharCode(55357,56835),0,0):d.fillText(String.fromCharCode(55356,57135),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
 }
-</script >
+</style>
+<link rel='https://api.w.org/' href='//jquery.com/wp-json/' />
+<meta name="generator" content="WordPress 4.4" />
+<link rel="alternate" type="application/json+oembed" href="//jquery.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjquery.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="//jquery.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjquery.com%2F&#038;format=xml" />
+
 </head>
-<body>
-<div class="ads-loc-holder" data-ads-order="04"></div>
-<div class="wrap">
+<body class="jquery home page page-id-5 page-template page-template-page-fullwidth page-template-page-fullwidth-php page-slug-index single-author singular">
 
-	<div class="hd">
-		<div class="online-info">
-			<div class="fl">来天涯，与<b id="spanCounter"><img src="http://static.tianyaui.com/img/global/displaceimg/tyad_comein_16x16.gif" width="16" height="16"/></b>位天涯人共同演绎你的网络人生</div>
-			<span class="fr"> 目前在线：<em id="spanOnLine">1056515</em></span>
-		</div>
-		<div class="unlogin clearfix" id="pws_yes">
-			<form id="login" name="login" method="post">
-				<input id="method" type="hidden" name="method" value="name">
-				<input id="__sid" type="hidden" name="__sid" value="">
-				<div class="sel">
-					<label for="vwriter"><input type="text" class="text-ipt"  name="vwriter" id="text1" placeholder="&nbsp;用户名/手机/邮箱"/></label>
-				</div>
-					<label for="vpassword"><input type="password" name="vpassword" id="password1" class="text-ipt" placeholder="&nbsp;密码"></label>
+<header>
+	<section id="global-nav">
+		<nav>
+			<div class="constrain">
+				<ul class="projects">
+					<li class="project jquery"><a href="http://jquery.com/" title="jQuery">jQuery</a></li>
+					<li class="project jquery-ui"><a href="http://jqueryui.com/" title="jQuery UI">jQuery UI</a></li>
+					<li class="project jquery-mobile"><a href="http://jquerymobile.com/" title="jQuery Mobile">jQuery Mobile</a></li>
+					<li class="project sizzlejs"><a href="http://sizzlejs.com/" title="Sizzle">Sizzle</a></li>
+					<li class="project qunitjs"><a href="http://qunitjs.com/" title="QUnit">QUnit</a></li>
+				</ul>
+				<ul class="links">
+					<li><a href="http://plugins.jquery.com/">Plugins</a></li>
+					<li class="dropdown"><a href="http://contribute.jquery.org/">Contribute</a>
+						<ul>
+							<li><a href="http://contribute.jquery.org/CLA/">CLA</a></li>
+							<li><a href="http://contribute.jquery.org/style-guide/">Style Guides</a></li>
+							<li><a href="http://contribute.jquery.org/triage/">Bug Triage</a></li>
+							<li><a href="http://contribute.jquery.org/code/">Code</a></li>
+							<li><a href="http://contribute.jquery.org/documentation/">Documentation</a></li>
+							<li><a href="http://contribute.jquery.org/web-sites/">Web Sites</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="http://events.jquery.org/">Events</a>
+						<ul class="wide">
+																		</ul>
+					</li>
+					<li class="dropdown"><a href="https://jquery.org/support/">Support</a>
+						<ul>
+							<li><a href="http://learn.jquery.com/">Learning Center</a></li>
+							<li><a href="http://try.jquery.com/">Try jQuery</a></li>
+							<li><a href="http://irc.jquery.org/">IRC/Chat</a></li>
+							<li><a href="http://forum.jquery.com/">Forums</a></li>
+							<li><a href="http://stackoverflow.com/tags/jquery/info">Stack Overflow</a></li>
+							<li><a href="https://jquery.org/support/">Commercial Support</a></li>
+						</ul>
+					</li>
+					<li class="dropdown"><a href="https://jquery.org/">jQuery Foundation</a>
+						<ul>
+							<li><a href="https://jquery.org/join/">Join</a></li>
+							<li><a href="https://jquery.org/members/">Members</a></li>
+							<li><a href="https://jquery.org/team/">Team</a></li>
+							<li><a href="https://jquery.org/conduct/">Conduct</a></li>
+							<li><a href="http://brand.jquery.org/">Brand Guide</a></li>
+							<li><a href="https://jquery.org/donate/">Donate</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</section>
+</header>
 
-					<label for="rmflag" id="remindMe"><input type="checkbox" checked="checked" value="1" id="rmflag" name="rmflag"><span>记住我</span>
-						<div id="clueto" style="display:;" >
-							<span class="arrow"></span>
-							<img class="warn-img" src="http://static.tianyaui.com/global/member/web/static/images/warn_fc96634.png">勾选后下次将自动登录，不建议在网吧和公共机房勾选此项
-						</div>
-					</label>
-					
-					<input type="button" class="tianya_btn50" name="tianya-submit4" value="登录" id="button1"/>
-					<input type="button" class="tianya_btn" name="tianya-submit4" value="注册" id="register_btn"/>
-					
-					<span class="line">&nbsp;</span>
-					<a href="http://focus.tianya.cn" class="u_line">浏览进入</a>
-					<span class="line">&nbsp;</span>
-					<span class="other-login">其他登录方式:
-					<a title="QQ帐号登录" target="_blank" href="https://graph.qq.com/oauth2.0/authorize?client_id=100253980&amp;response_type=code&amp;redirect_uri=http://passport.tianya.cn/login/qq.do" class="qq"><em></em></a>
-		           <a title="新浪微博帐号登录" target="_blank" href="https://api.weibo.com/oauth2/authorize?client_id=482040646&amp;response_type=code&amp;with_offical_account=1&amp;redirect_uri=http://passport.tianya.cn/login/sinaweibo.do" class="sinaweibo"><em></em></a>
-		           <a title="微信账号登录" target="_blank" href="https://open.weixin.qq.com/connect/qrconnect?appid=wx160fa51254add6be&amp;redirect_uri=http%3A%2F%2Fpassport.tianya.cn%2Flogin%2Fweixin.do&amp;response_type=code&amp;scope=snsapi_login#wechat_redirect" class="wechat"><em></em></a>	
-					<span class="qcode"><em></em></span>
-					 <div id="qrcode">					 
-					    <img class="qr-code" src="">
-						<div class="use-ty"><a href="http://www.tianya.cn/mobile/">使用天涯社区
-						<div class="ty-scan">
-                           客户端扫描登录
-						</div></a>                          
-						</div>
-						
-					  </div>					
-					</span>
-			</form>
-			<div class="otherlogin clearfix">
-			    <a  id="forgetpw" href="http://passport.tianya.cn/fp/fp.jsp?from=index&amp;_goto=getpass" class="u_line">忘记密码？</a>
-			    <span class="line">|</span>
-				<span class="mobile-terminal">手机客户端：
-			<a target="_blank" href="http://www.tianya.cn/mobile/client/tianya-android.apk" class="android">安卓版</a>
-			<a target="_blank" href="http://itunes.apple.com/cn/app/tian-ya-she-qu/id529696004?mt=8" class="iphone">iPhone版</a>
-		</span>
+<div id="container">
+	<div id="logo-events" class="constrain clearfix">
+		<h2 class="logo"><a href="/" title="jQuery">jQuery</a></h2>
+
+		<aside><div id="broadcast"></div></aside>
+	</div>
+
+	<nav id="main" class="constrain clearfix">
+		<div class="menu-top-container">
+	<ul id="menu-top" class="menu">
+<li class="menu-item"><a href="http://jquery.com/download/">Download</a></li>
+<li class="menu-item"><a href="http://api.jquery.com/">API Documentation</a></li>
+<li class="menu-item"><a href="http://blog.jquery.com/">Blog</a></li>
+<li class="menu-item"><a href="http://plugins.jquery.com/">Plugins</a></li>
+<li class="menu-item"><a href="http://jquery.com/browser-support/">Browser Support</a></li>
+	</ul>
+</div>
+
+		<form method="get" class="searchform" action="//jquery.com/">
+	<button type="submit" class="icon-search"><span class="visuallyhidden">search</span></button>
+	<label>
+		<span class="visuallyhidden">Search jQuery</span>
+		<input type="text" name="s" value=""
+			placeholder="Search">
+	</label>
+</form>
+	</nav>
+
+	<div id="content-wrapper" class="clearfix row">
+
+
+<div class="content-full full-width twelve columns">
+	<div id="content">
+		
+		
+<div id="banner-secondary" class="row">
+	<div class="downloads-box four columns push-eight">
+		<div class="download-main">
+			<a href="/download/" class="button large">
+				<span class="download"></span>
+				Download jQuery
+				<span>v1.12.3 or v2.2.3</span>
+			</a>
+			<div class="download-options">
+				<a href="https://github.com/jquery/jquery">View Source on GitHub &#x2192;</a>
+				<a href="https://learn.jquery.com/about-jquery/how-jquery-works/">How jQuery Works &#x2192;</a>
 			</div>
 		</div>
-		<div class="login clearfix" id="wcback">
-			<div class="fl"><em id="strWriter">...</em>，欢迎回来！<span><a href="#" id="mytianya" class="tianya_btn">进入社区</a> 
-
-             <a href="javascript:;" id="changeId">换个帐号</a><span class="line">&nbsp;|</span>
-			<a href="http://passport.tianya.cn/register/default.jsp?sourceURL=http://www.tianya.cn">免费注册</a>
-			</span></div> 
-                    <span class="other-login f-right">二维码扫描登录:		
-					<span class="qcode is-login"><em></em></span>
-					 <div class="qrcode-scan">					 
-					    <img class="qr-code" src="">
-						<div class="use-ty"><a href="http://www.tianya.cn/mobile/">使用天涯社区
-						<div class="ty-scan">
-                           客户端扫描登录
-						</div></a>                          
-						</div>	
-					  </div>					
-					</span>           
-		</div>
 	</div>
-	<div class="bd" id="middle">
-		<!--AD 开始中央广告位-->
-			<!--adbox是广告的box-->
-			<div id="adsp_center_banner" class="adbox ads-loc-holder" style="display: block" data-ads-order="01"></div>
-		<!--结束中央广告位-->
-	</div>
-	<div class="ft">
-		<a href="http://www.tianya.cn" class="ty-link"><img src="http://static.tianyaui.com/global/member/web/static/images/logo-s_7189076.png"  class="ty-logo" /></a>
-		<p class="footer-terminal"></p>
-		<div class="tianya-footer">
-			<ul class="clearfix">
-				<li><a target="_blank" href="http://help.tianya.cn/about/about.html">关于天涯</a></li>
-				<li><a target="_blank" href="http://help.tianya.cn/about/service.html">广告服务</a></li>
-				<!--<li><a target="_blank" href="http://open.tianya.cn">开放平台</a></li>-->
-				<li><a target="_blank" href="http://service.tianya.cn">天涯客服</a></li>
-				<li><a target="_blank" href="http://help.tianya.cn/about/ystl.html">隐私和版权</a></li>
-				<li><a target="_blank" href="http://help.tianya.cn/about/contact.html">联系我们</a></li>
-				<li class="footend"><a target="_blank" href="http://join.tianya.cn">加入天涯</a></li>
-			</ul>
-			<p class="foot_c">Copyright &copy; 1999 - <script type="text/javascript">document.write((new Date()).getFullYear())</script> 天涯社区</p>
+	<div class="features-box row eight columns pull-four">
+		<div class="feature-box lightweight-footprint four columns center-txt">
+			<div class="feature-box-image"></div>
+			<h3>Lightweight Footprint</h3>
+			<p>Only 32kB minified and gzipped. Can also be included as an AMD module</p>
 		</div>
-		<div class="zj">
-			<p><a target="_blank" href="http://static.tianyaui.com/img/static/2011/boai/images/zz.jpg">增值电信业务经营许可证（琼B2-20060032号）</a>
-			<a target="_blank" href="http://static.tianyaui.com/img/static/2012/wenwangwen/wangwenzheng2012.jpg">网络文化经营许可证（琼网文【2015】1731-008号）</a>
-			<a target="_blank" href="http://static.tianyaui.com/global/member/login-default/images/ypzg.jpg">互联网药品信息服务资格证书(琼)-经营性-2010-0003</a>
-			</p>
-			<p><a target="_blank" href="http://static.tianyaui.com/img/static/2010/login/footer/shiting.jpg">网络传播视听节目许可证（2110566号）</a>
-			<a target="_blank" href="http://static.tianyaui.com/img/static/2011/boai/images/gb.jpg">广播电视节目制作经营许可证（琼字第052号）</a>
-			<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=46010602000002">琼公网安备 46010602000002号</a>
-			</p>
-		</div>
-		<div class="footer-pic-link clearfix">
-			<a target="_blank" href="http://www.haikou.cyberpolice.cn/" class="jc"></a>
-			<a href="http://aic.hainan.gov.cn:6000/lz.aspx?c=10240&q=460000000126219" target="_blank" class="hngs"></a>
-			<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=46010602000002" class="gab"></a>
-			<a target="_blank" href="http://www.wenming.cn/" class="wm"></a>
-			<a class="gs" href="http://service.tianya.cn/alarm/jbts.do" target="_blank"></a>
-			<a target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=e13062611010041408duli000000&amp;comefrom=verify&amp;trustKey=dn&amp;trustValue=www.tianya.cn" class="kx"></a>
-			<a target="_blank" href="http://service.tianya.cn/alarm/jbts.do" class="jb"></a>
-			<a target="_blank" href="http://www.12377.cn" class="bl"></a>
-			<a target="_blank" href="http://www.12377.cn/node_548446.htm" class="xz"></a>
-			<a target="_blank" href="http://jubao.12377.cn:13225/reportform.do" class="bk"></a>
 
-			
-			
+		<div class="feature-box css3-compliant four columns center-txt">
+			<div class="feature-box-image"></div>
+			<h3>CSS3 Compliant</h3>
+			<p>Supports CSS3 selectors to find elements as well as in style property manipulation</p>
 		</div>
-		<div class="footer-pic-link-gov clearfix">
-			
+
+		<div class="feature-box cross-browser four columns center-txt">
+			<div class="feature-box-image"></div>
+			<h3>Cross-Browser</h3>
+			<p><a href="/browser-support/">IE, Firefox, Safari, Opera, Chrome, and more</a></p>
 		</div>
 	</div>
 </div>
-<div class="ads-loc-holder" data-ads-order="02"><!--对联广告--></div>
-<div class="ads-loc-holder" data-ads-order="03"><!--对联广告--></div>
-<div class="ads-loc-holder" data-ads-order="99"><!--性能--></div>
-<script type="text/javascript" charset="utf-8" src="http://static.tianyaui.com/global/ty/TY.js"
-></script>
-<!--[if lt IE 10]>
-<script type="text/javascript" src="http://static.tianyaui.com/global/member/web/static/js/placeholder_5fbd3e0.js"></script>
-<![endif]-->
+
+<div id="home-content" class="clearfix row">
+	<section class="eight columns">
+		<h2 class="block">What is jQuery?</h2>
+
+		<p>jQuery is a fast, small, and feature-rich JavaScript library. It makes
+		things like HTML document traversal and manipulation, event handling,
+		animation, and Ajax much simpler with an easy-to-use API that works across
+		a multitude of browsers. With a combination of versatility and
+		extensibility, jQuery has changed the way that millions of people write
+		JavaScript.</p>
+
+		<h2 class="block">Corporate Members</h2>
+		<ul class="row" id="corporate-members"><li class="three columns"><a href="http://mediatemple.net/"><span></span><img src="//jquery.org/resources/members/mediatemple.png" title="Media Temple"></a></li><li class="three columns"><a href="http://www.maxcdn.com/"><span></span><img src="//jquery.org/resources/members/maxcdn.png" title="MaxCDN"></a></li><li class="three columns"><a href="http://famo.us/"><span></span><img src="//jquery.org/resources/members/famous.png" title="Famo.us"></a></li><li class="three columns"><a href="http://ibm.com/"><span></span><img src="//jquery.org/resources/members/ibm.png" title="IBM"></a></li></ul>
+		<p>Support from our corporate members makes it possible for the jQuery
+		Foundation to continue our work on our JavaScript libraries and pushing
+		the open web forward with events and participation in the standards process.
+		View our <a href="https://jquery.org/members/">members page</a> for a full
+		list of corporate and individual members.</p>
+
+		<h2 class="block">Other jQuery Foundation Projects</h2>
+		<section class="project-tiles row">
+			<div class="project-tile six columns color secondary-orange">
+				<a href="https://jqueryui.com" class="jqueryui small logo">jQueryUI</a>
+			</div>
+			<div class="project-tile six columns color secondary-green">
+				<a href="https://jquerymobile.com" class="jquery-mobile small logo">jQuery Mobile</a>
+			</div>
+		</section>
+		<section class="project-tiles row">
+			<div class="project-tile six columns color qunit-secondary-purple">
+				<a href="https://qunitjs.com" class="qunitjs small logo">QUnit</a>
+			</div>
+			<div class="project-tile six columns color sizzle-red">
+				<a href="https://sizzlejs.com" class="sizzlejs small logo">Sizzle</a>
+			</div>
+		</section>
+	</section>
+	<aside class="four columns resources">
+		<h3>Resources</h3>
+		<ul>
+			<li><a href="https://api.jquery.com">jQuery Core API Documentation</a></li>
+			<li><a href="https://learn.jquery.com">jQuery Learning Center</a></li>
+			<li><a href="https://blog.jquery.com">jQuery Blog</a></li>
+			<li><a href="https://contribute.jquery.com">Contribute to jQuery</a></li>
+			<li><a href="https://jquery.org">About the jQuery Foundation</a></li>
+			<li><a href="https://github.com/jquery/jquery/issues">Browse or Submit jQuery Bugs</a></li>
+			<li class="try-jquery"><a href="http://try.jquery.com">Try jQuery</a></li>
+		</ul>
+
+	</aside>
+</div>
+
+<section>
+	<h2 class="block">A Brief Look</h2>
+
+	<h3>DOM Traversal and Manipulation</h3>
+	<p>Get the <code>&lt;button&gt;</code> element with the class &apos;continue&apos; and change its HTML to &apos;Next Step...&apos;</p>
+	<div class="syntaxhighlighter javascript">
+	<table>
+		<tbody>
+			<tr>
+				
+				<td class="gutter">
+					
+						<div class="line n1">1</div>
+					
+				</td>
+				
+				<td class="code">
+					<pre><div class="container"><div class="line"><code>$( <span class="string">&quot;button.continue&quot;</span> ).html( <span class="string">&quot;Next Step...&quot;</span> )</code></div></div></pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
 
-<script type="text/javascript">
-var adsGlobal = {
-	itemId : "311",//分类或板块ID
-	pageType : "13"//页面类型
-};
+	<h3>Event Handling</h3>
+	<p>Show the <code>#banner-message</code> element that is hidden with
+		<code>display:none</code> in its CSS when any button in <code>#button-container</code> is
+		clicked.</p>
+	<div class="syntaxhighlighter javascript">
+	<table>
+		<tbody>
+			<tr>
+				
+				<td class="gutter">
+					
+						<div class="line n1">1</div>
+					
+						<div class="line n2">2</div>
+					
+						<div class="line n3">3</div>
+					
+						<div class="line n4">4</div>
+					
+				</td>
+				
+				<td class="code">
+					<pre><div class="container"><div class="line"><code><span class="keyword">var</span> hiddenBox = $( <span class="string">&quot;#banner-message&quot;</span> );</code></div></div><div class="container"><div class="line"><code>$( <span class="string">&quot;#button-container button&quot;</span> ).on( <span class="string">&quot;click&quot;</span>, <span class="keyword">function</span>( event ) {</code></div></div><div class="container"><div class="line"><code>  hiddenBox.show();</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+	<h3>Ajax</h3>
+	<p>Call a local script on the server <code>/api/getWeather</code>
+		with the query parameter <code>zipcode=97201</code>
+		and replace the element <code>#weather-temp</code>&apos;s html with the returned text.</p>
+	<div class="syntaxhighlighter javascript">
+	<table>
+		<tbody>
+			<tr>
+				
+				<td class="gutter">
+					
+						<div class="line n1">1</div>
+					
+						<div class="line n2">2</div>
+					
+						<div class="line n3">3</div>
+					
+						<div class="line n4">4</div>
+					
+						<div class="line n5">5</div>
+					
+						<div class="line n6">6</div>
+					
+						<div class="line n7">7</div>
+					
+						<div class="line n8">8</div>
+					
+						<div class="line n9">9</div>
+					
+				</td>
+				
+				<td class="code">
+					<pre><div class="container"><div class="line"><code>$.ajax({</code></div></div><div class="container"><div class="line"><code>  url: <span class="string">&quot;/api/getWeather&quot;</span>,</code></div></div><div class="container"><div class="line"><code>  data: {</code></div></div><div class="container"><div class="line"><code>    zipcode: <span class="number">97201</span></code></div></div><div class="container"><div class="line"><code>  },</code></div></div><div class="container"><div class="line"><code>  success: <span class="keyword">function</span>( result ) {</code></div></div><div class="container"><div class="line"><code>    $( <span class="string">&quot;#weather-temp&quot;</span> ).html( <span class="string">&quot;&lt;strong&gt;&quot;</span> + result + <span class="string">&quot;&lt;/strong&gt; degrees&quot;</span> );</code></div></div><div class="container"><div class="line"><code>  }</code></div></div><div class="container"><div class="line"><code>});</code></div></div></pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</section>	</div>
+</div>
+
+	</div>
+</div>
+
+<footer class="clearfix simple">
+	<div class="constrain">
+		<div class="row">
+			<div class="six columns offset-by-three">
+				<h3><span>Books</span></h3>
+				<ul class="books">
+					<li>
+						<a href="https://www.packtpub.com/web-development/learning-jquery-fourth-edition">
+							<img src="//jquery.com/jquery-wp-content/themes/jquery/content/books/learning-jquery-4th-ed.jpg" alt="Learning jQuery 4th Edition by Karl Swedberg and Jonathan Chaffer" width="92" height="114">
+							Learning jQuery Fourth Edition
+							<cite>Karl Swedberg and Jonathan Chaffer</cite>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.manning.com/books/jquery-in-action-third-edition?a_bid=bdd5b7ad&amp;a_aid=141d9491">
+							<img src="//jquery.com/jquery-wp-content/themes/jquery/content/books/jquery-in-action.jpg" alt="jQuery in Action by Bear Bibeault, Yehuda Katz, and Aurelio De Rosa" width="92" height="114">
+							jQuery in Action
+							<cite>Bear Bibeault, Yehuda Katz, and Aurelio De Rosa</cite>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.syncfusion.com/resources/techportal/ebooks/jquery?utm_medium=BizDev-jQuery.org0513">
+							<img src="//jquery.com/jquery-wp-content/themes/jquery/content/books/jquery-succinctly.jpg" alt="jQuery Succinctly by Cody Lindley" width="92" height="114">
+							jQuery Succinctly
+							<cite>Cody Lindley</cite>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		
+<div id="legal">
+	<ul class="footer-site-links">
+			<li><a class="icon-pencil" href="http://learn.jquery.com/">Learning Center</a></li>
+			<li><a class="icon-group" href="http://forum.jquery.com/">Forum</a></li>
+			<li><a class="icon-wrench" href="http://api.jquery.com/">API</a></li>
+			<li><a class="icon-twitter" href="https://twitter.com/jquery">Twitter</a></li>
+			<li><a class="icon-comments" href="http://irc.jquery.org/">IRC</a></li>
+			<li><a class="icon-github" href="https://github.com/jquery">GitHub</a></li>
+	</ul>
+	<p class="copyright">
+		Copyright 2016 <a href="https://jquery.org/team/">The jQuery Foundation</a>.
+		<a href="https://jquery.org/license/">jQuery License</a>
+		<span class="sponsor-line"><a href="http://mediatemple.net" rel="nofollow" class="mt-link">Web hosting by Media Temple</a> | <a href="http://www.maxcdn.com" rel="nofollow" class="mc-link">CDN by MaxCDN</a> | <a href="http://wordpress.org/" class="wp-link">Powered by WordPress</a> | Thanks: <a href="https://jquery.org/members/">Members</a>, <a href="https://jquery.org/sponsors/">Sponsors</a></span>
+	</p>
+</div>
+
+	</div>
+</footer>
+
+<script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1076265-1']);
+    _gaq.push(['_setDomainName', 'jquery.com']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 </script>
-<script language="JavaScript" type="text/javascript"  charset="UTF-8" src="http://static.tianyaui.com/global/member/web/static/js/login_6653457.js"></script>
-<script language="javascript" type="text/javascript"  charset="UTF-8" src="http://static.tianyaui.com/qy/adsame/ads.js"></script>
-   <!-- Start Alexa Certify Javascript -->
-<script type="text/javascript">
-_atrk_opts = { atrk_acct:"WCmTk1a4eFf2mh", domain:"tianya.cn",dynamic: true};
-(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
-</script>
-<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=WCmTk1a4eFf2mh" style="display:none" height="1" width="1" alt="" /></noscript>
-<!-- End Alexa Certify Javascript --> 
+<script type='text/javascript' src='//jquery.com/wp-includes/js/comment-reply.min.js?ver=4.4'></script>
+<script type='text/javascript' src='//jquery.com/wp-includes/js/wp-embed.min.js?ver=4.4'></script>
+
 </body>
 </html>

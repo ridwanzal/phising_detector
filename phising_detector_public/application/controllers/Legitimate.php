@@ -517,13 +517,13 @@ class Legitimate extends CI_Controller {
 					IF(b.html_mouseover > 0, 1, 0)
 			) >= 0.5, 'Phishing', 'Legitimate') as threshold3
 		from
-		b.sc_phishing_test_id = a.sc_phishing_test_id AND
 		ph_scan_legitimate_test a,
 		ph_features_legitimate_test b,
 		ph_train c,
 		ph_task d,
 		ph_schedule s
 		WHERE
+		b.sc_legitimate_test_id = a.sc_legitimate_test_id AND
 		d.task_id = c.task_id AND
 		d.task_id = s.task_id AND
 		c.task_id = s.task_id AND
