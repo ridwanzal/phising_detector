@@ -731,7 +731,7 @@ class Training extends CI_Controller {
 									// echo ''.$pref2.$main_path2.$concater2.$j.$data4.'<br/>';	
 								}
 							}
-							echo ''.$pref2.$main_path2.$concater2.$j.$data4.'<br/>';
+							// echo ''.$pref2.$main_path2.$concater2.$j.$data4.'<br/>';
 							// echo ''.$main_path2.$pref2.$concater2.$j.'/'.$files10;
 						}
 
