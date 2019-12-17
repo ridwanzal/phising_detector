@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"14c3803a97","applicationID":"1518504","transactionName":"dg4PTUIOXlkBFB5ZDFgEPklRBlcaDQhVVBs=","queueTime":1,"applicationTime":363,"agentToken":null,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VwUHVUVSDQIIUVFW"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
+<!-- We like people who view source. Check out our careers page http://careers.intuit.com/ -->
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="Tj8aCx9apW9x+lEMF/7GhEMX5+wvEyq6uwTrdiFrzGI=" name="csrf-token" />
+
+
+
+<meta content="Start your small business with QuickBooks accounting and financial software from Intuit. Tackle tax, budgets and personal finance with TurboTax, Quicken and Mint." name="description" />
+<meta content="noodp, noydir" name="robots" />
+
+ 
+<title>Intuit: small business, personal finance and tax software</title>
+<link href="//s4.intuitstatic.com/favicon.png" rel="icon" type="image/x-icon" />
+<link href="//s4.intuitstatic.com/assets/harmony/assets/resp/standard/css/merged/standard-b8567f3c43a491122b8001756168930e.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="//s4.intuitstatic.com/assets/harmony/assets/non_responsive/css/merged/nonresponsive-ece3fec2346e929c16a707955f59b915.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="//s4.intuitstatic.com/assets/harmony/assets/custom/css/merged/custom-ba1de2bf5ef4ca4b0ec232608808b9f7.css" media="screen" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    window.toolmapUrl =  '//tmsasset-s3.intuitstatic.com/toolmap_45.json?preview=false'
+    window.datalayerUrl = '//tmsasset-s3.intuitstatic.com/datalayer_45.json?preview=false'
+</script>
+
+
+<script type="text/javascript" src="//nexus.ensighten.com/intuit/us_sbg_prod/Bootstrap.js"></script>
+
+<script src="//s4.intuitstatic.com/assets/harmony/assets/resp/standard_top_js/js/merged/js-e98673cc7dd54834ac2c217a4708e777.js" type="text/javascript"></script>
+<script src="//s4.intuitstatic.com/assets/harmony/assets/non_responsive/js/merged/nonresponsive-54bfab3e3761f3477ef3e5c600da82cc.js" type="text/javascript"></script>
+<script type="text/javascript">
+  if (typeof(wa) == "undefined") {
+        wa={}
+    }
+    wa.pageLoadStart    = new Date();
+    wa.siteName         = "icom";
+    wa.siteGroup        = "mktg";
+    wa.siteHost         = "www";
+
+    var aryProd = [];
+    if (aryProd != "") {
+        wa.aryProducts = aryProd;
+        wa.eventList = "prodView";
+    }
+
+    //sbm_intuit_id cookie value saved in wa.visitorID for Ensighten to store in var74
+    /*i.com does not use harmony standard page templates which will cause js error when Intuit.Library.Cookie is accessed. Adding
+     check if Intuit.Library.Cookie varialbe is defined 04/01/14 - sjakka1. This can be removed when i.com moves to harmony standard page template*/
+     
+    if(typeof Intuit.Library.Cookie != "undefined"){
+        wa.userId = Intuit.Library.Cookie.getUUID();
+    }
+</script>
+<script type="text/javascript">
+    /**
+     * script that will create var for ensighten consumption
+     */
+    (function(window){
+        var Intuit = window.Intuit || {};
+        Intuit.Data = Intuit.Data || {};
+        Intuit.Data.aggregate = Intuit.Data.aggregate || {};
+        Intuit.Data.aggregate.json = {"dynamic_vars":{"tagProperties":{"etc":{"object_type":"Page","Page_Type":"Web Landing Page","website_group":"Marketing","operating_segment":"SBG","page_owner":"Pamela Lue","biz_segment":"SBG","page_version":"13","tool_map":"|SC|GA|OI","product_group":"SBG","country_code":"US","ClientUniqueUrn":"urn:pprdecmas30d:0ff90c9d-e386-4719-9a61-3299be30c9d2"}}}};
+
+        Intuit.Data.aggregate.getDynamicVariable = function(references) {
+            var i, l = references.length, tmp, reference;
+            for (i = 0; i < references.length; i++) {
+                reference = references[i];
+                tmp = new Function('if(typeof '+reference+' !== "undefined") return ' + reference)();
+                if (typeof tmp !== 'undefined') {
+                    return tmp;
+                }
+            }
+            return '';
+        };
+
+        var dynamicVars = JSON.stringify(Intuit.Data.aggregate.json['dynamic_vars']),
+            parseDynamicVars = function() {
+                return JSON.parse(dynamicVars, function(key, value){
+                    var i;
+                    if (value && typeof value === 'string' && value.indexOf('=dom') !== -1) {
+                        return new Function('return Intuit.Data.aggregate.getDynamicVariable(' + value.replace('=dom','') + ')')();
+                    }
+                    return value;
+                });
+            };
+
+        /**
+         *
+         * API to get PR data layer object - the later it's called, the more likely it is it will have all the correct DOM sourced values
+         *
+         * @type {parseDynamicVars}
+         * @private
+         */
+        window._getPrDataLayer = parseDynamicVars;
+        window.Intuit = Intuit;
+    }(window));
+</script>
+
+
+
+  
+
+
+<script src="/__ssobj/core.js"></script>
+<script src="/__ssobj/core.js"></script>
+</head>
+<body>
+
+<header>
+		    <section class="ccontainer "   >
+	              	    <Section class="ccontainer intuit-left-nav-menu-header-container "   >
+	          	    <Section class="ccontainer top-bar "   >
+	          	    <Section class="ccontainer top-bar-full top-bar-container "   >
+	          
+
+<div class="row grid-container-960">
+      <div class="span7 col-md-7 col-sm-7 col-xs-12">
+        	    <Section class="ccontainer span7 "   >
+	          <div class="ctext">
+  <p><a data-wa-link="hdr-corporate-intuitlogo" href="//www.intuit.com/"><span class="intuit-logo">&nbsp;</span></a></p>
+<ul class="header-menu sub-domains">
+<li class="hdr-corporate-TurboTax"><a href="https://turbotax.intuit.com/?cid=seq_intuit_tt_click_hd" data-wa-link="hdr-corporate-cornerstone-turbotax_tt"><span class="turbotax-icon"></span>TurboTax</a></li>
+<li class="hdr-corporate-QuickBooks"><a href="//quickbooks.intuit.com/?xcid=seq_intuit_qb_click_hd" data-wa-link="hdr-corporate-cornerstone-quickbooks_fms"><span class="quickbooks-icon"></span>QuickBooks</a></li>
+<li class="hdr-corporate-Mint"><a href="https://www.mint.com/?cid=seq_intuit_mint_click_hd" data-wa-link="hdr-corporate-cornerstone-mint_mint"><span class="mint-icon"></span>Mint</a></li>
+</ul>
+
+</div>
+
+	    </Section>
+
+
+      </div>
+      <div class="span5 col-md-5 col-sm-5 col-xs-12">
+        	    <Section class="ccontainer nav-links "   >
+	          <div class="ctext">
+  <ul class="header-menu nav-links">
+<li class="hdr-corporate-InternationalSites"><a href="//global.intuit.com/choose-country.jsp" data-wa-link="hdr-corporate-SelectCountry_global"><span class="country-icon"></span>Country</a></li>
+<li class="hdr-corporate-Security"><a data-wa-link="hdr-corporate-security_corp" href="//security.intuit.com/index.php">Security</a></li>
+</ul>
+
+</div>
+  <form class="ws-validate cform   search-intuit-form cform-large"   action="//www.intuit.com/search/" method="post" enctype="application/x-www-form-urlencoded" target="_self" accept-charset="UTF-8">
+
+       <input name="utf8" type="hidden" value="&#x2713;"/>
+       <input id="authenticity_token" type="hidden"/> 
+
+    <div class="be errors">
+        <h3><i></i></h3>
+        
+    </div>
+          <div class="cform-field cform-sm-fld field-inline  " 
+ >
+        <label class=" visually-hidden label-top"  for='search_term'>Input Label</label>
+
+<input  id='search_term'   class='cform-field'   name='search_term'   type='text'     placeholder='Search'       
+              />
+
+
+    </div>
+
+  <div class="cform-field cform-sm-fld field-inline ">
+    <input  type="submit"    value='Submit'  class="cform-field ctaplain"  data-wa-link=''   data-wa-event=''   />
+</div>
+
+ 
+
+</form>
+
+	    </Section>
+
+
+      </div>
+</div>
+
+
+
+	    </Section>
+
+
+
+	    </Section>
+
+
+
+	    </Section>
+
+
+
+      	    <Section class="ccontainer intuit-left-nav-menu-header-container "   >
+	          	    <Section class="ccontainer nav "   >
+	        <div class="content-container">
+	            	    <Section class="ccontainer nav-bar "   >
+	          
+
+<div class="row grid-container-960">
+      <div class="span12 col-md-12 col-sm-12 col-xs-12">
+        	    <Section class="ccontainer nav-bar-container "   >
+	          <div class="ctext">
+  <ul class="quickNav-menu">
+<li class="nav-bar-top-links sub-menu"><a data-wa-link="hdr-corporate-nav-products" href="http://www.intuit.com/products/">PRODUCTS</a><ul class="innerUl">
+<li><ul>
+<li class="header">For Individuals</li>
+<li><a data-wa-link="hdr-corporate-nav-products:mint_mint" href="https://www.mint.com/?cid=seq_intuit_mint_click_nav">Mint</a></li>
+<li><a data-wa-link="hdr-corporate-nav-products:qbse_sbg" href="http://quickbooks.intuit.com/self-employed/">QuickBooks Self-Employed</a></li>
+<li><a data-wa-link="hdr-corporate-nav-products:turbotax_tt" href="https://turbotax.intuit.com/?cid=seq_intuit_tt_click_nav">TurboTax</a></li>
+</ul>
+</li>
+<li><ul>
+<li class="header">For Small Business</li>
+<li><a data-wa-link="hdr-corporate-nav-products:checks_psg" href="http://www.intuitmarket.com/IMCOMSUBNAV16">Checks &amp; Tax Forms</a></li>
+<li><a data-wa-link="hdr-corporate-nav-products:payroll_ems" href="//payroll.intuit.com/?xcid=seq_intuit_proll_click_nav" adhocenable="false">Intuit Payroll Services</a></li>
+<li><a data-wa-link="hdr-corporate-nav-products:quickbooks_fms" href="//quickbooks.intuit.com/?xcid=seq_intuit_qb_click_nav" adhocenable="false">QuickBooks</a></li>
+<li><a data-wa-link="hdr-corporate-nav-products:payments_pcs" href="//payments.intuit.com/payment-processing/?xcid=seq_intuit_pay_click_nav">QuickBooks Payments</a></li>
+</ul>
+</li>
+<li><ul>
+<li class="header">For Accountants</li>
+<li><a data-wa-link="hdr-corporate-nav-products:ito_ptg" href="https://taxpro.intuit.com/tax-online/?s_cid=Intuit.com_Products-nav_TaxOnline">Intuit Tax Online</a></li>
+<li><a data-wa-link="hdr-corporate-nav-products:lacerte_ptg" href="https://taxpro.intuit.com/lacerte/?s_cid=Intuit.com_Products-nav_Lacerte">Lacerte</a></li>
+<li><a data-wa-link="hdr-corporate-nav-products:proseries_ptg" href="https://taxpro.intuit.com/proseries/?s_cid=Intuit.com_Products-nav_ProSeries">ProSeries</a></li>
+<li><a data-wa-link="hdr-corporate-nav-products:qb-accountants_acc" href="//quickbooks.intuit.com/accountants/?s_cid=Intuit.com&amp;s_ev1=Intuit.com_TopNav_QuickBooksforAccts_QBA_Family">QuickBooks for Accountants</a></li>
+</ul>
+</li>
+<li class="see-all"><a data-wa-link="hdr-corporate-nav-products:all" href="http://www.intuit.com/products/">See All Intuit Products</a></li>
+</ul>
+</li>
+<li class="nav-bar-top-links sub-menu"><a data-wa-link="hdr-corporate-nav-communities" href="http://www.intuit.com/communities/">COMMUNITIES</a><ul class="innerUl">
+<li><ul>
+<li class="header">Blogs</li>
+<li><a data-wa-link="hdr-corporate-nav-communities:accountants-blog_acc" href="https://blog.accountants.intuit.com/">Accountants News Central</a></li>
+<li><a data-wa-link="hdr-corporate-nav-communities:smallbiz-blog_sbg" href="//blog.intuit.com/">Intuit Small Business</a></li>
+<li><a data-wa-link="hdr-corporate-nav-communities:turbotax-blog_tt" href="//blog.turbotax.intuit.com/">Tax Break</a></li>
+<li class="header">Communities</li>
+<li><a data-wa-link="hdr-corporate-nav-communities:smallbiz-community_sbg" href="https://community.intuit.com/">Intuit Small Business</a></li>
+<li><a data-wa-link="hdr-corporate-nav-communities:turbotax-community_tt" href="https://ttlc.intuit.com/">TurboTax AnswerXchange</a></li>
+</ul>
+</li>
+<li class="see-all"><a data-wa-link="hdr-corporate-nav-communities:all" href="http://www.intuit.com/communities/">See All</a></li>
+</ul>
+</li>
+<li class="nav-bar-top-links sub-menu"><a data-wa-link="hdr-corporate-nav-support_sppt" href="http://www.intuit.com/support/">SUPPORT</a><ul class="innerUl">
+<li><ul>
+<li class="no-header-first"><a data-wa-link="hdr-corporate-nav-support:payroll_sppt" href="//payroll.intuit.com/support/">Intuit Payroll Support</a></li>
+<li><a data-wa-link="hdr-corporate-nav-support:qb_sppt" href="//support.quickbooks.intuit.com/support/">QuickBooks Support</a></li>
+<li><a data-wa-link="hdr-corporate-nav-support:turbotax_sppt" href="https://turbotax.intuit.com/best-tax-software/common-questions.jsp">TurboTax Help</a></li>
+</ul>
+</li>
+<li class="see-all"><a data-wa-link="hdr-corporate-nav-support:all_sppt" href="http://www.intuit.com/support/">See All</a></li>
+</ul>
+</li>
+<li class="nav-bar-top-links sub-menu"><a data-wa-link="hdr-corporate-nav-company_corp" href="http://www.intuit.com/company/">COMPANY</a><ul class="innerUl">
+<li><ul>
+<li class="no-header-first"><a data-wa-link="hdr-corporate-nav-company:about_corp" href="//www.intuit.com/company/">About</a></li>
+<li><a data-wa-link="hdr-corporate-nav-company:sourcing_corp" href="//www.intuit.com/company/strategic-sourcing/">Working with Intuit</a></li>
+<li><a data-wa-link="hdr-corporate-nav-company:careers_corp" href="http://careers.intuit.com/">Careers</a></li>
+<li><a data-wa-link="hdr-corporate-nav-company:investors_corp" href="http://investors.intuit.com/">Investor Relations</a></li>
+<li><a data-wa-link="hdr-corporate-nav-company:pressroom_corp" href="//www.intuit.com/company/press-room/">Press Room</a></li>
+</ul>
+</li>
+<li class="see-all"><a data-wa-link="hdr-corporate-nav-company:all_corp" href="http://www.intuit.com/company/">See All</a></li>
+</ul>
+</li>
+<li class="nav-bar-top-links sub-menu sign-in"><a data-wa-link="hdr-corporate-signin:all" href="http://www.intuit.com/sign-in/">Sign In<span class="sign-in-icon"></span></a><ul class="innerUl">
+<li><ul>
+<li><a data-wa-link="hdr-corporate-signin:payroll" href="https://iop.intuit.com/login/login2.jsp">Intuit Payroll</a></li>
+<li><a data-wa-link="hdr-corporate-signin:qbo" href="https://qbo.intuit.com/">QuickBooks Online</a></li>
+<li class="no-header-first"><a data-wa-link="hdr-corporate-signin:payments" href="https://merchantcenter.intuit.com/">QuickBooks Payments</a></li>
+<li><a data-wa-link="hdr-corporate-signin:turbotax" href="https://myturbotax.intuit.com/">TurboTax</a></li>
+</ul>
+</li>
+<li class="see-all"><a data-wa-link="hdr-corporate-signin:all" href="http://www.intuit.com/sign-in/">Other Services</a></li>
+</ul>
+</li>
+<li class="shopping-cart"><a title="Shopping Cart" onclick="goToCartWithPriorityCode();" data-wa-nav-link="hdr-corporate-cart" href="#"><span class="cart-item-count cart-icon">&nbsp;</span></a>&nbsp;</li>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</ul>
+
+</div>
+
+	    </Section>
+
+
+      </div>
+</div>
+
+
+
+	    </Section>
+
+
+
+	        </div>
+	    </Section>
+
+
+
+	    </Section>
+
+
+
+  	    <Section class="ccontainer None intuit-home-carousal "   >
+	          <section class="chero-carousel" style="height:px;">
+    <div class="carousel-viewport" id="hero-carousel-carviewport" style="height:px;">
+      <ul id="hero-carousel" class="carousel-slides">
+            <li>
+              <section class="ccontainer">
+         <div class="cimage clearfix ">
+  <img alt="" class="img-left  image-scale  none  img-border-width-none center" src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/index/img/hro_qb_bill_campbell_1600_492_v6_7003cd33-20e0-450b-8e92-06fa2345ca09.jpeg" />
+</div>
+
+                      <div class="content-container-hero" >
+                        <div class="ccontainer-rt-just">
+                          <div class="box-container span6 bg-transparent" style="height:px;">
+                            	    <Section class="ccontainer None " style="padding-top:280px; padding-left:70px;"  >
+	          <div class="ccta cta-align-left" data-qe-id="d38c4a3e-c5d8-48c5-891c-e32487250455">
+    <a 
+       class="ctaprimary ctaleft modal  "
+    
+    
+    
+
+    
+    
+       href="/showroom_cms/content/bill-campbell-video" 
+       
+       >Watch Video
+    </a>
+</div>
+
+
+	    </Section>
+
+
+                          </div>
+                        </div>
+                      </div>
+              </section>
+            </li>
+            <li>
+              <section class="ccontainer">
+         <div class="cimage clearfix ">
+  <a href="http://turbotax.intuit.com/?cid=seq_intuit_tt_click_tl" data-wa-link="intcom-hero5-turbotax-img_tt"><img alt="TurboTax - taxes done right" class="img-left  none  img-border-width-none center" src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/index/hero-turbotax_cb98fb49-7b9a-4ca8-9e53-a41d08ea544c.jpg" /></a>
+</div>
+
+                      <div class="content-container-hero" >
+                        <div class="ccontainer-lt-just">
+                          <div class="box-container span6 bg-white" style="height:px;">
+                            	    <Section class="ccontainer " style="padding-right:21px; padding-left:20px;"  >
+	          <div class="ctext">
+  <h1 style="text-align: center;">TurboTax</h1>
+<p style="text-align: center;"><span class="p1">Taxes done right</span></p>
+<p style="text-align: center;"><span class="p1">and your maximum<br>
+ refund, <b>guaranteed</b>.</span><br>
+<br>
+</p>
+<p style="text-align: center;">&nbsp;</p>
+
+</div>
+  <div class="ccta cta-align-center" data-qe-id="26700664-e769-467c-b3b4-3b00b41721bb">
+    <a 
+       class="ctaprimary ctacenter   "
+     data-wa-link="intcom-hero5-turbotax_tt" 
+    
+    
+
+    
+    
+       href="http://turbotax.intuit.com/?cid=seq_intuit_tt_click_tl" 
+       
+       >Start for Free
+    </a>
+</div>
+
+
+	    </Section>
+
+
+                          </div>
+                        </div>
+                      </div>
+              </section>
+            </li>
+            <li>
+              <section class="ccontainer">
+         <div class="cimage clearfix ">
+  <a href="http://quickbooks.intuit.com/?xcid=seq_intuit_qb_click_hd" data-wa-link="intcom-hero2-quickbooks-img_fms"><img alt="Hotcakes Design Jewelry in San Francisco uses QuickBooks" class="img-center  none  img-border-width-none center" src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/index/img/hero-quickbooks-hotcakes_1600x492_0d1252e3-b97b-45ba-af7f-8bb41e8a50a3.jpg" /></a>
+</div>
+
+                      <div class="content-container-hero" >
+                        <div class="ccontainer-rt-just">
+                          <div class="box-container span6 bg-white" style="height:px;">
+                            	    <Section class="ccontainer " style="padding-right:20px; padding-left:20px;"  >
+	          <div class="ctext">
+  <h1 style="margin-top: 65px; text-align: center;">QuickBooks</h1>
+<p style="text-align: center;"><span class="p1">Reimagine the way you run your entire business.</span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+
+</div>
+  <div class="ccta cta-align-center" data-qe-id="e6064738-acac-4e80-a849-de1915551444">
+    <a 
+       class="ctaprimary ctacenter   "
+     data-wa-link="intcom-hero2-quickbooks_fms" 
+    
+    
+
+    
+    
+       href="http://quickbooks.intuit.com/?xcid=seq_intuit_qb_click_hd" 
+       
+       >Learn More
+    </a>
+</div>
+
+
+	    </Section>
+
+
+                          </div>
+                        </div>
+                      </div>
+              </section>
+            </li>
+            <li>
+              <section class="ccontainer">
+         <div class="cimage clearfix ">
+  <a href="http://quickbooks.intuit.com/payments/?xcid=seq_intuit_pay_click_hd" data-wa-link="intcom-hero4-payments-img_pcs"><img data-src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/index/img/hero-payments_6b317984-33f9-4e63-98ec-8a694aa907fd.jpg" class="img-center  none  img-border-width-none lazy center" onload="" alt="Intuit Payments"  /></a>
+</div>
+
+                      <div class="content-container-hero" >
+                        <div class="ccontainer-rt-just">
+                          <div class="box-container span6 bg-white" style="height:px;">
+                            	    <Section class="ccontainer " style="padding-right:20px; padding-left:20px;"  >
+	          <div class="ctext">
+  <h1 style="text-align: center;">QuickBooks<br>
+Payments</h1>
+<p style="text-align: center;"><span class="p1">Faster payments</span></p>
+<p style="text-align: center;"><span class="p1">happen in QuickBooks.</span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+
+</div>
+  <div class="ccta cta-align-center" data-qe-id="26700664-e769-467c-b3b4-3b00b41721bb">
+    <a 
+       class="ctaprimary ctacenter   "
+     data-wa-link="intcom-hero4-payments_pcs" 
+    
+    
+
+    
+    
+       href="http://quickbooks.intuit.com/payments/?xcid=seq_intuit_pay_click_hd" 
+       
+       >Learn More
+    </a>
+</div>
+
+
+	    </Section>
+
+
+                          </div>
+                        </div>
+                      </div>
+              </section>
+            </li>
+            <li>
+              <section class="ccontainer">
+         <div class="cimage clearfix ">
+  <a href="http://payroll.intuit.com/?xcid=seq_intuit_proll_click_hd" data-wa-link="intcom-hero4-payroll-img_ems"><img data-src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/index/img/hro-icom-payroll_opt_1600_492_f247fc7c-c889-4a81-81d7-bce9dcc450fc.jpg" class="img-center  none  img-border-width-none lazy center" onload="" alt="Intuit Payroll"  /></a>
+</div>
+
+                      <div class="content-container-hero" >
+                        <div class="ccontainer-lt-just">
+                          <div class="box-container span6 bg-white" style="height:px;">
+                            	    <Section class="ccontainer None " style="padding-right:20px; padding-left:20px;"  >
+	          <div class="ctext">
+  <h1 style="margin-top: 25px; text-align: center;">Intuit Payroll</h1>
+<p style="text-align: center;"><span class="p1">Pay your employees and <br>
+ get back to doing <br>
+ what you love.</span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+
+</div>
+  <div class="ccta cta-align-center" data-qe-id="26700664-e769-467c-b3b4-3b00b41721bb">
+    <a 
+       class="ctaprimary ctacenter   "
+     data-wa-link="intcom-hero5-payroll-ems" 
+    
+    
+
+    
+    
+       href="http://payroll.intuit.com/?xcid=seq_intuit_proll_click_hd" 
+       
+       >Learn More
+    </a>
+</div>
+
+
+	    </Section>
+
+
+                          </div>
+                        </div>
+                      </div>
+              </section>
+            </li>
+      </ul>
+    </div> 
+</section>
+
+<script>
+$(document).ready(function() {
+
+      initializeHeroCarousel("600","0","hero-carousel");
+
+      debouncing();
+
+      set_hero_carousel_viewport("hero-carousel-carviewport");
+
+});
+</script>
+
+
+	    </Section>
+
+
+
+	    </section>
+
+   
+</header>
+
+<section id="main" class="property-www">
+     
+    <div class="outer-container">
+        	    <section class="ccontainer "   >
+	          	    <Section class="ccontainer None " style="padding-top:45px; "  >
+	          <div class="ctext">
+  <h1 style="text-align: center;">Featured Products &amp; Services</h1>
+
+</div>
+  	    <Section class="ccontainer " style="padding-top:50px; padding-bottom:60px; "  >
+	        <div class="content-container">
+	            <div class="container-fluid">
+    <div class="row resp_grid grid-container-960">
+            <div class="span3 col-md-3  col-sm-3  col-xs-3 "> 
+                	    <section class="ccontainer "   >
+	          <div class="cimage clearfix ">
+  <a href="http://quickbooks.intuit.com/r/" data-wa-link="intcom-tile1-sbc-img_fms"><img data-src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/index/img/icom-tile-small-business-center_542534b4-7758-4c50-97d0-b235b0850784.jpg" class="img-left  none  img-border-width-none lazy center" onload="" alt="QuickBooks Small Business Center - Endless Advice from Industry Experts"  /></a>
+</div>
+  <div class="ctext">
+  <h3><span class="text-grey">QuickBooks</span></h3>
+<h3>Business Advice</h3>
+<p>&nbsp;</p>
+<p><span class="p3">Learn how to run a successful business with endless tips from industry experts.</span></p>
+<p>&nbsp;</p>
+<p><a style="font-size: 20px; line-height: 24px;" data-wa-link="intcom-tile1-sbc_fms" href="http://quickbooks.intuit.com/r/">Read Articles</a></p>
+
+</div>
+
+	    </section>
+
+
+            </div>
+            <div class="span3 col-md-3  col-sm-3  col-xs-3 "> 
+                	    <section class="ccontainer "   >
+	          <div class="cimage clearfix ">
+  <a href="https://www.mint.com/" data-wa-link="intcom-tile2-mint-img_mint"><img data-src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/products/images/tile-mint-prod_79913863-bd23-42f8-9e5c-3612f8f4cd4f.jpg" class="img-left  none  img-border-width-none lazy center" onload="" alt="Quicken logo"  /></a>
+</div>
+  <div class="ctext">
+  <h3><span class="text-grey">All in One</span></h3>
+<h3>Mint</h3>
+<p>&nbsp;</p>
+<p><span class="p3">See, understand, and</span></p>
+<p><span class="p3">do more with your finances every day.</span></p>
+<p>&nbsp;</p>
+<p><a data-wa-link="intcom-tile2-mint_mint" href="https://www.mint.com/" style="font-size: 20px; line-height: 24px;">Learn More</a></p>
+
+</div>
+
+	    </section>
+
+
+            </div>
+            <div class="span3 col-md-3  col-sm-3  col-xs-3 "> 
+                	    <section class="ccontainer "   >
+	          <div class="cimage clearfix ">
+  <a href="http://accountants.intuit.com/accounting/quickbooks/?s_cid=Intuit.com&amp;s_ev1=Intuit.com_Body_Accts-QBA-LearnMore" data-wa-link="intcom-tile3-qbaccountants-img_acc"><img data-src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/index/img/tile-qboa-hp_220x150_18fabc3d-b4d5-4a28-97b4-a8117c5bfdb8.jpg" class="img-left  none  img-border-width-none lazy center" onload="" alt="QuickBooks Online Accountants"  /></a>
+</div>
+  <div class="ctext">
+  <h3><span class="text-grey">QuickBooks Online</span></h3>
+<h3>Accountants</h3>
+<p>&nbsp;</p>
+<p><span class="p3">Serve clients better with professional tax preparation and accounting software.</span></p>
+<p>&nbsp;</p>
+<p><a style="font-size: 20px; line-height: 24px;" data-wa-link="intcom-tile3-qbaccountants_acc" href="http://accountants.intuit.com/accounting/quickbooks/?s_cid=Intuit.com&amp;s_ev1=Intuit.com_Body_Accts-QBA-LearnMore">View Details</a></p>
+
+</div>
+
+	    </section>
+
+
+            </div>
+            <div class="span3 col-md-3  col-sm-3  col-xs-3 "> 
+                	    <section class="ccontainer "   >
+	          <div class="cimage clearfix ">
+  <a href="https://intuitmarket.intuit.com/redirect/redirect.aspx?track=54809&amp;src=icomfeatured" data-wa-link="intcom-tile4-checks-img_psg"><img data-src="//s4.intuitstatic.com/showroom_cms/image/content/dam/intuit/intuitcom/index/img/intcom-tile-checks_220x150_d35c28a1-fb1e-4b13-b117-4250af0bf7ba.jpg" class="img-left  none  img-border-width-none lazy center" onload="" alt="QuickBooks Printable Checks"  /></a>
+</div>
+  <div class="ctext">
+  <h3><span class="text-grey">QuickBooks</span></h3>
+<h3>Printable Checks</h3>
+<h6>&nbsp;</h6>
+<p><span class="p3">Save time with checks designed for you to print directly from QuickBooks.</span></p>
+<p>&nbsp;</p>
+<p><a data-wa-link="intcom-tile4-checks-img_fms" href="https://intuitmarket.intuit.com/redirect/redirect.aspx?track=54809&amp;src=icomfeatured"><span class="p1">Shop Now</span></a></p>
+
+</div>
+
+	    </section>
+
+
+            </div>
+    </div>
+</div>
+
+
+	        </div>
+	    </Section>
+
+
+  	    <Section class="ccontainer bg-grey " style="padding-top:25px; padding-bottom:25px; "  >
+	          <div class="ctext">
+  <h3 style="text-align: center;"><a href="http://www.intuit.com/products/">See All Products &amp; Services</a></h3>
+
+</div>
+
+	    </Section>
+
+
+
+	    </Section>
+
+
+
+	    </section>
+
+     
+    </div>      
+</section>
+
+<footer>
+	    <section class="ccontainer "   >
+	              	    <Section class="ccontainer about-site-cooler-footer "   >
+	        <div class="content-container">
+	            	    <Section class="ccontainer site-cooler-footer "   >
+	          	    <Section class="ccontainer site-footer "   >
+	          
+
+<div class="row grid-container-960">
+      <div class="span3 col-md-3 col-sm-3 col-xs-12">
+        	    <Section class="ccontainer "   >
+	          <div class="ctext">
+  <h5><b>About Intuit</b></h5>
+<ul>
+<li><a data-wa-link="ftr-global-About" href="http://www.intuit.com/company/">About</a></li>
+<li><a data-wa-ink="ftr-global-Contact" href="http://www.intuit.com/company/contact/">Contact</a></li>
+<li><a data-wa-link="ftr-global-Careers" href="http://careers.intuit.com">Careers</a></li>
+<li><a data-wa-link="ftr-global-InvestorRelations" href="http://investors.intuit.com">Investor Relations</a></li>
+<li><a data-wa-link="ftr-global-Newsroom" href="http://www.intuit.com/company/press-room/">Newsroom</a></li>
+<li><a data-wa-link="ftr-global-Partners" href="http://www.intuit.com/partners/">Partner with Intuit</a></li>
+</ul>
+
+</div>
+
+	    </Section>
+
+
+      </div>
+      <div class="span3 col-md-3 col-sm-3 col-xs-12">
+        	    <Section class="ccontainer "   >
+	          <div class="ctext">
+  <h5><b>For Individuals</b></h5>
+<ul>
+<li><a href="https://www.mint.com/?cid=seq_intuit_mint_click_ft" data-wa-link="ftr-global-Mint">Mint</a></li>
+<li><a href="http://quickbooks.intuit.com/self-employed/" data-wa-link="ftr-global-qbse_sbg">QuickBooks Self-Employed</a></li>
+<li><a href="https://turbotax.intuit.com/?cid=seq_intuit_tt_click_ft" data-wa-link="ftr-global-TurboTax">TurboTax</a></li>
+<li><a href="//www.intuit.com/products/" data-wa-link="ftr-global-SeeAll:Individuals">See All</a></li>
+</ul>
+
+</div>
+
+	    </Section>
+
+
+      </div>
+      <div class="span3 col-md-3 col-sm-3 col-xs-12">
+        	    <Section class="ccontainer "   >
+	          <div class="ctext">
+  <h5><b>For Small Businesses</b></h5>
+<ul>
+<li><a data-wa-link="ftr-global-ChecksandSupplies" href="https://intuitmarket.intuit.com/fsg/businesschecks.aspx?track=53159&amp;src=icomfooter">Checks and Tax Forms</a></li>
+<li><a data-wa-link="ftr-global-PayrollServices" href="http://payroll.intuit.com/?xcid=seq_intuit_proll_click_ft">Payroll Services</a></li>
+<li><a data-wa-link="ftr-global-Payments" href="http://payments.intuit.com/?xcid=seq_intuit_pay_click_ft">Payments</a></li>
+<li><a data-wa-link="ftr-global-QuickBooks" href="http://quickbooks.intuit.com/?xcid=seq_intuit_qb_click_ft">QuickBooks</a></li>
+<li><a data-wa-link="ftr-global-SeeAll:SmallBiz" href="//www.intuit.com/products/">See All</a></li>
+</ul>
+
+</div>
+
+	    </Section>
+
+
+      </div>
+      <div class="span3 col-md-3 col-sm-3 col-xs-12">
+        	    <Section class="ccontainer "   >
+	          <div class="ctext">
+  <h5><b>For Accountants</b></h5>
+<ul>
+<li><a href="https://taxpro.intuit.com/tax-online/?s_cid=Intuit.com_Products-footer_TaxOnline">Intuit Tax Online</a></li>
+<li><a href="https://taxpro.intuit.com/lacerte/?s_cid=Intuit.com_Products-footer_Lacerte">Lacerte</a></li>
+<li><a href="https://taxpro.intuit.com/proseries/?s_cid=Intuit.com_Products-footer_ProSeries">ProSeries</a></li>
+<li><a href="http://quickbooks.intuit.com/accountants/proadvisor/?s_cid=Intuit.com&amp;s_ev1=Intuit.com_Footer_ProAdvisors">ProAdvisors</a></li>
+<li><a href="http://quickbooks.intuit.com/accountants/?s_cid=Intuit.com&amp;s_ev1=Intuit.com_Footer_QBAccountants">QuickBooks for Accountants</a></li>
+<li><a href="//www.intuit.com/products/" data-wa-link="ftr-global-SeeAll:Accountants">See All</a></li>
+</ul>
+
+</div>
+
+	    </Section>
+
+
+      </div>
+</div>
+
+
+
+	    </Section>
+
+
+
+	    </Section>
+
+
+
+	        </div>
+	    </Section>
+
+
+
+      	    <Section class="ccontainer about_watercooler_images "   >
+	          <div class="ctext">
+  <div><section class="footer-global-watercooler"><div class="row"><div class="span12"><div class="footer-global-hr">&nbsp;</div>
+</div>
+</div>
+<div class="row"><div class="span3 footer-watercooler"><ul>
+<li><a data-wa-link="ftr-corporate-Facebook" href="https://www.facebook.com/intuit"><span class="footer-sprite footer-icon-facebook">&nbsp;</span></a></li>
+<li><a data-wa-link="ftr-corporate-Twitter" href="https://twitter.com/Intuit"><span class="footer-sprite footer-icon-twitter">&nbsp;</span></a></li>
+<li><a href="https://plus.google.com/109729033018211896826/posts" data-wa-link="ftr-corporate-GooglePlus"><span class="footer-sprite footer-icon-gplus">&nbsp;</span></a></li>
+<li><a data-wa-link="ftr-corporate-YouTube" href="http://www.youtube.com/intuit/"><span class="footer-sprite footer-icon-youtube">&nbsp;</span></a></li>
+<li><a data-wa-link="ftr-corporate-LinkedIn" href="https://www.linkedin.com/company/intuit"><span class="footer-sprite footer-icon-linkedin">&nbsp;</span></a></li>
+</ul>
+</div>
+<div class="span7 footer-global">&nbsp;</div>
+<div class="span2 footer-global"><a data-wa-link="ftr-corporate-SelectCountry_global" class="footer-global-select-country" href="http://global.intuit.com/choose-country.jsp"><span class="footer-sprite footer-icon-global"><span>Select Country</span></span></a></div>
+</div>
+</section></div>
+
+</div>
+
+	    </Section>
+
+
+
+      	    <Section class="ccontainer about_legal_images "   >
+	          <div class="ctext">
+  <div><p>&nbsp;</p>
+<section class="legal-footer"><div><section class="footer-legal"><div class="footer-legal-content"><div class="row"><div class="span6"><a data-wa-link="ftr-corporate-intuitbrand" href="http://www.intuit.com"><span title="Intuit" class="footer-sprite footer-intuit-logo">&nbsp;</span></a></div>
+<div class="span6"><ul class="footer-legal-links">
+<li><a data-wa-link="ftr-corporate-legal" href="http://www.intuit.com/legal/" class="footer-legal-link">Legal</a></li>
+<li><a data-wa-link="ftr-corporate-privacy" href="http://smallbusiness.intuit.com/small-business/privacy/index.jsp" class="footer-legal-link">Privacy</a></li>
+<li><a data-wa-link="ftr-corporate-security" href="http://security.intuit.com/" class="footer-legal-link">Security</a><br>
+</li>
+</ul>
+</div>
+</div>
+<div class="row copyright"><div class="span8"><p class="footer-legal-copy">©2016 Intuit Inc. All rights reserved. Intuit, QuickBooks, QB, TurboTax, ProConnect and Mint are registered trademarks of Intuit Inc.&nbsp; Terms, conditions, features, support, pricing and service options subject to change without notice.</p>
+</div>
+<div class="footer-legal-truste-logo-container"><a data-wa-link="ftr-corporate-truste" href="http://clicktoverify.truste.com/pvr.php?page=validate&amp;url=www.intuit.com&amp;sealid=101"><span class="footer-sprite footer-truste-logo" title="TRUSTe Certified Privacy">&nbsp;</span></a></div>
+</div>
+</div>
+</section></div>
+</section></div>
+
+</div>
+
+	    </Section>
+
+
+
+
+	    </section>
+
+       
+</footer>
+
+
+
+
+
+
+
+<script src="//s4.intuitstatic.com/assets/harmony/assets/resp/standard_bottom_js/js/merged/js-46f8f0960459808d033a05500fbf78b9.js" type="text/javascript"></script>
+
+<script src="//s4.intuitstatic.com/assets/harmony/assets/geo_targeting/js/merged/geo_targeting-035c42c2dbde1ec0873a36c360c4500e.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+$(function($, window, document){
+  if (typeof Intuit.ShowRoomEnv === 'object') { return; }
+  window.Intuit && (window.Intuit.ShowRoomEnv = {});
+}(jQuery, window, document));
+window.Intuit.ShowRoomEnv.asset_host = "//s4.intuitstatic.com"; window.Intuit.ShowRoomEnv.disable_estore_call = true;
+window.Intuit.locale = "en-US";
+</script>
+<script src="//s4.intuitstatic.com/assets/harmony/assets/oo_combo/oo_combo_invite_conf/js/merged/invite_conf-57f2a196600542e4b4469b576db73054.js" type="text/javascript"></script>
+<link href="//s4.intuitstatic.com/assets/harmony/assets/opinionlabs/css/merged/opinionlabs-5bc41f5e4c8fe759640ad256d2d2abc3.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript">
+/* Copyright 2011, SiteSpect, Inc. All Rights Reserved. */
+function ssCrossDomainSync() {
+	var SS = window.SS,
+		// List of Domain to sync
+		domains = [
+			//OA-managed domains
+			'search2.payroll.com',
+			'www.intuitfullservicepayroll.com',
+			'www.intuitpayments.com',
+			'www.intuit-gopayment.com',
+			'search2.quickbooks.com',
+			'search2.quickbooksonline.com',
+			'sbconnect.intuit.com'
+			//non-OA managed domains linked to by OA
+			//removed because all intuit.com
+			],
+		// List of SiteSpect Cookies used by Site
+		cookies = [
+			'SSID',	// User Tracking Cookie
+			'SSSC',	// Status Signaling Cookie
+			'SSRT',	// Recent Request Cookie
+			'SSOD',	// Additional Data Cookie
+			'SSPV'	// Preview Cookie
+		],
+		// URL used to sync cookies across domains
+		sync_url = '/__ssobj/sync?',
+		img,
+		sync_img,
+		indx;
+	if (SS) {
+		// Gather the SiteSpect cookie values & add them to the array
+		for (indx = cookies.length - 1; indx >= 0; indx -= 1) {
+			cookies[indx] += '=' + encodeURIComponent(SS.Cookie.get(cookies[indx]));
+		}
+		sync_url += cookies.join('&');
+
+		sync_img = SS._sync_imgs = [];
+		for (indx in domains) {
+			if (domains[indx] !== window.location.hostname) {
+				img = new Image();
+				img.src = window.location.protocol + '//' + domains[indx] + sync_url;
+				sync_img[indx] = img;
+			}
+		}
+		SS.Intuit = { sync: sync_img };
+	}
+}
+
+if(document.location.protocol === 'http:') {
+	if (window.addEventListener) {
+		window.addEventListener('load', ssCrossDomainSync, false);
+	}
+	else if (window.attachEvent) {
+		window.attachEvent('onload', ssCrossDomainSync);
+	}
+}
+</script>
+</body>
+</html>

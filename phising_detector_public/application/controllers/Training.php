@@ -567,9 +567,9 @@ class Training extends CI_Controller {
 					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/100_sample/phishing/';
 					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/100_sample/legitimate/';
 				break;
-				case 1000 : 
-					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/1000_sample/phishing/';
-					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/1000_sample/legitimate/';
+				case 250 : 
+					$main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/250_sample/phishing/';
+					$main_path2 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/training/250_sample/legitimate/';
 				break;
 			}
 ;			if($check_ifclick){
@@ -728,10 +728,10 @@ class Training extends CI_Controller {
 										if($file10){
 										}
 									}
-									// echo ''.$pref2.$main_path2.$concater2.$j.$data4.'<br/>';
+									// echo ''.$pref2.$main_path2.$concater2.$j.$data4.'<br/>';	
 								}
 							}
-							// echo ''.$pref2.$main_path2.$concater2.$j.$data4.'<br/>';
+							echo ''.$pref2.$main_path2.$concater2.$j.$data4.'<br/>';
 							// echo ''.$main_path2.$pref2.$concater2.$j.'/'.$files10;
 						}
 
