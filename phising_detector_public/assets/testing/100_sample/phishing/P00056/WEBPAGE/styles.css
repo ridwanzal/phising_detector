@@ -1,0 +1,1882 @@
+/**********************************************************************
+/ 
+/   @file   : _styles.css (all)
+/   @date   : _20/01/2013 (MMJJAAAA)
+/   @author : _Hyacinthe Didier BRANDAO
+/
+/   #RESET CSS
+/   #LAYOUT                 > Header, Footer, Navigation, Breadcrumb
+/	#FONTS
+/	#SPRITES
+/   #BOXES & WRAPPER        > Main, Banners, Contenairs
+/	#CAROUSEL, #ACCORDION
+/
+/   MEDIA QUERIES           > @1024, @768, @560, @420
+/ 
+/
+/   #FONTS COLORS           > Black:      #000, #333
+/                           > Grey:       #505050
+/							  Grey:hover  #e2001a
+/							> Red:		  #d0660f
+/							> Green:	  #72A032
+/
+/   #FONTS FAMILY           > 'cabinregular', sans-serif;
+ **********************************************************************/
+
+
+/* IMPORTED FONTS CSS
+ *******************************************************/ 
+
+@font-face {
+    font-family: 'cabinregular';
+    src: url('http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/font/cabin/cabin-regular-webfont.eot');
+    src: url('http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/font/cabin/cabin-regular-webfont.eot?') format('embedded-opentype'),
+         url('http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/font/cabin/cabin-regular-webfont.woff') format('woff'),
+         url('http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/font/cabin/cabin-regular-webfont.ttf') format('truetype'),
+         url('http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/font/cabin/cabin-regular-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* IMPORTED FONTS CSS end ******************************/
+
+
+/* RESET CSS
+ *******************************************************/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, main, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, main, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+html {
+    font-size: 100%;
+    height: 100%;
+    max-width: 100%;
+    -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+	width: 100%;
+}
+body {	
+	background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/top_bg_body.jpg") repeat-y scroll center top #e1ebef;
+	font-family: 'cabinregular', sans-serif;
+	font-size: .9em; /* outdated browser */
+	font-size: .9rem;
+	height: 100%;
+	line-height: 1.2;
+	max-width: 100%;
+	min-height: 100%;
+	text-rendering : optimizeLegibility;
+	width: 100%;
+}
+img {
+	max-width: 100%;
+}
+
+/* Links */
+a {
+	border-spacing: 0;
+	color: #000;
+	text-decoration: none;	
+}
+
+a:focus,
+a:active,
+a:hover {
+    outline: 0;
+    text-decoration: underline;
+}
+/* Selected */
+::selection {
+    background-color: #0082b0;
+    color: #fff;
+}
+::-moz-selection {
+    background-color: #0082b0;
+    color: #fff;
+}
+/* RESET CSS end *******************************************/
+
+
+/* LAYOUT
+ ***********************************************************/
+
+/* HEADER */
+
+#header[role="banner"] {
+	background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_header.gif") repeat-x scroll left bottom #fff;
+	margin-bottom: -35px;
+	min-height: 170px;
+	padding: 15px 15px 0 0;
+	overflow: hidden;
+}
+/* Header left */
+
+.links-locations{
+	width: 120px;
+	float: left;
+	padding: 9px 0 0 15px;
+}
+	.links-locations a {
+		border: 1px solid #ebebeb;
+		display:block;
+		width:112px;
+	}
+	.links-locations .sp {
+		background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_mariane.gif") no-repeat scroll top center #fff;
+		height: 70px;
+	}
+	.links-locations .ministere {
+		background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_ministere.gif") no-repeat scroll center #fff;
+		border-top: 0;
+		height: 50px;
+	}
+
+#logo {
+	float: left;
+	margin: 35px 0 0 74px;
+}
+	#logo a {
+		background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_logo.png") no-repeat scroll top left transparent;
+		display:block;
+		font-size: 0;
+		height:90px;
+		text-decoration: none;
+		width:360px;	
+	}
+	#logo span {
+		color: transparent;
+		font-size: 0;
+	}
+/* My space */
+.my-space {
+	background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/2bis_bg_Connect.gif") repeat-x scroll left bottom #ffd702;
+	text-align: center;
+}
+
+/* Search form */
+
+/* HEADER end */
+
+/* FOOTER  */
+#footer {
+    background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_footer.jpg") repeat-x scroll left top #EBEBEB;
+    clear: both;
+    padding: 30px;
+    width: 100%;
+}
+	#footer h3 {
+		color: #00426f;
+		font-size: 1em; 
+		font-size: 1rem;
+		font-weight: bold;
+	}
+	#footer li {
+		display: inline;
+	}
+.comarquage {
+	border-bottom: 2px solid #fff;
+	border-top: 2px solid #fff;
+	margin: 25px auto 10px;
+	overflow: hidden;
+	padding: 20px 0;
+	text-align: center;
+	width: 90%;
+}
+	.comarquage a {
+	    background: none repeat scroll 0 0 #fff;
+	    border: 3px solid #e5e5e5;
+	    -webkit-border-radius: 8px;
+		   -moz-border-radius: 8px;
+	    		border-radius: 8px;
+	    display: inline-block;
+	    height: 62px;
+	    margin: 5px;
+	    padding: 6px;
+	    vertical-align: bottom;
+	}
+	.signature {
+		color: #555;
+		font-style: italic;
+		font-size: .85em;
+		text-align: right;
+		padding-right: 3%;
+	}
+/* FOOTER end */
+#footer {
+    background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_footer.jpg") repeat-x scroll left top #EBEBEB;
+    clear: both;
+    padding: 30px;
+    width: 100%;
+}
+	#footer h3 {
+		color: #00426f;
+		font-size: 1em; 
+		font-size: 1rem;
+		font-weight: bold;
+	}
+	#footer li {
+		display: inline;
+	}
+.comarquage {
+	border-bottom: 2px solid #fff;
+	border-top: 2px solid #fff;
+	margin: 25px auto 10px;
+	overflow: hidden;
+	padding: 20px 0;
+	text-align: center;
+	width: 90%;
+}
+	.comarquage a {
+	    background: none repeat scroll 0 0 #fff;
+	    border: 3px solid #e5e5e5;
+	    -webkit-border-radius: 8px;
+		   -moz-border-radius: 8px;
+	    		border-radius: 8px;
+	    display: inline-block;
+	    height: 62px;
+	    margin: 5px;
+	    padding: 6px;
+	    vertical-align: bottom;
+	}
+
+/* NAVIGATION */
+
+.nav {
+	overflow: hidden;	
+	padding-left: 30px;
+	padding-top: 5px;
+}
+	.nav li {
+		float: left;
+
+	}
+		.nav li a {
+			background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_onglets.gif") repeat-x scroll 0 0 #acb9bd;
+			border: 2px solid #e4e8eb;
+			border-bottom: 0 none;
+			-webkit-border-radius: 8px 8px 0 0;
+			   -moz-border-radius: 8px 8px 0 0;
+					border-radius: 8px 8px 0 0;
+			display: block;
+			font-size: 1.25em; /* outdated browser */
+			font-size: 1.25rem;
+			margin-right: 5px;
+			max-height: 20px;
+			padding: 8px 10px 30px;
+			position:relative;
+			top: 1px;
+		}
+		.nav > li > a {
+			color: #333;
+		}
+		.nav li a:focus,
+		.nav li a:hover,
+		.nav li a:active {
+			text-decoration: none;
+		}
+		.nav li a.active[rel="index"],
+		.nav li a[rel="index"] {
+			font-size: 0;
+			color: transparent;
+		}
+		.nav li a[rel="index"] {
+			max-width: 50px;
+			overflow: hidden;
+			top: 1px;
+		}
+		.nav li.active a {
+			background: none repeat-x scroll 0 0 #fff;
+			border-bottom: 2px solid #fff;
+			-webkit-box-shadow: 5px -1px 5px -2px #c0c0c0;		
+			   -moz-box-shadow: 5px -1px 5px -2px #c0c0c0;
+					box-shadow: 5px -1px 5px -2px #c0c0c0;	
+			cursor: default;
+			position: relative;
+			z-index: 20;
+		}
+		#home .nav li.active a {
+			border-color: #fff;
+		}
+		#part .nav li.active a {
+			border-color: #72A032;
+			border-bottom: #fff;
+		}
+		#pro .nav li.active a {
+			border-color: #f90;
+			border-bottom: #fff;
+		}
+
+.nav-part:focus,
+.nav-part:hover,
+.nav-part:active {
+	border-color: #72A032;
+}
+.nav-pro:focus,
+.nav-pro:hover,
+.nav-pro:active  {
+	border-color: #f90;
+}
+.nav-doc:focus,
+.nav-doc:hover,
+.nav-doc:active  {
+	border-color: #2e9cdb;
+}
+
+/* NAVIGATION end */
+
+/* SUBNAV */
+
+#nav-level-2 {
+	background-color: #fff;
+	margin-bottom: 10px;
+	margin-top: -2px;
+	padding-left: 20px;
+	padding-top: 3px;
+	position: relative;
+	z-index: 10;
+}
+#part #nav-level-2 {
+	border-top: 2px solid #72A032;
+}
+#pro #nav-level-2 {
+	border-top: 2px solid #f90;
+}
+.list-nav-gp  {
+	display: inline-block;
+}
+#nav-level-2 .list-nav-gp  .nav-level-3 {
+	background-color: #f0f0F0;
+	-webkit-border-radius: 0 0 20px 20px;
+	   -moz-border-radius: 0 0 20px 20px;
+			border-radius: 0 0 20px 20px;
+	-webkit-box-shadow: 0px 10px 8px 0px #9b9b9b;		
+	   -moz-box-shadow: 0px 10px 8px 0px #9b9b9b;
+		 -o-box-shadow: 0px 10px 8px 0px #9b9b9b;	
+			box-shadow: 0px 10px 8px 0px #9b9b9b;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#9b9b9b, Direction=180, Strength=8);
+	display: block;
+	height: 0;
+	left: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.1s ease-in-out;
+	   -moz-transition: opacity 0.1s ease-in-out;
+			transition: opacity 0.1s ease-in-out;
+	overflow: hidden;
+	position: absolute;
+	top: 40px;
+	width: 100%;
+}
+html[data-useragent*='Firefox'] #nav-level-2 .list-nav-gp  .nav-level-3  {
+/*	top: 38px;*//*fv 20140318*/
+}
+
+#nav-level-2 .list-nav-gp.hover .nav-level-3,
+#nav-level-2 .list-nav-gp:hover .nav-level-3 {
+	border: 1px solid #d6d6d6;
+	display: block;
+	height: auto;
+	opacity: 1;
+	-webkit-transition: opacity 0.3s ease-in-out;
+	   -moz-transition: opacity 0.3s ease-in-out;
+			transition: opacity 0.3s ease-in-out;
+	overflow: hidden;
+	z-index: 29/*999*/;/*fv 18032014*/
+}
+	#nav-level-2 .list-nav-gp.hover .nav-level-3 .list-arrow-gray,
+	#nav-level-2 .list-nav-gp:hover .nav-level-3 .list-arrow-gray {
+		background: #f0f0f0;
+		display: block !important;
+		padding-left: 15px;
+	}
+		#nav-level-2 .list-nav-gp.hover .nav-level-3 .list-arrow-gray a,
+		#nav-level-2 .list-nav-gp:hover .nav-level-3 .list-arrow-gray a {
+			border-left: 2px solid #f0f0f0;
+			font-size: .8em;
+			font-size: .8rem;
+		}
+		#nav-level-2 .list-nav-gp:hover .nav-level-3 .list-arrow-gray a:before {
+			top: 5px;
+		}
+		#nav-level-2 .list-nav-gp:hover .nav-level-3 .list-arrow-gray a:hover {
+			background: #fff;
+			border-left: 2px solid #fff;
+			text-decoration: none;
+		}
+
+.arrow-lb {
+	border: 1px solid transparent;
+	font-size: .85rem;
+	font-weight: bold;
+	line-height: 3;
+	padding: 10px 20px 8px;
+	position: relative;
+	top: 0;
+	z-index: 30;
+}
+.arrow-lb:before {
+	color: #666;
+	content: "\25BA";
+	font-size: .6em; /* outdated browser */
+	font-size: .6rem;
+	margin-right: 2px;
+}
+#nav-level-2 .list-nav-gp:hover .arrow-lb {
+	background-color: #f0f0f0;
+	-webkit-transition: background-color 0.3s ease-in-out;
+	   -moz-transition: background-color 0.3s ease-in-out;
+			transition: background-color 0.3s ease-in-out;
+	border: 1px solid transparent;
+	text-decoration: none;
+}
+#nav-level-2 .list-nav-gp:hover span.arrow-lb {
+	border: 1px solid #d6d6d6;
+	border-bottom-color: #f0f0f0;
+	-webkit-border-radius: 8px 8px 0 0;
+	   -moz-border-radius: 8px 8px 0 0;
+			border-radius: 8px 8px 0 0;
+	text-decoration: none;
+}
+
+/* SUBNAV end */
+
+/* BREADCRUMB */
+
+#breadcrumb {
+	clear: both;
+	font-size: 0.75rem;
+    margin-bottom: 10px;
+    padding-left: 16px;
+}
+	#breadcrumb * {
+		display: inline;
+	}
+	#breadcrumb a {
+		color: #00426f;
+	}
+
+/* BREADCRUMB end */
+
+/* LAYOUT end **********************************************/
+
+/* FONTS 
+ **********************************************************/
+
+/* Title */
+ .square-tt {
+	background-position: left 0.5em;
+	font-size: .9em; /* outdated browser */
+	font-size: .9rem;
+	font-weight: bold;
+	margin-bottom: 10px;
+	position: relative;
+ }
+  .owl-carousel .square-tt {/*fv 20140319*/
+	font-size: /*1.4375*/1.2em; /* outdated browser */
+	font-size: /*1.4375*/1.2rem;
+ }
+	 .square-tt a:hover {
+		text-decoration: none;
+	 }
+.square-tt:before {/*fv 20140319*/
+ 	color: #acb9bd;
+	content: "\25A0";
+	font-size: /*1.4375*/1.2em; /* outdated browser */
+	font-size: /*1.4375*/1.2rem;
+	left: -15px;
+	position: absolute;
+	top: -4px;
+	z-index: 2;
+}
+.owl-carousel .square-tt:before {/*fv 20140319*/
+	font-size: /*1.4375*/1.2em; /* outdated browser */
+	font-size: /*1.4375*/1.2rem;
+	top: 0;
+}
+
+.square-tt.red:before {
+ 	color: #ba4e00;
+}
+.square-tt.green:before {
+ 	color: #5e7e15;
+}
+.square-tt.blue:before {
+ 	color: blue; /* Change color value */
+}
+
+
+.services {/*fv 20140320*/
+	font-size: 1em; /* outdated browser */
+	font-size: 1rem;
+	font-weight: bold;
+	margin: 2px 10px /*15px*/0px;
+}
+
+/*fv 20140320*/
+.baseline{
+font-size:.75em;/* outdated browser */
+font-size:.75rem;	
+padding-top:5px;
+}
+
+.upper-blue {
+    color: #00426F;
+    font-size: .8125em; /* outdated browser */
+    font-size: .8125rem;
+    margin-bottom: 5px;
+}
+.head-tt {
+	color: #6e6e6e;
+    font-size: 1.3125em; /* outdated browser */
+    font-size: 1.3125rem;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+.art-tt {
+font-size: 1.4m;
+font-weight: normal;
+padding: 6px 0px;
+font-size: 1.5em;
+color: #6E6E6E;
+margin-bottom: 12px;
+}
+#pro .head-tt,
+#part .head-tt  {
+	color: #d0660f;
+	font-weight:bold;
+	font-size: 1.1rem;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+#pro .head-tt {
+	color: #d0660f;
+}
+#part .head-tt {
+	color: #72A032;
+}
+#pro.qr .head-tt ,
+#part.qr .head-tt {
+	color: #6e6e6e;
+	font-size: 1.35em; /* outdated browser */
+	font-size: 1.35rem;
+    font-weight: normal;
+    padding-top: 5px;
+}
+
+.article-tt {
+	color: #6e6e6e;
+	font-size: 1em; /* outdated browser */
+    font-size: 1rem;
+}
+/* Links */
+
+.blue-arrow a {
+	margin-left: 12px;
+    position: relative;
+}
+
+.blue-arrow a:before {
+	color: #004171;
+	content: "\25BA";
+	font-size: .7em; /* outdated browser */
+	font-size: .7rem;
+	left: -24px;
+	margin-left: 12px;
+    margin-right: 5px;
+    position: absolute;
+    top: 3px;
+}
+.blue-arrow a:hover:before {
+	text-decoration: none;
+}
+
+
+.follow-this a {
+	color: #005571;
+	font-size: .85em; /* outdated browser */
+    font-size: .85rem;
+}
+.follow-this a:hover {
+	text-decoration: underline;
+}
+.w49pc .follow-this {
+	bottom: 15px;
+	position: absolute;
+}
+.box-art .follow-this {
+	font-weight: bold;
+}
+.box-art .follow-this a {
+	font-size: .75em; /* outdated browser */
+	font-size: .75rem;
+}
+#owl .follow-this {/*fv 20140319*/
+	margin-top: /*20px*/5px;
+}
+#owl .follow-this a {/*fv 20140319*/
+	font-size: /*1em*/.85em; /* outdated browser */
+    font-size: /*1rem*/.85rem;
+    font-weight: bold;
+}
+.follow-this a:focus,
+.follow-this a:hover,
+.follow-this a:active {
+	color: #000;
+	text-decoration: none;
+}
+.lk-blue a {
+	color: #005571;
+	display: block;
+	margin-bottom: 25px;
+}
+/* styles */
+.about-ft {
+	color: #555;
+    font-size: .75em; /* outdated browser */
+	font-size: .75rem;
+	margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn {
+	-webkit-border-radius: 6px;
+	   -moz-border-radius: 6px;
+			border-radius: 6px;
+}
+.btn:hover {
+	text-decoration: none;
+}
+.btn-gray {
+	background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_button.gif") repeat-x scroll left top #000;
+	border: 2px solid #fff;
+	display: block;
+	margin-top: 4px;
+	padding: 2px 0;
+	text-align: center;
+}
+.btn-gray:focus,
+.btn-gray:hover, 
+.btn-gray:active  {
+	border: 1px solid #000;
+	padding: 3px 1px;
+}
+.btn-lite {
+	background-color: #ebebeb;
+	-webkit-border-radius: 14px;
+	   -moz-border-radius: 14px;
+			border-radius: 14px;
+	font-weight: bold;
+	padding: 5px 3px 7px 10px;
+}
+.btn-lite:hover {
+	background-color: #666;
+	color: #fff;
+}
+	.btn-lite .sprite{
+		margin-left: 10px;
+	}
+.bg-part:focus,
+.bg-part:hover,
+.bg-part:active {
+	background-color: #5e7e15;
+}
+.bg-pro:focus,
+.bg-pro:hover,
+.bg-pro:hover  {
+	background-color: #b84e04;
+}	
+
+.btn-orange {
+	background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_plusServ.gif") repeat-x scroll left bottom #FFE34D;
+	border: 1px solid #ccc;
+	font-size: .75em; /* outdated browser */
+	font-size: .75rem;
+	padding: 3px 30px 5px 5px;
+	position: relative;
+}
+.btn-orange:focus,
+.btn-orange:hover,
+.btn-orange:active {
+	border: 1px solid #000;
+}
+	.btn-orange strong {
+		font-weight: bold;
+	}
+
+.board .btn-orange {
+	display: block;
+	margin-bottom: 15px;
+	padding: 10px;
+}
+
+.board .btn-orange .sprite-bg-btn-espace {
+	right: 10px;
+	top: 8px;
+}
+.retour a {
+	background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_button.gif") repeat-x top left #fff;
+	border: 2px solid #ccc;
+	color: #00426f;
+	font-weight: bold;
+	padding: 2px 10px 2px 6px;
+	-webkit-border-radius: 16px;
+	   -moz-border-radius: 16px;
+			border-radius: 16px;
+	position: absolute;
+	right : 15px;
+	top: 15px;
+	
+}
+.retour a:hover {
+	background-position: 0 -25%; 
+	border-color: #bbb;
+	text-decoration: none;	
+}
+/* FONTS end **********************************************/
+
+/* PICTOS
+ ***********************************************************/
+
+.sprite {
+	background-image: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/sprite.png");
+	background-repeat: repeat-x;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.sprite-arrow-up-part{ 
+	background-position: 0 0;
+	width: 16px;
+	height: 16px;
+}
+.sprite-arrow-up-pro { 
+	background-position: 0 -66px;
+	height: 16px;
+	width: 16px;
+} 
+.sprite-bg-btn-calc { 
+	background-position: 0 -132px;
+	height: 44px;
+	width: 47px;
+}
+.sprite-bg-btn-espace {
+	background-position: 0 -226px;
+	height: 19px;
+	position: absolute;
+	right: 5px;
+	top: 2px;
+	width: 19px;
+}
+.sprite-bg-btn-form { 
+	background-position: 0 -295px;	
+	height: 44px;
+	width: 47px;
+}
+.sprite-bg-btn-nc {
+	background-position: 0 -389px;
+	height: 44px;
+	width: 57px;
+}
+.sprite-bg-btn-nc-hover {
+	background-position: 0 -483px;
+	height: 44px;
+	width: 57px;
+}
+.sprite-bg-btn-qr {
+	background-position: 0 -577px;
+	height: 44px;
+	width: 47px;
+}
+.sprite-bg-btn-stat {
+	background-position: 0 -671px;
+	height: 44px;
+	width: 47px;
+}
+.sprite-bg-facebook {
+	background-position: 0 -765px;
+	height: 15px;
+	left: 100px;
+	position: absolute;
+	top: 5px;
+	width: 15px;
+}
+.sprite-bg-h3-aboutUs {
+	background-position: 0 -830px;
+	height: 25px;
+	width: 25px;
+}
+.sprite-bg-h3-avis{ 
+	background-position: 0 -905px;
+
+	width: 25px;height: 25px;
+}
+.sprite-bg-h3-calend{ 
+	background-position: 0 -980px;
+
+	width: 25px;height: 25px;
+}
+.sprite-bg-h3-dgfip { 
+	background-position: 0 -1055px;
+
+	width: 25px;height: 25px;
+}
+.sprite-bg-h3-doc { 
+	background-position: 0 -1130px;
+
+	width: 25px;height: 25px;
+}
+.sprite-bg-h3-form { 
+	background-position: 0 -1205px;
+
+	width: 25px;height: 25px;
+}
+.sprite-bg-h3-qr { 
+	background-position: 0 -1280px;
+	height: 25px;
+	width: 25px;
+}
+.sprite-bg-h3-recrut { 
+	background-position: 0 -1355px;
+	height: 25px;
+	width: 25px;
+}
+.sprite-bg-h3-services{ 
+	background-position: 0 -1430px;
+	height: 31px;
+	position: absolute;
+	right: 0;
+	width: 31px;
+} 
+.sprite-bg-h3-services {/*fv 20140320*/
+    background-position: 0 -1511px;
+    height: 31px;
+    position: absolute;
+    right: 13px;
+    top: /*6px*/4px;
+    width: 31px;	
+} 
+.sprite-bg-h3-simul {
+	background-position: 0 -1592px;
+	height: 25px;
+	width: 25px;
+}
+
+.sprite-bg-h3-internat{
+background:url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_internat.png") no-repeat center center;	
+width: 25px;
+height: 25px;
+}
+
+.sprite-bg-h3-controlfiscal{
+width: 25px;
+height: 25px;
+background:url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_h3_controlfiscal.png") no-repeat center center;
+}	
+
+.sprite-bg-h3-contact{
+width: 25px;
+height: 25px;
+background:url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_h3_contact.png") no-repeat center center;
+}
+
+.sprite-bg-lien-acces-acc {
+	background-position: 0 -1667px;
+
+	width: 8px;height: 9px;
+}
+.sprite-bg-lien-acces-part {
+	background-position: 0 -1726px;
+
+	width: 8px;height: 9px;
+}
+.sprite-bg-lien-acces-pro {
+	background-position: 0 -1785px;
+
+	width: 8px;height: 9px;
+}
+.sprite-bg-lien-footer {
+	background-position: 0 -1844px;
+	width: 8px;height: 9px;
+}
+.sprite-bg-lien-footer-hover {
+	background-position: 0 -1903px;
+
+	width: 8px;height: 9px;
+}
+.sprite-bg-lien-rech {
+	background-position: -107px 0;
+
+	width: 8px;height: 9px;
+}
+.sprite-bg-lien-sitesdgfip-hover {
+	background-position: -107px -59px;
+	height: 9px;
+	width: 8px;
+}
+.sprite-bg-lien-special { 
+	background-position: -107px -118px;
+	height: 9px;
+	width: 8px;
+}
+.sprite-bg-lien-special-hover {
+	background-position: -107px -177px;
+	height: 9px;
+	width: 8px;
+}
+.sprite-bg-liste-liens-article {
+	background-position: -107px -236px;
+	height: 9px;
+	width: 8px;
+}
+.sprite-bg-liste-liens-article-hover {
+	background-position: -107px -295px;
+	height: 9px;
+	width: 8px;
+}
+.sprite-bg-messerv-cadenas-acc {
+	background-position: -107px -354px;
+	height: 48px;
+	width: 62px;
+}
+.sprite-bg-messerv-cadenas-part {
+	background-position: -107px -452px;
+
+	width: 49px;height: 47px;
+}
+.sprite-bg-messerv-cadenas-pro {
+	background-position: -107px -549px;
+
+	width: 49px;height: 47px;
+}
+.sprite-bg-twitter {
+	background-position: -107px -646px;
+	height: 15px;
+	left: 100px;
+	position: absolute;
+	top: 5px;
+	width: 15px;
+}
+.sprite-bg-ul-menu {
+	background-position: -107px -711px;
+
+	width: 9px;height: 9px;
+}
+.sprite-corner-left {
+	background-position: -107px -770px;
+
+	width: 14px;height: 14px;
+}
+.sprite-corner-right {
+	background-position: -107px -834px;
+
+	width: 14px;height: 14px;
+}
+.sprite-ico-accueil {
+	background-position: -107px -898px;
+	height: 24px;
+	width: 26px;
+}
+.sprite-picto-part,
+.sprite-picto-pro { 
+	height: 72px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 72px;
+}
+.sprite-picto-part {
+	background-position: -107px -972px;
+}
+.sprite-picto-pro { 
+	background-position: -107px -1094px;
+}
+.sprite-puce-btnEspace-part { 
+	background-position: -107px -1216px;
+
+	width: 24px;height: 24px;
+}
+.sprite-puce-btnEspace-pro { 
+	background-position: -107px -1290px;
+
+	width: 24px;height: 24px;
+}
+.sprite-puce-btnPlus { 
+	background-position: -107px -1364px;
+	
+	width: 24px;height: 25px;
+}
+.sprite-puce-btnPlus-part { 
+	background-position: -107px -1438px;
+	
+	width: 24px;height: 25px;
+}
+.sprite-puce-btnPlus-pro { 
+	background-position: -107px -1512px;
+	
+	width: 24px;height: 25px;
+}
+.sprite-puce-close { 
+	background-position: -107px -1586px;
+
+	width: 11px;height: 11px;
+}
+.sprite-puce-divers { 
+	background-position: -107px -1647px;
+
+	width: 9px;height: 9px;
+}
+.sprite-puce-lien-liste-serv-dgfip { 
+	background-position: -107px -1706px;
+
+	width: 6px;height: 10px;
+}
+.sprite-puce-lien-liste-serv-part { 
+	background-position: -107px -1766px;
+
+	width: 6px;height: 10px;
+}
+.sprite-puce-lien-liste-serv-pro { 
+	background-position: -107px -1826px;
+
+	width: 6px;height: 10px;
+}
+.sprite-puce-menu-nav{ 
+	background-position: -107px -1886px;
+	height: 8px;
+	width: 8px;
+}
+.sprite-puce-menu-nav-deroul{ 
+	background-position: -107px -1944px;
+	height: 8px;
+	width: 8px;
+}
+.sprite-puce-menu-nav-deroul-hover { 
+	background-position: -229px 0;
+	height: 8px;
+	width: 8px;
+}
+.sprite-puce-menu-nav-hover { 
+	background-position: -229px -58px;
+	height: 8px;
+	width: 8px;
+}
+.sprite-puce-menu-nav-niv1-hover { 
+	background-position: -229px -116px;
+	height: 8px;
+	width: 7px;
+}
+.sprite-puce-menu-nav-niv1-part{ 
+	background-position: -229px -174px;
+	height: 8px;
+	width: 7px;
+}
+.sprite-puce-menu-nav-niv1-pro { 
+	background-position: -229px -232px;
+	height: 8px;
+	width: 7px;
+}
+.sprite-puce-menu-nav-niv2 { 
+	background-position: -229px -290px;
+	height: 8px;
+	width: 8px;
+}
+.sprite-puce-menu-nav-niv2-hover { 
+	background-position: -229px -348px;
+
+	width: 8px;height: 8px;
+}
+.sprite-puce-menu-nav-niv2-part { 
+	background-position: -229px -406px;
+
+	width: 7px;height: 8px;
+}
+.sprite-puce-menu-nav-niv2-part-hover { 
+	background-position: -229px -464px;
+
+	width: 7px;height: 8px;
+}
+.sprite-puce-menu-nav-niv2-pro-hover { 
+	background-position: -229px -522px;
+
+	width: 7px;height: 8px;
+}
+.sprite-puce-open { 
+	background-position: -229px -580px;
+	height: 11px;
+	width: 11px;
+}
+.sprite-puce-part { 
+	background-position: -229px -641px;
+	height: 9px;
+	width: 9px;
+}
+.sprite-puce-pro { 
+	background-position: -229px -700px;
+	height: 9px;
+	width: 9px;
+}
+.sprite-puce-ul-article-detailserv-part { 
+	background-position: -229px -759px;
+	height: 6px;
+	width: 6px;
+}
+.sprite-puce-ul-article-detailserv-pro { 
+	background-position: -229px -815px;
+	height: 6px;
+	width: 6px;
+}
+
+/* PICTOS end *********************************************/
+
+/* WRAPPERS & BOXES 
+ **********************************************************/
+
+.page {
+	background-color: #e1ebef;
+	margin: 0 auto;
+	min-height: 100%;
+	overflow: hidden;
+	width: 972px;
+}
+main {
+	overflow: hidden;
+	padding: 0 15px;
+}
+.col-left {
+	float: left;
+	width: 700px;
+	
+}
+.col-right {
+	float: right;
+	width: 228px;
+}
+/* Borders & corners */
+
+.border-blue,
+.border-gray,
+.rounded-corner {
+	-webkit-border-radius: 8px;
+	   -moz-border-radius: 8px;
+			border-radius: 8px;
+	overflow: hidden;
+	padding: 10px 15px;
+	position:relative;
+}
+.border-blue {
+	border: 2px solid #e1ebef;
+}
+.border-gray {
+	border: 1px solid #e4e8eb;
+}
+.rounded-corner {
+	margin-bottom: 15px;
+}
+main .rounded-corner,
+#header .border-blue {
+	background-color: #fff;
+}
+
+/* Boxes */
+.box-head {
+	margin-bottom: 15px;
+	overflow: hidden;
+	padding: 9px 0;
+	position: relative;
+	text-align: center;
+}
+.box-art {
+	margin-bottom: 15px;
+	padding-left: 18px;
+	position: relative;
+	width: 47%;
+}
+	.box-art p {
+		margin-bottom: 10px;
+	}
+
+.box-info {
+	border: 5px solid #e1eBef;
+	clear: both;
+	margin: 20px 20px 30px 0;
+	padding: 20px;
+}
+
+.box-info strong{font-weight:bold;}
+
+.box-info em{font-style:italic;}
+
+.box-qr {
+	padding-left: 18px;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Grid s*/
+.w25pc { width: 25%; }
+.w49pc { width: 49%; min-height: 180px; }
+.w50pc { width: 50%; }
+
+/* Misc */
+.cb { clear: both; }
+.fl { float: left; }
+.fr { float: right;}
+.oh { overflow: hidden;}
+
+/* Text */
+.tal { text-align: left; }
+.tar { text-align: right; }
+.tam { text-align: middle; }
+/* Spacer */
+.mb10 { margin-bottom: 10px; }
+.mb15 { margin-bottom: 15px; }
+.mb20 { margin-bottom: 20px; }
+.mb25 { margin-bottom: 25px; }
+
+.head-tt.mb30 { 
+	margin-bottom: 30px !important;
+	padding-top: 5px;
+	text-transform: none !important;
+}
+
+
+/* WRAPPERS & BOXES end ***********************************/
+
+/* CAROUSEL 
+ **********************************************************/
+
+/* clearfix */
+.owl-carousel 
+.owl-wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+/* display none until init */
+.owl-carousel{
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
+}
+.nojs .owl-carousel{
+	display: block;
+}
+.owl-wrapper {
+	display: none;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-wrapper-outer {
+	overflow: hidden;
+	padding-top: 3px;
+	position: relative;
+	width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{ 
+	-webkit-transition: height 500ms ease-in-out;
+	-moz-transition: height 500ms ease-in-out;
+	-ms-transition: height 500ms ease-in-out;
+	-o-transition: height 500ms ease-in-out;
+	transition: height 500ms ease-in-out;
+}
+	
+.owl-carousel .owl-item {/*fv 20140319*/
+	float: left;
+	padding-bottom: /*10px*/5px;
+}
+html[data-useragent*='iPad'] .owl-carousel  .owl-item  { 
+	width: 964px!important;
+}
+
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+	cursor: pointer;
+}
+.owl-controls {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.owl-pagination {/*fv 20140319*/
+	position: absolute;
+	right: 10%;
+	bottom: /*-12px*/-16px;
+	/**/float:right;
+	/**/padding:0px 10px 0 0;	
+}
+
+/* mouse grab icon */
+.grabbing { 
+    cursor:url(http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/Impots.gouv.fr%20-%20Particuliers_files/grabbing.png) 8 8, move;
+}
+
+/* fix */
+.owl-carousel  .owl-wrapper,
+.owl-carousel  .owl-item{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+}
+
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.2
+*/
+
+.owl-theme .owl-controls {
+	float: right;
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* Styling Next and Prev buttons */
+
+.owl-theme .owl-controls .owl-buttons div{
+	color: #FFF;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+	margin: 5px;
+	padding: 3px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	background: #869791;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+}
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	text-decoration: none;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: 5px 7px;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: #869791;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+/* preloading images */
+.owl-item.loading {
+}
+    #owl .item {
+        background: #3fbf79;
+        padding: 30px 0px;
+        margin: 10px;
+        color: #FFF;
+        -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+        		border-radius: 3px;
+        text-align: center;
+    }
+	.custom-navigation {
+
+	}
+	.custom-navigation a{
+		-webkit-user-select: none;
+		 -khtml-user-select: none;
+		   -moz-user-select: none;
+			-ms-user-select: none;
+				user-select: none;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+.custom-navigation .stop,
+.custom-navigation .play {/*fv 20140319*/
+	background-color: #cacaca;
+	color: #fff;
+	cursor: pointer;
+	display : block;	
+	font-size: .75em;
+	font-size: .75rem;
+	/*left: 0;*/
+	padding: 2px /*4px*/8px;
+	position: /*absolute*/relative;
+	/**/float:right;
+	text-align: center;
+	text-transform: uppercase;
+	bottom: /*15px*/10px;
+	width: 70px;
+}
+.custom-navigation .stop:hover,
+.custom-navigation .play:hover {
+	background-color: #869791;
+	text-decoration: none;
+}
+.custom-navigation .stop {/*fv 20140319*/
+	/*left: 30px;*/
+}
+.custom-navigation .play {/*fv 20140319*/
+	/*left: 30px;*/
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+	color: #fff;
+	display: inline-block;
+	*display: inline; /* outdated browser */
+	margin: 5px;
+	padding: 3px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	   -moz-border-radius: 30px;
+			border-radius: 30px;
+	background: #869791;
+	filter: Alpha(Opacity=50);  /* outdated browser */
+	opacity: .5;
+	zoom: 1;
+}
+
+
+/* carousel inner styles */
+
+.item {
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+.summary {/*fv 20140319*/
+	float: left;
+	padding: 0 0 0 15px;
+	width: 455px;
+}
+
+.img-wrap {/*fv 20140319*/
+	float: right;
+	margin-top: 5px;
+	width: 200px;
+}
+
+	.img-wrap img {/*fv 20140319*/
+		display: block;
+		margin: auto;
+		max-height: /*130px*/70px;
+		width: auto;
+	}
+
+/*fv 20140319  pour item carrousel sans image pleine largeur*/
+.owl-item.sansimg  .summary{
+width:100%;
+}
+.owl-item.sansimg  .img-wrap{
+display:none;
+}
+/* CAROUSEL end *******************************************/
+
+
+/* ACCORDION 
+ **********************************************************/
+.navigation {
+}
+	.navigation a {
+		display: block;
+		padding: 0 10px;
+		text-decoration: none;
+	}
+	.col-left .navigation a {
+		padding: 9px 10px;
+	}
+	.navigation > li {
+		background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_button.gif") repeat-x scroll left top #fff;
+		border: 1px solid #ccc;
+		-webkit-border-radius: 8px;
+		   -moz-border-radius: 8px;
+				border-radius: 8px;
+		margin-bottom: 12px;
+		min-height: 38px;
+		overflow: hidden;
+		position: relative;
+	}
+	html[data-useragent*='MSIE 10.0'] .navigation > li  {
+		height: 38px;
+	}
+	html[data-useragent*='MSIE 10.0'] .navigation > li.open  {
+		height: inherit;
+	}
+
+	.navigation > li:hover {
+		background: url("http://www.punonegocios.com/ekekonegocios/scripts/-/Service/ID-2036584618311/Clients.Impot-Gouv/accueil/2e2a0af6a911aadbc18dbb1905d81c23/img/bg_button_hover.gif") repeat-x scroll left top #fff;
+	}
+
+		.navigation > li > a {
+			color: #444;
+			display: inline-block;
+			font-size: .875em; /* outdated browser */
+			font-size: .875rem;
+			vertical-align: bottom;
+			width: 80%; /* $ie7 */
+		}
+
+
+		.navigation > li > a:after {
+			color: #676767;
+			content: "\25BA";
+			font-size: .8em; /* outdated browser */
+			font-size: .8rem;
+			right: 6px;
+			top: 9px;
+			position: absolute;
+			filter: Alpha(Opacity=80);  /* outdated browser */
+			opacity: .8;
+		}
+		.navigation li.open > a:after {
+			content: "\25BC";
+		}
+		.navigation > li .sprite {
+			margin-left: 10px;
+			position: relative;
+			top: 6px;
+			vertical-align: top;
+		}
+	.navigation a:hover, 
+	.navigation a:focus, 
+	.navigation a:active {
+		text-decoration: none;
+	}
+.board {
+	display: none;
+}
+
+.list-arrow-gray,
+.list-arrow-blue {
+	background-color: transparent;
+	font-size: .9em; /* outdated browser */
+	font-size: .9rem;
+	margin: 1px 0 15px;
+	padding: 10px 0;
+}
+#owl .list-arrow-gray {
+	padding: 0;
+}
+.list-arrow-blue {
+	background-color: transparent;
+}
+.navigation .list-arrow-gray {
+	margin-bottom: 0;
+}
+.box-art .list-arrow-gray {
+	padding-top: 0;
+}
+.list-arrow-gray li,
+.list-arrow-blue li {
+	font-size: .9em; /* outdated browser */
+	font-size: .9rem;
+	padding: 2px 0;
+}
+.list-arrow-gray a,
+.list-arrow-blue a {
+	background: none;
+	display: block;
+	padding: 3px 5px 0 15px;
+	position: relative;
+}
+.navigation .list-arrow-gray a {
+	padding: 3px 5px 0 30px;
+}
+.list-arrow-gray a:before,
+.list-arrow-blue a:before {
+	color: #d0d0d0;
+	content: "\25BA";
+	font-size: .7rem;
+	left: 0;
+	position: absolute;
+	top: 6px;
+}
+.list-arrow-blue a:before {
+	color: #59aecf;
+}
+.list-arrow-gray a:hover:before {
+	color: #666;
+	text-decoration: none;
+}
+.list-arrow-blue a:hover:before {
+	color: #0281b0;
+	text-decoration: none;
+}
+.navigation .list-arrow-gray a:before {
+	left: 15px;
+}
+
+/* ACCORDION end *******************************************/
+
+@media (max-width: 980px){
+	/* @media(1024) */  
+	.links-locations {
+		padding: 0 0 0 15px;
+	}
+	#logo {
+		margin: 22px 0 0 74px;
+	}
+	.page {
+		width: 768px;
+	}
+	.col-left {
+		width: 100%;
+	}
+	.page,
+	.col-left {
+		width: 100%;
+		-webkit-transition: width 0.4s ease-in-out;
+           -moz-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
+	}
+	.board {
+		display: block;
+	}
+	#nav-level-2 {
+		padding: 0;
+	}
+	#pro .rounded-corner.w49pc,
+	#part .rounded-corner.w49pc,
+	.col-right,
+	#nav-level-2 *,
+	.oh,
+	.comarquage {
+		display: none;
+	}
+	
+	/*fv gael samsung 1280*/
+	.square-tt:before{
+	top:-3px
+	}
+	
+	.owl-carousel .square-tt:before{
+	top:0px
+	}
+
+	/* @media(1024) encloser */
+}
+
+@media (max-width: 700px) {
+	/* @media(768) */ 
+
+	#header[role="banner"] {
+		min-height: 145px;
+	}
+	.links-locations .sp {
+		height: 49px;
+	}
+	.links-locations .ministere {
+		height: 35px;
+	}
+	.links-locations a {
+		background-size: 100% !important;
+		width: 78px;
+	}
+	#logo {
+		margin: 22px 0 0 20px;
+		max-width: 220px;
+	}
+		#logo a {
+			background-size: 220px;
+			max-width: 220px;
+		}
+	.page {
+		width: 90%;
+		-webkit-transition: width 0.4s ease-in-out;
+           -moz-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
+	}
+	.nav li a {
+		margin-right: 2px;
+		padding: 8px 5px 28px;
+	}
+	.summary {
+		width: 60%;
+	}
+	.img-wrap {
+		width: 35%;
+	}
+	.owl-pagination {/*fv 20140319*/
+	padding-right:50px;
+	}
+	.w49pc,
+	.box-art {
+		width: 100%;
+	}
+	.list-arrow-gray.w49pc {
+    	min-height: inherit;
+    	margin-bottom: -22px;
+	}
+	.list-arrow-gray.w49pc + .list-arrow-gray.w49pc {
+    	margin-bottom: 10px;
+	}
+	html[data-useragent*='iPad'] .owl-carousel  .owl-item  { 
+		width: 631px !important;
+	}
+	
+	.owl-carousel .square-tt:before {
+		font-size: .9rem;
+		top:4px;
+	}
+	
+	html[data-useragent*='iPhone'] .square-tt:before {
+		font-size: .8rem;
+		top: 1px;
+	}
+	html[data-useragent*='iPhone'] .owl-carousel .square-tt:before {
+		font-size: .9rem;
+		left: -16px;
+		top: 5px;
+	}
+
+	/* @media(768) encloser */
+}
+@media  (max-width: 560px) {
+	/* @media(768) */  
+
+	.page {
+		width: 90%;
+		-webkit-transition: width 0.4s ease-in-out;
+           -moz-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
+    }
+
+	.nav {
+		padding-left: 20px;
+	}
+			.nav li a {
+				font-size: .85em;
+				font-size: .85rem;
+				padding: 8px 2px 28px;
+			}
+	.owl-pagination,
+	.owl-buttons {
+		margin: inherit;
+		-webkit-transition: margin 0.4s ease-in-out;
+           -moz-transition: margin 0.4s ease-in-out;
+                transition: margin 0.4s ease-in-out;
+	}
+	
+	.square-tt:before {
+		font-size: .8rem;
+		top: 1px;
+	}
+
+
+	html[data-useragent*='iPhone'] .owl-carousel  .square-tt:before { 
+		left: -15px;
+	}
+
+	.retour a {
+		position: relative;
+		left: 0;
+		right: inherit;
+		top: -15px;
+	}
+	/* @media(768) encloser */
+}
+
+@media  (max-width: 420px) {
+/* @media(420) */ 
+	#logo {
+		margin-left: 0;
+		max-width: 150px;
+	}
+		#logo a {
+			background-size: 150px;
+			max-width: 150px;
+		}
+
+	#footer {
+	    padding: 30px 10px;
+	}
+	.page {
+		width: 100%;
+		-webkit-transition: width 0.4s ease-in-out;
+           -moz-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;	
+	}
+	.nav li a {
+		font-size:.8rem;
+		margin-right: 0;
+	}
+
+
+/* @media(420) encloser */
+}

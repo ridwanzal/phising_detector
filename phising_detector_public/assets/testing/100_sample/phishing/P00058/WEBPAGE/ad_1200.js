@@ -1,1 +1,0 @@
-var runAd=function(a,b){var c=function(){return window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth},d=0,e=function(){var e=c();e>999&&!d&&(adSetType("I"),htmlAdWH(a,"1200","800","iframe",b),adSetType(""),d=1)};e(),window.onresize=function(){e()}};

