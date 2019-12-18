@@ -809,7 +809,7 @@ class Phishing extends CI_Controller {
 	public function read_html_filesize($file){
 		$result = 0;
 		$size = filesize($file);
-		if($size > 102400){
+		if($size < 102400){
 			$result = 1;
 		}
 
