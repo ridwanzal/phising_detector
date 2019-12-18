@@ -688,14 +688,14 @@ class Training extends CI_Controller {
 								"html_length" => "".$this->read_html_filesize($file_path),
 								"html_is_consist" => "".$this->read_consistency($file_path, $data),
 								"html_js_list" => "".$this->read_html_enabled_js($file_path),
-								"html_string_embed" => "1",
+								"html_string_embed" => "0",
 								"html_link_external_list" => "".$this->read_html_external_link($file_path),
 								"html_redirect" => "".$this->read_html_redirect($file_path),
 								"html_iframe" => "".$this->read_html_iframe($file_path),
-								"html_mouseover" => "1",
-								"html_popup" => "1",
+								"html_mouseover" => "0",
+								"html_popup" => "0",
 								"html_favicon" => "".$this->read_html_favicon($file_path),
-								"feature_type" => "1"
+								"feature_type" => "0"
 
                             );	
                             $this->db->insert('ph_features_phishing', $feature_data);
@@ -759,19 +759,19 @@ class Training extends CI_Controller {
 								"url_length" => "".$this->read_url_length($data3),
 								"url_dot_total" => "".$this->read_url_dot_total($data3),
 								"url_sensitive_char" => "".$this->read_special_char($data3),
-								"url_brandinfo" => "1",
+								"url_brandinfo" => "".$this->read_brandinfo($file_path, $data3),
 								"html_alert" => "".$this->read_html_alert($file_path2),
 								"html_login" => "".$this->read_html_login($file_path2),
 								"html_empty_link" => "".$this->read_html_empty_link($file_path2),
 								"html_length" => "".$this->read_html_filesize($file_path2),
 								"html_is_consist" => "".$this->read_consistency($file_path2, $data3),
 								"html_js_list" => "".$this->read_html_enabled_js($file_path2),
-								"html_string_embed" => "1",
+								"html_string_embed" => "0",
 								"html_link_external_list" => "".$this->read_html_external_link($file_path2),
 								"html_redirect" => "".$this->read_html_redirect($file_path2),
 								"html_iframe" => "".$this->read_html_iframe($file_path2),
-								"html_mouseover" => "1",
-								"html_popup" => "1",
+								"html_mouseover" => "0",
+								"html_popup" => "0",
 								"html_favicon" => "".$this->read_html_favicon($file_path2)
 
                             );	
