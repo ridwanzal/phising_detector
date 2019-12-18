@@ -600,18 +600,6 @@ class Legitimate extends CI_Controller {
 		$this->load->view('main/footer', $send_toview);
 	}
 
-
-
-
-
-
-    
-
-
-
-	// URL Feature Extraction Modules	
-
-
 	public function read_brandinfo($file, $uri){
 		// check on data uri/url or title
 		$dom = new Dom;
@@ -682,24 +670,19 @@ class Legitimate extends CI_Controller {
 		return $result;
 	}
 
+	/*
+		Deteksi special character di URI
+	*/
 	public function read_url_symbol($uri){
-		$result = 0;
-		if ( urlencode(urldecode($uri)) === $uri){
-			$result = 1;
-		}
+		$result = 0 ;
+		if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $uri))
+			{
+				$result = 1;
+			// one or more of the 'special characters' found in $string
+			}
 		return $result;
 	}
 
-	// public function read_url_subdomain($uri){
-	// 	$result = 0 ;
-	// 	$parsed_url = parse_url($uri);
-	// 	$host = explode('.', $parsed_url['host']);
-	// 	$check_subbdomain = $host[0];
-	// 	if($check_subbdomain != ""){	
-	// 		$result = 1;
-	// 	}
-	// 	return $result;
-	// }
 
 	public function read_url_subdomain($uri){
 		$result = 0 ;
@@ -718,19 +701,28 @@ class Legitimate extends CI_Controller {
 		return $result;
 	}
 
+	/*
+		Check apakah web memiliki Sensitive vocabulary
+	 */
+
 	public function read_special_char($uri){
 		$result = 0 ;
-		if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $uri))
+		$vocab_phishing = array("secure", 
+								 "account",
+								 "login", "ebayisapi",
+								 "signin", "banking", "confirm");
+			if (in_array("uri", $vocab_phishing))
 			{
-				$result = 1;
-			// one or more of the 'special characters' found in $string
-		}
+				$result = 1 ;
+			}
 		return $result;
 	}
 	
-
+	/*
+		Check apakah web memiliki favicon, kebanyakan web phishing 
+		dibuat secara tidak profesional dan tidak menampilkan favicon
+	 */
 	
-	// HTML Feature Extraction Modules
 	public function read_html_favicon($file){
 		// echo $file;
 		$dom = new Dom;
@@ -754,12 +746,15 @@ class Legitimate extends CI_Controller {
 		}
 
 		if($found){
-			return 1;
+			return 0; // kalo ketemu bukan phishing
 		}else{
-			return 0;
+			return 1; // kalo ketemu phishing
 		}
 	}
 
+	/*
+		Check kalo web ad alert
+	 */
 
 	public function read_html_alert($file){
 		$dom = new Dom;
@@ -789,6 +784,11 @@ class Legitimate extends CI_Controller {
 		}	
 	}
 
+
+	/*
+		Check kalo ad iframe, ini biasany untuk inject view dari luar
+		berbahaya
+	 */
 	public function read_html_iframe($file){
 		$dom = new Dom;
 		$dom->setOptions([
@@ -811,12 +811,15 @@ class Legitimate extends CI_Controller {
 		}
 
 		if($found){
-			return 1;
+			return 1; // kalo ketemu phishing
 		}else{
-			return 0;
+			return 0; // kalo ketemu bukan phishing
 		}	
 	}
 
+	/*
+		Check  ukran file jika lebih besar dr 100
+	 */
 	public function read_html_filesize($file){
 		$result = 0;
 		$size = filesize($file);
@@ -827,6 +830,9 @@ class Legitimate extends CI_Controller {
 		return $result;
 	}
 
+	/*
+		Check kalo a href value ny kosong 
+	 */
 	public function read_html_empty_link($file){
 		$dom = new Dom;
 		$dom->setOptions([
@@ -855,7 +861,9 @@ class Legitimate extends CI_Controller {
 		}	
 	}
 
-
+	/*
+		Check kalo ado auto redirect 
+	*/
 	public function read_html_redirect($file){
 		$dom = new Dom;
 		$dom->setOptions([
@@ -997,6 +1005,7 @@ class Legitimate extends CI_Controller {
 		}
 	}
 	
+	
 	public function checkRemoteFile($uri)
 	{
 		$ch = curl_init();
@@ -1014,7 +1023,6 @@ class Legitimate extends CI_Controller {
 			return false;
 		}
 	}
-
 
 
 	public function count_feature_legitimate($sch_id, $feature){
