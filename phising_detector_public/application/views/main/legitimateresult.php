@@ -5,7 +5,7 @@
               <ul class="breadcrumbs">
                 <li><a href="<?php echo base_url()?>">Home</a></li>
                 <li><a href="<?php echo base_url()?>legitimate">Test Legimtimate Dataset</a></li>
-                <li><a href="<?php echo base_url()?>phishing/testlist">Legtitimate Test List</a></li>
+                <li><a href="<?php echo base_url()?>legitimate/testlist">Legtitimate Test List</a></li>
                 <li>Scan Results</li>
               </ul>
           </div>
