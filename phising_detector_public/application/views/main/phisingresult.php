@@ -133,7 +133,7 @@
                         <?php foreach($score_testing as $score_testing) { ?>
                             <tr>
                             <td><?php echo $score_testing->sc_phishing_test_id; ?></td>
-                            <td style="color:#274984;"><?php echo $score_testing->dataset_url; ?></td>
+                            <td style="color:#274984;" title="<?php echo $score_testing->dataset_url; ?>"><?php echo substr($score_testing->dataset_url, 0, 110)."..."; ?></td>
                             <td><?php echo $score_testing->score; ?></td>
                             <td><?php echo $score_testing->threshold1; ?></td>
                             <td><?php echo $score_testing->threshold2; ?></td>
