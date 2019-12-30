@@ -21,10 +21,6 @@
                 <br/>
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        JS Alert
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $ph_count_html_alert[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         Login 
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $ph_count_html_login[0]->count?></span>
                     </li>
@@ -45,10 +41,6 @@
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $ph_count_html_jslist[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        JS Embedded
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $ph_count_html_str_embed[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         External Link
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $ph_count_html_extlist[0]->count?></span>
                     </li>
@@ -59,10 +51,6 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Iframe
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $ph_count_html_iframe[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        HTML Mouse over
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_mouseove[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         HTML Favicon
@@ -76,10 +64,6 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Non SSL
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $ph_count_urlprotocol[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Favicon
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $ph_count_html_favicon[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Standard Port
@@ -120,10 +104,6 @@
                 <br/>
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        JS Alert
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_alert[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         Login 
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_login[0]->count?></span>
                     </li>
@@ -144,10 +124,6 @@
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_jslist[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        JS Embedded
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_str_embed[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         External Link
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_extlist[0]->count?></span>
                     </li>
@@ -158,10 +134,6 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Iframe
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_iframe[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        HTML Mouse Over
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_mouseove[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         HTML Favicon
@@ -175,10 +147,6 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Non SSL
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_urlprotocol[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Favicon
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $le_count_html_favicon[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Standard Port
@@ -229,18 +197,14 @@
                             <th>Sensitive</th>
                             <th>Brand</th>
                             <th>Favicon</th>
-                            <th>Alert</th>
                             <th>Login</th>
                             <th>Empty Link</th>
                             <th>HTML Length</th>
                             <th>Consistency</th>
                             <th>Javascript</th>
-                            <th>Embed</th>
                             <th>External Link</th>
                             <th>Redirect</th>
                             <th>Iframe</th>
-                            <th>Mouseover</th>
-                            <th>Pop Up</th>
                             <th>Favicon</th>
                         </tr>
                             </thead>        
@@ -259,18 +223,14 @@
                                     <td><?php echo $ph_train->url_sensitive_char; ?></td>
                                     <td><?php echo $ph_train->url_brandinfo; ?></td>
                                     <td><?php echo $ph_train->url_favicon; ?></td>
-                                    <td><?php echo $ph_train->html_alert; ?></td>
                                     <td><?php echo $ph_train->html_login; ?></td>
                                     <td><?php echo $ph_train->html_empty_link; ?></td>
                                     <td><?php echo $ph_train->html_length; ?></td>
                                     <td><?php echo $ph_train->html_is_consist; ?></td>
                                     <td><?php echo $ph_train->html_js_list; ?></td>
-                                    <td><?php echo $ph_train->html_string_embed; ?></td>
                                     <td><?php echo $ph_train->html_link_external_list; ?></td>
                                     <td><?php echo $ph_train->html_redirect; ?></td>
                                     <td><?php echo $ph_train->html_iframe; ?></td>
-                                    <td><?php echo $ph_train->html_mouseover; ?></td>
-                                    <td><?php echo $ph_train->html_popup; ?></td>
                                     <td><?php echo $ph_train->html_favicon; ?></td>
                                     </tr>
                                     <?php } ?> 

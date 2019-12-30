@@ -140,18 +140,14 @@ class Training extends CI_Controller {
 		$ph_url_len = $this->count_feature_phising($get_taskid, 'a.url_length');
 		$ph_url_dot_total = $this->count_feature_phising($get_taskid, 'a.url_dot_total');
 		$ph_url_sensitive_char = $this->count_feature_phising($get_taskid, 'a.url_sensitive_char');
-		$ph_html_alert = $this->count_feature_phising($get_taskid, 'a.html_alert');
 		$ph_html_login = $this->count_feature_phising($get_taskid, 'a.html_login');
 		$ph_html_empty_link = $this->count_feature_phising($get_taskid, 'a.html_empty_link');
 		$ph_html_length = $this->count_feature_phising($get_taskid, 'a.html_length');
 		$ph_html_is_consist = $this->count_feature_phising($get_taskid, 'a.html_is_consist');
 		$ph_html_jslist = $this->count_feature_phising($get_taskid, 'a.html_js_list');
-		$ph_html_str_embed = $this->count_feature_phising($get_taskid, 'a.html_string_embed');
 		$ph_html_str_extlist = $this->count_feature_phising($get_taskid, 'a.html_link_external_list');
 		$ph_html_redirect = $this->count_feature_phising($get_taskid, 'a.html_redirect');
 		$ph_html_iframe = $this->count_feature_phising($get_taskid, 'a.html_iframe');
-		$ph_html_mosueover = $this->count_feature_phising($get_taskid, 'a.html_mouseover');
-		$ph_html_popup = $this->count_feature_phising($get_taskid, 'a.html_popup');
 		$ph_html_favicon = $this->count_feature_phising($get_taskid, 'a.html_favicon');
 
 		// Legitimate features
@@ -162,18 +158,14 @@ class Training extends CI_Controller {
 		$le_url_len = $this->count_feature_legitimate($get_taskid, 'a.url_length');
 		$le_url_dot_total = $this->count_feature_legitimate($get_taskid, 'a.url_dot_total');
 		$le_url_sensitive_char = $this->count_feature_legitimate($get_taskid, 'a.url_sensitive_char');
-		$le_html_alert = $this->count_feature_legitimate($get_taskid, 'a.html_alert');
 		$le_html_login = $this->count_feature_legitimate($get_taskid, 'a.html_login');
 		$le_html_empty_link = $this->count_feature_legitimate($get_taskid, 'a.html_empty_link');
 		$le_html_length = $this->count_feature_legitimate($get_taskid, 'a.html_length');
 		$le_html_is_consist = $this->count_feature_legitimate($get_taskid, 'a.html_is_consist');
 		$le_html_jslist = $this->count_feature_legitimate($get_taskid, 'a.html_js_list');
-		$le_html_str_embed = $this->count_feature_legitimate($get_taskid, 'a.html_string_embed');
 		$le_html_str_extlist = $this->count_feature_legitimate($get_taskid, 'a.html_link_external_list');
 		$le_html_redirect = $this->count_feature_legitimate($get_taskid, 'a.html_redirect');
 		$le_html_iframe = $this->count_feature_legitimate($get_taskid, 'a.html_iframe');
-		$le_html_mosueover = $this->count_feature_legitimate($get_taskid, 'a.html_mouseover');
-		$le_html_popup = $this->count_feature_legitimate($get_taskid, 'a.html_popup');
 		$le_html_favicon = $this->count_feature_legitimate($get_taskid, 'a.html_favicon');
 
 		$train_proto = ($ph_proto[0]->count - $le_proto[0]->count) / $get_task_scanned;
@@ -183,18 +175,14 @@ class Training extends CI_Controller {
 		$train_url_len = ($ph_url_len[0]->count - $le_url_len[0]->count) / $get_task_scanned;
 		$train_url_dot_total = ($ph_url_dot_total[0]->count - $le_url_dot_total[0]->count) / $get_task_scanned;
 		$train_url_sensitive_char = ($ph_url_sensitive_char[0]->count - $le_url_sensitive_char[0]->count) / $get_task_scanned;
-		$train_html_alert = ($ph_html_alert[0]->count- $le_html_alert[0]->count)/ $get_task_scanned;
 		$train_html_login = ($ph_html_login[0]->count- $le_html_login[0]->count)/ $get_task_scanned;
 		$train_html_empty_link = ($ph_html_empty_link[0]->count - $le_html_empty_link[0]->count) / $get_task_scanned;
 		$train_html_length = ($ph_html_length[0]->count - $le_html_length[0]->count) / $get_task_scanned;
 		$train_html_is_consist = ($ph_html_is_consist[0]->count - $le_html_is_consist[0]->count) / $get_task_scanned;
 		$train_html_jslist = ($ph_html_jslist[0]->count - $le_html_jslist[0]->count) / $get_task_scanned;
-		$train_html_str_embed = ($ph_html_str_embed[0]->count - $le_html_str_embed[0]->count) / $get_task_scanned;
 		$train_html_str_extlist = ($ph_html_str_extlist[0]->count - $le_html_str_extlist[0]->count) / $get_task_scanned; 
 		$train_html_redirect = ($ph_html_redirect[0]->count- $le_html_redirect[0]->count) / $get_task_scanned; 
 		$train_html_iframe = ($ph_html_iframe[0]->count - $le_html_iframe[0]->count)/ $get_task_scanned; 
-		$train_html_mosueover = ($ph_html_mosueover[0]->count- $le_html_mosueover[0]->count) / $get_task_scanned; 
-		$train_html_popup = ($ph_html_popup[0]->count - $le_html_popup[0]->count) /$get_task_scanned;
 		$train_html_favicon = ($ph_html_favicon[0]->count- $le_html_favicon[0]->count) / $get_task_scanned; 
 		
 		$train_data = array(
@@ -207,19 +195,14 @@ class Training extends CI_Controller {
 			"url_length" => "".$train_url_len,
 			"url_dot_total" => "".$train_url_dot_total,
 			"url_sensitive_char" => "".$train_url_sensitive_char,
-			"url_brandinfo" => "0",
-			"html_alert" => "".$train_html_alert,
 			"html_login" => "".$train_html_login,
 			"html_empty_link" => "".$train_html_empty_link,
 			"html_length" => "".$train_html_length,
 			"html_is_consist" => "".$train_html_is_consist,
 			"html_js_list" => "".$train_html_jslist,
-			"html_string_embed" => "0",
 			"html_link_external_list" => "".$train_html_str_extlist,
 			"html_redirect" => "".$train_html_redirect,
 			"html_iframe" => "".$train_html_iframe,
-			"html_mouseover" => "0",
-			"html_popup" => "".$train_html_popup,
 			"html_favicon" => "".$train_html_favicon
 		);
 
@@ -234,18 +217,14 @@ class Training extends CI_Controller {
 			$send_toview['ph_count_url_len'] = $ph_url_len;
 			$send_toview['ph_count_urldot_total'] = $ph_url_dot_total;
 			$send_toview['ph_count_url_senschar'] = $ph_url_sensitive_char;
-			$send_toview['ph_count_html_alert'] = $ph_html_alert;
 			$send_toview['ph_count_html_login'] = $ph_html_login;
 			$send_toview['ph_count_html_empty_link'] = $ph_html_empty_link;
 			$send_toview['ph_count_html_length'] = $ph_html_length;
 			$send_toview['ph_count_html_isconsist'] = $ph_html_is_consist;
 			$send_toview['ph_count_html_jslist'] = $ph_html_jslist;
-			$send_toview['ph_count_html_str_embed'] = $ph_html_str_embed;
 			$send_toview['ph_count_html_extlist'] = $ph_html_str_extlist;
 			$send_toview['ph_count_html_redirect'] = $ph_html_redirect;
 			$send_toview['ph_count_html_iframe'] = $ph_html_iframe;
-			$send_toview['ph_count_html_mouseove'] = $ph_html_mosueover;
-			$send_toview['ph_count_html_popup'] = $ph_html_popup;
 			$send_toview['ph_count_html_favicon'] = $ph_html_favicon;
 	
 	
@@ -256,18 +235,14 @@ class Training extends CI_Controller {
 			$send_toview['le_count_url_len'] = $le_url_len;
 			$send_toview['le_count_urldot_total'] = $le_url_dot_total;
 			$send_toview['le_count_url_senschar'] = $le_url_sensitive_char;
-			$send_toview['le_count_html_alert'] = $le_html_alert;
 			$send_toview['le_count_html_login'] = $le_html_login;
 			$send_toview['le_count_html_empty_link'] = $le_html_empty_link;
 			$send_toview['le_count_html_length'] = $le_html_length;
 			$send_toview['le_count_html_isconsist'] = $le_html_is_consist;
 			$send_toview['le_count_html_jslist'] = $le_html_jslist;
-			$send_toview['le_count_html_str_embed'] = $le_html_str_embed;
 			$send_toview['le_count_html_extlist'] = $le_html_str_extlist;
 			$send_toview['le_count_html_redirect'] = $le_html_redirect;
 			$send_toview['le_count_html_iframe'] = $le_html_iframe;
-			$send_toview['le_count_html_mouseove'] = $le_html_mosueover;
-			$send_toview['le_count_html_popup'] = $le_html_popup;
 			$send_toview['le_count_html_favicon'] = $le_html_favicon;
 	
 			
@@ -331,18 +306,14 @@ class Training extends CI_Controller {
 							c.task_id,
 							b.sc_id,
 							a.html_id,
-							a.html_alert,
 							a.html_login,
 							a.html_empty_link,
 							a.html_length,
 							a.html_is_consist,
 							a.html_js_list,
-							a.html_string_embed,
 							a.html_link_external_list,
 							a.html_redirect,
 							a.html_iframe,
-							a.html_mouseover,
-							a.html_popup,
 							a.html_favicon
 							FROM
 							ph_html_info a,
@@ -367,18 +338,14 @@ class Training extends CI_Controller {
 								c.url_dot_total +
 								c.url_sensitive_char +
 								c.url_brandinfo +
-								d.html_alert +
 								d.html_login +
 								d.html_empty_link +
 								d.html_length +
 								d.html_is_consist +
 								d.html_js_list +
-								d.html_string_embed +
 								d.html_link_external_list +
 								d.html_redirect +
 								d.html_iframe +
-								d.html_mouseover +
-								d.html_popup +
 								d.html_favicon ) / 22 as score
 								FROM
 								ph_task a,
@@ -405,18 +372,14 @@ class Training extends CI_Controller {
 
 
 		// HTML Features
-		$q_html_alert = $this->count_feature_html($get_taskid, 'a.html_alert');
 		$q_html_login = $this->count_feature_html($get_taskid, 'a.html_login');
 		$q_html_empty_link = $this->count_feature_html($get_taskid, 'a.html_empty_link');
 		$q_html_length = $this->count_feature_html($get_taskid, 'a.html_length');
 		$q_html_is_consist = $this->count_feature_html($get_taskid, 'a.html_is_consist');
 		$q_html_jslist = $this->count_feature_html($get_taskid, 'a.html_js_list');
-		$q_html_str_embed = $this->count_feature_html($get_taskid, 'a.html_string_embed');
 		$q_html_str_extlist = $this->count_feature_html($get_taskid, 'a.html_link_external_list');
 		$q_html_redirect = $this->count_feature_html($get_taskid, 'a.html_redirect');
 		$q_html_iframe = $this->count_feature_html($get_taskid, 'a.html_iframe');
-		$q_html_mosueover = $this->count_feature_html($get_taskid, 'a.html_mouseover');
-		$q_html_popup = $this->count_feature_html($get_taskid, 'a.html_popup');
 		$q_html_favicon = $this->count_feature_html($get_taskid, 'a.html_favicon');
 
 
@@ -439,18 +402,14 @@ class Training extends CI_Controller {
 			$send_toview['count_url_len'] = $q_url_len;
 			$send_toview['count_urldot_total'] = $q_url_dot_total;
 			$send_toview['count_url_senschar'] = $q_url_sensitive_char;
-			$send_toview['count_html_alert'] = $q_html_alert;
 			$send_toview['count_html_login'] = $q_html_login;
 			$send_toview['count_html_empty_link'] = $q_html_empty_link;
 			$send_toview['count_html_length'] = $q_html_length;
 			$send_toview['count_html_isconsist'] = $q_html_is_consist;
 			$send_toview['count_html_jslist'] = $q_html_jslist;
-			$send_toview['count_html_str_embed'] = $q_html_str_embed;
 			$send_toview['count_html_extlist'] = $q_html_str_extlist;
 			$send_toview['count_html_redirect'] = $q_html_redirect;
 			$send_toview['count_html_iframe'] = $q_html_iframe;
-			$send_toview['count_html_mouseove'] = $q_html_mosueover;
-			$send_toview['count_html_popup'] = $q_html_popup;
 			$send_toview['count_html_favicon'] = $q_html_favicon;
 
 
@@ -681,21 +640,16 @@ class Training extends CI_Controller {
 								"url_length" => "".$this->read_url_length($data),
 								"url_dot_total" => "".$this->read_url_dot_total($data),
 								"url_sensitive_char" => "".$this->read_special_char($data),
-								"url_brandinfo" => "".$this->read_brandinfo($file_path, $data),
-								"html_alert" => "".$this->read_html_alert($file_path),
 								"html_login" => "".$this->read_html_login($file_path),
 								"html_empty_link" => "".$this->read_html_empty_link($file_path),
 								"html_length" => "".$this->read_html_filesize($file_path),
 								"html_is_consist" => "".$this->read_consistency($file_path, $data),
 								"html_js_list" => "".$this->read_html_enabled_js($file_path),
-								"html_string_embed" => "0",
 								"html_link_external_list" => "".$this->read_html_external_link($file_path),
 								"html_redirect" => "".$this->read_html_redirect($file_path),
 								"html_iframe" => "".$this->read_html_iframe($file_path),
-								"html_mouseover" => "0",
-								"html_popup" => "0",
 								"html_favicon" => "".$this->read_html_favicon($file_path),
-								"feature_type" => "0"
+								"feature_type" => "0" // ini bukan fitur ini flag 
 
                             );	
                             $this->db->insert('ph_features_phishing', $feature_data);
@@ -760,18 +714,14 @@ class Training extends CI_Controller {
 								"url_dot_total" => "".$this->read_url_dot_total($data3),
 								"url_sensitive_char" => "".$this->read_special_char($data3),
 								"url_brandinfo" => "".$this->read_brandinfo($file_path, $data3),
-								"html_alert" => "".$this->read_html_alert($file_path2),
 								"html_login" => "".$this->read_html_login($file_path2),
 								"html_empty_link" => "".$this->read_html_empty_link($file_path2),
 								"html_length" => "".$this->read_html_filesize($file_path2),
 								"html_is_consist" => "".$this->read_consistency($file_path2, $data3),
 								"html_js_list" => "".$this->read_html_enabled_js($file_path2),
-								"html_string_embed" => "0",
 								"html_link_external_list" => "".$this->read_html_external_link($file_path2),
 								"html_redirect" => "".$this->read_html_redirect($file_path2),
 								"html_iframe" => "".$this->read_html_iframe($file_path2),
-								"html_mouseover" => "0",
-								"html_popup" => "0",
 								"html_favicon" => "".$this->read_html_favicon($file_path2)
 
                             );	
@@ -959,17 +909,15 @@ class Training extends CI_Controller {
 		$dom = new Dom;
 		$dom->setOptions([
 			'cleanupInput' => false,
-			'removeScripts' => true,
 			'htmlSpecialCharsDecode' => false,
 			'strict' => false,
 			'whitespaceTextNode' => false
 		]);
 		$dom->loadFromFile($file);
-		$a = $dom->find('link');
+		$a = $dom->find('script');
 		$found = false;
 		foreach($a as $links){
-			$get_value = $links->getAttribute('rel');
-			if($get_value == 'shortcut icon' || $get_value == ''){
+			if($links){
 				$found = true;
 			}else{
 				$found = false;
@@ -1116,6 +1064,7 @@ class Training extends CI_Controller {
 			return 0;
 		}	
 	}
+	
 
 	public function read_html_external_link($file){
 		$dom = new Dom;
@@ -1222,11 +1171,85 @@ class Training extends CI_Controller {
 		}
 	}
 
+	public function read_html_str_embed($uri){
+		$dom = new Dom;
+		$dom->setOptions([
+			'cleanupInput' => false,
+			'htmlSpecialCharsDecode' => false,
+			'strict' => false,
+			'whitespaceTextNode' => false
+		]);
+		$dom->loadFromFile($file);
+		$a = $dom->find('script');
+		$found = false;
+		foreach($a as $links){
+			if($links){
+				$found = true;
+			}else{
+				$found = false;
+			}
+		}
+
+		if($found){
+			return 1;
+		}else{
+			return 0;
+		}		
+	}
 
 
+	public function read_html_mouseover($uri){
+		$dom = new Dom;
+		$dom->setOptions([
+			'cleanupInput' => false,
+			'htmlSpecialCharsDecode' => false,
+			'strict' => false,
+			'whitespaceTextNode' => false
+		]);
+		$dom->loadFromFile($file);
+		$a = $dom->find('script');
+		$found = false;
+		foreach($a as $links){
+			if($links){
+				$found = true;
+			}else{
+				$found = false;
+			}
+		}
+
+		if($found){
+			return 1;
+		}else{
+			return 0;
+		}	
+	}
 
 
-	
+	public function read_html_popup($uri){
+		$dom = new Dom;
+		$dom->setOptions([
+			'cleanupInput' => false,
+			'htmlSpecialCharsDecode' => false,
+			'strict' => false,
+			'whitespaceTextNode' => false
+		]);
+		$dom->loadFromFile($file);
+		$a = $dom->find('script');
+		$found = false;
+		foreach($a as $links){
+			if($links){
+				$found = true;
+			}else{
+				$found = false;
+			}
+		}
+
+		if($found){
+			return 1;
+		}else{
+			return 0;
+		}	
+	}
 
 
 }

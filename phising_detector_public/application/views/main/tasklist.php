@@ -18,10 +18,6 @@
                 <br/>
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        JS Alert
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_html_alert[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         Login 
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_html_login[0]->count?></span>
                     </li>
@@ -40,10 +36,6 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         JS Library
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_html_jslist[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        JS Embedded
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_html_str_embed[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         External Link
@@ -223,18 +215,14 @@
               <tr>
                   <th>Sc_Id</th>
                   <th>Task_Id</th>
-                  <th>Alert</th>
                   <th>Login</th>
                   <th>Empty Link</th>
                   <th>HTML Length</th>
                   <th>Page Consistency</th>
                   <th>Javascript</th>
-                  <th>String Embed</th>
                   <th>External Link</th>
                   <th>Redirect</th>
                   <th>Iframe</th>
-                  <th>Mouse Over</th>
-                  <th>Pop Up</th>
                   <th>Favicon</th>
               </tr>
                   </thead>        
@@ -244,18 +232,14 @@
                         <tr>
                           <td style="background:#ececec;"><?php echo $feature_item->sc_id; ?></td>
                           <td style="background:#ececec;"><?php echo $feature_item->task_id; ?></td>
-                          <td><?php echo $feature_item->html_alert; ?></td>
                           <td><?php echo $feature_item->html_login; ?></td>
                           <td><?php echo $feature_item->html_empty_link; ?></td>
                           <td><?php echo $feature_item->html_length; ?></td>
                           <td><?php echo $feature_item->html_is_consist; ?></td>
                           <td><?php echo $feature_item->html_js_list; ?></td>
-                          <td><?php echo $feature_item->html_string_embed; ?></td>
                           <td><?php echo $feature_item->html_link_external_list; ?></td>
                           <td><?php echo $feature_item->html_redirect; ?></td>
                           <td><?php echo $feature_item->html_iframe; ?></td>
-                          <td><?php echo $feature_item->html_mouseover; ?></td>
-                          <td><?php echo $feature_item->html_popup; ?></td>
                           <td><?php echo $feature_item->html_favicon; ?></td>
                         </tr>
                         <?php } ?> 

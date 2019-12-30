@@ -184,18 +184,14 @@ class Phishing extends CI_Controller {
                             "url_dot_total" => "".$this->read_url_dot_total($data),
                             "url_sensitive_char" => "".$this->read_special_char($data),
                             "url_brandinfo" => "".$this->read_brandinfo($file_path, $data),
-                            "html_alert" => "".$this->read_html_alert($file_path),
                             "html_login" => "".$this->read_html_login($file_path),
                             "html_empty_link" => "".$this->read_html_empty_link($file_path),
                             "html_length" => "".$this->read_html_filesize($file_path),
                             "html_is_consist" => "".$this->read_consistency($file_path, $data),
                             "html_js_list" => "".$this->read_html_enabled_js($file_path),
-                            "html_string_embed" => "0",
                             "html_link_external_list" => "".$this->read_html_external_link($file_path),
                             "html_redirect" => "".$this->read_html_redirect($file_path),
                             "html_iframe" => "".$this->read_html_iframe($file_path),
-                            "html_mouseover" => "0",
-                            "html_popup" => "0",
                             "html_favicon" => "".$this->read_html_favicon($file_path),
                             "feature_type" => 2
                         );	
@@ -268,7 +264,6 @@ class Phishing extends CI_Controller {
 		IF(b.url_standard_port > 0, c.url_standard_port, 0) as a7,
 		IF(b.url_subdomain > 0, c.url_subdomain, 0) as a8,
 		IF(b.url_symbol > 0, c.url_symbol, 0) as a9,
-		IF(b.html_alert > 0, c.html_alert, 0) as a10,
 		IF(b.html_empty_link > 0, c.html_empty_link, 0) as a11,
 		IF(b.html_iframe > 0, c.html_iframe, 0) as a12,
 		IF(b.html_is_consist > 0, c.html_is_consist, 0) as a13,
@@ -276,7 +271,6 @@ class Phishing extends CI_Controller {
 		IF(b.html_length > 0, c.html_length, 0) as a15,
 		IF(b.html_link_external_list > 0, c.html_link_external_list, 0) as a16,
 		IF(b.html_login > 0, c.html_login, 0) as a17,
-		IF(b.html_mouseover > 0, c.html_mouseover, 0) as a18,
 		(
 				IF(b.url_protocol > 0, c.url_protocol, 0) +
 				IF(b.url_length > 0, c.url_length, 0) +
@@ -287,15 +281,13 @@ class Phishing extends CI_Controller {
 				IF(b.url_standard_port > 0, c.url_standard_port, 0) +
 				IF(b.url_subdomain > 0, c.url_subdomain, 0) +
 				IF(b.url_symbol > 0, c.url_symbol, 0) +
-				IF(b.html_alert > 0, c.html_alert, 0)  +
 				IF(b.html_empty_link > 0, c.html_empty_link, 0) +
 				IF(b.html_iframe > 0, c.html_iframe, 0) +
 				IF(b.html_is_consist > 0, c.html_is_consist, 0) +
 				IF(b.html_js_list > 0, c.html_js_list, 0) +
 				IF(b.html_length > 0, c.html_length, 0) +
 				IF(b.html_link_external_list > 0, c.html_link_external_list, 0) +
-				IF(b.html_login > 0, c.html_login, 0) + 
-				IF(b.html_mouseover > 0, c.html_mouseover, 0)
+				IF(b.html_login > 0, c.html_login, 0)
 		) / (
 			IF(b.url_protocol > 0, 1, 0) +
 				IF(b.url_length > 0,1, 0) +
@@ -306,15 +298,13 @@ class Phishing extends CI_Controller {
 				IF(b.url_standard_port > 0, 1, 0) +
 				IF(b.url_subdomain > 0, 1, 0) +
 				IF(b.url_symbol > 0, 1, 0) +
-				IF(b.html_alert > 0, 1, 0)  +
 				IF(b.html_empty_link > 0,1, 0) +
 				IF(b.html_iframe > 0, 1, 0) +
 				IF(b.html_is_consist > 0, 1, 0) +
 				IF(b.html_js_list > 0, 1, 0) +
 				IF(b.html_length > 0, 1, 0) +
 				IF(b.html_link_external_list > 0, 1, 0) +
-				IF(b.html_login > 0, 1, 0) + 
-				IF(b.html_mouseover > 0, 1, 0)
+				IF(b.html_login > 0, 1, 0)
 		) as score,
 			IF((
 					IF(b.url_protocol > 0, c.url_protocol, 0) +
@@ -326,15 +316,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, c.url_standard_port, 0) +
 					IF(b.url_subdomain > 0, c.url_subdomain, 0) +
 					IF(b.url_symbol > 0, c.url_symbol, 0) +
-					IF(b.html_alert > 0, c.html_alert, 0)  +
 					IF(b.html_empty_link > 0, c.html_empty_link, 0) +
 					IF(b.html_iframe > 0, c.html_iframe, 0) +
 					IF(b.html_is_consist > 0, c.html_is_consist, 0) +
 					IF(b.html_js_list > 0, c.html_js_list, 0) +
 					IF(b.html_length > 0, c.html_length, 0) +
 					IF(b.html_link_external_list > 0, c.html_link_external_list, 0) +
-					IF(b.html_login > 0, c.html_login, 0) + 
-					IF(b.html_mouseover > 0, c.html_mouseover, 0)
+					IF(b.html_login > 0, c.html_login, 0)
 			) / (
 				IF(b.url_protocol > 0, 1, 0) +
 					IF(b.url_length > 0,1, 0) +
@@ -345,15 +333,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, 1, 0) +
 					IF(b.url_subdomain > 0, 1, 0) +
 					IF(b.url_symbol > 0, 1, 0) +
-					IF(b.html_alert > 0, 1, 0)  +
 					IF(b.html_empty_link > 0,1, 0) +
 					IF(b.html_iframe > 0, 1, 0) +
 					IF(b.html_is_consist > 0, 1, 0) +
 					IF(b.html_js_list > 0, 1, 0) +
 					IF(b.html_length > 0, 1, 0) +
 					IF(b.html_link_external_list > 0, 1, 0) +
-					IF(b.html_login > 0, 1, 0) + 
-					IF(b.html_mouseover > 0, 1, 0)
+					IF(b.html_login > 0, 1, 0)
 			) >= 0 AND
 			(
 					IF(b.url_protocol > 0, c.url_protocol, 0) +
@@ -365,15 +351,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, c.url_standard_port, 0) +
 					IF(b.url_subdomain > 0, c.url_subdomain, 0) +
 					IF(b.url_symbol > 0, c.url_symbol, 0) +
-					IF(b.html_alert > 0, c.html_alert, 0)  +
 					IF(b.html_empty_link > 0, c.html_empty_link, 0) +
 					IF(b.html_iframe > 0, c.html_iframe, 0) +
 					IF(b.html_is_consist > 0, c.html_is_consist, 0) +
 					IF(b.html_js_list > 0, c.html_js_list, 0) +
 					IF(b.html_length > 0, c.html_length, 0) +
 					IF(b.html_link_external_list > 0, c.html_link_external_list, 0) +
-					IF(b.html_login > 0, c.html_login, 0) + 
-					IF(b.html_mouseover > 0, c.html_mouseover, 0)
+					IF(b.html_login > 0, c.html_login, 0) 
 			) / (
 				IF(b.url_protocol > 0, 1, 0) +
 					IF(b.url_length > 0,1, 0) +
@@ -384,15 +368,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, 1, 0) +
 					IF(b.url_subdomain > 0, 1, 0) +
 					IF(b.url_symbol > 0, 1, 0) +
-					IF(b.html_alert > 0, 1, 0)  +
 					IF(b.html_empty_link > 0,1, 0) +
 					IF(b.html_iframe > 0, 1, 0) +
 					IF(b.html_is_consist > 0, 1, 0) +
 					IF(b.html_js_list > 0, 1, 0) +
 					IF(b.html_length > 0, 1, 0) +
 					IF(b.html_link_external_list > 0, 1, 0) +
-					IF(b.html_login > 0, 1, 0) + 
-					IF(b.html_mouseover > 0, 1, 0)
+					IF(b.html_login > 0, 1, 0) 
 			) <= 0.3
 			, 'Phishing', 'Legitimate') as threshold1,
 			IF((
@@ -405,15 +387,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, c.url_standard_port, 0) +
 					IF(b.url_subdomain > 0, c.url_subdomain, 0) +
 					IF(b.url_symbol > 0, c.url_symbol, 0) +
-					IF(b.html_alert > 0, c.html_alert, 0)  +
 					IF(b.html_empty_link > 0, c.html_empty_link, 0) +
 					IF(b.html_iframe > 0, c.html_iframe, 0) +
 					IF(b.html_is_consist > 0, c.html_is_consist, 0) +
 					IF(b.html_js_list > 0, c.html_js_list, 0) +
 					IF(b.html_length > 0, c.html_length, 0) +
 					IF(b.html_link_external_list > 0, c.html_link_external_list, 0) +
-					IF(b.html_login > 0, c.html_login, 0) + 
-					IF(b.html_mouseover > 0, c.html_mouseover, 0)
+					IF(b.html_login > 0, c.html_login, 0) 
 			) / (
 				IF(b.url_protocol > 0, 1, 0) +
 					IF(b.url_length > 0,1, 0) +
@@ -424,15 +404,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, 1, 0) +
 					IF(b.url_subdomain > 0, 1, 0) +
 					IF(b.url_symbol > 0, 1, 0) +
-					IF(b.html_alert > 0, 1, 0)  +
 					IF(b.html_empty_link > 0,1, 0) +
 					IF(b.html_iframe > 0, 1, 0) +
 					IF(b.html_is_consist > 0, 1, 0) +
 					IF(b.html_js_list > 0, 1, 0) +
 					IF(b.html_length > 0, 1, 0) +
 					IF(b.html_link_external_list > 0, 1, 0) +
-					IF(b.html_login > 0, 1, 0) + 
-					IF(b.html_mouseover > 0, 1, 0)
+					IF(b.html_login > 0, 1, 0) 
 			) >= 0.3 AND
 			(
 					IF(b.url_protocol > 0, c.url_protocol, 0) +
@@ -444,15 +422,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, c.url_standard_port, 0) +
 					IF(b.url_subdomain > 0, c.url_subdomain, 0) +
 					IF(b.url_symbol > 0, c.url_symbol, 0) +
-					IF(b.html_alert > 0, c.html_alert, 0)  +
 					IF(b.html_empty_link > 0, c.html_empty_link, 0) +
 					IF(b.html_iframe > 0, c.html_iframe, 0) +
 					IF(b.html_is_consist > 0, c.html_is_consist, 0) +
 					IF(b.html_js_list > 0, c.html_js_list, 0) +
 					IF(b.html_length > 0, c.html_length, 0) +
 					IF(b.html_link_external_list > 0, c.html_link_external_list, 0) +
-					IF(b.html_login > 0, c.html_login, 0) + 
-					IF(b.html_mouseover > 0, c.html_mouseover, 0)
+					IF(b.html_login > 0, c.html_login, 0)
 			) / (
 				IF(b.url_protocol > 0, 1, 0) +
 					IF(b.url_length > 0,1, 0) +
@@ -463,15 +439,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, 1, 0) +
 					IF(b.url_subdomain > 0, 1, 0) +
 					IF(b.url_symbol > 0, 1, 0) +
-					IF(b.html_alert > 0, 1, 0)  +
 					IF(b.html_empty_link > 0,1, 0) +
 					IF(b.html_iframe > 0, 1, 0) +
 					IF(b.html_is_consist > 0, 1, 0) +
 					IF(b.html_js_list > 0, 1, 0) +
 					IF(b.html_length > 0, 1, 0) +
 					IF(b.html_link_external_list > 0, 1, 0) +
-					IF(b.html_login > 0, 1, 0) + 
-					IF(b.html_mouseover > 0, 1, 0)
+					IF(b.html_login > 0, 1, 0) 
 			) <= 0.5
 			, 'Phishing', 'Legitimate') as threshold2,
 			IF((
@@ -484,15 +458,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, c.url_standard_port, 0) +
 					IF(b.url_subdomain > 0, c.url_subdomain, 0) +
 					IF(b.url_symbol > 0, c.url_symbol, 0) +
-					IF(b.html_alert > 0, c.html_alert, 0)  +
 					IF(b.html_empty_link > 0, c.html_empty_link, 0) +
 					IF(b.html_iframe > 0, c.html_iframe, 0) +
 					IF(b.html_is_consist > 0, c.html_is_consist, 0) +
 					IF(b.html_js_list > 0, c.html_js_list, 0) +
 					IF(b.html_length > 0, c.html_length, 0) +
 					IF(b.html_link_external_list > 0, c.html_link_external_list, 0) +
-					IF(b.html_login > 0, c.html_login, 0) + 
-					IF(b.html_mouseover > 0, c.html_mouseover, 0)
+					IF(b.html_login > 0, c.html_login, 0) 
 			) / (
 				IF(b.url_protocol > 0, 1, 0) +
 					IF(b.url_length > 0,1, 0) +
@@ -503,15 +475,13 @@ class Phishing extends CI_Controller {
 					IF(b.url_standard_port > 0, 1, 0) +
 					IF(b.url_subdomain > 0, 1, 0) +
 					IF(b.url_symbol > 0, 1, 0) +
-					IF(b.html_alert > 0, 1, 0)  +
 					IF(b.html_empty_link > 0,1, 0) +
 					IF(b.html_iframe > 0, 1, 0) +
 					IF(b.html_is_consist > 0, 1, 0) +
 					IF(b.html_js_list > 0, 1, 0) +
 					IF(b.html_length > 0, 1, 0) +
 					IF(b.html_link_external_list > 0, 1, 0) +
-					IF(b.html_login > 0, 1, 0) + 
-					IF(b.html_mouseover > 0, 1, 0)
+					IF(b.html_login > 0, 1, 0) 
 			) >= 0.5, 'Phishing', 'Legitimate') as threshold3
 		from
 		ph_scan_phishing_test a,
@@ -542,18 +512,14 @@ class Phishing extends CI_Controller {
 		$q_url_sensitive_char = $this->count_feature_phising($get_schedule_id, 'a.url_sensitive_char');
 
 		// HTML Features
-		$q_html_alert = $this->count_feature_phising($get_schedule_id, 'a.html_alert');
 		$q_html_login = $this->count_feature_phising($get_schedule_id, 'a.html_login');
 		$q_html_empty_link = $this->count_feature_phising($get_schedule_id, 'a.html_empty_link');
 		$q_html_length = $this->count_feature_phising($get_schedule_id, 'a.html_length');
 		$q_html_is_consist = $this->count_feature_phising($get_schedule_id, 'a.html_is_consist');
 		$q_html_jslist = $this->count_feature_phising($get_schedule_id, 'a.html_js_list');
-		$q_html_str_embed = $this->count_feature_phising($get_schedule_id, 'a.html_string_embed');
 		$q_html_str_extlist = $this->count_feature_phising($get_schedule_id, 'a.html_link_external_list');
 		$q_html_redirect = $this->count_feature_phising($get_schedule_id, 'a.html_redirect');
 		$q_html_iframe = $this->count_feature_phising($get_schedule_id, 'a.html_iframe');
-		$q_html_mosueover = $this->count_feature_phising($get_schedule_id, 'a.html_mouseover');
-		$q_html_popup = $this->count_feature_phising($get_schedule_id, 'a.html_popup');
 		$q_html_favicon = $this->count_feature_phising($get_schedule_id, 'a.html_favicon');
 
 		$send_toview['tasknew'] = $result_q;	
@@ -569,18 +535,14 @@ class Phishing extends CI_Controller {
 		$send_toview['count_url_len'] = $q_url_len;
 		$send_toview['count_urldot_total'] = $q_url_dot_total;
 		$send_toview['count_url_senschar'] = $q_url_sensitive_char;
-		$send_toview['count_html_alert'] = $q_html_alert;
 		$send_toview['count_html_login'] = $q_html_login;
 		$send_toview['count_html_empty_link'] = $q_html_empty_link;
 		$send_toview['count_html_length'] = $q_html_length;
 		$send_toview['count_html_isconsist'] = $q_html_is_consist;
 		$send_toview['count_html_jslist'] = $q_html_jslist;
-		$send_toview['count_html_str_embed'] = $q_html_str_embed;
 		$send_toview['count_html_extlist'] = $q_html_str_extlist;
 		$send_toview['count_html_redirect'] = $q_html_redirect;
 		$send_toview['count_html_iframe'] = $q_html_iframe;
-		$send_toview['count_html_mouseove'] = $q_html_mosueover;
-		$send_toview['count_html_popup'] = $q_html_popup;
 		$send_toview['count_html_favicon'] = $q_html_favicon;
 
 

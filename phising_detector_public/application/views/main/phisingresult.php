@@ -21,10 +21,6 @@
                 <br/>
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        JS Alert
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_html_alert[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
                         Login 
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_html_login[0]->count?></span>
                     </li>
@@ -43,10 +39,6 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         JS Library
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_html_jslist[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        JS Embedded
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_html_str_embed[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         External Link
@@ -74,10 +66,6 @@
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Non SSL
-                        <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_urlprotocol[0]->count?></span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Favicon
                         <span class="badge badge-warning badge-pill" style="font-size:15px;"><?echo $count_urlprotocol[0]->count?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -163,19 +151,14 @@
                             <th>Dot</th>
                             <th>Sensitive</th>
                             <th>Brand</th>
-                            <th>Favicon</th>
-                            <th>Alert</th>
                             <th>Login</th>
                             <th>Empty Link</th>
                             <th>HTML Length</th>
                             <th>Consistency</th>
                             <th>Javascript</th>
-                            <th>Embed</th>
                             <th>External Link</th>
                             <th>Redirect</th>
                             <th>Iframe</th>
-                            <th>Mouseover</th>
-                            <th>Pop Up</th>
                             <th>Favicon</th>
                         </tr>
                             </thead>        
@@ -193,19 +176,14 @@
                                     <td><?php echo $ph_train->url_dot_total; ?></td>
                                     <td><?php echo $ph_train->url_sensitive_char; ?></td>
                                     <td><?php echo $ph_train->url_brandinfo; ?></td>
-                                    <td><?php echo $ph_train->url_favicon; ?></td>
-                                    <td><?php echo $ph_train->html_alert; ?></td>
                                     <td><?php echo $ph_train->html_login; ?></td>
                                     <td><?php echo $ph_train->html_empty_link; ?></td>
                                     <td><?php echo $ph_train->html_length; ?></td>
                                     <td><?php echo $ph_train->html_is_consist; ?></td>
                                     <td><?php echo $ph_train->html_js_list; ?></td>
-                                    <td><?php echo $ph_train->html_string_embed; ?></td>
                                     <td><?php echo $ph_train->html_link_external_list; ?></td>
                                     <td><?php echo $ph_train->html_redirect; ?></td>
                                     <td><?php echo $ph_train->html_iframe; ?></td>
-                                    <td><?php echo $ph_train->html_mouseover; ?></td>
-                                    <td><?php echo $ph_train->html_popup; ?></td>
                                     <td><?php echo $ph_train->html_favicon; ?></td>
                                     </tr>
                                     <?php } ?> 
@@ -230,18 +208,14 @@
                     <th>Dot</th>
                     <th>Char-s</th>
                     <th>Brand</th>
-                    <th>Alert</th>
                     <th>Login</th>
                     <th>Empty</th>
                     <th>Len</th>
                     <th>Consist</th>
                     <th>JS</th>
-                    <th>Embed</th>
                     <th>Ext-link</th>
                     <th>Redirect</th>
                     <th>Iframe</th>
-                    <th>M-over</th>
-                    <th>Pop-up</th>
                     <th>Favicon</th>
                 </tr>
                     </thead>        
@@ -259,18 +233,14 @@
                             <td><?php echo $feature_item->url_dot_total; ?></td>
                             <td><?php echo $feature_item->url_sensitive_char; ?></td>
                             <td><?php echo $feature_item->url_brandinfo; ?></td>
-                            <td><?php echo $feature_item->html_alert; ?></td>
                             <td><?php echo $feature_item->html_login; ?></td>
                             <td><?php echo $feature_item->html_empty_link; ?></td>
                             <td><?php echo $feature_item->html_length; ?></td>
                             <td><?php echo $feature_item->html_is_consist; ?></td>
                             <td><?php echo $feature_item->html_js_list; ?></td>
-                            <td><?php echo $feature_item->html_string_embed; ?></td>
                             <td><?php echo $feature_item->html_link_external_list; ?></td>
                             <td><?php echo $feature_item->html_redirect; ?></td>
                             <td><?php echo $feature_item->html_iframe; ?></td>
-                            <td><?php echo $feature_item->html_mouseover; ?></td>
-                            <td><?php echo $feature_item->html_popup; ?></td>
                             <td><?php echo $feature_item->html_favicon; ?></td>
                             </tr>
                             <?php } ?> 

@@ -20,6 +20,12 @@
           <li class="nav-item px-2">
             <a class="nav-link"  href="<?= base_url()?>legitimate"  data-toggle="tooltip" title="Legitimate">Test Legitimate</a>
           </li>
+          <li class="nav-item px-2" style="display:none;">
+            <a class="nav-link" href="<?= base_url()?>phishing" data-toggle="tooltip" title="Phising">Test Phishing <span style="color:#ffcc00">(Manual)<span></a>
+          </li>
+          <li class="nav-item px-2" style="display:none;">
+            <a class="nav-link"  href="<?= base_url()?>legitimate"  data-toggle="tooltip" title="Legitimate">Test Legitimate <span style="color:#ffcc00">(Manual)<span></a>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item px-2"><a class="nav-link" href="#"><span class="badge badge-warning">v1.0</span></a></li>
