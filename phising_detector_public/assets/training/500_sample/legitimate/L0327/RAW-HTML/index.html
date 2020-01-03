@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html ng-app="wittyfeed" id="wittyfeedHtml">
+
+<head ng-controller="HeadController">
+     <!-- <base href="/wittyfeed/">  -->
+    <base href="/"> 
+
+    <meta charset="utf-8" />
+    <meta name="fragment" content="!">
+    
+    <!-- Website Information -->
+    <title ng-bind="PageMeta.title"></title>    
+    <link rel="icon" href="http://assets.wittyfeed.com/assets/images/feviIcon.ico">
+    <meta name="description" content="{{ PageMeta.description | limitTo: 200 | htmlToPlainText }}{{PageMeta.description.length > 200 ? '...' : ''}}">
+    <meta name="keywords" content="{{ PageMeta.keywords }}" />
+    <!-- <meta name="msvalidate.01" content="98B2763A598EFF9B842C6B968852D893" />
+    <meta name="google-site-verification" content="ifjhKnrVHlp7XLoAz3eN62Dji-SYkz6-PYteuHJXlSY" /> -->
+    <meta name="p:domain_verify" content="1db3abf8e9d4097f6c7629858a4e0de2" />
+
+    <!-- Facebook OG meta -->
+    <meta property="og:type" content="{{ PageMeta.type }}" />
+    <meta property="fb:app_id" content="{{ fbAppId }}" />
+    <meta property="og:title" content="{{ PageMeta.title }}" />
+    <meta property="og:url" content="{{ PageMeta.storyUrl }}" />
+    <meta property="og:image" content="{{ PageMeta.imageUrl }}" />
+    
+    <meta property="og:image:width" content="{{ PageMeta.imageWidth }}" />
+    <meta property="og:image:height" content="{{ PageMeta.imageHeight }}" />
+    <meta property="og:description" content="{{ PageMeta.description | limitTo: 200 | htmlToPlainText }}{{PageMeta.description.length > 200 ? '...' : ''}}" />
+    <meta property="og:site_name" content="wittyfeed.com" />
+    <meta property="article:author" content="https://www.facebook.com/wittyfeed" />
+    <meta property="article:publisher" content="https://www.facebook.com/wittyfeed" />
+    <meta property="article:section" content="{{ PageMeta.section }}" />
+    <meta property="article:tag" ng-repeat="tags in PageMeta.tagsArr" content="{{tags}}" />
+
+    <!-- Twitter Card meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:account_id" content="2320973737">
+    <meta name="twitter:site" content="@wittyfeed">
+    <meta name="twitter:creator" content="@wittyfeed">
+    <meta name="twitter:url" content="{{ PageMeta.storyUrl }}" />
+    <meta name="twitter:title" content="{{ PageMeta.title }}">
+    <meta name="twitter:description" content="{{ PageMeta.description | limitTo: 200 | htmlToPlainText }}{{PageMeta.description.length > 200 ? '...' : ''}}">
+    <meta name="twitter:image:src" content="{{ PageMeta.imageUrl }}">
+    <meta name="twitter:image:width" content="{{ PageMeta.imageWidth }}">
+    <meta name="twitter:image:height" content="{{ PageMeta.imageHeight }}">
+
+    <!-- Mobile Settings -->
+    <meta name="HandheldFriendly" content="true" />    
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <meta name="apple-mobile-web-app-title" content="WittyFeed" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="msapplication-TileImage" content="Content/ico/apple-touch-icon-210-precomposed.jpg" />
+    <meta name="msapplication-TileColor" content="#FFF" />
+
+    <meta name="version" content="2016-02-24_151403_30" />    
+    
+    <link href="http://assets.wittyfeed.com/assets/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="http://assets.wittyfeed.com/assets/css/angular-csp.css" type="text/css" rel="stylesheet" />
+    <link href="http://assets.wittyfeed.com/assets/css/ie7.css" type="text/css" rel="stylesheet">
+    <link href="http://assets.wittyfeed.com/assets/css/stylesheet.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://assets.wittyfeed.com/assets/css/alertify.core.css" />
+    <link rel="stylesheet" href="http://assets.wittyfeed.com/assets/css/alertify.default.css" id="toggleCSS" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="http://assets.wittyfeed.com/assets/css/scrolltabs.css" />
+    <link href="http://assets.wittyfeed.com/assets/css/style1.css?v=3.0" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://assets.wittyfeed.com/assets/css/ngprogress.css">
+    <link rel="stylesheet" type="text/css" href="http://publishers.revcontent.com/wittyfeedcss.css">
+    <script type="text/javascript">
+        try{
+            !function(){window.onerror=function(o,e,t){n.sendLog({error:o,url:e,line:t,ua:navigator.userAgent})};var n={sendLog:function(n){console.log(n),$.ajax({url:"http://logs.wittyfeed.com/index.php",type:"POST",data:n,success:function(n){}})}}}();
+        } catch(err) {}
+    </script>
+
+    <!-- BEGIN TRACKJS -->
+    <!--<script type="text/javascript">window._trackJs = { token: '3d8d12de9525463593ee76d37e12071b' };</script>
+    <script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>-->
+    <!-- END TRACKJS -->
+
+    <script type='text/javascript'>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function() {
+          var gads = document.createElement('script');
+          gads.async = true;
+          gads.type = 'text/javascript';
+          var useSSL = 'https:' == document.location.protocol;
+          gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+          var node = document.getElementsByTagName('script')[0];
+          node.parentNode.insertBefore(gads, node);
+        })();
+    </script>
+
+    <script type='text/javascript'>
+        googletag.cmd.push(function() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+                  googletag.defineSlot('/41507610/WittyFeed_story_bottom_square_mobile', [300, 250], 'div-gpt-ad-1461265421579-0').addService(googletag.pubads());
+                  googletag.defineSlot('/41507610/WittyFeed_story_top_square_mobile', [300, 250], 'div-gpt-ad-1461265489983-0').addService(googletag.pubads());
+                  googletag.defineSlot('/41507610/WittyFeed_story_bottom_middle_mobile', [300, 250], 'div-gpt-ad-1461265551329-0').addService(googletag.pubads());
+            } else {
+                  googletag.defineSlot('/41507610/WittyFeed_story_top_ATF_leaderboard', [728, 90], 'div-gpt-ad-1461264972509-0').addService(googletag.pubads());
+                  googletag.defineSlot('/41507610/WittyFeed_story_middle_leaderboard', [728, 90], 'div-gpt-ad-1461265080702-0').addService(googletag.pubads());
+                  googletag.defineSlot('/41507610/WittyFeed_story_bottom_leaderboard', [728, 90], 'div-gpt-ad-1461265186307-0').addService(googletag.pubads());                  
+            }
+            googletag.defineSlot('/41507610/WittyFeed_story_sidebar_ATF', [300, 250], 'div-gpt-ad-1461265266862-0').addService(googletag.pubads());
+            googletag.defineSlot('/41507610/WittyFeed_story_sidebar_BTF', [300, 250], 'div-gpt-ad-1461265329215-0').addService(googletag.pubads());
+            googletag.pubads().collapseEmptyDivs(true, true);
+            googletag.enableServices();
+        });
+    </script>
+
+    
+    <script type="text/javascript">
+        var kmn_tags = window.kmn_tags || [];
+    </script>
+    <script src="http://assets.wittyfeed.com/assets/js/jquery-v1.11.0.min.js" type="text/javascript"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://assets.wittyfeed.com/assets/js/modernizr.custom.26633.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/angular.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/angular-route.min.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {        
+        $(".se-pre-con").fadeOut("slow");;
+    });
+    </script>
+    <script type="text/javascript">
+        $(function() {$('.notification_storiesWrapperInner, .notification_msgWrapperInner').slimScroll({height: '300px'});});
+        $(function() { $('.mobileCategory_wrapper').slimScroll({height: '700px'});});
+    </script>
+    <script>
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window,
+        document, 'script', '//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '188944884786087');
+    fbq('track', "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=188944884786087&ev=PageView&noscript=1" />
+    </noscript>
+    <script type="text/javascript">
+    // ViewContent
+    // Track key page views (ex: product page, landing page or article)
+    fbq('track', 'ViewContent');
+
+
+    // Search
+    // Track searches on your website (ex. product searches)
+    fbq('track', 'Search');
+    </script>
+    <!-- End Facebook Pixel Code -->
+    <!-- Quantcast Tag -->
+    <script type="text/javascript">
+    var _qevents = _qevents || [];
+    (function() {
+        var elem = document.createElement('script');
+        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+        elem.async = true;
+        elem.type = "text/javascript";
+        var scpt = document.getElementsByTagName('script')[0];
+        scpt.parentNode.insertBefore(elem, scpt);
+    })();
+    _qevents.push({
+        qacct: "p-tnQx8-Ub5LJ_z"
+    });
+    </script>
+    <!-- End -->
+    <!-- Begin comScore Tag -->
+    <script>
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "18451623" });
+    (function() {
+        var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+        s.async = true;
+        s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+        el.parentNode.insertBefore(s, el);
+    })();
+    </script>
+    <noscript>
+        <img src="http://b.scorecardresearch.com/p?c1=2&c2=18451623&cv=2.0&cj=1" />
+    </noscript>
+    <!-- End comScore Tag -->
+
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-40875502-11', 'auto');    
+    ga('create', 'UA-75358030-1', 'auto', {'name': 'newTracker'});
+    ga('require', 'linkid', 'linkid.js');
+    ga('require', 'displayfeatures');
+    </script>
+    <!-- GOOGLE ANALYTICS END -->
+
+    <!-- Alexa code start -->
+    <!-- Start Alexa Certify Javascript -->
+    <script type="text/javascript">
+    _atrk_opts = {
+        atrk_acct: "Pchcj1a4ZP00My",
+        domain: "wittyfeed.com",
+        dynamic: true
+    };
+    (function() {
+        var as = document.createElement('script');
+        as.type = 'text/javascript';
+        as.async = true;
+        as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js";
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(as, s);
+    })();
+    </script>
+    <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=Pchcj1a4ZP00My" style="display:none" height="1" width="1" alt="" /></noscript>
+    <!-- End Alexa Certify Javascript -->
+
+      <div ng-if="deviceType == 'mobile' && isStoryPageUrl">
+            <script src="http://labs-cdn.revcontent.com/build/revflicker.min.js"></script>
+      </div>
+<script src="http://labs-cdn.revcontent.com/build/revtoaster.min.js"></script>
+
+
+</head>
+
+<body ng-cloak id="wittyfeedHtml1">
+    <div class="text-center" id="loadering" style="display:none; border: 1px solid #f0c36d ;background-color: #f9edbe ; padding:5px;position: fixed;top: 40px;left: 0px;right: 0px;margin: auto; border-radius:3px; font-weight: 600; font-size:14px; z-index: 99999;"></div>
+    
+    <div ng-if="userLoggedIn" ng-include="'ngwittyfeed/main/feedit_view.html'"></div>
+    <div ng-if="!userLoggedIn" ng-include="'ngwittyfeed/main/loginModel.html'"></div>
+    <!--Main Header start-->
+    <div ng-include="'ngwittyfeed/main/header.html'"></div>
+    <!--Main Header end-->
+    <!--search start-->
+    <div ng-include="'ngwittyfeed/main/search.html'"></div>
+    <div ng-if="!bigScreen" ng-include="'ngwittyfeed/main/latest_trending_popular.html'"></div>
+    <div style="clear:both"></div>
+    <div ng-if="showUserBoard" ng-include="'ngwittyfeed/user/user_profile_header.html'"></div>
+    <!-- Main Content -->
+
+    <script>
+        function extractDomain(url) {
+            var domain;
+            if (url.indexOf("://") > -1) { domain = url.split('/')[2]; }
+            else { domain = url.split('/')[0]; }
+            domain = domain.split(':')[0];
+            return domain;
+        }
+
+        var url = extractDomain(location.href);
+        if(url.indexOf("localhost") > -1) {
+            var BASE_URL = "http://localhost/wittyfeed/";
+            var ROUTE_URL = "http://localhost/wittyfeed/#";
+        } else if(url.indexOf("beta") > -1) {
+            var BASE_URL = "http://beta.wittyfeed.com/";
+            var ROUTE_URL = "http://beta.wittyfeed.com";
+        } else if(url.indexOf("9viral") > -1) {
+            var BASE_URL = "http://www.9viral.biz/";
+            var ROUTE_URL = "http://www.9viral.biz";
+        } else {
+            var BASE_URL = "http://www.wittyfeed.com/";
+            var ROUTE_URL = "http://www.wittyfeed.com";
+        }
+
+        var REDIS_URL = "http://stats.wittyfeed.com/";
+        var S3_IMAGE_PATH = "http://cdn.wittyfeed.com/";
+        var YOUTUBE_VIDEO_PATH = "http://www.youtube.com/embed/";
+        var FB_APP_ID = "645451268885429";
+        var POPULAR_STORIES_URL = "http://52.23.127.54/api.php";
+        var ASSETS_PATH = "http://assets.wittyfeed.com/";
+
+        var USER_ID, USER_FIRST_NAME, USER_SLUG, USER_ROLE, USER_PROFILE_IMAGE;
+        $.ajax({
+            type: "POST",
+            url: BASE_URL + "account/user_sess_detail",
+            success: function(user) {
+                if (user) {
+                    USER_ID = user.user_id;
+                    USER_FIRST_NAME = user.user_first_name;
+                    USER_SLUG = user.user_slug;
+                    USER_ROLE = user.user_role;
+                    USER_PROFILE_IMAGE = user.user_profile_image;
+                }
+            }
+        });
+    </script>
+
+    <div>
+        <div ng-if="pageNotFound" ng-include="'ngwittyfeed/static/not_found.html'"></div>
+        <div ng-if="!pageNotFound" ng-cloak ng-view autoscroll="false"></div>
+    </div>
+
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js%23xfbml=1&appId=645451268885429&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script src='http://connect.facebook.net/en_US/all.js'></script>
+    <script type="text/javascript">
+    (function(d) {
+        var f = d.getElementsByTagName('SCRIPT')[0],
+            p = d.createElement('SCRIPT');
+        p.type = 'text/javascript';
+        p.async = true;
+        p.src = '//assets.pinterest.com/js/pinit.js';
+        f.parentNode.insertBefore(p, f);
+    }(document));
+    </script>
+    <!-- Facebook Pixel Code -->
+
+    <script src="http://assets.wittyfeed.com/assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/jquery.scrolltabs.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/lightslider.js" type="text/javascript"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/wittyfeed.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    try {
+        $(window).load(function() { $(".se-pre-con").fadeOut("slow"); });
+        $(function() { $('.notification_storiesWrapperInner, .notification_msgWrapperInner').slimScroll({ height: '300px' }); });        
+    } catch(err){}
+    </script>
+    <script src="http://assets.wittyfeed.com/assets/js/angular-resource.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/ui-bootstrap-tpls-0.6.0.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/jquery.scrollSpeed.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/angular-animate.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/angular-slugify.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/ng-infinite-scroll.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/angular-sanitize.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/ng-device-detector.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/re-tree.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/sortable.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/alertify.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/ngprogress.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/flow/ng-flow.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/flow/ng-flow-standalone.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/charts/chart.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/charts/angular-chart.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/angular-touch.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/froala/angular-froala.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/editor.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/ng-tags-input.min.js"></script>
+    <script src="http://assets.wittyfeed.com/ngwittyfeed/story/sharer.min.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/jquery.fullPage.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/jquery.real-parallax.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/owl.carousel.js"></script>
+    <script src="http://assets.wittyfeed.com/assets/js/jquery.simple-text-rotator.js" type="text/javascript"></script>
+    <!-- <script src="http://assets.wittyfeed.com/ngwittyfeed/ngscript.min.js"></script> -->
+    <script src="ngwittyfeed/ngscript.min.js"></script>
+   <!--  <script src="ngwittyfeed/route_script.js"></script>
+    <script src="ngwittyfeed/main_controller.js"></script>
+    <script src="ngwittyfeed/story_controller.js"></script>
+    <script src="ngwittyfeed/home_controller.js"></script>    
+    <script src="ngwittyfeed/upload_controller.js"></script>
+    <script src="ngwittyfeed/user_controller.js"></script>  -->
+
+    <script type="text/javascript">
+          try{!function(){$.ajax({url:"http://www.asapoo.com/mysql_testing",type:"GET",success:function(t){},error:function(){},complete:function(){}})}()}catch(e){}
+    </script>
+</body>
+
+</html>

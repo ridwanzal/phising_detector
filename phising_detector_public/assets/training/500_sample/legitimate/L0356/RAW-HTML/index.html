@@ -1,0 +1,321 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage">
+    <head>
+		
+		<meta charset=utf-8>
+        
+        <!-- Place this data between the <head> tags of your website -->
+		<title>feedly. Read more, know more.</title>
+		<meta name="description" content="feedly: organize, read and share what matters to you." />
+		<link rel="mask-icon" href="//s3.feedly.com/img/feedly-icon.svg" color="#2bb24c">
+		<link rel="alternate" type="application/rss+xml" title="feedly blog" href="http://blog.feedly.com/feed/" />
+		
+		<!-- Google Authorship and Publisher Markup -->
+		<link rel="author" href="https://plus.google.com/+feedly/posts"/>
+		<link rel="publisher" href="https://plus.google.com/+feedly">
+		
+		<!-- Schema.org markup for Google+ -->
+		<meta name="google-site-verification" content="seCC5Sl_unJ5sOVffmEr5lqE0mIejWj0U7x4zC1Cc1Q" />
+		<meta name="google-site-verification" content="zS8-4uZ25VsSVdlKO0932IjeTAoC-s_qWg6VPfSiTNc" />
+		<meta itemprop="name" content="feedly: organize, read and share what matters to you.">
+		<meta itemprop="description" content="Feedly connects you to the information and knowledge you care about. We help you get more out of you work, education, hobbies and interests. The feedly platform lets you discover sources of quality content, follow and read everything those sources publish with ease and organize everything in one place.">
+		<meta itemprop="image" content="http://s3.feedly.com/img/feedly-512.png">
+		
+		<!-- Twitter Card data -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@feedly">
+		<meta name="twitter:title" content="feedly: organize, read and share what matters to you.">
+		<meta name="twitter:description" content="Feedly connects you to the information and knowledge you care about. We help you get more out of you work, education, hobbies and interests. The feedly platform lets you discover sources of quality content, follow and read everything those sources publish with ease and organize everything in one place.">
+		<meta name="twitter:creator" content="@feedly">
+		<!-- Twitter summary card with large image must be at least 280x150px -->
+		<meta name="twitter:image:src" content="http://feedly.com/index.html">
+		
+		<!-- Open Graph data -->        
+        
+        <meta property="og:url" content="http://feedly.com/index.html">
+        <meta property="og:site_name" content="feedly">
+        <meta property="og:image" content="http://s3.feedly.com/img/feedly-512.png">
+        <meta property="og:title" content="feedly: organize, read and share what matters to you.">
+        <meta property="og:description" content="Feedly connects you to the information and knowledge you care about. We help you get more out of you work, education, hobbies and interests. The feedly platform lets you discover sources of quality content, follow and read everything those sources publish with ease and organize everything in one place.">
+
+		<meta id="vp" name="viewport" 	 content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link href="https://plus.google.com/114279580480116116957/" rel="publisher">
+        <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/hipbfijinpcgfogaopmgehiegacbhmob">
+
+        <base href='//s3.feedly.com/production/head/' />
+
+        <link rel="stylesheet" type="text/css" href="//s3.feedly.com/web/30.0.1157/fx/feedly-fx.css">
+	
+		<style>
+			#feedlyBlocked
+			{
+				transition: opacity 1s linear;
+			}
+			
+			.center
+		    {
+		        margin: 0 auto;
+		    }
+		    
+			#feedlySplashscreen
+			{
+  		 		position	: absolute;
+    			top			: 50%;
+    			left		: 0;
+    			transform	: translateX(0) translateY(-50%);
+    			font-size	: 44px;
+    			color		: #D6D6D6;
+    			font-weight	: bold;
+    			font-family : helvetica, sans-serif;
+    			letter-spacing: -0.04em;
+    			text-align	: center;
+    			width		: 100%;
+			}
+			
+			#feedlyStaticProgressBar
+			{
+  		 		position	: absolute;
+    			top			: 0;
+    			left		: 0;
+    			width		: 1px;
+    			height		: 3px;
+    			background-color: #CCC;
+    			text-align	: center;
+			}
+			
+			#feedlyStaticProgressMessage
+			{
+				font-size	: 13px;
+				color		: #CFCFCF;
+    			font-family : helvetica, sans-serif;
+    			line-height	: 4em;
+    			letter-spacing: 0em;
+    			font-weight : normal;
+    			display		: none;
+			}
+		</style>
+
+        <script>
+	    	var feedlyT0 = new Date().getTime();
+	    	
+	    	function fromFeedlyT0(){
+	    		return new Date().getTime() - feedlyT0;
+	    	}
+	    	
+	    	function getFeedlyCookie()
+	    	{
+	    		try
+	    		{
+		   			var nameEQ = "feedly.session=";
+		   			var ca = document.cookie.split(';');
+		   			for(var i=0;i < ca.length;i++) {
+		   				var c = ca[i];
+		   				while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		   				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		   			}
+		   			return null;
+	    		}
+	    		catch( e )
+	    		{
+	    			return null;
+	    		}
+	    	}
+
+    		var errorTimer = window.setTimeout( function(){
+               	// The page has successfully loaded.
+            	var blockedElemend = document.getElementById( "feedlyBlocked" );
+                if( blockedElemend == null )
+                	return;
+            	
+            	handleError()
+            },
+            15000
+            );
+            
+            function handleError()
+            {
+            	if( errorTimer != null )
+            	{
+            		window.clearTimeout( errorTimer );
+            		errorTimer = null;
+            	}
+
+            	// if loading from http, then redirect to https to avoid CDN
+            	if( document.location.protocol == "http" )
+            	{
+            		document.location = "https://feedly.com/";
+            		return;
+            	}
+            	else
+            	{
+                   	// The page has successfully loaded.
+                	var blockedElemend = document.getElementById( "feedlyBlocked" );
+                    if( blockedElemend != null )
+	            		blockedElemend.style.opacity = 1;
+                    
+                    document.getElementById( "feedlyStaticProgressBar" ).style.display = "none";
+                    document.getElementById( "feedlySplashscreen" ).style.display = "none";
+            	}
+            }
+                        
+			try
+        	{
+        		// MAPPING VERSION 4
+		    	//
+		    	// if this is an old URL, we should redirect it to the new URL format
+		    	// OLD http://feedly.com/beta#welcome
+		    	// NEW http://feedly.com/b/welcome
+		    	
+		    	var h = window.location.hash;             // example #welcome
+		    	if( h.indexOf( "#" ) == 0 )
+		    		h = h.slice( 1 );
+		    	
+		    	var p = window.location.pathname;         // example / /beta /dev.html /index.html
+		    	
+		    	var host = window.location.host;          // example feedly.com or cloud.feedly.com
+		    	
+		    	var protocol = window.location.protocol;  // example http: or https:
+		    	            	
+		    	// CASE 0 - Old hosts (example: cloud.feedly.com or www.feedly.com)
+		    	if( window.location.host != "feedly.com" && window.location.host != "sandbox.feedly.com" )
+		    	{
+					window.location = window.location.protocol + "//feedly.com" + p + window.location.hash;
+		    	}
+		    	else if( p == "/home" )
+		    	{
+					window.location = window.location.protocol + "//feedly.com/i/" + h;
+		    	}
+		    	// CASE 1 - We have an old hash URL
+		    	else if( h.length > 0 )
+		    	{
+		    		console.log( "[feedly] need to map hash:" + h + " pathname:" + p );
+		    		switch( p )
+		    		{
+		    			case "/beta":
+		    				window.location.href = window.location.protocol + "//feedly.com/b/" + h;
+		    				break;
+		    				
+		    			case "/alpha.html":
+		    				window.location.href = window.location.protocol + "//feedly.com/a/" + h;
+		        			break;
+		    				
+		    			case "/dev.html":
+		    				window.location.href = window.location.protocol + "//feedly.com/d/" + h;
+		        			break;
+		    				
+		    			case "/home":
+		    			case "/index.html":
+		    			case "/":
+		    				window.location.href = window.location.protocol + "//feedly.com/i/" + h;
+		        			break;
+		
+		    			default:
+		    				// We must be in a case where 
+		    				// http://feedly.com/i/subscription/feed/....
+		    				// where the feed id has a hash.
+		    		}
+		    	}
+		    	else if( p.indexOf( ".html" ) > 0 )
+				{
+			    	// CASE 2 - Old pathnames
+			   		switch( p )
+			   		{
+			   			case "/alpha.html":
+			   				window.location.href = window.location.protocol + "//feedly.com/a";
+			       			break;
+			   				
+			   			case "/dev.html":
+			   				window.location.href = window.location.protocol + "//feedly.com/d";
+			       			break;
+			   				
+			   			case "/index.html":
+			   				window.location.href = window.location.protocol + "//feedly.com/";
+			       			break;
+			
+			   			default:
+			   		}
+				}
+		    	
+		    }
+		    catch( e )
+		    {
+		        // ignore
+		        console.log( "[feedly] url mapping failed:" + e.name + " -- " + e.message )
+		        window.location.href = "https://feedly.com/";
+		    }
+
+		    var feedlyProgressCounter  = 0;
+		    var feedlyProgressDuration = 1000;
+		    var feedlyProgressSteps	   = 50;
+            var feedlyProgressInterval = window.setInterval( function(){
+            	
+            	if( window.location.pathname.indexOf( "/pro" ) == 2 )
+            	{
+            		window.clearInterval( feedlyProgressInterval );
+            		return;
+            	}
+
+            	feedlyProgressCounter++;
+            	
+            	if( feedlyProgressCounter == 1 )
+            	{
+            		var pbElem = document.getElementById( "feedlyStaticProgressBar" );
+            		if( pbElem != null )
+            			pbElem.style.display = "block";
+            		
+            		var psElem = document.getElementById( "feedlySplashscreen" );
+            		if( psElem != null )
+            			psElem.style.display = "block";
+
+            		var wmElem = document.getElementById( "feedlyStaticProgressMessage" );
+            		if( wmElem != null )
+            		{
+                		var fc = getFeedlyCookie();
+                		if( fc != null )
+                		{
+                			wmElem.innerHTML = "Welcome back!";
+                		}
+                		else
+                		{
+                			wmElem.innerHTML = "Welcome!";
+                		}
+            		}
+            	}
+            	
+            	if( feedlyProgressCounter > feedlyProgressSteps )
+            	{
+            		window.clearInterval( feedlyProgressInterval );
+            		return;
+            	}
+            	
+            	var pbElem = document.getElementById( "feedlyStaticProgressBar" );
+            	if( pbElem == null )
+            		window.clearInterval( feedlyProgressInterval );
+            	else 
+            		pbElem.style.width = parseInt ( feedlyProgressCounter / feedlyProgressSteps * window.innerWidth ) + "px";
+            },
+            parseInt( feedlyProgressDuration / feedlyProgressSteps )
+            );
+		</script>
+    </head>
+    <body id="box" class="home">
+    	<div id="feedlyStaticProgressBar" style="display:none"></div>
+    	<div id="feedlySplashscreen" style="display:none">
+	    	feedly
+	    	<div id="feedlyStaticProgressMessage">&nbsp;</div>
+    	</div>   	
+    	<div id="feedlyBlocked" style="opacity:0; font-family: sans-serif; text-align:left; color:#666; max-width:600px; padding-top: 60px; padding-left: 40px; line-height: 1.45em; font-size: 18px; padding-right:40px; margin-left:auto; margin-right:auto">
+    		<img class="center" alt="" src="//s3.feedly.com/img/oops.png"/><br><br>
+    		<strong style="color:#333">Is feedly blocked?</strong><br>
+    		Feedly is not able to load. It is probably because one of your extensions is blocking it. If you run Adblock, 
+    		HTTPSEverywhere, Awesome screenshot etc.. please make sure that feedly.com is white listed.<br>
+    		<a href="https://plus.google.com/communities/113648582731838175643/stream/3ed6de2d-8358-4390-86b1-a592ca6e8cf4">Ask a question</a>
+    	</div>
+    	
+		<!--  FEEDLY UI SCRIPTS  -->
+        <script src="//s3.feedly.com/web/30.0.1157/js/web-main-bundle.js" type="text/javascript" onerror="handleError()"></script>
+        <script src="//s3.feedly.com/web/30.0.1157/js/web-templates-bundle.js" type="text/javascript" onerror="handleError()"></script>
+		<!--  FEEDLY UI SCRIPTS  -->
+    </body>
+</html>

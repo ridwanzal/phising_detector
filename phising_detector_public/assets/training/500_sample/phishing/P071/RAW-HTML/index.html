@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html lang="pt-BR" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>     <html lang="pt-BR" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>     <html lang="pt-BR" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>  <html lang="pt-BR" class="no-js"> <![endif]-->
+<html lang="pt-br">
+<head>   
+	<meta charset="utf-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="author" href="http://www.echotech.com.br"/>
+
+
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+
+<meta property="og:site_name" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="http://keepgrowing.net.br/sial/New%20folder%20file" /> 
+<meta property="og:image" content="/img/logo.png" />
+
+
+<meta property="og:site_name" content="" />
+<meta property="og:url" content="http://keepgrowing.net.br/sial/New%20folder%20file" />
+<meta property="og:locale" content="pt_BR" /> 
+
+<!--[if lt IE 9]>
+  <script src="http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<![endif]-->
+<!-- Icone Browser -->
+<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+
+<!-- CSS Basico -->
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/plugin/animate.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/plugin/animsition-master/dist/css/animsition.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/css/bootstrap.min.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/css/echotech.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/plugin/Gallery-master/css/blueimp-gallery.min.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/plugin/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/css/tema.css">
+
+
+<!-- CSS Plugin -->
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/plugin/menu-effect.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="http://keepgrowing.net.br/assets/plugin/font-awesome-4.5.0/css/font-awesome.min.css">
+
+<!-- JS Basicos -->
+<script src="http://keepgrowing.net.br/assets/js/jquery.min.js"></script>
+
+<script src="http://keepgrowing.net.br/assets/js/bootstrap.min.js"></script>
+	
+	</head>
+
+<body class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-margin no-padding">
+	
+	<header class="col-xs-12 no-padding">
+	<style>
+	.transition-padrao{
+		-webkit-transition:all 0.3s ease;
+		-moz-transition:all 0.3s ease;
+		-o-transition:all 0.3s ease;
+		transition:all 0.3s ease;
+	}
+	.header-desktop{
+		margin: 15px 0;
+		background-color: #fff;
+	}
+	.header-desktop .logo {
+		float: left;
+		width: 20%;
+		padding-right: 55px;
+		margin-top: 5px;
+	}
+	.header-desktop .links{
+		float: left;
+		width: 65%;
+		margin-left: 45px;
+	}
+	.header-desktop .links .lista-menu{
+		float: left;
+		width: auto;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		margin-left: -60px;
+	}
+	.header-desktop .links .lista-menu li a{
+		font-size: 14px;
+		display: inline-block;
+		padding: 10px 20px;
+		margin-left: 10px;
+		color: #3c3c3c;
+	}
+	.header-desktop .links .lista-menu li a:hover{
+		color: #004f36;
+	}
+	.header-desktop .links .lista-menu .hover-servicos ul{
+		position: absolute;
+		z-index: 1000;
+		height: 0;
+		visibility: hidden;
+		overflow: hidden;
+		width: 20%;
+		border-radius: 5px;
+		background: #fff;
+		border-color: rgba(0, 0, 0, 0.15);
+	}
+	.header-desktop .links .lista-menu .hover-servicos:hover ul{
+		height: auto;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		visibility: visible;
+	}
+	.header-desktop .links .lista-menu .hover-servicos ul a{
+		float: left;
+		width: 100%;
+		margin: 0;
+		padding: 10px;
+	}
+	.header-desktop .rs-header{
+		position: absolute;
+		right: -30px;
+		top: 5px;
+	}
+	.header-desktop .rs-header ul{
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+	.header-desktop .rs-header ul li{
+		padding: 0 10px;
+	}
+	.header-desktop .rs-header ul li i.fa{
+		background-color: #004f36;
+		font-size: 18px;
+		color: #fff;
+		padding: 5px;
+		width: 28px;
+		height: 27px;
+		border-radius: 3px;
+		text-align: right;
+	}
+	.header-desktop .rs-header ul li i.fa.fa-facebook-official{
+		background-color: transparent;
+		color: #004f36;
+		padding: 0;
+		width: auto;
+		height: auto;
+		font-size: 30px;
+	}
+	.sub-header-fixo{
+		padding: 0;
+		position: fixed;
+		background: #fff;
+		z-index: 1000;
+		height: 0;
+		overflow: hidden;
+		min-height: 0;
+	}
+	.sub-header-fixo .sub-logo{
+		width: 10%;
+		float: left;
+		position: relative;
+	}
+	.sub-header-fixo nav{
+		width: 90%;
+		float: left;
+		text-align: center;
+		display: inline;
+	}
+	.sub-header-fixo nav ul li{
+		font-size: 14px;
+		display: inline-block;
+		padding: 10px 40px;
+		margin: auto;
+		float: none;
+		color: #3c3c3c;
+	}
+	.sub-header-fixo nav ul.executive a:first-child li,
+	.sub-header-fixo nav ul.treinamento a:nth-child(2) li,
+	.sub-header-fixo nav ul.palestra a:last-child li {
+		border-bottom: 4px solid #004f36;
+		/*margin: 0 30px;*/
+		padding: 10px 10px 3px;
+		margin-left: 0px!important;
+		margin-right: 0px!important;		
+	}
+
+	/**********************TRATAMENTO PARA MD********************/
+	@media (min-width: 992px) and (max-width: 1199px){
+		.header-desktop .logo{
+			width: 20%;
+			margin-top: 10px;
+		}
+		.header-desktop .links{
+			width: 60%;
+		}
+		.header-desktop .links .lista-menu li a{
+			font-size: 14px;
+			margin-left: 5px;
+			padding: 10px;
+		}
+	}
+
+	/**********************TRATAMENTO PARA SM********************/
+	@media (min-width: 768px) and (max-width: 991px){
+		.header-desktop .logo{
+			width: 100%;
+			margin-top: 10px;
+			padding: 0;
+		}
+		.header-desktop .links{
+			width: 90%;
+			margin: 0 10%;
+		}
+		.header-desktop .links .lista-menu{
+			margin-top: 20px;
+			width: 100%;
+			text-align: center;
+			margin-left: -40px;
+
+		}
+		.header-desktop .links .lista-menu li{
+			float: none;
+			display: inline-block;
+		}
+		.header-desktop .links .lista-menu li a{
+			font-size: 14px;
+			padding: 8px 10px;
+			margin-left: 5px;
+		}
+		.header-desktop .rs-header{
+			right: -15px;
+		}
+		.sub-header-fixo nav ul li{
+			padding: 10px 30px;
+			margin-right: 0px;
+			margin-left: 0px;
+		}
+		.sub-header-fixo .sub-logo{
+			width: 15%;
+		}
+		.sub-header-fixo nav{
+			width: 85%;
+		}
+	}
+	@media (max-width: 767px){
+		.sub-header-fixo .sub-logo{
+			display: none;
+		}
+		.sub-header-fixo nav{
+			width: 100%;
+		}
+		.sub-header-fixo nav ul li{
+			width: 100%;
+			font-size: 12px;
+			padding: 5px;
+		}
+	}
+
+</style>
+<section class="header-desktop hidden-xs col-sm-12 no-padding">
+	<div class="container">
+		<div class="col-xs-12 no-padding">
+			<center class="logo transition-padrao">
+				<a href="/"><img src="/assets/img/logo.png" class="img-responsive transition-padrao"></a>
+			</center>
+			<nav class="links ff-gotham-bold texto-upper">
+				<ul class="lista-menu">
+					<li><a href="/" class="transition-padrao">Home</a></li>
+					<li><a href="javascript:void(0)" class="transition-padrao" onclick="return scrollCustom('servicos')">Serviços</a></li>
+					<!-- <li>
+						<div class="hover-servicos transition-padrao">
+							<a href="javascript:void(0)" class="transition-padrao" onclick="return scrollCustom('servicos')">
+								Serviços <i class="fa fa-caret-down" aria-hidden="true"></i>
+							</a>
+							<ul class="transition-padrao">
+								<a href="javascript:void(0)" onclick="return scrollCustom('executive-coaching')"><li>Executive Coaching</li></a>
+								<a href="javascript:void(0)" onclick="return scrollCustom('treinamentos')"><li>Treinamentos</li></a>
+								<a href="javascript:void(0)" onclick="return scrollCustom('palestras')"><li>Palestras</li></a>
+							</ul>
+						</div>
+					</li> -->
+					<li><a href="/inscricoes" class="transition-padrao">Inscrições</a></li>
+					<li><a href="/blog" class="transition-padrao">Conteúdo</a></li>
+					<li><a href="/depoimentos" class="transition-padrao">Depoimentos</a></li>
+					<li><a href="/contato" class="transition-padrao">Contato</a></li>
+				</ul>
+			</nav>
+			<div class="rs-header pull-left">
+				<ul class="pull-left">
+					<li><a href="https://www.facebook.com/keepgrowing13" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+					<li><a href="http://www.linkedin.com/in/keepgrowing13" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="https://www.youtube.com/channel/UCkVXD7J1aWswBqaQiBVGUyQ" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="sub-header-fixo col-xs-12 transition-padrao">
+	<div class="container">
+		<div class="sub-logo">
+			<a href="/"><img src="/assets/img/logo.png" class="img-responsive transition-padrao"></a>
+		</div>
+		<nav class="ff-gotham-bold texto-upper">
+			<ul class="col-xs-12 transition-padrao">
+				<a href="javascript:void(0)" onclick="return scrollSubheader('executive-coaching')"><li>Executive Coaching</li></a>
+				<a href="javascript:void(0)" onclick="return scrollSubheader('treinamentos')"><li>Treinamentos</li></a>
+				<a href="javascript:void(0)" onclick="return scrollSubheader('palestras')"><li>Palestras</li></a>
+			</ul>
+		</nav>
+	</div>
+</section>
+<div class="box-scroll   col-xs-3 no-padding fechado"
+	data-texto_aba_inscricoes="Entre em contato"
+	data-link_aba_inscricoes="/contato"
+	data-texto_aba_executive_coaching="Mais Performance"
+	data-link_aba_executive_coaching="/contato"
+	data-texto_aba_treinamentos="Mais Conhecimento"
+	data-link_aba_treinamentos="/treinamentos"
+	data-texto_aba_palestras="Mais Inspiração"
+	data-link_aba_palestras="/palestra/70/palestra-eu-faco-o-meu-melhor"
+>
+	<div class="seta col-xs-1">
+		<!-- <i class="fa fa-angle-left"></i> -->
+		<div class="acesso-rapido ff-halcom-bold transition-padrao texto-upper">
+			<a href="/inscricoes" class="inscreva-se">
+				Inscreva-se!
+			</a>
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+	.box-scroll .inscreva-se{
+		font-size: 17px;
+	}
+	.box-scroll{
+		background-color: #004f36;
+		position: fixed;
+		right: 0;
+		top: 40%;
+		-webkit-transition:all 0.3s ease;
+		-moz-transition:all 0.3s ease;
+		-o-transition:all 0.3s ease;
+		transition:all 0.3s ease;
+		width: auto;
+		z-index: 101;
+	}
+	.box-scroll.fechado{
+		/*right: -40px!important;*/
+		right: -100px;
+		-webkit-transition:all 0.3s ease;
+		-moz-transition:all 0.3s ease;
+		-o-transition:all 0.3s ease;
+		transition:all 0.3s ease;
+	}
+	.box-scroll .seta:hover > .fa-angle-right{
+		margin-left: 5px;
+	}
+	.box-scroll .seta{
+		background: #004f36 none repeat scroll 0 0;
+		bottom: 0;
+		color: #fff;
+		cursor: pointer;
+		font-size: 20px;
+		margin: auto;
+		padding: 15px 35px;
+		text-align: center;
+		top: 0;
+		width: auto;
+	}
+	.box-scroll .seta:hover > .fa-angle-left{
+		margin-right: 5px;
+	}
+	.box-scroll .seta .acesso-rapido{
+		white-space: nowrap;
+		writing-mode: vertical-rl;
+		-moz-writing-mode: vertical-rl;
+		-webkit-writing-mode: vertical-rl;
+		transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-webkit-transform: rotate(180deg);
+		/*position: absolute;*/
+		/*top: 0;*/
+		/*bottom: 0;*/
+		/*left: 45%;*/
+		margin: auto;
+	}
+	.box-scroll .seta .acesso-rapido a {
+		color: #fff;
+		padding-left: 36px;
+		padding-right: 38px;
+	}
+	.box-scroll .seta i{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 20px;
+		margin: auto;
+		height: 40px;
+		font-size: 40px;
+	}
+	@media (max-width: 768px){
+		.box-scroll {
+			display: none;
+		}
+	}
+</style>	<style type="text/css">
+	.header-mobile{
+		background-color: #FFFFFF;
+	}
+	.header-mobile .logo{
+		float: left;
+		width: 85%;
+	}
+	.header-mobile .logo img{
+		margin: 5px auto 0px;
+		width: 160px;
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+	.header-mobile .caixa-botao{
+		float: right;
+		width: 15%;
+	}
+	.header-mobile .caixa-botao button{
+		font-size: 28px;
+		padding: 0;
+		border: none;
+		margin: 15px 5px 5px;
+		color: #555;
+		border-color: teal;
+		background: transparent; 
+		float: right;
+	}
+	.header-mobile .caixa-botao button:active{
+		color: #fff;
+		border-color: #fff;
+		background: #004f36;
+	}
+	.header-mobile .caixa-botao button .glyphicon{
+		padding: 2px 7px 0px 7px;
+		top: 4px;
+	}
+	.header-mobile .caixa-visivel{
+		z-index: 15;
+		float: left;	
+		height: 70px;
+	}
+	.header-mobile .links{
+		float: left;
+		z-index: 13;
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+		border-bottom: 1px solid #ddd;
+	}
+	.header-mobile .links.active{
+		height: auto;
+	}
+	.header-mobile .links ul{
+		float: left;
+		width: 100%;
+		padding: 10px 30px;
+	}
+	.header-mobile .links ul li{
+		display: block;
+		width: 100%;
+	}
+	.header-mobile .links ul li a{
+		float: left;
+		width: 100%;
+		padding: 15px 0;
+		border-radius: 0px;
+		text-align: center;
+		font-size: 16px;
+		font-weight: bold;
+		border-bottom: 1px solid #ccc;
+		color: #333;
+	}
+	.header-mobile .links ul li:last-of-type a{
+		border-bottom: transparent;
+	}
+	.header-mobile .links ul li a:active{
+		background-color: #ccc;
+		color: #004f36;		
+	}
+
+</style>
+<section class="header-mobile col-xs-12 hidden-sm hidden-md hidden-lg no-padding">
+	<div class="caixa-visivel col-xs-12 no-padding">
+		<center class="logo">
+			<a href="/"><img src="/assets/img/logo.png" class="img-responsive transition-padrao"></a>
+		</center>
+		<center class="caixa-botao">
+			<button id="toggleMenuXs"><span class="glyphicon glyphicon-align-justify"></span></button>			
+		</center>
+	</div>
+
+	<nav class="links transition-padrao" id="menuLinksXs">
+		<ul>
+			<li><a href="/" class="transition-padrao">Home</a></li>
+			<li><a href="#servicos" class="transition-padrao" onclick="return scrollCustom('servicos')">Serviços</a></li>
+			<li><a href="/inscricoes" class="transition-padrao">Inscrições</a></li>
+			<li><a href="/blog" class="transition-padrao">Conteúdo</a></li>
+			<li><a href="/depoimentos" class="transition-padrao">Depoimentos</a></li>
+			<li><a href="/contato" class="transition-padrao">Contato</a></li>
+		</ul>
+	</nav>
+</section></header>	
+	<div id="main" class="animsition col-lg-12 col-md-12 col-sm-12 col-xs-12 no-margin no-padding">
+		<section class="view col-xs-12 no-padding">
+
+	<div class="col-sm-4 col-sm-offset-4 col-xs-12 text-center" style="margin-top: 10%; margin-bottom: 10%; ">
+		<a href="/">
+			<h2>Página não encontrada</h2>
+			<h4>Volte a navegar no site!</h4>
+		</a>
+	</div>
+
+</section>
+	</div>
+	
+	<style>
+.footer-desktop .conteudo-footer{
+	margin: 100px 0 60px;
+}
+.footer-desktop .ft-info{
+	margin-left: 40px;
+}
+.footer-desktop .ft-info article{
+	font-size: 18px;
+}
+.footer-desktop .ft-info article p{
+	margin: 0;
+}
+.footer-desktop .ft-info .ft-endereco{
+	margin-top: 25px;
+}
+.footer-desktop .ft-info .ft-copyright{
+	font-size: 16px;
+	margin-top: 50px;
+}
+.footer-desktop .rs-footer ul li{
+	padding: 0 0 0 30px;
+}
+.footer-desktop .rs-footer ul li i.fa{
+	background-color: #8a8a8a;
+	font-size: 18px;
+	color: #3c3c3c;
+	padding: 5px;
+	width: 28px;
+	height: 27px;
+	border-radius: 3px;
+	text-align: right;
+}
+.footer-desktop .rs-footer ul li i.fa.fa-facebook-official{
+	background-color: transparent;
+	color: #8a8a8a;
+	padding: 0;
+	width: auto;
+	height: auto;
+	font-size: 30px;
+}
+#ancora{
+	position: fixed;
+	bottom: 5%;
+	right: 30px;
+}
+#ancora .btn{
+	font-size: 30px;
+	text-align: center;
+	border-radius: 0;
+	padding: 10px;
+	border: 3px solid #004f36;
+	color: #fff;
+	background-color: #004f36;
+}
+#ancora .btn:hover{
+	color: #004f36;
+	background-color: transparent;	
+}
+#ancora .btn:focus{
+	outline: none;
+}
+#ancora .btn .fa{
+	display: block;
+}
+@media (min-width: 768px) and (max-width: 991px){
+	.footer-desktop .rs-footer ul li{
+		padding: 0 0 0 20px;
+	}
+}
+@media (max-width: 767px){
+	.footer-desktop .conteudo-footer {
+		margin: 50px 0 30px;
+	}
+	.footer-desktop .rs-footer ul{
+		text-align: center;
+		text-align: -webkit-center;
+	}
+	.footer-desktop .rs-footer ul li{
+		padding: 20px 10px;
+		float: none;
+		display: inline-block;
+	}
+	.footer-desktop .rs-footer ul li i.fa{
+		float: left;
+	}
+	.footer-desktop .rs-footer ul li i.fa.fa-facebook-official{
+		margin-bottom: -2px;
+	}
+	.footer-desktop .ft-info{
+		margin: 0;
+		padding: 0 15px;
+	}
+	.footer-desktop .ft-info article {
+		font-size: 16px;
+	}
+	.footer-desktop .ft-info .ft-endereco {
+		margin-top: 15px;
+	}
+	.footer-desktop .ft-info .ft-copyright {
+		font-size: 13px;
+		margin-top: 30px;
+	}
+	#ancora{
+		right: 15px;
+	}
+	#ancora .btn{
+		font-size: 21px;
+		padding: 7px;
+	}
+}
+</style>
+<section class="footer-desktop hidden-xs col-sm-12 no-padding bg-cinza-escuro">
+	<div class="container">
+		<div class="conteudo-footer col-xs-12 no-padding">
+			<div class="pull-left">
+				<img src="/assets/img/logo-footer.png">
+			</div>
+			<div class="ft-info pull-left fonte-branca ff-gotham-book">
+				<article class="ft-contato">
+					<p>44 4001-6142 • 44 9178-1976</p>
+					<p>contato@keepgrowing.net.br</p>
+				</article>
+				<article class="ft-endereco">
+					<p>Av. Hor&aacute;cio Raccanello Filho, 6170</p>
+					<p>Sala 06 &bull; Novo Centro</p>
+					<p>CEP: 87020-035 &bull; Maring&aacute;/PR</p>
+				</article>
+				<article class="ft-copyright fonte-cinza-claro">
+					<p>© 2016 Keep Growing. Todos os direitos reservados</p>
+				</article>
+			</div>
+			<div class="rs-footer pull-right">
+				<ul class="pull-left">
+					<li><a href="https://www.facebook.com/keepgrowing13" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+					<li><a href="http://www.linkedin.com/in/keepgrowing13" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+					<li><a href="https://www.youtube.com/channel/UCkVXD7J1aWswBqaQiBVGUyQ" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="footer-desktop col-xs-12 no-padding bg-cinza-escuro hidden-sm hidden-md hidden-lg">
+	<div class="conteudo-footer col-xs-12 no-padding">
+		<center>
+			<img src="/assets/img/logo-footer.png">
+		</center>
+		<div class="rs-footer col-xs-12">
+			<ul class="">
+				<li><a href="https://www.facebook.com/keepgrowing13" target="_blank"><i class="fa fa-facebook-official"></i></a></li>
+				<li><a href="http://www.linkedin.com/in/keepgrowing13" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+				<li><a href="https://www.youtube.com/channel/UCkVXD7J1aWswBqaQiBVGUyQ" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+			</ul>
+		</div>
+		<div class="ft-info pull-left fonte-branca ff-gotham-book">
+			<article class="ft-contato">
+				<p>44 4001-6142 • 44 9178-1976</p>
+				<p>contato@keepgrowing.net.br</p>
+			</article>
+			<article class="ft-endereco">
+				<p>Av. Hor&aacute;cio Raccanello Filho, 6170</p>
+				<p>Sala 06 &bull; Novo Centro</p>
+				<p>CEP: 87020-035 &bull; Maring&aacute;/PR</p>
+			</article>
+			<article class="ft-copyright fonte-cinza-claro">
+				<p>© 2016 Keep Growing. Todos os direitos reservados</p>
+			</article>
+		</div>
+	</div>
+</section>
+
+<div id="ancora" class="transition-padrao">
+	<a href="javascript:void(0)" onclick="ancora()">
+		<button class="btn transition-padrao"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+	</a>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68703266-8', 'auto');
+  ga('send', 'pageview');
+
+</script>
+	<!-- Plug-ins Jquery -->
+<script src="http://keepgrowing.net.br/assets/plugin/animsition-master/dist/js/jquery.animsition.js"></script>
+
+<script src="http://keepgrowing.net.br/assets/plugin/wow.min.js"></script>
+
+<script src="http://keepgrowing.net.br/assets/plugin/imgLiquid-min.js"></script>
+
+<script src="http://keepgrowing.net.br/assets/plugin/jquery.maskedinput.min.js"></script>
+
+<script src="http://keepgrowing.net.br/assets/plugin/Gallery-master/js/jquery.blueimp-gallery.min.js"></script>
+
+<script src="http://keepgrowing.net.br/assets/plugin/Gallery-master/js/blueimp-gallery-indicator.js"></script>
+
+<script src="http://keepgrowing.net.br/assets/plugin/Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js"></script>
+
+
+<!-- EchoJS -->
+<script src="http://keepgrowing.net.br/assets/js/echotech.js"></script>
+
+
+	
+</body>
+</html>

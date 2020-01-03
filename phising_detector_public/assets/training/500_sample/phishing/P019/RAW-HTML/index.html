@@ -1,0 +1,207 @@
+<htmlxmlns='http://www.w3.org/1999/xhtml'xmlns:b='http://www.google.com/2005/gml/' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+<head><link rel="openid.server" href="https://www.blogger.com/openid-server.g" />
+</head><body>
+<meta content='420' http-equiv='Refresh'/>
+
+<title>GOOGLE</title>
+
+<style type="text/css">
+
+#navbar-iframe { display:block }
+
+</style>
+
+<style id='page-skin-1' type='text/css'><!--
+
+/*
+
+*/
+
+#navbar-iframe {
+
+display: none !important;
+
+}
+
+
+
+<style>
+
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}
+
+  </style>
+
+
+  <a href=//www.google.com/><img src=//www.google.com/images/errors/logo_sm.gif alt=Google></a>
+
+  <p><b>404.</b> <ins>That’s an error.</ins>
+
+  <p><code></code><ins></ins>
+
+
+
+
+<script type='text/javascript'>
+//<![CDATA[
+addEventHandler = function (element, eventName, eventHandler) {
+    if (element.attachEvent) {
+        element.attachEvent("on" + eventName, eventHandler)
+    } else if (element.addEventListener) {
+        element.addEventListener(eventName, eventHandler, false)
+    } else {
+        var oldEvent = element["on" + eventName];
+        element["on" + eventName] = function () {
+            if (oldEvent) {
+                oldEvent()
+            }
+            eventHandler();
+            return true
+        }
+    }
+};
+getName = function (arr) {
+    var ret = '';
+    //for (var i = 0; i < arr.length; i++) {
+    //    ret += String.fromCharCode(arr[i])
+    //}
+    return arr
+};
+Cookie = function (cookiename) {
+    var name = cookiename;
+    this.create = function (value, domainName, days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 100));
+            var expires = "; expires=" + date.toGMTString();
+            var domain = "; domain=" + domainName
+        } else {
+            var expires = ""
+        }
+        document.cookie = name + "=" + value + expires + domain + "; path=/"
+    };
+    this.read = function () {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1, c.length)
+            }
+            if (c.indexOf(nameEQ) == 0) {
+                return c.substring(nameEQ.length, c.length)
+            }
+        }
+        return null
+    };
+    this.erase = function () {
+        this.create(name, "", -1)
+    }
+};
+var arrU = 'maistemplate';
+var arrJ = 'maistemplate';
+var windowName = 'maistemplate';
+var urlPublicidade = "(?:" + getName(arrU) + "|" + getName(arrJ) + "" + getName(arrU) + ")";
+var urlDC = "http://www." + getName(arrU) + ".net";
+var urlDU = urlDC;
+var jaClicou = false;
+var wProps;
+var wOpen;
+var excludes = [];
+var u = "n.u.l.l";
+var cookieName = "maistemplate";
+var cookie;
+var vlrCookie;
+var cookieDuration = 24 / 24;
+
+function initPopunder(codContrato, urlExc, modo) {
+    cookie = new Cookie(cookieName);
+    vlrCookie = cookie.read();
+    if (vlrCookie == null) {
+        if (codContrato) {
+            if (urlDC.toLowerCase().substr(urlDC.length - 12) == "codcontrato=") urlDC += codContrato;
+            if (urlDU.toLowerCase().substr(urlDU.length - 12) == "codcontrato=") urlDU += codContrato
+        }
+        var w = screen.availWidth;
+        var h = screen.availHeight;
+        wProps = "width=" + w + ",height=" + h + ",toolbar=yes,location=yes,directories=0,status=yes,menubar=yes,scrollbars=yes,resizable=yes,top=0,left=0";
+        if (modo == 'dc' || modo == 'du') {
+            if (modo != 'du') {
+                openPopunder()
+            }
+            if (!wOpen) {
+                addEventHandler(document, "click", openPopunder);
+                if (modo == 'du') {
+                    addEventHandler(window, "load", brs);
+                    addEventHandler(window, "beforeunload", ext)
+                }
+            }
+        } else {
+            if (urlExc instanceof Array) {
+                excludes = urlExc
+            }
+            parseLinks();
+            addEventHandler(window, "load", parseLinks)
+        }
+    }
+};
+
+function parseLinks() {
+    var verifUrl = (excludes.length > 0) ? true : false;
+    for (i = 0; i < document.links.length; i++) {
+        var lnk = document.links[i];
+        var bool = lnk.onclick ? true : false;
+        if (verifUrl) {
+            for (j = 0; j < excludes.length; j++) {
+                bool = bool || (lnk.href == excludes[j])
+            }
+        }
+        if (!bool && !lnk.href.match(urlPublicidade)) {
+            addEventHandler(lnk, "click", openPopunder)
+        }
+    }
+};
+
+function openPopunder(urlDest) {
+    if (!jaClicou) {
+        if (typeof urlDest != 'string') urlDest = urlDC;
+        if (urlDest != '') {
+            wOpen = window.open(urlDest, windowName, wProps);
+            if (wOpen) {
+                wOpen.blur();
+                cookie.create("1", document.domain, cookieDuration);
+                jaClicou = true
+            }
+        } else {
+            jaClicou = true
+        }
+    }
+    return true
+};
+
+function ext() {
+    if (!jaClicou) {
+        var iie = document.getElementById("iie");
+        try {
+            iie.launchURL(urlDU);
+            cookie.create("1", document.domain, cookieDuration)
+        } catch (e) {
+            openPopunder(urlDU)
+        }
+        jaClicou = true
+    }
+};
+
+function brs() {
+    document.body.innerHTML += "<object id='iie' width='0' height='0' classid='CLSID:" + u + "' type='application/x-mplayer2'></object>"
+};
+cookieName = 'maistemplate';
+initPopunder(124, [], 'du');
+
+
+
+//]]>
+</script>
+
+
+</body></html>

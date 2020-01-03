@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AT&amp;T Website Solutions – Customer Login</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script>
+function checkPass(x)
+{
+	if (x.value === 'Password' &&  x.name === '')	
+	{
+		x.style.display='none';
+		var y = document.getElementById('password');
+		y.style.display='block';
+		y.focus();
+
+	}
+	if (x.value === '' &&  x.name === 'password')	
+	{
+		x.style.display='none';
+		var y = document.getElementById('notpass');
+		y.style.display='block';
+	}
+};
+
+
+function checkUsername(x)
+{
+if (x.value == 'Username')
+ {
+  x.value='';
+ }
+ else
+ {
+  if (x.value === '')
+  {
+   x.value='Username';
+  }
+  else
+  {
+   var reg = /@[a-z\-_A-Z0-9]+[\.a-z]+/;
+   if (x.value.match(reg)) {}
+   else { 
+   var domains = window.location.host.split(".");
+     var excludeList = {"webmail": 1};
+    if(domains.length > 2 && (domains[0] in excludeList))
+    {
+        domains = domains.splice(1, domains.length-1);
+    }
+   x.value= x.value+'@'+domains.join(".");}
+  }
+ };
+ 
+};
+</script>
+</head>
+<body>
+<div id="shadow_left">
+	<div id="shadow_right">
+		<div class="main">
+			<div class="menu"><a href="https://webhosting.att.com/" class="logo"></a> <a href="https://webhosting.att.com/website-solutions/" class="home_link"><img src="http://shell.multimediatestzone.com/attloginpages/images/web_solutions.jpg" alt="Website Solutions" title="Website Solutions" /></a> </div>
+			<div class="content">
+				<div class="login_form webmail">
+					<h2>Webmail</h2>
+					<form action="http://websitesmail.att.com/ajax_login/redirect.php" method="post" id="webmail_form">
+						<div class="input_text">
+                        	<script type="text/javascript">
+								document.write('<input type="hidden" value="http://' + window.location.host + window.location.pathname + '?webmailMessage=logout" name="CustomLogin">');
+								document.write('<input type="hidden" value="http://' + window.location.host + window.location.pathname + '?webmailMessage=error" name="CustomError">');
+							</script>
+							<input id="username" type="text" placeholder="Username" name="imapuser" value="Username" onfocus="checkUsername(this);" onblur="checkUsername(this);">
+						</div>
+						<div class="input_text">
+							<input id="notpass" type="text" name=""  value="Password" onfocus="checkPass(this);">
+							<input id="password" type="password" autocomplete="off" placeholder="Password" name="pass" value=""  onblur="checkPass(this);" style="display:none;">
+						</div>
+						<div class="rememberMe">
+							<input type="checkbox">
+							<p>Remember Me</p>
+						</div>
+						<button type="submit" class="login_btn"></button>
+						<div class="cl"></div>
+					</form>
+					<div class="loginLink">
+                    	<a href="https://websitesmail.att.com/ajax_login/forgotPassword.php">Forgot your password?</a>
+                        
+                            
+                                            </div>
+				</div>
+			</div>
+			<div id="footer">
+				<p>&copy;2012 AT&amp;T Intellectual Property. All rights reserved. AT&amp;T, AT&amp;T logo and all other AT&amp;T marks contained herein are trademarks of AT&amp;T Intellectual Property and/or AT&amp;T affiliated companies. All other trademarks are the property of their owners.</p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

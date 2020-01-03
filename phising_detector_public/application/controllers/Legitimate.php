@@ -86,6 +86,9 @@ class Legitimate extends CI_Controller {
             break;
             case 100 :
                 $main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/testing/100_sample/legitimate/';
+			break;
+			case 1000 :
+                $main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/testing/1000_sample/legitimate/';
             break;
         }
 
@@ -126,15 +129,27 @@ class Legitimate extends CI_Controller {
 				// loop for phising
 				foreach($files as $file) {
                     $i++;
-                    if($i < 10){
-                        $concater = '000';
-                    }else if($i < 100){
-                        $concater = '00';
-                    }else if($i < 1000){
-                        $concater = '0';
-                    }else if($i <= 1000){
-                        $concater = '';
-                    }
+                    if($count == 1000){
+						if($i < 10){
+							$concater = '';
+						}else if($i < 100){
+							$concater = '';
+						}else if($i < 1000){
+							$concater = '';
+						}else if($i <= 1000){
+							$concater = '';
+						}
+					}else{
+						if($i < 10){
+							$concater = '000';
+						}else if($i < 100){
+							$concater = '00';
+						}else if($i < 1000){
+							$concater = '0';
+						}else if($i <= 1000){
+							$concater = '';
+						}
+					}
                     $files2 = scandir($main_path1.$pref1.$concater.$i);
                     foreach($files2 as $file2){
                         if($i <= $count){

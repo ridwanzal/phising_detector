@@ -86,6 +86,9 @@ class Phishing extends CI_Controller {
             break;
             case 100 :
                 $main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/testing/100_sample/phishing/';
+			break;
+			case 1000:
+                $main_path1 = $_SERVER['DOCUMENT_ROOT'].'/phising_detector/phising_detector_public/assets/testing/1000_sample/phishing/';
             break;
         }
 
@@ -121,86 +124,154 @@ class Phishing extends CI_Controller {
                 $query_task = "SELECT * FROM ph_schedule WHERE sch_type = 'phishing' ORDER BY sch_id DESC LIMIT 1";
                 $get_last_task = $this->db->query($query_task);
                 $result_task_id = $get_last_task->result_array();
-            }
+			}
+			
+
+			if($count == 1000){
+					// loop for phising 25
+					foreach($files as $file) {
+						$i++;
+						$files2 = scandir($main_path1.$pref1.$i);
+						foreach($files2 as $file2){
+								$files3 = scandir($main_path1.$pref1.$i.'/URL');
+								foreach($files3 as $file3){
+									$files4 = fopen($main_path1.$pref1.$i.'/URL/URL.txt', 'r');
+									$data = fread($files4,filesize($main_path1.$pref1.$i.'/URL/URL.txt'));
+									$files5 = scandir($main_path1.$pref1.$i.'/RAW-HTML');
+									foreach($files5 as $file5){
+										$data2 = $file5;
+									}
+									echo ''.$main_path1.$pref1.$i.'/RAW-HTML'.'<br/>';
+								}  
+
+							echo ''.$pref1.$main_path1.$i.$data2.'<br/>';
+							// echo ''.$main_path1.$pref1.$concater.$i.'/'.$file5;
+						}
+
+						
+						$scan_data = array(
+							"sch_id" => $result_task_id[0]['sch_id'],
+							"dataset_id" => $pref1.$i,
+							"dataset_url" => $data,
+							"dataset_html_file"=> $data2,
+						);
+
+						$sql = $this->db->insert('ph_scan_phishing_test', $scan_data);
+
+
+						if($this->db->affected_rows() > 0){
+							$sign_sc_id =  $this->db->insert_id();
+							$file_path = $main_path1.$pref1.$i.'/RAW-HTML/'.$data2;
+							$feature_data = array(
+								"sc_phishing_test_id" => $sign_sc_id,
+								"sch_id" => $result_task_id[0]['sch_id'],
+								"url_link"=> "".$data,
+								"url_protocol" => "".$this->read_url_protocol($data),
+								"url_favicon" => "".$this->read_html_favicon($file_path),
+								"url_standard_port" => "".$this->read_url_port($data),
+								"url_symbol" => "".$this->read_url_symbol($data),
+								"url_subdomain"=> "".$this->read_url_subdomain($data),
+								"url_length" => "".$this->read_url_length($data),
+								"url_dot_total" => "".$this->read_url_dot_total($data),
+								"url_sensitive_char" => "".$this->read_special_char($data),
+								"url_brandinfo" => "".$this->read_brandinfo($file_path, $data),
+								"html_login" => "".$this->read_html_login($file_path),
+								"html_empty_link" => "".$this->read_html_empty_link($file_path),
+								"html_length" => "".$this->read_html_filesize($file_path),
+								"html_is_consist" => "".$this->read_consistency($file_path, $data),
+								"html_js_list" => "".$this->read_html_enabled_js($file_path),
+								"html_link_external_list" => "".$this->read_html_external_link($file_path),
+								"html_redirect" => "".$this->read_html_redirect($file_path),
+								"html_iframe" => "".$this->read_html_iframe($file_path),
+								"html_favicon" => "".$this->read_html_favicon($file_path),
+								"feature_type" => 2
+							);	
+							$this->db->insert('ph_features_phishing_test', $feature_data);
+						}
+
+					}
+
+				
+			}else{
 
 				// loop for phising
 				foreach($files as $file) {
-                    $i++;
-                    if($i < 10){
-                        $concater = '000';
-                    }else if($i < 100){
-                        $concater = '00';
-                    }else if($i < 1000){
-                        $concater = '0';
-                    }else if($i <= 1000){
-                        $concater = '';
-                    }
-                    $files2 = scandir($main_path1.$pref1.$concater.$i);
-                    foreach($files2 as $file2){
-                        if($i <= $count){
-                            $files3 = scandir($main_path1.$pref1.$concater.$i.'/URL');
-                            foreach($files3 as $file3){
-                                $files4 = fopen($main_path1.$pref1.$concater.$i.'/URL/URL.txt', 'r');
-                                $data = fread($files4,filesize($main_path1.$pref1.$concater.$i.'/URL/URL.txt'));
-                                $files5 = scandir($main_path1.$pref1.$concater.$i.'/RAW-HTML');
-                                foreach($files5 as $file5){
-                                    $data2 = $file5;
-                                    if($file5){
-                                    }
-                                }
-                                // echo ''.$pref1.$main_path1.$concater.$i.$data2.'<br/>';
-                            } 
-                        }else{
-                            break;
-                        }
-                        // echo ''.$pref1.$main_path1.$concater.$i.$data2.'<br/>';
-                        // echo ''.$main_path1.$pref1.$concater.$i.'/'.$file5;
-                    }
-
-                    
-                    $scan_data = array(
-                        "sch_id" => $result_task_id[0]['sch_id'],
-                        "dataset_id" => $pref1.$concater.$i,
-                        "dataset_url" => $data,
-                        "dataset_html_file"=> $data2,
-                    );
-                
-                    $sql = $this->db->insert('ph_scan_phishing_test', $scan_data);
-
-
-                    if($this->db->affected_rows() > 0){
-                        $sign_sc_id =  $this->db->insert_id();
-                        $file_path = $main_path1.$pref1.$concater.$i.'/RAW-HTML/'.$data2;
-                        $feature_data = array(
+					$i++;
+					if($i < 10){
+						$concater = '000';
+					}else if($i < 100){
+						$concater = '00';
+					}else if($i < 1000){
+						$concater = '0';
+					}else if($i <= 1000){
+						$concater = '';
+					}
+					$files2 = scandir($main_path1.$pref1.$concater.$i);
+					foreach($files2 as $file2){
+						if($i <= $count){
+							$files3 = scandir($main_path1.$pref1.$concater.$i.'/URL');
+							foreach($files3 as $file3){
+								$files4 = fopen($main_path1.$pref1.$concater.$i.'/URL/URL.txt', 'r');
+								$data = fread($files4,filesize($main_path1.$pref1.$concater.$i.'/URL/URL.txt'));
+								$files5 = scandir($main_path1.$pref1.$concater.$i.'/RAW-HTML');
+								foreach($files5 as $file5){
+									$data2 = $file5;
+									if($file5){
+									}
+								}
+								echo ''.$pref1.$main_path1.$concater.$i.$data2.'<br/>';
+							} 
+						}else{
+							break;
+						}
+						// echo ''.$pref1.$main_path1.$concater.$i.$data2.'<br/>';
+						echo ''.$main_path1.$pref1.$concater.$i.'/'.$file5;
+					}
+	
+					
+					$scan_data = array(
+						"sch_id" => $result_task_id[0]['sch_id'],
+						"dataset_id" => $pref1.$concater.$i,
+						"dataset_url" => $data,
+						"dataset_html_file"=> $data2,
+					);
+				
+					$sql = $this->db->insert('ph_scan_phishing_test', $scan_data);
+	
+	
+					if($this->db->affected_rows() > 0){
+						$sign_sc_id =  $this->db->insert_id();
+						$file_path = $main_path1.$pref1.$concater.$i.'/RAW-HTML/'.$data2;
+						$feature_data = array(
 							"sc_phishing_test_id" => $sign_sc_id,
 							"sch_id" => $result_task_id[0]['sch_id'],
-                            "url_link"=> "".$data,
-                            "url_protocol" => "".$this->read_url_protocol($data),
-                            "url_favicon" => "".$this->read_html_favicon($file_path),
-                            "url_standard_port" => "".$this->read_url_port($data),
-                            "url_symbol" => "".$this->read_url_symbol($data),
-                            "url_subdomain"=> "".$this->read_url_subdomain($data),
-                            "url_length" => "".$this->read_url_length($data),
-                            "url_dot_total" => "".$this->read_url_dot_total($data),
-                            "url_sensitive_char" => "".$this->read_special_char($data),
-                            "url_brandinfo" => "".$this->read_brandinfo($file_path, $data),
-                            "html_login" => "".$this->read_html_login($file_path),
-                            "html_empty_link" => "".$this->read_html_empty_link($file_path),
-                            "html_length" => "".$this->read_html_filesize($file_path),
-                            "html_is_consist" => "".$this->read_consistency($file_path, $data),
-                            "html_js_list" => "".$this->read_html_enabled_js($file_path),
-                            "html_link_external_list" => "".$this->read_html_external_link($file_path),
-                            "html_redirect" => "".$this->read_html_redirect($file_path),
-                            "html_iframe" => "".$this->read_html_iframe($file_path),
-                            "html_favicon" => "".$this->read_html_favicon($file_path),
-                            "feature_type" => 2
-                        );	
-                        $this->db->insert('ph_features_phishing_test', $feature_data);
-                    }
-
+							"url_link"=> "".$data,
+							"url_protocol" => "".$this->read_url_protocol($data),
+							"url_favicon" => "".$this->read_html_favicon($file_path),
+							"url_standard_port" => "".$this->read_url_port($data),
+							"url_symbol" => "".$this->read_url_symbol($data),
+							"url_subdomain"=> "".$this->read_url_subdomain($data),
+							"url_length" => "".$this->read_url_length($data),
+							"url_dot_total" => "".$this->read_url_dot_total($data),
+							"url_sensitive_char" => "".$this->read_special_char($data),
+							"url_brandinfo" => "".$this->read_brandinfo($file_path, $data),
+							"html_login" => "".$this->read_html_login($file_path),
+							"html_empty_link" => "".$this->read_html_empty_link($file_path),
+							"html_length" => "".$this->read_html_filesize($file_path),
+							"html_is_consist" => "".$this->read_consistency($file_path, $data),
+							"html_js_list" => "".$this->read_html_enabled_js($file_path),
+							"html_link_external_list" => "".$this->read_html_external_link($file_path),
+							"html_redirect" => "".$this->read_html_redirect($file_path),
+							"html_iframe" => "".$this->read_html_iframe($file_path),
+							"html_favicon" => "".$this->read_html_favicon($file_path),
+							"feature_type" => 2
+						);	
+						$this->db->insert('ph_features_phishing_test', $feature_data);
+					}
+	
 				}
-				
-           
+			}
+
 
                 $send_toview['title_bar'] = "Testing Result - Phising Detector";
                 $send_toview['header_page'] = "Phising Detector";	

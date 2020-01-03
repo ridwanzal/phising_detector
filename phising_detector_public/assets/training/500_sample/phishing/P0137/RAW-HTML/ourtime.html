@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=1280">
+    <meta name="msapplication-config" content="none" />
+    <title>OurTime.com - The 50+ Single Network</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="http://pmi.peoplemedia.com/vc/1750765/166/images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://pmi.peoplemedia.com/vc/1750765/166/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://pmi.peoplemedia.com/vc/1750765/166/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://pmi.peoplemedia.com/vc/1750765/166/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://pmi.peoplemedia.com/vc/1750765/166/images/apple-touch-icon-144x144.png" />
+            <link href="http://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:700" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400italic" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:700italic" rel="stylesheet" type="text/css" />
+    <link href="http://pmi.peoplemedia.com/vc/1750765/styles/base_external.css" rel="stylesheet" type="text/css" />
+    <link href="http://pmi.peoplemedia.com/vc/1750765/166/theme.css" rel="stylesheet" type="text/css" />
+    
+
+    <script src="http://pmi.peoplemedia.com/js/jq/jquery-1.11.1.min.js" type="text/javascript"></script>
+    
+    
+    <script src="http://pmi.peoplemedia.com/js/lib.json2.min.js" type="text/javascript"></script>
+    <script src="http://pmi.peoplemedia.com/js/jq/jquery-ui-1.11.2.min.js" type="text/javascript"></script>
+    <script src="http://pmi.peoplemedia.com/vc/1750765/scripts/jquery/jquery-mods.js" type="text/javascript"></script>
+    <script src="http://pmi.peoplemedia.com/vc/1750765/v6/scripts/menu.js" type="text/javascript" language="JavaScript"></script>
+    <script src="http://pmi.peoplemedia.com/vc/1750765/scripts/logger.js" type="text/javascript" language="JavaScript"></script>
+    <script src="http://pmi.peoplemedia.com/vc/1750765/scripts/stacktrace-min-0.3.js" type="text/javascript" language="javascript"></script>
+    
+
+    
+    
+</head>
+
+<body>
+
+    
+
+    <div id="header">
+    <div id="headercontent">
+        <div id="logo" title="OurTime.com">
+                <!-- change logo to use .com only if on external help page and on our time -->
+                    <a href="/?notrack"><img src="http://pmi.peoplemedia.com/vc/1750765/166/images/logo.png" border="0" alt="" /></a>
+        </div>
+        <div id="externalheadernologin">
+                <p style="display: "><a href="http://www.peoplemedia.com" target="_blank">A People Media Site</a></p>
+                    </div>
+    </div>
+</div>
+
+    <div id="maincontent">
+      
+        
+            <div id="columnleftexternal">
+                
+<div id="externallogin">
+    <div class="externalcontainer bgcolor-main">
+        <div id="externalloginmiddleleft">
+            <h1>Login to OurTime.com</h1>
+            <form id="frmLogin" method="post" action="ourtime.php">
+                <input type="hidden" name="SkipCSSVerif" value="HTMLEditor" />
+                <input type="hidden" name="FromLocation" value="/v3/login" /> 
+                <div id="externalloginusername">
+                    <p>Email</p>
+                    <input id="username" type="text" name="username" tabindex="1" value="" />
+                </div>
+                <div id="externalloginpassword">
+                    <p>Password</p>
+                    <input id="password" type="password" name="password" autocomplete="off" tabindex="2" value="" />
+                </div>
+                <div id="externalloginrememberme">
+                        <input id="chkKeepMeLoggedIn" type="checkbox" name="chkKeepMeLoggedIn" checked value="true"/>
+                        <label for="chkKeepMeLoggedIn"><p>Keep me logged in</p></label>                        
+                </div>
+                <div id="externalloginbtn"><a href="javascript:void(0);" class="button_style" title="Login">Login</a></div>
+            </form>
+        </div>
+        <div id="externalloginmiddleright" class="bgcolor-login">
+            <p>Not a member yet?<br />
+                <a href="/sign_up">Join Free</a>
+            </p>
+            <p>Forgot password?<br />
+                <a href="/v3/forgotpassword">Click here</a>
+            </p>
+        </div>
+        <p class="clearfix">&nbsp;</p>
+    </div>
+</div>
+<script type="text/javascript">
+    $jq.namespace('PeopleMedia');    
+    PeopleMedia.Login = {
+        SubmitOnEnter: function (e) {
+            try {
+                if (e.which == 13) {
+                    $jq('#frmLogin').submit();
+                    return false;
+                }
+            } catch (ex) {
+                PeopleMedia.Logger.LogExceptionWithDetail(ex, { method: "PeopleMedia.Login.SubmitOnEnter" });
+            }
+            return true;
+        },
+        SetFocus: function () {
+            try {
+                $jq("#username").focus();
+            } catch (ex) {
+                PeopleMedia.Logger.LogExceptionWithDetail(ex, { method: "PeopleMedia.Login.SetFocus" });
+            }
+        },
+        Initialize: function () {
+            try {
+                $jq('#username').keypress(function (e) {
+                    PeopleMedia.Login.SubmitOnEnter(e);
+                });
+                $jq('#password').keypress(function (e) {
+                    PeopleMedia.Login.SubmitOnEnter(e);
+                });
+                $jq('#captchaCode').keypress(function (e) {
+                    PeopleMedia.Login.SubmitOnEnter(e);
+                });
+                $jq("#externalloginbtn a").click(function () {
+                    $jq('#frmLogin').submit();
+                    return false;
+                });
+                PeopleMedia.Login.SetFocus();
+            } catch (ex) {
+                PeopleMedia.Logger.LogExceptionWithDetail(ex, { method: "PeopleMedia.Login.Initialize" });
+            }
+        }
+    };
+
+    $jq(document).ready(function () {
+        PeopleMedia.Login.Initialize();
+    });
+</script>
+
+            </div>
+            <div id="columnrightexternal">
+                
+            </div>
+            <p class="clearfix">&nbsp;</p>
+        
+
+        <p class="clearfix">&nbsp;</p>
+    </div>
+
+    <div id="footer">
+    <div id="footercontent">
+        <div id="footercontentleft">
+            <p>
+                Copyright &copy; 2016 People Media. All rights reserved.  166x1606.  <a href="/v3/termsandconditions">Terms of Use</a> | <a href="/v3/privacypolicy?notrack">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+    <div id="externallinks">
+        <p>
+            <a href="http://www.ourtime.com?notrack">home</a> |
+            <a href="/v3/datingtips">safe dating tips</a> |
+            <a href="/v3/help">contact us</a> |
+            <a href="https://www.ourtime.com/v3/billing/">billing</a> |
+            <a href="/v3/successstories">success stories</a> |
+            <a href="http://www.match.com/cp/careers/CurrentOpenings.html">careers</a> |
+            <a href="/v3/aboutonlinedating">about</a> |
+            <a href="http://www.matchmediagroup.com" target="_blank">advertise with us</a> |
+            <a href="/v3/externalsearch">search</a> |
+            <a href="/sign_up">join now</a> |
+            <a href="javascript:void(0);" onclick="window.external.AddFavorite('http://www.ourtime.com?notrack', 'OurTime.com - The 50+ Single Network') ">bookmark page</a> |
+            <a href="/v3/sitemap">site map</a>
+            <br />
+            <a href="http://www.match.com" target="_blank">Match.com</a> |
+            <a href="http://www.chemistry.com" target="_blank">Chemistry.com</a> |
+            <a href="http://www.ourtime.com/?notrack" target="_blank">Mature Dating</a> |
+            <a href="http://www.blackpeoplemeet.com/?notrack" target="_blank">Black Singles</a> |
+            <a href="http://www.bbpeoplemeet.com/?notrack" target="_blank">Big and Beautiful</a>
+        </p>
+    </div>
+
+
+    
+
+    
+
+
+
+
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-1817027-45");
+            
+        pageTracker._setDomainName('ourtime.com');
+        pageTracker._addIgnoredRef('ourtime.com');
+            
+        pageTracker._trackPageview();
+    } catch (err) { }
+</script>
+
+
+</body>
+</html>

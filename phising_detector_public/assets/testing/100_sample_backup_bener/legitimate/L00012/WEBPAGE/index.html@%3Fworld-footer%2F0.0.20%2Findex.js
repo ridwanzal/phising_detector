@@ -1,1 +1,0 @@
-KISSY.add("tb-mod/world-footer/0.0.20/index",function(n,t){function i(){this.init.apply(this,arguments)}return i.prototype={init:function(n,t){},loadData:function(n){},bindEvent:function(){}},i});

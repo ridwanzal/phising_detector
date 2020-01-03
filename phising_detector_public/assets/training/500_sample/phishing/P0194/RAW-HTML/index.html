@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es-ES" xmlns:fb="http://ogp.me/ns/fb#" xmlns:addthis="http://www.addthis.com/help/api-spec"  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="p:domain_verify" content="61102885ca21a670f3fee9c81a07634c"/>
+
+<link rel="stylesheet" type="text/css" media="all" href="http://wimi5.com/web/wp-content/themes/wimi5/style.css?v=10" />
+<!-- <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'> --><link rel="pingback" href="http://wimi5.com/web/xmlrpc.php">
+
+ 
+    <script type="text/javascript">
+      window.heap=window.heap||[];heap.load=function(a){window._heapid=a;var b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d=function(a){return function(){heap.push([a].concat(Array.prototype.slice.call(arguments,0)))}},e=["identify","track"];for(var f=0;f<e.length;f++)heap[e[f]]=d(e[f])};
+      heap.load("1299468065");
+    </script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']'); 
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>
+<script>
+//fixed forum link's focus
+$(document).ready(function(){
+    $(function() {
+        switch (window.location.pathname) {
+            case '/forums/':
+                    $('#menu-item-890').addClass('current-menu-item')
+                    $('#menu-item-779').addClass('current-menu-item')
+        }
+      });
+  });
+</script>
+<script src="http://wimi5.com/web/wp-includes/js/stats.js"></script>
+
+
+<!-- This site is optimized with the Yoast SEO plugin v3.4.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Game over - tutorial crea tu primer juego con WiMi5</title>
+<meta name="description" content="Con el game over nos acercamos al final de este tutorial. Ahora toca gestionar el final de partida, que se produce cuando un asteroide choca con la nave."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://wimi5.com/game-over/" />
+<link rel="publisher" href="https://plus.google.com/WiMi5GamePlatform"/>
+<meta property="og:locale" content="es_ES" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Game over - tutorial crea tu primer juego con WiMi5" />
+<meta property="og:description" content="Con el game over nos acercamos al final de este tutorial. Ahora toca gestionar el final de partida, que se produce cuando un asteroide choca con la nave." />
+<meta property="og:url" content="http://wimi5.com/game-over/" />
+<meta property="og:site_name" content="WiMi5" />
+<meta property="article:publisher" content="https://www.facebook.com/WiMi5platform" />
+<meta property="article:section" content="Mi primer juego" />
+<meta property="article:published_time" content="2015-11-10T04:53:37+00:00" />
+<meta property="article:modified_time" content="2016-06-30T10:59:56+00:00" />
+<meta property="og:updated_time" content="2016-06-30T10:59:56+00:00" />
+<meta property="fb:app_id" content="528688047269783" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/10/screenshot_009.png" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_206.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_207.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_208.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_028.png" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_209.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_210.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_211.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_212.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_213.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_214.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_215.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_216.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_217.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_218.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_219.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/10/nota.png" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_220.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_221.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_222.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_223.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_224.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_225.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_226.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_227.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_228.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_229.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_230.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_231.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_232.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_233.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_234.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_235.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_236.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_237.jpg" />
+<meta property="og:image" content="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_238.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Con el game over nos acercamos al final de este tutorial. Ahora toca gestionar el final de partida, que se produce cuando un asteroide choca con la nave." />
+<meta name="twitter:title" content="Game over - tutorial crea tu primer juego con WiMi5" />
+<meta name="twitter:site" content="@wimi_5" />
+<meta name="twitter:image" content="http://wimi5.com/web/wp-content/uploads/2015/10/screenshot_009.png" />
+<meta name="twitter:creator" content="@wimi_5" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="WiMi5 &raquo; Feed" href="http://wimi5.com/es/feed/" />
+<link rel="alternate" type="application/rss+xml" title="WiMi5 &raquo; RSS de los comentarios" href="http://wimi5.com/es/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="WiMi5 &raquo; Game over RSS de los comentarios" href="http://wimi5.com/game-over/feed/" />
+        <style type="text/css">
+            #mrcookies-wrapper {
+                color: #cccccc !important;
+                background-color:#343434 !important;
+                border-color:  !important;
+            }
+            #mrcookies-wrapper #mrcookies-container a {
+                color: #f2b806;
+            }
+        </style>
+        <link rel='stylesheet' id='avhec-widget-css'  href='http://wimi5.com/web/wp-content/plugins/extended-categories-widget/4.2/css/avh-ec.widget.css?ver=3.10.0-dev.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://wimi5.com/web/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://wimi5.com/web/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://wimi5.com/web/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.4.9'></script>
+<link rel='https://api.w.org/' href='http://wimi5.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://wimi5.com/web/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://wimi5.com/web/wp-includes/wlwmanifest.xml" /> 
+
+<link rel='shortlink' href='http://wimi5.com/?p=28736' />
+<link rel="alternate" type="application/json+oembed" href="http://wimi5.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwimi5.com%2Fgame-over%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://wimi5.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwimi5.com%2Fgame-over%2F&#038;format=xml" />
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//wimi5.com/?wordfence_logHuman=1&hid=A31BE3C6BE771ADFC9DADBFECC2D37AF');
+</script><link rel="alternate" href="http://wimi5.com/game-over-2/" hreflang="en" />
+<link rel="alternate" href="http://wimi5.com/game-over/" hreflang="es" />
+<!-- Google Analytics Tracking by Google Analyticator 6.4.9: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">
+    var analyticsFileTypes = [''];
+    var analyticsSnippet = 'disabled';
+    var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-40560513-9', 'auto');
+	ga('require', 'linkid', 'linkid.js');
+	ga('require', 'displayfeatures');
+ 
+	ga('send', 'pageview');
+</script>
+</head>
+<body class="single single-post postid-28736 single-format-standard custom-background page-template page-template-single_tutorial_custom-php mi-primer-juego">
+	<div id="wrapper">
+		<div id="header">
+			<div class="menuwrapp_mobile">
+					<a class="mobilemenu_toggle" href="#" ><span></span></a>
+										   <ul class="menu_mobile"><li id="menu-item-92883" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92883"><a href="http://wimi5.com/aprende/">Aprende</a></li>
+<li id="menu-item-779" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-779"><a href="http://wimi5.com/forums/">Foros</a></li>
+<li id="menu-item-758" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-758"><a href="http://wimi5.com/blog-2/">Blog</a></li>
+<li id="menu-item-4444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4444"><a target="_blank" href="http://play.wimi5.com/">Juegos</a></li>
+<li id="menu-item-90049" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90049"><a href="http://wimi5.com/educacion/">Educación</a></li>
+<li id="menu-item-90050" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90050"><a href="http://wimi5.com/marcas/">Marcas</a></li>
+</ul>								</div>
+
+			<div class="logo">				    <h1 class="textlogo"><a href="http://wimi5.com/es/"><span>WiMi5</span><em></em></a></h1>
+							</div>
+
+			<div class="menuwrapp">
+			    				   <ul class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92883"><a href="http://wimi5.com/aprende/">Aprende</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-779"><a href="http://wimi5.com/forums/">Foros</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-758"><a href="http://wimi5.com/blog-2/">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4444"><a target="_blank" href="http://play.wimi5.com/">Juegos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90049"><a href="http://wimi5.com/educacion/">Educación</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90050"><a href="http://wimi5.com/marcas/">Marcas</a></li>
+</ul>								
+			</div>
+					
+			<div class="dummy_space"></div>
+			<div id="buttonStep1Header" class="type1 button"><a  onclick="document.PENGOJS.stats.emit( 'Users', 'SignUpClick', 'ClickSignUpHeader');">Sign up</a></div>
+			<div class="neutral button"><a target="_blank" href="http://dashboard.wimi5.com/" onclick="document.PENGOJS.stats.emit( 'Users', 'SignInClick', 'ClickSignInHeader');">Sign in</a></div>
+
+			<div class="lang_menu"><ul>	<li class="lang-item lang-item-80 lang-item-en lang-item-first"><a lang="en-US" hreflang="en-US" href="http://wimi5.com/game-over-2/">English</a></li>
+	<li class="lang-item lang-item-82 lang-item-es current-lang"><a lang="es-ES" hreflang="es-ES" href="http://wimi5.com/game-over/">Español</a></li>
+ </ul></div>
+
+					          <script type="text/javascript"> var wCurrentLanguage = "es"; </script>
+			
+
+					
+			
+		</div>
+		<div class="subheader">
+			<div class="menuwrapp">
+			    				   <ul class="menu"><li id="menu-item-92827" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92827"><a href="http://wimi5.com/aprende/personaliza-plantillas/">Personaliza plantillas</a></li>
+<li id="menu-item-92828" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-92828"><a href="http://wimi5.com/mi-primer-juego-con-wimi5-3/">Mi primer juego</a></li>
+<li id="menu-item-92837" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92837"><a href="http://wimi5.com/aprende/video-tutoriales/">Video tutoriales</a></li>
+<li id="menu-item-92838" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92838"><a href="http://wimi5.com/aprende/tutoriales/">Tutoriales</a></li>
+<li id="menu-item-92839" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-92839"><a href="http://wimi5.com/aprende/como-hacer/">Cómo hacer</a></li>
+<li id="menu-item-92840" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-92840"><a href="http://developer.wimi5.com/doc/latest/">Documentación técnica</a></li>
+</ul>								
+			</div>
+		</div>
+		<div id="content" class="single_tutorial">
+			<div class="center">
+				<div class="columnwrapp pagesidebar innerpage right_sidebar">
+					 					 <div class="pagecontent">
+					     <ul class="singlecontent">
+						 						 						    <li id="post-28736" class="post-28736 post type-post status-publish format-standard hentry category-mi-primer-juego">
+								<h2>Game over</h2>
+                                								<p class="pagination">
+																	          <span class="prev"><a href="http://wimi5.com/marcador/" rel="prev">Anterior</a></span>
+										<span class="next"><a href="http://wimi5.com/y-ahora-que/" rel="next">Siguiente</a></span>
+																	</p>
+								<div class="the_content"><!-- AddThis Sharing Buttons above -->
+                <div class="addthis_toolbox addthis_default_style addthis_" addthis:url='http://wimi5.com/game-over/' addthis:title='Game over' >
+                    <a class="addthis_button_preferred_1"></a>
+                    <a class="addthis_button_preferred_2"></a>
+                    <a class="addthis_button_preferred_3"></a>
+                    <a class="addthis_button_preferred_4"></a>
+                    <a class="addthis_button_compact"></a>
+                    <a class="addthis_counter addthis_bubble_style"></a>
+                </div><p>Para terminar el juego sólo nos falta gestionar el final de partida. Terminaremos la partida cuando un asteroide choque contra la nave. En ese momento mostraremos un mensaje de game over y ofreceremos la opción de volver a empezar.</p>
+<p>Para visualizar el final de partida vamos a crear una capa donde incluiremos dos textos, uno con el texto “<i class="bold">Game Over</i>” y otro con “<i class="bold">Press spacebar to start</i>”. Pulsa el botón <img class="inline-image alignnone size-full " src="http://wimi5.com/web/wp-content/uploads/2015/10/screenshot_009.png" srcset="http://wimi5.com/web/wp-content/uploads/2015/10/screenshot_009_1x.png 1x, http://wimi5.com/web/wp-content/uploads/2015/10/screenshot_009.png 2x" alt="" /> para ir al editor de escenas y crea una nueva capa llamada <i class="bold">game over</i>. En ella crea un objeto de texto y llámalo <i class="bold">game over message</i>. Modifica sus propiedades con los siguiente valores:</p>
+<ul>
+<li>fontSize = 120</li>
+<li>text = Game Over</li>
+<li>fill color:
+<ul>
+<li>r = 255</li>
+<li>g = 0</li>
+<li>b = 0</li>
+</ul>
+</li>
+<li>anchor = CENTER</li>
+<li>x = 515</li>
+<li>y = 331</li>
+<li>scaleX = 0,1</li>
+<li>scaleY = 0,1</li>
+</ul>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_206.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_206.jpg" alt="" /></p>
+</figure>
+<p>Como habrás apreciado, hemos puesto una escala del 0,1 tanto en el eje X como en el Y. La escala acepta valores entre 0 y 1, donde 0 significa sin tamaño y 1 significa el 100% del tamaño original. El 0,1 representa el 10%, por tanto hemos escalado el texto al 10% de su tamaño original. La razón es que vamos a realizar una animación para que el texto escale desde el 10% hasta el 100% de su tamaño. Así parecerá que el texto viene desde el fondo.</p>
+<p>Vamos a crear un segundo texto que pondremos debajo del <i class="bold">game over message</i> indicando que se debe pulsar la tecla espacio para comenzar una nueva partida. Por lo tanto, crea un nuevo objeto de texto y llámalo <i class="bold">restart</i>. Como vamos a realizar la misma animación a los dos textos, es conveniente que <i class="bold">restart</i> sea hijo de <i class="bold">game over message</i>, porque animando al objeto padre, se animarán ambos. Entonces, en el panel <i class="bold">Asset Manager</i> arrastra <i class="bold">restart</i> sobre <i class="bold">game over message</i>. Verás que hereda las propiedades de escalado del padre, quedándose a una escala del 10%. Más tarde, cuando cambiemos la escala de <i class="bold">game over message</i>, también cambiará la de sus hijos, es decir, la de <i class="bold">restart</i>. Modifica las siguientes propiedades de restart:</p>
+<ul>
+<li>fontSize = 40</li>
+<li>text = Press space to start</li>
+<li>anchor = CENTER</li>
+<li>x = 0</li>
+<li>y = 74</li>
+<li>visible = false</li>
+</ul>
+<p>La última propiedad pone el objeto <i class="bold">restart</i> como invisible. Esto lo hacemos para que cuando realicemos la animación del texto viniendo desde el fondo de la pantalla, no se muestre el segundo texto hasta que lo indiquemos expresamente a través de la lógica que programaremos a continuación.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_207.jpg" alt="game over" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_207.jpg" alt="game over" /></p>
+</figure>
+<p>Para terminar con el diseño de los elementos visuales, haz click en la capa <i class="bold">game over</i> en el panel de <i class="bold">Asset Manager</i>, y pon su propiedad <i class="bold">visible</i> a <i class="bold">false</i>. Así los elementos de la capa no se verán hasta que nosotros la pongamos visible cuando detectemos que la nave colisiona con un asteroide.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_208.jpg" alt="game over" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_208.jpg" alt="game over" /></p>
+</figure>
+<p>Volvamos a la lógica pulsando <img class="inline-image alignnone size-full " src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_028.png" srcset="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_028_1x.png 1x, http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_028.png 2x" alt="" />. Lo primero que tenemos que hacer es detectar en qué momento la nave colisiona con un asteroide. Como esto ya lo tenemos resuelto en el script <i class="bold">Spaceship</i> ➝ <i class="bold">Collisions</i> ➝ <i class="bold">Spaceship-Asteroids</i>, vamos a simplemente notificarlo al exterior mediante un conector de salida. Arrastra entonces un conector de salida y llámalo <i class="bold">collision</i>. El punto en el que tenemos la certeza de que la colisión ha tenido lugar es el trigger <i class="bold">true</i> de <i class="bold">BoundingCollision</i>, por lo que conecta el conector que acabas de crear a este trigger.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_209.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_209.jpg" alt="" /></p>
+</figure>
+<p>Sube un nivel y crea otro conector de salida con el nombre <i class="bold">spaceshipDestroyed</i>. Conéctalo al trigger <i class="bold">collision</i> que acabamos de crear en el paso anterior.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_210.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_210.jpg" alt="" /></p>
+</figure>
+<p>Sube otro nivel más. En este nivel estamos en el script <i class="bold">Spaceship</i>. Para ordenar mejor la lógica de nuestro juego, vamos a notificar hacia el exterior la colisión de la nave para que sea otro script el que gestione qué hacer. Por lo que una vez más, crea otro conector de salida con el mismo nombre <i class="bold">spaceshipDestroyed</i> y conéctalo con el trigger del script <i class="bold">Collisions</i> del mismo nombre.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_211.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_211.jpg" alt="" /></p>
+</figure>
+<p>Sube un nivel más, para llegar al nivel raíz. Aquí ya tenemos un script <i class="bold">Spaceship</i> con un nuevo trigger <i class="bold">spaceshipDestroyed</i> que nos indica cuando la nave es destruida. Para mantener limpia la lógica crea un nuevo script al que vamos a llamar <i class="bold">Game over</i>. Conecta el trigger <i class="bold">spaceshipDestroyed</i> con el activador <i class="bold">in1</i> de <i class="bold">Game Over</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_212.jpg" alt="game over" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_212.jpg" alt="game over" /></p>
+</figure>
+<p>Entra en <i class="bold">Game over</i>. Primero renombra el conector de entrada <i class="bold">in1</i> por <i class="bold">show</i>. Como hemos mencionado antes, cuando la nave se destruya, vamos a mostrar un cartel de “Game over” con una animación que escale desde el 10% de su tamaño (lo hemos dejado a ese tamaño en el editor de escenas), hasta el 100%, en un segundo de tiempo. Y cuando esté al 100% haremos visible el segundo mensaje para volver a empezar una nueva partida.</p>
+<p>Empecemos haciendo visible la capa <i class="bold">game over</i> que es la que contiene los dos textos que vamos a mostrar. Arrastra la capa desde el panel de <i class="bold">AssetManager</i> para crear un <i class="bold">ActionOnParam</i> y elige la acción <i class="bold">setVisibility</i>. Haz doble click sobre el parámetro <i class="bold">visibility</i> para crear una variable y dale el valor <i class="bold">true</i> en sus propiedades. Conecta la caja al conector de entrada.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_213.jpg" alt="game over" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_213.jpg" alt="game over" /></p>
+</figure>
+<p>Ahora vamos a realizar la animación. Consiste en pasar el objeto texto <i class="bold">game over message</i> desde su escala del 10% hasta una escala del 100% en un un segundo de tiempo. Para ello usaremos la caja <i class="bold">MoveFromTo</i> que ya hemos utilizado anteriormente, pero en este caso vamos a configurarla para que modifique la escala en lugar de la posición. Arrastra un <i class="bold">MoveFromTo</i> desde la categoría <i class="bold">Animation</i> en la pestaña <i class="bold">Blackboxes</i>. Haz click sobre ella para mostrar sus propiedades, y modifica <i class="bold">translate</i> a <i class="bold">false</i> y <i class="bold">scale</i> a <i class="bold">true</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_214.jpg" alt="game over" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_214.jpg" alt="game over" /></p>
+</figure>
+<p>Ahora vamos a completar los parámetros:</p>
+<ul>
+<li><i class="bold">target</i>: arrastra el objeto <i class="bold">game over message</i> desde el panel de <i class="bold">Asset Manager</i> a este parámetro.</li>
+<li><i class="bold">seconds</i>: crea una variable y asígnale el valor 1.</li>
+<li><i class="bold">fromScale</i>: crea una variable y asigna a las propiedades <i class="bold">x</i> e <i class="bold">y</i> el valor <i class="bold">0,1</i>, es decir, x=0,1 e y=0,1.</li>
+<li><i class="bold">toScale</i>: crea una variable y asigna a las propiedades <i class="bold">x</i> e <i class="bold">y</i> el valor <i class="bold">1</i>, es decir, x=1 e y=1.</li>
+</ul>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_215.jpg" alt="game over" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_215.jpg" alt="game over" /></p>
+</figure>
+<p>Ahora tenemos que hacer visible el objeto <i class="bold">restart</i> cuando la animación termine (tardará un segundo). Arrastra el objeto <i class="bold">restart</i> desde el panel <i class="bold">Asset Manager</i> y selecciona su acción <i class="bold">setVisibility</i>. Crea una variable en el parámetro <i class="bold">visibility</i> y cambia su propiedad <i class="bold">content</i> a <i class="bold">true</i>. El trigger <i class="bold">arrived</i> de <i class="bold">MoveFromTo</i> nos informa de la finalización de la animación, por lo que lo puedes conectar al activador <i class="bold">do</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_216.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_216.jpg" alt="" /></p>
+</figure>
+<p>Ahora tenemos que escuchar a la tecla espacio para que cuando sea pulsada, reiniciar la partida. Usaremos la caja <i class="bold">KeyboardListener</i> que está en la categoría <i class="bold">Device</i> en la pestaña de <i class="bold">Blackboxes</i>. Si haces click sobre ella verás que tiene muchas propiedades, una por cada tecla del teclado. Pon la propiedad <i class="bold">Space</i> a <i class="bold">true</i>. Conecta el trigger <i class="bold">done</i> de la caja anterior al <i class="bold">on</i> de <i class="bold">KeyboardListener. </i></p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_217.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_217.jpg" alt="" /></p>
+</figure>
+<p>Cuando pulsen la tecla espacio se disparará el trigger <i class="bold">Space</i>. Lo primero que deberíamos hacer es desactivar <i class="bold">KeyboardListener</i> para que no siga escuchando a la tecla, porque recordad que estamos escuchando esta misma tecla para disparar con la nave. Si la dejáramos activa, cada vez que se pulsara el espacio tras el primer game over, la nave realizaría un disparo y volvería a comenzar el juego. Por lo tanto tenemos que conectar el trigger <i class="bold">Space</i> con el activador <i class="bold">off</i> en la misma caja <i class="bold">KeyboardListener.</i></p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_218.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_218.jpg" alt="" /></p>
+</figure>
+<p>Y por último vamos a notificar al exterior que han pulsado el espacio, para lo que usaremos un conector de salida. Arrastra uno y llámale <i class="bold">restart</i>. Finalmente conéctalo al trigger <i class="bold">Space</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_219.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_219.jpg" alt="" /></p>
+</figure>
+<div class="nota">
+<hr class="hairline" />
+<p><img class="left" src="http://wimi5.com/web/wp-content/uploads/2015/10/nota.png" alt="" /></p>
+<p><b>NOTA</b>: Puedes conectar múltiples entradas y salidas tanto a activadores como a triggers. Además puedes seleccionar el orden en el que se llamarán haciendo click en ellas y modificando su propiedad <i class="bold">call order</i>.</p>
+<hr class="hairline" />
+</div>
+<p>Sube un nivel. En el nivel raíz verás que <i class="bold">Game Over</i> tiene un trigger <i class="bold">reset</i> que todavía no hemos conectado a nada.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_220.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_220.jpg" alt="" /></p>
+</figure>
+<p>Si haces un preview en este momento, puedes comprobar que cuando chocas la nave contra un asteroide, sale el cartel de Game Over con una animación y a continuación se muestra el segundo cartel de pulsar el espacio para volver a comenzar.</p>
+<p>No obstante, si pulsas el espacio, la nave, aunque esté oculta, sigue disparando. Y si un asteroide choca contra ella, a pesar de ser invisible, se vuelve a realizar la animación de <i class="bold">Game Over</i>. ¿Qué está pasando? Pues como habrás intuido, como el script <i class="bold">Spaceship</i> sigue activo, sus scripts de colisiones, control de teclado y creación de disparos siguen funcionando, por lo que hay que detenerlo. Recordad que ya hemos previsto esta situación incluyendo un conector <i class="bold">off</i> que desconecta todos los scripts incluidos en <i class="bold">Spaceship</i>, por lo que vamos a utilizarlo. Conecta el trigger <i class="bold">spaceshipDestroyed</i> al activador <i class="bold">off</i> del mismo script.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_221.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_221.jpg" alt="" /></p>
+</figure>
+<p>Haz un preview y comprueba que tras chocar contra un asteroide y salir el Game Over, si pulsas el espacio, la nave no dispara, ni tampoco colisiona con los asteroides.</p>
+<p>Llegados a este punto, tan sólo nos falta iniciar una nueva partida cuando se lance el trigger <i class="bold">restart</i> del script <i class="bold">Game Over</i>. Quizá te veas tentado de conectar <i class="bold">restart</i> al activador <i class="bold">on</i> de Spaceship, no obstante tendríamos que realizar algunas modificaciones para que funcionara correctamente. Mejor que eso, vamos a crear un nuevo script en donde incluiremos todas las inicializaciones previas a comenzar una nueva partida. Esto es muy común en la creación de juegos y en la programación en general, y nos ayudará a mantener el código ordenado.</p>
+<p>Crea un script y llámalo <i class="bold">init</i>. Entra en él y cambia el nombre del conector <i class="bold">in1</i> a <i class="bold">do</i>. Cuando comencemos una partida queremos que la escena y sus elementos se inicien con los valores que les hemos dado cuando los hemos diseñado. Para hacer esto arrastra la escena <i class="bold">game</i> desde el panel de <i class="bold">Asset Manager</i> (la escena game está bajo el elemento <i class="bold">scenes</i>, no en <i class="bold">layers</i> que es la primera que se ve). Como siempre se crea un <i class="bold">ActionOnParam</i> donde debes seleccionar la acción <i class="bold">reset</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_222.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_222.jpg" alt="" /></p>
+</figure>
+<p>A continuación vamos a vaciar las dos colecciones <i class="bold">shots</i> y <i class="bold">asteroids</i>, porque después de la primera partida contendrán elementos obsoletos que no nos interesan. Vamos a crear primero un script para inicializar la colección <i class="bold">shots</i>. Crea un script y llámalo <i class="bold">Reset shots</i>. Entra en él y renombra el conector <i class="bold">in1</i> a <i class="bold">reset</i>. Añade un conector de salida y llámalo <i class="bold">done</i>. Vuelve a este nivel y conecta el trigger <i class="bold">done</i> de <i class="bold">ActionOnParam</i> con el activador <i class="bold">reset</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_223.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_223.jpg" alt="" /></p>
+</figure>
+<p>Vuelve a entrar en <i class="bold">Reset shots</i>. Para recorrer la colección volveremos a usar la caja <i class="bold">ForEach</i>, que está bajo la categoría <i class="bold">Collections</i> en la pestaña Blackboxes. Se trata de eliminar todos los elementos contenidos en la colección y finalmente vaciar al colección, para garantizar que cada partida comienza con una colección de disparos vacía.</p>
+<p>Arrastra una caja <i class="bold">ForEach</i> al panel y conecta el conector <i class="bold">reset</i> con el activador <i class="bold">start</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_224.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_224.jpg" alt="" /></p>
+</figure>
+<p>Ups! Necesitamos la colección <i class="bold">shots</i> pero no la tenemos en este script, por lo que tendremos que compartirla para poder tener acceso a ella. Vete al script <i class="bold">Spaceship</i> donde tenemos acceso a ambas colecciones, y arrastra la colección <i class="bold">shots</i> a la barra de compartir.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_225.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_225.jpg" alt="" /></p>
+</figure>
+<p>Ahora sube un nivel y comparte ambas colecciones con el script <i class="bold">Init</i>. Recuerda que se comparte arrastrando las variables al script donde las quieres usar. Por tanto, arrastra <i class="bold">shots</i> y <i class="bold">asteroids</i> desde el script <i class="bold">Spaceship</i> hasta <i class="bold">Init</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_226.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_226.jpg" alt="" /></p>
+</figure>
+<p>Ahora que ya tenemos las dos colecciones que necesitamos en el script <i class="bold">Init</i>, entra para seguir con la lógica.</p>
+<p>Deberías ver las dos colecciones en la barra de compartir. Arrastra la colección <i class="bold">shots</i> al script <i class="bold">Reset shots</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_227.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_227.jpg" alt="" /></p>
+</figure>
+<p>Entra en <i class="bold">Reset shots</i> y arrastra la colección shots desde la barra de compartir al parámetro de entrada <i class="bold">target</i> de la caja <i class="bold">ForEach</i>. Recuerda que esta caja recorre todos los elementos de la colección depositando en cada paso un elemento en el parámetro de salida <i class="bold">item</i> y lanzando el trigger <i class="bold">step</i>. Haz doble click en el parámetro <i class="bold">item</i> para crear una variable y recoger cada disparo. Luego arrástralo al panel para crear un <i class="bold">ActionOnParam</i> y selecciona la acción <i class="bold">delete</i>. Conecta el trigger <i class="bold">step</i> con el activador <i class="bold">do</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_228.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_228.jpg" alt="" /></p>
+</figure>
+<p>Una vez que hemos eliminado los disparos, tenemos que vaciar la colección porque contiene elementos que han sido destruidos. Arrastra la variable <i class="bold">shots</i> de la barra de compartir (o del parámetro target) y suéltala en el panel para crear un <i class="bold">ActionOnCollection</i>. Selecciona la acción <i class="bold">empty</i>. Finalmente conecta el trigger <i class="bold">finished</i> de <i class="bold">ForEach</i> con el activador <i class="bold">do</i> de <i class="bold">ActionOnCollection</i>, y el trigger <i class="bold">done</i> de este último al conector de salida <i class="bold">done</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_229.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_229.jpg" alt="" /></p>
+</figure>
+<p>Sube un nivel. Ahora tenemos que hacer exactamente lo mismo con la colección <i class="bold">asteroids</i>. Podemos repetir los mismos pasos, poniendo utilizando en esta ocasión la colección <i class="bold">asteroids</i>. No obstante, vamos a hacer una copia del script <i class="bold">Reset shots</i>. Haz click con el botón derecho sobre <i class="bold">Reset shots</i> y selecciona la opción <i class="bold">copy</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_230.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_230.jpg" alt="" /></p>
+</figure>
+<p>Luego haz click de nuevo con el botón derecho sobre el fondo y selecciona <i class="bold">paste</i>. Verás que aparece un nuevo script con el mismo nombre y mismos parámetros. Modifica el nombre del nuevo script por <i class="bold">Reset asteroids</i> y conéctalo al trigger <i class="bold">done</i> de <i class="bold">Reset shots</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_231.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_231.jpg" alt="" /></p>
+</figure>
+<p>En <i class="bold">Reset asteroids</i> necesitamos la colección <i class="bold">asteroids</i>, pero como hemos copiado el de los disparos, tenemos <i class="bold">shots</i>. Haz click con el botón derecho sobre la variable <i class="bold">shots</i> de <i class="bold">Reset asteroids</i> y selecciona la opción <i class="bold">Remove</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_232.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_232.jpg" alt="" /></p>
+</figure>
+<p>Ahora arrastra la colección <i class="bold">asteroids</i> que está en la barra de compartir y suéltalo sobre el script <i class="bold">Reset asteroids</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_233.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_233.jpg" alt="" /></p>
+</figure>
+<p>Comprueba que ahora el script tiene la colección <i class="bold">asteroids</i>. Entra en el script <i class="bold">Reset asteroids</i>. En este script lo que queremos hacer es vaciar la colección <i class="bold">asteroids</i>. Para ello vamos a sustituir las colecciones <i class="bold">shots</i> en los parámetros <i class="bold">target</i> de las cajas <i class="bold">ForEach</i> y <i class="bold">ActionOnCollection</i>, por <i class="bold">asteroids</i>. Arrastra <i class="bold">asteroids</i> desde la barra de compartir sobre el parámetro <i class="bold">target</i> de <i class="bold">ForEach</i>. Verás que <i class="bold">asteroids</i> sustituye a <i class="bold">shots</i>. Es decir, si soltamos una variable sobre un parámetro que ya contiene una variable, ésta última será sustituida por la que estamos soltando. Vuelve a arrastrar la variable <i class="bold">asteroids</i> sobre el parámetro <i class="bold">target</i> de <i class="bold">ActionOnCollection</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_234.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_234.jpg" alt="" /></p>
+</figure>
+<p>Sube un nivel. Vamos a terminar el script de init añadiendo un conector de salida. Arrastra un conector de salida desde la pestaña <i class="bold">Connectors</i> y llámale <i class="bold">done</i>. Conecta el trigger <i class="bold">done</i> de <i class="bold">Reset asteroids</i> al conector de salida.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_235.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_235.jpg" alt="" /></p>
+</figure>
+<p>Y por fin estamos en el último paso para terminar nuestro juego. Sube un nivel y vamos a realizar los últimos cambios antes de compartir con el mundo nuestro juego.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_236.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_236.jpg" alt="" /></p>
+</figure>
+<p>Al comienzo de este tutorial hemos unido el evento inicial <i class="bold">gameStarted</i> con los scripts <i class="bold">Background</i>, <i class="bold">Spaceship</i> y <i class="bold">Asteroids</i>. Ahora lo que queremos hacer es que lo primero que se ejecute sea el script <i class="bold">Init</i>, y cuando éste termine, llame a los demás. Elimina las conexiones que salen de <i class="bold">gameStarted</i>. Para eliminar una conexión, haz click con el botón derecho sobre una conexión y selecciona <i class="bold">Delete</i>. Conecta <i class="bold">gameStarted</i> al activador <i class="bold">do</i> de <i class="bold">Init</i>. Y a continuación conecta el trigger <i class="bold">done</i> de <i class="bold">Init</i> con los activadores <i class="bold">on</i> de <i class="bold">Background</i>, <i class="bold">Spaceship</i> y <i class="bold">Asteroids</i>.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_237.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_237.jpg" alt="" /></p>
+</figure>
+<p>Ahora lo único que nos falta para terminar es reiniciar todo cuando el usuario pulse la barra de espacio, es decir, cuando se lance el trigger <i class="bold">restart</i> del script <i class="bold">Game Over</i>. Conecta el trigger <i class="bold">restart</i> con el activador <i class="bold">do</i> de Init.</p>
+<figure>
+<div class="has-zoom"></div>
+<div class="zoom"><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_238.jpg" alt="" /></div>
+<p><img class="alignnone size-full" src="http://wimi5.com/web/wp-content/uploads/2015/11/screenshot_238.jpg" alt="" /></p>
+</figure>
+<p>También puedes consultar el videotutorial que explica esta fase de la creación del juego.</p>
+<p><iframe width="853" height="480" src="https://www.youtube.com/embed/jMeDZ2U7oA8?list=PLVsx0wJa3n3pL-zaGVdeUAXHtsyPHzHbD" frameborder="0" allowfullscreen></iframe></p>
+<!-- AddThis Sharing Buttons below -->
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url='http://wimi5.com/game-over/' addthis:title='Game over' >
+                    <a class="addthis_button_preferred_1"></a>
+                    <a class="addthis_button_preferred_2"></a>
+                    <a class="addthis_button_preferred_3"></a>
+                    <a class="addthis_button_preferred_4"></a>
+                    <a class="addthis_button_compact"></a>
+                    <a class="addthis_counter addthis_bubble_style"></a>
+                </div></div>
+								<p class="pagination">
+																	          <span class="prev"><a href="http://wimi5.com/marcador/" rel="prev">Anterior</a></span>
+										<span class="next"><a href="http://wimi5.com/y-ahora-que/" rel="next">Siguiente</a></span>
+																	</p>
+								<div class="postfooter">
+									<span class="date_time">10/11/2015</span> /
+									<span class="commentcount"><a href="http://wimi5.com/game-over/#respond" class="comment-link" ><span class="icon comments"></span> No Comments</a></span>
+								</div>
+
+								
+
+								
+								<!-- <p class="meta_tags"> <a href="http://wimi5.com/category/ayuda/mi-primer-juego/" rel="category tag">Mi primer juego</a></p> -->
+								<p class="meta_tags"> </p>
+																<p></p>
+								
+								<div id="comments">
+									<div class="comments">
+			<p></p>
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Deja un comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/game-over/#respond" style="display:none;">Cancelar respuesta</a></small></h3>				<form action="http://wimi5.com/web/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<p class="comment-notes"><span id="email-notes">Tu dirección de correo electrónico no será publicada.</span> Los campos necesarios están marcados <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comentario</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p class="comment-form-author"><label for="author">Nombre <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" aria-required='true' required='required' /></p>
+<p class="comment-form-email"><label for="email">Correo electrónico <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" aria-describedby="email-notes" aria-required='true' required='required' /></p>
+<p class="comment-form-url"><label for="url">Web</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Publicar comentario" /> <input type='hidden' name='comment_post_ID' value='28736' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="6e85cee4e5" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="221"/></p>				</form>
+					</div><!-- #respond -->
+		</div>
+								</div>	
+								
+
+							
+
+
+                            </li>								
+						 						 </ul>
+						 					 </div>	
+					 <div class="sidebar">
+    <div id="search-28" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://wimi5.com/es/">
+				<div>
+					<label class="screen-reader-text" for="s">Buscar:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Buscar" />
+				</div>
+			</form></div><div id="listcategorypostswidget-45" class="widget widget_listcategorypostswidget"><h2>Mi primer juego</h2><ul><li><a href="http://wimi5.com/mi-primer-juego-con-wimi5-3/" title="Mi primer juego con WiMi5">Mi primer juego con WiMi5</a>  </li><li><a href="http://wimi5.com/date-de-alta/" title="Date de alta">Date de alta</a>  </li><li><a href="http://wimi5.com/antes-de-empezar/" title="Antes de empezar">Antes de empezar</a>  </li><li><a href="http://wimi5.com/empezando/" title="Empezando">Empezando</a>  </li><li><a href="http://wimi5.com/disenar-el-juego/" title="Diseñar el juego">Diseñar el juego</a>  </li><li><a href="http://wimi5.com/el-fondo/" title="El fondo">El fondo</a>  </li><li><a href="http://wimi5.com/la-nave/" title="La nave">La nave</a>  </li><li><a href="http://wimi5.com/los-disparos-de-la-nave/" title="Los disparos de la nave">Los disparos de la nave</a>  </li><li><a href="http://wimi5.com/los-asteroides/" title="Los asteroides">Los asteroides</a>  </li><li><a href="http://wimi5.com/las-colisiones/" title="Las colisiones">Las colisiones</a>  </li><li><a href="http://wimi5.com/colisiones-de-los-disparos-con-asteroides/" title="Colisiones de los disparos con asteroides">Colisiones de los disparos con asteroides</a>  </li><li><a href="http://wimi5.com/colisiones-de-los-asteroides-con-la-nave/" title="Colisiones de los asteroides con la nave">Colisiones de los asteroides con la nave</a>  </li><li><a href="http://wimi5.com/colisiones-de-la-nave-con-los-limites-de-la-escena/" title="Colisiones de la nave con los límites de la escena">Colisiones de la nave con los límites de la escena</a>  </li><li><a href="http://wimi5.com/marcador/" title="Marcador">Marcador</a>  </li><li class="current" ><a href="http://wimi5.com/game-over/" title="Game over">Game over</a>  </li><li><a href="http://wimi5.com/y-ahora-que/" title="¿Y ahora qué?">¿Y ahora qué?</a>  </li></ul><a href="http://wimi5.com/category/ayuda/mi-primer-juego/" > </a></div></div> 
+
+
+				</div>
+				<div class="clear">&nbsp;</div>
+			</div>
+		</div>
+		<div id="footer">
+		    <div class="column4">
+									<h3>Suscríbete al newsletter de wimi5</h3>			<div class="textwidget"><p class="newsletter-text">Sé el primero en conocer las nuevas versiones, noticias y ofertas de trabajo</p>
+
+<form class="newsletter-inputs" id="mc-embedded-subscribe-form" action="http://wimi5.us7.list-manage1.com/subscribe/post?u=d88c7463984cd3199bd6893a1&amp;id=5bec753269" method="post" name="mc-embedded-subscribe-form" novalidate="" target="_blank">
+<input class="newsletter-email-box" id="mce-EMAIL" type="email" name="EMAIL" placeholder="Tu email" required="" value="" />
+<input class="button type1" id="mc-embedded-subscribe" type="submit" name="subscribe" value="Suscríbete" /></form></div>
+									</div>
+			<div class="column4">
+												<div class="textwidget"></div>
+									</div>
+			<div class="column4">
+												<div class="textwidget"><div class="social">
+    <a href="https://twitter.com/WiMi_5" target="blank">
+        <i class="icon-social-twitter"></i></a>
+    <a href="https://www.facebook.com/WiMi5platform" target="blank">
+        <i class="icon-social-facebook"></i></a>
+    <a href="https://www.youtube.com/channel/UCYru-7NhlRM1SfvnyZIuA2g" target="blank">
+        <i class="icon-youtube-play"></i></a>
+</div>
+<div class="copyright">
+    © 2016 WiMi5 Inc. Todos los derechos reservados.<a href="/empresa">CONÓCENOS</a>&nbsp;<a href="/contacto">CONTACTO</a> 
+    <br>
+    <a href="politica-de-privacidad/">Política de privacidad y cookies</a>
+    <a href="condiciones-para-desarrolladores/">Condiciones para desarrolladores</a>
+</div>
+<div class="logos">
+    <a href="http://www.enisa.es" target="_blank"><img class="logo_enisa" src="http://wimi5.com/web/assets/logo_enisa.svg" alt="Enisa"></a>
+</div></div>
+									</div>
+			<div class="column4">
+									<form role="search" method="get" id="searchform" class="searchform" action="http://wimi5.com/es/">
+				<div>
+					<label class="screen-reader-text" for="s">Buscar:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Buscar" />
+				</div>
+			</form>			<div class="textwidget"><div><p>Subscríbete al Newsletter de WiMi5 y 
+sé el primero en conocer las nuevas versiones, noticias y ofertas de trabajo</p>
+
+<form class="newsletter-inputs" id="mc-embedded-subscribe-form" action="http://wimi5.us7.list-manage1.com/subscribe/post?u=d88c7463984cd3199bd6893a1&amp;id=5bec753269" method="post" name="mc-embedded-subscribe-form" novalidate="" target="_blank">
+<input id="mce-EMAIL" type="email" name="EMAIL" placeholder="Enter your email address" required="" value="">
+<input class="button type1" id="mc-embedded-subscribe" type="submit" name="subscribe" value="Subscríbete"></form></div></div>
+		<h3>Mi primer juego</h3><ul><li><a href="http://wimi5.com/mi-primer-juego-con-wimi5-3/" title="Mi primer juego con WiMi5">Mi primer juego con WiMi5</a>  </li><li><a href="http://wimi5.com/date-de-alta/" title="Date de alta">Date de alta</a>  </li><li><a href="http://wimi5.com/antes-de-empezar/" title="Antes de empezar">Antes de empezar</a>  </li><li><a href="http://wimi5.com/empezando/" title="Empezando">Empezando</a>  </li><li><a href="http://wimi5.com/disenar-el-juego/" title="Diseñar el juego">Diseñar el juego</a>  </li><li><a href="http://wimi5.com/el-fondo/" title="El fondo">El fondo</a>  </li><li><a href="http://wimi5.com/la-nave/" title="La nave">La nave</a>  </li><li><a href="http://wimi5.com/los-disparos-de-la-nave/" title="Los disparos de la nave">Los disparos de la nave</a>  </li><li><a href="http://wimi5.com/los-asteroides/" title="Los asteroides">Los asteroides</a>  </li><li><a href="http://wimi5.com/las-colisiones/" title="Las colisiones">Las colisiones</a>  </li><li><a href="http://wimi5.com/colisiones-de-los-disparos-con-asteroides/" title="Colisiones de los disparos con asteroides">Colisiones de los disparos con asteroides</a>  </li><li><a href="http://wimi5.com/colisiones-de-los-asteroides-con-la-nave/" title="Colisiones de los asteroides con la nave">Colisiones de los asteroides con la nave</a>  </li><li><a href="http://wimi5.com/colisiones-de-la-nave-con-los-limites-de-la-escena/" title="Colisiones de la nave con los límites de la escena">Colisiones de la nave con los límites de la escena</a>  </li><li><a href="http://wimi5.com/marcador/" title="Marcador">Marcador</a>  </li><li class="current" ><a href="http://wimi5.com/game-over/" title="Game over">Game over</a>  </li><li><a href="http://wimi5.com/y-ahora-que/" title="¿Y ahora qué?">¿Y ahora qué?</a>  </li></ul><a href="http://wimi5.com/category/ayuda/mi-primer-juego/" > </a><h3>Video tutoriales</h3><ul><li><a href="http://wimi5.com/empezando-con-wimi-tutorial-1-el-entorno/" title="Empezando con WiMi5, tutorial 1: el entorno">Empezando con WiMi5, tutorial 1: el entorno</a>  </li><li><a href="http://wimi5.com/empezando-con-wimi5-tutorial-2-diseno-de-escenas/" title="Empezando con WiMi5, tutorial 2: diseño de escenas">Empezando con WiMi5, tutorial 2: diseño de escenas</a>  </li><li><a href="http://wimi5.com/empezando-con-wimi5-tutorial-3-blackboxes/" title="Empezando con WiMi5, tutorial 3: Blackboxes">Empezando con WiMi5, tutorial 3: Blackboxes</a>  </li><li><a href="http://wimi5.com/empezando-con-wimi5-tutorial-4-scripts-y-niveles/" title="Empezando con WiMi5, tutorial 4: Scripts y niveles">Empezando con WiMi5, tutorial 4: Scripts y niveles</a>  </li><li><a href="http://wimi5.com/empezando-con-wimi5-tutorial-5-parametros/" title="Empezando con WiMi5, tutorial 5: Parámetros">Empezando con WiMi5, tutorial 5: Parámetros</a>  </li><li><a href="http://wimi5.com/empezando-con-wimi5-tutorial-6-colecciones/" title="Empezando con WiMi5, tutorial 6: Colecciones">Empezando con WiMi5, tutorial 6: Colecciones</a>  </li><li><a href="http://wimi5.com/empezando-con-wimi5-tutorial-7-desplegar-y-testear/" title="Empezando con WiMi5, tutorial 7: Desplegar y testear">Empezando con WiMi5, tutorial 7: Desplegar y testear</a>  </li><li><a href="http://wimi5.com/empezando-con-wimi5-tutorial-8-bienes-virtuales/" title="Empezando con WiMi5, tutorial 8: Bienes virtuales">Empezando con WiMi5, tutorial 8: Bienes virtuales</a>  </li><li><a href="http://wimi5.com/empezando-con-wimi5-tutorial-9-publicacion/" title="Empezando con WiMi5, tutorial 9: Publicación">Empezando con WiMi5, tutorial 9: Publicación</a>  </li><li><a href="http://wimi5.com/creando-el-primer-juego-html5-con-wimi5/" title="Creando el primer juego HTML5 con WiMi5">Creando el primer juego HTML5 con WiMi5</a>  </li><li><a href="http://wimi5.com/trabajando-con-scripts-en-wimi5-nivel-principiante/" title="Trabajando con Scripts en WiMi5 &#8211; Nivel principiante">Trabajando con Scripts en WiMi5 &#8211; Nivel principiante</a>  </li><li><a href="http://wimi5.com/creando-y-moviendo-un-sprite-con-wimi5/" title="Creando y moviendo un sprite con WiMi5">Creando y moviendo un sprite con WiMi5</a>  </li><li><a href="http://wimi5.com/trabajando-con-scripts-en-wimi5-nivel-medio/" title="Trabajando con Scripts en WiMi5 &#8211; Nivel medio">Trabajando con Scripts en WiMi5 &#8211; Nivel medio</a>  </li><li><a href="http://wimi5.com/publicar-juegos-html5-con-wimi5/" title="Publicar juegos HTML5 con WiMi5">Publicar juegos HTML5 con WiMi5</a>  </li></ul><a href="http://wimi5.com/category/ayuda/video-tutoriales/" > </a><h3>Cómo hacer</h3><ul><li><a href="http://wimi5.com/como-clonar-un-proyecto/" title="Cómo clonar un proyecto">Cómo clonar un proyecto</a>  </li><li><a href="http://wimi5.com/nuevas-formas-de-interactuar-en-wimi5/" title="Nuevas formas de interactuar en wimi5">Nuevas formas de interactuar en wimi5</a>  </li><li><a href="http://wimi5.com/como-crear-textos-a-partir-de-sprites-utilizando-un-spritetext-blackbox/" title="Cómo crear textos a partir de Sprites utilizando un SpriteText Blackbox">Cómo crear textos a partir de Sprites utilizando un SpriteText Blackbox</a>  </li><li><a href="http://wimi5.com/como-modificar-una-plantilla-de-juego-en-wimi5/" title="Cómo modificar una plantilla de juego en WiMi5">Cómo modificar una plantilla de juego en WiMi5</a>  </li><li><a href="http://wimi5.com/como-monetizar-tus-juegos-mediante-bienes-virtuales/" title="Cómo monetizar tus juegos mediante bienes virtuales">Cómo monetizar tus juegos mediante bienes virtuales</a>  </li><li><a href="http://wimi5.com/como-usar-el-blackbox-coderunner/" title="Cómo usar el blackbox CodeRunner">Cómo usar el blackbox CodeRunner</a>  </li><li><a href="http://wimi5.com/como-usar-game-session-storage/" title="Cómo usar Game Session Storage">Cómo usar Game Session Storage</a>  </li><li><a href="http://wimi5.com/como-usar-los-rankings/" title="Cómo usar los Rankings">Cómo usar los Rankings</a>  </li><li><a href="http://wimi5.com/como-descargar-ejecutar-juego-html5-servidor-local/" title="Cómo publicar tu juego HTML5 en otros portales de juegos">Cómo publicar tu juego HTML5 en otros portales de juegos</a>  </li><li><a href="http://wimi5.com/como-publicar-chrome-web-store/" title="Cómo publicar tu juego en Google Chrome Web Store">Cómo publicar tu juego en Google Chrome Web Store</a>  </li></ul><a href="http://wimi5.com/category/ayuda/como-hacer-ayuda/" > </a><h3>Resources</h3>			<div class="textwidget"><a href="http://developer.wimi5.com/doc/latest/" alt="blackboxes doc">Blackboxes Docs</a>
+<br>
+<a href="http://www.wimi5.com/forums" alt="forums">Forums</a>
+<br>
+<a href="http://www.wimi5.com/roadmap" alt="roadmap">Roadmap</a>
+<br>
+<a href="http://wimi5.com/free-game-resources/" alt="resources">Free game resources</a></div>
+					<div class="textwidget"></div>
+									</div>
+		</div>
+		
+	
+
+<!-- Start of Async HubSpot Analytics Code for WordPress v1.1.0 -->
+<script type="text/javascript">
+var _hsq = _hsq || [];
+_hsq.push(["setContentType", "blog-post"]);
+(function(d,s,i,r) {
+  if (d.getElementById(i)){return;}
+  var n = d.createElement(s),e = document.getElementsByTagName(s)[0];
+  n.id=i;n.src = '//js.hs-analytics.net/analytics/'+(Math.ceil(new Date()/r)*r)+'/632173.js';
+  e.parentNode.insertBefore(n, e);
+})(document, "script", "hs-analytics", 300000);
+</script>
+<!-- End of Async HubSpot Analytics Code -->
+<script data-cfasync="false" type="text/javascript">
+var addthis_config = {"data_track_clickback":false,"ui_atversion":300,"ignore_server_config":true};
+var addthis_share = {"passthrough":{"twitter":{"via":"wimi_5"}}};
+</script>
+                <!-- AddThis Settings Begin -->
+                <script data-cfasync="false" type="text/javascript">
+                    var addthis_product = "wpp-5.3.3";
+                    var wp_product_version = "wpp-5.3.3";
+                    var wp_blog_version = "4.5.3";
+                    var addthis_plugin_info = {"info_status":"enabled","cms_name":"WordPress","cms_version":"4.5.3","plugin_name":"Share Buttons by AddThis","plugin_version":"5.3.3","anonymous_profile_id":"wp-870e857fa76c304e440e4a35b5dc52d6","plugin_mode":"WordPress","select_prefs":{"addthis_per_post_enabled":true,"addthis_above_enabled":true,"addthis_below_enabled":true,"addthis_sidebar_enabled":false,"addthis_mobile_toolbar_enabled":false,"addthis_above_showon_home":false,"addthis_below_showon_home":false,"addthis_above_showon_pages":false,"addthis_below_showon_pages":false,"addthis_above_showon_categories":false,"addthis_below_showon_categories":false,"addthis_above_showon_archives":false,"addthis_below_showon_archives":false,"addthis_above_showon_posts":true,"addthis_above_showon_excerpts":true,"addthis_below_showon_posts":true,"addthis_below_showon_excerpts":true,"addthis_sidebar_showon_home":true,"addthis_sidebar_showon_posts":true,"addthis_sidebar_showon_pages":true,"addthis_sidebar_showon_archives":true,"addthis_sidebar_showon_categories":true,"addthis_mobile_toolbar_showon_home":true,"addthis_mobile_toolbar_showon_posts":true,"addthis_mobile_toolbar_showon_pages":true,"addthis_mobile_toolbar_showon_archives":true,"addthis_mobile_toolbar_showon_categories":true,"sharing_enabled_on_post_via_metabox":true},"page_info":{"template":"posts","post_type":""}};
+                    if (typeof(addthis_config) == "undefined") {
+                        var addthis_config = {"data_track_clickback":false,"ui_atversion":300,"ignore_server_config":true};
+                    }
+                    if (typeof(addthis_share) == "undefined") {
+                        var addthis_share = {"passthrough":{"twitter":{"via":"wimi_5"}}};
+                    }
+                    if (typeof(addthis_layers) == "undefined") {
+                        var addthis_layers = {};
+                    }
+                </script>
+                <script
+                    data-cfasync="false"
+                    type="text/javascript"
+                    src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53021ddd25ee1d42 "
+                    
+                >
+                </script>
+                <script data-cfasync="false" type="text/javascript">
+                    (function() {
+                        var at_interval = setInterval(function () {
+                            if(window.addthis) {
+                                clearInterval(at_interval);
+                                addthis.layers(addthis_layers);
+                            }
+                        },1000)
+                    }());
+                </script>
+                <script type='text/javascript' src='http://wimi5.com/web/wp-content/plugins/akismet/_inc/form.js?ver=3.1.11'></script>
+<link rel='stylesheet' id='addthis_output-css'  href='http://wimi5.com/web/wp-content/plugins/addthis/css/output.css?ver=0e40a6b54c595b8f796a6c4e505a7b5e' type='text/css' media='all' />
+<script type='text/javascript' src='http://wimi5.com/web/wp-content/plugins/bbpress/templates/default/js/editor.js?ver=2.5.10-6063'></script>
+<script type='text/javascript' src='http://wimi5.com/web/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/wimi5.com\/web\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Por favor, prueba que no eres un robot.","sending":"Enviando..."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://wimi5.com/web/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.4.2'></script>
+<script type='text/javascript' src='http://wimi5.com/web/wp-content/themes/hannari/js/main.js?ver=1.0'></script>
+<script type='text/javascript' src='http://wimi5.com/web/wp-includes/js/comment-reply.min.js?ver=0e40a6b54c595b8f796a6c4e505a7b5e'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var MRCOOKIES = {"cookie_name":"MRCOOKIES_ACCEPT_NAVIGATION","cookie_life":"365","legal_notice":"","domain":"","i18n":{"notice":"Este sitio web utiliza cookies propias y\/o de terceros para: el an\u00e1lisis, contenido personalizado y\/o publicidad. Si continua navegando, consideramos que acepta la utilizaci\u00f3n.","link":"M\u00e1s informaci\u00f3n","close":"Cerrar"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://wimi5.com/web/wp-content/plugins/mrcookies/js/mrcookies.min.js?ver=1.1'></script>
+<script type='text/javascript' src='http://wimi5.com/web/wp-includes/js/wp-embed.min.js?ver=0e40a6b54c595b8f796a6c4e505a7b5e'></script>
+<!--wp_footer-->
+<script src="http://wimi5.com/web/wp-includes/js/callToActionForm.js?v=2"></script> 
+
+
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">
+twttr.conversion.trackPid('l5t4q', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l5t4q&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=l5t4q&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" /></noscript>
+
+
+</body>
+</html>

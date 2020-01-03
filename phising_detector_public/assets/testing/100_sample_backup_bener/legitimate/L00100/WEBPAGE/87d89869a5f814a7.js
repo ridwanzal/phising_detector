@@ -1,1 +1,0 @@
-window._topData={flag:0,id:"demo1",pic:"http://p8.qhimg.com/t018e0ea103371f48d4.png",link:"https://hao.360.cn",bgColor:"#fff"};
