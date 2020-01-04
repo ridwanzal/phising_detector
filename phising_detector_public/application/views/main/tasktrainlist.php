@@ -247,7 +247,37 @@
         $('#table1').DataTable({
           "responsive" : true,
           "buttons": [
-              'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy',
+            'csv',
+            {
+                extend: 'excel',
+                text: 'Save current page',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                messageBottom: null
+            },
+            {
+                extend: 'print',
+                messageTop: function () {
+                    printCounter++;
+ 
+                    if ( printCounter === 1 ) {
+                        return 'This is the first time you have printed this document.';
+                    }
+                    else {
+                        return 'You have printed this document '+printCounter+' times';
+                    }
+                },
+                messageBottom: null
+            }
           ],
           "pagingType": "full_numbers",
           "paging": true,
@@ -258,7 +288,37 @@
         $('#table2').DataTable({
           "responsive" : true,
           "buttons": [
-              'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy',
+            'csv',
+            {
+                extend: 'excel',
+                text: 'Save current page',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                messageBottom: null
+            },
+            {
+                extend: 'print',
+                messageTop: function () {
+                    printCounter++;
+ 
+                    if ( printCounter === 1 ) {
+                        return 'This is the first time you have printed this document.';
+                    }
+                    else {
+                        return 'You have printed this document '+printCounter+' times';
+                    }
+                },
+                messageBottom: null
+            }
           ],
           "pagingType": "full_numbers",
           "paging": true,
@@ -269,7 +329,37 @@
         $('#table3').DataTable({
           "responsive" : true,
           "buttons": [
-              'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy',
+            'csv',
+            {
+                extend: 'excel',
+                text: 'Save current page',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                messageBottom: null
+            },
+            {
+                extend: 'print',
+                messageTop: function () {
+                    printCounter++;
+ 
+                    if ( printCounter === 1 ) {
+                        return 'This is the first time you have printed this document.';
+                    }
+                    else {
+                        return 'You have printed this document '+printCounter+' times';
+                    }
+                },
+                messageBottom: null
+            }
           ],
           "pagingType": "full_numbers",
           "paging": true,
@@ -282,7 +372,37 @@
         $('#table4').DataTable({
           "responsive" : true,
           "buttons": [
-              'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy',
+            'csv',
+            {
+                extend: 'excel',
+                text: 'Save current page',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                messageBottom: null
+            },
+            {
+                extend: 'print',
+                messageTop: function () {
+                    printCounter++;
+ 
+                    if ( printCounter === 1 ) {
+                        return 'This is the first time you have printed this document.';
+                    }
+                    else {
+                        return 'You have printed this document '+printCounter+' times';
+                    }
+                },
+                messageBottom: null
+            }
           ],
           "pagingType": "full_numbers",
           "paging": true,

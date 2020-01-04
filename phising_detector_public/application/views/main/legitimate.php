@@ -52,7 +52,6 @@
                         <select class="form-control" name="dataset_amount">
                           <option value="10">10</option>
                           <option value="100">100</option>
-                          <option value="1000">1000</option>
                         </select>
                       </div>
                       <?php }

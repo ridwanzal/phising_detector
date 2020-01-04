@@ -219,13 +219,13 @@ class Phishing extends CI_Controller {
 									if($file5){
 									}
 								}
-								echo ''.$pref1.$main_path1.$concater.$i.$data2.'<br/>';
+								// echo ''.$pref1.$main_path1.$concater.$i.$data2.'<br/>';
 							} 
 						}else{
 							break;
 						}
 						// echo ''.$pref1.$main_path1.$concater.$i.$data2.'<br/>';
-						echo ''.$main_path1.$pref1.$concater.$i.'/'.$file5;
+						// echo ''.$main_path1.$pref1.$concater.$i.'/'.$file5;
 					}
 	
 					
