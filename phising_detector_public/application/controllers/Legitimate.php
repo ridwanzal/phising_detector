@@ -129,26 +129,14 @@ class Legitimate extends CI_Controller {
 				// loop for phising
 				foreach($files as $file) {
                     $i++;
-                    if($count == 1000){
-						if($i < 10){
-							$concater = '';
-						}else if($i < 100){
-							$concater = '';
-						}else if($i < 1000){
-							$concater = '';
-						}else if($i <= 1000){
-							$concater = '';
-						}
-					}else{
-						if($i < 10){
-							$concater = '000';
-						}else if($i < 100){
-							$concater = '00';
-						}else if($i < 1000){
-							$concater = '0';
-						}else if($i <= 1000){
-							$concater = '';
-						}
+					if($i < 10){
+						$concater = '000';
+					}else if($i < 100){
+						$concater = '00';
+					}else if($i < 1000){
+						$concater = '0';
+					}else if($i <= 1000){
+						$concater = '';
 					}
                     $files2 = scandir($main_path1.$pref1.$concater.$i);
                     foreach($files2 as $file2){
@@ -190,7 +178,8 @@ class Legitimate extends CI_Controller {
 							"sc_legitimate_test_id" => $sign_sc_id,
 							"sch_id" => $result_task_id[0]['sch_id'],
                             "url_link"=> "".$data,
-                            "url_protocol" => "".$this->read_url_protocol($data),
+							"url_protocol" => "".$this->read_url_protocol($data),
+							"url_favicon" => "".$this->read_html_favicon($file_path),
                             "url_standard_port" => "".$this->read_url_port($data),
                             "url_symbol" => "".$this->read_url_symbol($data),
                             "url_subdomain"=> "".$this->read_url_subdomain($data),

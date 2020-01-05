@@ -176,7 +176,6 @@
                                     <td><?php echo $ph_train->url_dot_total; ?></td>
                                     <td><?php echo $ph_train->url_sensitive_char; ?></td>
                                     <td><?php echo $ph_train->url_brandinfo; ?></td>
-                                    <td><?php echo $ph_train->url_favicon; ?></td>
                                     <td><?php echo $ph_train->html_login; ?></td>
                                     <td><?php echo $ph_train->html_empty_link; ?></td>
                                     <td><?php echo $ph_train->html_length; ?></td>
@@ -261,7 +260,30 @@
           "responsive" : true,
           "dom": 'Bfrtip',
           "buttons": [
-              'copy', 'csv', 'excel', 'pdf', 'print'
+            {
+                extend: 'excel',
+                messageTop: 'The information in this table is copyright to Sirius Cybernetics Corp.'
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                messageBottom: null
+            },
+            {
+                extend: 'print',
+                messageTop: function () {
+                    printCounter++;
+ 
+                    if ( printCounter === 1 ) {
+                        return 'This is the first time you have printed this document.';
+                    }
+                    else {
+                        return 'You have printed this document '+printCounter+' times';
+                    }
+                },
+                messageBottom: null
+            }
           ],
           "pagingType": "full_numbers",
           "paging": true,
@@ -273,7 +295,37 @@
           "responsive" : true,
           "dom": 'Bfrtip',
           "buttons": [
-              'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy',
+            'csv',
+            {
+                extend: 'excel',
+                text: 'Save current page',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                messageBottom: null
+            },
+            {
+                extend: 'print',
+                messageTop: function () {
+                    printCounter++;
+ 
+                    if ( printCounter === 1 ) {
+                        return 'This is the first time you have printed this document.';
+                    }
+                    else {
+                        return 'You have printed this document '+printCounter+' times';
+                    }
+                },
+                messageBottom: null
+            }
           ],
           "pagingType": "full_numbers",
           "paging": true,
@@ -285,7 +337,37 @@
           "responsive" : true,
           "dom": 'Bfrtip',
           "buttons": [
-              'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy',
+            'csv',
+            {
+                extend: 'excel',
+                text: 'Save current page',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                messageBottom: null
+            },
+            {
+                extend: 'print',
+                messageTop: function () {
+                    printCounter++;
+ 
+                    if ( printCounter === 1 ) {
+                        return 'This is the first time you have printed this document.';
+                    }
+                    else {
+                        return 'You have printed this document '+printCounter+' times';
+                    }
+                },
+                messageBottom: null
+            }
           ],
           "pagingType": "full_numbers",
           "paging": true,
@@ -299,13 +381,42 @@
           "responsive" : true,
           "dom": 'Bfrtip',
           "buttons": [
-              'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy',
+            'csv',
+            {
+                extend: 'excel',
+                text: 'Save current page',
+                exportOptions: {
+                    modifier: {
+                        page: 'current'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL',
+                messageBottom: null
+            },
+            {
+                extend: 'print',
+                messageTop: function () {
+                    printCounter++;
+ 
+                    if ( printCounter === 1 ) {
+                        return 'This is the first time you have printed this document.';
+                    }
+                    else {
+                        return 'You have printed this document '+printCounter+' times';
+                    }
+                },
+                messageBottom: null
+            }
           ],
           "pagingType": "full_numbers",
           "paging": true,
           "lengthMenu": [10, 25, 50, 75, 100],
         });
-
 
     }); 
 </script>
