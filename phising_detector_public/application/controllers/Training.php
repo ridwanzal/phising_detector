@@ -1060,36 +1060,6 @@ class Training extends CI_Controller {
 		}
 	}
 
-	/*
-		Check kalo web ad alert
-	 */
-
-	public function read_html_alert($file){
-		$dom = new Dom;
-		$dom->setOptions([
-			'cleanupInput' => false,
-			'htmlSpecialCharsDecode' => false,
-			'strict' => false,
-			'whitespaceTextNode' => false
-		]);
-		$dom->loadFromFile($file);
-		$a = $dom->find('script');
-		$found = false;
-		foreach($a as $links){
-			if($links){
-				$found = true;
-			}else{
-				$found = false;
-			}
-		}
-
-		if($found){
-			return 1;
-		}else{
-			return 0;
-		}	
-	}
-
 
 	/*
 		Check kalo ad iframe, ini biasany untuk inject view dari luar
@@ -1312,25 +1282,6 @@ class Training extends CI_Controller {
 		}
 	}
 	
-	public function checkRemoteFile($uri)
-	{
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL,$uri);
-		// don't download content
-		curl_setopt($ch, CURLOPT_NOBODY, 1);
-		curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		if(curl_exec($ch)!==FALSE)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	public function read_html_str_embed($uri){
 		$dom = new Dom;
 		$dom->setOptions([
 			'cleanupInput' => false,

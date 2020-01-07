@@ -717,38 +717,6 @@ class Legitimate extends CI_Controller {
 		}
 	}
 
-	/*
-		Check kalo web ad alert
-	 */
-
-	public function read_html_alert($file){
-		$dom = new Dom;
-		$dom->setOptions([
-			'cleanupInput' => false,
-			'removeScripts' => true,
-			'htmlSpecialCharsDecode' => false,
-			'strict' => false,
-			'whitespaceTextNode' => false
-		]);
-		$dom->loadFromFile($file);
-		$a = $dom->find('link');
-		$found = false;
-		foreach($a as $links){
-			$get_value = $links->getAttribute('rel');
-			if($get_value == 'shortcut icon' || $get_value == ''){
-				$found = true;
-			}else{
-				$found = false;
-			}
-		}
-
-		if($found){
-			return 1;
-		}else{
-			return 0;
-		}	
-	}
-
 
 	/*
 		Check kalo ad iframe, ini biasany untuk inject view dari luar
@@ -970,25 +938,6 @@ class Legitimate extends CI_Controller {
 		}
 	}
 	
-	
-	public function checkRemoteFile($uri)
-	{
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL,$uri);
-		// don't download content
-		curl_setopt($ch, CURLOPT_NOBODY, 1);
-		curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		if(curl_exec($ch)!==FALSE)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
 
 	public function count_feature_legitimate($sch_id, $feature){
 		$query = "SELECT
