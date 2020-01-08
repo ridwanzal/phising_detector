@@ -502,7 +502,8 @@ class Legitimate extends CI_Controller {
 		c.task_id = s.task_id AND
 		a.sch_id = s.sch_id AND
         s.sch_type = 'legitimate' AND
-		d.task_id = $get_taskid
+		d.task_id = $get_taskid AND
+		s.sch_id = $get_schedule_id
 		GROUP BY a.sc_legitimate_test_id";
 
 

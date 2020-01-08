@@ -184,26 +184,43 @@ class Training extends CI_Controller {
 		$train_html_redirect = ($ph_html_redirect[0]->count- $le_html_redirect[0]->count) / $get_task_scanned; 
 		$train_html_iframe = ($ph_html_iframe[0]->count - $le_html_iframe[0]->count)/ $get_task_scanned; 
 		$train_html_favicon = ($ph_html_favicon[0]->count- $le_html_favicon[0]->count) / $get_task_scanned; 
+
+		$validate_train_proto = $train_proto < 0 ? 0 : $train_proto;
+		$validate_train_stdport = $train_stdport < 0 ? 0 : $train_stdport;
+		$validate_train_urlsymbol = $train_urlsymbol < 0 ? 0 : $train_urlsymbol;
+		$validate_train_urlsubdomain = $train_urlsubdomain < 0 ? 0 : $train_urlsubdomain;
+		$validate_train_url_len = $train_url_len < 0 ? 0 : $train_url_len;
+		$validate_train_url_dot_total = $train_url_dot_total < 0 ? 0 : $train_url_dot_total;
+		$validate_train_url_sensitive_char = $train_url_sensitive_char < 0 ? 0 : $train_url_sensitive_char;
+		$validate_train_html_login = $train_html_login < 0 ? 0 : $train_html_login;
+		$validate_train_html_empty_link = $train_html_empty_link < 0 ? 0 : $train_html_empty_link;
+		$validate_train_html_length = $train_html_length < 0 ? 0 : $train_html_length;
+		$validate_train_html_is_consist = $train_html_is_consist < 0 ? 0 : $train_html_is_consist;
+		$validate_train_html_jslist = $train_html_jslist < 0 ? 0 : $train_html_jslist;
+		$validate_train_html_str_extlist = $train_html_str_extlist < 0 ? 0 : $train_html_str_extlist;
+		$validate_train_html_redirect = $train_html_redirect < 0 ? 0 : $train_html_redirect;
+		$validate_train_html_iframe = $train_html_iframe < 0 ? 0 : $train_html_iframe;
+		$validate_train_html_favicon = $train_html_favicon < 0 ? 0 : $train_html_favicon;
 		
 		$train_data = array(
 			"task_id" => "".$get_taskid,
-			"url_protocol" => "".$train_proto,
-			"url_favicon" => "".$train_html_favicon,
-			"url_standard_port" => "".$train_stdport,
-			"url_symbol" => "".$train_urlsymbol,
-			"url_subdomain"=> "".$train_urlsubdomain,
-			"url_length" => "".$train_url_len,
-			"url_dot_total" => "".$train_url_dot_total,
-			"url_sensitive_char" => "".$train_url_sensitive_char,
-			"html_login" => "".$train_html_login,
-			"html_empty_link" => "".$train_html_empty_link,
-			"html_length" => "".$train_html_length,
-			"html_is_consist" => "".$train_html_is_consist,
-			"html_js_list" => "".$train_html_jslist,
-			"html_link_external_list" => "".$train_html_str_extlist,
-			"html_redirect" => "".$train_html_redirect,
-			"html_iframe" => "".$train_html_iframe,
-			"html_favicon" => "".$train_html_favicon
+			"url_protocol" => "".$validate_train_proto,
+			"url_favicon" => "".$validate_train_html_favicon,
+			"url_standard_port" => "".$validate_train_stdport,
+			"url_symbol" => "".$validate_train_urlsymbol,
+			"url_subdomain"=> "".$validate_train_urlsubdomain,
+			"url_length" => "".$validate_train_url_len,
+			"url_dot_total" => "".$validate_train_url_dot_total,
+			"url_sensitive_char" => "".$validate_train_url_sensitive_char,
+			"html_login" => "".$validate_train_html_login,
+			"html_empty_link" => "".$validate_train_html_empty_link,
+			"html_length" => "".$validate_train_html_length,
+			"html_is_consist" => "".$validate_train_html_is_consist,
+			"html_js_list" => "".$validate_train_html_jslist,
+			"html_link_external_list" => "".$validate_train_html_str_extlist,
+			"html_redirect" => "".$validate_train_html_redirect,
+			"html_iframe" => "".$validate_train_html_iframe,
+			"html_favicon" => "".$validate_train_html_favicon
 		);
 
 		$this->db->insert('ph_train', $train_data);
@@ -1282,31 +1299,6 @@ class Training extends CI_Controller {
 		}
 	}
 	
-		$dom = new Dom;
-		$dom->setOptions([
-			'cleanupInput' => false,
-			'htmlSpecialCharsDecode' => false,
-			'strict' => false,
-			'whitespaceTextNode' => false
-		]);
-		$dom->loadFromFile($file);
-		$a = $dom->find('script');
-		$found = false;
-		foreach($a as $links){
-			if($links){
-				$found = true;
-			}else{
-				$found = false;
-			}
-		}
-
-		if($found){
-			return 1;
-		}else{
-			return 0;
-		}		
-	}
-
 
 	public function read_html_mouseover($uri){
 		$dom = new Dom;
